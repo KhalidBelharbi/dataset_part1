@@ -1,0 +1,15 @@
+
+personasproductos(serialversionuid:long, personaid:Long [PK], productoid:Long [PK]);
+
+producto(serialversionuid:long, idproducto:Long [PK], nombreproducto:String, precioproducto:Double);
+
+nacimiento(serialversionuid:long, idnacimiento:Long [PK], fechanacimiento:LocalDate, ciudadnacimiento:String, departamentonacimiento:String, paisnacimiento:String, //paracrearunarelaciónbidireccional:Persona #FK to(persona));
+
+persona(serialversionuid:long, idpersona:Long [PK], nombre:String, telefono:String, profesion:String, tipo:int, GeneratedName:Nacimiento #FK to(nacimiento));
+
+personas_productos(persona_id:Persona [PK] #FK to Persona,producto_id:list<producto> [PK] #FK to list<producto>);
+
+mascota(serialversionuid:long, idmascota:Long [PK], nombre:String, raza:String, colormascota:String, sexo:String, id_persona:Persona #FK to(persona));
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

@@ -1,0 +1,25 @@
+
+mundo(serialversionuid:long, id:Long [PK]);
+
+pais(serialversionuid:long, //@max(value:Long [PK], nome:String, sigla:String);
+
+estado(serialversionuid:long, //@max(value:Long [PK], nome:String, sigla:String, id:Pais #FK to(Pais));
+
+cidade(serialversionuid:long, //@max(value:Long [PK], nome:String, sigla:String, id:Estado #FK to(Estado));
+
+nota(serialversionuid:long, id:Long [PK], descricao:String);
+
+item(serialversionuid:long, id:Long [PK], descricao:String, GeneratedName:Produto #FK to(produto), GeneratedName:Nota #FK to(nota));
+
+produto(serialversionuid:long, id:Long [PK], valor:Long, descricao:String, un:UnidadeDeMedida);
+
+cliente(serialversionuid:long, id:Long [PK], nome:String, telefone:String);
+
+conta(serialversionuid:long, id:Long [PK], numeroconta:String, GeneratedName:Banco #FK to(banco), GeneratedName:Cliente #FK to(cliente));
+
+banco(serialversionuid:long, id:Long [PK], nome:String);
+
+lancamento(serialversionuid:long, id:Long [PK], descricao:String, data:String);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="demoapplicationtests" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="websecurityconfig" >
+      <xs:complexContent>
+       <xs:extension base="websecurityconfigureradapter">
+         <xs:sequence>
+          <xs:element name="" type="keycloakjwtauthenticationconverter" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="demobookrepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<demobook,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="demobook" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="author" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="book" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="title,isbn" type="xs:string" />
+        <xs:element name="//authors" type="author" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bookcontroller" >
+      <xs:sequence>
+        <xs:element name="////bookservicebookservicerepositorio" type="demobookrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="domainobjectreference" >
+      <xs:sequence>
+        <xs:element name="type" type="xs:string" />
+        <xs:element name="id" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="defaultpermissionevaluator" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="demoapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="securityconfig" >
+      <xs:complexContent>
+       <xs:extension base="globalmethodsecurityconfiguration">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="keycloakjwtauthenticationconverter" >
+      <xs:sequence>
+        <xs:element name="authoritiesmapper" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="keycloakaudiencevalidator" >
+      <xs:sequence>
+        <xs:element name="error" type="xs:anyType" />
+        <xs:element name="allowedaudience" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="keycloakjwtauthenticationtoken" >
+      <xs:complexContent>
+       <xs:extension base="jwtauthenticationtoken">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="username" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema> 

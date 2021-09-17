@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="attribute" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="GeneratedName" type="attributetype" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="specialisation" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="task" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="schedule" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="attributes" type="attribute" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userrequest" >
+      <xs:sequence>
+        <xs:element name="requestid" type="xs:long" />
+        <xs:element name="start" type="xs:dateTime" />
+        <xs:element name="end" type="xs:dateTime" />
+        <xs:element name="GeneratedName" type="treatmentstate" nillable="true" minOccurs="0" />
+        <xs:element name="doctorrecommendations" type="xs:string" />
+        <xs:element name="GeneratedName" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="symptoms" type="symptom" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="role" >
+      <xs:sequence>
+        <xs:element name="roleid" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="attributetype" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="checkmask" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="symptom" >
+      <xs:sequence>
+        <xs:element name="symptomid" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="userrequests" type="userrequest" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="middlename" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+        <xs:element name="ofbirth" type="xs:dateTime" />
+        <xs:element name="insurancenumber" type="xs:string" />
+        <xs:element name="phonenumber" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="specialisations" type="specialisation" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="/*(cascade" type="role" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="taskinstance" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="task" nillable="true" minOccurs="0" />
+        <xs:element name="request" type="userrequest" nillable="true" minOccurs="0" />
+        <xs:element name="createdtime" type="xs:dateTime" />
+        <xs:element name="finishedtime" type="xs:dateTime" />
+        <xs:element name="isactive" type="xs:anyType" />
+        <xs:element name="data" type="taskinstancedata" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="taskinstancedata" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="taskinstance" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="attribute" nillable="true" minOccurs="0" />
+        <xs:element name="value" type="xs:string" />
+        <xs:element name="imagevalue" type="xs:string" />
+        <xs:element name="value" type="xs:dateTime" />
+        <xs:element name="numericvalue" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

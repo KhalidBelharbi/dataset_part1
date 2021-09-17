@@ -1,0 +1,29 @@
+
+venta(idventa:Integer [PK], fecha:LocalDateTime, GeneratedName:Cliente #FK to(cliente), GeneratedName:Pelicula #FK to(pelicula), cantidad:Integer, total:Double);
+
+pelicula(idpelicula:Integer [PK], nombre:String, resena:String, duracion:Integer, fechapublicacion:LocalDate, urlportada:String, GeneratedName:Genero #FK to(genero));
+
+usuario(idusuario:Integer [PK], GeneratedName:Cliente #FK to(cliente), nombre:String, clave:String, estado:boolean);
+
+usuario_rol(id_usuario:Usuario [PK] #FK to Usuario,id_rol:list<rol> [PK] #FK to list<rol>);
+
+comida(idcomida:Integer [PK], nombre:String, precio:Double, foto:byte);
+
+ventacomida(GeneratedName:Venta [PK], GeneratedName:Comida [PK]);
+
+cliente(idcliente:Integer [PK], GeneratedName:Usuario #FK to(usuario), nombres:String, apellidos:String, fechanac:LocalDate, dni:String, foto:byte);
+
+config(idconfig:Integer [PK], parametro:String, valor:String);
+
+genero(idgenero:Integer [PK], nombre:String);
+
+rol(idrol:Integer [PK], nombre:String, descripcion:String);
+
+menu(idmenu:Integer [PK], icono:String, nombre:String, url:String);
+
+menu_rol(id_menu:Menu [PK] #FK to Menu,id_rol:list<rol> [PK] #FK to list<rol>);
+
+detalleventa(GeneratedName:Venta #FK to(venta), iddetalle:Integer [PK], asiento:String);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

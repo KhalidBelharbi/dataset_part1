@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="targetdirhelper" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="readwriteparallelismtest" >
+      <xs:sequence>
+        <xs:element name="performance_enabled" type="xs:anyType" />
+        <xs:element name="thread_number" type="xs:long" />
+        <xs:element name="/***thevaluesbelow(ascommittedinsourcecode)arenotrightformeasurement!*wekeepthemreasonablylowforareasonablyquickfeedbackfromtestbuilds.*/warm_up_seconds" type="xs:long" />
+        <xs:element name="full_run_seconds" type="xs:long" />
+        <xs:element name="failures" type="xs:anyType" />
+        <xs:element name="running" type="xs:anyType" />
+        <xs:element name="cyclescompleted" type="xs:anyType" />
+        <xs:element name="sfholder" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="worker" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="workhours" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="construction" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="address" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="incrementaloptimizerstrategyperformancetest" >
+      <xs:complexContent>
+       <xs:extension base="optimizerperformancetest">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="optimizerperformancetest" >
+      <xs:complexContent>
+       <xs:extension base="searchtestbase">
+         <xs:sequence>
+          <xs:element name="indexdir" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="searchactivity" >
+      <xs:complexContent>
+       <xs:extension base="abstractactivity">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="updateactivity" >
+      <xs:complexContent>
+       <xs:extension base="abstractactivity">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="insertactivity" >
+      <xs:complexContent>
+       <xs:extension base="abstractactivity">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sharedbufferedreaderperformancetest" >
+      <xs:complexContent>
+       <xs:extension base="readerperformancetestcase">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="readerperformance" >
+      <xs:complexContent>
+       <xs:extension base="searchtestbase">
+         <xs:sequence>
+          <xs:element name="performance_enabled" type="xs:anyType" />
+          <xs:element name="//moreiterationsformorereliablemeasures:total_work_batches" type="xs:long" />
+          <xs:element name="//thenext3definethekindofworkloadmixtoteston:searchers_per_batch" type="xs:long" />
+          <xs:element name="updates_per_batch" type="xs:long" />
+          <xs:element name="insertions_per_batch" type="xs:long" />
+          <xs:element name="index_elements" type="xs:long" />
+          <xs:element name="worker_threads" type="xs:long" />
+          <xs:element name="warm_up_cycles" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="notsharedreaderperformancetest2" >
+      <xs:complexContent>
+       <xs:extension base="readerperformancetestcase">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="detective" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="physicaldescription" type="xs:string" />
+        <xs:element name="badge" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="abstractactivity" >
+      <xs:sequence>
+        <xs:element name="parsers" type="xs:anyType" />
+        <xs:element name="sf" type="xs:anyType" />
+        <xs:element name="jobseed" type="xs:anyType" />
+        <xs:element name="startsignal" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="readerperformancetestcase" >
+      <xs:complexContent>
+       <xs:extension base="searchtestbase">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="insert" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sharedreaderperformancetest" >
+      <xs:complexContent>
+       <xs:extension base="readerperformance">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="suspect" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="physicaldescription" type="xs:string" />
+        <xs:element name="suspectcharge" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="notsharedreaderperformancetest" >
+      <xs:complexContent>
+       <xs:extension base="readerperformance">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="indexfillrunnable" >
+      <xs:sequence>
+        <xs:element name="volatilejobseed" type="xs:long" />
+        <xs:element name="iw" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="buffersharingreaderperformancetest" >
+      <xs:complexContent>
+       <xs:extension base="readerperformance">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema> 

@@ -1,0 +1,17 @@
+
+tree(/***标题*/name:String, /***父路径*/parentid:Long, parentids:String, weight:Integer, /***图标*/icon:String, /***是否有叶子节点*/haschildren:boolean, /***是否显示*/show:Boolean);
+
+move(name:String, weight:Integer, show:Boolean);
+
+baseinfo(GeneratedName:User #FK to(user), /***真实名称*/realname:String, /***性别*/:Sex, birthday:Date, age:int);
+
+user(username:String, password:String, register:Date, /***基本信息*/:BaseInfo #FK to(baseinfo));
+
+schoolinfo(GeneratedName:User #FK to(user), /***学校名称*/name:String, type:SchoolType);
+
+parent(id:String [PK]);
+
+child(id:String [PK], name:String, GeneratedName:Parent #FK to(parent));
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

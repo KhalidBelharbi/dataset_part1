@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="gatheringcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="gatheringservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="baseexceptionhandler" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="gathering" >
+      <xs:sequence>
+        <xs:element name="//编号id" type="xs:string" />
+        <xs:element name="//活动名称name" type="xs:string" />
+        <xs:element name="//大会简介summary" type="xs:string" />
+        <xs:element name="//详细说明detail" type="xs:string" />
+        <xs:element name="//主办方sponsor" type="xs:string" />
+        <xs:element name="//活动图片image" type="xs:string" />
+        <xs:element name="//开始时间starttime" type="xs:anyType" />
+        <xs:element name="//截止时间endtime" type="xs:anyType" />
+        <xs:element name="//举办地点address" type="xs:string" />
+        <xs:element name="//报名截止enrolltime" type="xs:anyType" />
+        <xs:element name="//是否可见state" type="xs:string" />
+        <xs:element name="//城市city" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="gatheringdao" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<gathering,string>,jpaspecificationexecutor<gathering>{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="gatheringservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="gatheringdao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="gatheringapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

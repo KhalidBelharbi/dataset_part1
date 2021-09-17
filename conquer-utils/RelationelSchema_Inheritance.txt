@@ -1,0 +1,23 @@
+
+aluno(id:Long [PK], cpf:String, nome:String);
+
+aluno_list<turma>(alunoID:aluno [PK] #FK to aluno,list<turma>ID:list<turma> [PK] #FK to list<turma>);
+
+produtocursos();
+
+produto(id:Long [PK], codigoproduto:String, nomeproduto:String, ativo:boolean);
+
+produto_list<curso>(produtoID:produto [PK] #FK to produto,list<curso>ID:list<curso> [PK] #FK to list<curso>);
+
+turma(id:Long [PK], codigoturma:String, vagasdisponiveis:Long, datainicio:Date, GeneratedName:Curso #FK to(curso));
+
+curso(id:Long [PK], codigocurso:String, nomecurso:String, descricaocurso:String, cargahoraria:Long, precocurso:Double, tipocurso:EnumTipoCurso);
+
+venda(id:Long [PK], codigovenda:String, GeneratedName:Aluno #FK to(aluno), valorvenda:Double, datavenda:Date, situacaopagamento:EnumSituacaoPagamento);
+
+venda_list<produto>(vendaID:venda [PK] #FK to venda,list<produto>ID:list<produto> [PK] #FK to list<produto>);
+
+matricula(id:Long [PK], GeneratedName:Aluno #FK to(aluno), //@columndefault(value:Turma #FK to(turma), GeneratedName:Curso #FK to(curso), datamatricula:Date, codigomatricula:String, situacaomatricula:EnumSituacaoMatricula, GeneratedName:Venda #FK to(venda));
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

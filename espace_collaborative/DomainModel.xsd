@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="roomrequest" >
+      <xs:complexContent>
+       <xs:extension base="panacheentitybase">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="room" nillable="true" minOccurs="0" />
+          <xs:element name="" type="user" nillable="true" minOccurs="0" />
+          <xs:element name="status" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="message" >
+      <xs:complexContent>
+       <xs:extension base="panacheentitybase">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="metadata" type="file" nillable="true" minOccurs="0" />
+          <xs:element name="body" type="xs:string" />
+          <xs:element name="file" type="xs:string" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="//todotimestampghalettimestamp" type="xs:long" />
+          <xs:element name="" type="room" nillable="true" minOccurs="0" />
+          <xs:element name="" type="user" nillable="true" minOccurs="0" />
+          <xs:element name="reactions" type="reaction" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="choix" type="choix" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tag" >
+      <xs:complexContent>
+       <xs:extension base="panacheentitybase">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="topics" type="topic" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="counttopics" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="room" >
+      <xs:complexContent>
+       <xs:extension base="panacheentitybase">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="image" type="xs:string" />
+          <xs:element name="subject" type="xs:string" />
+          <xs:element name="isprivate" type="xs:anyType" />
+          <xs:element name="" type="user" nillable="true" minOccurs="0" />
+          <xs:element name="users" type="user" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="requeststatus" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="topic" >
+      <xs:complexContent>
+       <xs:extension base="panacheentitybase">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="title" type="xs:string" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="timestamp" type="xs:long" />
+          <xs:element name="seen" type="xs:long" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="user" nillable="true" minOccurs="0" />
+          <xs:element name="tags" type="tag" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="replies" type="reply" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="countreplies" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="reaction" >
+      <xs:complexContent>
+       <xs:extension base="panacheentitybase">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="type" type="xs:anyType" />
+          <xs:element name="" type="message" nillable="true" minOccurs="0" />
+          <xs:element name="" type="user" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:complexContent>
+       <xs:extension base="panacheentitybase">
+         <xs:sequence>
+          <xs:element name="id" type="xs:string" />
+          <xs:element name="firstname" type="xs:string" />
+          <xs:element name="lastname" type="xs:string" />
+          <xs:element name="email" type="xs:string" />
+          <xs:element name="username" type="xs:string" />
+          <xs:element name="image" type="xs:string" />
+          <xs:element name="" type="badge" nillable="true" minOccurs="0" />
+          <xs:element name="rooms" type="room" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="replies" type="reply" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="messages" type="message" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="reply" >
+      <xs:complexContent>
+       <xs:extension base="panacheentitybase">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="reply" type="xs:string" />
+          <xs:element name="useful" type="xs:anyType" />
+          <xs:element name="timestamp" type="xs:long" />
+          <xs:element name="" type="user" nillable="true" minOccurs="0" />
+          <xs:element name="" type="topic" nillable="true" minOccurs="0" />
+          <xs:element name="users" type="user" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="badge" >
+      <xs:complexContent>
+       <xs:extension base="panacheentitybase">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="icon_s" type="xs:string" />
+          <xs:element name="icon_b" type="xs:string" />
+          <xs:element name="description" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="choix" >
+      <xs:complexContent>
+       <xs:extension base="panacheentitybase">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="body" type="xs:string" />
+          <xs:element name="" type="message" nillable="true" minOccurs="0" />
+          <xs:element name="users" type="user" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema> 

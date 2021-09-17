@@ -1,0 +1,27 @@
+
+listenlog(id:Long [PK], GeneratedName:Song #FK to(song), GeneratedName:Usuario #FK to(usuario), GeneratedName:Timestamp);
+
+person(id:Long [PK], firstname:String, lastname:String);
+
+artist(id:Long [PK], nombre:String);
+
+person_artist(Artist_ID:Artist [PK] #FK to Artist,collection<person>_ID:collection<person> [PK] #FK to collection<person>);artist_album(Artist_ID:Artist [PK] #FK to Artist,collection<album>_ID:collection<album> [PK] #FK to collection<album>);
+
+song(id:Long [PK], nombre:String, letra:String, fecha:Date, GeneratedName:Album #FK to(album));
+
+album(id:Long [PK], title:String, created:Date, GeneratedName:Artist #FK to(artist));
+
+album_songs(Album_ID:Album [PK] #FK to Album,collection<song>_ID:collection<song> [PK] #FK to collection<song>);
+
+playlist(id:Long [PK], titulo:String, fecha_creacion:Date, creador:Usuario #FK to(usuario));
+
+playlist_songs(Playlist_ID:Playlist [PK] #FK to Playlist,list<song>_ID:list<song> [PK] #FK to list<song>);
+
+puntuacion(id:Long [PK], GeneratedName:Song #FK to(song), GeneratedName:Usuario #FK to(usuario), score:Integer);
+
+usuario(id:Long [PK], user:Person #FK to(person), email:String, password:String, lastplayed:List<Song>, //'activo','inactivo'status:String);
+
+user_playlist(Usuario_ID:Usuario [PK] #FK to Usuario,collection<playlist>_ID:collection<playlist> [PK] #FK to collection<playlist>);user_followers(Usuario_ID:Usuario [PK] #FK to Usuario,collection<usuario>_ID:collection<usuario> [PK] #FK to collection<usuario>);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

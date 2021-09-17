@@ -1,0 +1,41 @@
+
+grupo(idgrupo:Integer [PK], nombre:String);
+
+vacuna(idvacuna:Integer [PK], nombre:String);
+
+menu(idmenu:Integer [PK], nombre:String, url:String, icono:String);
+
+menu_rol(id_menu:Menu [PK] #FK to Menu,id_rol:Rol [PK] #FK to Rol);
+
+dpacientedosis(GeneratedName:Paciente [PK], GeneratedName:Dosis [PK]);
+
+dias(iddias:Integer [PK], nombre:String);
+
+rol(idrol:Integer [PK], nombre:String, descripcion:String);
+
+turnocomida(idturnocomida:Integer [PK], nombre:String);
+
+alimento(idalimento:Integer [PK], nombre:String, cantidad:String, energykcal:String, energykj:String, water:String, prot:String, fat:String, chocdf:String, choavl:String, fib:String, fibtg:String, ash:String, ca:String, p:String, zn:String, fe:String, beta:String, retinol:String, vita:String, thia:String, ribf:String, nia:String, vitc:String, GeneratedName:Grupo #FK to(Grupo));
+
+usuario(idusuario:Integer [PK], /*	*@apimodelproperty(notes:String, password:String, /*	*@email	*	*@column(name:boolean);
+
+usuario_rol(id_usuario:Usuario [PK] #FK to Usuario,id_rol:Rol [PK] #FK to Rol);
+
+dalimentoturnocomida(GeneratedName:Alimento [PK], GeneratedName:TurnoComida [PK]);
+
+dosis(iddosis:Integer [PK], fechames:Integer, GeneratedName:Vacuna #FK to(Vacuna));
+
+resettoken(id:Integer [PK], token:String, user:Usuario #FK to(usuario), expiracion:LocalDateTime);
+
+control(idcontrol:Integer [PK], fechacontrol:Date, edadmes:Integer, peso:Double, estatura:Double, cabeza:Double, observacion:String, //@jsonignore:Paciente #FK to(paciente));
+
+prediccion(idprediccion:Integer [PK], fechaprediccion:Date, edadmesprediccion:Integer, pesoprediccion:Double, estaturaprediccion:Double, cabezaprediccion:Double, GeneratedName:Paciente #FK to(paciente));
+
+paciente(idpaciente:Integer [PK], nombres:String, fechanacimiento:Date, sexo:String, semanagestacion:Integer, GeneratedName:Usuario #FK to(usuario));
+
+plan(idplan:Integer [PK], fechainicio:Date, fechafin:Date, objetivo:String, activo:boolean, GeneratedName:Paciente #FK to(paciente));
+
+detalleplan(iddetalle:Integer [PK], GeneratedName:Plan #FK to(plan), GeneratedName:Alimento #FK to(alimento), GeneratedName:TurnoComida #FK to(turnocomida), GeneratedName:Dias #FK to(Dias));
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

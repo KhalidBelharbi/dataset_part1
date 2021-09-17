@@ -1,0 +1,440 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="reviewrank" >
+      <xs:sequence>
+        <xs:element name="mid" type="xs:long" />
+        <xs:element name="mrank" type="xs:long" />
+        <xs:element name="mpageview" type="xs:long" />
+        <xs:element name="m" type="review" nillable="true" minOccurs="0" />
+        <xs:element name="//commonfieldmcreatetimestamp" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="review" >
+      <xs:sequence>
+        <xs:element name="mid" type="xs:long" />
+        <xs:element name="msummary" type="xs:string" />
+        <xs:element name="m" type="customer" nillable="true" minOccurs="0" />
+        <xs:element name="mreviewitemset" type="reviewitem" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="//关系维护方m" type="reviewrank" nillable="true" minOccurs="0" />
+        <xs:element name="//commonfieldmcreatetimestamp" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dishingredient" >
+      <xs:sequence>
+        <xs:element name="mid" type="xs:long" />
+        <xs:element name="mname" type="xs:string" />
+        <xs:element name="mstatus" type="xs:string" />
+        <xs:element name="m" type="dish" nillable="true" minOccurs="0" />
+        <xs:element name="//commonfieldmcreatetimestamp" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dishrank" >
+      <xs:sequence>
+        <xs:element name="mid" type="xs:long" />
+        <xs:element name="mrank" type="xs:long" />
+        <xs:element name="mpageview" type="xs:long" />
+        <xs:element name="mpurchasevolume" type="xs:long" />
+        <xs:element name="m" type="dish" nillable="true" minOccurs="0" />
+        <xs:element name="//commonfieldmcreatetimestamp" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dishimage" >
+      <xs:sequence>
+        <xs:element name="mid" type="xs:long" />
+        <xs:element name="mname" type="xs:string" />
+        <xs:element name="murl" type="xs:string" />
+        <xs:element name="mwidth" type="xs:anyType" />
+        <xs:element name="mheight" type="xs:anyType" />
+        <xs:element name="mdescription" type="xs:string" />
+        <xs:element name="m" type="dish" nillable="true" minOccurs="0" />
+        <xs:element name="//commonfieldmcreatetimestamp" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="useranalysis" >
+      <xs:sequence>
+        <xs:element name="//主键id" type="xs:long" />
+        <xs:element name="deviceid" type="xs:string" />
+        <xs:element name="appversion" type="xs:string" />
+        <xs:element name="viewname" type="xs:string" />
+        <xs:element name="intime" type="xs:anyType" />
+        <xs:element name="outtime" type="xs:anyType" />
+        <xs:element name="keeptime" type="xs:long" />
+        <xs:element name="equipment" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dish" >
+      <xs:sequence>
+        <xs:element name="mid" type="xs:long" />
+        <xs:element name="mcode" type="xs:string" />
+        <xs:element name="mname" type="xs:string" />
+        <xs:element name="/***对name去除空格**/toptagsname" type="xs:string" />
+        <xs:element name="mothername" type="xs:string" />
+        <xs:element name="mdescription" type="xs:string" />
+        <xs:element name="mprice" type="xs:anyType" />
+        <xs:element name="mimagename" type="xs:string" />
+        <xs:element name="mdiscountability" type="xs:string" />
+        <xs:element name="mstatus" type="xs:string" />
+        <xs:element name="/***json字符串，dish的标签****/mtags" type="xs:string" />
+        <xs:element name="/***用户自选配料，保存了json字符串**/mcustomization" type="xs:string" />
+        <xs:element name="m" type="dishcategory" nillable="true" minOccurs="0" />
+        <xs:element name="//关系维护方m" type="dishrank" nillable="true" minOccurs="0" />
+        <xs:element name="mcoupontargetdishsset" type="coupon" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="mcouponextracridishsset" type="coupon" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="mdishoptiontypeset" type="dishoptiontype" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="mdishingredientset" type="dishingredient" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="mdishimageset" type="dishimage" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="//commonfieldmcreatetimestamp" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="logintoken" >
+      <xs:sequence>
+        <xs:element name="//tokenidtokenid" type="xs:string" />
+        <xs:element name="//token内容content" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="config" >
+      <xs:sequence>
+        <xs:element name="key" type="xs:string" />
+        <xs:element name="value" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="orderitem" >
+      <xs:sequence>
+        <xs:element name="mid" type="xs:long" />
+        <xs:element name="mdishid" type="xs:string" />
+        <xs:element name="mdishname" type="xs:string" />
+        <xs:element name="mdishprice" type="xs:string" />
+        <xs:element name="mdishimageurl" type="xs:string" />
+        <xs:element name="mdishamount" type="xs:string" />
+        <xs:element name="mprice" type="xs:anyType" />
+        <xs:element name="m" type="orderform" nillable="true" minOccurs="0" />
+        <xs:element name="morderitemingredientset" type="orderitemingredient" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="//commonfieldmcreatetimestamp" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tagrank" >
+      <xs:sequence>
+        <xs:element name="mid" type="xs:long" />
+        <xs:element name="mtag" type="xs:string" />
+        <xs:element name="mpageview" type="xs:long" />
+        <xs:element name="//commonfieldmcreatetimestamp" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="orderform" >
+      <xs:sequence>
+        <xs:element name="mid" type="xs:long" />
+        <xs:element name="mcode" type="xs:string" />
+        <xs:element name="mremark" type="xs:string" />
+        <xs:element name="mcouponid" type="xs:string" />
+        <xs:element name="mcoupondesc" type="xs:string" />
+        <xs:element name="mstatus" type="xs:string" />
+        <xs:element name="mprice" type="xs:anyType" />
+        <xs:element name="mtipsfee" type="xs:anyType" />
+        <xs:element name="tipstype" type="xs:string" />
+        <xs:element name="driverbillprice" type="xs:anyType" />
+        <xs:element name="mdeliveryfee" type="xs:anyType" />
+        <xs:element name="mdiscountfee" type="xs:anyType" />
+        <xs:element name="mtaxfee" type="xs:anyType" />
+        <xs:element name="msubtotalfee" type="xs:anyType" />
+        <xs:element name="mtotalfee" type="xs:anyType" />
+        <xs:element name="m" type="trade" nillable="true" minOccurs="0" />
+        <xs:element name="m" type="restaurant" nillable="true" minOccurs="0" />
+        <xs:element name="morderitemset" type="orderitem" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="misonemenu" type="xs:anyType" />
+        <xs:element name="mrestconfirmedtimestamp" type="xs:dateTime" />
+        <xs:element name="mcanceltimestamp" type="xs:dateTime" />
+        <xs:element name="mcalldeliverytimestamp" type="xs:dateTime" />
+        <xs:element name="mdriverconfirmedtimestamp" type="xs:dateTime" />
+        <xs:element name="marrivedtimestamp" type="xs:dateTime" />
+        <xs:element name="m" type="driver" nillable="true" minOccurs="0" />
+        <xs:element name="//commonfieldmcreatetimestamp" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dishcategory" >
+      <xs:sequence>
+        <xs:element name="mid" type="xs:long" />
+        <xs:element name="mname" type="xs:string" />
+        <xs:element name="msequence" type="xs:anyType" />
+        <xs:element name="mdishset" type="dish" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="m" type="restaurant" nillable="true" minOccurs="0" />
+        <xs:element name="//commonfieldmcreatetimestamp" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="account" >
+      <xs:sequence>
+        <xs:element name="mid" type="xs:long" />
+        <xs:element name="memail" type="xs:string" />
+        <xs:element name="mpassword" type="xs:string" />
+        <xs:element name="mstatus" type="xs:string" />
+        <xs:element name="//关系维护方m" type="customer" nillable="true" minOccurs="0" />
+        <xs:element name="//关系维护方m" type="merchant" nillable="true" minOccurs="0" />
+        <xs:element name="m" type="driver" nillable="true" minOccurs="0" />
+        <xs:element name="mthirdpartyaccountset" type="thirdpartyaccount" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="//commonfieldmcreatetimestamp" type="xs:dateTime" />
+        <xs:element name="lastlogintime" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="driver" >
+      <xs:sequence>
+        <xs:element name="mid" type="xs:long" />
+        <xs:element name="mname" type="xs:string" />
+        <xs:element name="mavatar" type="xs:string" />
+        <xs:element name="mavatarurl" type="xs:string" />
+        <xs:element name="mavatarwidth" type="xs:anyType" />
+        <xs:element name="mavatarheight" type="xs:anyType" />
+        <xs:element name="mphone" type="xs:string" />
+        <xs:element name="maddress" type="xs:string" />
+        <xs:element name="memail" type="xs:string" />
+        <xs:element name="mstatus" type="xs:anyType" />
+        <xs:element name="devicetoken" type="xs:string" />
+        <xs:element name="/***纬度*/latitude" type="xs:double" />
+        <xs:element name="/***经度*/longitude" type="xs:double" />
+        <xs:element name="m" type="account" nillable="true" minOccurs="0" />
+        <xs:element name="morderformset" type="orderform" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="mdeliverytimesheetset" type="deliverytimesheet" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="//commonfieldmcreatetimestamp" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="coupon" >
+      <xs:sequence>
+        <xs:element name="mid" type="xs:long" />
+        <xs:element name="mname" type="xs:string" />
+        <xs:element name="mtype" type="xs:string" />
+        <xs:element name="mtypeamount" type="xs:anyType" />
+        <xs:element name="mtargettype" type="xs:string" />
+        <xs:element name="mextracritype" type="xs:string" />
+        <xs:element name="mextracriamount" type="xs:anyType" />
+        <xs:element name="mdescription" type="xs:string" />
+        <xs:element name="mquantity" type="xs:anyType" />
+        <xs:element name="mtotalquantity" type="xs:anyType" />
+        <xs:element name="mavailablestarttime" type="xs:string" />
+        <xs:element name="mavailableendtime" type="xs:string" />
+        <xs:element name="meffectivedate" type="xs:string" />
+        <xs:element name="mmaturitydate" type="xs:string" />
+        <xs:element name="mweeks" type="xs:string" />
+        <xs:element name="mimageurl" type="xs:string" />
+        <xs:element name="mstatus" type="xs:string" />
+        <xs:element name="m" type="restaurant" nillable="true" minOccurs="0" />
+        <xs:element name="mcoupontargetdishsset" type="dish" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="mcouponextracridishsset" type="dish" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="//@onetomany(cascade" type="customer" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="//commonfieldmcreatetimestamp" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="reviewitem" >
+      <xs:sequence>
+        <xs:element name="mid" type="xs:long" />
+        <xs:element name="mcomment" type="xs:string" />
+        <xs:element name="mimageurl" type="xs:string" />
+        <xs:element name="mdishid" type="xs:string" />
+        <xs:element name="mdishname" type="xs:string" />
+        <xs:element name="m" type="review" nillable="true" minOccurs="0" />
+        <xs:element name="//commonfieldmcreatetimestamp" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="restaurantrank" >
+      <xs:sequence>
+        <xs:element name="mid" type="xs:long" />
+        <xs:element name="mrank" type="xs:long" />
+        <xs:element name="mpageview" type="xs:long" />
+        <xs:element name="m" type="restaurant" nillable="true" minOccurs="0" />
+        <xs:element name="//commonfieldmcreatetimestamp" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dishoptionitem" >
+      <xs:sequence>
+        <xs:element name="mid" type="xs:long" />
+        <xs:element name="mname" type="xs:string" />
+        <xs:element name="mprice" type="xs:anyType" />
+        <xs:element name="m" type="dishoptiontype" nillable="true" minOccurs="0" />
+        <xs:element name="//commonfieldmcreatetimestamp" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="trade" >
+      <xs:sequence>
+        <xs:element name="mid" type="xs:long" />
+        <xs:element name="mcode" type="xs:string" />
+        <xs:element name="mgettype" type="xs:string" />
+        <xs:element name="mpaymenttype" type="xs:string" />
+        <xs:element name="mcustomername" type="xs:string" />
+        <xs:element name="mcustomerphone" type="xs:string" />
+        <xs:element name="mcouponid" type="xs:string" />
+        <xs:element name="mcoupondesc" type="xs:string" />
+        <xs:element name="mcustomeraddress" type="xs:string" />
+        <xs:element name="mcustomerapt" type="xs:string" />
+        <xs:element name="mcustomerstreet" type="xs:string" />
+        <xs:element name="mcustomercity" type="xs:string" />
+        <xs:element name="mcustomerzipcode" type="xs:string" />
+        <xs:element name="mprice" type="xs:anyType" />
+        <xs:element name="m" type="customer" nillable="true" minOccurs="0" />
+        <xs:element name="morderformset" type="orderform" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="//commonfieldmcreatetimestamp" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="customerfeedback" >
+      <xs:sequence>
+        <xs:element name="mid" type="xs:long" />
+        <xs:element name="mcustomerid" type="xs:long" />
+        <xs:element name="mcustomername" type="xs:string" />
+        <xs:element name="mcustomerphone" type="xs:string" />
+        <xs:element name="mcustomeremail" type="xs:string" />
+        <xs:element name="mcontent" type="xs:string" />
+        <xs:element name="//commonfieldmcreatetimestamp" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="restauranttoptags" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="tag" type="xs:string" />
+        <xs:element name="count" type="xs:long" />
+        <xs:element name="/***纬度**/latitude" type="xs:double" />
+        <xs:element name="/***经度**/longitude" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="thirdpartyaccount" >
+      <xs:sequence>
+        <xs:element name="mid" type="xs:long" />
+        <xs:element name="mthirdpartyid" type="xs:string" />
+        <xs:element name="mlogintype" type="xs:string" />
+        <xs:element name="m" type="account" nillable="true" minOccurs="0" />
+        <xs:element name="//commonfieldmcreatetimestamp" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="deliverytimesheet" >
+      <xs:sequence>
+        <xs:element name="mid" type="xs:long" />
+        <xs:element name="mavailabledate" type="xs:string" />
+        <xs:element name="mavailablestarttime" type="xs:string" />
+        <xs:element name="mavailableendtime" type="xs:string" />
+        <xs:element name="mavailablequantity" type="xs:anyType" />
+        <xs:element name="mquantity" type="xs:anyType" />
+        <xs:element name="mdriverset" type="driver" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="//commonfieldmcreatetimestamp" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="merchant" >
+      <xs:sequence>
+        <xs:element name="mid" type="xs:long" />
+        <xs:element name="mfirstname" type="xs:string" />
+        <xs:element name="mlastname" type="xs:string" />
+        <xs:element name="mphone" type="xs:string" />
+        <xs:element name="m" type="account" nillable="true" minOccurs="0" />
+        <xs:element name="//@onetoone(mappedby" type="restaurant" nillable="true" minOccurs="0" />
+        <xs:element name="//commonfieldmcreatetimestamp" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="customer" >
+      <xs:sequence>
+        <xs:element name="mid" type="xs:long" />
+        <xs:element name="mname" type="xs:string" />
+        <xs:element name="mavatar" type="xs:string" />
+        <xs:element name="mavatarurl" type="xs:string" />
+        <xs:element name="mavatarwidth" type="xs:anyType" />
+        <xs:element name="mavatarheight" type="xs:anyType" />
+        <xs:element name="mcompany" type="xs:string" />
+        <xs:element name="mprofession" type="xs:string" />
+        <xs:element name="mphone" type="xs:string" />
+        <xs:element name="maddress" type="xs:string" />
+        <xs:element name="mfoldername" type="xs:string" />
+        <xs:element name="m" type="account" nillable="true" minOccurs="0" />
+        <xs:element name="mreviewset" type="review" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="mtradesset" type="trade" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="mcouponset" type="coupon" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="//commonfieldmcreatetimestamp" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dishoptiontype" >
+      <xs:sequence>
+        <xs:element name="mid" type="xs:long" />
+        <xs:element name="mname" type="xs:string" />
+        <xs:element name="mismandatory" type="xs:string" />
+        <xs:element name="missingle" type="xs:string" />
+        <xs:element name="m" type="dish" nillable="true" minOccurs="0" />
+        <xs:element name="mdishoptionitemset" type="dishoptionitem" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="//commonfieldmcreatetimestamp" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="orderitemingredient" >
+      <xs:sequence>
+        <xs:element name="mid" type="xs:long" />
+        <xs:element name="mname" type="xs:string" />
+        <xs:element name="mprice" type="xs:anyType" />
+        <xs:element name="m" type="orderitem" nillable="true" minOccurs="0" />
+        <xs:element name="//commonfieldmcreatetimestamp" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="menutoptags" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="tag" type="xs:string" />
+        <xs:element name="count" type="xs:long" />
+        <xs:element name="/***纬度**/latitude" type="xs:double" />
+        <xs:element name="/***经度**/longitude" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="restaurant" >
+      <xs:sequence>
+        <xs:element name="mid" type="xs:long" />
+        <xs:element name="mname" type="xs:string" />
+        <xs:element name="/***对name去除空格**/toptagsname" type="xs:string" />
+        <xs:element name="mlogo" type="xs:string" />
+        <xs:element name="mlogourl" type="xs:string" />
+        <xs:element name="mlogowidth" type="xs:anyType" />
+        <xs:element name="mlogoheight" type="xs:anyType" />
+        <xs:element name="/***纬度*/mlatitude" type="xs:double" />
+        <xs:element name="/***经度*/mlongitude" type="xs:double" />
+        <xs:element name="maddress" type="xs:string" />
+        <xs:element name="mstreet" type="xs:string" />
+        <xs:element name="mcity" type="xs:string" />
+        <xs:element name="mstate" type="xs:string" />
+        <xs:element name="mzipcode" type="xs:string" />
+        <xs:element name="/***usedforalertingorder*/mfaxnum" type="xs:string" />
+        <xs:element name="/***usedforalertingorder*/memail" type="xs:string" />
+        <xs:element name="/***usedforalertingorder*/mphone" type="xs:string" />
+        <xs:element name="mdescription" type="xs:string" />
+        <xs:element name="mstatus" type="xs:anyType" />
+        <xs:element name="/***controlrestaurantsupportdeliveryornot*/misdelivery" type="xs:anyType" />
+        <xs:element name="/***controlrestaurantsupportpickoutornot*/mispickout" type="xs:anyType" />
+        <xs:element name="/***controlrestaurantsupportpre-orderornot*/mispreorder" type="xs:anyType" />
+        <xs:element name="/***资源目录名称*/mfoldername" type="xs:string" />
+        <xs:element name="mfreedeliverylimit" type="xs:anyType" />
+        <xs:element name="mdeliveryfee" type="xs:anyType" />
+        <xs:element name="mdeliverydistance" type="xs:double" />
+        <xs:element name="mmindeliverytotal" type="xs:anyType" />
+        <xs:element name="mmondeliverystarttime" type="xs:string" />
+        <xs:element name="mmondeliveryendtime" type="xs:string" />
+        <xs:element name="mtuedeliverystarttime" type="xs:string" />
+        <xs:element name="mtuedeliveryendtime" type="xs:string" />
+        <xs:element name="mweddeliverystarttime" type="xs:string" />
+        <xs:element name="mweddeliveryendtime" type="xs:string" />
+        <xs:element name="mthudeliverystarttime" type="xs:string" />
+        <xs:element name="mthudeliveryendtime" type="xs:string" />
+        <xs:element name="mfrideliverystarttime" type="xs:string" />
+        <xs:element name="mfrideliveryendtime" type="xs:string" />
+        <xs:element name="msatdeliverystarttime" type="xs:string" />
+        <xs:element name="msatdeliveryendtime" type="xs:string" />
+        <xs:element name="msundeliverystarttime" type="xs:string" />
+        <xs:element name="msundeliveryendtime" type="xs:string" />
+        <xs:element name="mmonopenstarttime" type="xs:string" />
+        <xs:element name="mmonopenendtime" type="xs:string" />
+        <xs:element name="mtueopenstarttime" type="xs:string" />
+        <xs:element name="mtueopenendtime" type="xs:string" />
+        <xs:element name="mwedopenstarttime" type="xs:string" />
+        <xs:element name="mwedopenendtime" type="xs:string" />
+        <xs:element name="mthuopenstarttime" type="xs:string" />
+        <xs:element name="mthuopenendtime" type="xs:string" />
+        <xs:element name="mfriopenstarttime" type="xs:string" />
+        <xs:element name="mfriopenendtime" type="xs:string" />
+        <xs:element name="msatopenstarttime" type="xs:string" />
+        <xs:element name="msatopenendtime" type="xs:string" />
+        <xs:element name="msunopenstarttime" type="xs:string" />
+        <xs:element name="msunopenendtime" type="xs:string" />
+        <xs:element name="m" type="merchant" nillable="true" minOccurs="0" />
+        <xs:element name="mdishcategoryset" type="dishcategory" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="mcouponset" type="coupon" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="morderformset" type="orderform" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="//关系维护方m" type="restaurantrank" nillable="true" minOccurs="0" />
+        <xs:element name="//commonfieldmcreatetimestamp" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

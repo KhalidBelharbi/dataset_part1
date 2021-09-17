@@ -1,0 +1,47 @@
+
+usertype(//<editor-folddefaultstate:String);
+
+usertype1(//<editor-folddefaultstate:String);
+
+user(//<editor-folddefaultstate:String, surname:String, patronomicname:String, phonenumber:String, GeneratedName:Department #FK to(department), login:String, password:String, GeneratedName:UserType #FK to(UserType));
+
+user_form(user_id:User [PK] #FK to User,form_id:list<form> [PK] #FK to list<form>);
+
+rigtstosection(//<editor-folddefaultstate:boolean, enabled:boolean, GeneratedName:Section #FK to(Section), GeneratedName:UserType #FK to(UserType));
+
+section(name:String, nameformenu:String, description:String);
+
+department(serialversionuid:long, idvp:int, namevp:String, idgroupvp:int, idactionvp:int, idnp:int, namenp:String, idgroupnp:int, idactionnp:int, num:int, viewsubmission:String, idviewsubmission:int, typecommunication:String, idtypecommunication:int, dteditnsi:Date, dtbeginnsi:Date, _id:DepartmentGroup #FK to(departmentgroup));
+
+counter(//<editor-folddefaultstate:long [PK], type:String, askue:boolean, dt_end:Date, dt_create:Date, deleted:boolean);
+
+counter_inputaskye(id_counter:Counter [PK] #FK to Counter,id_inputaskye:list<inputaskye> [PK] #FK to list<inputaskye>);
+
+resource(//<editor-folddefaultstate:String, GeneratedName:TypeTER #FK to(typeter), GeneratedName:Measure #FK to(measure), koef:float, koef_polution:float);
+
+reportform2_del();
+
+reportdetailsform2(id:Report #FK to(report), form2:Report #FK to(report), /*@joincolumn(name:String, GeneratedName:Department #FK to(department), repid:long, inputactivityplan:String, inputactivityfact:String, form2coll7:float, form2coll8:float, form2coll9:float, form2coll10:float, fiochief:String, phonechief:String, rorschief:String, askye:float);
+
+report(dt_inputplan:Date, dt_inputfact:Date, dt_begin:Date, time_begin:Date, time_finish:Date, GeneratedName:Form #FK to(form), usr:User #FK to(User), GeneratedName:Department #FK to(department), GeneratedName:ReportDetailsForm2 #FK to(reportdetailsform2), dt_solveinputplan:Date, solveinputplan:boolean, usrsolveplaninput:User #FK to(User));
+
+reportdetails(GeneratedName:Report #FK to(report), GeneratedName:Resource #FK to(resource), dt_inputfact:Date, /*проверкавведенилинетфакт*/dt_inputfact_test:boolean, /***1форма*/activity:String, plan_col:float, plan_tut:float, plan_money:float, fact_col:float, fact_tut:float, fact_money:float, //<editor-folddefaultstate:String, addressofobject:String, powersource:String, type:String, num:long, askue:boolean, addres:String, usedbefore:float, usedtoday:float);
+
+inputaskyeinfo(/*manytoone@joincolumn(name:float, hhtoday:float, num:Counter [PK] #FK to(counter), dtbefore:InputASKYE [PK] #FK to(inputaskye), hh:int [PK]);
+
+costs(usr:User #FK to(User), railway:long, year:byte, month:byte);
+
+measure(//<editor-folddefaultstate:String, valuehtml:String);
+
+typeter(//<editor-folddefaultstate:String);
+
+inputaskye(/*@manytoone@joincolumn(name:Date [PK], dttoday:Date, dt_end:Date, dt_create:Date, deleted:boolean);
+
+form(serialversionuid:long, serialnumform:int, fullnameform:String, shortnameform:String, pageaddress:String);
+
+departmentgroup(namenp:String, dteditnsi:Date, dtbeginnsi:Date);
+
+costdetails(//<editor-folddefaultstate:long [PK], common:Costs #FK to(costs), cost:float, GeneratedName:Resource #FK to(resource));
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

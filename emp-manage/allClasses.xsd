@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="responsemessage" >
+      <xs:sequence>
+        <xs:element name="status" type="responsestatusenum" nillable="true" minOccurs="0" />
+        <xs:element name="message" type="xs:string" />
+        <xs:element name="data" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="departmentcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="departmentrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="employeecontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="employeerepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="responsestatusenum" >
+      <xs:sequence>
+        <xs:element name="statuscode" type="xs:long" />
+        <xs:element name="code" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="empmanageapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="deptemp" >
+      <xs:sequence>
+        <xs:element name="empno" type="xs:long" />
+        <xs:element name="deptno" type="xs:string" />
+        <xs:element name="from" type="xs:dateTime" />
+        <xs:element name="to" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="deptmanagerpk" >
+      <xs:sequence>
+        <xs:element name="empno" type="xs:long" />
+        <xs:element name="deptno" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="deptemprepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<deptemp,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="deptemppk" >
+      <xs:sequence>
+        <xs:element name="empno" type="xs:long" />
+        <xs:element name="deptno" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="departmentrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<department,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="deptmanager" >
+      <xs:sequence>
+        <xs:element name="empno" type="xs:long" />
+        <xs:element name="deptno" type="xs:string" />
+        <xs:element name="from" type="xs:dateTime" />
+        <xs:element name="to" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="department" >
+      <xs:sequence>
+        <xs:element name="deptno" type="xs:string" />
+        <xs:element name="deptname" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="deptmanagerrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<deptmanager,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="salarypk" >
+      <xs:sequence>
+        <xs:element name="empno" type="xs:long" />
+        <xs:element name="from" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="salary" >
+      <xs:sequence>
+        <xs:element name="empno" type="xs:long" />
+        <xs:element name="salary" type="xs:long" />
+        <xs:element name="from" type="xs:dateTime" />
+        <xs:element name="to" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="salaryrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<salary,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="titlepk" >
+      <xs:sequence>
+        <xs:element name="empno" type="xs:long" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="from" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="titlerepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<title,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="employee" >
+      <xs:sequence>
+        <xs:element name="empno" type="xs:long" />
+        <xs:element name="birth" type="xs:dateTime" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+        <xs:element name="gender" type="xs:string" />
+        <xs:element name="hire" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="title" >
+      <xs:sequence>
+        <xs:element name="empno" type="xs:long" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="from" type="xs:dateTime" />
+        <xs:element name="to" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="employeerepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<employee,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="application-mariadb" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="empmanageapplicationtests" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="titlerepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

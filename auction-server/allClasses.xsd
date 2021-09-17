@@ -1,0 +1,1141 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="schema" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="watchlistentry" >
+      <xs:sequence>
+        <xs:element name="userid" type="xs:long" />
+        <xs:element name="itemid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+        <xs:element name="image" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="image" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="itemid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bid" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="amount" type="xs:anyType" />
+        <xs:element name="datetime" type="xs:anyType" />
+        <xs:element name="itemid" type="xs:long" />
+        <xs:element name="userid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="awardeditem" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="itemid" type="xs:long" />
+        <xs:element name="userid" type="xs:anyType" />
+        <xs:element name="bidid" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="item" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="auctionexpiration" type="xs:anyType" />
+        <xs:element name="currentprice" type="xs:anyType" />
+        <xs:element name="initialprice" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="token" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="userid" type="xs:long" />
+        <xs:element name="expiresat" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="watchlistid" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="userid" type="xs:long" />
+        <xs:element name="itemid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="graphqldataloader" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tokenauthenticationprovider" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="usersessionservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="subscriptionconnectionlistener" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="tokenauthenticationprovider" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tokenauthorizationfilter" >
+      <xs:complexContent>
+       <xs:extension base="basicauthenticationfilter">
+         <xs:sequence>
+          <xs:element name="" type="tokenauthenticationprovider" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="limitedpagerequest" >
+      <xs:complexContent>
+       <xs:extension base="pagerequest">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="auctionnotification" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="bid" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="item" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="page" >
+      <xs:sequence>
+        <xs:element name="current" type="xs:long" />
+        <xs:element name="totalpages" type="xs:long" />
+        <xs:element name="isfirst" type="xs:anyType" />
+        <xs:element name="islast" type="xs:anyType" />
+        <xs:element name="totalelements" type="xs:long" />
+        <xs:element name="elements" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bidsnumber" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="application" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usersessionservice" >
+      <xs:sequence>
+        <xs:element name="cookie_name" type="xs:string" />
+        <xs:element name="role_authenticated" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="auctionserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="itemrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="bidrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="imagerepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="userrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="awardeditemrepository" nillable="true" minOccurs="0" />
+        <xs:element name="notificationsink" type="auctionnotification" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usersessionserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="tokenrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="sessiondurationinminutes" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="watchlistserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="watchlistrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="itemrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="watchlistservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="auctionservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="securityconfig" >
+      <xs:complexContent>
+       <xs:extension base="websecurityconfigureradapter">
+         <xs:sequence>
+          <xs:element name="" type="tokenauthenticationprovider" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="subscriptionconfig" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cacheconfig" >
+      <xs:sequence>
+        <xs:element name="caffeine" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="databaseconfig" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="graphqlconfig" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="auctionservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="webconfiguration" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="devcookieconfig" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="urlcoercing" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="datetimecoercing" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="currencycoercing" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="admincontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="usersessionservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dataloaderregistrybuilder" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dataloadercontextbuilder" >
+      <xs:sequence>
+        <xs:element name="registrybuilder" type="dataloaderregistrybuilder" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dataloaderbuilder" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bidsnumberdataloader" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="auctionservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="imagedataloader" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="auctionservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="watchlistdataloader" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="watchlistservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="thumbnaildataloader" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="auctionservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userdataloader" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="auctionservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="invalidcredentialsexception" >
+      <xs:complexContent>
+       <xs:extension base="graphqldatafetchingexception">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="missingdataloaderexception" >
+      <xs:complexContent>
+       <xs:extension base="runtimeexception">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="graphqlexceptionhandler" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="higherbidexistsexception" >
+      <xs:complexContent>
+       <xs:extension base="graphqldatafetchingexception">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="" type="bid" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="unauthorizedexception" >
+      <xs:complexContent>
+       <xs:extension base="graphqldatafetchingexception">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="graphqldatafetchingexception" >
+      <xs:complexContent>
+       <xs:extension base="runtimeexception">
+         <xs:sequence>
+          <xs:element name="error_code_extension" type="xs:string" />
+          <xs:element name="error_code_unauthorized" type="xs:string" />
+          <xs:element name="error_code_invalid_credentials" type="xs:string" />
+          <xs:element name="error_code_auction_expired" type="xs:string" />
+          <xs:element name="error_code_higher_bid_exists" type="xs:string" />
+          <xs:element name="error_code_invalid_bid" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="illegaldataloaderusageexception" >
+      <xs:complexContent>
+       <xs:extension base="runtimeexception">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="invalidbidexception" >
+      <xs:complexContent>
+       <xs:extension base="graphqldatafetchingexception">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="illegalsizeexception" >
+      <xs:complexContent>
+       <xs:extension base="graphqldatafetchingexception">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="expiredauctionexception" >
+      <xs:complexContent>
+       <xs:extension base="graphqldatafetchingexception">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="awardeditemrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<awardeditem,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="watchlistrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<watchlistentry,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="itemrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<item,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<user,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tokenrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<token,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="imagerepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<image,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="bidrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<bid,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="cookieutils" >
+      <xs:sequence>
+        <xs:element name="cookie_separator" type="xs:string" />
+        <xs:element name="name_value_separator" type="xs:string" />
+        <xs:element name="secure" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="graphqlutils" >
+      <xs:sequence>
+        <xs:element name="image_data_loader" type="xs:string" />
+        <xs:element name="thumbnail_data_loader" type="xs:string" />
+        <xs:element name="bids_number_data_loader" type="xs:string" />
+        <xs:element name="watchlist_data_loader" type="xs:string" />
+        <xs:element name="user_data_loader" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="authutils" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="mutationresolver" >
+      <xs:sequence>
+        <xs:element name="response" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="usersessionservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="auctionservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="watchlistservice" nillable="true" minOccurs="0" />
+        <xs:element name="bidsink" type="bid" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="queryresolver" >
+      <xs:sequence>
+        <xs:element name="item_default_" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="auctionservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="watchlistservice" nillable="true" minOccurs="0" />
+        <xs:element name="maxpagesize" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="subscriptionresolver" >
+      <xs:sequence>
+        <xs:element name="bids" type="bid" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="notifications" type="auctionnotification" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="watchlistservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="auctionservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userresolver" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="auctionservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="watchlistservice" nillable="true" minOccurs="0" />
+        <xs:element name="maxitems" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="itemresolver" >
+      <xs:sequence>
+        <xs:element name="maximages" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bidresolver" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="auctionnotificationresolver" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="auctionservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="applicationtaskscheduler" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="usersessionservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="auctionservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="unwatch" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="loginwrongpassword" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bid" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="logout" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="watch" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="login" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="watcheditemswithpageparams" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="watcheditems" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="item" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="itemswithexceedingparams" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="biditemswithpageparams" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bids" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="watcheditemswithexceedingparams" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="itemswithpageparams" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="mewithlimiteditems" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="itemwithlimitedthumbs" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="me" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="awardeditemswithexceedingparams" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="items" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="biditemswithexceedingparams" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="biditems" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="awardeditemswithpageparams" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="awardeditems" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="auctionevent" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="application-test" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="graphqlutilstest" >
+      <xs:sequence>
+        <xs:element name="mockenvironment" type="xs:anyType" />
+        <xs:element name="mockcontext" type="xs:anyType" />
+        <xs:element name="mockregistry" type="xs:anyType" />
+        <xs:element name="mockdataloader" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cookieutilstest" >
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="value" type="xs:string" />
+        <xs:element name="duration" type="xs:long" />
+        <xs:element name="mockresponse" type="xs:anyType" />
+        <xs:element name="mockrequest" type="xs:anyType" />
+        <xs:element name="mock" type="xs:anyType" />
+        <xs:element name="cookiecaptor" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="authutilstest" >
+      <xs:sequence>
+        <xs:element name="user_id" type="xs:long" />
+        <xs:element name="token" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="applicationtaskschedulertest" >
+      <xs:sequence>
+        <xs:element name="mock" type="usersessionservice" nillable="true" minOccurs="0" />
+        <xs:element name="mock" type="auctionservice" nillable="true" minOccurs="0" />
+        <xs:element name="scheduler" type="applicationtaskscheduler" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dataloaderregistrybuildertest" >
+      <xs:sequence>
+        <xs:element name="dataloader1" type="xs:string" />
+        <xs:element name="dataloader2" type="xs:string" />
+        <xs:element name="mock" type="xs:anyType" />
+        <xs:element name="mockdataloaderbuilder1" type="xs:anyType" />
+        <xs:element name="mockdataloaderbuilder2" type="xs:anyType" />
+        <xs:element name="mockdataloader1" type="xs:anyType" />
+        <xs:element name="mockdataloader2" type="xs:anyType" />
+        <xs:element name="builder" type="dataloaderregistrybuilder" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dataloadercontextbuildertest" >
+      <xs:sequence>
+        <xs:element name="registry" type="xs:anyType" />
+        <xs:element name="mock" type="dataloaderregistrybuilder" nillable="true" minOccurs="0" />
+        <xs:element name="builder" type="dataloadercontextbuilder" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userdataloadertest" >
+      <xs:sequence>
+        <xs:element name="user_id1" type="xs:long" />
+        <xs:element name="user_id2" type="xs:long" />
+        <xs:element name="user_id3" type="xs:long" />
+        <xs:element name="1" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="2" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="3" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="auctionservice" nillable="true" minOccurs="0" />
+        <xs:element name="dataloaderbuilder" type="userdataloader" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bidsnumberdataloadertest" >
+      <xs:sequence>
+        <xs:element name="item_id1" type="xs:long" />
+        <xs:element name="item_id2" type="xs:long" />
+        <xs:element name="item_id3" type="xs:long" />
+        <xs:element name="bids1" type="xs:long" />
+        <xs:element name="bids2" type="xs:long" />
+        <xs:element name="bids3" type="xs:long" />
+        <xs:element name="GeneratedName" type="auctionservice" nillable="true" minOccurs="0" />
+        <xs:element name="dataloaderbuilder" type="bidsnumberdataloader" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="watchlistdataloadertest" >
+      <xs:sequence>
+        <xs:element name="item_id1" type="xs:long" />
+        <xs:element name="item_id2" type="xs:long" />
+        <xs:element name="item_id3" type="xs:long" />
+        <xs:element name="user_id" type="xs:long" />
+        <xs:element name="GeneratedName" type="watchlistservice" nillable="true" minOccurs="0" />
+        <xs:element name="dataloaderbuilder" type="watchlistdataloader" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="thumbnaildataloadertest" >
+      <xs:sequence>
+        <xs:element name="item_id1" type="xs:long" />
+        <xs:element name="item_id2" type="xs:long" />
+        <xs:element name="item_id3" type="xs:long" />
+        <xs:element name="images1" type="image" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="images2" type="image" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="auctionservice" nillable="true" minOccurs="0" />
+        <xs:element name="dataloaderbuilder" type="thumbnaildataloader" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="imagedataloadertest" >
+      <xs:sequence>
+        <xs:element name="item_id1" type="xs:long" />
+        <xs:element name="item_id2" type="xs:long" />
+        <xs:element name="item_id3" type="xs:long" />
+        <xs:element name="images1" type="image" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="images2" type="image" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="auctionservice" nillable="true" minOccurs="0" />
+        <xs:element name="dataloaderbuilder" type="imagedataloader" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="graphqlexceptionhandlertest" >
+      <xs:sequence>
+        <xs:element name="hander" type="graphqlexceptionhandler" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="urlcoercingtest" >
+      <xs:sequence>
+        <xs:element name="url" type="xs:string" />
+        <xs:element name="GeneratedName" type="urlcoercing" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="currencycoercingtest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="currencycoercing" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="datetimecoercingtest" >
+      <xs:sequence>
+        <xs:element name="date" type="xs:string" />
+        <xs:element name="GeneratedName" type="datetimecoercing" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tokenauthenticationprovidertest" >
+      <xs:sequence>
+        <xs:element name="token" type="xs:string" />
+        <xs:element name="GeneratedName" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="mockservice" type="usersessionservice" nillable="true" minOccurs="0" />
+        <xs:element name="mock" type="xs:anyType" />
+        <xs:element name="mock" type="xs:anyType" />
+        <xs:element name="provider" type="tokenauthenticationprovider" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="subscriptionconnectionlistenertest" >
+      <xs:sequence>
+        <xs:element name="mockauthprovider" type="tokenauthenticationprovider" nillable="true" minOccurs="0" />
+        <xs:element name="mocksession" type="xs:anyType" />
+        <xs:element name="mock" type="xs:anyType" />
+        <xs:element name="listener" type="subscriptionconnectionlistener" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tokenauthorizationfiltertest" >
+      <xs:sequence>
+        <xs:element name="mockauthmanager" type="xs:anyType" />
+        <xs:element name="mockauthprovider" type="tokenauthenticationprovider" nillable="true" minOccurs="0" />
+        <xs:element name="mock" type="xs:anyType" />
+        <xs:element name="mock" type="xs:anyType" />
+        <xs:element name="mock" type="xs:anyType" />
+        <xs:element name="filter" type="tokenauthorizationfilter" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="withauthenticateduser" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bidsquerytest" >
+      <xs:complexContent>
+       <xs:extension base="integrationtest">
+         <xs:sequence>
+          <xs:element name="bids_total" type="xs:long" />
+          <xs:element name="bids" type="bid" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="itemquerytest" >
+      <xs:complexContent>
+       <xs:extension base="integrationtest">
+         <xs:sequence>
+          <xs:element name="maximages" type="xs:long" />
+          <xs:element name="images" type="image" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="thumbnails" type="image" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="awardeditemsquerytest" >
+      <xs:complexContent>
+       <xs:extension base="integrationtest">
+         <xs:sequence>
+          <xs:element name="items_total_number" type="xs:long" />
+          <xs:element name="default_page_size" type="xs:long" />
+          <xs:element name="items" type="item" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="mequerytest" >
+      <xs:complexContent>
+       <xs:extension base="integrationtest">
+         <xs:sequence>
+          <xs:element name="watched_items_number" type="xs:long" />
+          <xs:element name="bid_items_number" type="xs:long" />
+          <xs:element name="awarded_items_number" type="xs:long" />
+          <xs:element name="maxitems" type="xs:long" />
+          <xs:element name="watched" type="item" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="bid" type="item" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="awarded" type="item" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="biditemsquerytest" >
+      <xs:complexContent>
+       <xs:extension base="integrationtest">
+         <xs:sequence>
+          <xs:element name="items_total_number" type="xs:long" />
+          <xs:element name="default_page_size" type="xs:long" />
+          <xs:element name="items" type="item" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="watcheditemsquerytest" >
+      <xs:complexContent>
+       <xs:extension base="integrationtest">
+         <xs:sequence>
+          <xs:element name="items_total_number" type="xs:long" />
+          <xs:element name="default_page_size" type="xs:long" />
+          <xs:element name="items" type="item" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="itemsquerytest" >
+      <xs:complexContent>
+       <xs:extension base="integrationtest">
+         <xs:sequence>
+          <xs:element name="items_total_number" type="xs:long" />
+          <xs:element name="default_page_size" type="xs:long" />
+          <xs:element name="items" type="item" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="testsecurityconfig" >
+      <xs:complexContent>
+       <xs:extension base="websecurityconfigureradapter">
+         <xs:sequence>
+          <xs:element name="" type="tokenauthenticationprovider" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="mockuserinjector" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="auctioneventsubscriptiontest" >
+      <xs:complexContent>
+       <xs:extension base="integrationtest">
+         <xs:sequence>
+          <xs:element name="subscribed_user_id" type="xs:long" />
+          <xs:element name="timeout" type="xs:long" />
+          <xs:element name="wait_time" type="xs:long" />
+          <xs:element name="scheduler" type="applicationtaskscheduler" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="subscriptionnotloggedtest" >
+      <xs:complexContent>
+       <xs:extension base="integrationtest">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="customgraphqlerror" >
+      <xs:sequence>
+        <xs:element name="message" type="xs:string" />
+        <xs:element name="locations" type="xs:anyType" />
+        <xs:element name="errortype" type="xs:anyType" />
+        <xs:element name="path" type="xs:anyType" />
+        <xs:element name="extensions" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bidmutationtest" >
+      <xs:complexContent>
+       <xs:extension base="integrationtest">
+         <xs:sequence>
+          <xs:element name="itemcaptor" type="item" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="loginmutationtest" >
+      <xs:complexContent>
+       <xs:extension base="integrationtest">
+         <xs:sequence>
+          <xs:element name="tokencaptor" type="token" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="watchmutationtest" >
+      <xs:complexContent>
+       <xs:extension base="integrationtest">
+         <xs:sequence>
+          <xs:element name="watchlistcaptor" type="watchlistentry" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="unwatchmutationtest" >
+      <xs:complexContent>
+       <xs:extension base="integrationtest">
+         <xs:sequence>
+          <xs:element name="watchlistcaptor" type="watchlistid" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="logoutmutationtest" >
+      <xs:complexContent>
+       <xs:extension base="integrationtest">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="integrationtest" >
+      <xs:sequence>
+        <xs:element name="item_id" type="xs:long" />
+        <xs:element name="item_title" type="xs:string" />
+        <xs:element name="item_description" type="xs:string" />
+        <xs:element name="item_initial_price_str" type="xs:string" />
+        <xs:element name="item_initial_price" type="xs:anyType" />
+        <xs:element name="item_current_price_str" type="xs:string" />
+        <xs:element name="item_current_price" type="xs:anyType" />
+        <xs:element name="auction_expiration_str" type="xs:string" />
+        <xs:element name="auction_expiration" type="xs:anyType" />
+        <xs:element name="bids_number" type="xs:long" />
+        <xs:element name="image_url_prefix" type="xs:string" />
+        <xs:element name="thumbnail_id1" type="xs:long" />
+        <xs:element name="thumbnail_id2" type="xs:long" />
+        <xs:element name="thumbnail_id3" type="xs:long" />
+        <xs:element name="image_id1" type="xs:long" />
+        <xs:element name="image_id2" type="xs:long" />
+        <xs:element name="image_id3" type="xs:long" />
+        <xs:element name="user_id" type="xs:long" />
+        <xs:element name="auth_token" type="xs:string" />
+        <xs:element name="user_last_name" type="xs:string" />
+        <xs:element name="user_first_name" type="xs:string" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="user_profile_image" type="xs:string" />
+        <xs:element name="password_hash" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="itemrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="bidrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="awardeditemrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="imagerepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="tokenrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="userrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="watchlistrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pageablematcher" >
+      <xs:sequence>
+        <xs:element name="page" type="xs:long" />
+        <xs:element name="size" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="authenticationextension" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="admincontrollertest" >
+      <xs:sequence>
+        <xs:element name="mockservice" type="usersessionservice" nillable="true" minOccurs="0" />
+        <xs:element name="controller" type="admincontroller" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usersessionserviceimpltest" >
+      <xs:sequence>
+        <xs:element name="session_duration" type="xs:long" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="token_id" type="xs:string" />
+        <xs:element name="hash" type="xs:string" />
+        <xs:element name="user_id" type="xs:long" />
+        <xs:element name="GeneratedName" type="token" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="mock" type="userrepository" nillable="true" minOccurs="0" />
+        <xs:element name="mock" type="tokenrepository" nillable="true" minOccurs="0" />
+        <xs:element name="mock" type="xs:anyType" />
+        <xs:element name="service" type="usersessionserviceimpl" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="auctionserviceimpltest" >
+      <xs:sequence>
+        <xs:element name="page_number" type="xs:long" />
+        <xs:element name="page_size" type="xs:long" />
+        <xs:element name="item_id" type="xs:long" />
+        <xs:element name="item_id2" type="xs:long" />
+        <xs:element name="bids_total" type="xs:long" />
+        <xs:element name="bids_total2" type="xs:long" />
+        <xs:element name="user_id" type="xs:long" />
+        <xs:element name="user_id2" type="xs:long" />
+        <xs:element name="amount" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="2" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="user_ids" type="xs:anyType" />
+        <xs:element name="users" type="user" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="item_ids" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="item" nillable="true" minOccurs="0" />
+        <xs:element name="2" type="item" nillable="true" minOccurs="0" />
+        <xs:element name="_priced" type="item" nillable="true" minOccurs="0" />
+        <xs:element name="items" type="item" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="bid" nillable="true" minOccurs="0" />
+        <xs:element name="2" type="bid" nillable="true" minOccurs="0" />
+        <xs:element name="bids" type="bid" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="image" nillable="true" minOccurs="0" />
+        <xs:element name="2" type="image" nillable="true" minOccurs="0" />
+        <xs:element name="3" type="image" nillable="true" minOccurs="0" />
+        <xs:element name="images" type="image" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="mock" type="itemrepository" nillable="true" minOccurs="0" />
+        <xs:element name="mock" type="bidrepository" nillable="true" minOccurs="0" />
+        <xs:element name="mock" type="imagerepository" nillable="true" minOccurs="0" />
+        <xs:element name="mock" type="userrepository" nillable="true" minOccurs="0" />
+        <xs:element name="mock" type="awardeditemrepository" nillable="true" minOccurs="0" />
+        <xs:element name="mocknotificationsink" type="auctionnotification" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="service" type="auctionserviceimpl" nillable="true" minOccurs="0" />
+        <xs:element name="itemcaptor" type="item" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="awardeditemcaptor" type="awardeditem" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="notificationcaptor" type="auctionnotification" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="watchlistserviceimpltest" >
+      <xs:sequence>
+        <xs:element name="item_id" type="xs:long" />
+        <xs:element name="item_id2" type="xs:long" />
+        <xs:element name="item_ids" type="xs:anyType" />
+        <xs:element name="user_id" type="xs:long" />
+        <xs:element name="page_number" type="xs:long" />
+        <xs:element name="page_size" type="xs:long" />
+        <xs:element name="GeneratedName" type="item" nillable="true" minOccurs="0" />
+        <xs:element name="2" type="item" nillable="true" minOccurs="0" />
+        <xs:element name="items" type="item" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="mock" type="watchlistrepository" nillable="true" minOccurs="0" />
+        <xs:element name="mock" type="itemrepository" nillable="true" minOccurs="0" />
+        <xs:element name="service" type="watchlistserviceimpl" nillable="true" minOccurs="0" />
+        <xs:element name="watchlistentrycaptor" type="watchlistentry" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="watchlistidcaptor" type="watchlistid" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="auctionnotificationresolvertest" >
+      <xs:sequence>
+        <xs:element name="item_id" type="xs:long" />
+        <xs:element name="mock" type="auctionservice" nillable="true" minOccurs="0" />
+        <xs:element name="resolver" type="auctionnotificationresolver" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="itemresolvertest" >
+      <xs:complexContent>
+       <xs:extension base="withdataloader">
+         <xs:sequence>
+          <xs:element name="item_id" type="xs:long" />
+          <xs:element name="" type="item" nillable="true" minOccurs="0" />
+          <xs:element name="url1" type="xs:string" />
+          <xs:element name="url2" type="xs:string" />
+          <xs:element name="limit" type="xs:long" />
+          <xs:element name="bids_number" type="xs:long" />
+          <xs:element name="user_id" type="xs:long" />
+          <xs:element name="resolver" type="itemresolver" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userresolvertest" >
+      <xs:sequence>
+        <xs:element name="user_id" type="xs:long" />
+        <xs:element name="GeneratedName" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="limit" type="xs:long" />
+        <xs:element name="1" type="item" nillable="true" minOccurs="0" />
+        <xs:element name="2" type="item" nillable="true" minOccurs="0" />
+        <xs:element name="3" type="item" nillable="true" minOccurs="0" />
+        <xs:element name="items" type="item" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="mock" type="auctionservice" nillable="true" minOccurs="0" />
+        <xs:element name="mock" type="watchlistservice" nillable="true" minOccurs="0" />
+        <xs:element name="resolver" type="userresolver" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bidresolvertest" >
+      <xs:complexContent>
+       <xs:extension base="withdataloader">
+         <xs:sequence>
+          <xs:element name="user_id" type="xs:long" />
+          <xs:element name="username" type="xs:string" />
+          <xs:element name="resolver" type="bidresolver" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="withdataloader" >
+      <xs:sequence>
+        <xs:element name="mockenvironment" type="xs:anyType" />
+        <xs:element name="mockcontext" type="xs:anyType" />
+        <xs:element name="mock" type="xs:anyType" />
+        <xs:element name="mockdataloader" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="subscriptionresolvertest" >
+      <xs:sequence>
+        <xs:element name="no_events_wait_millis" type="xs:long" />
+        <xs:element name="timeout" type="xs:long" />
+        <xs:element name="user_id" type="xs:long" />
+        <xs:element name="item_id" type="xs:long" />
+        <xs:element name="current_user_" type="bid" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="bid" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="item" nillable="true" minOccurs="0" />
+        <xs:element name="mock" type="watchlistservice" nillable="true" minOccurs="0" />
+        <xs:element name="mock" type="auctionservice" nillable="true" minOccurs="0" />
+        <xs:element name="resolver" type="subscriptionresolver" nillable="true" minOccurs="0" />
+        <xs:element name="bidsink" type="bid" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="bids" type="bid" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="notificationsink" type="auctionnotification" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="notifications" type="auctionnotification" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="mutationresolvertest" >
+      <xs:sequence>
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="token" type="xs:string" />
+        <xs:element name="cookie_duration" type="xs:long" />
+        <xs:element name="user_id" type="xs:long" />
+        <xs:element name="item_id" type="xs:long" />
+        <xs:element name="amount" type="xs:anyType" />
+        <xs:element name="mockresponse" type="xs:anyType" />
+        <xs:element name="mock" type="usersessionservice" nillable="true" minOccurs="0" />
+        <xs:element name="mock" type="auctionservice" nillable="true" minOccurs="0" />
+        <xs:element name="mock" type="watchlistservice" nillable="true" minOccurs="0" />
+        <xs:element name="mockbidsink" type="bid" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="mockenvironment" type="xs:anyType" />
+        <xs:element name="resolver" type="mutationresolver" nillable="true" minOccurs="0" />
+        <xs:element name="cookiecaptor" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="queryresolvertest" >
+      <xs:sequence>
+        <xs:element name="page_number" type="xs:long" />
+        <xs:element name="page_size" type="xs:long" />
+        <xs:element name="item_id" type="xs:long" />
+        <xs:element name="1" type="item" nillable="true" minOccurs="0" />
+        <xs:element name="2" type="item" nillable="true" minOccurs="0" />
+        <xs:element name="3" type="item" nillable="true" minOccurs="0" />
+        <xs:element name="items" type="item" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="1" type="bid" nillable="true" minOccurs="0" />
+        <xs:element name="2" type="bid" nillable="true" minOccurs="0" />
+        <xs:element name="bids" type="bid" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="user_id" type="xs:long" />
+        <xs:element name="mock" type="auctionservice" nillable="true" minOccurs="0" />
+        <xs:element name="mock" type="watchlistservice" nillable="true" minOccurs="0" />
+        <xs:element name="resolver" type="queryresolver" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

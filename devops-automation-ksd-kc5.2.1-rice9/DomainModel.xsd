@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="persistedmessagepayload" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="routequeueid" type="xs:long" />
+        <xs:element name="payload" type="xs:string" />
+        <xs:element name="methodcall" type="xs:anyType" />
+        <xs:element name="message" type="persistedmessagebo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="flattenedservicedefinition" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="flattenedservicedefinitionid" type="xs:long" />
+        <xs:element name="flattenedservicedefinitiondata" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bamparam" >
+      <xs:sequence>
+        <xs:element name="bamparamid" type="xs:long" />
+        <xs:element name="GeneratedName" type="bamtargetentry" nillable="true" minOccurs="0" />
+        <xs:element name="param" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bamtargetentry" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="bamid" type="xs:long" />
+        <xs:element name="servicename" type="xs:string" />
+        <xs:element name="methodname" type="xs:string" />
+        <xs:element name="threadname" type="xs:string" />
+        <xs:element name="calldate" type="xs:anyType" />
+        <xs:element name="serviceurl" type="xs:string" />
+        <xs:element name="targetto" type="xs:string" />
+        <xs:element name="exceptionto" type="xs:string" />
+        <xs:element name="exceptionmessage" type="xs:string" />
+        <xs:element name="serverinvocation" type="xs:anyType" />
+        <xs:element name="bamparams" type="bamparam" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="//forasynccallsnotbamcallback" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persistedmessagebo" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="routequeueid" type="xs:long" />
+        <xs:element name="queuepriority" type="xs:anyType" />
+        <xs:element name="queuestatus" type="xs:string" />
+        <xs:element name="queuedate" type="xs:anyType" />
+        <xs:element name="expirationdate" type="xs:anyType" />
+        <xs:element name="retrycount" type="xs:anyType" />
+        <xs:element name="lockvernbr" type="xs:anyType" />
+        <xs:element name="ipnumber" type="xs:string" />
+        <xs:element name="servicename" type="xs:string" />
+        <xs:element name="applicationid" type="xs:string" />
+        <xs:element name="methodname" type="xs:string" />
+        <xs:element name="methodcall" type="xs:anyType" />
+        <xs:element name="payload" type="persistedmessagepayload" nillable="true" minOccurs="0" />
+        <xs:element name="value1" type="xs:string" />
+        <xs:element name="value2" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

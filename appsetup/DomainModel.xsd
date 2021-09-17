@@ -1,0 +1,867 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="artlogevents" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="logeventid" type="xs:string" />
+        <xs:element name="eventdatetime" type="xs:anyType" />
+        <xs:element name="event" type="xs:dateTime" />
+        <xs:element name="alarmid" type="xs:string" />
+        <xs:element name="multitenantid" type="xs:string" />
+        <xs:element name="userid" type="xs:string" />
+        <xs:element name="useripaddress" type="xs:string" />
+        <xs:element name="userport" type="xs:long" />
+        <xs:element name="geolatitude" type="xs:double" />
+        <xs:element name="geolongitude" type="xs:double" />
+        <xs:element name="sessionid" type="xs:string" />
+        <xs:element name="requestid" type="xs:string" />
+        <xs:element name="boundedcontextid" type="xs:string" />
+        <xs:element name="domainid" type="xs:string" />
+        <xs:element name="classname" type="xs:string" />
+        <xs:element name="methodname" type="xs:string" />
+        <xs:element name="message" type="xs:string" />
+        <xs:element name="exception" type="xs:string" />
+        <xs:element name="context" type="xs:long" />
+        <xs:element name="severity" type="xs:long" />
+        <xs:element name="layerid" type="xs:long" />
+        <xs:element name="eventaction" type="xs:long" />
+        <xs:element name="alarmstatus" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="artlogconfig" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="logconfigid" type="xs:string" />
+        <xs:element name="configdata" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="artloggingproperties" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="attributeid" type="xs:string" />
+        <xs:element name="attributename" type="xs:string" />
+        <xs:element name="attributevalue" type="xs:string" />
+        <xs:element name="attributecomment" type="xs:string" />
+        <xs:element name="attributedisplayname" type="xs:string" />
+        <xs:element name="GeneratedName" type="artlogconfig" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="artlogeventaction" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="eventactionid" type="integer" nillable="true" minOccurs="0" />
+        <xs:element name="eventaction" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="artlogconnector" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="connectorid" type="xs:string" />
+        <xs:element name="GeneratedName" type="artlogconfig" nillable="true" minOccurs="0" />
+        <xs:element name="loglevel" type="integer" nillable="true" minOccurs="0" />
+        <xs:element name="cid" type="integer" nillable="true" minOccurs="0" />
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="isenabled" type="boolean" nillable="true" minOccurs="0" />
+        <xs:element name="connectorname" type="xs:string" />
+        <xs:element name="classname" type="xs:string" />
+        <xs:element name="systemdefined" type="boolean" nillable="true" minOccurs="0" />
+        <xs:element name="logconnectorattributes" type="artlogconnectorattributes" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="artlogseverity" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="severity" type="xs:string" />
+        <xs:element name="severityid" type="integer" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="artboundedcontext" >
+      <xs:sequence>
+        <xs:element name="primarykey" type="xs:string" />
+        <xs:element name="boundedcontextid" type="xs:string" />
+        <xs:element name="boundedcontextname" type="xs:string" />
+        <xs:element name="hiddencontextname" type="xs:string" />
+        <xs:element name="alarmprefix" type="xs:string" />
+        <xs:element name="isdefault" type="boolean" nillable="true" minOccurs="0" />
+        <xs:element name="issystemdefined" type="boolean" nillable="true" minOccurs="0" />
+        <xs:element name="artdomain" type="artdomain" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="artlogconnectorattributes" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="attributeid" type="xs:string" />
+        <xs:element name="GeneratedName" type="artlogconnector" nillable="true" minOccurs="0" />
+        <xs:element name="attributename" type="xs:string" />
+        <xs:element name="attributevalue" type="xs:string" />
+        <xs:element name="attributecomment" type="xs:string" />
+        <xs:element name="attributedisplayname" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="artlogstatus" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="statusid" type="integer" nillable="true" minOccurs="0" />
+        <xs:element name="alarmstatus" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="artlogexception" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="exceptionid" type="integer" nillable="true" minOccurs="0" />
+        <xs:element name="exception" type="xs:string" />
+        <xs:element name="exceptionname" type="xs:string" />
+        <xs:element name="rootexception" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="artlogalarm" >
+      <xs:complexContent>
+       <xs:extension base="auditpropertiesentity">
+         <xs:sequence>
+          <xs:element name="primarykey" type="xs:string" />
+          <xs:element name="loggerpkid" type="xs:string" />
+          <xs:element name="alarmtype" type="xs:long" />
+          <xs:element name="alarmdata" type="xs:string" />
+          <xs:element name="alarmversion" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="artlogarchitecturelayer" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="layerid" type="integer" nillable="true" minOccurs="0" />
+        <xs:element name="layername" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="artdomain" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="domainname" type="xs:string" />
+        <xs:element name="domainid" type="xs:string" />
+        <xs:element name="hiddencontextname" type="xs:string" />
+        <xs:element name="alarmprefix" type="xs:string" />
+        <xs:element name="isdefault" type="boolean" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="artboundedcontext" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userrolebridge" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="primarykey" type="xs:string" />
+        <xs:element name="roleusermapid" type="xs:string" />
+        <xs:element name="roleid" type="xs:string" />
+        <xs:element name="userid" type="xs:string" />
+        <xs:element name="entityvalidator" type="object" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="versionid" type="xs:long" />
+        <xs:element name="GeneratedName" type="entityaudit" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="systeminfo" nillable="true" minOccurs="0" />
+        <xs:element name="primarydisplay" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="appmenus" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="menutreeid" type="xs:string" />
+        <xs:element name="menuicon" type="xs:string" />
+        <xs:element name="menuaction" type="xs:string" />
+        <xs:element name="menucommands" type="xs:string" />
+        <xs:element name="menudisplay" type="boolean" nillable="true" minOccurs="0" />
+        <xs:element name="menuhead" type="boolean" nillable="true" minOccurs="0" />
+        <xs:element name="menulabel" type="xs:string" />
+        <xs:element name="uitype" type="xs:string" />
+        <xs:element name="refobjectid" type="xs:string" />
+        <xs:element name="menuaccessrights" type="integer" nillable="true" minOccurs="0" />
+        <xs:element name="apptype" type="integer" nillable="true" minOccurs="0" />
+        <xs:element name="appid" type="xs:string" />
+        <xs:element name="autosave" type="boolean" nillable="true" minOccurs="0" />
+        <xs:element name="startdate" type="xs:anyType" />
+        <xs:element name="expirydate" type="xs:anyType" />
+        <xs:element name="golivedate" type="xs:anyType" />
+        <xs:element name="primarykey" type="xs:string" />
+        <xs:element name="menuid" type="xs:string" />
+        <xs:element name="entityvalidator" type="object" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="versionid" type="xs:long" />
+        <xs:element name="GeneratedName" type="entityaudit" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="systeminfo" nillable="true" minOccurs="0" />
+        <xs:element name="primarydisplay" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="roles" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="rolename" type="xs:string" />
+        <xs:element name="roledescription" type="xs:string" />
+        <xs:element name="roleicon" type="xs:string" />
+        <xs:element name="rolehelp" type="xs:string" />
+        <xs:element name="primarykey" type="xs:string" />
+        <xs:element name="roleid" type="xs:string" />
+        <xs:element name="rolemenubridge" type="rolemenubridge" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="entityvalidator" type="object" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="versionid" type="xs:long" />
+        <xs:element name="GeneratedName" type="entityaudit" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="systeminfo" nillable="true" minOccurs="0" />
+        <xs:element name="primarydisplay" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rolemenubridge" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="isread" type="boolean" nillable="true" minOccurs="0" />
+        <xs:element name="iswrite" type="boolean" nillable="true" minOccurs="0" />
+        <xs:element name="isexecute" type="boolean" nillable="true" minOccurs="0" />
+        <xs:element name="primarykey" type="xs:string" />
+        <xs:element name="rolemenumapid" type="xs:string" />
+        <xs:element name="menuid" type="xs:string" />
+        <xs:element name="GeneratedName" type="roles" nillable="true" minOccurs="0" />
+        <xs:element name="entityvalidator" type="object" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="versionid" type="xs:long" />
+        <xs:element name="GeneratedName" type="entityaudit" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="systeminfo" nillable="true" minOccurs="0" />
+        <xs:element name="primarydisplay" type="xs:string" />
+        <xs:element name="fieldname" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="passwordalgo" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="algorithm" type="integer" nillable="true" minOccurs="0" />
+        <xs:element name="algoname" type="xs:string" />
+        <xs:element name="algodescription" type="xs:string" />
+        <xs:element name="algoicon" type="xs:string" />
+        <xs:element name="algohelp" type="xs:string" />
+        <xs:element name="primarykey" type="xs:string" />
+        <xs:element name="algoid" type="xs:string" />
+        <xs:element name="entityvalidator" type="object" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="versionid" type="xs:long" />
+        <xs:element name="GeneratedName" type="entityaudit" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="systeminfo" nillable="true" minOccurs="0" />
+        <xs:element name="primarydisplay" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="smsnotification" >
+      <xs:complexContent>
+       <xs:extension base="auditpropertiesentity">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="mobileno" type="xs:string" />
+          <xs:element name="smstext" type="xs:string" />
+          <xs:element name="issent" type="boolean" nillable="true" minOccurs="0" />
+          <xs:element name="senddate" type="xs:anyType" />
+          <xs:element name="responsestatus" type="xs:string" />
+          <xs:element name="primarykey" type="xs:string" />
+          <xs:element name="notificationid" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sessiondata" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="customerid" type="xs:string" />
+        <xs:element name="userid" type="xs:string" />
+        <xs:element name="sessionkey" type="xs:string" />
+        <xs:element name="datatype" type="integer" nillable="true" minOccurs="0" />
+        <xs:element name="numbervalue" type="integer" nillable="true" minOccurs="0" />
+        <xs:element name="datetimevalue" type="xs:anyType" />
+        <xs:element name="value" type="xs:string" />
+        <xs:element name="value" type="boolean" nillable="true" minOccurs="0" />
+        <xs:element name="jsonvalue" type="xs:string" />
+        <xs:element name="appsessionid" type="xs:string" />
+        <xs:element name="primarykey" type="xs:string" />
+        <xs:element name="dataid" type="xs:string" />
+        <xs:element name="entityvalidator" type="object" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="versionid" type="xs:long" />
+        <xs:element name="GeneratedName" type="entityaudit" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="systeminfo" nillable="true" minOccurs="0" />
+        <xs:element name="primarydisplay" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userdata" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="onetimepassword" type="xs:string" />
+        <xs:element name="onetimepasswordexpiry" type="integer" nillable="true" minOccurs="0" />
+        <xs:element name="onetimepasswordgendate" type="xs:anyType" />
+        <xs:element name="last5passwords" type="xs:string" />
+        <xs:element name="primarykey" type="xs:string" />
+        <xs:element name="userdataid" type="xs:string" />
+        <xs:element name="GeneratedName" type="userdetail" nillable="true" minOccurs="0" />
+        <xs:element name="entityvalidator" type="object" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="versionid" type="xs:long" />
+        <xs:element name="GeneratedName" type="entityaudit" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="systeminfo" nillable="true" minOccurs="0" />
+        <xs:element name="primarydisplay" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="useraccessdomain" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="useraccessdomain" type="integer" nillable="true" minOccurs="0" />
+        <xs:element name="domainname" type="xs:string" />
+        <xs:element name="domaindescription" type="xs:string" />
+        <xs:element name="domainhelp" type="xs:string" />
+        <xs:element name="domainicon" type="xs:string" />
+        <xs:element name="primarykey" type="xs:string" />
+        <xs:element name="useraccessdomainid" type="xs:string" />
+        <xs:element name="entityvalidator" type="object" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="versionid" type="xs:long" />
+        <xs:element name="GeneratedName" type="entityaudit" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="systeminfo" nillable="true" minOccurs="0" />
+        <xs:element name="primarydisplay" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="artdocumenttemplate" >
+      <xs:complexContent>
+       <xs:extension base="auditpropertiesentity">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="pdf_document" type="integer" nillable="true" minOccurs="0" />
+          <xs:element name="word_doc_document" type="integer" nillable="true" minOccurs="0" />
+          <xs:element name="text_document" type="integer" nillable="true" minOccurs="0" />
+          <xs:element name="doctempid" type="xs:string" />
+          <xs:element name="docname" type="xs:string" />
+          <xs:element name="doctype" type="integer" nillable="true" minOccurs="0" />
+          <xs:element name="doctemplate" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="useraccesslevel" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="useraccesslevel" type="integer" nillable="true" minOccurs="0" />
+        <xs:element name="levelname" type="xs:string" />
+        <xs:element name="leveldescription" type="xs:string" />
+        <xs:element name="levelhelp" type="xs:string" />
+        <xs:element name="levelicon" type="xs:string" />
+        <xs:element name="primarykey" type="xs:string" />
+        <xs:element name="useraccesslevelid" type="xs:string" />
+        <xs:element name="entityvalidator" type="object" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="versionid" type="xs:long" />
+        <xs:element name="GeneratedName" type="entityaudit" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="systeminfo" nillable="true" minOccurs="0" />
+        <xs:element name="primarydisplay" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="passrecovery" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="answer" type="xs:string" />
+        <xs:element name="primarykey" type="xs:string" />
+        <xs:element name="passrecoveryid" type="xs:string" />
+        <xs:element name="questionid" type="xs:string" />
+        <xs:element name="GeneratedName" type="userdetail" nillable="true" minOccurs="0" />
+        <xs:element name="entityvalidator" type="object" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="versionid" type="xs:long" />
+        <xs:element name="GeneratedName" type="entityaudit" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="systeminfo" nillable="true" minOccurs="0" />
+        <xs:element name="primarydisplay" type="xs:string" />
+        <xs:element name="fieldname" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="loginsession" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="appserversessionid" type="xs:string" />
+        <xs:element name="logintime" type="xs:anyType" />
+        <xs:element name="logouttime" type="xs:anyType" />
+        <xs:element name="lastaccesstime" type="xs:anyType" />
+        <xs:element name="clientipaddress" type="xs:string" />
+        <xs:element name="clientipaddressint" type="xs:long" />
+        <xs:element name="clientnetworkaddress" type="integer" nillable="true" minOccurs="0" />
+        <xs:element name="clientbrowser" type="xs:string" />
+        <xs:element name="sessiondata" type="xs:string" />
+        <xs:element name="primarykey" type="xs:string" />
+        <xs:element name="appsessionid" type="xs:string" />
+        <xs:element name="userid" type="xs:string" />
+        <xs:element name="entityvalidator" type="object" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="versionid" type="xs:long" />
+        <xs:element name="GeneratedName" type="entityaudit" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="systeminfo" nillable="true" minOccurs="0" />
+        <xs:element name="primarydisplay" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="smsconfig" >
+      <xs:complexContent>
+       <xs:extension base="auditpropertiesentity">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="configname" type="xs:string" />
+          <xs:element name="jsondata" type="xs:string" />
+          <xs:element name="configurationbean" type="xs:string" />
+          <xs:element name="baseurl" type="xs:string" />
+          <xs:element name="configid" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="artpasswordalgorithm" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="algorithm" type="integer" nillable="true" minOccurs="0" />
+        <xs:element name="algoname" type="xs:string" />
+        <xs:element name="algodescription" type="xs:string" />
+        <xs:element name="primarykey" type="xs:string" />
+        <xs:element name="algoid" type="xs:string" />
+        <xs:element name="entityvalidator" type="object" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="versionid" type="xs:long" />
+        <xs:element name="primarydisplay" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="login" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="loginid" type="xs:string" />
+        <xs:element name="serverauthimage" type="xs:string" />
+        <xs:element name="serverauthtext" type="xs:string" />
+        <xs:element name="failedloginattempts" type="integer" nillable="true" minOccurs="0" />
+        <xs:element name="isauthenticated" type="boolean" nillable="true" minOccurs="0" />
+        <xs:element name="primarykey" type="xs:string" />
+        <xs:element name="loginpk" type="xs:string" />
+        <xs:element name="GeneratedName" type="userdetail" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="corecontacts" nillable="true" minOccurs="0" />
+        <xs:element name="entityvalidator" type="object" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="versionid" type="xs:long" />
+        <xs:element name="GeneratedName" type="entityaudit" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="systeminfo" nillable="true" minOccurs="0" />
+        <xs:element name="primarydisplay" type="xs:string" />
+        <xs:element name="sessionid" type="xs:string" />
+        <xs:element name="userhash" type="xs:string" />
+        <xs:element name="qkehash" type="xs:string" />
+        <xs:element name="ischeckcookie" type="boolean" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="artappnotificationtemplate" >
+      <xs:complexContent>
+       <xs:extension base="auditpropertiesentity">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="templateid" type="xs:string" />
+          <xs:element name="templatename" type="xs:string" />
+          <xs:element name="template" type="xs:string" />
+          <xs:element name="notificationtype" type="integer" nillable="true" minOccurs="0" />
+          <xs:element name="templateattributes" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="passwordpolicy" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="policyname" type="xs:string" />
+        <xs:element name="policydescription" type="xs:string" />
+        <xs:element name="maxpwdlength" type="integer" nillable="true" minOccurs="0" />
+        <xs:element name="minpwdlength" type="integer" nillable="true" minOccurs="0" />
+        <xs:element name="mincapitalletters" type="integer" nillable="true" minOccurs="0" />
+        <xs:element name="minsmallletters" type="integer" nillable="true" minOccurs="0" />
+        <xs:element name="minnumericvalues" type="integer" nillable="true" minOccurs="0" />
+        <xs:element name="minspecialletters" type="integer" nillable="true" minOccurs="0" />
+        <xs:element name="allowedspecialletters" type="xs:string" />
+        <xs:element name="primarykey" type="xs:string" />
+        <xs:element name="policyid" type="xs:string" />
+        <xs:element name="entityvalidator" type="object" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="versionid" type="xs:long" />
+        <xs:element name="GeneratedName" type="entityaudit" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="systeminfo" nillable="true" minOccurs="0" />
+        <xs:element name="primarydisplay" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userdetail" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="useraccesscode" type="integer" nillable="true" minOccurs="0" />
+        <xs:element name="multifactorauthenabled" type="integer" nillable="true" minOccurs="0" />
+        <xs:element name="gentemponetimepassword" type="integer" nillable="true" minOccurs="0" />
+        <xs:element name="allowmultiplelogin" type="integer" nillable="true" minOccurs="0" />
+        <xs:element name="islocked" type="integer" nillable="true" minOccurs="0" />
+        <xs:element name="isdeleted" type="integer" nillable="true" minOccurs="0" />
+        <xs:element name="changepasswordnextlogin" type="integer" nillable="true" minOccurs="0" />
+        <xs:element name="passwordexpirydate" type="xs:anyType" />
+        <xs:element name="passwordalgo" type="xs:string" />
+        <xs:element name="lastpasswordchangedate" type="xs:anyType" />
+        <xs:element name="sessiontimeout" type="integer" nillable="true" minOccurs="0" />
+        <xs:element name="primarykey" type="xs:string" />
+        <xs:element name="userid" type="xs:string" />
+        <xs:element name="useraccesslevelid" type="xs:string" />
+        <xs:element name="useraccessdomainid" type="xs:string" />
+        <xs:element name="GeneratedName" type="userdata" nillable="true" minOccurs="0" />
+        <xs:element name="passrecovery" type="passrecovery" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="entityvalidator" type="object" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="versionid" type="xs:long" />
+        <xs:element name="GeneratedName" type="entityaudit" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="systeminfo" nillable="true" minOccurs="0" />
+        <xs:element name="primarydisplay" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="question" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="levelid" type="integer" nillable="true" minOccurs="0" />
+        <xs:element name="question" type="xs:string" />
+        <xs:element name="questiondetails" type="xs:string" />
+        <xs:element name="questionicon" type="xs:string" />
+        <xs:element name="primarykey" type="xs:string" />
+        <xs:element name="questionid" type="xs:string" />
+        <xs:element name="entityvalidator" type="object" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="versionid" type="xs:long" />
+        <xs:element name="GeneratedName" type="entityaudit" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="systeminfo" nillable="true" minOccurs="0" />
+        <xs:element name="primarydisplay" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="artpasswordpolicy" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="policyname" type="xs:string" />
+        <xs:element name="policydescription" type="xs:string" />
+        <xs:element name="maxpwdlength" type="integer" nillable="true" minOccurs="0" />
+        <xs:element name="minpwdlength" type="integer" nillable="true" minOccurs="0" />
+        <xs:element name="mincapitalletters" type="integer" nillable="true" minOccurs="0" />
+        <xs:element name="minsmallletters" type="integer" nillable="true" minOccurs="0" />
+        <xs:element name="minnumericvalues" type="integer" nillable="true" minOccurs="0" />
+        <xs:element name="minspecialletters" type="integer" nillable="true" minOccurs="0" />
+        <xs:element name="allowedspecialletters" type="xs:string" />
+        <xs:element name="primarykey" type="xs:string" />
+        <xs:element name="policyid" type="xs:string" />
+        <xs:element name="entityvalidator" type="object" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="versionid" type="xs:long" />
+        <xs:element name="primarydisplay" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jwtconfig" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="jwtalgorithm" type="xs:string" />
+        <xs:element name="expiration" type="xs:anyType" />
+        <xs:element name="tokenkey" type="xs:string" />
+        <xs:element name="primarykey" type="xs:string" />
+        <xs:element name="configid" type="xs:string" />
+        <xs:element name="entityvalidator" type="object" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="versionid" type="xs:long" />
+        <xs:element name="GeneratedName" type="entityaudit" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="systeminfo" nillable="true" minOccurs="0" />
+        <xs:element name="primarydisplay" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="artuserlaststatus" >
+      <xs:complexContent>
+       <xs:extension base="artentity">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:string" />
+          <xs:element name="userid" type="xs:string" />
+          <xs:element name="menuid" type="xs:string" />
+          <xs:element name="jsondata" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="publicapi" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="apidata" type="xs:string" />
+        <xs:element name="schedulerdetails" type="xs:string" />
+        <xs:element name="primarykey" type="xs:string" />
+        <xs:element name="apiid" type="xs:string" />
+        <xs:element name="entityvalidator" type="object" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="versionid" type="xs:long" />
+        <xs:element name="GeneratedName" type="entityaudit" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="systeminfo" nillable="true" minOccurs="0" />
+        <xs:element name="primarydisplay" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="phonecommunication" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="phoneno" type="xs:string" />
+        <xs:element name="primarykey" type="xs:string" />
+        <xs:element name="phoneid" type="xs:string" />
+        <xs:element name="commtype" type="xs:string" />
+        <xs:element name="entityvalidator" type="object" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="versionid" type="xs:long" />
+        <xs:element name="GeneratedName" type="entityaudit" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="systeminfo" nillable="true" minOccurs="0" />
+        <xs:element name="primarydisplay" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="corecontacts" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="middlename" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+        <xs:element name="nativetitle" type="xs:string" />
+        <xs:element name="nativefirstname" type="xs:string" />
+        <xs:element name="nativemiddlename" type="xs:string" />
+        <xs:element name="nativelastname" type="xs:string" />
+        <xs:element name="dateofbirth" type="xs:anyType" />
+        <xs:element name="age" type="integer" nillable="true" minOccurs="0" />
+        <xs:element name="approximatedob" type="xs:anyType" />
+        <xs:element name="emailid" type="xs:string" />
+        <xs:element name="phonenumber" type="xs:string" />
+        <xs:element name="primarykey" type="xs:string" />
+        <xs:element name="contactid" type="xs:string" />
+        <xs:element name="titleid" type="xs:string" />
+        <xs:element name="nativelanguagecode" type="xs:string" />
+        <xs:element name="genderid" type="xs:string" />
+        <xs:element name="address" type="address" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="timezone" nillable="true" minOccurs="0" />
+        <xs:element name="entityvalidator" type="object" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="versionid" type="xs:long" />
+        <xs:element name="GeneratedName" type="entityaudit" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="systeminfo" nillable="true" minOccurs="0" />
+        <xs:element name="primarydisplay" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="socialcategory" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="socialcatname" type="xs:string" />
+        <xs:element name="primarykey" type="xs:string" />
+        <xs:element name="socialcatid" type="xs:string" />
+        <xs:element name="entityvalidator" type="object" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="versionid" type="xs:long" />
+        <xs:element name="GeneratedName" type="entityaudit" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="systeminfo" nillable="true" minOccurs="0" />
+        <xs:element name="primarydisplay" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="emailcommunication" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="primarykey" type="xs:string" />
+        <xs:element name="emailcommid" type="xs:string" />
+        <xs:element name="commtype" type="xs:string" />
+        <xs:element name="entityvalidator" type="object" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="versionid" type="xs:long" />
+        <xs:element name="GeneratedName" type="entityaudit" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="systeminfo" nillable="true" minOccurs="0" />
+        <xs:element name="primarydisplay" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="socialcommunication" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="social" type="xs:string" />
+        <xs:element name="primarykey" type="xs:string" />
+        <xs:element name="socialid" type="xs:string" />
+        <xs:element name="commtype" type="xs:string" />
+        <xs:element name="entityvalidator" type="object" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="versionid" type="xs:long" />
+        <xs:element name="GeneratedName" type="entityaudit" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="systeminfo" nillable="true" minOccurs="0" />
+        <xs:element name="primarydisplay" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="gender" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="gender" type="xs:string" />
+        <xs:element name="primarykey" type="xs:string" />
+        <xs:element name="genderid" type="xs:string" />
+        <xs:element name="entityvalidator" type="object" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="versionid" type="xs:long" />
+        <xs:element name="GeneratedName" type="entityaudit" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="systeminfo" nillable="true" minOccurs="0" />
+        <xs:element name="primarydisplay" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="title" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="titles" type="xs:string" />
+        <xs:element name="primarykey" type="xs:string" />
+        <xs:element name="titleid" type="xs:string" />
+        <xs:element name="entityvalidator" type="object" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="versionid" type="xs:long" />
+        <xs:element name="GeneratedName" type="entityaudit" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="systeminfo" nillable="true" minOccurs="0" />
+        <xs:element name="primarydisplay" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="emailcategory" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="emailcatname" type="xs:string" />
+        <xs:element name="primarykey" type="xs:string" />
+        <xs:element name="emailcatid" type="xs:string" />
+        <xs:element name="entityvalidator" type="object" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="versionid" type="xs:long" />
+        <xs:element name="GeneratedName" type="entityaudit" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="systeminfo" nillable="true" minOccurs="0" />
+        <xs:element name="primarydisplay" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="contacttype" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="contacttype" type="xs:string" />
+        <xs:element name="contacttypedesc" type="xs:string" />
+        <xs:element name="contacttypeicon" type="xs:string" />
+        <xs:element name="primarykey" type="xs:string" />
+        <xs:element name="contacttypeid" type="xs:string" />
+        <xs:element name="entityvalidator" type="object" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="versionid" type="xs:long" />
+        <xs:element name="GeneratedName" type="entityaudit" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="systeminfo" nillable="true" minOccurs="0" />
+        <xs:element name="primarydisplay" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="phonecategory" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="phonecatname" type="xs:string" />
+        <xs:element name="primarykey" type="xs:string" />
+        <xs:element name="phonecatid" type="xs:string" />
+        <xs:element name="entityvalidator" type="object" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="versionid" type="xs:long" />
+        <xs:element name="GeneratedName" type="entityaudit" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="systeminfo" nillable="true" minOccurs="0" />
+        <xs:element name="primarydisplay" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="city" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="cityname" type="xs:string" />
+        <xs:element name="citycodechar2" type="xs:string" />
+        <xs:element name="citycode" type="integer" nillable="true" minOccurs="0" />
+        <xs:element name="citydescription" type="xs:string" />
+        <xs:element name="cityflag" type="xs:string" />
+        <xs:element name="citylatitude" type="integer" nillable="true" minOccurs="0" />
+        <xs:element name="citylongitude" type="integer" nillable="true" minOccurs="0" />
+        <xs:element name="primarykey" type="xs:string" />
+        <xs:element name="cityid" type="xs:string" />
+        <xs:element name="countryid" type="xs:string" />
+        <xs:element name="stateid" type="xs:string" />
+        <xs:element name="entityvalidator" type="object" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="versionid" type="xs:long" />
+        <xs:element name="GeneratedName" type="entityaudit" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="systeminfo" nillable="true" minOccurs="0" />
+        <xs:element name="primarydisplay" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="address" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="addresslabel" type="xs:string" />
+        <xs:element name="address1" type="xs:string" />
+        <xs:element name="address2" type="xs:string" />
+        <xs:element name="address3" type="xs:string" />
+        <xs:element name="zipcode" type="xs:string" />
+        <xs:element name="latitude" type="xs:string" />
+        <xs:element name="longitude" type="xs:string" />
+        <xs:element name="primarykey" type="xs:string" />
+        <xs:element name="addressid" type="xs:string" />
+        <xs:element name="addresstypeid" type="xs:string" />
+        <xs:element name="countryid" type="xs:string" />
+        <xs:element name="stateid" type="xs:string" />
+        <xs:element name="cityid" type="xs:string" />
+        <xs:element name="entityvalidator" type="object" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="versionid" type="xs:long" />
+        <xs:element name="GeneratedName" type="entityaudit" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="systeminfo" nillable="true" minOccurs="0" />
+        <xs:element name="primarydisplay" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="timezone" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="utcdifference" type="integer" nillable="true" minOccurs="0" />
+        <xs:element name="gmtlabel" type="xs:string" />
+        <xs:element name="timezonelabel" type="xs:string" />
+        <xs:element name="country" type="xs:string" />
+        <xs:element name="cities" type="xs:string" />
+        <xs:element name="primarykey" type="xs:string" />
+        <xs:element name="timezoneid" type="xs:string" />
+        <xs:element name="entityvalidator" type="object" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="versionid" type="xs:long" />
+        <xs:element name="GeneratedName" type="entityaudit" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="systeminfo" nillable="true" minOccurs="0" />
+        <xs:element name="primarydisplay" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="state" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="statename" type="xs:string" />
+        <xs:element name="statecode" type="integer" nillable="true" minOccurs="0" />
+        <xs:element name="statecodechar2" type="xs:string" />
+        <xs:element name="statecodechar3" type="xs:string" />
+        <xs:element name="statedescription" type="xs:string" />
+        <xs:element name="stateflag" type="xs:string" />
+        <xs:element name="statecapital" type="xs:string" />
+        <xs:element name="statecapitallatitude" type="integer" nillable="true" minOccurs="0" />
+        <xs:element name="statecapitallongitude" type="integer" nillable="true" minOccurs="0" />
+        <xs:element name="primarykey" type="xs:string" />
+        <xs:element name="stateid" type="xs:string" />
+        <xs:element name="countryid" type="xs:string" />
+        <xs:element name="entityvalidator" type="object" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="versionid" type="xs:long" />
+        <xs:element name="GeneratedName" type="entityaudit" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="systeminfo" nillable="true" minOccurs="0" />
+        <xs:element name="primarydisplay" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="addresstype" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="addresstype" type="xs:string" />
+        <xs:element name="addresstypedesc" type="xs:string" />
+        <xs:element name="addresstypeicon" type="xs:string" />
+        <xs:element name="primarykey" type="xs:string" />
+        <xs:element name="addresstypeid" type="xs:string" />
+        <xs:element name="entityvalidator" type="object" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="versionid" type="xs:long" />
+        <xs:element name="GeneratedName" type="entityaudit" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="systeminfo" nillable="true" minOccurs="0" />
+        <xs:element name="primarydisplay" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="country" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="countryname" type="xs:string" />
+        <xs:element name="countrycode1" type="xs:string" />
+        <xs:element name="countrycode2" type="xs:string" />
+        <xs:element name="countryflag" type="xs:string" />
+        <xs:element name="capital" type="xs:string" />
+        <xs:element name="currencycode" type="xs:string" />
+        <xs:element name="currencyname" type="xs:string" />
+        <xs:element name="currencysymbol" type="xs:string" />
+        <xs:element name="capitallatitude" type="integer" nillable="true" minOccurs="0" />
+        <xs:element name="capitallongitude" type="integer" nillable="true" minOccurs="0" />
+        <xs:element name="isonumeric" type="integer" nillable="true" minOccurs="0" />
+        <xs:element name="primarykey" type="xs:string" />
+        <xs:element name="countryid" type="xs:string" />
+        <xs:element name="entityvalidator" type="object" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="versionid" type="xs:long" />
+        <xs:element name="GeneratedName" type="entityaudit" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="systeminfo" nillable="true" minOccurs="0" />
+        <xs:element name="primarydisplay" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="language" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="language" type="xs:string" />
+        <xs:element name="languagetype" type="xs:string" />
+        <xs:element name="languagedescription" type="xs:string" />
+        <xs:element name="languageicon" type="xs:string" />
+        <xs:element name="alpha2" type="xs:string" />
+        <xs:element name="alpha3" type="xs:string" />
+        <xs:element name="alpha4" type="xs:string" />
+        <xs:element name="alpha4parentid" type="integer" nillable="true" minOccurs="0" />
+        <xs:element name="primarykey" type="xs:string" />
+        <xs:element name="languageid" type="xs:string" />
+        <xs:element name="entityvalidator" type="object" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="versionid" type="xs:long" />
+        <xs:element name="GeneratedName" type="entityaudit" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="systeminfo" nillable="true" minOccurs="0" />
+        <xs:element name="primarydisplay" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

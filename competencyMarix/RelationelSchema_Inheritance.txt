@@ -1,0 +1,55 @@
+
+address(number:String, GeneratedName:EntityDescription, GeneratedName:Street #FK to(street), GeneratedName:City #FK to(city), GeneratedName:Country #FK to(country));
+
+city(cityname:String);
+
+street(postcode:String, streetname:String);
+
+country(countryname:String);
+
+user(role_not_found:String, login:String, password:String, GeneratedName:Person #FK to(person));
+
+user_list<userrole>(userID:user [PK] #FK to user,list<userrole>ID:list<userrole> [PK] #FK to list<userrole>);
+
+userrole(rolename:String);
+
+persondetails(mothername:String, mothermaidenname:String, fathername:String, type:Document #FK to(document), documentnumber:String, idnumber:String, nationality:Country #FK to(country));
+
+personcompetence(level:Integer, GeneratedName:Person #FK to(person), GeneratedName:Competence #FK to(competence));
+
+personcompetence_list<document>(personcompetenceID:personcompetence [PK] #FK to personcompetence,list<document>ID:list<document> [PK] #FK to list<document>);
+
+document(title:String, description:String, releasedby:String, GeneratedName:DocumentType, documentnumber:String, idnumber:String, releasedate:LocalDate, expirydate:LocalDate, release:Country #FK to(country));
+
+competence(GeneratedName:EntityDescription);
+
+person(firstname:String, middlename:String, lastname:String, maidenname:String, GeneratedName:Gender, birthdate:LocalDate, GeneratedName:PersonDetails #FK to(persondetails), GeneratedName:Address #FK to(address));
+
+manager(GeneratedName:Person #FK to(person));
+
+positiondetails(positioncreationdate:LocalDate, positiondeactivationdate:LocalDate, isactive:boolean);
+
+positiondetails_list<inventory>(positiondetailsID:positiondetails [PK] #FK to positiondetails,list<inventory>ID:list<inventory> [PK] #FK to list<inventory>);
+
+department(GeneratedName:EntityDescription, GeneratedName:Branch #FK to(branch));
+
+employee(GeneratedName:Manager #FK to(manager), GeneratedName:Person #FK to(person), GeneratedName:Position #FK to(position), GeneratedName:Department #FK to(department));
+
+company(GeneratedName:EntityDescription, GeneratedName:CompanyDetails #FK to(companydetails));
+
+position(GeneratedName:EntityDescription, GeneratedName:PositionDetails #FK to(positiondetails));
+
+branch(GeneratedName:EntityDescription, branchcreationdate:LocalDate, GeneratedName:Company #FK to(company), GeneratedName:Address #FK to(address));
+
+inventory(GeneratedName:EntityDescription, price:BigDecimal, GeneratedName:Branch #FK to(branch));
+
+inventory_list<competence>(inventoryID:inventory [PK] #FK to inventory,list<competence>ID:list<competence> [PK] #FK to list<competence>);
+
+companydetails(vat_no:String, companycreationdate:LocalDate, mother:Branch #FK to(branch));
+
+audithistory(id:Long [PK], tablename:String, beforestatement:String, afterstatement:String, operationtype:String);
+
+searchhistory(query:String);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

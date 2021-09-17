@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="devicetest" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="devicecontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="devicerepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="controllerexceptionhandler" >
+      <xs:sequence>
+        <xs:element name="_er001" type="xs:anyType" />
+        <xs:element name="_er002" type="xs:anyType" />
+        <xs:element name="_er003" type="xs:anyType" />
+        <xs:element name="_er004" type="xs:anyType" />
+        <xs:element name="_er005" type="xs:anyType" />
+        <xs:element name="message" type="xs:string" />
+        <xs:element name="errorcode" type="xs:string" />
+        <xs:element name="resourcekey" type="xs:string" />
+        <xs:element name="status" type="xs:anyType" />
+        <xs:element name="errors" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="serialnoformatincorrectexception" >
+      <xs:complexContent>
+       <xs:extension base="runtimeexception">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="machinecodeandserialnonotfound" >
+      <xs:complexContent>
+       <xs:extension base="runtimeexception">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="machinecodeblankexception" >
+      <xs:complexContent>
+       <xs:extension base="runtimeexception">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="device" >
+      <xs:sequence>
+        <xs:element name="serialno" type="xs:string" />
+        <xs:element name="machinecode" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="deviceid" >
+      <xs:sequence>
+        <xs:element name="serialno" type="xs:string" />
+        <xs:element name="machinecode" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="devicerepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<device,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="application" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

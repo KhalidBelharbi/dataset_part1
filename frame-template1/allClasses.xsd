@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="application" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jwtserver" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="r" >
+      <xs:complexContent>
+       <xs:extension base="hashmap<string,">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="resourcescontroller" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="roleentity" >
+      <xs:sequence>
+        <xs:element name="/***角色id*/id" type="xs:string" />
+        <xs:element name="/***/rolename" type="xs:string" />
+        <xs:element name="/***/description" type="xs:string" />
+        <xs:element name="/***/status" type="xs:anyType" />
+        <xs:element name="/***/createtime" type="xs:dateTime" />
+        <xs:element name="/***/uptime" type="xs:dateTime" />
+        <xs:element name="/***/users" type="userentity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="/***配置角色到权限的多对多关系*/permissions" type="permissionentity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userentity" >
+      <xs:sequence>
+        <xs:element name="/***用户id*/id" type="xs:string" />
+        <xs:element name="/***用户名（唯一）*/username" type="xs:string" />
+        <xs:element name="/***密码*/password" type="xs:string" />
+        <xs:element name="/***用户姓名*/fullname" type="xs:string" />
+        <xs:element name="/***手机号*/mobile" type="xs:string" />
+        <xs:element name="/***/createtime" type="xs:dateTime" />
+        <xs:element name="/***/uptime" type="xs:dateTime" />
+        <xs:element name="/***配置用户到角色的多对多关系*/roles" type="roleentity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="permissionentity" >
+      <xs:sequence>
+        <xs:element name="/***权限id*/id" type="xs:string" />
+        <xs:element name="/***权限标识符*/code" type="xs:string" />
+        <xs:element name="/***描述*/description" type="xs:string" />
+        <xs:element name="/***请求地址*/url" type="xs:string" />
+        <xs:element name="/***/createtime" type="xs:dateTime" />
+        <xs:element name="/***/uptime" type="xs:dateTime" />
+        <xs:element name="/***/roles" type="roleentity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="permissionrepository" >
+      <xs:complexContent>
+       <xs:extension base="jpaspecificationexecutor<permissionentity>,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="rolerepository" >
+      <xs:complexContent>
+       <xs:extension base="jpaspecificationexecutor<roleentity>,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userrepository" >
+      <xs:complexContent>
+       <xs:extension base="jpaspecificationexecutor<userentity>,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="loginrequest" >
+      <xs:sequence>
+        <xs:element name="/***用户名*/username" type="xs:string" />
+        <xs:element name="/***密码*/password" type="xs:string" />
+        <xs:element name="/***记住我*/rememberme" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jwtaccessdeniedhandler" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jwtauthenticationentrypoint" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jwttokenutils" >
+      <xs:sequence>
+        <xs:element name="apikeysecrets" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="currentuserutils" >
+      <xs:sequence>
+        <xs:element name="userservice" type="userdetailsserviceimpl" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="securityconfig" >
+      <xs:complexContent>
+       <xs:extension base="websecurityconfigureradapter">
+         <xs:sequence>
+          <xs:element name="" type="userdetailsserviceimpl" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userdetailsserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jwtconfig" >
+      <xs:sequence>
+        <xs:element name="/***登录的地址*/auth_login_url" type="xs:string" />
+        <xs:element name="/***rememberme为false的时候过期时间是1个小时*/expiration" type="xs:long" />
+        <xs:element name="/***rememberme为true的时候过期时间是7天*/expiration_remember" type="xs:long" />
+        <xs:element name="/***jwt签名密钥*/jwt_secret_key" type="xs:string" />
+        <xs:element name="header" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jwtauthenticationfilter" >
+      <xs:complexContent>
+       <xs:extension base="usernamepasswordauthenticationfilter">
+         <xs:sequence>
+          <xs:element name="rememberme" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jwtauthorizationfilter" >
+      <xs:complexContent>
+       <xs:extension base="basicauthenticationfilter">
+         <xs:sequence>
+          <xs:element name="userdetailsservice" type="userdetailsserviceimpl" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="repositorytest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="rolerepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="permissionrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="cliente" >
+      <xs:sequence>
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="filiali" type="filiale" nillable="true" minOccurs="0" />
+        <xs:element name="nag" type="xs:string" />
+        <xs:element name="cab" type="xs:string" />
+        <xs:element name="nome" type="xs:string" />
+        <xs:element name="datanascita" type="xs:dateTime" />
+        <xs:element name="telefono" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="p1" type="xs:anyType" />
+        <xs:element name="p2" type="xs:anyType" />
+        <xs:element name="p3" type="xs:anyType" />
+        <xs:element name="p4" type="xs:anyType" />
+        <xs:element name="p5" type="xs:anyType" />
+        <xs:element name="p6" type="xs:anyType" />
+        <xs:element name="p7" type="xs:anyType" />
+        <xs:element name="firma" type="xs:anyType" />
+        <xs:element name="codice" type="xs:string" />
+        <xs:element name="confermato" type="xs:anyType" />
+        <xs:element name="utenti" type="utente" nillable="true" minOccurs="0" />
+        <xs:element name="lastmodify" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="variazionecliente" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="clienti" type="cliente" nillable="true" minOccurs="0" />
+        <xs:element name="campo" type="xs:string" />
+        <xs:element name="utenti" type="utente" nillable="true" minOccurs="0" />
+        <xs:element name="lastmodify" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ruoloutente" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="ruolo" type="xs:string" />
+        <xs:element name="utenti" type="utente" nillable="true" minOccurs="0" />
+        <xs:element name="lastmodify" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="articoli" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="codicearticolo" type="xs:string" />
+        <xs:element name="nomeprodotto" type="xs:string" />
+        <xs:element name="descrizione" type="xs:string" />
+        <xs:element name="dettagliordine" type="dettagliordine" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="filiale" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="nome" type="xs:string" />
+        <xs:element name="codice" type="xs:anyType" />
+        <xs:element name="cab" type="xs:string" />
+        <xs:element name="lastmodify" type="xs:dateTime" />
+        <xs:element name="clienti" type="cliente" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="utenti" type="utente" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ordini" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="codiceordine" type="xs:string" />
+        <xs:element name="dataordine" type="xs:dateTime" />
+        <xs:element name="dettagliordine" type="dettagliordine" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="utente" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="filiali" type="filiale" nillable="true" minOccurs="0" />
+        <xs:element name="ruoliutenti" type="ruoloutente" nillable="true" minOccurs="0" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="nome" type="xs:string" />
+        <xs:element name="cognome" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="statoattivo" type="xs:anyType" />
+        <xs:element name="cambiopassword" type="xs:anyType" />
+        <xs:element name="lastmodify" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dettagliordine" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="articolo" type="articoli" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="ordini" nillable="true" minOccurs="0" />
+        <xs:element name="quantità" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

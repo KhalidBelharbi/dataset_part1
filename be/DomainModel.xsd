@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="product" >
+      <xs:sequence>
+        <xs:element name="prdno" type="xs:long" />
+        <xs:element name="prdname" type="xs:string" />
+        <xs:element name="prdimg" type="xs:string" />
+        <xs:element name="prdprice" type="xs:string" />
+        <xs:element name="prdinv" type="xs:string" />
+        <xs:element name="ctgname" type="xs:string" />
+        <xs:element name="GeneratedName" type="category" nillable="true" minOccurs="0" />
+        <xs:element name="paymentlist" type="payment" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="reply" >
+      <xs:sequence>
+        <xs:element name="rplno" type="xs:long" />
+        <xs:element name="rplcontent" type="xs:string" />
+        <xs:element name="GeneratedName" type="board" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="user" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="level" >
+      <xs:sequence>
+        <xs:element name="level" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="usrno" type="xs:long" />
+        <xs:element name="usrname" type="xs:string" />
+        <xs:element name="usrnickname" type="xs:string" />
+        <xs:element name="usremail" type="xs:string" />
+        <xs:element name="usrpwd" type="xs:string" />
+        <xs:element name="usrages" type="xs:string" />
+        <xs:element name="usrcity" type="xs:string" />
+        <xs:element name="usrgender" type="xs:string" />
+        <xs:element name="usrphone" type="xs:string" />
+        <xs:element name="usrid" type="xs:string" />
+        <xs:element name="usraddr" type="xs:string" />
+        <xs:element name="GeneratedName" type="level" nillable="true" minOccurs="0" />
+        <xs:element name="paymentlist" type="payment" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="payment" >
+      <xs:sequence>
+        <xs:element name="payno" type="xs:long" />
+        <xs:element name="payprice" type="xs:string" />
+        <xs:element name="payamount" type="xs:long" />
+        <xs:element name="dvrfee" type="xs:string" />
+        <xs:element name="paydate" type="xs:string" />
+        <xs:element name="paystate" type="xs:string" />
+        <xs:element name="GeneratedName" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="product" nillable="true" minOccurs="0" />
+        <xs:element name="receiverlist" type="receiver" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="boardlist" type="board" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="cart" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="receiver" >
+      <xs:sequence>
+        <xs:element name="rcvno" type="xs:long" />
+        <xs:element name="rcvname" type="xs:string" />
+        <xs:element name="rcvphone" type="xs:string" />
+        <xs:element name="rcvaddr" type="xs:string" />
+        <xs:element name="GeneratedName" type="payment" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cart" >
+      <xs:sequence>
+        <xs:element name="cartno" type="xs:long" />
+        <xs:element name="cartamount" type="xs:long" />
+        <xs:element name="GeneratedName" type="payment" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="category" >
+      <xs:sequence>
+        <xs:element name="ctgno" type="xs:long" />
+        <xs:element name="ctgname" type="xs:string" />
+        <xs:element name="productlist" type="product" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="board" >
+      <xs:sequence>
+        <xs:element name="brdno" type="xs:long" />
+        <xs:element name="brdtitle" type="xs:string" />
+        <xs:element name="brdcontent" type="xs:string" />
+        <xs:element name="brdwrtdate" type="xs:string" />
+        <xs:element name="brdrank" type="xs:string" />
+        <xs:element name="brdimg" type="xs:string" />
+        <xs:element name="usrnickname" type="xs:string" />
+        <xs:element name="brdkind" type="xs:long" />
+        <xs:element name="count" type="xs:long" />
+        <xs:element name="brdlike" type="xs:string" />
+        <xs:element name="brdpwd" type="xs:string" />
+        <xs:element name="replylist" type="reply" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="payment" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="product" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

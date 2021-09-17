@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="securitycofiguration" >
+      <xs:complexContent>
+       <xs:extension base="websecurityconfigureradapter">
+         <xs:sequence>
+          <xs:element name="" type="userservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="webmvcconfiguration" >
+      <xs:complexContent>
+       <xs:extension base="webmvcconfigureradapter">
+         <xs:sequence>
+          <xs:element name="" type="requesttimeinterceptor" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="viewconstant" >
+      <xs:sequence>
+        <xs:element name="contactform_view" type="xs:string" />
+        <xs:element name="contacts_view" type="xs:string" />
+        <xs:element name="login_view" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="logincontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="log" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="restcontroller" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="contactcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="log" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="contactservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="backendninjaspringbootapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="contactservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="contactserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="contactrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="contactconverter" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userrole" >
+      <xs:sequence>
+        <xs:element name="userroleid" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="role" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="contact" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+        <xs:element name="telephone" type="xs:string" />
+        <xs:element name="city" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="enable" type="xs:anyType" />
+        <xs:element name="userrole" type="userrole" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="log" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="xs:dateTime" />
+        <xs:element name="details" type="xs:string" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="url" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="contactmodel" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+        <xs:element name="telephone" type="xs:string" />
+        <xs:element name="city" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usercredential" >
+      <xs:sequence>
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="contactrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<contact,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<user,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="logrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<log,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="testcrypt" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="contactconverter" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="requesttimeinterceptor" >
+      <xs:complexContent>
+       <xs:extension base="handlerinterceptoradapter">
+         <xs:sequence>
+          <xs:element name="" type="log" nillable="true" minOccurs="0" />
+          <xs:element name="" type="logrepository" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="taskcomponent" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="log" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="application" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="404" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="500" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="contactform" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="contacts" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="login" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="login" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="backendninjaspringbootapplicationtests" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

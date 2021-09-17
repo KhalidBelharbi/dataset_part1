@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="reply" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="rno" type="xs:long" />
+          <xs:element name="text" type="xs:string" />
+          <xs:element name="replyer" type="xs:string" />
+          <xs:element name="/**하나의댓글은오직하나의게시글에소속되고*하나의게시글은여러개의댓글을가질수있다.*manytoone의관계일때many측의레코드가져올때*그럼lazy(지연),eager(즉)로딩이냐?*eager로딩한다.**/" type="board" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="baseentity" >
+      <xs:sequence>
+        <xs:element name="regdate" type="xs:anyType" />
+        <xs:element name="moddate" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="board" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="bno" type="xs:long" />
+          <xs:element name="title" type="xs:string" />
+          <xs:element name="content" type="xs:string" />
+          <xs:element name="writer" type="member" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="member" >
+      <xs:complexContent>
+       <xs:extension base="baseentity{">
+         <xs:sequence>
+          <xs:element name="email" type="xs:string" />
+          <xs:element name="password" type="xs:string" />
+          <xs:element name="name" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema> 

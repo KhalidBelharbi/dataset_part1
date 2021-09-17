@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="comment-form" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="registration-form" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="node" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="login-form" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="comment-history" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="fieldmatch" >
+      <xs:complexContent>
+       <xs:extension base="payload>[]">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="fieldmatchvalidator" >
+      <xs:sequence>
+        <xs:element name="firstfieldname" type="xs:string" />
+        <xs:element name="secondfieldname" type="xs:string" />
+        <xs:element name="message" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="authoritieid" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="authority" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="subfollower" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="sub" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="enabled" type="xs:anyType" />
+        <xs:element name="/*	*aonetomanyrelationship.mappedbyisabletomapthecorrectuser.	*becauseitusestheauthoritieclassandmappstheusertothememeber	*fielduserinauthoritieclass.	*/authorities" type="authoritie" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sub" >
+      <xs:sequence>
+        <xs:element name="subname" type="xs:string" />
+        <xs:element name="creator" type="xs:string" />
+        <xs:element name="numberoffollowers" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="crmuser" >
+      <xs:sequence>
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="matchingpassword" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="authoritie" >
+      <xs:sequence>
+        <xs:element name="/***springwillautomagicallylookattheclass,generateabeanandmap*ittoauthoriteclass.*/" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="authority" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="comment" >
+      <xs:sequence>
+        <xs:element name="commentid" type="xs:long" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="threadid" type="xs:long" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="content" type="xs:string" />
+        <xs:element name="parentid" type="xs:anyType" />
+        <xs:element name="deleted" type="xs:anyType" />
+        <xs:element name="children" type="comment" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="indent" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="thread" >
+      <xs:sequence>
+        <xs:element name="threadid" type="xs:long" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="subname" type="xs:string" />
+        <xs:element name="threadtitle" type="xs:string" />
+        <xs:element name="threadcontent" type="xs:string" />
+        <xs:element name="numberofcomments" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="subfollowerid" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="sub" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="mylogoutsuccesshandlerone" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="attachatconfig" >
+      <xs:sequence>
+        <xs:element name="env" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="myspringmvcdispatcherservletinitializer" >
+      <xs:complexContent>
+       <xs:extension base="abstractannotationconfigdispatcherservletinitializer">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="customauthenticationsuccesshandler" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="mycustomloginsuccesshandler" >
+      <xs:complexContent>
+       <xs:extension base="savedrequestawareauthenticationsuccesshandler">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="securitywebapplicationinitializer" >
+      <xs:complexContent>
+       <xs:extension base="">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="attachatsercurityconfig" >
+      <xs:complexContent>
+       <xs:extension base="websecurityconfigureradapter">
+         <xs:sequence>
+          <xs:element name="" type="userservice" nillable="true" minOccurs="0" />
+          <xs:element name="" type="customauthenticationsuccesshandler" nillable="true" minOccurs="0" />
+          <xs:element name="my" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="registrationcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="attachatmaincontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="subservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="threadservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="logincontroller" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="threadcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="subservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="threadservice" nillable="true" minOccurs="0" />
+        <xs:element name="commentserivce" type="commentservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="subcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="subservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="threadservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="commentcontroller" >
+      <xs:sequence>
+        <xs:element name="commentserivce" type="commentservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="threadservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userdaoimpl" >
+      <xs:sequence>
+        <xs:element name="//needtoinjectthesessionfactory" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userdao" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="subdaoimpl" >
+      <xs:sequence>
+        <xs:element name="//needtoinjectthesessionfactory" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="threaddao" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="commentdaoimpl" >
+      <xs:sequence>
+        <xs:element name="//needtoinjectthesessionfactory" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="authoritieimpl" >
+      <xs:sequence>
+        <xs:element name="//needtoinjectthesessionfactory" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="subdao" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="authoritiedao" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="threaddaoimpl" >
+      <xs:sequence>
+        <xs:element name="//needtoinjectthesessionfactory" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="commentdao" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="subservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="subserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="subdao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userserviceimpl" >
+      <xs:complexContent>
+       <xs:extension base="grantedauthority>">
+         <xs:sequence>
+          <xs:element name="" type="userdao" nillable="true" minOccurs="0" />
+          <xs:element name="" type="authoritiedao" nillable="true" minOccurs="0" />
+          <xs:element name="passwordencoder" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userservice" >
+      <xs:complexContent>
+       <xs:extension base="userdetailsservice">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="commentserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="commentdao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="commentservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="threadserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="threaddao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="threadservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

@@ -1,0 +1,15 @@
+
+notetype(notetypecode:String [PK], notetypedescription:String, notetypeactiveindicator:boolean);
+
+attachment(serialversionuid:long, noteidentifier:Long [PK], attachmentmimetypecode:String, attachmentfilename:String, attachmentidentifier:String, attachmentfilesize:Long, attachmenttypecode:String, GeneratedName:Note #FK to(note));
+
+selectedobjectids(selectedobjectids:String);
+
+note(serialversionuid:long, noteidentifier:Long [PK], remoteobjectidentifier:String, authoruniversalidentifier:String, noteposted:Timestamp, notetypecode:String, notetext:String, notetopictext:String, notepurgecode:String, GeneratedName:NoteType #FK to(notetype), GeneratedName:Attachment #FK to(attachment));
+
+adhocrouteperson(serialversionuid:long);
+
+pessimisticlock(serialversionuid:long, default_lock_descriptor:String, //idissequencenumberandprimarykeyid:Long [PK], ownedbyprincipalidentifier:String, //thiswillbedefaultedtothevalueofdefault_lock_descriptorconstantabovelockdescriptor:String, generated:Timestamp, //foreignkeytodocumentdocumentnumber:String, sessionid:String);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="order_inventory" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="application" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="inventoryservice" >
+      <xs:sequence>
+        <xs:element name="inventoryrepository" type="orderinventoryrepository" nillable="true" minOccurs="0" />
+        <xs:element name="consumptionrepository" type="orderinventoryconsumptionrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="inventoryapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="inventoryconfig" >
+      <xs:sequence>
+        <xs:element name="service" type="inventoryservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="orderinventoryconsumptionrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<orderinventoryconsumption,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="orderinventoryrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<orderinventory,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="orderinventory" >
+      <xs:sequence>
+        <xs:element name="productid" type="xs:long" />
+        <xs:element name="availableinventory" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="orderinventoryconsumption" >
+      <xs:sequence>
+        <xs:element name="orderid" type="xs:anyType" />
+        <xs:element name="productid" type="xs:long" />
+        <xs:element name="quantityconsumed" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

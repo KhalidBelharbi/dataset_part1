@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="usersapplicationtests" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="application" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usercontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="userservice" type="iuserservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usernotfoundexception" >
+      <xs:complexContent>
+       <xs:extension base="runtimeexception{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="usererrorresponse" >
+      <xs:sequence>
+        <xs:element name="message" type="xs:string" />
+        <xs:element name="errorcode" type="xs:anyType" />
+        <xs:element name="timestamp" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="iuserservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<user,integer>{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="authorities" >
+      <xs:sequence>
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="role" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="profile" type="xs:string" />
+        <xs:element name="createdon" type="xs:anyType" />
+        <xs:element name="updatedon" type="xs:anyType" />
+        <xs:element name="enabled" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

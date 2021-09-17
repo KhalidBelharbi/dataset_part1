@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="venta" >
+      <xs:sequence>
+        <xs:element name="idventa" type="xs:anyType" />
+        <xs:element name="fecha" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="cliente" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="pelicula" nillable="true" minOccurs="0" />
+        <xs:element name="cantidad" type="xs:anyType" />
+        <xs:element name="total" type="xs:double" />
+        <xs:element name="detalle" type="detalleventa" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pelicula" >
+      <xs:sequence>
+        <xs:element name="idpelicula" type="xs:anyType" />
+        <xs:element name="nombre" type="xs:string" />
+        <xs:element name="resena" type="xs:string" />
+        <xs:element name="duracion" type="xs:anyType" />
+        <xs:element name="fechapublicacion" type="xs:anyType" />
+        <xs:element name="urlportada" type="xs:string" />
+        <xs:element name="GeneratedName" type="genero" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usuario" >
+      <xs:sequence>
+        <xs:element name="idusuario" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="cliente" nillable="true" minOccurs="0" />
+        <xs:element name="nombre" type="xs:string" />
+        <xs:element name="clave" type="xs:string" />
+        <xs:element name="estado" type="xs:anyType" />
+        <xs:element name="roles" type="rol" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="comida" >
+      <xs:sequence>
+        <xs:element name="idcomida" type="xs:anyType" />
+        <xs:element name="nombre" type="xs:string" />
+        <xs:element name="precio" type="xs:double" />
+        <xs:element name="foto" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ventacomida" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="venta" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="comida" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cliente" >
+      <xs:sequence>
+        <xs:element name="idcliente" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="usuario" nillable="true" minOccurs="0" />
+        <xs:element name="nombres" type="xs:string" />
+        <xs:element name="apellidos" type="xs:string" />
+        <xs:element name="fechanac" type="xs:anyType" />
+        <xs:element name="dni" type="xs:string" />
+        <xs:element name="foto" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="config" >
+      <xs:sequence>
+        <xs:element name="idconfig" type="xs:anyType" />
+        <xs:element name="parametro" type="xs:string" />
+        <xs:element name="valor" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="genero" >
+      <xs:sequence>
+        <xs:element name="idgenero" type="xs:anyType" />
+        <xs:element name="nombre" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rol" >
+      <xs:sequence>
+        <xs:element name="idrol" type="xs:anyType" />
+        <xs:element name="nombre" type="xs:string" />
+        <xs:element name="descripcion" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="menu" >
+      <xs:sequence>
+        <xs:element name="idmenu" type="xs:anyType" />
+        <xs:element name="icono" type="xs:string" />
+        <xs:element name="nombre" type="xs:string" />
+        <xs:element name="url" type="xs:string" />
+        <xs:element name="roles" type="rol" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="detalleventa" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="venta" nillable="true" minOccurs="0" />
+        <xs:element name="iddetalle" type="xs:anyType" />
+        <xs:element name="asiento" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

@@ -1,0 +1,474 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="address" >
+      <xs:complexContent>
+       <xs:extension base="shopbaseentity">
+         <xs:sequence>
+          <xs:element name="iduser" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="tel" type="xs:string" />
+          <xs:element name="province" type="xs:string" />
+          <xs:element name="city" type="xs:string" />
+          <xs:element name="district" type="xs:string" />
+          <xs:element name="areacode" type="xs:string" />
+          <xs:element name="addressdetail" type="xs:string" />
+          <xs:element name="postcode" type="xs:string" />
+          <xs:element name="isdefault" type="xs:anyType" />
+          <xs:element name="isdelete" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="category" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="url" type="xs:string" />
+          <xs:element name="icon" type="xs:string" />
+          <xs:element name="bannerlist" type="banner" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="attrkey" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="attrname" type="xs:string" />
+          <xs:element name="idcategory" type="xs:long" />
+          <xs:element name="attrvals" type="attrval" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="goodssku" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="code" type="xs:string" />
+          <xs:element name="codename" type="xs:string" />
+          <xs:element name="idgoods" type="xs:long" />
+          <xs:element name="price" type="xs:anyType" />
+          <xs:element name="marketingprice" type="xs:anyType" />
+          <xs:element name="stock" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="attrval" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="idattrkey" type="xs:long" />
+          <xs:element name="attrval" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="shopuser" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="createtime" type="xs:dateTime" />
+        <xs:element name="mobile" type="xs:string" />
+        <xs:element name="salt" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="nickname" type="xs:string" />
+        <xs:element name="avatar" type="xs:string" />
+        <xs:element name="gender" type="xs:string" />
+        <xs:element name="lastlogintime" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="orderitem" >
+      <xs:complexContent>
+       <xs:extension base="shopbaseentity">
+         <xs:sequence>
+          <xs:element name="idorder" type="xs:long" />
+          <xs:element name="idgoods" type="xs:long" />
+          <xs:element name="" type="goods" nillable="true" minOccurs="0" />
+          <xs:element name="idsku" type="xs:long" />
+          <xs:element name="sku" type="goodssku" nillable="true" minOccurs="0" />
+          <xs:element name="price" type="xs:anyType" />
+          <xs:element name="count" type="xs:anyType" />
+          <xs:element name="totalprice" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="order" >
+      <xs:complexContent>
+       <xs:extension base="shopbaseentity">
+         <xs:sequence>
+          <xs:element name="iduser" type="xs:long" />
+          <xs:element name="user" type="shopuser" nillable="true" minOccurs="0" />
+          <xs:element name="ordersn" type="xs:string" />
+          <xs:element name="status" type="xs:anyType" />
+          <xs:element name="idaddress" type="xs:long" />
+          <xs:element name="" type="address" nillable="true" minOccurs="0" />
+          <xs:element name="items" type="orderitem" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="message" type="xs:string" />
+          <xs:element name="totalprice" type="xs:anyType" />
+          <xs:element name="couponprice" type="xs:anyType" />
+          <xs:element name="realprice" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="cart" >
+      <xs:complexContent>
+       <xs:extension base="shopbaseentity">
+         <xs:sequence>
+          <xs:element name="iduser" type="xs:long" />
+          <xs:element name="user" type="shopuser" nillable="true" minOccurs="0" />
+          <xs:element name="idgoods" type="xs:long" />
+          <xs:element name="" type="goods" nillable="true" minOccurs="0" />
+          <xs:element name="idsku" type="xs:long" />
+          <xs:element name="sku" type="goodssku" nillable="true" minOccurs="0" />
+          <xs:element name="count" type="xs:anyType" />
+          <xs:element name="price" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="categorybannerrel" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="idcategory" type="xs:long" />
+          <xs:element name="idbanner" type="xs:long" />
+          <xs:element name="" type="category" nillable="true" minOccurs="0" />
+          <xs:element name="" type="banner" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="favorite" >
+      <xs:complexContent>
+       <xs:extension base="shopbaseentity">
+         <xs:sequence>
+          <xs:element name="iduser" type="xs:long" />
+          <xs:element name="user" type="shopuser" nillable="true" minOccurs="0" />
+          <xs:element name="idgoods" type="xs:long" />
+          <xs:element name="" type="goods" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="goods" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="pic" type="xs:string" />
+          <xs:element name="gallery" type="xs:string" />
+          <xs:element name="idcategory" type="xs:long" />
+          <xs:element name="" type="category" nillable="true" minOccurs="0" />
+          <xs:element name="descript" type="xs:string" />
+          <xs:element name="detail" type="xs:string" />
+          <xs:element name="/***如果商品是多规格，则存所有库存之和*/stock" type="xs:anyType" />
+          <xs:element name="/***如果商品是多规格，则存最低价*/price" type="xs:anyType" />
+          <xs:element name="isdelete" type="xs:anyType" />
+          <xs:element name="isonsale" type="xs:anyType" />
+          <xs:element name="isnew" type="xs:anyType" />
+          <xs:element name="ishot" type="xs:anyType" />
+          <xs:element name="likenum" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="topic" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="title" type="xs:string" />
+          <xs:element name="idarticle" type="xs:long" />
+          <xs:element name="" type="article" nillable="true" minOccurs="0" />
+          <xs:element name="idgoodslist" type="xs:string" />
+          <xs:element name="pv" type="xs:long" />
+          <xs:element name="disabled" type="xs:anyType" />
+          <xs:element name="goodslist" type="goods" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tasklog" >
+      <xs:sequence>
+        <xs:element name="exe_failure_result" type="xs:long" />
+        <xs:element name="exe_success_result" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="idtask" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="execat" type="xs:dateTime" />
+        <xs:element name="execsuccess" type="xs:long" />
+        <xs:element name="jobexception" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="notice" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="title" type="xs:string" />
+          <xs:element name="type" type="xs:anyType" />
+          <xs:element name="content" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="dept" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="num" type="xs:anyType" />
+          <xs:element name="pid" type="xs:long" />
+          <xs:element name="pids" type="xs:string" />
+          <xs:element name="simplename" type="xs:string" />
+          <xs:element name="fullname" type="xs:string" />
+          <xs:element name="tips" type="xs:string" />
+          <xs:element name="version" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="dict" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="num" type="xs:string" />
+          <xs:element name="pid" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="tips" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="avatar" type="xs:string" />
+          <xs:element name="account" type="xs:string" />
+          <xs:element name="password" type="xs:string" />
+          <xs:element name="salt" type="xs:string" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="birthday" type="xs:dateTime" />
+          <xs:element name="sex" type="xs:anyType" />
+          <xs:element name="email" type="xs:string" />
+          <xs:element name="phone" type="xs:string" />
+          <xs:element name="roleid" type="xs:string" />
+          <xs:element name="deptid" type="xs:long" />
+          <xs:element name="status" type="xs:anyType" />
+          <xs:element name="version" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="cfg" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="cfgname" type="xs:string" />
+          <xs:element name="cfgvalue" type="xs:string" />
+          <xs:element name="cfgdesc" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="fileinfo" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="originalfilename" type="xs:string" />
+          <xs:element name="realfilename" type="xs:string" />
+          <xs:element name="ablatepath" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="loginlog" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="logname" type="xs:string" />
+        <xs:element name="userid" type="xs:anyType" />
+        <xs:element name="succeed" type="xs:string" />
+        <xs:element name="message" type="xs:string" />
+        <xs:element name="ip" type="xs:string" />
+        <xs:element name="createtime" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="role" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="num" type="xs:anyType" />
+          <xs:element name="pid" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="deptid" type="xs:long" />
+          <xs:element name="tips" type="xs:string" />
+          <xs:element name="version" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="menu" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="code" type="xs:string" />
+          <xs:element name="pcode" type="xs:string" />
+          <xs:element name="pcodes" type="xs:string" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="icon" type="xs:string" />
+          <xs:element name="url" type="xs:string" />
+          <xs:element name="num" type="xs:anyType" />
+          <xs:element name="levels" type="xs:anyType" />
+          <xs:element name="ismenu" type="xs:anyType" />
+          <xs:element name="tips" type="xs:string" />
+          <xs:element name="status" type="xs:anyType" />
+          <xs:element name="isopen" type="xs:anyType" />
+          <xs:element name="component" type="xs:string" />
+          <xs:element name="hidden" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="wxuser" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="unionid" type="xs:string" />
+        <xs:element name="openid" type="xs:string" />
+        <xs:element name="nickname" type="xs:string" />
+        <xs:element name="sex" type="xs:string" />
+        <xs:element name="province" type="xs:string" />
+        <xs:element name="city" type="xs:string" />
+        <xs:element name="country" type="xs:string" />
+        <xs:element name="headimgurl" type="xs:string" />
+        <xs:element name="privilege" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="operationlog" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="logtype" type="xs:string" />
+        <xs:element name="logname" type="xs:string" />
+        <xs:element name="userid" type="xs:anyType" />
+        <xs:element name="classname" type="xs:string" />
+        <xs:element name="method" type="xs:string" />
+        <xs:element name="createtime" type="xs:dateTime" />
+        <xs:element name="succeed" type="xs:string" />
+        <xs:element name="message" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="task" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="jobgroup" type="xs:string" />
+          <xs:element name="jobclass" type="xs:string" />
+          <xs:element name="note" type="xs:string" />
+          <xs:element name="cron" type="xs:string" />
+          <xs:element name="concurrent" type="xs:anyType" />
+          <xs:element name="data" type="xs:string" />
+          <xs:element name="execat" type="xs:dateTime" />
+          <xs:element name="execresult" type="xs:string" />
+          <xs:element name="disabled" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="relation" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="menuid" type="xs:long" />
+        <xs:element name="roleid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="messagesender" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="classname" type="xs:string" />
+          <xs:element name="tplcode" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="messagetemplate" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="code" type="xs:string" />
+          <xs:element name="title" type="xs:string" />
+          <xs:element name="content" type="xs:string" />
+          <xs:element name="cond" type="xs:string" />
+          <xs:element name="idmessagesender" type="xs:long" />
+          <xs:element name="type" type="xs:anyType" />
+          <xs:element name="" type="messagesender" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="message" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="tplcode" type="xs:string" />
+          <xs:element name="content" type="xs:string" />
+          <xs:element name="receiver" type="xs:string" />
+          <xs:element name="type" type="xs:anyType" />
+          <xs:element name="state" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="article" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="idchannel" type="xs:long" />
+          <xs:element name="title" type="xs:string" />
+          <xs:element name="content" type="xs:string" />
+          <xs:element name="author" type="xs:string" />
+          <xs:element name="img" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="channel" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="code" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="banner" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="url" type="xs:string" />
+          <xs:element name="title" type="xs:string" />
+          <xs:element name="type" type="xs:string" />
+          <xs:element name="idfile" type="xs:string" />
+          <xs:element name="page" type="xs:string" />
+          <xs:element name="param" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="contacts" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="username" type="xs:string" />
+          <xs:element name="mobile" type="xs:string" />
+          <xs:element name="email" type="xs:string" />
+          <xs:element name="remark" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema> 

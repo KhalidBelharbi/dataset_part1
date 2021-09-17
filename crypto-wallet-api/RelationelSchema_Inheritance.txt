@@ -1,0 +1,39 @@
+
+totalbalance(symbol:String [PK], total:double, owners:double, users:double, avail:double);
+
+cryptobalance(serialversionuid:long, uid:int [PK], symbol:String [PK], balance:double, recv:double, send:double, buy:double);
+
+addressbalance(serialversionuid:long, symbol:String [PK], addr:String, balance:double);
+
+cryptobalancebyaddr(serialversionuid:long, symbol:String [PK], addr:String, balance:double, recv:double, send:double, buy:double, actual:double);
+
+tborphanaddress(serialversionuid:long, upddt:Date, symbol:String [PK], balance:double, account:String, addr:String [PK], tag:String, regdt:Date);
+
+vwsalesstat(symbol:String [PK], yyyymmddhhmi:int [PK], soldamt:double, krwsoldamt:double, ethsoldamt:double, krwpaidamt:double, ethpaidamt:double, krwunpaidamt:double, ethunpaidamt:double, cpuusage:int, memusage:int, diskusage:int, //0:fail,1:warn,2:successapistat:Character, regdt:Date);
+
+tbcryptomaster(serialversionuid:long, upddt:Date, symbol:String [PK], decimals:int, sendmastaddr:String, currsyncheight:long, latestheight:long, totalbal:double, sendmastbal:double, theotherbal:double, prvprice:double, pre1_price:double, pre2_price:double, gasprice:double, gasused:double, actualfee:double, regdt:Date);
+
+tbbonusrequest(upddt:Date, symbol:String [PK], orderid:String [PK], uid:int, brokerid:String, toaddr:String, totag:String, amount:double, bonusbal:double, regdt:Date);
+
+tbsend(upddt:Date, renotify:char, intent:char, symbol:String [PK], txid:String, txidx:String, notifiable:char, confirm:long, noticnt:int, toaddr:String [PK], totag:String, amount:double, orderid:String [PK], uid:int, brokerid:String, exptfee:double, realfee:double, fromaccount:String, fromaddr:String, fromtag:String, blockid:String, txtime:long, errmsg:String, regdt:Date);
+
+tbfiatdeposit(upddt:Date, orderid:String [PK], uid:int [PK], symbol:String [PK], amount:double, brokerid:String, fromaddr:String, regusr:String, errmsg:String, regdt:Date);
+
+tbrecv(upddt:Date, renotify:char, intent:char, symbol:String [PK], txid:String [PK], txidx:String, orderid:String, notifiable:char, confirm:long, noticnt:int, toaccount:String, toaddr:String [PK], totag:String, amount:double, uid:int, brokerid:String, fromaddr:String, fromtag:String, blockid:String, txtime:long, errmsg:String, regdt:Date);
+
+vwuserkrwbalance(uid:int [PK], symbol:String [PK], recv:double, buy:double);
+
+tbmarketprice(serialversionuid:long, upddt:Date, symbol:String [PK], krw:double, usd:double, regdt:Date);
+
+tbtokenbuyrequest(upddt:Date, orderid:String [PK], uid:int, tokensymbol:String, paysymbol:String, payamount:double, tokenamount:double, fromaddr:String, fromtag:String, status:char, error:String, regdt:Date);
+
+tbpointexchangerequest(upddt:Date, orderid:String [PK], uid:int, tokensymbol:String, tokenamount:double, pointamount:double, fromaddr:String, fromtag:String, status:char, error:String, regdt:Date);
+
+tbaddressbalance(serialversionuid:long, upddt:Date, uid:int [PK], symbol:String [PK], addr:String, balance:double, actual:double, recv:double, send:double, buy:double, brokerid:String, tag:String, regdt:Date);
+
+tbmanualpayrequest(upddt:Date, orderid:String [PK], uid:int, tokensymbol:String, tokenamount:double, payreason:char, snscode:char, bountyurl:String, toaddr:String, totag:String, status:char, error:String, regdt:Date);
+
+tbsendrequest(upddt:Date, symbol:String [PK], orderid:String [PK], uid:int, brokerid:String, exptfee:String, toaddr:String, totag:String, amount:double, fromaccount:String, fromaddr:String, fromtag:String, regdt:Date);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

@@ -1,0 +1,29 @@
+customer(email:String, defaultshipping:Address #FK to(address), defaultbilling:Address #FK to(address));
+
+orderitem(order:Date, price:Float, ship:Date, status:String, GeneratedName:CustomerOrder #FK to(Customer));
+
+customerorder(creation:Date, id:Integer [PK], status:String, version:Integer, GeneratedName:Customer #FK to(Customer));
+
+distributor(companyname:String, discount:Integer, memberstatus:String);
+
+individual(ccexpdate:String, ccnum:String);
+
+inventoryitem(stock:Date, wholesaleprice:Float);
+
+cartitem(created:Date, GeneratedName:Customer #FK to(Customer));
+
+address(city:String, id:Integer [PK], state:String, street1:String, street2:String, version:Integer, zipcode:String);
+
+wine(country:String, description:String, id:Integer [PK], name:String, rating:int, region:String, retailprice:Float, varietal:String, version:Integer, year:int);
+
+wine_supplier(wine_id:Wine [PK] #FK to Wine,supplier_id:list<supplier> [PK] #FK to list<supplier>);
+
+supplier(payment:Address #FK to(address));
+
+wineitem(id:Integer [PK], quantity:int, version:Integer, GeneratedName:Wine #FK to(wine));
+
+businesscontact(firstname:String, id:Integer [PK], lastname:String, phone:String, version:Integer);
+
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

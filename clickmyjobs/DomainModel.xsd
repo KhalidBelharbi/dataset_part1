@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="employersjobdetails" >
+      <xs:complexContent>
+       <xs:extension base="abstractentity">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="jobs_details_id" type="xs:long" />
+          <xs:element name="email" type="xs:string" />
+          <xs:element name="job_title" type="xs:string" />
+          <xs:element name="country" type="xs:string" />
+          <xs:element name="city" type="xs:string" />
+          <xs:element name="category" type="xs:string" />
+          <xs:element name="/*@column(name" type="xs:string" />
+          <xs:element name="application_email" type="xs:string" />
+          <xs:element name="closing_" type="xs:dateTime" />
+          <xs:element name="company_name" type="xs:string" />
+          <xs:element name="company_website" type="xs:string" />
+          <xs:element name="company_discription" type="xs:string" />
+          <xs:element name="jd_file" type="xs:anyType" />
+          <xs:element name="userid" type="xs:long" />
+          <xs:element name="qualification" type="xs:string" />
+          <xs:element name="experience" type="xs:string" />
+          <xs:element name="employement_type" type="xs:string" />
+          <xs:element name="salary_rang" type="xs:string" />
+          <xs:element name="/*@column(name" type="xs:anyType" />
+          <xs:element name="job_tags" type="jobtags" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="educationdetails" >
+      <xs:complexContent>
+       <xs:extension base="abstractentity">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="education_id" type="xs:long" />
+          <xs:element name="degree" type="xs:string" />
+          <xs:element name="field_of_study" type="xs:string" />
+          <xs:element name="school_or_college" type="xs:string" />
+          <xs:element name="from_" type="xs:dateTime" />
+          <xs:element name="to_" type="xs:dateTime" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="userid" type="xs:long" />
+          <xs:element name="crtts" type="xs:anyType" />
+          <xs:element name="details" type="resumedetails" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jobtags" >
+      <xs:complexContent>
+       <xs:extension base="abstractentity">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="job_tag_id" type="xs:long" />
+          <xs:element name="job_tag_name" type="xs:string" />
+          <xs:element name="crtts" type="xs:anyType" />
+          <xs:element name="jobdetails" type="employersjobdetails" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="resumedetails" >
+      <xs:complexContent>
+       <xs:extension base="abstractentity">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="resume_id" type="xs:long" />
+          <xs:element name="profession_title" type="xs:string" />
+          <xs:element name="profile_description" type="xs:string" />
+          <xs:element name="location" type="xs:string" />
+          <xs:element name="web" type="xs:string" />
+          <xs:element name="salary_expectations" type="xs:string" />
+          <xs:element name="notice_period" type="xs:string" />
+          <xs:element name="resume_file" type="xs:anyType" />
+          <xs:element name="visible" type="xs:string" />
+          <xs:element name="userid" type="xs:long" />
+          <xs:element name="crtts" type="xs:anyType" />
+          <xs:element name="//@onetoone(mappedby" type="educationdetails" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="skillsdetails" >
+      <xs:complexContent>
+       <xs:extension base="abstractentity">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="skills_id" type="xs:long" />
+          <xs:element name="skill_name" type="xs:string" />
+          <xs:element name="skill_percentage" type="xs:string" />
+          <xs:element name="userid" type="xs:long" />
+          <xs:element name="crtts" type="xs:anyType" />
+          <xs:element name="skillresume" type="resumedetails" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userprofile" >
+      <xs:complexContent>
+       <xs:extension base="abstractentity">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="userid" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="phone" type="xs:string" />
+          <xs:element name="email" type="xs:string" />
+          <xs:element name="password" type="xs:string" />
+          <xs:element name="country" type="xs:string" />
+          <xs:element name="usertype" type="xs:string" />
+          <xs:element name="status" type="xs:string" />
+          <xs:element name="otp" type="xs:string" />
+          <xs:element name="logo" type="xs:anyType" />
+          <xs:element name="crtts" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="workexpdetails" >
+      <xs:complexContent>
+       <xs:extension base="abstractentity">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="work_experience_id" type="xs:long" />
+          <xs:element name="company_name" type="xs:string" />
+          <xs:element name="title" type="xs:string" />
+          <xs:element name="_form" type="xs:dateTime" />
+          <xs:element name="_to" type="xs:dateTime" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="current_job" type="xs:string" />
+          <xs:element name="/*@column(name" type="xs:long" />
+          <xs:element name="crtts" type="xs:anyType" />
+          <xs:element name="" type="resumedetails" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema> 

@@ -1,0 +1,17 @@
+
+despesafixames(/***/serialversionuid:long, id:Long [PK], id:Mes #FK to(mes), id:DespesaFixa #FK to(despesafixa), ativo:boolean, valor:Double, previsao:Double);
+
+despesa(/***/serialversionuid:long, id:Long [PK], id:Mes #FK to(mes), data:int, nome:String, valor:Double);
+
+usuario(/***/serialversionuid:long, id:Long [PK], email:String, senha:String, nome:String);
+
+mes(/***/serialversionuid:long, id:Long [PK], mes:int, ano:int, id:Usuario #FK to(usuario), encerrado:boolean, salario:Double, economia:Double, livre:Double, totalcartao:Double, totalfixo:Double, totalgasto:Double);
+
+despesacartao(/***/serialversionuid:long, id:Long [PK], nome:String, id:Cartao #FK to(cartao), valor:Double, id:Mes #FK to(mes), terceiros:boolean);
+
+despesafixa(/***/serialversionuid:long, id:Long [PK], nome:String, vencimento:int, id:Usuario #FK to(usuario), tipo:String, calculo:String, ativo:boolean, valor:Double, parte:Double);
+
+cartao(/***/serialversionuid:long, id:Long [PK], nome:String, ativo:boolean, fechamento:Integer, vencimento:Integer, id:Usuario #FK to(usuario));
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

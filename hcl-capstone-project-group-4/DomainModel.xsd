@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="role" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="type" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="product" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="brand" type="xs:string" />
+        <xs:element name="inventory" type="xs:long" />
+        <xs:element name="price" type="xs:double" />
+        <xs:element name="image" type="xs:anyType" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="categories" type="category" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="order" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="shippingaddrid" type="address" nillable="true" minOccurs="0" />
+        <xs:element name="timeoforder" type="xs:dateTime" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="total" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="address" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="/*thewaythisclassiscurrentlysetup,eachaddressisassociatedwithone,whomayhavemanyaddresses.	thenameintheaddressentityneednotbethesameasthe'sname,incasetheshipssomething	toanotherperson,orifabillingaddresshasadifferentnameassociatedwithit*/" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+        <xs:element name="//addressline1streetaddr" type="xs:string" />
+        <xs:element name="city" type="xs:string" />
+        <xs:element name="state" type="xs:string" />
+        <xs:element name="zipcode" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+        <xs:element name="phonenumber" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="enabled" type="xs:anyType" />
+        <xs:element name="addresses" type="address" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="roles" type="role" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="orderitem" >
+      <xs:sequence>
+        <xs:element name="orderid" type="xs:long" />
+        <xs:element name="id" type="product" nillable="true" minOccurs="0" />
+        <xs:element name="quantity" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="category" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="products" type="product" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

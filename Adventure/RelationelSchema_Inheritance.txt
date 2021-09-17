@@ -1,0 +1,35 @@
+
+categories(serialversionuid:long, id:Integer [PK], categoryname:String, imgurl:String);
+
+city(serialversionuid:long, id:Integer [PK], name:String, id:County #FK to(county));
+
+gender(serialversionuid:long, id:Integer [PK], name:String);
+
+organiser(serialversionuid:long, id:Integer [PK], firstname:String, lastname:String, ofbirth:Date, //@pattern(regexp:String, address:String, postalcode:String, id:City #FK to(city), id:Credentials #FK to(credentials));
+
+event(serialversionuid:long, id:Integer [PK], ending:Date, starting:Date, price:double, description:String, positions:int, remainingpositions:int, name:String, id:Categories #FK to(categories), id:Company #FK to(company), id:Difficulty #FK to(difficulty), id:Location #FK to(location), id:Organiser #FK to(organiser), id:TypeIndoorOutdoor #FK to(typeindooroutdoor));
+
+equipment_has_event(event_id:Event [PK] #FK to Event,equipment_id:list<equipment> [PK] #FK to list<equipment>);
+
+roles(serialversionuid:long, id:Integer [PK], role:String);
+
+typeindooroutdoor(serialversionuid:long, id:Integer [PK], typeindooroutdoor:String);
+
+difficulty(serialversionuid:long, id:Integer [PK], level:String);
+
+company(serialversionuid:long, id:Integer [PK], name:String, address:String, //@pattern(regexp:String, afm:String, postalcode:String, id:City #FK to(city), id:Credentials #FK to(credentials));
+
+location(serialversionuid:long, id:Integer [PK], address:String, coordinatex:String, coordinatey:String, postalcode:String, id:City #FK to(city));
+
+county(serialversionuid:long, id:Integer [PK], name:String);
+
+customer(serialversionuid:long, id:Integer [PK], firstname:String, lastname:String, ofbirth:Date, //@pattern(regexp:String, address:String, postalcode:String, id:City #FK to(city), id:Credentials #FK to(credentials), id:Gender #FK to(gender));
+
+credentials(serialversionuid:long, id:Integer [PK], username:String, password:String, passwordresettoken:String, id:Roles #FK to(roles), GeneratedName:Organiser #FK to(organiser), GeneratedName:Company #FK to(company), GeneratedName:Customer #FK to(customer));
+
+equipment(serialversionuid:long, id:Integer [PK], name:String);
+
+customerbooksevent(serialversionuid:long, id:Integer [PK], amountpositions:int, totalprice:double, id:Customer #FK to(customer), id:Event #FK to(event));
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

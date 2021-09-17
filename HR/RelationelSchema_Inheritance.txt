@@ -1,0 +1,126 @@
+
+attendencedetails(attendence:Date, present:Boolean, absent:Boolean, privilege:Boolean, casualleave:Boolean, sickleave:Boolean, maternityleave:Boolean, year:Integer, month:Integer, intime:Timestamp, outtime:Timestamp, attendenceid:String [PK], empid:String, versionid:int, GeneratedName:EntityAudit, GeneratedName:SystemInfo);
+
+employeeleavesummary(privilege:Integer, casualleave:Integer, sickleave:Integer, maternityleave:Integer, privilegetaken:Integer, casualleavetaken:Integer, sickleavetaken:Integer, maternityleavetaken:Integer, year:Integer, lop:Integer, empleavestatusid:String [PK], empid:String, versionid:int, GeneratedName:EntityAudit, GeneratedName:SystemInfo);
+
+leaverequest(from:Date, to:Date, privilege:Integer, casualleave:Integer, sickleave:Integer, maternityleave:Integer, leaverequestid:String [PK], empid:String, versionid:int, GeneratedName:EntityAudit, GeneratedName:SystemInfo);
+
+attendencesummary(present:Integer, absent:Integer, privilege:Integer, casualleave:Integer, sickleave:Integer, maternityleave:Integer, year:Integer, month:Integer, attendencesummaryid:String [PK], empid:String, versionid:int, GeneratedName:EntityAudit, GeneratedName:SystemInfo);
+
+leaveallocation(privilege:Integer, casualleave:Integer, sickleave:Integer, maternityleave:Integer, year:Integer, leavecategoryid:String [PK], versionid:int, GeneratedName:EntityAudit, GeneratedName:SystemInfo);
+
+passwordpolicy(policyname:String, policydescription:String, maxpwdlength:Integer, minpwdlength:Integer, mincapitalletters:Integer, minsmallletters:Integer, minnumericvalues:Integer, minspecialletters:Integer, allowedspecialletters:String, policyid:String [PK], versionid:int, GeneratedName:EntityAudit, GeneratedName:SystemInfo);
+
+passwordalgo(algorithm:Integer, algoname:String, algodescription:String, algoicon:String, algohelp:String, algoid:String [PK], versionid:int, GeneratedName:EntityAudit, GeneratedName:SystemInfo);
+
+userdata(password:String, onetimepassword:String, onetimepasswordexpiry:Integer, onetimepasswordgendate:Timestamp, last5passwords:String, userdataid:String [PK], GeneratedName:User #FK to(user), versionid:int, GeneratedName:EntityAudit, GeneratedName:SystemInfo);
+
+login(loginid:String, serverauthimage:String, serverauthtext:String, failedloginattempts:Integer, loginpk:String [PK], GeneratedName:CoreContacts #FK to(corecontacts), GeneratedName:User #FK to(user), versionid:int, GeneratedName:EntityAudit, GeneratedName:SystemInfo);
+
+passrecovery(answer:String, passrecoveryid:String [PK], questionid:String, GeneratedName:User #FK to(user), versionid:int, GeneratedName:EntityAudit, GeneratedName:SystemInfo);
+
+loginsession(appserversessionid:String, logintime:Timestamp, logouttime:Timestamp, lastaccesstime:Timestamp, clientipaddress:String, clientipaddressint:Long, clientnetworkaddress:Integer, clientbrowser:String, sessiondata:String, appsessionid:String [PK], userid:String, versionid:int, GeneratedName:EntityAudit, GeneratedName:SystemInfo);
+
+useraccesslevel(useraccesslevel:Integer, levelname:String, leveldescription:String, levelhelp:String, levelicon:String, useraccesslevelid:String [PK], versionid:int, GeneratedName:EntityAudit, GeneratedName:SystemInfo);
+
+useraccessdomain(useraccessdomain:Integer, domainname:String, domaindescription:String, domainhelp:String, domainicon:String, useraccessdomainid:String [PK], versionid:int, GeneratedName:EntityAudit, GeneratedName:SystemInfo);
+
+user(useraccesscode:Integer, multifactorauthenabled:Integer, gentemponetimepassword:Integer, allowmultiplelogin:Integer, islocked:Integer, isdeleted:Integer, changepasswordnextlogin:Integer, passwordexpirydate:Timestamp, passwordalgo:String, lastpasswordchangedate:Timestamp, sessiontimeout:Integer, userid:String [PK], useraccesslevelid:String, useraccessdomainid:String, GeneratedName:UserData #FK to(userdata), versionid:int, GeneratedName:EntityAudit, GeneratedName:SystemInfo);
+
+sessiondata(customerid:String, userid:String, sessionkey:String, datatype:Integer, numbervalue:Integer, datetimevalue:Timestamp, value:String, value:Boolean, jsonvalue:String, appsessionid:String, dataid:String [PK], versionid:int, GeneratedName:EntityAudit, GeneratedName:SystemInfo);
+
+question(levelid:Integer, question:String, questiondetails:String, questionicon:String, questionid:String [PK], versionid:int, GeneratedName:EntityAudit, GeneratedName:SystemInfo);
+
+salarystructurefinancialwise(totalctc:Double, basic:Double, hra:Double, convenceallowance:Double, medicalallowance:Double, educationalallowance:Double, specailallowance:Double, taxableamount:Double, nontaxableamount:Double, totaltax:Double, takehome:Double, salarydrawn:Double, perk:Double, year:Integer, salaryid:String [PK], empid:String, versionid:int, GeneratedName:EntityAudit, GeneratedName:SystemInfo);
+
+employeedeclartion(hra:Double, eightyc:Double, eightyd:Double, eightyg:Double, eightye:Double, year:Integer, empdecid:String [PK], empid:String, versionid:int, GeneratedName:EntityAudit, GeneratedName:SystemInfo);
+
+costtocompany(totalctc:Double, basic:Double, hra:Double, convenceallowance:Double, medicalallowance:Double, educationalallowance:Double, specailallowance:Double, takehome:Double, perk:Double, year:Integer, salaryid:String [PK], empid:String, versionid:int, GeneratedName:EntityAudit, GeneratedName:SystemInfo);
+
+payslip(basic:Double, hra:Double, convenceallowance:Double, medicalallowance:Double, educationalallowance:Double, specailallowance:Double, tax:Double, takehome:Double, year:Integer, month:Integer, lop:Double, salaryid:String [PK], empid:String, versionid:int, GeneratedName:EntityAudit, GeneratedName:SystemInfo);
+
+contacttype(contacttype:String, contacttypedesc:String, contacttypeicon:String, contacttypeid:String [PK], versionid:int, GeneratedName:EntityAudit, GeneratedName:SystemInfo);
+
+communicationtype(commtypename:String, commtypedescription:String, commtype:String [PK], commgroupid:String, versionid:int, GeneratedName:EntityAudit, GeneratedName:SystemInfo);
+
+gender(gender:String, genderid:String [PK], versionid:int, GeneratedName:EntityAudit, GeneratedName:SystemInfo);
+
+title(titles:String, titleid:String [PK], versionid:int, GeneratedName:EntityAudit, GeneratedName:SystemInfo);
+
+corecontacts(firstname:String, middlename:String, lastname:String, nativetitle:String, nativefirstname:String, nativemiddlename:String, nativelastname:String, ofbirth:Date, age:Integer, approximatedob:Date, emailid:String, phonenumber:String, contactid:String [PK], titleid:String, nativelanguagecode:String, genderid:String, timezone:String, versionid:int, GeneratedName:EntityAudit, GeneratedName:SystemInfo);
+
+communicationgroup(commgroupname:String, commgroupdescription:String, commgroupid:String [PK], versionid:int, GeneratedName:EntityAudit, GeneratedName:SystemInfo);
+
+communicationdata(commdata:String, commdataid:String [PK], commgroupid:String, commtype:String, versionid:int, GeneratedName:EntityAudit, GeneratedName:SystemInfo);
+
+appcustomer(customername:String, deploymentmodel:Boolean, customerstatus:Integer, userrequested:Integer, evaltimeperiod:Integer, appcustomerid:String [PK], contactid:String, appcustomertype:String, appcustomercategory:String, versionid:int, GeneratedName:EntityAudit, GeneratedName:SystemInfo);
+
+appcustomertype(customertype:String, defaults:Integer, sequenceid:Integer, appcusttypeid:String [PK], versionid:int, GeneratedName:EntityAudit, GeneratedName:SystemInfo);
+
+appcustomercategory(customercategory:String, appcustcategoryid:String [PK], versionid:int, GeneratedName:EntityAudit, GeneratedName:SystemInfo);
+
+documenttype(doctypename:String, doctypedesc:String, doctypecode:String [PK], versionid:int, GeneratedName:EntityAudit, GeneratedName:SystemInfo);
+
+documentlist(docname:String, docfile:String, docdesc:String, docdate:Timestamp, docid:String [PK], doctypecode:String, versionid:int, GeneratedName:EntityAudit, GeneratedName:SystemInfo);
+
+appmenus(menutreeid:String, menuicon:String, menuaction:String, menucommands:String, menudisplay:Boolean, menuhead:Boolean, menulabel:String, uitype:String, refobjectid:String, menuaccessrights:Integer, apptype:Integer, appid:String, menuid:String [PK], versionid:int, GeneratedName:EntityAudit, GeneratedName:SystemInfo);
+
+rolemenubridge(isread:Boolean, iswrite:Boolean, isexecute:Boolean, rolemenumapid:String [PK], menuid:String, GeneratedName:Roles #FK to(roles), versionid:int, GeneratedName:EntityAudit, GeneratedName:SystemInfo);
+
+userrolebridge(roleusermapid:String [PK], roleid:String, userid:String, versionid:int, GeneratedName:EntityAudit, GeneratedName:SystemInfo);
+
+roles(rolename:String, roledescription:String, roleicon:String, rolehelp:String, roleid:String [PK], versionid:int, GeneratedName:EntityAudit, GeneratedName:SystemInfo);
+
+certificationdetails(obtainedduration:String, institutename:String, certpk:String [PK], empid:String, certcode:String, grdcode:String, versionid:int, GeneratedName:EntityAudit, GeneratedName:SystemInfo);
+
+workexperience(previouscompany:String, duration:String, immediatesupervisor:String, supervisorcontactno:String, worknresponsibilities:String, jobtitle:String, reasonforleaving:String, salaryperaanum:String, workpk:String [PK], empid:String, versionid:int, GeneratedName:EntityAudit, GeneratedName:SystemInfo);
+
+gradetype(grddesc:String, grdhelp:String, grdicon:String, grdcode:String [PK], versionid:int, GeneratedName:EntityAudit, GeneratedName:SystemInfo);
+
+universitytype(unvdesc:String, unvhelp:String, unvicon:String, unvcode:String [PK], versionid:int, GeneratedName:EntityAudit, GeneratedName:SystemInfo);
+
+certificatetype(certdesc:String, certhelp:String, certicon:String, certcode:String [PK], versionid:int, GeneratedName:EntityAudit, GeneratedName:SystemInfo);
+
+degreetype(degreedesc:String, degreehelp:String, degreeicon:String, degreecode:String [PK], versionid:int, GeneratedName:EntityAudit, GeneratedName:SystemInfo);
+
+educationdetails(yearofgraduation:Integer, edupk:String [PK], empid:String, degreecode:String, unvcode:String, versionid:int, GeneratedName:EntityAudit, GeneratedName:SystemInfo);
+
+addresstype(addresstype:String, addresstypedesc:String, addresstypeicon:String, addresstypeid:String [PK], versionid:int, GeneratedName:EntityAudit, GeneratedName:SystemInfo);
+
+taluka(talukaname:String, talukacode:String, talukadescription:String, talukaflag:String, talukalatitude:Integer, talukalongitude:Integer, talukaid:String [PK], countryid:String, stateid:String, regionid:String, districtid:String, versionid:int, GeneratedName:EntityAudit, GeneratedName:SystemInfo);
+
+country(countryname:String, countrycode1:String, countrycode2:String, countryflag:String, capital:String, currencycode:String, currencyname:String, currencysymbol:String, capitallatitude:Integer, capitallongitude:Integer, isonumeric:Integer, countryid:String [PK], versionid:int, GeneratedName:EntityAudit, GeneratedName:SystemInfo);
+
+region(regionname:String, regioncode1:Integer, regioncodechar2:String, regiondescription:String, regionflag:String, regionlatitude:Integer, regionlongitude:Integer, regionid:String [PK], countryid:String, stateid:String, versionid:int, GeneratedName:EntityAudit, GeneratedName:SystemInfo);
+
+language(language:String, languagetype:String, languagedescription:String, languageicon:String, alpha2:String, alpha3:String, alpha4:String, alpha4parentid:Integer, languageid:String [PK], versionid:int, GeneratedName:EntityAudit, GeneratedName:SystemInfo);
+
+state(statename:String, statecode:Integer, statecodechar2:String, statecodechar3:String, statedescription:String, stateflag:String, statecapital:String, statecapitallatitude:Integer, statecapitallongitude:Integer, stateid:String [PK], countryid:String, versionid:int, GeneratedName:EntityAudit, GeneratedName:SystemInfo);
+
+village(villagename:String, villagedescription:String, villageflag:String, villagecode:String, villagelatitude:String, villagelongtitude:Integer, villageid:String [PK], countryid:String, stateid:String, regionid:String, districtid:String, talukaaid:String, versionid:int, GeneratedName:EntityAudit, GeneratedName:SystemInfo);
+
+city(cityname:String, citycodechar2:String, citycode:Integer, citydescription:String, cityflag:String, citylatitude:Integer, citylongitude:Integer, cityid:String [PK], countryid:String, stateid:String, versionid:int, GeneratedName:EntityAudit, GeneratedName:SystemInfo);
+
+district(name:String, code2:String, districtdescription:String, districtflag:String, districtlatitude:Integer, districtlongitude:Integer, districtid:String [PK], countryid:String, stateid:String, regionid:String, versionid:int, GeneratedName:EntityAudit, GeneratedName:SystemInfo);
+
+addressextended(villagename:String, talukaname:String, addextid:String [PK], addressid:String, villageid:String, talukaid:String, districtid:String, regionid:String, versionid:int, GeneratedName:EntityAudit, GeneratedName:SystemInfo);
+
+currency(currencycode:String, unicodedecimal:String, unicodehex:String, currencyid:String [PK], countryid:String, versionid:int, GeneratedName:EntityAudit, GeneratedName:SystemInfo);
+
+timezone(utcdifference:Integer, gmtlabel:String, timezonelabel:String, country:String, cities:String, timezoneid:String [PK], versionid:int, GeneratedName:EntityAudit, GeneratedName:SystemInfo);
+
+address(addresslabel:String, address1:String, address2:String, address3:String, zipcode:String, latitude:String, longitude:String, addressid:String [PK], addresstypeid:String, countryid:String, stateid:String, cityid:String, versionid:int, GeneratedName:EntityAudit, GeneratedName:SystemInfo);
+
+jobtype(jobdesc:String, jobhelp:String, jobicon:String, jobcode:String [PK], versionid:int, GeneratedName:EntityAudit, GeneratedName:SystemInfo);
+
+designationtype(designatntypedesc:String, designatntypehelp:String, designatntypeicon:String, designatntypecode:String [PK], versionid:int, GeneratedName:EntityAudit, GeneratedName:SystemInfo);
+
+departmenttype(depttypedesc:String, depttypehelp:String, depttypeicon:String, depttypecode:String [PK], versionid:int, GeneratedName:EntityAudit, GeneratedName:SystemInfo);
+
+empidproof(iddata:String, empidpk:String [PK], empid:String, idcode:String, versionid:int, GeneratedName:EntityAudit, GeneratedName:SystemInfo);
+
+visa(visadesc:String, visahelp:String, visaicon:String, visacode:String [PK], versionid:int, GeneratedName:EntityAudit, GeneratedName:SystemInfo);
+
+idproofinformation(iddesc:String, idhelp:String, idicon:String, idcode:String [PK], versionid:int, GeneratedName:EntityAudit, GeneratedName:SystemInfo);
+
+empinformation(reportingofficer:String, pan:String, empid:String [PK], depttypecode:String, designatntypecode:String, jobcode:String, visacode:String, GeneratedName:CoreContacts #FK to(corecontacts), versionid:int, GeneratedName:EntityAudit, GeneratedName:SystemInfo);

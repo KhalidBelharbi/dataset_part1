@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="listenlog" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="song" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="usuario" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="person" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="artist" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="nombre" type="xs:string" />
+        <xs:element name="grupo" type="person" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="albums" type="album" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="song" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="nombre" type="xs:string" />
+        <xs:element name="letra" type="xs:string" />
+        <xs:element name="fecha" type="xs:dateTime" />
+        <xs:element name="GeneratedName" type="album" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="album" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="created" type="xs:dateTime" />
+        <xs:element name="songs" type="song" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="artist" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="playlist" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="titulo" type="xs:string" />
+        <xs:element name="fecha_creacion" type="xs:dateTime" />
+        <xs:element name="songs" type="song" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="creador" type="usuario" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="puntuacion" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="song" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="usuario" nillable="true" minOccurs="0" />
+        <xs:element name="score" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usuario" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="user" type="person" nillable="true" minOccurs="0" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="lastplayed" type="song" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="//'activo','inactivo'status" type="xs:string" />
+        <xs:element name="playlists" type="playlist" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="seguidores" type="usuario" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

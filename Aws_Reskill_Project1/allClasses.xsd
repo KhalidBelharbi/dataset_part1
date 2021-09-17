@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="bootstrap" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="messages" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="productmsapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="productexception" >
+      <xs:complexContent>
+       <xs:extension base="exception">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="buyerdto" >
+      <xs:sequence>
+        <xs:element name="buyerid" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="phonenumber" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="isprivileged" type="xs:anyType" />
+        <xs:element name="rewardpoints" type="xs:anyType" />
+        <xs:element name="isactive" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="subscribedproductdto" >
+      <xs:sequence>
+        <xs:element name="buyerid" type="xs:anyType" />
+        <xs:element name="prodid" type="xs:anyType" />
+        <xs:element name="quantity" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="productdto" >
+      <xs:sequence>
+        <xs:element name="prodid" type="xs:anyType" />
+        <xs:element name="productname" type="xs:string" />
+        <xs:element name="price" type="xs:anyType" />
+        <xs:element name="stock" type="xs:anyType" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="//<<-------???????????????????sellerid" type="xs:anyType" />
+        <xs:element name="category" type="xs:string" />
+        <xs:element name="subcategory" type="xs:string" />
+        <xs:element name="productrating" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="subscribedproductcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="subscribedproductservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="productcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="productservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="subscribedproductrepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<subscribedproduct">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="productrepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<product">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="subscribedproductid" >
+      <xs:sequence>
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="buyerid" type="xs:anyType" />
+        <xs:element name="prodid" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="product" >
+      <xs:sequence>
+        <xs:element name="prodid" type="xs:anyType" />
+        <xs:element name="productname" type="xs:string" />
+        <xs:element name="price" type="xs:anyType" />
+        <xs:element name="stock" type="xs:anyType" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="//<<-------???????????????????sellerid" type="xs:anyType" />
+        <xs:element name="category" type="xs:string" />
+        <xs:element name="subcategory" type="xs:string" />
+        <xs:element name="productrating" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="subscribedproduct" >
+      <xs:sequence>
+        <xs:element name="buyerid" type="xs:anyType" />
+        <xs:element name="prodid" type="xs:anyType" />
+        <xs:element name="quantity" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="productservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="subscribedproductservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="productserviceimpl" >
+      <xs:sequence>
+        <xs:element name="env" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="productrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="subscribedproductserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="subscribedproductrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

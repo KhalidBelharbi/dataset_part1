@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="candidate" >
+      <xs:sequence>
+        <xs:element name="id" type="candidateid" nillable="true" minOccurs="0" />
+        <xs:element name="status" type="xs:anyType" />
+        <xs:element name="createdat" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="acceleration" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="slug" type="xs:string" />
+        <xs:element name="GeneratedName" type="challenge" nillable="true" minOccurs="0" />
+        <xs:element name="candidates" type="candidate" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="createdat" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="submissionid" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="challenge" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="user" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="fullname" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="nickname" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="createdat" type="xs:anyType" />
+        <xs:element name="candidates" type="candidate" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="submissions" type="submission" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="submission" >
+      <xs:sequence>
+        <xs:element name="id" type="submissionid" nillable="true" minOccurs="0" />
+        <xs:element name="score" type="xs:double" />
+        <xs:element name="createdat" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="candidateid" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="acceleration" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="company" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="challenge" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="slug" type="xs:string" />
+        <xs:element name="accelerations" type="acceleration" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="submissions" type="submission" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="createdat" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="company" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="slug" type="xs:string" />
+        <xs:element name="candidates" type="candidate" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="createdat" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

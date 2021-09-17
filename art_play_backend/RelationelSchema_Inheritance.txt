@@ -1,0 +1,59 @@
+
+showauth(uid:Long [PK], showid:Long [PK], uptime:Date);
+
+user(GeneratedName:TYPE, uid:Long [PK], phone:String, thirdpartname:String, nickname:String, GeneratedName:GENDER, headiconurl:String, password:String, lastloginip:String, lastlogintime:Date, memberstatus:USER_STATUS);
+
+user_list<userauthrole>(userID:user [PK] #FK to user,list<userauthrole>ID:list<userauthrole> [PK] #FK to list<userauthrole>);
+
+tokenpersistent(series:String [PK], username:String, token:String, lastused:Date);
+
+userauthrole(id:Long [PK], name:String);
+
+showmap(id:Long [PK], showid:Long, //-2-99floor:Integer, name:String, showhallname:String, //单位：cmwidth:Integer, //单位：cmheight:Integer, GeneratedName:Image #FK to(image), uptime:Date);
+
+installbeacon(id:Long [PK], uuid:String, majorvalue:String, minorvalue:String);
+
+wxsyncmedia(//最大长度255arturl:String [PK], mediaid:String, GeneratedName:TYPE, wxurl:String, createtime:Date);
+
+audio(id:Long [PK], folderid:Long, name:String, //bytessize:Long, //secondslength:Integer, url:String, createtime:Date);
+
+folder(id:Long [PK], showid:Long, name:String, GeneratedName:TYPE, createtime:Date);
+
+image(id:Long [PK], folderid:Long, name:String, height:Integer, width:Integer, url:String, //缩略图thumburl:String, createtime:Date);
+
+webpage(//resourceitem必须是web类型resourceitemid:Long [PK], //微信字段wechatasync:WECHAT_ASYNC, //微信字段mediaid:String, arturl:String, title:String, author:String, link:String, introduce:String, coverimageurl:String, contenthtml:String, uptime:Date, createtime:Date, viewtimes:Long, liketimes:Long);
+
+video(id:Long [PK], folderid:Long, name:String, //bytessize:Long, //secondslength:Integer, coverurl:String, srcurl:String, width:Integer, height:Integer, createtime:Date);
+
+globalconfigurer(attrkey:String [PK], attrvalue:String);
+
+userrecord(//20180101day:Integer [PK], times:Long, GeneratedName:TYPE [PK]);
+
+beaconrecord(//20180101day:Integer [PK], times:Long);
+
+showrecord(showid:Long [PK], //20180101day:Integer [PK], times:Long);
+
+userrecordcache(sessionid:String [PK], GeneratedName:TYPE);
+
+qrcoderecord(//20180101day:Integer [PK], times:Long);
+
+resourcegrouprecord(groupid:Long [PK], //20180101day:Integer [PK], times:Long);
+
+resourcerecord(resourceid:Long [PK], //20180101day:Integer [PK], times:Long);
+
+arrecord(//20180101day:Integer [PK], times:Long);
+
+mycollection(uid:Long [PK], resourcegroupid:Long [PK], createtime:Date);
+
+resourceitem(id:Long [PK], resourcesgroupid:Long, GeneratedName:TYPE, name:String, url:String, uptime:Date, viewtimes:Long, liketimes:Long);
+
+show(id:Long [PK], title:String, //开展时间starttime:Date, //闭幕时间endtime:Date, //海报poster:Image #FK to(image), //文字介绍introducetext:String, //编辑更新时间uptime:Date, //浏览次数viewtimes:Long, //点赞次数liketimes:Long, //音频数量audionum:Integer);
+
+resourcegroup(id:Long [PK], showid:Long, name:String, //@apiparam(name:Date, viewtimes:Long, liketimes:Long, beaconsbindtime:Date, ar:Image #FK to(image), arbindtime:Date);
+
+beacon(//外界请不要使用该id操作数据id:Long [PK], showid:Long, basicinfo:InstallBeacon #FK to(installbeacon), available:RANGE, GeneratedName:STATUS, //@notnullname:String, GeneratedName:ShowMap #FK to(showmap), positionwidth:Integer, positionheight:Integer, //绑定信息//@onetoone(targetentity:Long, uptime:Date);
+
+footprintshow(uid:Long [PK], showid:Long [PK], uptime:Date, //该用户浏览过多少次viewtimes:Long);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

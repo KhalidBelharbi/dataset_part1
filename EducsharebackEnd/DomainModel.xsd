@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="favori" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="documentid" type="xs:long" />
+        <xs:element name="userid" type="xs:long" />
+        <xs:element name="createdat" type="xs:dateTime" />
+        <xs:element name="updat" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="course" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="coursename" type="xs:string" />
+        <xs:element name="createdat" type="xs:dateTime" />
+        <xs:element name="updat" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="comment" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="content" type="xs:string" />
+        <xs:element name="commentvalidated" type="xs:anyType" />
+        <xs:element name="createdat" type="xs:dateTime" />
+        <xs:element name="updat" type="xs:dateTime" />
+        <xs:element name="GeneratedName" type="document" nillable="true" minOccurs="0" />
+        <xs:element name="user" type="appuser" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="basket" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="createdat" type="xs:dateTime" />
+        <xs:element name="updat" type="xs:dateTime" />
+        <xs:element name="user" type="appuser" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="document" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="message" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="content" type="xs:string" />
+        <xs:element name="telnumber" type="xs:string" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+        <xs:element name="createdat" type="xs:dateTime" />
+        <xs:element name="updat" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="approle" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="rolename" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="university" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="universityname" type="xs:string" />
+        <xs:element name="universityacronyme" type="xs:string" />
+        <xs:element name="countryname" type="xs:string" />
+        <xs:element name="createdat" type="xs:dateTime" />
+        <xs:element name="updat" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="faq" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="question" type="xs:string" />
+        <xs:element name="faqvalidated" type="xs:string" />
+        <xs:element name="createdat" type="xs:dateTime" />
+        <xs:element name="updat" type="xs:dateTime" />
+        <xs:element name="user" type="appuser" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rank" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="rankvalue" type="xs:long" />
+        <xs:element name="documentid" type="xs:long" />
+        <xs:element name="userid" type="xs:long" />
+        <xs:element name="createdat" type="xs:dateTime" />
+        <xs:element name="updat" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="document" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="documentname" type="xs:string" />
+        <xs:element name="documentmatter" type="xs:string" />
+        <xs:element name="documentvalidated" type="xs:string" />
+        <xs:element name="documentlevel" type="xs:string" />
+        <xs:element name="documentyear" type="xs:string" />
+        <xs:element name="documenttheme" type="xs:string" />
+        <xs:element name="documenttype" type="xs:string" />
+        <xs:element name="documentsemestre" type="xs:long" />
+        <xs:element name="documentcountry" type="xs:string" />
+        <xs:element name="documentuniversity" type="xs:string" />
+        <xs:element name="documentdepartment" type="xs:string" />
+        <xs:element name="documentfileenonce" type="xs:string" />
+        <xs:element name="documentfilecorrige" type="xs:string" />
+        <xs:element name="enoncedata" type="xs:anyType" />
+        <xs:element name="corrigedata" type="xs:anyType" />
+        <xs:element name="createdat" type="xs:dateTime" />
+        <xs:element name="updat" type="xs:dateTime" />
+        <xs:element name="//documenthasmanycommentscomments" type="comment" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="//documentbestouser//@manytoone//@joincolumn(name" type="xs:long" />
+        <xs:element name="//documenthasmanybasketsbaskets" type="basket" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="departement" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="departementname" type="xs:string" />
+        <xs:element name="createdat" type="xs:dateTime" />
+        <xs:element name="updat" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="task" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="taskname" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="matter" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="mattername" type="xs:string" />
+        <xs:element name="createdat" type="xs:dateTime" />
+        <xs:element name="updat" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="appuser" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+        <xs:element name="birth" type="xs:dateTime" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="confirmpassword" type="xs:string" />
+        <xs:element name="telnumber" type="xs:string" />
+        <xs:element name="cin" type="xs:string" />
+        <xs:element name="city" type="xs:string" />
+        <xs:element name="avatar" type="xs:anyType" />
+        <xs:element name="fillename" type="xs:string" />
+        <xs:element name="//@notblankuserlevel" type="xs:string" />
+        <xs:element name="//@notblankusersection" type="xs:string" />
+        <xs:element name="//@notblankuserclass" type="xs:string" />
+        <xs:element name="createdat" type="xs:dateTime" />
+        <xs:element name="updat" type="xs:dateTime" />
+        <xs:element name="userrole" type="xs:string" />
+        <xs:element name="usercountry" type="xs:string" />
+        <xs:element name="useruniversity" type="xs:string" />
+        <xs:element name="roles){//this.roles" type="comment" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="//userhasmanydocuments//@onetomany(mappedby" type="document" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="//userhasmanybasketsbaskets" type="basket" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="//////userhasmanymessages//@onetomany(mappedby" type="faq" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="notification" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="content" type="xs:string" />
+        <xs:element name="userid" type="xs:long" />
+        <xs:element name="documentid" type="xs:long" />
+        <xs:element name="createdat" type="xs:dateTime" />
+        <xs:element name="updat" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

@@ -1,0 +1,15 @@
+
+usuarioentity(id:Long [PK], nome:String, login:String, senha:String, email:String);
+
+telefoneentity(id:Long [PK], cliente:ClienteEntity #FK to(clienteentity), tipo:EnumTipoTelefone, numero:String, pessoa:String);
+
+clienteentity(id:Long [PK], nome:String, apelido:String, tipo:EnumTipoPessoa, cpfcnpj:String, responsavel:String, construtor:ClienteEntity #FK to(clienteentity));
+
+emailentity(id:Long [PK], cliente:ClienteEntity #FK to(clienteentity), email:String, pessoa:String);
+
+enderecoentity(id:Long [PK], cliente:ClienteEntity #FK to(clienteentity), tipo:EnumTipoEndereco, tipologradouro:EnumTipoLogradouro, logradouro:String, numero:String, complemento:String, bairro:String, cidade:String, cep:String);
+
+construtorentity(id:Long [PK], cliente:ClienteEntity #FK to(clienteentity));
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

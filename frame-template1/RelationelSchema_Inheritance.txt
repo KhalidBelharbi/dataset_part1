@@ -1,0 +1,13 @@
+
+roleentity(/***角色id*/id:String [PK], /***/rolename:String, /***/description:String, /***/status:Character, /***/createtime:Date, /***/uptime:Date);
+
+t_role_permission(role_id:RoleEntity [PK] #FK to RoleEntity,permission_id:set<permissionentity> [PK] #FK to set<permissionentity>);
+
+userentity(/***用户id*/id:String [PK], /***用户名（唯一）*/username:String, /***密码*/password:String, /***用户姓名*/fullname:String, /***手机号*/mobile:String, /***/createtime:Date, /***/uptime:Date);
+
+t_user_role(user_id:UserEntity [PK] #FK to UserEntity,role_id:set<roleentity> [PK] #FK to set<roleentity>);
+
+permissionentity(/***权限id*/id:String [PK], /***权限标识符*/code:String, /***描述*/description:String, /***请求地址*/url:String, /***/createtime:Date, /***/uptime:Date);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

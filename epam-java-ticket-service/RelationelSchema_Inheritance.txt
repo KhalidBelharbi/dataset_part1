@@ -1,0 +1,13 @@
+
+user(username:String [PK], password:String, type:AccountType);
+
+room(name:String [PK], rows:int, columns:int);
+
+booking(id:long [PK], username:String, screening:ScreeningID, seats:Set<Seat>);
+
+movie(title:String [PK], genre:String, length:int);
+
+screening(id:ScreeningID, GeneratedName:Movie #FK to(movie), GeneratedName:Room #FK to(room));
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

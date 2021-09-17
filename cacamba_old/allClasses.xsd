@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="cpfcnpjvalidator" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cpfcnpj" >
+      <xs:complexContent>
+       <xs:extension base="payload>[]">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="usuariocustomdto" >
+      <xs:complexContent>
+       <xs:extension base="grantedauthority>">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="nome" type="xs:string" />
+          <xs:element name="login" type="xs:string" />
+          <xs:element name="senha" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="usuariopassworddto" >
+      <xs:sequence>
+        <xs:element name="senhaatual" type="xs:string" />
+        <xs:element name="novasenha" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usuarioentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="nome" type="xs:string" />
+        <xs:element name="login" type="xs:string" />
+        <xs:element name="senha" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usuariorepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<usuarioentity,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="customtokenenhancer" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="websecurityconfigadapter" >
+      <xs:complexContent>
+       <xs:extension base="websecurityconfigureradapter">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="resourceserverconfig" >
+      <xs:complexContent>
+       <xs:extension base="resourceserverconfigureradapter">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="authorizationserverconfig" >
+      <xs:complexContent>
+       <xs:extension base="authorizationserverconfigureradapter">
+         <xs:sequence>
+          <xs:element name="access_token_validity_in_seconds" type="xs:long" />
+          <xs:element name="refresh_token_validity_in_seconds" type="xs:long" />
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tokencontroller" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usuariocontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="usuariorepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="exceptiontype" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="messageexception" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="apierrordto" >
+      <xs:sequence>
+        <xs:element name="timestamp" type="xs:dateTime" />
+        <xs:element name="status" type="xs:anyType" />
+        <xs:element name="code" type="xs:string" />
+        <xs:element name="errors" type="errordto" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="baseruntimeexception" >
+      <xs:complexContent>
+       <xs:extension base="runtimeexception">
+         <xs:sequence>
+          <xs:element name="mapdetails" type="xs:anyType" />
+          <xs:element name="type" type="exceptiontype" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="errordto" >
+      <xs:sequence>
+        <xs:element name="type" type="exceptiontype" nillable="true" minOccurs="0" />
+        <xs:element name="code" type="xs:string" />
+        <xs:element name="message" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="exceptionhandleradvice" >
+      <xs:sequence>
+        <xs:element name="unknown_error_key" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ecvalidationexception" >
+      <xs:complexContent>
+       <xs:extension base="baseruntimeexception{">
+         <xs:sequence>
+          <xs:element name="message" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="modelmapperutils" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ecstringutils" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cacambaapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="enumtipopessoa" >
+      <xs:sequence>
+        <xs:element name="descricao" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="enumtipoendereco" >
+      <xs:sequence>
+        <xs:element name="descricao" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="enumtipologradouro" >
+      <xs:sequence>
+        <xs:element name="descricao" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="enumtipotelefone" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="telefoneentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="cliente" type="clienteentity" nillable="true" minOccurs="0" />
+        <xs:element name="tipo" type="enumtipotelefone" nillable="true" minOccurs="0" />
+        <xs:element name="numero" type="xs:string" />
+        <xs:element name="pessoa" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="clienteentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="nome" type="xs:string" />
+        <xs:element name="apelido" type="xs:string" />
+        <xs:element name="tipo" type="enumtipopessoa" nillable="true" minOccurs="0" />
+        <xs:element name="cpfcnpj" type="xs:string" />
+        <xs:element name="responsavel" type="xs:string" />
+        <xs:element name="construtor" type="clienteentity" nillable="true" minOccurs="0" />
+        <xs:element name="enderecos" type="enderecoentity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="telefones" type="telefoneentity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="emails" type="emailentity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="emailentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="cliente" type="clienteentity" nillable="true" minOccurs="0" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="pessoa" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="enderecoentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="cliente" type="clienteentity" nillable="true" minOccurs="0" />
+        <xs:element name="tipo" type="enumtipoendereco" nillable="true" minOccurs="0" />
+        <xs:element name="tipologradouro" type="enumtipologradouro" nillable="true" minOccurs="0" />
+        <xs:element name="logradouro" type="xs:string" />
+        <xs:element name="numero" type="xs:string" />
+        <xs:element name="complemento" type="xs:string" />
+        <xs:element name="bairro" type="xs:string" />
+        <xs:element name="cidade" type="xs:string" />
+        <xs:element name="cep" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="construtorentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="cliente" type="clienteentity" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="clienterepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<clienteentity,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="telefonerepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<telefoneentity,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="enderecorepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<enderecoentity,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="emailrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<emailentity,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="enderecodto" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="tipo" type="enumtipoendereco" nillable="true" minOccurs="0" />
+        <xs:element name="tipologradouro" type="enumtipologradouro" nillable="true" minOccurs="0" />
+        <xs:element name="logradouro" type="xs:string" />
+        <xs:element name="numero" type="xs:string" />
+        <xs:element name="complemento" type="xs:string" />
+        <xs:element name="bairro" type="xs:string" />
+        <xs:element name="cidade" type="xs:string" />
+        <xs:element name="cep" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="telefonedto" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="tipo" type="enumtipotelefone" nillable="true" minOccurs="0" />
+        <xs:element name="numero" type="xs:string" />
+        <xs:element name="pessoa" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="clientedto" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="nome" type="xs:string" />
+        <xs:element name="apelido" type="xs:string" />
+        <xs:element name="tipo" type="enumtipopessoa" nillable="true" minOccurs="0" />
+        <xs:element name="cpfcnpj" type="xs:string" />
+        <xs:element name="responsavel" type="xs:string" />
+        <xs:element name="construtor" type="xs:long" />
+        <xs:element name="enderecos" type="enderecodto" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="telefones" type="telefonedto" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="emails" type="emaildto" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="emaildto" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="pessoa" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="clientebusiness" >
+      <xs:sequence>
+        <xs:element name="repository" type="clienterepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="emailrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="enderecorepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="telefonerepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="clientecontroller" >
+      <xs:sequence>
+        <xs:element name="business" type="clientebusiness" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cacambaapplicationtests" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

@@ -1,0 +1,13 @@
+ClassDiagram.Class>> Vin =>=>=> RelationalSchema.Table>> vin;
+ClassDiagram.Class>> Caracteristique =>=>=> RelationalSchema.Table>> caracteristique;
+ClassDiagram.Class>> Terroir =>=>=> RelationalSchema.Table>> terroir;
+ClassDiagram.Attribut>> Vin.id:int =>=>=> RelationalSchema.Column>> vin.id PRIMARY KEY;
+ClassDiagram.Attribut>> Vin.nom:String =>=>=> RelationalSchema.Column>> vin.nom;
+ClassDiagram.Attribut>> Vin.annee:int =>=>=> RelationalSchema.Column>> vin.annee;
+ClassDiagram.Attribut>> Caracteristique.id:int =>=>=> RelationalSchema.Column>> caracteristique.id PRIMARY KEY;
+ClassDiagram.Attribut>> Caracteristique.libelle:String =>=>=> RelationalSchema.Column>> caracteristique.libelle;
+ClassDiagram.Attribut>> Terroir.id:int =>=>=> RelationalSchema.Column>> terroir.id PRIMARY KEY;
+ClassDiagram.Attribut>> Terroir.nom:String =>=>=> RelationalSchema.Column>> terroir.nom;
+Many-To-One relationship from ClassDiagram.Class>>Vin  to ClassDiagram.Class>>terroir represented by ClassDiagram.Atrribute>>GeneratedName;
+set<caracteristique>: vin_set<caracteristique>(vinID:vin [PK] #FK to vin,set<caracteristique>ID:set<caracteristique> [PK] #FK to set<caracteristique>);
+One-To-Many relationship from ClassDiagram.Class>>Terroir  to ClassDiagram.Class>>Set<Vin>;

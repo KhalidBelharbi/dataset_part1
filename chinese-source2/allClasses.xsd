@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="javax.annotation.processing" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="propertiesmarshaller" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="metadatastore" >
+      <xs:sequence>
+        <xs:element name="metadata_path" type="xs:string" />
+        <xs:element name="environment" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="metadatacollector" >
+      <xs:sequence>
+        <xs:element name="metadataitems" type="itemmetadata" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="previousmetadata" type="candidatecomponentsmetadata" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="typehelper" nillable="true" minOccurs="0" />
+        <xs:element name="processedsourcetypes" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="stereotypesprovider" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="indexedstereotypesprovider" >
+      <xs:sequence>
+        <xs:element name="indexed_annotation" type="xs:string" />
+        <xs:element name="GeneratedName" type="typehelper" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="typehelper" >
+      <xs:complexContent>
+       <xs:extension base="typemirror>">
+         <xs:sequence>
+          <xs:element name="env" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="candidatecomponentsmetadata" >
+      <xs:sequence>
+        <xs:element name="items" type="itemmetadata" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="candidatecomponentsindexer" >
+      <xs:complexContent>
+       <xs:extension base="typeelement>">
+         <xs:sequence>
+          <xs:element name="type_kinds" type="xs:anyType" />
+          <xs:element name="" type="metadatastore" nillable="true" minOccurs="0" />
+          <xs:element name="" type="metadatacollector" nillable="true" minOccurs="0" />
+          <xs:element name="" type="typehelper" nillable="true" minOccurs="0" />
+          <xs:element name="stereotypesproviders" type="stereotypesprovider" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="itemmetadata" >
+      <xs:sequence>
+        <xs:element name="type" type="xs:string" />
+        <xs:element name="stereotypes" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="packageinfostereotypesprovider" >
+      <xs:sequence>
+        <xs:element name="stereotype" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="standardstereotypesprovider" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="typehelper" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="propertiesmarshallertests" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="candidatecomponentsindexertests" >
+      <xs:sequence>
+        <xs:element name="compiler" type="testcompiler" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="thrown" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="testcompiler" >
+      <xs:complexContent>
+       <xs:extension base="file>">
+         <xs:sequence>
+          <xs:element name="original_source_folder" type="xs:anyType" />
+          <xs:element name="compiler" type="xs:anyType" />
+          <xs:element name="filemanager" type="xs:anyType" />
+          <xs:element name="outputlocation" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="metadata" >
+      <xs:complexContent>
+       <xs:extension base="basematcher<candidatecomponentsmetadata>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="samplecontroller" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="metacontroller" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="samplenone" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="specializedrepo" >
+      <xs:complexContent>
+       <xs:extension base="repo<t,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="samplespecializedrepo" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="samplerepo" >
+      <xs:complexContent>
+       <xs:extension base="abstractrepo<sampleentity,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="repo" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="samplesmartrepo" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sampleentity" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="abstractrepo" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="smartrepo" >
+      <xs:complexContent>
+       <xs:extension base="repo<t,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="samplenonstaticembedded" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="metacontrollerindexed" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="samplemetacontroller" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sampleservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sampleconverter" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sampleentity" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="samplemappedsuperclass" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="package-info" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sampleembeddable" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="abstractcontroller" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sampleembedded" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="samplerepository" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="samplemanagedbean" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="samplenamed" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="samplemetaindexedcontroller" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="samplecomponent" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

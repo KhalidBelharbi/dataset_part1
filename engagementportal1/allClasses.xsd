@@ -1,0 +1,586 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="testrepositoryconfig" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="customerrepositorytest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="customerrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="csvconversionfailureexception" >
+      <xs:complexContent>
+       <xs:extension base="exception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="salesorderrepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<salesorderentity,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="resourcerepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<resourceentity,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="importmasterrepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<importmasterentity,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="projectresourcerepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<projectresourceentity,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="importcontrolrepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<importcontrolentity,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="exportprojectrepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<projectexportentity,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="projectrepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<projectentity,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="customerrepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<customerentity,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="projectactivityrepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<projectactivityentity,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="importoracleobistagerepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<importoracleobistage,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="projectnotesrepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<projectnotesentity,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="importoracleobirepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<importoracleobientity,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="salesorderstatusentity" >
+      <xs:sequence>
+        <xs:element name="statuscode" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="constants" >
+      <xs:sequence>
+        <xs:element name="default_date_format" type="xs:string" />
+        <xs:element name="soimport_date_format" type="xs:string" />
+        <xs:element name="master_date_format" type="xs:string" />
+        <xs:element name="modelgroupvalues" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="resourcesearchsupport" >
+      <xs:sequence>
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+        <xs:element name="type" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="importcontrolstatus" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="importsalesforceentity" >
+      <xs:sequence>
+        <xs:element name="importsalesforceid" type="xs:long" />
+        <xs:element name="importprocesseddate" type="xs:anyType" />
+        <xs:element name="importstatus" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="importsharepointentity" >
+      <xs:sequence>
+        <xs:element name="importsharepointid" type="xs:long" />
+        <xs:element name="importprocesseddate" type="xs:anyType" />
+        <xs:element name="importstatus" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="importmasterentity" >
+      <xs:complexContent>
+       <xs:extension base="abstractdomainbase">
+         <xs:sequence>
+          <xs:element name="importmasterid" type="xs:long" />
+          <xs:element name="salesordernumber" type="xs:string" />
+          <xs:element name="customer" type="customerentity" nillable="true" minOccurs="0" />
+          <xs:element name="classregsent" type="xs:string" />
+          <xs:element name="reportedrevrec" type="xs:string" />
+          <xs:element name="credits" type="xs:anyType" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="status" type="xs:string" />
+          <xs:element name="book" type="xs:dateTime" />
+          <xs:element name="ship" type="xs:dateTime" />
+          <xs:element name="planningmeeting" type="xs:dateTime" />
+          <xs:element name="kickoffmeeting" type="xs:dateTime" />
+          <xs:element name="onsitestart" type="xs:dateTime" />
+          <xs:element name="onsiteend" type="xs:dateTime" />
+          <xs:element name="releaseforrevenuerec" type="xs:dateTime" />
+          <xs:element name="waittime" type="xs:string" />
+          <xs:element name="bookedtokickoff" type="xs:anyType" />
+          <xs:element name="daystoclose" type="xs:anyType" />
+          <xs:element name="amount" type="xs:anyType" />
+          <xs:element name="notes" type="xs:string" />
+          <xs:element name="location" type="xs:string" />
+          <xs:element name="region" type="xs:string" />
+          <xs:element name="modelgroup" type="xs:string" />
+          <xs:element name="service" type="xs:string" />
+          <xs:element name="accountteam" type="xs:string" />
+          <xs:element name="remote" type="xs:string" />
+          <xs:element name="onsite" type="xs:string" />
+          <xs:element name="equipmentlist" type="xs:string" />
+          <xs:element name="shawdow" type="xs:string" />
+          <xs:element name="importprocessed" type="xs:dateTime" />
+          <xs:element name="importstatus" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="salesorderentity" >
+      <xs:complexContent>
+       <xs:extension base="abstractdomainbase">
+         <xs:sequence>
+          <xs:element name="salesorderid" type="xs:long" />
+          <xs:element name="importcontrolid" type="xs:long" />
+          <xs:element name="project" type="projectentity" nillable="true" minOccurs="0" />
+          <xs:element name="salesordernumber" type="xs:string" />
+          <xs:element name="amount" type="xs:anyType" />
+          <xs:element name="region" type="xs:string" />
+          <xs:element name="modelgroup" type="xs:string" />
+          <xs:element name="stsalesagentname" type="xs:string" />
+          <xs:element name="activityyear" type="xs:anyType" />
+          <xs:element name="activitymonthnumber" type="xs:anyType" />
+          <xs:element name="activity" type="xs:dateTime" />
+          <xs:element name="customer" type="customerentity" nillable="true" minOccurs="0" />
+          <xs:element name="/*@column(name" type="xs:string" />
+          <xs:element name="stchannelname" type="xs:string" />
+          <xs:element name="productfamilycode" type="xs:string" />
+          <xs:element name="forecastgroupcode" type="xs:string" />
+          <xs:element name="orderedquantity" type="xs:double" />
+          <xs:element name="contractstatuscode" type="xs:string" />
+          <xs:element name="endusername" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="projectactivityentity" >
+      <xs:complexContent>
+       <xs:extension base="abstractdomainbase">
+         <xs:sequence>
+          <xs:element name="activityid" type="xs:long" />
+          <xs:element name="project" type="projectentity" nillable="true" minOccurs="0" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="" type="xs:dateTime" />
+          <xs:element name="status" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="projectsearchsupport" >
+      <xs:sequence>
+        <xs:element name="salesordernumber" type="xs:string" />
+        <xs:element name="customername" type="xs:string" />
+        <xs:element name="importcontrolid" type="xs:long" />
+        <xs:element name="modelgroup" type="xs:string" />
+        <xs:element name="status" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="salesorderstats" >
+      <xs:sequence>
+        <xs:element name="status" type="xs:string" />
+        <xs:element name="count" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="importoracleobistage" >
+      <xs:complexContent>
+       <xs:extension base="abstractdomainbase">
+         <xs:sequence>
+          <xs:element name="importoracleobistageid" type="xs:long" />
+          <xs:element name="importcontrolid" type="xs:long" />
+          <xs:element name="importstatus" type="xs:string" />
+          <xs:element name="ordernumber" type="xs:string" />
+          <xs:element name="fnetregion1" type="xs:string" />
+          <xs:element name="salesagentname" type="xs:string" />
+          <xs:element name="stagentname" type="xs:string" />
+          <xs:element name="activityyear" type="xs:string" />
+          <xs:element name="activitymonth" type="xs:string" />
+          <xs:element name="activitydate" type="xs:string" />
+          <xs:element name="stcustomername" type="xs:string" />
+          <xs:element name="stchannelname" type="xs:string" />
+          <xs:element name="btcustomername" type="xs:string" />
+          <xs:element name="productfamilycode" type="xs:string" />
+          <xs:element name="modelgroupcode" type="xs:string" />
+          <xs:element name="forecastgroupcode" type="xs:string" />
+          <xs:element name="orderedquantity" type="xs:string" />
+          <xs:element name="netusd" type="xs:string" />
+          <xs:element name="contractstatuscode" type="xs:string" />
+          <xs:element name="endusername" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="projectnotesentity" >
+      <xs:complexContent>
+       <xs:extension base="abstractdomainbase">
+         <xs:sequence>
+          <xs:element name="noteid" type="xs:long" />
+          <xs:element name="project" type="projectentity" nillable="true" minOccurs="0" />
+          <xs:element name="notes" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="importcontrolentity" >
+      <xs:complexContent>
+       <xs:extension base="abstractdomainbase">
+         <xs:sequence>
+          <xs:element name="importcontrolid" type="xs:long" />
+          <xs:element name="numberofrecords" type="xs:long" />
+          <xs:element name="filename" type="xs:string" />
+          <xs:element name="importfileencoding" type="xs:string" />
+          <xs:element name="status" type="importcontrolstatus" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="projectresourceentity" >
+      <xs:complexContent>
+       <xs:extension base="abstractdomainbase">
+         <xs:sequence>
+          <xs:element name="projectresourceid" type="xs:long" />
+          <xs:element name="project" type="projectentity" nillable="true" minOccurs="0" />
+          <xs:element name="resource" type="resourceentity" nillable="true" minOccurs="0" />
+          <xs:element name="role" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="umprojectsearchresults" >
+      <xs:sequence>
+        <xs:element name="projectid" type="xs:long" />
+        <xs:element name="salesordernumber" type="xs:string" />
+        <xs:element name="salesorderid" type="xs:long" />
+        <xs:element name="modelgroup" type="xs:string" />
+        <xs:element name="customerid" type="xs:long" />
+        <xs:element name="customername" type="xs:string" />
+        <xs:element name="status" type="xs:string" />
+        <xs:element name="health" type="xs:string" />
+        <xs:element name="book" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="importoracleobientity" >
+      <xs:complexContent>
+       <xs:extension base="abstractdomainbase">
+         <xs:sequence>
+          <xs:element name="importoracleobiid" type="xs:long" />
+          <xs:element name="importcontrolid" type="xs:long" />
+          <xs:element name="fnetregion1" type="xs:string" />
+          <xs:element name="salesagentname" type="xs:string" />
+          <xs:element name="stagentname" type="xs:string" />
+          <xs:element name="activityyear" type="xs:anyType" />
+          <xs:element name="activitymonth" type="xs:anyType" />
+          <xs:element name="activity" type="xs:dateTime" />
+          <xs:element name="ship" type="xs:dateTime" />
+          <xs:element name="planningmeeting" type="xs:dateTime" />
+          <xs:element name="kickoffmeeting" type="xs:dateTime" />
+          <xs:element name="stcustomername" type="xs:string" />
+          <xs:element name="stchannelname" type="xs:string" />
+          <xs:element name="btcustomername" type="xs:string" />
+          <xs:element name="ordernumber" type="xs:string" />
+          <xs:element name="productfamilycode" type="xs:string" />
+          <xs:element name="modelgroupcode" type="xs:string" />
+          <xs:element name="forecastgroupcode" type="xs:string" />
+          <xs:element name="orderedquantity" type="xs:anyType" />
+          <xs:element name="netusd" type="xs:anyType" />
+          <xs:element name="contractstatuscode" type="xs:string" />
+          <xs:element name="endusername" type="xs:string" />
+          <xs:element name="importprocessed" type="xs:dateTime" />
+          <xs:element name="importstatus" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="customerentity" >
+      <xs:complexContent>
+       <xs:extension base="abstractdomainbase">
+         <xs:sequence>
+          <xs:element name="customerid" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="notes" type="xs:string" />
+          <xs:element name="/*movedrelationtosalesorder@onetomany(mappedby" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="projectexportentity" >
+      <xs:complexContent>
+       <xs:extension base="abstractentity">
+         <xs:sequence>
+          <xs:element name="projectid" type="xs:long" />
+          <xs:element name="credits" type="xs:long" />
+          <xs:element name="bookedtokickoff" type="xs:long" />
+          <xs:element name="daystoclose" type="xs:long" />
+          <xs:element name="location" type="xs:string" />
+          <xs:element name="salesorderid" type="xs:long" />
+          <xs:element name="customerid" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="modelgroup" type="xs:string" />
+          <xs:element name="booked" type="xs:dateTime" />
+          <xs:element name="health" type="xs:string" />
+          <xs:element name="classregsent" type="xs:string" />
+          <xs:element name="reportedrevrec" type="xs:string" />
+          <xs:element name="service" type="xs:string" />
+          <xs:element name="status" type="xs:string" />
+          <xs:element name="waittime" type="xs:string" />
+          <xs:element name="activity" type="xs:dateTime" />
+          <xs:element name="activitymonthnumber" type="xs:long" />
+          <xs:element name="activityyear" type="xs:long" />
+          <xs:element name="amount" type="xs:anyType" />
+          <xs:element name="btcustomername" type="xs:string" />
+          <xs:element name="contractstatuscode" type="xs:string" />
+          <xs:element name="endusername" type="xs:string" />
+          <xs:element name="forecastgroupcode" type="xs:string" />
+          <xs:element name="orderedquantity" type="xs:double" />
+          <xs:element name="productfamilycode" type="xs:string" />
+          <xs:element name="region" type="xs:string" />
+          <xs:element name="salesordernumber" type="xs:string" />
+          <xs:element name="stchannelname" type="xs:string" />
+          <xs:element name="stsalesagentname" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="uploadsalesorder" >
+      <xs:sequence>
+        <xs:element name="default_model_groups" type="xs:string" />
+        <xs:element name="modelgroups" type="xs:string" />
+        <xs:element name="filedata" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="customersearchsupport" >
+      <xs:sequence>
+        <xs:element name="customerid" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="resourceentity" >
+      <xs:complexContent>
+       <xs:extension base="abstractdomainbase">
+         <xs:sequence>
+          <xs:element name="resourceid" type="xs:long" />
+          <xs:element name="firstname" type="xs:string" />
+          <xs:element name="lastname" type="xs:string" />
+          <xs:element name="type" type="xs:string" />
+          <xs:element name="//@onetomany(mappedby" type="projectresourceentity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="projectentity" >
+      <xs:complexContent>
+       <xs:extension base="abstractdomainbase">
+         <xs:sequence>
+          <xs:element name="projectid" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="/*thisrelationisstoredatthesolevel@onetoone@joincolumn(name" type="salesorderentity" nillable="true" minOccurs="0" />
+          <xs:element name="notes" type="projectnotesentity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="projectresources" type="projectresourceentity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="projectactivity" type="projectactivityentity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="contact" type="xs:string" />
+          <xs:element name="credits" type="xs:long" />
+          <xs:element name="location" type="xs:string" />
+          <xs:element name="classregsent" type="xs:string" />
+          <xs:element name="reportedrevrec" type="xs:string" />
+          <xs:element name="status" type="xs:string" />
+          <xs:element name="health" type="xs:string" />
+          <xs:element name="waittime" type="xs:string" />
+          <xs:element name="service" type="xs:string" />
+          <xs:element name="accountteam" type="xs:string" />
+          <xs:element name="remote" type="xs:string" />
+          <xs:element name="onsite" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="csvrecordconversionfailureexception" >
+      <xs:complexContent>
+       <xs:extension base="exception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="conversionutils" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="oracleobisalesordercsvimport" >
+      <xs:sequence>
+        <xs:element name="conversion_fail_msg" type="xs:string" />
+        <xs:element name="conversion_record_fail_msg" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="default_encoding" type="xs:string" />
+        <xs:element name="//privatestringdefault_encoding" type="xs:anyType" />
+        <xs:element name="expectedtokens" type="xs:long" />
+        <xs:element name="encoding" type="xs:string" />
+        <xs:element name="importcontrolid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="csvfieldimportexception" >
+      <xs:complexContent>
+       <xs:extension base="exception{">
+         <xs:sequence>
+          <xs:element name="fieldname" type="xs:string" />
+          <xs:element name="record" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="conversionresults" >
+      <xs:sequence>
+        <xs:element name="convertedrecords" type="xs:anyType" />
+        <xs:element name="numrecordstoprocess" type="xs:long" />
+        <xs:element name="numrecordsprocessed" type="xs:long" />
+        <xs:element name="numrecordsimported" type="xs:long" />
+        <xs:element name="numrecordsinerror" type="xs:long" />
+        <xs:element name="batchid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="csvconversionfailureexception" >
+      <xs:complexContent>
+       <xs:extension base="exception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="soimportmapper" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="mastercsvimport" >
+      <xs:sequence>
+        <xs:element name="conversion_fail_msg" type="xs:string" />
+        <xs:element name="conversion_record_fail_msg" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="default_encoding" type="xs:string" />
+        <xs:element name="skipheaderrow" type="xs:anyType" />
+        <xs:element name="hasheaderrow" type="xs:anyType" />
+        <xs:element name="abortonrowfailure" type="xs:anyType" />
+        <xs:element name="expectedtokens" type="xs:long" />
+        <xs:element name="encoding" type="xs:string" />
+        <xs:element name="anonymize" type="xs:anyType" />
+        <xs:element name="importcontrolid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="exportservice" >
+      <xs:complexContent>
+       <xs:extension base="servicesbase">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="exportprojectrepository" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="importservice" >
+      <xs:complexContent>
+       <xs:extension base="servicesbase">
+         <xs:sequence>
+          <xs:element name="default_model_groups" type="xs:string" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="addtestdata" type="xs:anyType" />
+          <xs:element name="oracleobistagerepository" type="importoracleobistagerepository" nillable="true" minOccurs="0" />
+          <xs:element name="oracleobirepository" type="importoracleobirepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="importcontrolrepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="salesorderrepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="customerrepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="portalservice" nillable="true" minOccurs="0" />
+          <xs:element name="" type="projectrepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="importmasterrepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="resourcerepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="projectresourcerepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="projectactivityrepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="projectnotesrepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="soimportmapper" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="portalservice" >
+      <xs:complexContent>
+       <xs:extension base="servicesbase">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="customerrepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="salesorderrepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="projectrepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="projectnotesrepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="projectactivityrepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="resourcerepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="projectresourcerepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="emservicesconfig" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

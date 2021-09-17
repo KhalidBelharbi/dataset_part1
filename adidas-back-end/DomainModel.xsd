@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="size" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="value" type="xs:string" />
+        <xs:element name="GeneratedName" type="gender" nillable="true" minOccurs="0" />
+        <xs:element name="createdat" type="xs:dateTime" />
+        <xs:element name="updat" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="review" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="review" type="xs:string" />
+        <xs:element name="isrecommended" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="createdat" type="xs:dateTime" />
+        <xs:element name="updat" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="detail" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="value" type="xs:string" />
+        <xs:element name="createdat" type="xs:dateTime" />
+        <xs:element name="updat" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="file" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="filepath" type="xs:string" />
+        <xs:element name="fileurl" type="xs:string" />
+        <xs:element name="filesize" type="xs:long" />
+        <xs:element name="filetype" type="xs:string" />
+        <xs:element name="createdat" type="xs:dateTime" />
+        <xs:element name="updat" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rgb" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="r" type="xs:double" />
+        <xs:element name="g" type="xs:double" />
+        <xs:element name="b" type="xs:double" />
+        <xs:element name="createdat" type="xs:dateTime" />
+        <xs:element name="updat" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="role" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="role" type="xs:string" />
+        <xs:element name="createdat" type="xs:dateTime" />
+        <xs:element name="updat" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="product" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="code" type="xs:string" />
+        <xs:element name="price" type="xs:double" />
+        <xs:element name="quantity" type="xs:anyType" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="isnew" type="xs:anyType" />
+        <xs:element name="gender" type="xs:string" />
+        <xs:element name="production" type="xs:dateTime" />
+        <xs:element name="colors" type="color" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="sizes" type="size" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="categories" type="category" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="details" type="detail" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="ratings" type="rating" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="reviews" type="review" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="files" type="file" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="createdat" type="xs:dateTime" />
+        <xs:element name="updat" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="contact" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="type" type="xs:string" />
+        <xs:element name="value" type="xs:string" />
+        <xs:element name="createdat" type="xs:dateTime" />
+        <xs:element name="updat" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="address" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="country" type="xs:string" />
+        <xs:element name="city" type="xs:string" />
+        <xs:element name="provaince" type="xs:string" />
+        <xs:element name="avenue" type="xs:string" />
+        <xs:element name="building" type="xs:string" />
+        <xs:element name="house" type="xs:string" />
+        <xs:element name="createdat" type="xs:dateTime" />
+        <xs:element name="updat" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="order" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="products" type="product" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="createdat" type="xs:dateTime" />
+        <xs:element name="updat" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="category" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="createdat" type="xs:dateTime" />
+        <xs:element name="updat" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="color" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="hex" type="xs:string" />
+        <xs:element name="GeneratedName" type="hsl" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="rgb" nillable="true" minOccurs="0" />
+        <xs:element name="createdat" type="xs:dateTime" />
+        <xs:element name="updat" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rating" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="value" type="xs:string" />
+        <xs:element name="createdat" type="xs:dateTime" />
+        <xs:element name="updat" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="addresses" type="address" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="roles" type="role" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="contacts" type="contact" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="createdat" type="xs:dateTime" />
+        <xs:element name="updat" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hsl" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="h" type="xs:double" />
+        <xs:element name="l" type="xs:double" />
+        <xs:element name="s" type="xs:double" />
+        <xs:element name="createdat" type="xs:dateTime" />
+        <xs:element name="updat" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

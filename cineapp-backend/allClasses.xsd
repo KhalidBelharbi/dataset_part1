@@ -1,0 +1,452 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="clientecontroller" >
+      <xs:sequence>
+        <xs:element name="service" type="iclienteservice" nillable="true" minOccurs="0" />
+        <xs:element name="usuarioservice" type="iusuarioservice" nillable="true" minOccurs="0" />
+        <xs:element name="bcrypt" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="menucontroller" >
+      <xs:sequence>
+        <xs:element name="service" type="imenuservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="generocontroller" >
+      <xs:sequence>
+        <xs:element name="service" type="igeneroservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="comidacontroller" >
+      <xs:sequence>
+        <xs:element name="service" type="icomidaservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tokencontroller" >
+      <xs:sequence>
+        <xs:element name="tokenservices" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="peliculacontroller" >
+      <xs:sequence>
+        <xs:element name="service" type="ipeliculaservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ventacontroller" >
+      <xs:sequence>
+        <xs:element name="service" type="iventaservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usuariocontroller" >
+      <xs:sequence>
+        <xs:element name="service" type="iusuarioservice" nillable="true" minOccurs="0" />
+        <xs:element name="bcrypt" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="configcontroller" >
+      <xs:sequence>
+        <xs:element name="service" type="iconfigservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="venta" >
+      <xs:sequence>
+        <xs:element name="idventa" type="xs:anyType" />
+        <xs:element name="fecha" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="cliente" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="pelicula" nillable="true" minOccurs="0" />
+        <xs:element name="cantidad" type="xs:anyType" />
+        <xs:element name="total" type="xs:double" />
+        <xs:element name="detalle" type="detalleventa" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pelicula" >
+      <xs:sequence>
+        <xs:element name="idpelicula" type="xs:anyType" />
+        <xs:element name="nombre" type="xs:string" />
+        <xs:element name="resena" type="xs:string" />
+        <xs:element name="duracion" type="xs:anyType" />
+        <xs:element name="fechapublicacion" type="xs:anyType" />
+        <xs:element name="urlportada" type="xs:string" />
+        <xs:element name="GeneratedName" type="genero" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usuario" >
+      <xs:sequence>
+        <xs:element name="idusuario" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="cliente" nillable="true" minOccurs="0" />
+        <xs:element name="nombre" type="xs:string" />
+        <xs:element name="clave" type="xs:string" />
+        <xs:element name="estado" type="xs:anyType" />
+        <xs:element name="roles" type="rol" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="comida" >
+      <xs:sequence>
+        <xs:element name="idcomida" type="xs:anyType" />
+        <xs:element name="nombre" type="xs:string" />
+        <xs:element name="precio" type="xs:double" />
+        <xs:element name="foto" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ventacomida" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="venta" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="comida" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cliente" >
+      <xs:sequence>
+        <xs:element name="idcliente" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="usuario" nillable="true" minOccurs="0" />
+        <xs:element name="nombres" type="xs:string" />
+        <xs:element name="apellidos" type="xs:string" />
+        <xs:element name="fechanac" type="xs:anyType" />
+        <xs:element name="dni" type="xs:string" />
+        <xs:element name="foto" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="config" >
+      <xs:sequence>
+        <xs:element name="idconfig" type="xs:anyType" />
+        <xs:element name="parametro" type="xs:string" />
+        <xs:element name="valor" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="genero" >
+      <xs:sequence>
+        <xs:element name="idgenero" type="xs:anyType" />
+        <xs:element name="nombre" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rol" >
+      <xs:sequence>
+        <xs:element name="idrol" type="xs:anyType" />
+        <xs:element name="nombre" type="xs:string" />
+        <xs:element name="descripcion" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ventacomidapk" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="venta" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="comida" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="menu" >
+      <xs:sequence>
+        <xs:element name="idmenu" type="xs:anyType" />
+        <xs:element name="icono" type="xs:string" />
+        <xs:element name="nombre" type="xs:string" />
+        <xs:element name="url" type="xs:string" />
+        <xs:element name="roles" type="rol" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="detalleventa" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="venta" nillable="true" minOccurs="0" />
+        <xs:element name="iddetalle" type="xs:anyType" />
+        <xs:element name="asiento" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="authexception" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ipelicularepo" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<pelicula,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="iconfigrepo" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<config,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="iusuariorepo" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<usuario,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="iclienterepo" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<cliente,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="icomidarepo" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<comida,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="imenurepo" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<menu,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="iventacomidarepo" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<ventacomida,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="iventarepo" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<venta,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="igenerorepo" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<genero,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ventadto" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="venta" nillable="true" minOccurs="0" />
+        <xs:element name="lstcomidas" type="comida" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="resumenventadto" >
+      <xs:sequence>
+        <xs:element name="cantidad" type="xs:anyType" />
+        <xs:element name="fecha" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="filtroconsultadto" >
+      <xs:sequence>
+        <xs:element name="dni" type="xs:string" />
+        <xs:element name="nombrecompleto" type="xs:string" />
+        <xs:element name="fechaconsulta" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="iconfigservice" >
+      <xs:complexContent>
+       <xs:extension base="icrud<config>{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="icrud" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="imenuservice" >
+      <xs:complexContent>
+       <xs:extension base="icrud<menu>{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="iventaservice" >
+      <xs:complexContent>
+       <xs:extension base="icrud<venta>{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="iusuarioservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="igeneroservice" >
+      <xs:complexContent>
+       <xs:extension base="icrud<genero>{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="generoserviceimpl" >
+      <xs:sequence>
+        <xs:element name="repo" type="igenerorepo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="restauthservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="peliculaserviceimpl" >
+      <xs:sequence>
+        <xs:element name="repo" type="ipelicularepo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usuarioserviceimpl" >
+      <xs:sequence>
+        <xs:element name="userrepo" type="iusuariorepo" nillable="true" minOccurs="0" />
+        <xs:element name="default_rol" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="comidaserviceimpl" >
+      <xs:sequence>
+        <xs:element name="repo" type="icomidarepo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ventaserviceimpl" >
+      <xs:sequence>
+        <xs:element name="repo" type="iventarepo" nillable="true" minOccurs="0" />
+        <xs:element name="vcrepo" type="iventacomidarepo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="configserviceimpl" >
+      <xs:sequence>
+        <xs:element name="repo" type="iconfigrepo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="menuserviceimpl" >
+      <xs:sequence>
+        <xs:element name="repo" type="imenurepo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="clienteserviceimpl" >
+      <xs:sequence>
+        <xs:element name="repo" type="iclienterepo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="icomidaservice" >
+      <xs:complexContent>
+       <xs:extension base="icrud<comida>{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ipeliculaservice" >
+      <xs:complexContent>
+       <xs:extension base="icrud<pelicula>{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="iclienteservice" >
+      <xs:complexContent>
+       <xs:extension base="icrud<cliente>{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="authorizationserverconfig" >
+      <xs:complexContent>
+       <xs:extension base="authorizationserverconfigureradapter">
+         <xs:sequence>
+          <xs:element name="clientid" type="xs:string" />
+          <xs:element name="clientsecret" type="xs:string" />
+          <xs:element name="granttype" type="xs:string" />
+          <xs:element name="scoperead" type="xs:string" />
+          <xs:element name="scopewrite" type="xs:string" />
+          <xs:element name="resourceids" type="xs:string" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="accesstokenconverter" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="bcrypt" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="responseexceptionhandler" >
+      <xs:complexContent>
+       <xs:extension base="responseentityexceptionhandler">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="exceptionresponse" >
+      <xs:sequence>
+        <xs:element name="timestamp" type="xs:anyType" />
+        <xs:element name="mensaje" type="xs:string" />
+        <xs:element name="detalles" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="modelonotfoundexception" >
+      <xs:complexContent>
+       <xs:extension base="runtimeexception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="cors" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="swaggerconfig" >
+      <xs:sequence>
+        <xs:element name="default_" type="xs:anyType" />
+        <xs:element name="default_api_info" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="securityconfig" >
+      <xs:complexContent>
+       <xs:extension base="websecurityconfigureradapter{">
+         <xs:sequence>
+          <xs:element name="signingkey" type="xs:string" />
+          <xs:element name="encodingstrength" type="xs:anyType" />
+          <xs:element name="securityrealm" type="xs:string" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="bcrypt" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="resourceserverconfig" >
+      <xs:complexContent>
+       <xs:extension base="resourceserverconfigureradapter">
+         <xs:sequence>
+          <xs:element name="tokenservices" type="xs:anyType" />
+          <xs:element name="resourceids" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="cineappbackendapplication" >
+      <xs:complexContent>
+       <xs:extension base="springbootservletinitializer">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="cineappbackendapplicationtests" >
+      <xs:sequence>
+        <xs:element name="service" type="iusuarioservice" nillable="true" minOccurs="0" />
+        <xs:element name="bcrypt" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="runtime-es2015.b948044840398824f16e" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="runtime-es5.b948044840398824f16e" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

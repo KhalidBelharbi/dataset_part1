@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="category" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="level" type="xs:long" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="restaurantid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="restaurant" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="categoryid" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="address" type="xs:string" />
+        <xs:element name="menuitems" type="menuitem" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="reviews" type="review" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="region" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="review" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="restaurantid" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="score" type="xs:anyType" />
+        <xs:element name="description" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="menuitem" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="restaurantid" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="destroy" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="reservation" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="userid" type="xs:long" />
+        <xs:element name="restaurantid" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="date" type="xs:string" />
+        <xs:element name="time" type="xs:string" />
+        <xs:element name="partysize" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

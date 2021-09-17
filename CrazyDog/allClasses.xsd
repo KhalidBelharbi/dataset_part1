@@ -1,0 +1,1052 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="timestampsregionimpltestcase" >
+      <xs:complexContent>
+       <xs:extension base="abstractgeneraldataregiontestcase">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="abstractentitycollectionregiontestcase" >
+      <xs:complexContent>
+       <xs:extension base="abstractregionimpltestcase">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jndiinfinispanregionfactorytestcase" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="abstractgeneraldataregiontestcase" >
+      <xs:complexContent>
+       <xs:extension base="abstractregionimpltestcase">
+         <xs:sequence>
+          <xs:element name="log" type="xs:anyType" />
+          <xs:element name="key" type="xs:string" />
+          <xs:element name="value1" type="xs:string" />
+          <xs:element name="value2" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="infinispanregionfactorytestcase" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="putfromloadstresstestcase" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="istrace" type="xs:anyType" />
+        <xs:element name="num_threads" type="xs:long" />
+        <xs:element name="warmup_time_secs" type="xs:long" />
+        <xs:element name="running_time_secs" type="xs:long" />
+        <xs:element name="launch_interval_millis" type="xs:long" />
+        <xs:element name="num_instances" type="xs:long" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="tm" type="xs:anyType" />
+        <xs:element name="run" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="family" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="secondname" type="xs:string" />
+        <xs:element name="members" type="person" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="version" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="person" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="GeneratedName" type="family" nillable="true" minOccurs="0" />
+        <xs:element name="birth" type="xs:dateTime" />
+        <xs:element name="GeneratedName" type="address" nillable="true" minOccurs="0" />
+        <xs:element name="checked" type="xs:anyType" />
+        <xs:element name="version" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="address" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="streetnumber" type="xs:long" />
+        <xs:element name="streetname" type="xs:string" />
+        <xs:element name="cityname" type="xs:string" />
+        <xs:element name="countryname" type="xs:string" />
+        <xs:element name="zipcode" type="xs:string" />
+        <xs:element name="inhabitants" type="person" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="version" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="secondlevelcachestresstestcase" >
+      <xs:sequence>
+        <xs:element name="num_threads" type="xs:long" />
+        <xs:element name="warmup_time" type="xs:long" />
+        <xs:element name="running_time" type="xs:long" />
+        <xs:element name="profile" type="xs:anyType" />
+        <xs:element name="allocation" type="xs:anyType" />
+        <xs:element name="//maxnumberofrunsperoperationrun_count_limit" type="xs:long" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="provider" type="xs:string" />
+        <xs:element name="updatedids" type="xs:anyType" />
+        <xs:element name="removeids" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="tm" type="xs:anyType" />
+        <xs:element name="volatilenumentities" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="xatransactionmanagerimpl" >
+      <xs:sequence>
+        <xs:element name="instance" type="xatransactionmanagerimpl" nillable="true" minOccurs="0" />
+        <xs:element name="currenttransaction" type="xatransactionimpl" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="xatransactionimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="status" type="xs:long" />
+        <xs:element name="synchronizations" type="xs:anyType" />
+        <xs:element name="//theonlyresourcewecareaboutisjdbc" type="xs:anyType" />
+        <xs:element name="jtatransactionmanager" type="xatransactionmanagerimpl" nillable="true" minOccurs="0" />
+        <xs:element name="enlistedresources" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jbossstandalonejtaexampletest" >
+      <xs:complexContent>
+       <xs:extension base="jnditransactionmanagerlookup">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="lookup" type="xs:anyType" />
+          <xs:element name="ctx" type="xs:anyType" />
+          <xs:element name="jndiserver" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="xaconnectionprovider" >
+      <xs:sequence>
+        <xs:element name="actual" type="xs:anyType" />
+        <xs:element name="istransactional" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jtaplatformimpl" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="queryregionimpltestcase" >
+      <xs:complexContent>
+       <xs:extension base="abstractgeneraldataregiontestcase">
+         <xs:sequence>
+          <xs:element name="log" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="otheritem" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="favorite" type="item" nillable="true" minOccurs="0" />
+        <xs:element name="bagofitems" type="item" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="selectedclassnameclassloader" >
+      <xs:complexContent>
+       <xs:extension base="classloader">
+         <xs:sequence>
+          <xs:element name="log" type="xs:anyType" />
+          <xs:element name="includedclasses" type="xs:string" />
+          <xs:element name="excludedclasses" type="xs:string" />
+          <xs:element name="notfoundclasses" type="xs:string" />
+          <xs:element name="classes" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="selectedclassnameclassloadertestsetup" >
+      <xs:complexContent>
+       <xs:extension base="testsetup">
+         <xs:sequence>
+          <xs:element name="originaltccl" type="xs:anyType" />
+          <xs:element name="includedclasses" type="xs:string" />
+          <xs:element name="excludedclasses" type="xs:string" />
+          <xs:element name="notfoundclasses" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="classloadertestdao" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="tm" type="xs:anyType" />
+        <xs:element name="acct" type="xs:anyType" />
+        <xs:element name="holder" type="xs:anyType" />
+        <xs:element name="setid" type="xs:anyType" />
+        <xs:element name="setbalance" type="xs:anyType" />
+        <xs:element name="setbranch" type="xs:anyType" />
+        <xs:element name="setholder" type="xs:anyType" />
+        <xs:element name="smith" type="xs:anyType" />
+        <xs:element name="jones" type="xs:anyType" />
+        <xs:element name="barney" type="xs:anyType" />
+        <xs:element name="setname" type="xs:anyType" />
+        <xs:element name="setssn" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cacheaccesslistener" >
+      <xs:sequence>
+        <xs:element name="log" type="xs:anyType" />
+        <xs:element name="modified" type="xs:anyType" />
+        <xs:element name="accessed" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="isolatedclassloadertest" >
+      <xs:complexContent>
+       <xs:extension base="dualnodetestcase">
+         <xs:sequence>
+          <xs:element name="log" type="xs:anyType" />
+          <xs:element name="sleep_time" type="xs:long" />
+          <xs:element name="localquery" type="xs:anyType" />
+          <xs:element name="localquerylistener" type="cacheaccesslistener" nillable="true" minOccurs="0" />
+          <xs:element name="remotequery" type="xs:anyType" />
+          <xs:element name="remotequerylistener" type="cacheaccesslistener" nillable="true" minOccurs="0" />
+          <xs:element name="originaltccl" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="account" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="accountholder" nillable="true" minOccurs="0" />
+        <xs:element name="balance" type="xs:anyType" />
+        <xs:element name="branch" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="isolatedcachetestsetup" >
+      <xs:complexContent>
+       <xs:extension base="selectedclassnameclassloadertestsetup">
+         <xs:sequence>
+          <xs:element name="isolatedclasses" type="xs:string" />
+          <xs:element name="cacheconfig" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="accountholder" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="lastname" type="xs:string" />
+        <xs:element name="ssn" type="xs:string" />
+        <xs:element name="transientdeserialized" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="concurrentwritetest" >
+      <xs:complexContent>
+       <xs:extension base="singlenodetestcase">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="trace" type="xs:anyType" />
+          <xs:element name="/***whenuser_count" type="xs:long" />
+          <xs:element name="iteration_count" type="xs:long" />
+          <xs:element name="think_time_millis" type="xs:long" />
+          <xs:element name="launch_interval_millis" type="xs:long" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="/***killswitchusedtostopalluserswhenonefails*/volatileterminate_all_users" type="xs:anyType" />
+          <xs:element name="/***collectionofidsofallcustomersparticipatinginthistest*/customerids" type="xs:anyType" />
+          <xs:element name="tm" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="bulkoperationstestcase" >
+      <xs:complexContent>
+       <xs:extension base="basecorefunctionaltestcase">
+         <xs:sequence>
+          <xs:element name="tm" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="singlenodetestcase" >
+      <xs:complexContent>
+       <xs:extension base="basecorefunctionaltestcase">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="tm" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="item" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="owner" type="item" nillable="true" minOccurs="0" />
+        <xs:element name="items" type="item" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="bagowner" type="item" nillable="true" minOccurs="0" />
+        <xs:element name="bagofitems" type="item" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="otheritems" type="otheritem" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="state" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="basicreadonlytestcase" >
+      <xs:complexContent>
+       <xs:extension base="abstractfunctionaltestcase">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="age" >
+      <xs:sequence>
+        <xs:element name="query" type="xs:string" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="age" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dualnodetestcase" >
+      <xs:complexContent>
+       <xs:extension base="basecorefunctionaltestcase">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="node_id_prop" type="xs:string" />
+          <xs:element name="node_id_field" type="xs:string" />
+          <xs:element name="local" type="xs:string" />
+          <xs:element name="remote" type="xs:string" />
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="clusterawareregionfactory" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="cachemanagers" type="xs:anyType" />
+        <xs:element name="delegate" type="infinispanregionfactory" nillable="true" minOccurs="0" />
+        <xs:element name="cachemanagername" type="xs:string" />
+        <xs:element name="locallyadded" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dualnodeconnectionproviderimpl" >
+      <xs:sequence>
+        <xs:element name="actual" type="xs:anyType" />
+        <xs:element name="nodeid" type="xs:string" />
+        <xs:element name="istransactional" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dualnodejtatransactionimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="status" type="xs:long" />
+        <xs:element name="synchronizations" type="xs:anyType" />
+        <xs:element name="//theonlyresourcewecareaboutisjdbc" type="xs:anyType" />
+        <xs:element name="jtatransactionmanager" type="dualnodejtatransactionmanagerimpl" nillable="true" minOccurs="0" />
+        <xs:element name="enlistedresources" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dualnodejtatransactionmanagerimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="instances" type="xs:anyType" />
+        <xs:element name="currenttransaction" type="xs:anyType" />
+        <xs:element name="nodeid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dualnodejtaplatformimpl" >
+      <xs:sequence>
+        <xs:element name="nodeid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sessionrefreshtestcase" >
+      <xs:complexContent>
+       <xs:extension base="dualnodetestcase">
+         <xs:sequence>
+          <xs:element name="log" type="xs:anyType" />
+          <xs:element name="test" type="xs:long" />
+          <xs:element name="local" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="entitycollectioninvalidationtestcase" >
+      <xs:complexContent>
+       <xs:extension base="dualnodetestcase">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="sleep_time" type="xs:long" />
+          <xs:element name="customer_id" type="xs:anyType" />
+          <xs:element name="test" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="repeatablesessionrefreshtest" >
+      <xs:complexContent>
+       <xs:extension base="sessionrefreshtestcase">
+         <xs:sequence>
+          <xs:element name="cache_config" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="naturalidinvalidationtestcase" >
+      <xs:complexContent>
+       <xs:extension base="dualnodetestcase">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="sleep_time" type="xs:long" />
+          <xs:element name="customer_id" type="xs:anyType" />
+          <xs:element name="test" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="customer" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="transientcontacts" type="contact" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="contact" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="tlf" type="xs:string" />
+        <xs:element name="GeneratedName" type="customer" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="basictransactionaltestcase" >
+      <xs:complexContent>
+       <xs:extension base="abstractfunctionaltestcase">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="versioneditem" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="version" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="naturalidonmanytoone" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="citizen" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="abstractfunctionaltestcase" >
+      <xs:complexContent>
+       <xs:extension base="singlenodetestcase">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jndiregionfactorytestcase" >
+      <xs:complexContent>
+       <xs:extension base="singlenodetestcase">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="jndi_name" type="xs:string" />
+          <xs:element name="naming" type="xs:anyType" />
+          <xs:element name="namingserver" type="xs:anyType" />
+          <xs:element name="props" type="xs:anyType" />
+          <xs:element name="bindtojndi" type="xs:anyType" />
+          <xs:element name="manager" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="citizen" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+        <xs:element name="GeneratedName" type="state" nillable="true" minOccurs="0" />
+        <xs:element name="ssn" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="readonlyextraapitestcase" >
+      <xs:complexContent>
+       <xs:extension base="transactionalextraapitestcase">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="abstractentityregionaccessstrategytestcase" >
+      <xs:complexContent>
+       <xs:extension base="abstractnonfunctionaltestcase">
+         <xs:sequence>
+          <xs:element name="log" type="xs:anyType" />
+          <xs:element name="region_name" type="xs:string" />
+          <xs:element name="key_base" type="xs:string" />
+          <xs:element name="value1" type="xs:string" />
+          <xs:element name="value2" type="xs:string" />
+          <xs:element name="testcount" type="xs:long" />
+          <xs:element name="localenvironment" type="nodeenvironment" nillable="true" minOccurs="0" />
+          <xs:element name="localentityregion" type="entityregionimpl" nillable="true" minOccurs="0" />
+          <xs:element name="localaccessstrategy" type="xs:anyType" />
+          <xs:element name="remoteenvironment" type="nodeenvironment" nillable="true" minOccurs="0" />
+          <xs:element name="remoteentityregion" type="entityregionimpl" nillable="true" minOccurs="0" />
+          <xs:element name="remoteaccessstrategy" type="xs:anyType" />
+          <xs:element name="invalidation" type="xs:anyType" />
+          <xs:element name="synchronous" type="xs:anyType" />
+          <xs:element name="node1" type="xs:anyType" />
+          <xs:element name="node2" type="xs:anyType" />
+          <xs:element name="node1failure" type="xs:anyType" />
+          <xs:element name="node2failure" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="abstracttransactionalaccesstestcase" >
+      <xs:complexContent>
+       <xs:extension base="abstractentityregionaccessstrategytestcase">
+         <xs:sequence>
+          <xs:element name="log" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="transactionalextraapitestcase" >
+      <xs:complexContent>
+       <xs:extension base="abstractnonfunctionaltestcase">
+         <xs:sequence>
+          <xs:element name="region_name" type="xs:string" />
+          <xs:element name="key" type="xs:string" />
+          <xs:element name="value1" type="xs:string" />
+          <xs:element name="value2" type="xs:string" />
+          <xs:element name="environment" type="nodeenvironment" nillable="true" minOccurs="0" />
+          <xs:element name="accessstrategy" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="invalidatedtransactionaltestcase" >
+      <xs:complexContent>
+       <xs:extension base="abstracttransactionalaccesstestcase">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="entityregionimpltestcase" >
+      <xs:complexContent>
+       <xs:extension base="abstractentitycollectionregiontestcase">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="abstractreadonlyaccesstestcase" >
+      <xs:complexContent>
+       <xs:extension base="abstractentityregionaccessstrategytestcase">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="readonlytestcase" >
+      <xs:complexContent>
+       <xs:extension base="abstractreadonlyaccesstestcase">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="abstractregionimpltestcase" >
+      <xs:complexContent>
+       <xs:extension base="abstractnonfunctionaltestcase">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="abstracttransactionalaccesstestcase" >
+      <xs:complexContent>
+       <xs:extension base="abstractcollectionregionaccessstrategytestcase">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="transactionalextraapitestcase" >
+      <xs:complexContent>
+       <xs:extension base="abstractnonfunctionaltestcase">
+         <xs:sequence>
+          <xs:element name="region_name" type="xs:string" />
+          <xs:element name="key" type="xs:string" />
+          <xs:element name="value1" type="xs:string" />
+          <xs:element name="value2" type="xs:string" />
+          <xs:element name="environment" type="nodeenvironment" nillable="true" minOccurs="0" />
+          <xs:element name="accessstrategy" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="collectionregionimpltestcase" >
+      <xs:complexContent>
+       <xs:extension base="abstractentitycollectionregiontestcase">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="abstractcollectionregionaccessstrategytestcase" >
+      <xs:complexContent>
+       <xs:extension base="abstractnonfunctionaltestcase">
+         <xs:sequence>
+          <xs:element name="log" type="xs:anyType" />
+          <xs:element name="region_name" type="xs:string" />
+          <xs:element name="key_base" type="xs:string" />
+          <xs:element name="value1" type="xs:string" />
+          <xs:element name="value2" type="xs:string" />
+          <xs:element name="testcount" type="xs:long" />
+          <xs:element name="localenvironment" type="nodeenvironment" nillable="true" minOccurs="0" />
+          <xs:element name="localcollectionregion" type="collectionregionimpl" nillable="true" minOccurs="0" />
+          <xs:element name="localaccessstrategy" type="xs:anyType" />
+          <xs:element name="remoteenvironment" type="nodeenvironment" nillable="true" minOccurs="0" />
+          <xs:element name="remotecollectionregion" type="collectionregionimpl" nillable="true" minOccurs="0" />
+          <xs:element name="remoteaccessstrategy" type="xs:anyType" />
+          <xs:element name="invalidation" type="xs:anyType" />
+          <xs:element name="synchronous" type="xs:anyType" />
+          <xs:element name="node1" type="xs:anyType" />
+          <xs:element name="node2" type="xs:anyType" />
+          <xs:element name="node1failure" type="xs:anyType" />
+          <xs:element name="node2failure" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="readonlytestcase" >
+      <xs:complexContent>
+       <xs:extension base="abstractreadonlyaccesstestcase">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="abstractreadonlyaccesstestcase" >
+      <xs:complexContent>
+       <xs:extension base="abstractcollectionregionaccessstrategytestcase">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="invalidatedtransactionaltestcase" >
+      <xs:complexContent>
+       <xs:extension base="abstracttransactionalaccesstestcase">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="batchmodejtaplatform" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cachetestutil" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cachetestsupport" >
+      <xs:sequence>
+        <xs:element name="log" type="xs:anyType" />
+        <xs:element name="prefer_ipv4stack" type="xs:string" />
+        <xs:element name="caches" type="xs:anyType" />
+        <xs:element name="factories" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="preferipv4stack" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="classloaderawarecache" >
+      <xs:complexContent>
+       <xs:extension base="abstractdelegatingadvancedcache<k,">
+         <xs:sequence>
+          <xs:element name="classloaderref" type="xs:anyType" />
+          <xs:element name="events" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="nodeenvironment" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="serviceregistry" type="xs:anyType" />
+        <xs:element name="regionfactory" type="infinispanregionfactory" nillable="true" minOccurs="0" />
+        <xs:element name="entityregionmap" type="xs:anyType" />
+        <xs:element name="collectionregionmap" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="abstractnonfunctionaltestcase" >
+      <xs:complexContent>
+       <xs:extension base="org.hibernate.testing.junit4.baseunittestcase">
+         <xs:sequence>
+          <xs:element name="log" type="xs:anyType" />
+          <xs:element name="region_prefix" type="xs:string" />
+          <xs:element name="prefer_ipv4stack" type="xs:string" />
+          <xs:element name="preferipv4stack" type="xs:string" />
+          <xs:element name="jgroups_cfg_file" type="xs:string" />
+          <xs:element name="jgroupscfgfile" type="xs:string" />
+          <xs:element name="testsupport" type="cachetestsupport" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="putfromloadvalidatorunittestcase" >
+      <xs:complexContent>
+       <xs:extension base="putfromloadvalidator">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="key1" type="xs:anyType" />
+          <xs:element name="tm" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="test31" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="2lc-test-tcp" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="stress-local-infinispan" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="blueprint" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="org.hibernate.boot.registry.selector" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="org.infinispan.commands.module" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="main17" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jndiinfinispanregionfactory" >
+      <xs:complexContent>
+       <xs:extension base="infinispanregionfactory">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="/***specifiesthejndinameunderwhichthe{@linkembeddedcachemanager}touseisbound.*thereisnodefaultvalue--theusermustspecifytheproperty.*/cache_manager_resource_prop" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="queryresultsregionimpl" >
+      <xs:complexContent>
+       <xs:extension base="basetransactionaldataregion">
+         <xs:sequence>
+          <xs:element name="evictcache" type="xs:anyType" />
+          <xs:element name="putcache" type="xs:anyType" />
+          <xs:element name="getcache" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="package-info" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="strategyregistrationproviderimpl" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="infinispanregionfactory" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="prefix" type="xs:string" />
+        <xs:element name="config_suffix" type="xs:string" />
+        <xs:element name="strategy_suffix" type="xs:string" />
+        <xs:element name="wake_up_interval_suffix" type="xs:string" />
+        <xs:element name="max_entries_suffix" type="xs:string" />
+        <xs:element name="lifespan_suffix" type="xs:string" />
+        <xs:element name="max_idle_suffix" type="xs:string" />
+        <xs:element name="//privatestatistics_suffix" type="xs:string" />
+        <xs:element name="/***propertynamethatcontrolswhetherinfinispanstatisticsareenabled.*thepropertyvalueisexpectedtobeabooleantrueorfalse,andit*overridesstatisticconfigurationinbaseinfinispanconfiguration,*ifprovided.*/infinispan_global_statistics_prop" type="xs:string" />
+        <xs:element name="/***propertythatcontrolswhetherinfinispanshouldinteractwiththe*transactionmanagerasa{@linkjavax.transaction.synchronization}oras*anxaresource.ifthepropertyissettotrue,itwillbea*synchronization,otherwiseanxaresource.**@see#def_use_synchronization*/infinispan_use_synchronization_prop" type="xs:string" />
+        <xs:element name="natural_id_key" type="xs:string" />
+        <xs:element name="/***nameoftheconfigurationthatshouldbeusedfornaturalidcaches.**@see#def_entity_resource*/natural_id_cache_resource_prop" type="xs:string" />
+        <xs:element name="entity_key" type="xs:string" />
+        <xs:element name="/***nameoftheconfigurationthatshouldbeusedforentitycaches.**@see#def_entity_resource*/entity_cache_resource_prop" type="xs:string" />
+        <xs:element name="collection_key" type="xs:string" />
+        <xs:element name="/***nameoftheconfigurationthatshouldbeusedforcollectioncaches.*nodefaultvalue,asbydefaultwetrytousethesameinfinispancache*instanceweuseforentitycaching.**@see#entity_cache_resource_prop*@see#def_entity_resource*/collection_cache_resource_prop" type="xs:string" />
+        <xs:element name="timestamps_key" type="xs:string" />
+        <xs:element name="/***nameoftheconfigurationthatshouldbeusedfortimestampcaches.**@see#def_timestamps_resource*/timestamps_cache_resource_prop" type="xs:string" />
+        <xs:element name="query_key" type="xs:string" />
+        <xs:element name="/***nameoftheconfigurationthatshouldbeusedforquerycaches.**@see#def_query_resource*/query_cache_resource_prop" type="xs:string" />
+        <xs:element name="/***defaultvaluefor{@link#infinispan_config_resource_prop}.specifiesthe"infinispan-configs.xml"fileinthispackage.*/def_infinispan_config_resource" type="xs:string" />
+        <xs:element name="/***defaultvaluefor{@link#entity_cache_resource_prop}.*/def_entity_resource" type="xs:string" />
+        <xs:element name="/***defaultvaluefor{@link#timestamps_cache_resource_prop}.*/def_timestamps_resource" type="xs:string" />
+        <xs:element name="/***defaultvaluefor{@link#query_cache_resource_prop}.*/def_query_resource" type="xs:string" />
+        <xs:element name="/***defaultvaluefor{@link#infinispan_use_synchronization_prop}.*/def_use_synchronization" type="xs:anyType" />
+        <xs:element name="/***nameofthependingputscache.*/pending_puts_cache_name" type="xs:string" />
+        <xs:element name="manager" type="xs:anyType" />
+        <xs:element name="typeoverrides" type="xs:anyType" />
+        <xs:element name="definedconfigurations" type="xs:anyType" />
+        <xs:element name="transactionmanagerlookup" type="xs:anyType" />
+        <xs:element name="regionnames" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="basetransactionaldataregion" >
+      <xs:complexContent>
+       <xs:extension base="">
+         <xs:sequence>
+          <xs:element name="metadata" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="baseregion" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="current" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="localandskiploadcache" type="xs:anyType" />
+        <xs:element name="tm" type="xs:anyType" />
+        <xs:element name="invalidationmutex" type="xs:anyType" />
+        <xs:element name="invalidatestate" type="xs:anyType" />
+        <xs:element name="volatileinvalidate" type="xs:anyType" />
+        <xs:element name="factory" type="xs:anyType" />
+        <xs:element name="cache" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="basegeneraldataregion" >
+      <xs:complexContent>
+       <xs:extension base="baseregion">
+         <xs:sequence>
+          <xs:element name="putcache" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="package-info" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="typeoverrides" >
+      <xs:sequence>
+        <xs:element name="overridden" type="xs:anyType" />
+        <xs:element name="cachename" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="evictionwakeupinterval" type="xs:long" />
+        <xs:element name="evictionmaxentries" type="xs:long" />
+        <xs:element name="expirationlifespan" type="xs:long" />
+        <xs:element name="expirationmaxidle" type="xs:long" />
+        <xs:element name="isexposestatistics" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="evictallcommand" >
+      <xs:complexContent>
+       <xs:extension base="baserpccommand">
+         <xs:sequence>
+          <xs:element name="region" type="baseregion" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="package-info" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cachecommandinitializer" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cachecommandids" >
+      <xs:sequence>
+        <xs:element name="/***the"evictall"commandid*/evict_all" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cachecommandextensions" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="cachecommandfactory" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="cachecommandinitializer" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cachecommandfactory" >
+      <xs:complexContent>
+       <xs:extension base="replicablecommand>>">
+         <xs:sequence>
+          <xs:element name="allregions" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="caches" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="timestamptypeoverrides" >
+      <xs:complexContent>
+       <xs:extension base="typeoverrides">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="package-info" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="timestampsregionimpl" >
+      <xs:complexContent>
+       <xs:extension base="basegeneraldataregion">
+         <xs:sequence>
+          <xs:element name="removecache" type="xs:anyType" />
+          <xs:element name="timestampsputcache" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="clusteredtimestampsregionimpl" >
+      <xs:complexContent>
+       <xs:extension base="timestampsregionimpl">
+         <xs:sequence>
+          <xs:element name="/***maintainsalocal(authoritative)cacheoftimestampsalongwiththe*replicatedcacheheldininfinispan.itlistensforchangesinthe*cacheandupdatesthelocalcacheaccordingly.thisapproachallows*timestampchangestobereplicatedasynchronously.*/localcache" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="package-info" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="readonlyaccess" >
+      <xs:complexContent>
+       <xs:extension base="transactionalaccess">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="transactionalaccess" >
+      <xs:sequence>
+        <xs:element name="region" type="entityregionimpl" nillable="true" minOccurs="0" />
+        <xs:element name="delegate" type="transactionalaccessdelegate" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entityregionimpl" >
+      <xs:complexContent>
+       <xs:extension base="basetransactionaldataregion">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="naturalidregionimpl" >
+      <xs:complexContent>
+       <xs:extension base="basetransactionaldataregion">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="readonlyaccess" >
+      <xs:complexContent>
+       <xs:extension base="transactionalaccess">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="package-info" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="transactionalaccess" >
+      <xs:sequence>
+        <xs:element name="region" type="naturalidregionimpl" nillable="true" minOccurs="0" />
+        <xs:element name="delegate" type="transactionalaccessdelegate" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="collectionregionimpl" >
+      <xs:complexContent>
+       <xs:extension base="basetransactionaldataregion">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="transactionalaccess" >
+      <xs:sequence>
+        <xs:element name="region" type="collectionregionimpl" nillable="true" minOccurs="0" />
+        <xs:element name="delegate" type="transactionalaccessdelegate" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="package-info" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="package-info" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="package-info" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hibernatetransactionmanagerlookup" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="package-info" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="transactionalaccessdelegate" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="trace_enabled" type="xs:anyType" />
+        <xs:element name="cache" type="xs:anyType" />
+        <xs:element name="region" type="baseregion" nillable="true" minOccurs="0" />
+        <xs:element name="putvalidator" type="putfromloadvalidator" nillable="true" minOccurs="0" />
+        <xs:element name="writecache" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="putfromloadvalidator" >
+      <xs:sequence>
+        <xs:element name="/***period(inms)afteraremovalduringwhichacallto*{@link#acquireputfromloadlock(object)}thathasn'tbeen*{@link#registerpendingput(object)pre-registered}(akaa"nakedput")*willreturnfalse.*/naked_put_invalidation_period" type="xs:long" />
+        <xs:element name="/***usedtodeterminewhethertheownerofapendingputisathreadoratransaction*/" type="xs:anyType" />
+        <xs:element name="nakedputinvalidationperiod" type="xs:long" />
+        <xs:element name="pendingputs" type="xs:anyType" />
+        <xs:element name="recentremovals" type="xs:anyType" />
+        <xs:element name="/***listofrecentremovals.usedtoensurewedon'tleakmemoryviatherecentremovalsmap*/removalsqueue" type="xs:anyType" />
+        <xs:element name="/***thetimewhenthefirstelementinremovalsqueuewillexpire.noreasontodohousekeepingon*thequeuebeforethistime.*/volatileearliestremovaltimestamp" type="xs:long" />
+        <xs:element name="/***controllingaccesstoremovalsqueue*/removals" type="xs:anyType" />
+        <xs:element name="/***thetimeofthelastcalltoregionremoved(),plusnaked_put_invalidation_period.allnaked*putswillberejecteduntilthecurrenttimeisgreaterthanthisvalue.*/volatileinvalidationtimestamp" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

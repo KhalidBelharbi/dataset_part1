@@ -1,0 +1,75 @@
+
+degameweekreport(reportid:Integer [PK], userid:Integer, gameweekid:Integer, point:Integer, rank:Integer, totalrank:Integer, totalpoint:Integer, clubrank:Integer, countryrank:Integer, userfavclub:Integer, usercountryid:Integer, userstartgameweekid:Integer, userstartgameweekrank:Integer, transfer:Integer, filed1:Integer, filed2:Integer, filed3:String, planid:Integer);
+
+paymentext(paymentextid:Integer [PK], transactionid:Integer, merchantkey:String, payumoneyid:String, unmappedstatus:String, cardnum:String, nameoncard:String, hash:String, incpaymoneyid:String, email:String, phone:String, udf1:String, udf2:String, udf3:String, udf4:String, udf5:String, udf6:String, udf7:String, udf8:String, udf9:String, udf10:String, field1:String, field2:String, field3:String, field4:String, field5:String, field6:String, field7:String, field8:String, field9:String, field10:String, field11:String);
+
+userplayer(userplayerid:Integer [PK], userid:Integer, gameclubplayerid:Integer, isplaying:String, playercategory:String, segnum:Integer);
+
+userpayment(transactionid:Integer [PK], plan:GameWeekPlan #FK to(GameWeekPlan), GeneratedName:User #FK to(user), merchantid:String, payuid:String, status:String, paymentmsg:String, GeneratedName:Date, amount:Double, extracharge:Double, totalamount:Double, currency:String, paymentmode:String, bankcode:String, pgtype:String, bankreferenceno:String);
+
+gameweekplan(planid:Integer [PK], planname:String, plandesc:String, plantype:Integer, gameweekid:Integer, isactive:String, planamount:Double, offerprice:Double, currency:String, winingprice:Double, algorithm:String);
+
+userpayment(transactionid:Integer [PK], GeneratedName:PlanDiscount #FK to(plandiscount), plan:LeaguePlan #FK to(leagueplan), GeneratedName:User #FK to(user), merchantid:String, payuid:String, status:String, paymentmsg:String, GeneratedName:Date, amount:Double, extracharge:Double, totalamount:Double, currency:String, paymentmode:String, bankcode:String, pgtype:String, bankreferenceno:String);
+
+player(playerid:Integer [PK], playername:String, playerdesc:String, worldranking:Integer, heighetscore:Integer, totalscore:Integer, bestposition:String, status:String, isinternationalplayer:String);
+
+leagueplan(planid:Integer [PK], planname:String, plandesc:String, plantypeval:Integer, plantypename:String, activated:Date, isactive:String, isfree:String, planamount:Double, totalnoofdays:Integer, currency:String);
+
+playergroup(playergroupid:Integer [PK], userid:Integer, gameweekid:Integer, groupname:String, grouptype:String, field1:Integer, field2:String);
+
+playerpoint(playerpointid:Integer [PK], GeneratedName:Point #FK to(point), GeneratedName:GameClubPlayer #FK to(gameclubplayer), gameid:Integer, matchid:Integer, dateofarival:java.sql.Timestamp);
+
+user(userid:Integer [PK], firstname:String, lastname:String, displayname:String, logonid:String, logonpassword:String, usertype:String, ofbirth:Date, lastlogin:Date, lastup:Date, created:Date, register:Date, emailid:String, contactnumber:String, fullaaddress:String, gender:String, field1_:Integer, field1_:String, field1_:Date, field2:String, field3:String, policy:String, status:String, country:String, state:String, city:String, pincode:String, address1:String, address2:String);
+
+plandiscount(plandiscountid:Integer [PK], planid:Integer, userid:Integer, plandiscountcode:String, plandiscountdesc:String, plandiscountmsg:String, activated:Date, end:Date, isactive:String, plandiscountvalue:Double, currency:String);
+
+match(matchid:Integer [PK], status:String, name:String, desc:String, starttime:Timestamp, endtime:Timestamp, best:Player #FK to(player), GeneratedName:Game #FK to(game), first:Club #FK to(club), second:Club #FK to(club), winner:Club #FK to(club), GeneratedName:GameWeek #FK to(gameweek));
+
+pointcategory(couponcategoryid:Integer [PK], name:String, description:String, type:String, isactive:String, status:String, minpoint:Integer, maxpoint:Integer, algo:String, field1:String);
+
+userplayer(userplayerid:Integer [PK], userid:Integer, gameclubplayerid:Integer, isplaying:String, playercategory:String, segnum:Integer);
+
+game(gameid:Integer [PK], gamename:String, gamedesc:String, totalclub:Integer, totaplyers:Integer, winnerclubid:Integer, bestplayerid:Integer, start:Date, end:Date, isactive:String);
+
+gameclubplayer(gameclubplayerid:Integer [PK], status:String, playingposition:String, pricecurrency:String, price:Double, playertotalpoint:Integer, GeneratedName:Player #FK to(player), GeneratedName:Game #FK to(game), GeneratedName:Club #FK to(club));
+
+coupon(couponid:Integer [PK], name:String, description:String, couponcategory:PointCategory #FK to(pointcategory), type:String, isactive:String, total:Integer, code:String, vendor:String, logo:String, appurl:String, field1:String, field2:String);
+
+point(pointid:Integer [PK], pointname:String, pointdesc:String, gameid:Integer, pointtodeduct:Integer, pointtoadd:Integer);
+
+gameweek(gameweekid:Integer [PK], weekname:String, iscurrentweek:String, GeneratedName:Game #FK to(game), start:Date, end:Date);
+
+userpoint(userpointid:Integer [PK], GeneratedName:PlayerPoint #FK to(playerpoint), gameid:Integer, matchid:Integer, userid:Integer, currentpoint:Integer, pointactivity:String, pointactivitytime:java.sql.Timestamp);
+
+gameweekreport(reportid:Integer [PK], userid:Integer, gameweekid:Integer, point:Integer, rank:Integer, totalrank:Integer, totalpoint:Integer, clubrank:Integer, countryrank:Integer, userfavclub:Integer, usercountryid:Integer, userstartgameweekid:Integer, userstartgameweekrank:Integer, transfer:Integer, filed1:Integer, filed2:Integer, filed3:String);
+
+offer(offerid:Integer [PK], userid:Integer, gameid:Integer, gameweekid:Integer, matchid:Integer, totallimit:Integer, offertype:String, isactive:String, filed1:String);
+
+gameweekplayerreport(reportid:Integer [PK], GeneratedName:GameClubPlayer #FK to(gameclubplayer), gameweekid:Integer, point:Integer, rank:Integer, totalrank:Integer, totalpoint:Integer, filed1:Integer, filed2:Integer, filed3:String);
+
+usergame(usergameid:Integer [PK], userid:Integer, gameid:Integer, totalpoint:Integer, teamname:String, addedplayercount:Integer, favorite:Club #FK to(club), favorite:Player #FK to(player), rank:Integer, field1:String, field2:String, field3:String);
+
+usedcoupon(id:Integer [PK], userid:Integer, gameid:Integer, gameweekid:Integer, matchid:Integer, couponid:Integer, couponcategoryid:Integer);
+
+countrystatecity(countrystatecityid:Integer [PK], countryname:String, statename:String, cityname:String, areacode:String, field1:String, field2:String);
+
+club(clubid:Integer [PK], clubname:String, clubdesc:String, created:Date, clublogopath:String, isactive:String);
+
+userplan(userplanid:Integer [PK], GeneratedName:PlanDiscount #FK to(plandiscount), plan:LeaguePlan #FK to(leagueplan), GeneratedName:User #FK to(user), payment:UserPayment #FK to(UserPayment), plandesc:String, start:Date, end:Date, balanceamount:Double, currency:String, isactive:String);
+
+playergroupplayer(playergroupplayerid:Integer [PK], playergroupid:Integer, gameclubplayerid:Integer, isplaying:String, playercategory:String, segnum:Integer);
+
+paymentext(paymentextid:Integer [PK], transactionid:Integer, merchantkey:String, payumoneyid:String, unmappedstatus:String, cardnum:String, nameoncard:String, hash:String, incpaymoneyid:String, email:String, phone:String, udf1:String, udf2:String, udf3:String, udf4:String, udf5:String, udf6:String, udf7:String, udf8:String, udf9:String, udf10:String, field1:String, field2:String, field3:String, field4:String, field5:String, field6:String, field7:String, field8:String, field9:String, field10:String, field11:String);
+
+v_position(position_id:Integer [PK], position_code:String, page_name:String, page_part:String, description:String, isactive:String);
+
+v_article(article_id:Integer [PK], vendor_id:Integer, position_id:Integer, position_price_id:Integer, category:String, heading:String, content:String, link:String, published_:Date, image_path:String, isactive:String);
+
+v_vendor_position(vendor_position_id:Integer [PK], vendorid:Integer, position_id:Integer, position_price_id:Integer, active_from:Integer, active_to:Integer);
+
+vendor(vendorid:Integer [PK], firstname:String, lastname:String, displayname:String, logonid:String, logonpassword:String, vendortype:String, ofbirth:Date, lastlogin:Date, lastup:Date, created:Date, register:Date, emailid:String, contactnumber:String, fullaaddress:String, gender:String, field1_:Integer, field_:String, field1_:Date, field2:String, field3:String, policy:String, status:String, country:String, state:String, city:String, pincode:String, address1:String, address2:String);
+
+v_position_price(position_price_id:Integer [PK], position_id:Integer, position_priority:Float, position_name:String, description:String, price:Float, isactive:String);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

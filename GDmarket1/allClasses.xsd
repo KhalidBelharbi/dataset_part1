@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="reservation" >
+      <xs:sequence>
+        <xs:element name="reservationno" type="xs:anyType" />
+        <xs:element name="customername" type="xs:string" />
+        <xs:element name="customerid" type="xs:anyType" />
+        <xs:element name="itemno" type="xs:anyType" />
+        <xs:element name="itemname" type="xs:string" />
+        <xs:element name="itemprice" type="xs:anyType" />
+        <xs:element name="rentalstatus" type="xs:string" />
+        <xs:element name="paymentstatus" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="reservationrepository" >
+      <xs:complexContent>
+       <xs:extension base="pagingandsortingrepository<reservation,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="renteditem" >
+      <xs:complexContent>
+       <xs:extension base="abstractevent">
+         <xs:sequence>
+          <xs:element name="reservationno" type="xs:anyType" />
+          <xs:element name="customername" type="xs:string" />
+          <xs:element name="customerid" type="xs:anyType" />
+          <xs:element name="rentalstatus" type="xs:string" />
+          <xs:element name="itemno" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="reservationapplication" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="returneditem" >
+      <xs:complexContent>
+       <xs:extension base="abstractevent">
+         <xs:sequence>
+          <xs:element name="reservationno" type="xs:anyType" />
+          <xs:element name="customername" type="xs:string" />
+          <xs:element name="customerid" type="xs:anyType" />
+          <xs:element name="rentalstatus" type="xs:string" />
+          <xs:element name="itemno" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="reserved" >
+      <xs:complexContent>
+       <xs:extension base="abstractevent">
+         <xs:sequence>
+          <xs:element name="reservationno" type="xs:anyType" />
+          <xs:element name="customername" type="xs:string" />
+          <xs:element name="customerid" type="xs:anyType" />
+          <xs:element name="itemno" type="xs:anyType" />
+          <xs:element name="itemname" type="xs:string" />
+          <xs:element name="itemstatus" type="xs:string" />
+          <xs:element name="itemprice" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="kafkaprocessor" >
+      <xs:sequence>
+        <xs:element name="input" type="xs:string" />
+        <xs:element name="output" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="policyhandler" >
+      <xs:sequence>
+        <xs:element name="reservationmanagementrepository" type="reservationrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="abstractevent" >
+      <xs:sequence>
+        <xs:element name="eventtype" type="xs:string" />
+        <xs:element name="timestamp" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="reservationcancelled" >
+      <xs:complexContent>
+       <xs:extension base="abstractevent">
+         <xs:sequence>
+          <xs:element name="reservationno" type="xs:anyType" />
+          <xs:element name="customername" type="xs:string" />
+          <xs:element name="customerid" type="xs:anyType" />
+          <xs:element name="itemstatus" type="xs:string" />
+          <xs:element name="itemno" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="payment" >
+      <xs:sequence>
+        <xs:element name="paymentno" type="xs:anyType" />
+        <xs:element name="reservationno" type="xs:anyType" />
+        <xs:element name="itemprice" type="xs:anyType" />
+        <xs:element name="paymentstatus" type="xs:string" />
+        <xs:element name="itemno" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="paymentservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="paymentrequested" >
+      <xs:complexContent>
+       <xs:extension base="abstractevent">
+         <xs:sequence>
+          <xs:element name="reservationno" type="xs:anyType" />
+          <xs:element name="itemprice" type="xs:anyType" />
+          <xs:element name="itemno" type="xs:anyType" />
+          <xs:element name="paymentstatus" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="reservationcontroller" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="paymentcancellationrequested" >
+      <xs:complexContent>
+       <xs:extension base="abstractevent">
+         <xs:sequence>
+          <xs:element name="reservationno" type="xs:anyType" />
+          <xs:element name="itemprice" type="xs:anyType" />
+          <xs:element name="itemno" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="application" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

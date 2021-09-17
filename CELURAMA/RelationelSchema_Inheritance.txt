@@ -1,0 +1,27 @@
+
+celulas(hora:Date, serialversionuid:long, id:Integer [PK], codigo:String, direccion:String, sector:String, nombreanfitrion:String, nombretimoteo:String, telefono:String, red:String, fecha:Date, promedioa:Integer, invitados:Integer, celulasn:Integer, activo:Boolean, id:Entidades #FK to(Entidades));
+
+crecimientos(serialversionuid:long, id:Integer [PK], asistencia:Boolean, pre:Boolean, enc:Boolean, pos:Boolean, nivel1:Boolean, nivel2:Boolean, nivel3:Boolean, activo:Boolean, id:Celulas #FK to(Celulas), id:Entidades #FK to(Entidades));
+
+asistenciacelulas(serialversionuid:long, id:Integer [PK], activo:Boolean, id:Celulas #FK to(Celulas), id:Entidades #FK to(Entidades));
+
+gruposusuarios(serialversionuid:long, id:Integer [PK], id:Codigos #FK to(codigos), id:Codigos #FK to(codigos), id:Entidades #FK to(Entidades));
+
+entidades(edad:Integer, sexo:String, serialversionuid:long, id:Integer [PK], nombres:String, //@pattern(regexp:String, userid:String, pwd:String, identificacion:String, direccion:String, activo:Boolean, genero:String, fecha:Date, telefono:String, celular:String, tipo:String, servicio:String, comite:String, codigo:String, id:Roles #FK to(roles));
+
+codigos(serialversionuid:long, id:Integer [PK], activo:Boolean, codigo:String, descripcion:String, parametros:String, nombre:String, id:Maestros #FK to(maestros));
+
+perfiles(serialversionuid:long, id:Integer [PK], consulta:Boolean, modificacion:Boolean, borrado:Boolean, nuevo:Boolean, id:Codigos #FK to(codigos), id:Menusistema #FK to(menusistema));
+
+roles(serialversionuid:long, id:Integer [PK], nombre:String, descripcion:String, activo:Boolean, codigo:String);
+
+temas(serialversionuid:long, id:Integer [PK], codigo:String, fecha:Date, observacion:String, activo:Boolean, temas:String, id:Celulas #FK to(Celulas));
+
+menusistema(serialversionuid:long, id:Integer [PK], texto:String, formulario:String, id:Codigos #FK to(codigos), id:Menusistema #FK to(menusistema));
+
+maestros(serialversionuid:long, id:Integer [PK], nombre:String, codigo:String);
+
+asistencias(id:Temas #FK to(temas), serialversionuid:long, id:Integer [PK], asistencia:Boolean, lectura:Boolean, activo:Boolean, id:Asistenciacelulas #FK to(Celulas));
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="paymenttype" >
+      <xs:complexContent>
+       <xs:extension base="abstractbaseentity">
+         <xs:sequence>
+          <xs:element name="/***类别名称*/name" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="materialdetails" >
+      <xs:complexContent>
+       <xs:extension base="abstractbaseentity">
+         <xs:sequence>
+          <xs:element name="/***材料明细对应的材料单*/" type="materialoverview" nillable="true" minOccurs="0" />
+          <xs:element name="/***材料明细该条目内容*/content" type="xs:string" />
+          <xs:element name="/***规格*/specification" type="xs:string" />
+          <xs:element name="/***单位*/unit" type="xs:string" />
+          <xs:element name="/***数量*/count" type="xs:anyType" />
+          <xs:element name="/***单价*/price" type="xs:anyType" />
+          <xs:element name="/***金额*/money" type="xs:anyType" />
+          <xs:element name="/***备注*/remark" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="category" >
+      <xs:complexContent>
+       <xs:extension base="abstractbaseentity">
+         <xs:sequence>
+          <xs:element name="/***类别名称*/name" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="materialoverview" >
+      <xs:complexContent>
+       <xs:extension base="abstractbaseentity">
+         <xs:sequence>
+          <xs:element name="/***材料所属用户（材料商）*/" type="user" nillable="true" minOccurs="0" />
+          <xs:element name="/***材料所属类别*/" type="materialtype" nillable="true" minOccurs="0" />
+          <xs:element name="materialdetailslist" type="materialdetails" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="/***票据日期*/documentdate" type="xs:string" />
+          <xs:element name="/***票据序号*/documentno" type="xs:string" />
+          <xs:element name="/***票据内容*/content" type="xs:string" />
+          <xs:element name="/***票据合计金额*/money" type="xs:anyType" />
+          <xs:element name="/***备注*/remark" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="totalgoods" >
+      <xs:complexContent>
+       <xs:extension base="abstractbaseentity">
+         <xs:sequence>
+          <xs:element name="/***凭证所在本数序号*/documentseq" type="xs:string" />
+          <xs:element name="/***录入凭证编号*/documentno" type="xs:string" />
+          <xs:element name="/***录入凭证日期*/documentdate" type="xs:string" />
+          <xs:element name="/***发货客户*/" type="user" nillable="true" minOccurs="0" />
+          <xs:element name="/***凭证内容*/content" type="xs:string" />
+          <xs:element name="/***产品*/" type="product" nillable="true" minOccurs="0" />
+          <xs:element name="/***产品数量*/count" type="xs:anyType" />
+          <xs:element name="/***发货目的地*/address" type="xs:string" />
+          <xs:element name="/***凭证金额*/money" type="xs:anyType" />
+          <xs:element name="/***备注*/remark" type="xs:string" />
+          <xs:element name="/***凭证文件路径*/filepath" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="accountdetails" >
+      <xs:complexContent>
+       <xs:extension base="abstractbaseentity">
+         <xs:sequence>
+          <xs:element name="/***凭证所在本数序号*/documentseq" type="xs:string" />
+          <xs:element name="/***录入凭证编号*/documentno" type="xs:string" />
+          <xs:element name="/***交易日期*/documentdate" type="xs:string" />
+          <xs:element name="/***分类*/" type="category" nillable="true" minOccurs="0" />
+          <xs:element name="/***凭证为何人id*/" type="user" nillable="true" minOccurs="0" />
+          <xs:element name="/***凭证内容*/content" type="xs:string" />
+          <xs:element name="/***收入*/income" type="xs:anyType" />
+          <xs:element name="/***支出*/expense" type="xs:anyType" />
+          <xs:element name="/***对方账户名称*/counterpartyinformation" type="xs:string" />
+          <xs:element name="/***付款方式*/" type="paymenttype" nillable="true" minOccurs="0" />
+          <xs:element name="/***备注*/remark" type="xs:string" />
+          <xs:element name="/***凭证文件名称*/filename" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="product" >
+      <xs:complexContent>
+       <xs:extension base="abstractbaseentity">
+         <xs:sequence>
+          <xs:element name="/***产品名称*/name" type="xs:string" />
+          <xs:element name="/***单位*/unit" type="xs:string" />
+          <xs:element name="/***规格*/specification" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="abstractbaseentity" >
+      <xs:sequence>
+        <xs:element name="/***主键id*/id" type="xs:long" />
+        <xs:element name="/***创建时间*/createtime" type="xs:dateTime" />
+        <xs:element name="/***更新时间*/uptime" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="materialtype" >
+      <xs:complexContent>
+       <xs:extension base="abstractbaseentity">
+         <xs:sequence>
+          <xs:element name="name" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="invoice" >
+      <xs:complexContent>
+       <xs:extension base="abstractbaseentity">
+         <xs:sequence>
+          <xs:element name="/***开票日期*/date" type="xs:string" />
+          <xs:element name="/***发票号码*/number" type="xs:string" />
+          <xs:element name="/***购买方信息*/buyer" type="company" nillable="true" minOccurs="0" />
+          <xs:element name="/***销售方信息*/seller" type="company" nillable="true" minOccurs="0" />
+          <xs:element name="/***发票报送状态*/status" type="xs:string" />
+          <xs:element name="/***发票所述年月*/yearandmonth" type="xs:string" />
+          <xs:element name="/***除税金额*/moneywithouttax" type="xs:string" />
+          <xs:element name="/***税率*/taxrate" type="xs:string" />
+          <xs:element name="/***税额*/taxmoney" type="xs:string" />
+          <xs:element name="/***产品名称*/productname" type="xs:string" />
+          <xs:element name="/***工程名称*/projectname" type="xs:string" />
+          <xs:element name="/***工程地址*/projectaddress" type="xs:string" />
+          <xs:element name="/***发票所有人*/" type="user" nillable="true" minOccurs="0" />
+          <xs:element name="/***发票类别1开出2开出*/type" type="xs:anyType" />
+          <xs:element name="/***含税金额*/moneywithrate" type="xs:anyType" />
+          <xs:element name="/***收取税点*/mtaxrate" type="xs:anyType" />
+          <xs:element name="/***收取税金计算方式为收取税点*发票含税金额*/mtaxmoney" type="xs:anyType" />
+          <xs:element name="/***备注*/remark" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="company" >
+      <xs:complexContent>
+       <xs:extension base="abstractbaseentity">
+         <xs:sequence>
+          <xs:element name="/***购方或销售方名称*/name" type="xs:string" />
+          <xs:element name="/***购方或销售方税号*/taxcode" type="xs:string" />
+          <xs:element name="/***购方或销售方地址*/address" type="xs:string" />
+          <xs:element name="/***购方或销售方电话*/tel" type="xs:string" />
+          <xs:element name="/***购方或销售方银行名称*/bankname" type="xs:string" />
+          <xs:element name="/***购方或销售方银行账户*/bankaccount" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:complexContent>
+       <xs:extension base="abstractbaseentity">
+         <xs:sequence>
+          <xs:element name="/***姓名*/name" type="xs:string" />
+          <xs:element name="/***用户所属类别*/" type="category" nillable="true" minOccurs="0" />
+          <xs:element name="/***年龄*/age" type="xs:anyType" />
+          <xs:element name="/***性别*/sex" type="xs:string" />
+          <xs:element name="/***用户所在区域*/region" type="xs:string" />
+          <xs:element name="/***手机号*/phone" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema> 

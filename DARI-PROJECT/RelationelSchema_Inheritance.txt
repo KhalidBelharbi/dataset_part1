@@ -1,0 +1,35 @@
+ads(adid:int [PK], adname:String, adlocation:String, addescription:String, price:int, ad:Date, area:Float, roomno:int, type:property_type, parkingspace:Boolean, GeneratedName:real_estate #FK to(real_estate));
+
+real_estate(status:int [PK], location:String, purchasing_price:float, buy_rent:boolean, GeneratedName:owner #FK to(owner));
+
+vote(id:int [PK], type:int, GeneratedName:Annonce #FK to(annonce), GeneratedName:User #FK to(user));
+
+bank(serialversionuid:long, bankid:int [PK], bankname:String, interestrate:float);
+
+chatmessage(/***/serialversionuid:long, idchat:int [PK], type:MessageType, content:String, sender:String);
+
+loan(/***/serialversionuid:long, idcredit:int [PK], price:float, interestrate:float, monthly_payment:float, loan_duration:int);
+
+operator(serialversionuid:long);
+
+contract(/***/serialversionuid:long, contractnum:int [PK], effective_price:Float, effective_:Date);
+
+admin(serialversionuid:long);
+
+annonce(id:int [PK], nom:String, dep:Date, description:String, location:String, area:float, prix:float, roomnb:int, image:String, parckingplace:boolean, GeneratedName:Type, GeneratedName:User #FK to(user));
+
+visit(idvisit:int [PK], responsable:String, v:real_estate #FK to(real_estate), v:customer #FK to(customer));
+
+subscription(idsub:int [PK], offer:String, GeneratedName:customer #FK to(customer));
+
+claim(serialversionuid:long, idclaim:int [PK], claimsubject:ClaimType, description:String, GeneratedName:real_estate #FK to(real_estate), id:customer #FK to(customer));
+
+owner(serialversionuid:long);
+
+customer(serialversionuid:long, trial:int, /*@onetomany(cascade:subscription #FK to(subscription), GeneratedName:Ads #FK to(ads));
+
+user(serialversionuid:long, id:int [PK], username:String, firstname:String, lasttname:String, mobile:int, email:String, enabled:boolean, role:String, pwd:String, verificationcode:String, asingaler_cmpt:int, bsingaler_cmpt:int, nsingaler_cmpt:int, resetpwdcode:String);
+
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

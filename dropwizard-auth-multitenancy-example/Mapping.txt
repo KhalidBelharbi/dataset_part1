@@ -1,0 +1,16 @@
+ClassDiagram.Class>> TenantModel =>=>=> RelationalSchema.Table>> tenantmodel;
+ClassDiagram.Class>> WidgetModel =>=>=> RelationalSchema.Table>> widgetmodel;
+ClassDiagram.Class>> TokenModel =>=>=> RelationalSchema.Table>> tokenmodel;
+ClassDiagram.Class>> UserModel =>=>=> RelationalSchema.Table>> usermodel;
+ClassDiagram.Attribut>> TenantModel.id:Long =>=>=> RelationalSchema.Column>> tenantmodel.id PRIMARY KEY;
+ClassDiagram.Attribut>> TenantModel.name:String =>=>=> RelationalSchema.Column>> tenantmodel.name;
+ClassDiagram.Attribut>> WidgetModel.id:Integer =>=>=> RelationalSchema.Column>> widgetmodel.id PRIMARY KEY;
+ClassDiagram.Attribut>> WidgetModel.name:String =>=>=> RelationalSchema.Column>> widgetmodel.name;
+ClassDiagram.Attribut>> WidgetModel.scope:WidgetScope =>=>=> RelationalSchema.Column>> widgetmodel.scope;
+ClassDiagram.Attribut>> TokenModel.id:UUID =>=>=> RelationalSchema.Column>> tokenmodel.id PRIMARY KEY;
+ClassDiagram.Attribut>> UserModel.id:Long =>=>=> RelationalSchema.Column>> usermodel.id PRIMARY KEY;
+ClassDiagram.Attribut>> UserModel.name:String =>=>=> RelationalSchema.Column>> usermodel.name;
+ClassDiagram.Attribut>> UserModel.GeneratedName:Role =>=>=> RelationalSchema.Column>> usermodel.GeneratedName;
+Many-To-One relationship from ClassDiagram.Class>>WidgetModel  to ClassDiagram.Class>>tenantmodel represented by ClassDiagram.Atrribute>>tenant;
+One-To-One relationship between ClassDiagram.Class>>TokenModel  to ClassDiagram.Class>>usermodel represented by ClassDiagram.Atrribute>>user;
+Many-To-One relationship from ClassDiagram.Class>>UserModel  to ClassDiagram.Class>>tenantmodel represented by ClassDiagram.Atrribute>>tenant;

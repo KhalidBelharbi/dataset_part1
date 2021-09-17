@@ -1,0 +1,49 @@
+message(messageid:Integer [PK], messagebody:String, subject:String, messagestatus:boolean, message:Date, from:Employee #FK to(Employee), to:Employee #FK to(Employee), GeneratedName:Patient #FK to(Patient));
+
+roomtype(roomtypeid:Integer [PK], typeofroom:String, roomcost:double);
+
+lab();
+
+receptioniest();
+
+patient(patientid:Integer [PK], address:String, dob:Date, email:String, familyname:String, fathername:String, gender:String, joining:Date, name:String, phone:long, GeneratedName:BloodGroup #FK to(BloodGroup), GeneratedName:NextOfKin #FK to(nextofkin));
+
+qualification(qualid:Integer [PK], institutename:String, qualificationdate:String, qualificationname:String, degree:String);
+
+bloodgroup(bloodgroupid:Integer [PK], bloodgroupname:String);
+
+bookbed(bedid:Integer [PK], placed:Date, departement:String, status:boolean, GeneratedName:Patient #FK to(Patient), GeneratedName:Room #FK to(room));
+
+nurse();
+
+accountant();
+
+drug(drugid:Integer [PK], cost:double, name:String, quantity:int, drug_expired:Date, start:Date, GeneratedName:Employee #FK to(Employee));
+
+workexperince(workexperienceid:Integer [PK], nameoforganization:String, position:String, enddate:String, startdate:String);
+
+pharmatiest();
+
+doctor();
+
+room(roomid:Integer [PK], roomnumber:int, numberofbeds:int, numberofavailablebeds:int, GeneratedName:RoomType #FK to(RoomType));
+
+shifttime(shifttimeid:int [PK], fromtime:String, totime:String);
+
+category(/***/serialversionuid:long, categoryid:Integer [PK], categoryname:String);
+
+xray();
+
+disease(diseaseid:Integer [PK], disease:String, note:String, GeneratedName:Employee #FK to(Employee), GeneratedName:Patient #FK to(Patient), disease:Date);
+
+selleddrug(selleddrugid:int [PK], start:Date, end:Date, unitperday:String, GeneratedName:Drug #FK to(Drug), GeneratedName:Pharmatiest #FK to(Pharmatiest), GeneratedName:Patient #FK to(Patient), quantity:int, selled:Date);
+
+nextofkin(nextofkinid:Integer [PK], address:String, fullname:String, phone:String, relationship:String);
+
+nurseservicetime(nurseservicetimeid:int [PK], service:Date, GeneratedName:ShiftTime #FK to(shifttime), GeneratedName:Nurse #FK to(Nurse), department:String);
+
+employee(employeeid:Integer [PK], type:String, address:String, dob:Date, email:String, firstname:String, fathername:String, familyname:String, gender:String, join:Date, password:String, username:String, photo:String, phone:String, GeneratedName:Category #FK to(category), type: String);
+
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

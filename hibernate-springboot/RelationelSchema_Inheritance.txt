@@ -1,0 +1,145 @@
+
+report(id:int [PK], start:Date, end:Date, performer:String, activity:String);
+
+productimage(pk:Long [PK], name:String, description:String, contenttype:String, lob:byte, GeneratedName:Product #FK to(product), created:Date);
+
+guest(id:Integer [PK], modification:Date, creation:Date, version:Integer, name:String, address:String, phone:String);
+
+category(//id//@fieldcategoryid:int [PK], //@field(type:String, //@fielddescription:String, //@timeformat(pattern:Date);
+
+position(id:int [PK]);
+
+department(id:long [PK], name:String, contactemail:String, contactphone:String, created:Date, GeneratedName:Company #FK to(company));
+
+tag(id:int [PK], name:String, GeneratedName:Subcategory #FK to(Category));
+
+tag_list<photo>(tagID:tag [PK] #FK to tag,list<photo>ID:list<photo> [PK] #FK to list<photo>);
+
+roomoption(id:Integer [PK], name:String, price:Integer);
+
+meeting(id:int [PK], name:String);
+
+meeting_department(meeting_id:Meeting [PK] #FK to Meeting,department_id:list<department> [PK] #FK to list<department>);
+
+salesorder(salesorderid:int [PK], /**theonwhichtheorderwasplaced*/order:Date, /**timeatwhichtheorderwasrecorded*/ordertime:Date, //totalcostofthesalesordertotalcost:int, /*	*thisfieldmapscustomertoitssalesorder	*asalesorderwillhaveonecustomer,butacustomercanhave	*multiplesalesorder	*//*	@joincolumn(name:Employee #FK to(employee));
+
+node(id:long [PK], name:String, parent:Node #FK to(node));
+
+ranking();
+
+office(id:int [PK], name:String, GeneratedName:Address #FK to(address), GeneratedName:Department #FK to(department));
+
+taskdetail(id:Long [PK], message:String, GeneratedName:Date, time:int);
+
+car(id:int [PK], registrationnumber:String, //relationship:Company #FK to(company));
+
+user(serialversionuid:long, //////egeriduserid:int [PK], username:String, firstname:String, lastname:String, email:String, //@basic(optional:String, _of_birth:Date, registered:Date, description:String, website:String, GeneratedName:Contact #FK to(contact), //:Address #FK to(address), GeneratedName:Position #FK to(position));
+
+user_role(user_id:User [PK] #FK to User,role_id:list<role> [PK] #FK to list<role>);
+
+company(id:int [PK], name:String, logourl:String, location:String, description:String, website:String, GeneratedName:User #FK to(user));
+
+comment(id:int [PK], postid:Long, content:String, author:String, creation:Date, user:String);
+
+upload(id:int [PK], data:String);
+
+appointment(appomentid:int [PK], GeneratedName:Date, location:String, description:String, confirmed:boolean, GeneratedName:User #FK to(user));
+
+tutorial(serialversionuid:long, tutorialid:int [PK], title:String, category:String);
+
+relationship(id:long [PK], //relationshiptable//-followfollower:User #FK to(user), //followedfollowed:User #FK to(user));
+
+commentchild(id:int [PK], comment:String, idcomment:int, user:String, date:String);
+
+workschedule(id:long [PK], starttime:Timestamp, endtime:Timestamp, workday:WeekDay);
+
+education(id:int [PK], schoolname:String, degree:String, field:String);
+
+message(id:Integer [PK], body:String, created:Date, senderid:String, receiverid:String, messageid:String);
+
+admin(adminid:int [PK], firstname:String, lastname:String, username:String, password:String, email:String, phone:long);
+
+userrank(id:int [PK], name:String);
+
+address(id:int [PK], street:String, housenumber:String, zipcode:String);
+
+expertise();
+
+projectmanager(projectmanagerid:String [PK], username:String, firstname:String, lastname:String);
+
+photo(photo_id:long [PK], photo_name:String, photo_description:String, photo_likes:long, photo_views:long, upload_data:Date, photo_file:String, GeneratedName:User #FK to(user), GeneratedName:Category #FK to(Category));
+
+task(id:Long [PK], name:String, description:String, iscomplete:boolean, start:Date, end:Date);
+
+task_user(task_id:Task [PK] #FK to Task,user_id:list<user> [PK] #FK to list<user>);
+
+customer(serialversionuid:long, id:Long [PK], firstname:String, lastname:String, //versionversion:int);
+
+visit(id:int [PK], //privateemployeeemployee//@basic:Date, //@basicstatus:Boolean, //refreplationship:Guest #FK to(guest));
+
+restauranttable(id:int [PK], seats:int, isreserved:int, invoiceid:int, totaltablecount:int, max_table_count:int);
+
+post(//@generatedvalue(strategy:Integer [PK], title:String, body:String, create:Date, modify:Date, imageurl:String, GeneratedName:User #FK to(user), GeneratedName:Department #FK to(department));
+
+post_tags(post_id:Post [PK] #FK to Post,tag_id:list<tag> [PK] #FK to list<tag>);post_categorization(post_id:Post [PK] #FK to Post,tag_id:list<tag> [PK] #FK to list<tag>);
+
+projectreview(projectreviewid:int [PK], title:String, description:String, GeneratedName:EditionType, release:Date, GeneratedName:User #FK to(user));
+
+projectreview_category(projectreview_id:ProjectReview [PK] #FK to ProjectReview,category_id:Category [PK] #FK to Category);
+
+role(id:Integer [PK], rolename:String);
+
+event(GeneratedName:Location, alternativelocations:List<Location>);
+
+meetup(id:Integer [PK], location:String, date:LocalDate, time:LocalTime, topic:String, //entityrelationship//organiserorganizer:User #FK to(user), description:String);
+
+user_meetups_attending(meetup_id:Meetup [PK] #FK to Meetup,user_id:list<user> [PK] #FK to list<user>);
+
+model(id:Long [PK]);
+
+product(id:int [PK], name:String, description:String, cost:Double);
+
+contact(contactid:int [PK], //@field(analyze:String, firstname:String, lastname:String, email:String, phone:String, image:String, birthday:Date, GeneratedName:User #FK to(user));
+
+manager(carallowance:int, bonusallowance:int);
+
+article(serialversionuid:long, articleid:int [PK], //@fieldtitle:String, //@fieldcategory:String, //@fieldcontent:String, /*@field*/description:String, //@fieldcreatedat:Date);
+
+file(fileid:int [PK], file:byte, custom:String, make:String, year:int, redlinespeed:int, maxcapacity:float, lastmodified:Date);
+
+course(courseid:int [PK], name:String, GeneratedName:Category #FK to(Category), //:Topic #FK to(topic));
+
+order(id:int [PK], firstname:String, lastname:String, birthday:Date, deliveryaddress:String, delivery:Date, totalcost:Double, GeneratedName:OrderStatus);
+
+orders_products(order_id:Order [PK] #FK to Order,product_id:list<product> [PK] #FK to list<product>);
+
+guestbranch(serialversionuid:long, guestbranchid:int [PK], branchno:String, name:String);
+
+salesitemline(salesitemid:SalesItemLineId, GeneratedName:SalesOrder #FK to(salesorder), GeneratedName:MenuItem #FK to(menuitem), quantity:int);
+
+subcategory(id:int [PK], name:String, GeneratedName:Category #FK to(Category));
+
+project(id:Integer [PK], name:String, content:String, ////departmentdepartmentdeadline:Date, status:String, title:String, nosprints:Integer, sprintlengthdays:Integer, //entityrelationship:ProjectManager #FK to(projectmanager));
+
+employee(id:int [PK], ssn:String, firstname:String, lastname:String, ofbirth:Date, GeneratedName:JobTitle, joining:Date, salary:int, aptno:String, streetname:String, city:String, zipcode:String, //fortestingpurpose//string:Department #FK to(department));
+
+booking(id:Long [PK], start:Date, end:Date, //relationshiptable:Room #FK to(room), GeneratedName:User #FK to(user));
+
+room(id:Integer [PK], roomcategory:String, price:Integer);
+
+room_options(room_id:Room [PK] #FK to Room,option_id:list<roomoption> [PK] #FK to list<roomoption>);
+
+topic(id:int [PK], name:String, description:String);
+
+employeekin(id:int [PK], //thefieldtracksstotheirkinparent:Employee #FK to(employee), firstname:String, lastname:String, streetaddress:String, cityaddress:String, zipcode:String);
+
+menuitem(id:int [PK], itemname:String, itemprice:int, decription:String, itemtype:MenuItemType);
+
+balance(id:int [PK], balanceamount:int, //relationshipref:User #FK to(user));
+
+auditinfo(/***/serialversionuid:long, createdon:Date, createdby:String, updon:Date, updatedby:String);
+
+hibernateconfiguration();
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

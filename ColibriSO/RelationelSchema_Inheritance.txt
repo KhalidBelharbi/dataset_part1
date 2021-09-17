@@ -1,0 +1,27 @@
+
+snippettag(snippetid:UUID [PK], tagid:UUID [PK]);
+
+userauthority(userid:UUID [PK], authorityid:UUID [PK]);
+
+project(id:UUID [PK], creationtime:OffsetDateTime, lastchangedtime:OffsetDateTime, creatorid:UUID, project:String, description:String, parentprojectid:UUID);
+
+userdetail(userid:UUID [PK], creationtime:OffsetDateTime, lastchangedtime:OffsetDateTime, email:String, fullname:String, avatar:String, avatarcolor:String, uitheme:String, asynctablerefresh:boolean);
+
+snippet(id:UUID [PK], creationtime:OffsetDateTime, lastchangedtime:OffsetDateTime, creatorid:UUID, content:String, description:String, GeneratedName:SnippetType, mimetype:String, favouritelevel:Integer, icon:String);
+
+snippet_projects(snippetid:Snippet [PK] #FK to Snippet,projectid:Project [PK] #FK to Project);snippet_tags(snippetid:Snippet [PK] #FK to Snippet,tagid:set<tag> [PK] #FK to set<tag>);snippet_intents(snippetid:Snippet [PK] #FK to Snippet,intentid:Intent [PK] #FK to Intent);
+
+snippetintent(snippetid:UUID [PK], intentid:UUID [PK]);
+
+authority(id:UUID [PK], authority:String);
+
+intent(id:UUID [PK], creationtime:OffsetDateTime, lastchangedtime:OffsetDateTime, creatorid:UUID, intent:String, description:String);
+
+snippetproject(snippetid:UUID [PK], projectid:UUID [PK]);
+
+user(id:UUID [PK], creationtime:OffsetDateTime, lastchangedtime:OffsetDateTime, username:String, passwordhash:String, enabled:boolean);
+
+tag(id:UUID [PK], creationtime:OffsetDateTime, lastchangedtime:OffsetDateTime, creatorid:UUID, tag:String, description:String);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

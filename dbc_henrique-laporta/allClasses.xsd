@@ -1,0 +1,501 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="sun-jaxb" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="correiosservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="soapconnector" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="aluguelservice" >
+      <xs:complexContent>
+       <xs:extension base="abstractcrudservice<aluguel>">
+         <xs:sequence>
+          <xs:element name="" type="aluguelrepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="clienteservice" nillable="true" minOccurs="0" />
+          <xs:element name="" type="midiaservice" nillable="true" minOccurs="0" />
+          <xs:element name="" type="valormidiaservice" nillable="true" minOccurs="0" />
+          <xs:element name="" type="dateservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="filmeservice" >
+      <xs:complexContent>
+       <xs:extension base="abstractcrudservice<filme>">
+         <xs:sequence>
+          <xs:element name="" type="filmerepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="midiaservice" nillable="true" minOccurs="0" />
+          <xs:element name="" type="valormidiaservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="clienteservice" >
+      <xs:complexContent>
+       <xs:extension base="abstractcrudservice<cliente>">
+         <xs:sequence>
+          <xs:element name="" type="clienterepository" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="appuserdetailsservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="rolerepository" nillable="true" minOccurs="0" />
+        <xs:element name="passwordencoder" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="abstractcrudservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dateservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="valormidiaservice" >
+      <xs:complexContent>
+       <xs:extension base="abstractcrudservice<valormidia>">
+         <xs:sequence>
+          <xs:element name="" type="valormidiarepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="midiaservice" nillable="true" minOccurs="0" />
+          <xs:element name="" type="dateservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="midiaservice" >
+      <xs:complexContent>
+       <xs:extension base="abstractcrudservice<midia>">
+         <xs:sequence>
+          <xs:element name="" type="midiarepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="valormidiaservice" nillable="true" minOccurs="0" />
+          <xs:element name="" type="filmeservice" nillable="true" minOccurs="0" />
+          <xs:element name="" type="aluguelservice" nillable="true" minOccurs="0" />
+          <xs:element name="" type="dateservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="filmerestcontroller" >
+      <xs:complexContent>
+       <xs:extension base="abstractrestcontroller<filme,">
+         <xs:sequence>
+          <xs:element name="" type="filmeservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="midiarestcontroller" >
+      <xs:complexContent>
+       <xs:extension base="abstractrestcontroller<midia,">
+         <xs:sequence>
+          <xs:element name="" type="midiaservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="aluguelrestcontroller" >
+      <xs:complexContent>
+       <xs:extension base="abstractrestcontroller<aluguel,">
+         <xs:sequence>
+          <xs:element name="" type="aluguelservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userrestcontroller" >
+      <xs:sequence>
+        <xs:element name="userservice" type="appuserdetailsservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="clienterestcontroller" >
+      <xs:complexContent>
+       <xs:extension base="abstractrestcontroller<cliente,">
+         <xs:sequence>
+          <xs:element name="" type="clienteservice" nillable="true" minOccurs="0" />
+          <xs:element name="" type="correiosservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="abstractrestcontroller" >
+      <xs:complexContent>
+       <xs:extension base="abstractcrudservice<e>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="valormidiarestcontroller" >
+      <xs:complexContent>
+       <xs:extension base="abstractrestcontroller<valormidia,">
+         <xs:sequence>
+          <xs:element name="" type="valormidiaservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="wsconfig" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="soapconnector" >
+      <xs:complexContent>
+       <xs:extension base="webservicegatewaysupport">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="securityconfig" >
+      <xs:complexContent>
+       <xs:extension base="websecurityconfigureradapter">
+         <xs:sequence>
+          <xs:element name="signingkey" type="xs:string" />
+          <xs:element name="encodingstrength" type="xs:anyType" />
+          <xs:element name="securityrealm" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jacksonconfiguration" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="resourceserverconfig" >
+      <xs:complexContent>
+       <xs:extension base="resourceserverconfigureradapter">
+         <xs:sequence>
+          <xs:element name="tokenservices" type="xs:anyType" />
+          <xs:element name="resourceids" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="authorizationserverconfig" >
+      <xs:complexContent>
+       <xs:extension base="authorizationserverconfigureradapter">
+         <xs:sequence>
+          <xs:element name="clientid" type="xs:string" />
+          <xs:element name="clientsecret" type="xs:string" />
+          <xs:element name="granttype" type="xs:string" />
+          <xs:element name="scoperead" type="xs:string" />
+          <xs:element name="scopewrite" type="xs:string" />
+          <xs:element name="resourceids" type="xs:string" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="accesstokenconverter" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="clienterepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<cliente,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="valormidiarepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<valormidia,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<user,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="midiarepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<midia,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="aluguelrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<aluguel,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="filmerepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<filme,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="rolerepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<role,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="midiadto" >
+      <xs:sequence>
+        <xs:element name="tipo" type="tipomidia" nillable="true" minOccurs="0" />
+        <xs:element name="quantidade" type="xs:long" />
+        <xs:element name="valor" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="valormidiadto" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="tipo" type="tipomidia" nillable="true" minOccurs="0" />
+        <xs:element name="valor" type="xs:double" />
+        <xs:element name="iniciovigencia" type="xs:anyType" />
+        <xs:element name="vigencia" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="aluguelbackdto" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="retirada" type="xs:anyType" />
+        <xs:element name="previsao" type="xs:anyType" />
+        <xs:element name="devolucao" type="xs:anyType" />
+        <xs:element name="multa" type="xs:double" />
+        <xs:element name="valor" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="midiasearchdto" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="tipo" type="tipomidia" nillable="true" minOccurs="0" />
+        <xs:element name="valor" type="xs:double" />
+        <xs:element name="GeneratedName" type="filme" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="aluguelfrontdto" >
+      <xs:sequence>
+        <xs:element name="idcliente" type="xs:long" />
+        <xs:element name="midias" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="midiacatalogodto" >
+      <xs:sequence>
+        <xs:element name="tipo" type="tipomidia" nillable="true" minOccurs="0" />
+        <xs:element name="valor" type="xs:double" />
+        <xs:element name="disponivel" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cepdto" >
+      <xs:sequence>
+        <xs:element name="rua" type="xs:string" />
+        <xs:element name="bairro" type="xs:string" />
+        <xs:element name="cidade" type="xs:string" />
+        <xs:element name="estado" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="filmecatalogodto" >
+      <xs:sequence>
+        <xs:element name="titulo" type="xs:string" />
+        <xs:element name="GeneratedName" type="categoria" nillable="true" minOccurs="0" />
+        <xs:element name="lancamento" type="xs:anyType" />
+        <xs:element name="midias" type="midiacatalogodto" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="filmedto" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="titulo" type="xs:string" />
+        <xs:element name="lancamento" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="categoria" nillable="true" minOccurs="0" />
+        <xs:element name="midia" type="midiadto" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="servletinitializer" >
+      <xs:complexContent>
+       <xs:extension base="springbootservletinitializer">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="locadoraapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="//@jsonignorepassword" type="xs:string" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+        <xs:element name="roles" type="role" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="valormidia" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="//@max(value" type="xs:long" />
+        <xs:element name="valor" type="xs:double" />
+        <xs:element name="iniciovigencia" type="xs:anyType" />
+        <xs:element name="vigencia" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="midia" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="filme" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="//@max(value" type="xs:long" />
+        <xs:element name="titulo" type="xs:string" />
+        <xs:element name="lancamento" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="categoria" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="role" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="rolename" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="midia" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="//@max(value" type="xs:long" />
+        <xs:element name="tipo" type="tipomidia" nillable="true" minOccurs="0" />
+        <xs:element name="//@onetomany(cascade" type="filme" nillable="true" minOccurs="0" />
+        <xs:element name="id" type="aluguel" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="aluguel" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="//@max(value" type="xs:long" />
+        <xs:element name="retirada" type="xs:anyType" />
+        <xs:element name="previsao" type="xs:anyType" />
+        <xs:element name="devolucao" type="xs:anyType" />
+        <xs:element name="multa" type="xs:double" />
+        <xs:element name="id" type="cliente" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cliente" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="//@max(value" type="xs:long" />
+        <xs:element name="nome" type="xs:string" />
+        <xs:element name="telefone" type="xs:string" />
+        <xs:element name="rua" type="xs:string" />
+        <xs:element name="bairro" type="xs:string" />
+        <xs:element name="cidade" type="xs:string" />
+        <xs:element name="estado" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="apprunner" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="categoria" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tipomidia" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="application" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="filmerestcontrollertest" >
+      <xs:complexContent>
+       <xs:extension base="locadoraapplicationtests">
+         <xs:sequence>
+          <xs:element name="" type="filmerestcontroller" nillable="true" minOccurs="0" />
+          <xs:element name="" type="filmerepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="midiarepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="valormidiarepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="clienterepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="aluguelrepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="filmeservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="midiarestcontrollertest" >
+      <xs:complexContent>
+       <xs:extension base="locadoraapplicationtests">
+         <xs:sequence>
+          <xs:element name="" type="midiarestcontroller" nillable="true" minOccurs="0" />
+          <xs:element name="" type="filmerepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="filmeservice" nillable="true" minOccurs="0" />
+          <xs:element name="" type="midiarepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="valormidiarepository" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="aluguelrestcontrollertest" >
+      <xs:complexContent>
+       <xs:extension base="locadoraapplicationtests">
+         <xs:sequence>
+          <xs:element name="" type="aluguelrestcontroller" nillable="true" minOccurs="0" />
+          <xs:element name="" type="aluguelrepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="filmerepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="filmeservice" nillable="true" minOccurs="0" />
+          <xs:element name="" type="midiarepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="valormidiarepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="clienterepository" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="clienterestcontrollertest" >
+      <xs:complexContent>
+       <xs:extension base="locadoraapplicationtests">
+         <xs:sequence>
+          <xs:element name="" type="clienterestcontroller" nillable="true" minOccurs="0" />
+          <xs:element name="" type="clienterepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="correiosservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userrestcontrollertest" >
+      <xs:sequence>
+        <xs:element name="rest" type="xs:anyType" />
+        <xs:element name="jacksonmessageconverter" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="pageableargumentresolver" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="userrestcontroller" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="userrepository" nillable="true" minOccurs="0" />
+        <xs:element name="passwordencoder" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="locadoraapplicationtests" >
+      <xs:sequence>
+        <xs:element name="delta" type="xs:double" />
+        <xs:element name="rest" type="xs:anyType" />
+        <xs:element name="jacksonmessageconverter" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="pageableargumentresolver" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="dateservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

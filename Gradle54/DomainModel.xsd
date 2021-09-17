@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="user" >
+      <xs:complexContent>
+       <xs:extension base="abstractdomainobject">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="username" type="xs:string" />
+          <xs:element name="firstname" type="xs:string" />
+          <xs:element name="lastname" type="xs:string" />
+          <xs:element name="password" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="feedback" >
+      <xs:complexContent>
+       <xs:extension base="abstractdomainobject">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="topic" type="xs:string" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="comments" type="comment" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="comment" >
+      <xs:complexContent>
+       <xs:extension base="abstractdomainobject">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="" type="feedback" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema> 

@@ -1,0 +1,37 @@
+
+serverdeploy(id:Long [PK], name:String, ip:String, port:Integer, account:String, password:String);
+
+app(id:Long [PK], name:String, port:int, uploadpath:String, deploypath:String, backuppath:String, startscript:String, deployscript:String);
+
+deployhistory(id:String [PK], appname:String, ip:String, deploydate:Timestamp, deployuser:String, deployid:Long);
+
+database(id:String [PK], name:String, jdbcurl:String, pwd:String, username:String);
+
+deploy(id:Long [PK], GeneratedName:App #FK to(app));
+
+mnt_deploy_server(deploy_id:Deploy [PK] #FK to Deploy,server_id:set<serverdeploy> [PK] #FK to set<serverdeploy>);
+
+quartzlog(id:Long [PK], jobname:String, beanname:String, methodname:String, params:String, cronexpression:String, issuccess:Boolean, exceptiondetail:String, time:Long, createtime:Timestamp);
+
+quartzjob(job_key:String, id:Long [PK], jobname:String, beanname:String, methodname:String, params:String, cronexpression:String, ispause:Boolean, personincharge:String, email:String, subtask:String, pauseafterfailure:Boolean, description:String);
+
+user(id:Long [PK], GeneratedName:Dept #FK to(dept), username:String, nickname:String, email:String, phone:String, gender:String, avatarname:String, avatarpath:String, password:String, enabled:Boolean, isadmin:Boolean, pwdresettime:Date);
+
+sys_users_roles(user_id:User [PK] #FK to User,role_id:set<role> [PK] #FK to set<role>);sys_users_jobs(user_id:User [PK] #FK to User,job_id:set<job> [PK] #FK to set<job>);
+
+dict(id:Long [PK], name:String, description:String);
+
+dept(id:Long [PK], deptsort:Integer, name:String, enabled:Boolean, pid:Long, subcount:Integer);
+
+role(id:Long [PK], name:String, datascope:String, level:Integer, description:String);
+
+sys_roles_menus(role_id:Role [PK] #FK to Role,menu_id:set<menu> [PK] #FK to set<menu>);sys_roles_depts(role_id:Role [PK] #FK to Role,dept_id:set<dept> [PK] #FK to set<dept>);
+
+menu(id:Long [PK], title:String, componentname:String, menusort:Integer, component:String, path:String, type:Integer, permission:String, icon:String, cache:Boolean, hidden:Boolean, pid:Long, subcount:Integer, iframe:Boolean);
+
+dictdetail(id:Long [PK], GeneratedName:Dict #FK to(dict), label:String, value:String, dictsort:Integer);
+
+job(id:Long [PK], name:String, jobsort:Long, enabled:Boolean);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

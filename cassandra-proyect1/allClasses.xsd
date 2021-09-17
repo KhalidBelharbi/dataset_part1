@@ -1,0 +1,1955 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="schemaconfigurationtest" >
+      <xs:sequence>
+        <xs:element name="/***theconfiguration.*/configuration" type="schemaconfiguration" nillable="true" minOccurs="0" />
+        <xs:element name="putoschemametadata" type="xs:anyType" />
+        <xs:element name="persistenceunit" type="xs:string" />
+        <xs:element name="persistenceunits" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="coreentitypersonuni1tom" >
+      <xs:sequence>
+        <xs:element name="/***thepersonid.*/personid" type="xs:string" />
+        <xs:element name="/***thepersonname.*/personname" type="xs:string" />
+        <xs:element name="/***theage.*/age" type="xs:long" />
+        <xs:element name="/***thepersonaldata.*/personaldata" type="corepersonaldata" nillable="true" minOccurs="0" />
+        <xs:element name="/***theaddresses.*/addresses" type="coreentityaddressuni1tom" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="coreentitypersonuni1to1" >
+      <xs:sequence>
+        <xs:element name="/***thepersonid.*/personid" type="xs:string" />
+        <xs:element name="/***thepersonname.*/personname" type="xs:string" />
+        <xs:element name="/***theage.*/age" type="xs:long" />
+        <xs:element name="/***thepersonaldata.*/personaldata" type="corepersonaldata" nillable="true" minOccurs="0" />
+        <xs:element name="/***theaddress.*/address" type="coreentityaddressuni1to1" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="coreentityaddressuni1tom" >
+      <xs:sequence>
+        <xs:element name="/***theaddressid.*/addressid" type="xs:string" />
+        <xs:element name="/***thestreet.*/street" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="coreentityaddressuni1to1" >
+      <xs:sequence>
+        <xs:element name="/***theaddressid.*/addressid" type="xs:string" />
+        <xs:element name="/***thestreet.*/street" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="coreentitysuper" >
+      <xs:sequence>
+        <xs:element name="/***thepersonid.*/personid" type="xs:string" />
+        <xs:element name="/***thepersonname.*/personname" type="xs:string" />
+        <xs:element name="/***theage.*/age" type="xs:long" />
+        <xs:element name="/***thepersonaldata.*/personaldata" type="corepersonaldata" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="coreentitypersionunimto1" >
+      <xs:sequence>
+        <xs:element name="/***thepersonid.*/personid" type="xs:string" />
+        <xs:element name="/***thepersonname.*/personname" type="xs:string" />
+        <xs:element name="/***theage.*/age" type="xs:long" />
+        <xs:element name="/***thepersonaldata.*/personaldata" type="corepersonaldata" nillable="true" minOccurs="0" />
+        <xs:element name="/***theaddress.*/address" type="coreentityaddressunimto1" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="coreentityaddressunimto1" >
+      <xs:sequence>
+        <xs:element name="/***theaddressid.*/addressid" type="xs:string" />
+        <xs:element name="/***thestreet.*/street" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="corepersonaldata" >
+      <xs:sequence>
+        <xs:element name="/***thewebsite.*/website" type="xs:string" />
+        <xs:element name="/***theemail.*/email" type="xs:string" />
+        <xs:element name="/***theyahooid.*/yahooid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="configuratortest" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="coreentitysimple" >
+      <xs:sequence>
+        <xs:element name="/***thepersonid.*/personid" type="xs:string" />
+        <xs:element name="/***thepersonname.*/personname" type="xs:string" />
+        <xs:element name="/***theage.*/age" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tableprocessortest" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entitysample" >
+      <xs:sequence>
+        <xs:element name="key" type="xs:anyType" />
+        <xs:element name="field" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ehcacheprovidertest" >
+      <xs:complexContent>
+       <xs:extension base="testcase">
+         <xs:sequence>
+          <xs:element name="/***thecacheprovider.*/cacheprovider" type="ehcacheprovider" nillable="true" minOccurs="0" />
+          <xs:element name="/***thecacheresource.*/cacheresource" type="xs:string" />
+          <xs:element name="/***thecachename.*/cachename" type="xs:string" />
+          <xs:element name="/***theperson1.*/person1" type="personneldto" nillable="true" minOccurs="0" />
+          <xs:element name="/***theperson2.*/person2" type="personneldto" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="kunderaqueryparsertest" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persistenceunitloadertest" >
+      <xs:sequence>
+        <xs:element name="/***instance*/log" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jpaimplementationtestsuite" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="kunderajtausertransactiontest" >
+      <xs:sequence>
+        <xs:element name="utx" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entitymanagersessiontest" >
+      <xs:complexContent>
+       <xs:extension base="testcase">
+         <xs:sequence>
+          <xs:element name="/***theems.*/ems" type="entitymanagersession" nillable="true" minOccurs="0" />
+          <xs:element name="/***thecacheprovider.*/" type="cacheprovider" nillable="true" minOccurs="0" />
+          <xs:element name="/***the.*/" type="cache" nillable="true" minOccurs="0" />
+          <xs:element name="/***thecacheresource.*/cacheresource" type="xs:string" />
+          <xs:element name="/***thecacheproviderclassname.*/cacheproviderclassname" type="xs:string" />
+          <xs:element name="/***theperson1.*/person1" type="personneldto" nillable="true" minOccurs="0" />
+          <xs:element name="/***theperson2.*/person2" type="personneldto" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="persistencecachetest" >
+      <xs:sequence>
+        <xs:element name="pc" type="persistencecache" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="flushmanager" nillable="true" minOccurs="0" />
+        <xs:element name="graphbuilder" type="objectgraphbuilder" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="flushstacktest" >
+      <xs:sequence>
+        <xs:element name="fs" type="flushstack" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="flushmanager" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="flushstackmanagertest" >
+      <xs:sequence>
+        <xs:element name="pc" type="persistencecache" nillable="true" minOccurs="0" />
+        <xs:element name="graphbuilder" type="objectgraphbuilder" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tweet" >
+      <xs:sequence>
+        <xs:element name="tweetid" type="xs:string" />
+        <xs:element name="body" type="xs:string" />
+        <xs:element name="device" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="personaldetail" >
+      <xs:sequence>
+        <xs:element name="personaldetailid" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="relationshipstatus" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="albumbi_m_m_1_1" >
+      <xs:sequence>
+        <xs:element name="albumid" type="xs:string" />
+        <xs:element name="albumname" type="xs:string" />
+        <xs:element name="albumdescription" type="xs:string" />
+        <xs:element name="//onetomany,willbepersistedseparatelyphoto" type="photobi_m_m_1_1" nillable="true" minOccurs="0" />
+        <xs:element name="photographers" type="photographerbi_m_m_1_1" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="albumuni_1_1_1_m" >
+      <xs:sequence>
+        <xs:element name="albumid" type="xs:string" />
+        <xs:element name="albumname" type="xs:string" />
+        <xs:element name="albumdescription" type="xs:string" />
+        <xs:element name="//onetomany,willbepersistedseparatelyphotos" type="photouni_1_1_1_m" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="albumuni_1_1_1_1" >
+      <xs:sequence>
+        <xs:element name="albumid" type="xs:string" />
+        <xs:element name="albumname" type="xs:string" />
+        <xs:element name="albumdescription" type="xs:string" />
+        <xs:element name="//onetomany,willbepersistedseparatelyphoto" type="photouni_1_1_1_1" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="albumbi_1_m_1_m" >
+      <xs:sequence>
+        <xs:element name="albumid" type="xs:string" />
+        <xs:element name="albumname" type="xs:string" />
+        <xs:element name="albumdescription" type="xs:string" />
+        <xs:element name="//onetomany,willbepersistedseparatelyphotos" type="photobi_1_m_1_m" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="photographer" type="photographerbi_1_m_1_m" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="albumuni_m_1_1_m" >
+      <xs:sequence>
+        <xs:element name="albumid" type="xs:string" />
+        <xs:element name="albumname" type="xs:string" />
+        <xs:element name="albumdescription" type="xs:string" />
+        <xs:element name="//onetomany,willbepersistedseparatelyphotos" type="photouni_m_1_1_m" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="albumuni_m_m_m_m" >
+      <xs:sequence>
+        <xs:element name="albumid" type="xs:string" />
+        <xs:element name="albumname" type="xs:string" />
+        <xs:element name="albumdescription" type="xs:string" />
+        <xs:element name="photos" type="photouni_m_m_m_m" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="albumuni_1_m_m_m" >
+      <xs:sequence>
+        <xs:element name="albumid" type="xs:string" />
+        <xs:element name="albumname" type="xs:string" />
+        <xs:element name="albumdescription" type="xs:string" />
+        <xs:element name="photos" type="photouni_1_m_m_m" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="albumbi_1_m_m_m" >
+      <xs:sequence>
+        <xs:element name="albumid" type="xs:string" />
+        <xs:element name="albumname" type="xs:string" />
+        <xs:element name="albumdescription" type="xs:string" />
+        <xs:element name="photos" type="photobi_1_m_m_m" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="photographer" type="photographerbi_1_m_m_m" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="albumuni_1_1_m_1" >
+      <xs:sequence>
+        <xs:element name="albumid" type="xs:string" />
+        <xs:element name="albumname" type="xs:string" />
+        <xs:element name="albumdescription" type="xs:string" />
+        <xs:element name="//onetomany,willbepersistedseparatelyphoto" type="photouni_1_1_m_1" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="albumbi_m_m_m_m" >
+      <xs:sequence>
+        <xs:element name="albumid" type="xs:string" />
+        <xs:element name="albumname" type="xs:string" />
+        <xs:element name="albumdescription" type="xs:string" />
+        <xs:element name="photos" type="photobi_m_m_m_m" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="photographers" type="photographerbi_m_m_m_m" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="albumbi_m_1_1_m" >
+      <xs:sequence>
+        <xs:element name="albumid" type="xs:string" />
+        <xs:element name="albumname" type="xs:string" />
+        <xs:element name="albumdescription" type="xs:string" />
+        <xs:element name="//onetomany,willbepersistedseparatelyphotos" type="photobi_m_1_1_m" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="photographers" type="photographerbi_m_1_1_m" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="albumuni_1_m_1_m" >
+      <xs:sequence>
+        <xs:element name="albumid" type="xs:string" />
+        <xs:element name="albumname" type="xs:string" />
+        <xs:element name="albumdescription" type="xs:string" />
+        <xs:element name="//onetomany,willbepersistedseparatelyphotos" type="photouni_1_m_1_m" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="albumbi_1_1_1_1" >
+      <xs:sequence>
+        <xs:element name="albumid" type="xs:string" />
+        <xs:element name="albumname" type="xs:string" />
+        <xs:element name="albumdescription" type="xs:string" />
+        <xs:element name="//onetomany,willbepersistedseparatelyphoto" type="photobi_1_1_1_1" nillable="true" minOccurs="0" />
+        <xs:element name="photographer" type="photographerbi_1_1_1_1" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="albumuni_m_m_1_1" >
+      <xs:sequence>
+        <xs:element name="albumid" type="xs:string" />
+        <xs:element name="albumname" type="xs:string" />
+        <xs:element name="albumdescription" type="xs:string" />
+        <xs:element name="//onetomany,willbepersistedseparatelyphoto" type="photouni_m_m_1_1" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="albumbi_1_1_1_m" >
+      <xs:sequence>
+        <xs:element name="albumid" type="xs:string" />
+        <xs:element name="albumname" type="xs:string" />
+        <xs:element name="albumdescription" type="xs:string" />
+        <xs:element name="//onetomany,willbepersistedseparatelyphotos" type="photobi_1_1_1_m" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="photographer" type="photographerbi_1_1_1_m" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="photographeruni_m_1_1_m" >
+      <xs:sequence>
+        <xs:element name="photographerid" type="xs:long" />
+        <xs:element name="photographername" type="xs:string" />
+        <xs:element name="//onetomany,willbepersistedseparatelyalbum" type="albumuni_m_1_1_m" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="photographerbi_m_1_1_m" >
+      <xs:sequence>
+        <xs:element name="photographerid" type="xs:long" />
+        <xs:element name="photographername" type="xs:string" />
+        <xs:element name="//onetomany,willbepersistedseparatelyalbum" type="albumbi_m_1_1_m" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="photographerbi_1_1_1_m" >
+      <xs:sequence>
+        <xs:element name="photographerid" type="xs:long" />
+        <xs:element name="photographername" type="xs:string" />
+        <xs:element name="//onetomany,willbepersistedseparatelyalbum" type="albumbi_1_1_1_m" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="photographeruni_1_1_1_1" >
+      <xs:sequence>
+        <xs:element name="photographerid" type="xs:long" />
+        <xs:element name="photographername" type="xs:string" />
+        <xs:element name="//onetomany,willbepersistedseparatelyalbum" type="albumuni_1_1_1_1" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="photographeruni_1_1_1_m" >
+      <xs:sequence>
+        <xs:element name="photographerid" type="xs:long" />
+        <xs:element name="photographername" type="xs:string" />
+        <xs:element name="//onetomany,willbepersistedseparatelyalbum" type="albumuni_1_1_1_m" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="photographerbi_1_1_1_1" >
+      <xs:sequence>
+        <xs:element name="photographerid" type="xs:long" />
+        <xs:element name="photographername" type="xs:string" />
+        <xs:element name="//onetomany,willbepersistedseparatelyalbum" type="albumbi_1_1_1_1" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="photographerbi_1_m_m_m" >
+      <xs:sequence>
+        <xs:element name="photographerid" type="xs:long" />
+        <xs:element name="photographername" type="xs:string" />
+        <xs:element name="//onetomany,willbepersistedseparatelyalbums" type="albumbi_1_m_m_m" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="photographeruni_1_m_m_m" >
+      <xs:sequence>
+        <xs:element name="photographerid" type="xs:long" />
+        <xs:element name="photographername" type="xs:string" />
+        <xs:element name="//onetomany,willbepersistedseparatelyalbums" type="albumuni_1_m_m_m" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="photographeruni_m_m_m_m" >
+      <xs:sequence>
+        <xs:element name="photographerid" type="xs:long" />
+        <xs:element name="photographername" type="xs:string" />
+        <xs:element name="albums" type="albumuni_m_m_m_m" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="photographerbi_m_m_m_m" >
+      <xs:sequence>
+        <xs:element name="photographerid" type="xs:long" />
+        <xs:element name="photographername" type="xs:string" />
+        <xs:element name="albums" type="albumbi_m_m_m_m" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="photographeruni_1_1_m_1" >
+      <xs:sequence>
+        <xs:element name="photographerid" type="xs:long" />
+        <xs:element name="photographername" type="xs:string" />
+        <xs:element name="//onetomany,willbepersistedseparatelyalbum" type="albumuni_1_1_m_1" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="photographeruni_m_m_1_1" >
+      <xs:sequence>
+        <xs:element name="photographerid" type="xs:long" />
+        <xs:element name="photographername" type="xs:string" />
+        <xs:element name="albums" type="albumuni_m_m_1_1" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="photographerbi_m_m_1_1" >
+      <xs:sequence>
+        <xs:element name="photographerid" type="xs:long" />
+        <xs:element name="photographername" type="xs:string" />
+        <xs:element name="albums" type="albumbi_m_m_1_1" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="photographeruni_1_m_1_m" >
+      <xs:sequence>
+        <xs:element name="photographerid" type="xs:long" />
+        <xs:element name="photographername" type="xs:string" />
+        <xs:element name="//embeddedobject,willpersistco-located" type="personaldetail" nillable="true" minOccurs="0" />
+        <xs:element name="//elementcollection,willpersistco-locatedtweets" type="tweet" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="//onetomany,willbepersistedseparatelyalbums" type="albumuni_1_m_1_m" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="photographerbi_1_m_1_m" >
+      <xs:sequence>
+        <xs:element name="photographerid" type="xs:long" />
+        <xs:element name="photographername" type="xs:string" />
+        <xs:element name="//embeddedobject,willpersistco-located" type="personaldetail" nillable="true" minOccurs="0" />
+        <xs:element name="//elementcollection,willpersistco-locatedtweets" type="tweet" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="albums" type="albumbi_1_m_1_m" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="personneldto" >
+      <xs:sequence>
+        <xs:element name="/***thepersonid.*/personid" type="xs:string" />
+        <xs:element name="/***thefirstname.*/firstname" type="xs:string" />
+        <xs:element name="/***thelastname.*/lastname" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="photobi_1_m_m_m" >
+      <xs:sequence>
+        <xs:element name="photoid" type="xs:string" />
+        <xs:element name="photocaption" type="xs:string" />
+        <xs:element name="photodescription" type="xs:string" />
+        <xs:element name="albums" type="albumbi_1_m_m_m" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="photouni_1_m_1_m" >
+      <xs:sequence>
+        <xs:element name="photoid" type="xs:string" />
+        <xs:element name="photocaption" type="xs:string" />
+        <xs:element name="photodescription" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="photouni_m_m_1_1" >
+      <xs:sequence>
+        <xs:element name="photoid" type="xs:string" />
+        <xs:element name="photocaption" type="xs:string" />
+        <xs:element name="photodescription" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="photobi_m_m_m_m" >
+      <xs:sequence>
+        <xs:element name="photoid" type="xs:string" />
+        <xs:element name="photocaption" type="xs:string" />
+        <xs:element name="photodescription" type="xs:string" />
+        <xs:element name="albums" type="albumbi_m_m_m_m" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="photobi_m_1_1_m" >
+      <xs:sequence>
+        <xs:element name="photoid" type="xs:string" />
+        <xs:element name="photocaption" type="xs:string" />
+        <xs:element name="photodescription" type="xs:string" />
+        <xs:element name="album" type="albumbi_m_1_1_m" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="photobi_1_1_1_m" >
+      <xs:sequence>
+        <xs:element name="photoid" type="xs:string" />
+        <xs:element name="photocaption" type="xs:string" />
+        <xs:element name="photodescription" type="xs:string" />
+        <xs:element name="album" type="albumbi_1_1_1_m" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="photobi_1_1_1_1" >
+      <xs:sequence>
+        <xs:element name="photoid" type="xs:string" />
+        <xs:element name="photocaption" type="xs:string" />
+        <xs:element name="photodescription" type="xs:string" />
+        <xs:element name="album" type="albumbi_1_1_1_1" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="photouni_1_1_m_1" >
+      <xs:sequence>
+        <xs:element name="photoid" type="xs:string" />
+        <xs:element name="photocaption" type="xs:string" />
+        <xs:element name="photodescription" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="photouni_m_m_m_m" >
+      <xs:sequence>
+        <xs:element name="photoid" type="xs:string" />
+        <xs:element name="photocaption" type="xs:string" />
+        <xs:element name="photodescription" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="photobi_m_m_1_1" >
+      <xs:sequence>
+        <xs:element name="photoid" type="xs:string" />
+        <xs:element name="photocaption" type="xs:string" />
+        <xs:element name="photodescription" type="xs:string" />
+        <xs:element name="album" type="albumbi_m_m_1_1" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="photouni_1_m_m_m" >
+      <xs:sequence>
+        <xs:element name="photoid" type="xs:string" />
+        <xs:element name="photocaption" type="xs:string" />
+        <xs:element name="photodescription" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="photobi_1_m_1_m" >
+      <xs:sequence>
+        <xs:element name="photoid" type="xs:string" />
+        <xs:element name="photocaption" type="xs:string" />
+        <xs:element name="photodescription" type="xs:string" />
+        <xs:element name="album" type="albumbi_1_m_1_m" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="photouni_1_1_1_1" >
+      <xs:sequence>
+        <xs:element name="photoid" type="xs:string" />
+        <xs:element name="photocaption" type="xs:string" />
+        <xs:element name="photodescription" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="photouni_1_1_1_m" >
+      <xs:sequence>
+        <xs:element name="photoid" type="xs:string" />
+        <xs:element name="photocaption" type="xs:string" />
+        <xs:element name="photodescription" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="photouni_m_1_1_m" >
+      <xs:sequence>
+        <xs:element name="photoid" type="xs:string" />
+        <xs:element name="photocaption" type="xs:string" />
+        <xs:element name="photodescription" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="objectgraphbuildertest" >
+      <xs:sequence>
+        <xs:element name="graphbuilder" type="objectgraphbuilder" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="objectgraphtest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="objectgraph" nillable="true" minOccurs="0" />
+        <xs:element name="pc" type="persistencecache" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="billingcounter" >
+      <xs:sequence>
+        <xs:element name="counterid" type="xs:long" />
+        <xs:element name="countercode" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="store" >
+      <xs:sequence>
+        <xs:element name="storeid" type="xs:long" />
+        <xs:element name="storename" type="xs:string" />
+        <xs:element name="counters" type="billingcounter" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="objectutilsclonebidirectionaltest" >
+      <xs:sequence>
+        <xs:element name="/***thelog.*/log" type="xs:anyType" />
+        <xs:element name="//configuratorconfigurator" type="entitymetadata" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="objectutilsclonebidirectionalm2mtest" >
+      <xs:sequence>
+        <xs:element name="/***thelog.*/log" type="xs:anyType" />
+        <xs:element name="//configuratorconfigurator" type="entitymetadata" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="objectutilscloneunidirectionaltest" >
+      <xs:sequence>
+        <xs:element name="/***thelog.*/log" type="xs:anyType" />
+        <xs:element name="//configuratorconfigurator" type="entitymetadata" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="deepequalstest" >
+      <xs:complexContent>
+       <xs:extension base="testcase">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="dateaccessortest" >
+      <xs:sequence>
+        <xs:element name="/***theaccessor.*/accessor" type="dateaccessor" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="longaccessortest" >
+      <xs:sequence>
+        <xs:element name="longaccessor" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="enumaccessortest" >
+      <xs:sequence>
+        <xs:element name="1" type="xs:anyType" />
+        <xs:element name="2" type="xs:anyType" />
+        <xs:element name="accessor" type="enumaccessor" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="alltestsuites" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ehcache-test" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="nodelink" >
+      <xs:sequence>
+        <xs:element name="sourcenodeid" type="xs:string" />
+        <xs:element name="targetnodeid" type="xs:string" />
+        <xs:element name="//multiplicityofrelationshipmultiplicity" type="xs:anyType" />
+        <xs:element name="linkproperties" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="objectgraph" >
+      <xs:sequence>
+        <xs:element name="//headinthisobjectgraphhead" type="node" nillable="true" minOccurs="0" />
+        <xs:element name="nodemapping" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="objectgraphutils" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="objectgraphbuilder" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="persistencecache" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="node" >
+      <xs:sequence>
+        <xs:element name="//idofanodeintoobjectgraphnodeid" type="xs:string" />
+        <xs:element name="//primarykeyofentitydatacontainedinthisnodeentityid" type="xs:anyType" />
+        <xs:element name="//actualnodedatadata" type="xs:anyType" />
+        <xs:element name="//currentnodestateasdefinedinstatemachinecurrent" type="nodestate" nillable="true" minOccurs="0" />
+        <xs:element name="//classofactualnodedatadataclass" type="xs:anyType" />
+        <xs:element name="parents" type="xs:anyType" />
+        <xs:element name="children" type="xs:anyType" />
+        <xs:element name="//whetherthisnodehasbeentraversedtraversed" type="xs:anyType" />
+        <xs:element name="//whetherthisnodeisdirtydirty" type="xs:anyType" />
+        <xs:element name="//whetherthisisaheadnodeisheadnode" type="xs:anyType" />
+        <xs:element name="isupdate" type="xs:anyType" />
+        <xs:element name="/**depthofthisnodeinthetreeheadnodehasadepthof1andsoon.*/depth" type="xs:long" />
+        <xs:element name="/***forthisnode*/" type="client" nillable="true" minOccurs="0" />
+        <xs:element name="//referencetopersistencecachewherethisnodeisstored" type="persistencecache" nillable="true" minOccurs="0" />
+        <xs:element name="isgraphcompleted" type="xs:anyType" />
+        <xs:element name="pd" type="persistencedelegator" nillable="true" minOccurs="0" />
+        <xs:element name="original" type="node" nillable="true" minOccurs="0" />
+        <xs:element name="isprocessed" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="kunderapersistence" >
+      <xs:sequence>
+        <xs:element name="/***the.*/" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="constants" >
+      <xs:sequence>
+        <xs:element name="/***theconstantencoding.*/encoding" type="xs:string" />
+        <xs:element name="/***theconstantseparator.*/foreign_key_separator" type="xs:string" />
+        <xs:element name="/***theconstantinvalid.*/invalid" type="xs:long" />
+        <xs:element name="/***theconstantsuper_column_name_delimiter.*/embedded_column_name_delimiter" type="xs:string" />
+        <xs:element name="/***theconstantto_one_super_col_name.*/foreign_key_embedded_column_name" type="xs:string" />
+        <xs:element name="/***theconstantkundera_secondary_cache_name.*/kundera_secondary_cache_name" type="xs:string" />
+        <xs:element name="/***theconstantpersistence_unit_name.*/persistence_unit_name" type="xs:string" />
+        <xs:element name="/***theconstantlucene_index_directory_name.*/lucene_index_directory_name" type="xs:string" />
+        <xs:element name="/***separatorusedforprovidingpersistenceunitalongwithschemaonentity*class(applicableincaseofcross-datastorepersistence).*/schema_persistence_unit_separator" type="xs:string" />
+        <xs:element name="/***separatorusedforprovidingalistofpersistenceunitswhilecreating*emf.*/persistence_unit_separator" type="xs:string" />
+        <xs:element name="/***nameofcolumnfamily(hbase)orsupercolumn(cassandra)whichhousesall*joincolumns.*/join_columns_family_name" type="xs:string" />
+        <xs:element name="node_id_separator" type="xs:string" />
+        <xs:element name="rdbms_client_factory" type="xs:string" />
+        <xs:element name="default_max_fetch_depth" type="xs:long" />
+        <xs:element name="index_table_suffix" type="xs:string" />
+        <xs:element name="index_table_row_key_delimiter" type="xs:string" />
+        <xs:element name="index_table_ec_delimiter" type="xs:string" />
+        <xs:element name="inverted_indexing_enabled" type="xs:string" />
+        <xs:element name="zookeeper_port" type="xs:string" />
+        <xs:element name="zookeeper_host" type="xs:string" />
+        <xs:element name="placement_strategy" type="xs:string" />
+        <xs:element name="replication_factor" type="xs:string" />
+        <xs:element name="cf_defs" type="xs:string" />
+        <xs:element name="data_centers" type="xs:string" />
+        <xs:element name="connections" type="xs:string" />
+        <xs:element name="socket_timeout" type="xs:string" />
+        <xs:element name="read_preference" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="objectutils" >
+      <xs:sequence>
+        <xs:element name="/***thelog.*/log" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="reflectutils" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="invalidconfigurationexception" >
+      <xs:complexContent>
+       <xs:extension base="kunderaexception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="deepequals" >
+      <xs:sequence>
+        <xs:element name="_customequals" type="xs:anyType" />
+        <xs:element name="_customhash" type="xs:anyType" />
+        <xs:element name="_reflectedfields" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="nodestatecontext" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="nodestate" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="transientstate" >
+      <xs:complexContent>
+       <xs:extension base="nodestate">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="detachedstate" >
+      <xs:complexContent>
+       <xs:extension base="nodestate">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="removedstate" >
+      <xs:complexContent>
+       <xs:extension base="nodestate">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="managedstate" >
+      <xs:complexContent>
+       <xs:extension base="nodestate">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="metamodelloaderexception" >
+      <xs:complexContent>
+       <xs:extension base="kunderaexception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="clientfactory" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="clientloaderexception" >
+      <xs:complexContent>
+       <xs:extension base="kunderaexception">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="persistencexmlloader" >
+      <xs:sequence>
+        <xs:element name="/***thelog.*/log" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="kunderaauthenticationexception" >
+      <xs:complexContent>
+       <xs:extension base="kunderaexception">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="coreloader" >
+      <xs:sequence>
+        <xs:element name="/***thelog.*/log" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persistenceloaderexception" >
+      <xs:complexContent>
+       <xs:extension base="kunderaexception">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="clientlifecyclemanager" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="genericclientfactory" >
+      <xs:sequence>
+        <xs:element name="/***the.*/" type="xs:anyType" />
+        <xs:element name="/***the.*/" type="client" nillable="true" minOccurs="0" />
+        <xs:element name="/***thepersistenceunit.*/persistenceunit" type="xs:string" />
+        <xs:element name="/***theconnectionpoolorconnection.*/connectionpoolorconnection" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="searchresult" >
+      <xs:sequence>
+        <xs:element name="primarykey" type="xs:anyType" />
+        <xs:element name="embeddedcolumnname" type="xs:string" />
+        <xs:element name="embeddedcolumnvalues" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="relationholder" >
+      <xs:sequence>
+        <xs:element name="/***therelationname.*/relationname" type="xs:string" />
+        <xs:element name="/***therelationvalue.*/relationvalue" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="datarow" >
+      <xs:sequence>
+        <xs:element name="/***idoftherow.*/id" type="xs:string" />
+        <xs:element name="/***nameofthefamily.*/columnfamilyname" type="xs:string" />
+        <xs:element name="/***listofthriftcolumnsfromtherow.*/columns" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="queryhandlerexception" >
+      <xs:complexContent>
+       <xs:extension base="runtimeexception">
+         <xs:sequence>
+          <xs:element name="/***defaultserialversionuid.*/serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="queryresolver" >
+      <xs:sequence>
+        <xs:element name="/***the.*/" type="xs:anyType" />
+        <xs:element name="/***thekunderaquery.*/" type="kunderaquery" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="kunderaqueryparser" >
+      <xs:sequence>
+        <xs:element name="/***thejpqlquerytopopulate.*/query" type="kunderaquery" nillable="true" minOccurs="0" />
+        <xs:element name="/***thesingle-query.*/query" type="xs:string" />
+        <xs:element name="/***recordofthekeywordcurrentlybeingprocessed,sowecancheckforout*oforderkeywords.*/keywordposition" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="kunderaquery" >
+      <xs:sequence>
+        <xs:element name="single__keywords" type="xs:string" />
+        <xs:element name="inter_clause_operators" type="xs:string" />
+        <xs:element name="intra_clause_operators" type="xs:string" />
+        <xs:element name="/***theinter.*/inter_clause_" type="xs:anyType" />
+        <xs:element name="/***theintra.*/intra_clause_" type="xs:anyType" />
+        <xs:element name="/***the.*/" type="xs:anyType" />
+        <xs:element name="/***theresult.*/result" type="xs:string" />
+        <xs:element name="/***thefrom.*/from" type="xs:string" />
+        <xs:element name="/***thefilter.*/filter" type="xs:string" />
+        <xs:element name="/***theordering.*/ordering" type="xs:string" />
+        <xs:element name="/***theentityname.*/entityname" type="xs:string" />
+        <xs:element name="/***theentityalias.*/entityalias" type="xs:string" />
+        <xs:element name="/***theentityclass.*/entityclass" type="xs:anyType" />
+        <xs:element name="/***thesortorders.*/sortorders" type="xs:anyType" />
+        <xs:element name="persistenceunitspersistenceunit" type="xs:string" />
+        <xs:element name="//containsaofalternatefilterclauseobjectandlogicalstrings//(and,oretc.)/***thefilters.*/filters" type="xs:anyType" />
+        <xs:element name="isdeleteupdate" type="xs:anyType" />
+        <xs:element name="updateclausequeue" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="lucenequery" >
+      <xs:complexContent>
+       <xs:extension base="queryimpl">
+         <xs:sequence>
+          <xs:element name="/***theusedbythisclass.*/" type="xs:anyType" />
+          <xs:element name="/***themaxresult.*/maxresult" type="xs:long" />
+          <xs:element name="/***thelucenequery.*/lucenequery" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jpqlparseexception" >
+      <xs:complexContent>
+       <xs:extension base="queryhandlerexception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="queryimpl" >
+      <xs:sequence>
+        <xs:element name="/***thequery.*/query" type="xs:string" />
+        <xs:element name="/***thekunderaquery.*/" type="kunderaquery" nillable="true" minOccurs="0" />
+        <xs:element name="/***thepersistencedelegeator.*/persistencedelegeator" type="persistencedelegator" nillable="true" minOccurs="0" />
+        <xs:element name="/***the.*/" type="xs:anyType" />
+        <xs:element name="parameters" type="xs:anyType" />
+        <xs:element name="/***defaultmaximumresulttofetch.*/maxresult" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entityreader" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persistencedelegator" >
+      <xs:sequence>
+        <xs:element name="/***theconstant.*/" type="xs:anyType" />
+        <xs:element name="/***theclosed.*/closed" type="xs:anyType" />
+        <xs:element name="/***thesession.*/session" type="entitymanagersession" nillable="true" minOccurs="0" />
+        <xs:element name="clientmap" type="xs:anyType" />
+        <xs:element name="/***theeventdispatcher.*/eventdispatcher" type="entityeventdispatcher" nillable="true" minOccurs="0" />
+        <xs:element name="/***theisrelationviajointable.*/isrelationviajointable" type="xs:anyType" />
+        <xs:element name="flushmode" type="xs:anyType" />
+        <xs:element name="graphbuilder" type="objectgraphbuilder" nillable="true" minOccurs="0" />
+        <xs:element name="lock" type="xs:anyType" />
+        <xs:element name="//whetheratransactionisinprogressistransactioninprogress" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="persistencecache" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="flushmanager" nillable="true" minOccurs="0" />
+        <xs:element name="enableflush" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entitymanagerfactoryimpl" >
+      <xs:sequence>
+        <xs:element name="/***theusedbythisclass.*/ger" type="xs:anyType" />
+        <xs:element name="/***whetherornotthefactoryhasbeenclosed.*/closed" type="xs:anyType" />
+        <xs:element name="properties" type="xs:anyType" />
+        <xs:element name="//todo:moveittoapplicationmetadata/***thecacheprovider.*/" type="cacheprovider" nillable="true" minOccurs="0" />
+        <xs:element name="persistenceunits" type="xs:string" />
+        <xs:element name="//transactiontypetransactiontype" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entityreaderexception" >
+      <xs:complexContent>
+       <xs:extension base="kunderaexception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="kunderatransaction" >
+      <xs:sequence>
+        <xs:element name="implementor" type="resourcemanager" nillable="true" minOccurs="0" />
+        <xs:element name="setrollbackonly" type="xs:anyType" />
+        <xs:element name="status" type="xs:long" />
+        <xs:element name="/***thetimeoutinmillis.*/timeoutinmillis" type="xs:long" />
+        <xs:element name="/***theconstant.*/" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="kunderajtausertransaction" >
+      <xs:sequence>
+        <xs:element name="/***variabletoholdreferenceforglobaltransactionisinprogress*onnot.*/istransactioninprogress" type="xs:anyType" />
+        <xs:element name="/***thethreadlocal.*/transientthreadlocal" type="kunderatransaction" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="/***thetimerthead.*/transienttimerthead" type="xs:anyType" />
+        <xs:element name="/***theconstantdefault_time_out.*/default_time_out" type="xs:anyType" />
+        <xs:element name="/***thecurrenttx.*/transientcurrenttx" type="kunderajtausertransaction" nillable="true" minOccurs="0" />
+        <xs:element name="/***theconstant.*/" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usertransactionfactory" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persistenceobjectgraphbuilderexception" >
+      <xs:complexContent>
+       <xs:extension base="kunderaexception">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="resourcemanager" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="eventlog" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="timeinmillies" type="xs:long" />
+        <xs:element name="GeneratedName" type="node" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cachebase" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="nodemappings" type="xs:anyType" />
+        <xs:element name="headnodes" type="node" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="elementcollectioncache" >
+      <xs:complexContent>
+       <xs:extension base="cachebase">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="eventlogqueue" >
+      <xs:sequence>
+        <xs:element name="insertevents" type="xs:anyType" />
+        <xs:element name="updateevents" type="xs:anyType" />
+        <xs:element name="deleteevents" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="maincache" >
+      <xs:complexContent>
+       <xs:extension base="cachebase">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="transactionalcache" >
+      <xs:complexContent>
+       <xs:extension base="cachebase">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="flushstack" >
+      <xs:complexContent>
+       <xs:extension base="stack<node>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="flushmanager" >
+      <xs:sequence>
+        <xs:element name="/***stackcontainingnodestobeflushedentitiesarealwaysflushedfromthe*top,therewaytobottomuntilstackisempty.*/" type="flushstack" nillable="true" minOccurs="0" />
+        <xs:element name="jointabledatamap" type="xs:anyType" />
+        <xs:element name="/***theeventlogqueue.*/" type="eventlogqueue" nillable="true" minOccurs="0" />
+        <xs:element name="/***theconstant.*/" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persistencecache" >
+      <xs:sequence>
+        <xs:element name="/*maincacheofentityobjects*/maincache" type="cachebase" nillable="true" minOccurs="0" />
+        <xs:element name="/*cacheofembeddedobjects*/embeddedcache" type="cachebase" nillable="true" minOccurs="0" />
+        <xs:element name="/*cacheofobjectswithinelementcollection*/elementcollectioncache" type="cachebase" nillable="true" minOccurs="0" />
+        <xs:element name="/*cacheoftransactionalobjects*/transactionalcache" type="cachebase" nillable="true" minOccurs="0" />
+        <xs:element name="//flushmanagerflushmanager" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="embeddedcache" >
+      <xs:complexContent>
+       <xs:extension base="cachebase">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jointabledata" >
+      <xs:sequence>
+        <xs:element name="jointablename" type="xs:string" />
+        <xs:element name="entityclass" type="xs:anyType" />
+        <xs:element name="joincolumnname" type="xs:string" />
+        <xs:element name="inversejoincolumnname" type="xs:string" />
+        <xs:element name="isprocessed" type="xs:anyType" />
+        <xs:element name="/***tobeperformedonthisjointabledata**@see{@link}*/" type="xs:anyType" />
+        <xs:element name="jointablerecords" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persistencecachemanager" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="persistencecache" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entityresolver" >
+      <xs:sequence>
+        <xs:element name="/***theconstant.*/" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entitymanagersession" >
+      <xs:sequence>
+        <xs:element name="/***theconstant.*/" type="xs:anyType" />
+        <xs:element name="sessioncache" type="xs:anyType" />
+        <xs:element name="/***thel2.*///l2l2" type="cache" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="internalcallbackmethod" >
+      <xs:sequence>
+        <xs:element name="/***theentitymetadata.*/" type="entitymetadata" nillable="true" minOccurs="0" />
+        <xs:element name="/***the.*/" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entityeventdispatcher" >
+      <xs:complexContent>
+       <xs:extension base="callbackmethod>">
+         <xs:sequence>
+          <xs:element name="/***theconstant.*/" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="eventlistenerexception" >
+      <xs:complexContent>
+       <xs:extension base="kunderaexception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="callbackmethod" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="externalcallbackmethod" >
+      <xs:sequence>
+        <xs:element name="/***theclazz.*/clazz" type="xs:anyType" />
+        <xs:element name="/***the.*/" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="abstractentityreader" >
+      <xs:sequence>
+        <xs:element name="/***the.*/" type="xs:anyType" />
+        <xs:element name="/***thelucenequeryfromjpaquery.*/lucenequeryfromjpaquery" type="xs:string" />
+        <xs:element name="GeneratedName" type="associationbuilder" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entitymanagerfactorybuilder" >
+      <xs:sequence>
+        <xs:element name="/***theconstant.*/" type="xs:anyType" />
+        <xs:element name="/***theconstantprovider_implementation_name.*/provider_implementation_name" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="readerresolverexception" >
+      <xs:complexContent>
+       <xs:extension base="kunderaexception">
+         <xs:sequence>
+          <xs:element name="/***theconstantserialversionuid.*/serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="entitymanagerimpl" >
+      <xs:sequence>
+        <xs:element name="/***theconstant.*/ger" type="xs:anyType" />
+        <xs:element name="/***thefactory.*/factory" type="xs:anyType" />
+        <xs:element name="/***theclosed.*/closed" type="xs:anyType" />
+        <xs:element name="/***flushmodeforthisem,defaultisauto.*/flushmode" type="xs:anyType" />
+        <xs:element name="/***thesession.*/session" type="entitymanagersession" nillable="true" minOccurs="0" />
+        <xs:element name="properties" type="xs:anyType" />
+        <xs:element name="/***propertiesprovidedbyuseratthetimeofentitymanagercreation.*/" type="persistencedelegator" nillable="true" minOccurs="0" />
+        <xs:element name="/***persistencecontexttype(transaction/extended)*/" type="xs:anyType" />
+        <xs:element name="/***transactiontype(jta/resource_local)*/transactiontype" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="persistencecache" nillable="true" minOccurs="0" />
+        <xs:element name="flushstackmanager" type="flushmanager" nillable="true" minOccurs="0" />
+        <xs:element name="utx" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="readerresolver" >
+      <xs:sequence>
+        <xs:element name="readercol" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="associationbuilder" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="kunderaexception" >
+      <xs:complexContent>
+       <xs:extension base="runtimeexception">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="propertyaccessor" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="propertyaccessorhelper" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="doubleaccessor" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="booleanaccessor" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sqltimeaccessor" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bigdecimalaccessor" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="objectaccessor" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="floataccessor" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="shortaccessor" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="uuidaccessor" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="characcessor" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sqltimestampaccessor" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sqldateaccessor" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="longaccessor" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="enumaccessor" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dateaccessor" >
+      <xs:sequence>
+        <xs:element name="/***theconstantdate_formatter.*/date_formatter" type="xs:anyType" />
+        <xs:element name="/***thepatterns.*/patterns" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="stringaccessor" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bigintegeraccessor" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="byteaccessor" >
+      <xs:sequence>
+        <xs:element name="/***thelog.*/log" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="integeraccessor" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="calendaraccessor" >
+      <xs:sequence>
+        <xs:element name="/***theconstantdate_formatter.*/date_formatter" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="propertyaccessorfactory" >
+      <xs:sequence>
+        <xs:element name="map" type="xs:anyType" />
+        <xs:element name="/***makingstringaccessoreasytoaccess.*/string" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="propertyaccessexception" >
+      <xs:complexContent>
+       <xs:extension base="kunderaexception">
+         <xs:sequence>
+          <xs:element name="/***theconstantserialversionuid.*/serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="classfileiterator" >
+      <xs:sequence>
+        <xs:element name="/***thefiles.*/files" type="xs:anyType" />
+        <xs:element name="/***theindex.*/index" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="annotationdiscoverylistener" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jarfileiterator" >
+      <xs:complexContent>
+       <xs:extension base="inputstream">
+         <xs:sequence>
+          <xs:element name="/***thejar.*/jar" type="xs:anyType" />
+          <xs:element name="/***thenext.*/next" type="xs:anyType" />
+          <xs:element name="/***the.*/" type="filter" nillable="true" minOccurs="0" />
+          <xs:element name="/***theinitial.*/initial" type="xs:anyType" />
+          <xs:element name="/***theclosed.*/closed" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="filter" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="classpathreader" >
+      <xs:complexContent>
+       <xs:extension base="reader">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="/***the.*/" type="filter" nillable="true" minOccurs="0" />
+          <xs:element name="/***theclassestoscan.*/classestoscan" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="resourceiterator" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="filterimpl" >
+      <xs:sequence>
+        <xs:element name="ignoredpackages" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="reader" >
+      <xs:sequence>
+        <xs:element name="/***thevalidannotations.*/validannotations" type="xs:anyType" />
+        <xs:element name="/***theannotationdiscoverylisteners.*/annotationdiscoverylisteners" type="annotationdiscoverylistener" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="resourcereadingexception" >
+      <xs:complexContent>
+       <xs:extension base="kunderaexception">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="index" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tableprocessor" >
+      <xs:complexContent>
+       <xs:extension base="abstractentityfieldprocessor">
+         <xs:sequence>
+          <xs:element name="/***theconstant.*/" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="cacheableannotationprocessor" >
+      <xs:sequence>
+        <xs:element name="/***theusedbythisclass.*/" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entitylistenersprocessor" >
+      <xs:complexContent>
+       <xs:extension base="annotation>>">
+         <xs:sequence>
+          <xs:element name="/***theusedbythisclass.*/" type="xs:anyType" />
+          <xs:element name="//listofallvalidjpaentitylisteners/***theconstantjpalistenersannotations.*/jpalistenersannotations" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="abstractentityfieldprocessor" >
+      <xs:sequence>
+        <xs:element name="/***theconstant.*/" type="xs:anyType" />
+        <xs:element name="/***thevalidator.*/validator" type="entityvalidator" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="indexprocessor" >
+      <xs:sequence>
+        <xs:element name="/***theusedbythisclass.*/" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="onetomanyrelationmetadataprocessor" >
+      <xs:complexContent>
+       <xs:extension base="abstractentityfieldprocessor">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="manytoonerelationmetadataprocessor" >
+      <xs:complexContent>
+       <xs:extension base="abstractentityfieldprocessor">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="relationmetadataprocessorfactory" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="manytomanyrelationmetadataprocessor" >
+      <xs:complexContent>
+       <xs:extension base="abstractentityfieldprocessor">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="onetoonerelationmetadataprocessor" >
+      <xs:complexContent>
+       <xs:extension base="abstractentityfieldprocessor">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="relationmetadataprocessor" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="metadataprocessor" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="column" >
+      <xs:sequence>
+        <xs:element name="/***nameofthecolumn.*/name" type="xs:string" />
+        <xs:element name="/***column.*/" type="xs:anyType" />
+        <xs:element name="/***whetherindexable.*///defaultisnotindexableisindexable" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="kunderametadata" >
+      <xs:sequence>
+        <xs:element name="/*metadataforkunderacore*//***thecoremetadata.*/" type="coremetadata" nillable="true" minOccurs="0" />
+        <xs:element name="/*userapplicationspecificmetadata*//***theapplicationmetadata.*/" type="applicationmetadata" nillable="true" minOccurs="0" />
+        <xs:element name="clientmetadata" type="xs:anyType" />
+        <xs:element name="/***theconstantinstance.*/instance" type="kunderametadata" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entitymetadata" >
+      <xs:complexContent>
+       <xs:extension base="callbackmethod>>">
+         <xs:sequence>
+          <xs:element name="/**entityrelatedmetadataproperties*//***classcorrespondingtothismeta.*/entityclazz" type="xs:anyType" />
+          <xs:element name="/***nameofpersistenceobject.*/tablename" type="xs:string" />
+          <xs:element name="/***databasename.*/schema" type="xs:string" />
+          <xs:element name="/***persistenceunitofdatabasethisentityistobepersisted.*/persistenceunit" type="xs:string" />
+          <xs:element name="/***theindexname.*/indexname" type="xs:string" />
+          <xs:element name="/***theisindexable.*///defaultisindexableisindexable" type="xs:anyType" />
+          <xs:element name="/***cacheable?.*///defaultistonotsetsecond-levelcacheable" type="xs:anyType" />
+          <xs:element name="iscountercolumntype" type="xs:anyType" />
+          <xs:element name="/**fieldsrelatedmetadataproperties*//***thatkeepsrowidentifier.*/id" type="column" nillable="true" minOccurs="0" />
+          <xs:element name="/***thereadidentifier.*/readidentifier" type="xs:anyType" />
+          <xs:element name="/***thewriteidentifier.*/writeidentifier" type="xs:anyType" />
+          <xs:element name="columnsmap" type="xs:anyType" />
+          <xs:element name="embeddedcolumnsmap" type="xs:anyType" />
+          <xs:element name="/***theindexprperties.*/indexprperties" type="propertyindex" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="//entitylistenersmap//key" type="xs:anyType" />
+          <xs:element name="//todo:unused,removethis/***theembeddablecollection.*/embeddablecollection" type="xs:anyType" />
+          <xs:element name="/***relationshipmap,key" type="xs:anyType" />
+          <xs:element name="/***thedbtype.*/" type="dbtype" nillable="true" minOccurs="0" />
+          <xs:element name="/***.*/" type="xs:anyType" />
+          <xs:element name="/***theisrelationviajointable.*/isrelationviajointable" type="xs:anyType" />
+          <xs:element name="relationnames" type="xs:anyType" />
+          <xs:element name="//whetheritcontainsone-to-manyrelationshipisparent" type="xs:anyType" />
+          <xs:element name="fieldtocolmap" type="xs:anyType" />
+          <xs:element name="/***the.*/" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="applicationloaderexception" >
+      <xs:complexContent>
+       <xs:extension base="runtimeexception">
+         <xs:sequence>
+          <xs:element name="/***generatedserialversionuid.*/serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="metamodelimpl" >
+      <xs:sequence>
+        <xs:element name="entitymetadatamap" type="xs:anyType" />
+        <xs:element name="entitynametoclassmap" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="coremetadata" >
+      <xs:sequence>
+        <xs:element name="/***theenhancedproxyfactory.*/enhancedproxyfactory" type="entityenhancerfactory" nillable="true" minOccurs="0" />
+        <xs:element name="/***thelazyinitializerfactory.*/" type="lazyinitializerfactory" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="applicationmetadata" >
+      <xs:sequence>
+        <xs:element name="metamodelmap" type="xs:anyType" />
+        <xs:element name="persistenceunitmetadatamap" type="xs:anyType" />
+        <xs:element name="/***theconstant.*/ger" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="schemametadata" nillable="true" minOccurs="0" />
+        <xs:element name="clazztopumap" type="xs:anyType" />
+        <xs:element name="namednativequeries" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="clientmetadata" >
+      <xs:sequence>
+        <xs:element name="/***theclientimplementor.*/clientimplementor" type="xs:string" />
+        <xs:element name="/***theindeximplementor.*/indeximplementor" type="xs:string" />
+        <xs:element name="/***theluceneindexdir.*/luceneindexdir" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="embeddedcolumn" >
+      <xs:sequence>
+        <xs:element name="/***thename.*/name" type="xs:string" />
+        <xs:element name="/***supercolumn.*/" type="xs:anyType" />
+        <xs:element name="/***thecolumns.*/columns" type="column" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persistenceunitmetadata" >
+      <xs:sequence>
+        <xs:element name="/***instance.*/log" type="xs:anyType" />
+        <xs:element name="/***persistenceunitname.*/persistenceunitname" type="xs:string" />
+        <xs:element name="/***theprovider.*/provider" type="xs:string" />
+        <xs:element name="/***thetransactiontype.*/transactiontype" type="xs:anyType" />
+        <xs:element name="/***theclasses.*/classes" type="xs:anyType" />
+        <xs:element name="/***thepackages.*/packages" type="xs:anyType" />
+        <xs:element name="/***thejarfiles.*/jarfiles" type="xs:anyType" />
+        <xs:element name="jarurls" type="xs:anyType" />
+        <xs:element name="/***the.*/" type="xs:anyType" />
+        <xs:element name="/***theexcludeunlistedclasses.*/excludeunlistedclasses" type="xs:anyType" />
+        <xs:element name="root" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jointablemetadata" >
+      <xs:sequence>
+        <xs:element name="/***thejointablename.*/jointablename" type="xs:string" />
+        <xs:element name="/***thejointableschema.*/jointableschema" type="xs:string" />
+        <xs:element name="/***thejoincolumns.*/joincolumns" type="xs:anyType" />
+        <xs:element name="/***theinversejoincolumns.*/inversejoincolumns" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="propertyindex" >
+      <xs:sequence>
+        <xs:element name="/***thename.*/name" type="xs:string" />
+        <xs:element name="/***theproperty.*/property" type="xs:anyType" />
+        <xs:element name="/***theboost.*/boost" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="relation" >
+      <xs:sequence>
+        <xs:element name="/***theproperty.*/property" type="xs:anyType" />
+        <xs:element name="/***thetargetentity.*/targetentity" type="xs:anyType" />
+        <xs:element name="/***thepropertytype.*/propertytype" type="xs:anyType" />
+        <xs:element name="/***thefetchtype.*/" type="xs:anyType" />
+        <xs:element name="/***thecascades.*/cascades" type="xs:anyType" />
+        <xs:element name="/***theoptional.*/optional" type="xs:anyType" />
+        <xs:element name="/***themappedby.*/mappedby" type="xs:string" />
+        <xs:element name="/***thetype.*/type" type="xs:anyType" />
+        <xs:element name="/***joincolumnnameforthisrelationship.*/joincolumnname" type="xs:string" />
+        <xs:element name="/***whetherthisrelationshipisthroughajointable.*/isrelatedviajointable" type="xs:anyType" />
+        <xs:element name="/***metadataforjointable,applicableonlyifisrelatedviajointable" type="jointablemetadata" nillable="true" minOccurs="0" />
+        <xs:element name="/***whetherthisrelationshipisjoinedbyprimarykey,onlyapplicablefor*onetoone.*/isjoinedbyprimarykey" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="metadatautils" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="metadatabuilder" >
+      <xs:sequence>
+        <xs:element name="/***theusedbythisclass.*/" type="xs:anyType" />
+        <xs:element name="/***themetadataprocessors.*/metadataprocessors" type="metadataprocessor" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="/***thevalidator.*/validator" type="entityvalidator" nillable="true" minOccurs="0" />
+        <xs:element name="//setafterbuildiscalled?/***theinstantiated.*/instantiated" type="xs:anyType" />
+        <xs:element name="/***persistenceunit*/persistenceunit" type="xs:string" />
+        <xs:element name="/***kunderaclient*/client" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entityvalidator" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="invalidentitydefinitionexception" >
+      <xs:complexContent>
+       <xs:extension base="kunderaexception">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="entityvalidatorimpl" >
+      <xs:sequence>
+        <xs:element name="/***theconstant.*/" type="xs:anyType" />
+        <xs:element name="/***cacheforvalidatedclasses.*/classes" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="kunderametadatamanager" >
+      <xs:sequence>
+        <xs:element name="/***thelog.*/log" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persistenceproperties" >
+      <xs:sequence>
+        <xs:element name="/***theconstantkundera_nodes.*/kundera_nodes" type="xs:string" />
+        <xs:element name="/***theconstantkundera_port.*/kundera_port" type="xs:string" />
+        <xs:element name="/***theconstantkundera_keyspace.*/kundera_keyspace" type="xs:string" />
+        <xs:element name="/***theconstantkundera_dialect.*/kundera_dialect" type="xs:string" />
+        <xs:element name="/***theconstantkunderaclientfactory*/kundera_client_factory" type="xs:string" />
+        <xs:element name="/***theconstantkundera_cache_provider_class.*/kundera_cache_provider_class" type="xs:string" />
+        <xs:element name="/***theconstantkundera_cache_config_resource.*/kundera_cache_config_resource" type="xs:string" />
+        <xs:element name="/***theconstantkundera_fetch_max_depth.*/kundera_fetch_max_depth" type="xs:string" />
+        <xs:element name="/***connectionpoolingrelatedconstants.*///caponthenumberofobjectinstancesmanagedbythepoolpernode.kundera_pool_size_max_active" type="xs:string" />
+        <xs:element name="//caponthenumberof"idle"instancesinthepool./***theconstantkundera_pool_size_max_idle.*/kundera_pool_size_max_idle" type="xs:string" />
+        <xs:element name="//minimumnumberofidleobjectstomaintainineachofthenodes./***theconstantkundera_pool_size_min_idle.*/kundera_pool_size_min_idle" type="xs:string" />
+        <xs:element name="//caponthetotalnumberofinstancesfromallnodescombined./***theconstantkundera_pool_size_max_total.*/kundera_pool_size_max_total" type="xs:string" />
+        <xs:element name="/***homedirectoryforalternativesecondaryindexing,lucenetobespecific.*/kundera_index_home_dir" type="xs:string" />
+        <xs:element name="/***optiontocreateschema.*/kundera_ddl_auto_prepare" type="xs:string" />
+        <xs:element name="/***optiontogivekundera-cassandrapropertyinformation*/kundera_client_property" type="xs:string" />
+        <xs:element name="kundera_username" type="xs:string" />
+        <xs:element name="kundera_password" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="enhancedentity" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="lazyinitializer" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="lazyinitializerfactory" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="kunderaproxy" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entityenhancerfactory" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="lazyinitializationexception" >
+      <xs:complexContent>
+       <xs:extension base="kunderaexception">
+         <xs:sequence>
+          <xs:element name="/***theconstantserialversionuid.*/serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="cgliblazyinitializer" >
+      <xs:sequence>
+        <xs:element name="/***theconstant.*/" type="xs:anyType" />
+        <xs:element name="/***theentityname.*/entityname" type="xs:string" />
+        <xs:element name="/***theid.*/id" type="xs:string" />
+        <xs:element name="/***thetarget.*/target" type="xs:anyType" />
+        <xs:element name="/***theinitialized.*/initialized" type="xs:anyType" />
+        <xs:element name="/***theunwrap.*/unwrap" type="xs:anyType" />
+        <xs:element name="/***thepersistentclass.*/persistentclass" type="xs:anyType" />
+        <xs:element name="/***thegetidentifier.*/getidentifier" type="xs:anyType" />
+        <xs:element name="/***thesetidentifier.*/setidentifier" type="xs:anyType" />
+        <xs:element name="interfaces" type="xs:anyType" />
+        <xs:element name="/***theconstructed.*/constructed" type="xs:anyType" />
+        <xs:element name="/***the.*/transient" type="persistencedelegator" nillable="true" minOccurs="0" />
+        <xs:element name="/***theconstantize_filter.*/ize_filter" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cglibenhancedentity" >
+      <xs:sequence>
+        <xs:element name="/***theentity.*/entity" type="xs:anyType" />
+        <xs:element name="/***theid.*/id" type="xs:string" />
+        <xs:element name="map" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cglibentityenhancerfactory" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cgliblazyinitializerfactory" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="clientdatastoreoperationexception" >
+      <xs:complexContent>
+       <xs:extension base="kunderaexception">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="clientresolver" >
+      <xs:sequence>
+        <xs:element name="clientfactories" type="xs:anyType" />
+        <xs:element name="/***instance.*/" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="client" >
+      <xs:complexContent>
+       <xs:extension base="query>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="clientresolverexception" >
+      <xs:complexContent>
+       <xs:extension base="kunderaexception">
+         <xs:sequence>
+          <xs:element name="/***theconstantserialversionuid.*/serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="dbtype" >
+      <xs:sequence>
+        <xs:element name="coll" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="clientbase" >
+      <xs:sequence>
+        <xs:element name="/***theindexmanager.*/" type="indexmanager" nillable="true" minOccurs="0" />
+        <xs:element name="/***persistenceunit*/persistenceunit" type="xs:string" />
+        <xs:element name="isupdate" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="enhanceentity" >
+      <xs:sequence>
+        <xs:element name="/***theentity.*/entity" type="xs:anyType" />
+        <xs:element name="/***theentityid.*/entityid" type="xs:string" />
+        <xs:element name="relations" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="documentindexer" >
+      <xs:sequence>
+        <xs:element name="/***logforthisclass.*/log" type="xs:anyType" />
+        <xs:element name="/***theindex_name.*///isindex_name" type="xs:string" />
+        <xs:element name="//persistent-unit-name/***theconstantuuid.*/uuid" type="xs:long" />
+        <xs:element name="/***theconstantdelimeter.*/delimeter" type="xs:string" />
+        <xs:element name="/***theconstantentity_id_field.*/entity_id_field" type="xs:string" />
+        <xs:element name="/***theconstantkundera_id_field.*/kundera_id_field" type="xs:string" />
+        <xs:element name="/***theconstantentity_indexname_field.*/entity_indexname_field" type="xs:string" />
+        <xs:element name="/***theconstantentity_class_field.*/entity_class_field" type="xs:string" />
+        <xs:element name="/***theconstantdefault_searchable_field.*/default_searchable_field" type="xs:string" />
+        <xs:element name="/***theconstantsupercolumn_index.*/supercolumn_index" type="xs:string" />
+        <xs:element name="/***theconstantparent_id_field.*/parent_id_field" type="xs:string" />
+        <xs:element name="/***theconstantparent_id_class.*/parent_id_class" type="xs:string" />
+        <xs:element name="/***thedocnumber.*/docnumber" type="xs:long" />
+        <xs:element name="/***the.*/" type="xs:anyType" />
+        <xs:element name="/***the.*/" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="indexmanager" >
+      <xs:sequence>
+        <xs:element name="/***the.*/" type="indexer" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="indexer" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="lucenequeryutils" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="luceneindexingexception" >
+      <xs:complexContent>
+       <xs:extension base="indexingexception">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="indexingexception" >
+      <xs:complexContent>
+       <xs:extension base="kunderaexception">
+         <xs:sequence>
+          <xs:element name="/***theconstantserialversionuid.*/serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="luceneindexer" >
+      <xs:complexContent>
+       <xs:extension base="documentindexer">
+         <xs:sequence>
+          <xs:element name="/***forthisclass.*/" type="xs:anyType" />
+          <xs:element name="/***thew.*/w" type="xs:anyType" />
+          <xs:element name="/***thereader.*/reader" type="xs:anyType" />
+          <xs:element name="/***theindex.*/index" type="xs:anyType" />
+          <xs:element name="/***theisinitialized.*/isinitialized" type="xs:anyType" />
+          <xs:element name="/***theindexer.*/indexer" type="luceneindexer" nillable="true" minOccurs="0" />
+          <xs:element name="/***thereadyforcommit.*/readyforcommit" type="xs:anyType" />
+          <xs:element name="/***thelucenedirpath.*/lucenedirpath" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="datawrapper" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="elementcollectioncachemanager" >
+      <xs:sequence>
+        <xs:element name="/***forthisclass.*/" type="xs:anyType" />
+        <xs:element name="/*singleinstance*//***theinstance.*/instance" type="elementcollectioncachemanager" nillable="true" minOccurs="0" />
+        <xs:element name="elementcollectioncache" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="nonoperationalcacheprovider" >
+      <xs:sequence>
+        <xs:element name="/***the.*/" type="cache" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cacheexception" >
+      <xs:complexContent>
+       <xs:extension base="kunderaexception">
+         <xs:sequence>
+          <xs:element name="/***theconstantserialversionuid.*/serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="cache" >
+      <xs:complexContent>
+       <xs:extension base="javax.persistence.cache">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="cacheprovider" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ehcachewrapper" >
+      <xs:sequence>
+        <xs:element name="/***theehcache.*/ehcache" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ehcacheprovider" >
+      <xs:sequence>
+        <xs:element name="/***theconstant.*/" type="xs:anyType" />
+        <xs:element name="/***themanager.*/manager" type="xs:anyType" />
+        <xs:element name="/***the.*/" type="cache" nillable="true" minOccurs="0" />
+        <xs:element name="/***theconstantnet_sf_ehcache_configuration_resource_name.*/net_sf_ehcache_configuration_resource_name" type="xs:string" />
+        <xs:element name="/***theinitializing.*/initializing" type="xs:anyType" />
+        <xs:element name="/***thelisteners.*/listeners" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="nonoperationalcache" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="configuration" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persistenceunitconfiguration" >
+      <xs:sequence>
+        <xs:element name="/***theloginstance.*/log" type="xs:anyType" />
+        <xs:element name="/***theconstantprovider_implementation_name.*/provider_implementation_name" type="xs:string" />
+        <xs:element name="persistenceunits" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="configurator" >
+      <xs:sequence>
+        <xs:element name="/***the.*/" type="xs:anyType" />
+        <xs:element name="/***holderforrequiredconfigurationobject.dowereallyneedtoholdthese*asareference?*/configurer" type="configuration" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="pus" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="schemaconfiguration" >
+      <xs:sequence>
+        <xs:element name="/***thelog.*/log" type="xs:anyType" />
+        <xs:element name="persistenceunits" type="xs:string" />
+        <xs:element name="putoschemametadata" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="propertyreader" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="schemametadata" >
+      <xs:sequence>
+        <xs:element name="putoschemametadata" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="abstractschemamanager" >
+      <xs:sequence>
+        <xs:element name="/***thepumetadatavariable.*/pumetadata" type="persistenceunitmetadata" nillable="true" minOccurs="0" />
+        <xs:element name="/***theportvariable.*/port" type="xs:string" />
+        <xs:element name="/***thehostvariable.*/host" type="xs:string" />
+        <xs:element name="/***thekundera_clientvariable.*/kundera_client_factory" type="xs:string" />
+        <xs:element name="/***thedatabasenamevariable.*/databasename" type="xs:string" />
+        <xs:element name="/***thetableinfosvariable.*/tableinfos" type="tableinfo" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="/***theoperationvariable.*/operation" type="xs:string" />
+        <xs:element name="/***theusesecondryindexvariable.*/usesecondryindex" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="schemamanager" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="schemagenerationexception" >
+      <xs:complexContent>
+       <xs:extension base="kunderaexception">
+         <xs:sequence>
+          <xs:element name="/***theconstantserialversionuid.*/serialversionuid" type="xs:long" />
+          <xs:element name="/***thedatastorename.*/datastorename" type="xs:string" />
+          <xs:element name="/***theschemaname.*/schemaname" type="xs:string" />
+          <xs:element name="/***thetablename.*/tablename" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="embeddedcolumninfo" >
+      <xs:sequence>
+        <xs:element name="/***theembeddedcolumnnamevariable.*/embeddedcolumnname" type="xs:string" />
+        <xs:element name="/***thelistofcolumnsvariableiscolumns.*/columns" type="columninfo" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tableinfo" >
+      <xs:sequence>
+        <xs:element name="/***thetablename.*/tablename" type="xs:string" />
+        <xs:element name="/***thecolumnmetadatas.*/columnmetadatas" type="columninfo" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="/***thetableidtype.*/tableidtype" type="xs:anyType" />
+        <xs:element name="/***thetype.*/type" type="xs:string" />
+        <xs:element name="/***theembeddedcolumnmetadatas.*/embeddedcolumnmetadatas" type="embeddedcolumninfo" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="/***theisindexable.*/isindexable" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="columninfo" >
+      <xs:sequence>
+        <xs:element name="/***theisindexablevariableforindexingthecolumn.*/isindexable" type="xs:anyType" />
+        <xs:element name="/***thecolumnnamevariable.*/columnname" type="xs:string" />
+        <xs:element name="/***thetypevariable.*/type" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="metamodelconfiguration" >
+      <xs:sequence>
+        <xs:element name="/***thelog.*/log" type="xs:anyType" />
+        <xs:element name="persistenceunits" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="clientfactoryconfiguraton" >
+      <xs:sequence>
+        <xs:element name="/***theloginstance.*/log" type="xs:anyType" />
+        <xs:element name="persistenceunits" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="javax.persistence.spi" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

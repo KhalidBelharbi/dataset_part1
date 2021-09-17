@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="maintenancelock" >
+      <xs:complexContent>
+       <xs:extension base="persistablebusinessobjectbase">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="lockid" type="xs:string" />
+          <xs:element name="lockingrepresentation" type="xs:string" />
+          <xs:element name="documentnumber" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="maintenancedocumentbase" >
+      <xs:complexContent>
+       <xs:extension base="documentbase">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="log" type="xs:anyType" />
+          <xs:element name="maintainable_impl_class" type="xs:string" />
+          <xs:element name="old_maintainable_tag_name" type="xs:string" />
+          <xs:element name="new_maintainable_tag_name" type="xs:string" />
+          <xs:element name="maintenance_action_tag_name" type="xs:string" />
+          <xs:element name="notes_tag_name" type="xs:string" />
+          <xs:element name="transient" type="documentdictionaryservice" nillable="true" minOccurs="0" />
+          <xs:element name="transient" type="maintenancedocumentservice" nillable="true" minOccurs="0" />
+          <xs:element name="transient" type="documentheaderservice" nillable="true" minOccurs="0" />
+          <xs:element name="transient" type="documentservice" nillable="true" minOccurs="0" />
+          <xs:element name="oldobject" type="maintainable" nillable="true" minOccurs="0" />
+          <xs:element name="newobject" type="maintainable" nillable="true" minOccurs="0" />
+          <xs:element name="xmldocumentcontents" type="xs:string" />
+          <xs:element name="fieldsclearedoncopy" type="xs:anyType" />
+          <xs:element name="displaytopicfieldinnotes" type="xs:anyType" />
+          <xs:element name="attachmentpropertyname" type="xs:string" />
+          <xs:element name="attachmentlistpropertyname" type="xs:string" />
+          <xs:element name="attachmentcollectionname" type="xs:string" />
+          <xs:element name="attachment" type="documentattachment" nillable="true" minOccurs="0" />
+          <xs:element name="attachments" type="multidocumentattachment" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="documentattachment" >
+      <xs:complexContent>
+       <xs:extension base="persistableattachmentbase">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="documentnumber" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="adhocrouteworkgroup" >
+      <xs:complexContent>
+       <xs:extension base="adhocrouterecipient">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="recipientnamespacecode" type="xs:string" />
+          <xs:element name="recipientname" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sessiondocument" >
+      <xs:complexContent>
+       <xs:extension base="persistablebusinessobjectbase{">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="documentnumber" type="xs:string" />
+          <xs:element name="sessionid" type="xs:string" />
+          <xs:element name="lastupdateddate" type="xs:anyType" />
+          <xs:element name="serializeddocumentform" type="xs:anyType" />
+          <xs:element name="encrypted" type="xs:anyType" />
+          <xs:element name="principalid" type="xs:string" />
+          <xs:element name="ipaddress" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="multidocumentattachment" >
+      <xs:complexContent>
+       <xs:extension base="persistableattachmentbase">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:string" />
+          <xs:element name="documentnumber" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="documentheader" >
+      <xs:complexContent>
+       <xs:extension base="persistablebusinessobjectbase">
+         <xs:sequence>
+          <xs:element name="documentnumber" type="xs:string" />
+          <xs:element name="documentdescription" type="xs:string" />
+          <xs:element name="organizationdocumentnumber" type="xs:string" />
+          <xs:element name="documenttemplatenumber" type="xs:string" />
+          <xs:element name="explanation" type="xs:string" />
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema> 

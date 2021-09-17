@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="gzhapplicationtests" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="replymessagerepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="replymessagerepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<replymessage,long>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="gzhapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="templateconfig" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="springdatajpaconfig" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="replymessage" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="keyword" type="xs:string" />
+        <xs:element name="text" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="commongzhservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="redisservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="custommenuservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="messageservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="redisserviceimpl" >
+      <xs:sequence>
+        <xs:element name="redistemplate" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="custommenuserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="resthttpclientutils" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="commongzhservice" nillable="true" minOccurs="0" />
+        <xs:element name="localactive" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="messageserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="replymessagerepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="commongzhserviceimpl" >
+      <xs:sequence>
+        <xs:element name="wechat_accesstoken_profix" type="xs:string" />
+        <xs:element name="wechat_accesstoken_suffix" type="xs:string" />
+        <xs:element name="//java内存存储token变量localaccesstoken" type="xs:string" />
+        <xs:element name="//token过期时间expirestime" type="xs:long" />
+        <xs:element name="GeneratedName" type="resthttpclientutils" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="redisservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="gzhurlconstant" >
+      <xs:sequence>
+        <xs:element name="//获取基本accesstoken的接口base_access_token" type="xs:string" />
+        <xs:element name="//页面使用jssdk的凭据base_jsapi_ticket" type="xs:string" />
+        <xs:element name="//微信公众号创建菜单menu_create" type="xs:string" />
+        <xs:element name="//微信公众号查询菜单menu_query" type="xs:string" />
+        <xs:element name="//微信公众号删除菜单menu_delete" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="msgtype" >
+      <xs:sequence>
+        <xs:element name="text" type="xs:string" />
+        <xs:element name="image" type="xs:string" />
+        <xs:element name="voice" type="xs:string" />
+        <xs:element name="video" type="xs:string" />
+        <xs:element name="short_video" type="xs:string" />
+        <xs:element name="location" type="xs:string" />
+        <xs:element name="link" type="xs:string" />
+        <xs:element name="music" type="xs:string" />
+        <xs:element name="news" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hellocontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="commongzhservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="menucontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="custommenuservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="messagecontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="messageservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="outmsgentity" >
+      <xs:sequence>
+        <xs:element name="//发送方的账号fromusername" type="xs:string" />
+        <xs:element name="//接收方的账号(openid)tousername" type="xs:string" />
+        <xs:element name="//消息创建时间createtime" type="xs:long" />
+        <xs:element name="/***消息类型*text文本消息*image图片消息*voice语音消息*video视频消息*music音乐消息*news图文消息*/msgtype" type="xs:string" />
+        <xs:element name="mediaid" type="xs:string" />
+        <xs:element name="//文本内容content" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="textreplymsg" >
+      <xs:sequence>
+        <xs:element name="tousername" type="xs:string" />
+        <xs:element name="fromusername" type="xs:string" />
+        <xs:element name="createtime" type="xs:long" />
+        <xs:element name="msgtype" type="xs:string" />
+        <xs:element name="content" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="music" >
+      <xs:sequence>
+        <xs:element name="//消息标题title" type="xs:string" />
+        <xs:element name="//消息描述description" type="xs:string" />
+        <xs:element name="//音乐链接musicurl" type="xs:string" />
+        <xs:element name="//高质量音乐链接，wifi环境优先使用该链接播放音乐hqmusicurl" type="xs:string" />
+        <xs:element name="//缩略图的媒体idthumbmediaid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="item" >
+      <xs:sequence>
+        <xs:element name="//消息标题title" type="xs:string" />
+        <xs:element name="//消息描述description" type="xs:string" />
+        <xs:element name="//图片链接，支持jpg、png格式，较好的效果为大图360*200，小图200*200picurl" type="xs:string" />
+        <xs:element name="//点击图文消息跳转链接url" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="video" >
+      <xs:sequence>
+        <xs:element name="//通过素材管理中的接口上传多媒体文件，得到的idmediaid" type="xs:string" />
+        <xs:element name="//消息标题title" type="xs:string" />
+        <xs:element name="//消息描述description" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="articles" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="item" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="voicereplymsg" >
+      <xs:sequence>
+        <xs:element name="tousername" type="xs:string" />
+        <xs:element name="fromusername" type="xs:string" />
+        <xs:element name="createtime" type="xs:long" />
+        <xs:element name="msgtype" type="xs:string" />
+        <xs:element name="//通过素材管理中的接口上传多媒体文件，得到的idmediaid" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="musicreplymsg" >
+      <xs:sequence>
+        <xs:element name="tousername" type="xs:string" />
+        <xs:element name="fromusername" type="xs:string" />
+        <xs:element name="createtime" type="xs:long" />
+        <xs:element name="msgtype" type="xs:string" />
+        <xs:element name="GeneratedName" type="music" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="redisinfo" >
+      <xs:sequence>
+        <xs:element name="map" type="xs:anyType" />
+        <xs:element name="key" type="xs:string" />
+        <xs:element name="value" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rcvcommonmsg" >
+      <xs:sequence>
+        <xs:element name="tousername" type="xs:string" />
+        <xs:element name="fromusername" type="xs:string" />
+        <xs:element name="createtime" type="xs:long" />
+        <xs:element name="msgtype" type="xs:string" />
+        <xs:element name="msgid" type="xs:long" />
+        <xs:element name="content" type="xs:string" />
+        <xs:element name="//图片链接picurl" type="xs:string" />
+        <xs:element name="//语音格式format" type="xs:string" />
+        <xs:element name="//语音识别结果recognition" type="xs:string" />
+        <xs:element name="//媒体idmediaid" type="xs:string" />
+        <xs:element name="//缩略图的媒体idthumbmediaid" type="xs:string" />
+        <xs:element name="//地理位置维度locationx" type="xs:string" />
+        <xs:element name="//地理位置经度locationy" type="xs:string" />
+        <xs:element name="//地图缩放大小scale" type="xs:string" />
+        <xs:element name="//地理位置信息label" type="xs:string" />
+        <xs:element name="//消息标题title" type="xs:string" />
+        <xs:element name="//消息描述description" type="xs:string" />
+        <xs:element name="//消息链接url" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="newsreplymsg" >
+      <xs:sequence>
+        <xs:element name="tousername" type="xs:string" />
+        <xs:element name="fromusername" type="xs:string" />
+        <xs:element name="createtime" type="xs:long" />
+        <xs:element name="msgtype" type="xs:string" />
+        <xs:element name="content" type="xs:string" />
+        <xs:element name="//消息标题title" type="xs:string" />
+        <xs:element name="//消息描述description" type="xs:string" />
+        <xs:element name="//图文消息个数；当用户发送文本、图片、视频、图文、地理位置这五种消息时，开发者只能回复1条图文消息；其余场景最多可回复8条图文消息articlecount" type="xs:string" />
+        <xs:element name="//图文消息信息，注意，如果图文数超过限制，则将只发限制内的条数articles" type="xs:string" />
+        <xs:element name="//图片链接，支持jpg、png格式，较好的效果为大图360*200，小图200*200picurl" type="xs:string" />
+        <xs:element name="//点击图文消息跳转链接url" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="videoreplymsg" >
+      <xs:sequence>
+        <xs:element name="tousername" type="xs:string" />
+        <xs:element name="fromusername" type="xs:string" />
+        <xs:element name="createtime" type="xs:long" />
+        <xs:element name="msgtype" type="xs:string" />
+        <xs:element name="GeneratedName" type="video" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="imgreplymsg" >
+      <xs:sequence>
+        <xs:element name="tousername" type="xs:string" />
+        <xs:element name="fromusername" type="xs:string" />
+        <xs:element name="createtime" type="xs:long" />
+        <xs:element name="msgtype" type="xs:string" />
+        <xs:element name="//通过素材管理中的接口上传多媒体文件，得到的idmediaid" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="signatureutils" >
+      <xs:sequence>
+        <xs:element name="redisactive" type="xs:anyType" />
+        <xs:element name="local_access_token" type="xs:string" />
+        <xs:element name="expire_time" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="constantpropertyutils" >
+      <xs:sequence>
+        <xs:element name="//公众号idappid" type="xs:string" />
+        <xs:element name="//app密钥appsecret" type="xs:string" />
+        <xs:element name="//微信接入——接口配置信息interfaceurl" type="xs:string" />
+        <xs:element name="//微信接入——接口配置信息interfacetoken" type="xs:string" />
+        <xs:element name="//js安全域名jsdomain" type="xs:string" />
+        <xs:element name="//网页授权域名webauthdomain" type="xs:string" />
+        <xs:element name="/***自动注入静态变量的默认值*/app_id" type="xs:string" />
+        <xs:element name="app_secret" type="xs:string" />
+        <xs:element name="interface_url" type="xs:string" />
+        <xs:element name="interface_token" type="xs:string" />
+        <xs:element name="js_domain" type="xs:string" />
+        <xs:element name="web_auth_domain" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="resthttpclientutils" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="application" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

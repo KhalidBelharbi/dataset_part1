@@ -1,0 +1,93 @@
+
+crudtranslation(/***/serialversionuid:long, id:Integer [PK], name:String, locale:String, translation:String);
+
+crudgroupowner(id:Integer [PK], name:String);
+
+crudgroup(id:Integer [PK], name:String);
+
+crudservice(serialversionuid:long, name:String [PK], //type,hiden,primarykey,required,defaultvaluefields:String, title:String, menu:String, template:String, filterfields:String, orderby:String, isonline:Boolean, saveandexit:Boolean);
+
+crudgroupuser(cruduser:String [PK], crudgroup:Integer [PK]);
+
+cruduser(/***/crudgroupowner:Integer [PK], name:String [PK], password:String, roles:String, menu:String, //@column(name:String, showsystemmenu:Boolean, path:String, ip:String, authctoken:String);
+
+iso8583routercomm(/***/serialversionuid:long, //capture(tef,pos,atm(caixa24h,saquepague,etc...)),acquier(in,out(cielo,redecard)),emissor(provider(mastercard,visa,vivo,tim,oi,claro,etc...))session:String, //tef,hsm,eth_v2name:String [PK], //false,trueenabled:Boolean, //serverorclient//client:Boolean, ip:String, //1100,7000,24000port:Integer, //ifpersistent,don'tcloseconnection//permanent,temporary//temporarypermanent:Boolean, sizeascii:Boolean, //org.domain.financial.messages.comm.commadapterpayload,org.domain.financial.messages.comm.commadaptersizepayloadadapter:String, //númeromáximodeconexõesquepodemaguardarnafilaparasercapturadaspeloservidorbacklog:Integer, //clienttoserver,servertoclient,bidirecional//client_to_server:CommRequestDirection, //comm.endian_bigoucomm.endian_little//bigendiantype:BinaryEndian, //númeromáximodeseçõessimultâneasqueoservidorpodeprocessar//n�mrom�ximodeconex�es:1,100,1000maxopenedconnections:Integer, messageadapter:String);
+
+iso8583routermessageadapter(/***/serialversionuid:long, name:String [PK], parent:String, adapterclass:String);
+
+iso8583routertransaction(/***/serialversionuid:long, //this.data:Integer, authnsu:String, captureec:String, captureequipamenttype:String, capturensu:String, captureprotocol:String, capturetablesversionsin:String, capturetablesversionsout:String, capturetype:String, cardexpiration:Integer, channelconn:String, codeprocess:String, coderesponse:String, conndirection:String, connid:String, countrycode:String, data:String, datacomplement:String, datelocal:String, datetimegmt:String, emvdata:String, emvpansequence:String, equipamentid:String, financialdate:Integer, hourlocal:String, lastokdate:String, lastoknsu:String, merchanttype:String, module:String, modulein:String, moduleout:String, msgtype:String, numpayments:String, pan:String, password:String, providerec:String, providerid:String, providername:String, providernsu:String, replyespected:String, root:String, route:String, sendresponse:Boolean, sequenceindex:String, systemdatetime:String, terminalserialnumber:String, timeexec:Integer, timeout:Integer, timestamp:Long, timestampon:Long, timestampoff:Long, tracki:String, trackii:String, transactionid:Long, transactionvalue:String, transportdata:String, uniquecapturensu:String, dinamicfields:HashMap<String,String>);
+
+iso8583routermessageadapteritem(serialversionuid:long, //iso8583defaultmessageadapter:String [PK], rootpattern:String [PK], tag:String [PK], orderindex:Integer, fieldname:String, datatype:Integer, alignment:DataAlign, sizeheader:Integer, minlength:Integer, maxlength:Integer);
+
+iso8583routerchippublickey(serialversionuid:long, registeredapplicationprovideridentifier:String, publickeyindextag9f22:String, //podeser1ou3expsize:Integer, publickeyexponenttag9f2e:String, publickeymodulustag9f2d:String, publickeychecksum:String [PK], hashstatus:Integer);
+
+iso8583routerchipapplicationidentifier(serialversionuid:long, applicationidentifiercodetag9f06:String [PK], versionitag9f09:Integer, versioniitag9f09:Integer, versioniiitag9f09:Integer, tags:String, terminalcapabilitiestag9f33:String, terminalcapabilitiesaditionaltag9f40:String, terminalactioncodedefault:String, terminalactioncodedenial:String, terminalactioncodeonline:String, terminaltypetag9f35:Integer, targetpercentage:Integer, maxtargetpercentage:Integer, thresholdamount:String, terminalfloorlimittag9f1b:String, merchantcategorycodetag9f15:Integer, transactioncategorycodetag9f53:String, transactioncurrencycodetag5f2a:Integer, transactioncurrencyexponenttag5f36:Integer, transactioncertificatedataobjectlist:String, dynamicdataauthenticationdataobjectlist:String, //01-credit,02-debit,03-voucher,notefétipodeaplicacaoproduct:Integer, teflabel:String, terminalcountrycodetag9f1a:Integer, terminalreferencecurrencycodetag9f3c:Integer, responsecodeofflineaproved:String, responsecodeofflinedeclined:String, responsecodeonlineapproved:String, responsecodeonlinedeclined:String);
+
+iso8583routerlog(/***/serialversionuid:long, timeid:String [PK], transactionid:Integer, loglevel:String, modules:String, root:String, header:String, message:String, transaction:String);
+
+stock(/***/serialversionuid:long, crudgroupowner:Integer [PK], //mesmonúmerodoiddoproductid:Integer [PK], countin:BigDecimal, countout:BigDecimal, reservedin:BigDecimal, reservedout:BigDecimal, estimedin:BigDecimal, estimedout:BigDecimal, stockvalue:BigDecimal, stockserials:String, sumvaluein:BigDecimal, sumvalueout:BigDecimal, sumvaluestock:BigDecimal, estimedvalue:BigDecimal, //valoresmanuaisstockminimal:BigDecimal, stockdefault:BigDecimal, marginsale:BigDecimal, marginwholesale:BigDecimal, value:BigDecimal, valuewholesale:BigDecimal);
+
+product(serialversionuid:long, id:Integer [PK], crudgroup:Integer, ncm:Integer, orig:Integer, name:String, departament:String, model:String, description:String, weight:BigDecimal, imageurl:String, additionaldata:String);
+
+requeststate(/***/serialversionuid:long, id:Integer [PK], stockaction:Integer, type:Integer, prev:Integer, next:Integer, name:String, description:String);
+
+requesttype(/***/serialversionuid:long, id:Integer [PK], name:String, description:String);
+
+requestpayment(/***/serialversionuid:long, crudgroupowner:Integer [PK], request:Integer, id:Integer [PK], type:Integer, value:BigDecimal, account:Integer, number:String, due:Date, payday:Date, balance:BigDecimal);
+
+account(/***/serialversionuid:long, crudgroupowner:Integer [PK], id:Integer [PK], bank:String, agency:String, number:String, description:String);
+
+stockaction(/***/serialversionuid:long, id:Integer [PK], name:String);
+
+person(/***/serialversionuid:long, id:Integer [PK], name:String, cnpjcpf:String, ierg:String, suframa:String, im:String, cnae:Integer, //1:Integer, zip:String, country:Integer, uf:Integer, city:Integer, district:String, address:String, addressnumber:String, complement:String, email:String, site:String, phone:String, fax:String, credit:BigDecimal, additionaldata:String);
+
+barcode(serialversionuid:long, number:String [PK], manufacturer:String, product:Integer);
+
+requestnfe(serialversionuid:long, id:RequestNfePK, cdv:Integer, dhemi:LocalDateTime, dhsaient:LocalDateTime, finnfe:Integer, iddest:Integer, ind:Integer, indiedest:Integer, indpag:Integer, indpres:Integer, mod:Integer, natop:String, nfeid:String, nnf:Integer, person:Integer, procemi:Integer, serie:Integer, tpamb:Integer, tpemis:Integer, tpimp:Integer, tpnf:Integer, valuecofins:BigDecimal, valueicms:BigDecimal, valueicmsst:BigDecimal, valueii:BigDecimal, valueipi:BigDecimal, valueissqn:BigDecimal, valuepis:BigDecimal, valuetax:BigDecimal, verproc:String, versao:String);
+
+requestproduct(/***/serialversionuid:long, crudgroupowner:Integer [PK], request:Integer, id:Integer [PK], product:Integer, quantity:BigDecimal, value:BigDecimal, valueitem:BigDecimal, valuedesc:BigDecimal, valuefreight:BigDecimal, cfop:Integer, tax:Integer, valuealltax:BigDecimal, serial:String);
+
+request(crudgroupowner:Integer [PK], id:Integer [PK], //clienteoufornecedorperson:Integer, date:LocalDateTime, //compra,venda/conserto,orçamento,...type:Integer, //esperandorespostadocliente/fornecedor,aguardandoentrega/coleta,enviarorçamento,...state:Integer, additionaldata:String, productsvalue:BigDecimal, servicesvalue:BigDecimal, transportvalue:BigDecimal, sumvalue:BigDecimal, descvalue:BigDecimal, paymentsvalue:BigDecimal);
+
+nfestpis(serialversionuid:long, id:Integer [PK], name:String);
+
+nfestipienquadramento(serialversionuid:long, id:Integer [PK], name:String, ipioperacao:Integer);
+
+nfetaxgroup(serialversionuid:long, id:Integer [PK], name:String, taxcofins:BigDecimal, taxicms:BigDecimal, taxipi:BigDecimal, taxissqn:BigDecimal, taxpis:BigDecimal, taxsimples:BigDecimal, cstcofins:Integer, csticms:Integer, cstipi:Integer, cstpis:Integer);
+
+confazcest(serialversionuid:long, id:ConfazCestPK, name:String);
+
+ibgecity(serialversionuid:long, id:Integer [PK], name:String, uf:Integer);
+
+nfestcofins(serialversionuid:long, id:Integer [PK], name:String);
+
+nfestipi(serialversionuid:long, id:Integer [PK], name:String);
+
+bacencountry(serialversionuid:long, id:Integer [PK], abr:String, name:String, namept:String);
+
+nfestipioperacao(serialversionuid:long, id:Integer [PK], name:String);
+
+nfesticmsorigem(serialversionuid:long, id:Integer [PK], name:String);
+
+nfecfop(serialversionuid:long, id:Integer [PK], indcomunica:Integer, inddevol:Integer, indnfe:Integer, indtransp:Integer, name:String);
+
+nfesticmsdesoneracao(serialversionuid:long, id:Integer [PK], name:String);
+
+nfesticmsmodalidadebc(serialversionuid:long, id:Integer [PK], name:String);
+
+ibgecnae(serialversionuid:long, id:Integer [PK], name:String);
+
+nfestcsosn(serialversionuid:long, id:Integer [PK], description:String, name:String);
+
+nfesticms(serialversionuid:long, id:Integer [PK], name:String);
+
+ibgeuf(serialversionuid:long, id:Integer [PK], abr:String, ddd:String, name:String, country:Integer);
+
+nfesticmsmodalidadest(serialversionuid:long, id:Integer [PK], name:String);
+
+camexncm(serialversionuid:long, id:Integer [PK], name:String, tec:Integer, unit:String);
+
+paymenttype(/***/serialversionuid:long, id:Integer [PK], name:String, description:String);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

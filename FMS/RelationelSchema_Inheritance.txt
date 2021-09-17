@@ -1,0 +1,39 @@
+
+auditable(createdby:U, created:Date, lastmodifiedby:U, lastmodified:Date);
+
+trainer(username:String [PK], name:String, email:String, phone:String, address:String, isactive:Boolean, password:String, idskill:int, activationcode:String, resetpasswordcode:String, isreceivenotification:Boolean);
+
+assignment(GeneratedName:AssignmentKey, registrationcode:String);
+
+trainee_assignment(registrationcode:String [PK], traineeid:String);
+
+module(moduleid:long [PK], _module:Admin #FK to(admin), modulename:String, starttime:Date, endtime:Date, isdeleted:boolean, feedbackstarttime:Date, feedbackendtime:Date, _module:Feedback #FK to(feedback));
+
+topic(topicid:int [PK], topicname:String);
+
+course(id:long [PK], coursename:String, admin:String, startdate:String, enddate:String);
+
+feedback(feedbackid:long [PK], title:String, isdeleted:boolean, id:Admin #FK to(admin), feedback_typeid:TypeFeedback #FK to(typefeedback));
+
+feedback_question(GeneratedName:Feedback_QuestionKey [PK]);
+
+trainee_comment(classid:long [PK], moduleid:long, traineeid:String, comment:String);
+
+enrollment(/***/serialversionuid:long, _enroll:Class #FK to(class), _enroll:Trainee #FK to(trainee), _enroll:Class [PK], _enroll:Trainee [PK]);
+
+question(questionid:int [PK], _question:Topic #FK to(topic), quesioncontent:String, isdeleted:Boolean);
+
+user(id:long [PK], firstname:String, lastname:String, email:String);
+
+admin(username:String [PK], name:String, email:String, password:String);
+
+answer(GeneratedName:AnswerKey, value:int, comment:String);
+
+trainee(username:String [PK], name:String, email:String, phone:String, address:String, isactive:Boolean, password:String, activationcode:String, resetpasswordcode:String);
+
+class(classid:Long [PK], classname:String, capacity:int, starttime:Date, endtime:Date, isdeleted:Boolean);
+
+typefeedback(typeid:long [PK], typename:String, isdeleted:boolean);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

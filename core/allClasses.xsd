@@ -1,0 +1,1441 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="entityinfo" >
+      <xs:complexContent>
+       <xs:extension base="serializable>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="pageinterceptor" >
+      <xs:complexContent>
+       <xs:extension base="handlerinterceptoradapter{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="querypropertyimpl" >
+      <xs:sequence>
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="/***属性的比较类型*/compare" type="xs:string" />
+        <xs:element name="/***用来判断是否用and或用or*/orwith" type="xs:string" />
+        <xs:element name="/***属性的值*/value" type="xs:string" />
+        <xs:element name="/***属性名称*/name" type="xs:string" />
+        <xs:element name="/***属性的数据类型*/propertyclass" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="operlogmessage" >
+      <xs:sequence>
+        <xs:element name="log" type="xs:anyType" />
+        <xs:element name="logtype" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="logmsg" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pointslogmessage" >
+      <xs:sequence>
+        <xs:element name="log" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="orderbyercomparator" >
+      <xs:sequence>
+        <xs:element name="ascend" type="xs:anyType" />
+        <xs:element name="orderfield" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="operators" >
+      <xs:sequence>
+        <xs:element name="/***avg函数返回数值列的平均值。null值不包括在计算中*/avg" type="xs:long" />
+        <xs:element name="/***count(*)函数返回表中的记录数*/count" type="xs:long" />
+        <xs:element name="/***first()函数返回指定的字段中第一个记录的值*/first" type="xs:long" />
+        <xs:element name="/***last()函数返回指定的字段中最后一个记录的值*/last" type="xs:long" />
+        <xs:element name="/***max函数返回一列中的最大值。null值不包括在计算中*/max" type="xs:long" />
+        <xs:element name="/***min函数返回一列中的最小值。null值不包括在计算中*/min" type="xs:long" />
+        <xs:element name="/***sum函数返回数值列的总数（总额）*/sum" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persistableutil" >
+      <xs:complexContent>
+       <xs:extension base="serializable,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="customtablegenerator" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="globalsequence" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="globalgenerator" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="keylooptimizer" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dictionaryutil" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="matchresult" >
+      <xs:sequence>
+        <xs:element name="addids" type="xs:anyType" />
+        <xs:element name="deleteids" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sysmethodtimelogdao" >
+      <xs:complexContent>
+       <xs:extension base="basedao<sysmethodtimelog,long>{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="dictionarydao" >
+      <xs:complexContent>
+       <xs:extension base="basedao<dictionary,long>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="organizationparameterdao" >
+      <xs:complexContent>
+       <xs:extension base="basedao<organizationparameter,long>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="parameterdao" >
+      <xs:complexContent>
+       <xs:extension base="basedao<parameters,long>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sysmethodtimelogdaoimpl" >
+      <xs:complexContent>
+       <xs:extension base="jpadao<sysmethodtimelog,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="organizationdaoimpl" >
+      <xs:complexContent>
+       <xs:extension base="jpadao<organization,long>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="organizationparameterdaoimpl" >
+      <xs:complexContent>
+       <xs:extension base="jpadao<organizationparameter,long>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="dictionarydaoimpl" >
+      <xs:complexContent>
+       <xs:extension base="jpadao<dictionary,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="parameterdaoimpl" >
+      <xs:complexContent>
+       <xs:extension base="jpadao<parameters,long>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="organizationparameterdaoimpl" >
+      <xs:complexContent>
+       <xs:extension base="hibernatedao<organizationparameter,long>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="organizationdaoimpl" >
+      <xs:complexContent>
+       <xs:extension base="hibernatedao<organization,long>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="dictionarydaoimpl" >
+      <xs:complexContent>
+       <xs:extension base="hibernatedao<dictionary,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="parameterdaoimpl" >
+      <xs:complexContent>
+       <xs:extension base="hibernatedao<parameters,long>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="organizationdao" >
+      <xs:complexContent>
+       <xs:extension base="basedao<organization,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sysmethodtimelogservice" >
+      <xs:complexContent>
+       <xs:extension base="basisservice<sysmethodtimelog,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="parameterserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="parameterdao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="organizationparameterservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="winfilesservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="organizationparameterserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="organizationparameterdao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="parameterservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sysmethodtimelogserviceimpl" >
+      <xs:complexContent>
+       <xs:extension base="simplebasisservice<sysmethodtimelog,">
+         <xs:sequence>
+          <xs:element name="" type="sysmethodtimelogdao" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="dictionaryservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="parameterservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dictionaryserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="dictionarydao" nillable="true" minOccurs="0" />
+        <xs:element name="dictionary" type="xs:anyType" />
+        <xs:element name="dictionarycache" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="fileservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="parameters" >
+      <xs:complexContent>
+       <xs:extension base="rootdomain<long>">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="parametervalue" type="xs:string" />
+          <xs:element name="parametertype" type="xs:anyType" />
+          <xs:element name="remark" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="dictionary" >
+      <xs:sequence>
+        <xs:element name="/***(用一句话描述这个变量表示什么).**@sincejdk1.7*/serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="dictionary" nillable="true" minOccurs="0" />
+        <xs:element name="dicttype" type="xs:string" />
+        <xs:element name="dictvalue" type="xs:string" />
+        <xs:element name="haschild" type="xs:anyType" />
+        <xs:element name="childcount" type="xs:anyType" />
+        <xs:element name="rank" type="xs:long" />
+        <xs:element name="remark" type="xs:string" />
+        <xs:element name="dictionaries" type="dictionary" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="organizationparameter" >
+      <xs:complexContent>
+       <xs:extension base="rootdomain<long>">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="value" type="xs:string" />
+          <xs:element name="orgid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userstatus" >
+      <xs:sequence>
+        <xs:element name="/***新建*/new" type="xs:anyType" />
+        <xs:element name="/***正常的*/normal" type="xs:anyType" />
+        <xs:element name="/***停止*/stop" type="xs:anyType" />
+        <xs:element name="/***4.待批*/pending" type="xs:anyType" />
+        <xs:element name="/***5.通过*/pass" type="xs:anyType" />
+        <xs:element name="/***6.驳回*/refusal" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sysmethodtimelog" >
+      <xs:complexContent>
+       <xs:extension base="rootdomain<long>">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="/***/id" type="xs:long" />
+          <xs:element name="/***日志创建时间*/createtime" type="xs:dateTime" />
+          <xs:element name="/***日志类名*/classname" type="xs:string" />
+          <xs:element name="/***方法名*/methodname" type="xs:string" />
+          <xs:element name="/***方法执行时间*/methodtime" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="organization" >
+      <xs:complexContent>
+       <xs:extension base="rootdomain<long>">
+         <xs:sequence>
+          <xs:element name="/***全局的根目录*/global" type="xs:long" />
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="parentid" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="aliases" type="xs:string" />
+          <xs:element name="adminuserid" type="xs:long" />
+          <xs:element name="adminroleid" type="xs:long" />
+          <xs:element name="saferesourcecollectionid" type="xs:long" />
+          <xs:element name="organizationlevel" type="xs:anyType" />
+          <xs:element name="leader" type="xs:anyType" />
+          <xs:element name="organizationstatus" type="xs:anyType" />
+          <xs:element name="isdelete" type="xs:anyType" />
+          <xs:element name="remark" type="xs:string" />
+          <xs:element name="////////////////一下字段不作为数据库字段children" type="xs:anyType" />
+          <xs:element name="/***是否存在子*/childcount" type="xs:anyType" />
+          <xs:element name="/***管理员名称*/adminusername" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="parameterutil" >
+      <xs:sequence>
+        <xs:element name="paramobjectmap" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dictionaryresult" >
+      <xs:complexContent>
+       <xs:extension base="vobase<integer>{">
+         <xs:sequence>
+          <xs:element name="/***(用一句话描述这个变量表示什么).*@sincejdk1.7*/serialversionuid" type="xs:long" />
+          <xs:element name="key" type="xs:anyType" />
+          <xs:element name="value" type="xs:string" />
+          <xs:element name="childdict" type="dictionaryresult" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="dictionarynode" >
+      <xs:complexContent>
+       <xs:extension base="vobase<long>">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="parentid" type="xs:long" />
+          <xs:element name="dicttype" type="xs:string" />
+          <xs:element name="dictvalue" type="xs:string" />
+          <xs:element name="haschild" type="xs:anyType" />
+          <xs:element name="childcount" type="xs:anyType" />
+          <xs:element name="rank" type="xs:long" />
+          <xs:element name="remark" type="xs:string" />
+          <xs:element name="children" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="organizationparameterresult" >
+      <xs:complexContent>
+       <xs:extension base="vobase<long>{">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="organizationid" type="xs:long" />
+          <xs:element name="parametervalue" type="xs:string" />
+          <xs:element name="parametertype" type="xs:anyType" />
+          <xs:element name="remark" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="radiotaglib" >
+      <xs:complexContent>
+       <xs:extension base="tagsupport">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="/***从页面的自定义标签获取的属性值,得到该值后，以dicttype为key值，从静态map中获取数据即可*/dicttype" type="xs:string" />
+          <xs:element name="/***下拉菜单的初始值*/value" type="xs:string" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="id" type="xs:string" />
+          <xs:element name="/***样式*/classname" type="xs:string" />
+          <xs:element name="/***不需要的值*/exclude" type="xs:string" />
+          <xs:element name="/***样式*/datatype" type="xs:string" />
+          <xs:element name="/***该属性表示radio选项的展示方式*/radioclass" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="propertytaglib" >
+      <xs:complexContent>
+       <xs:extension base="tagsupport">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="/***对应数据字典类型*/dicttype" type="xs:string" />
+          <xs:element name="/***对应数据字典类型的key*/value" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="selecttaglib" >
+      <xs:complexContent>
+       <xs:extension base="tagsupport">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="/***从页面的自定义标签mjf:select获取的属性值,得到该值后，以dicttype为key值，从静态map中获取数据即可*/dicttype" type="xs:string" />
+          <xs:element name="/***下拉菜单的id*/id" type="xs:string" />
+          <xs:element name="/***下拉菜单的name*/name" type="xs:string" />
+          <xs:element name="/***下拉菜单的初始值*/value" type="xs:string" />
+          <xs:element name="/***关联查询*/connect" type="xs:string" />
+          <xs:element name="dataoptions" type="xs:string" />
+          <xs:element name="/***select标签验证属性*/selct" type="xs:string" />
+          <xs:element name="/***select标签验证属性*/check" type="xs:string" />
+          <xs:element name="/***select标签验证属性*/msg" type="xs:string" />
+          <xs:element name="/***select标签验证属性*/msgid" type="xs:string" />
+          <xs:element name="/***查询的时候需要的属性*/datatype" type="xs:string" />
+          <xs:element name="/***列表样式*/classname" type="xs:string" />
+          <xs:element name="style" type="xs:string" />
+          <xs:element name="/***下拉菜单的头信息，从页面传值为null则不添加头信息*/headerinfo" type="xs:string" />
+          <xs:element name="/***附加属性*/identity" type="xs:string" />
+          <xs:element name="/***过滤列表中的key值，需要过滤的用该变量声明，用“,”隔开*/filterkey" type="xs:string" />
+          <xs:element name="/***次级菜单属性，对应于主级菜单的初始值*/parentvalue" type="xs:string" />
+          <xs:element name="headinfo" type="xs:string" />
+          <xs:element name="dynattributes" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="validationconstraintviolation" >
+      <xs:complexContent>
+       <xs:extension base="abstractvalidationexception{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="validationobjectoptimisticlocking" >
+      <xs:complexContent>
+       <xs:extension base="abstractvalidationexception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="basisfacade" >
+      <xs:complexContent>
+       <xs:extension base="vobase<id>,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="basisservice" >
+      <xs:complexContent>
+       <xs:extension base="serializable>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="simplebasisservice" >
+      <xs:complexContent>
+       <xs:extension base="persistable<id>,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="simplebasisfacade" >
+      <xs:complexContent>
+       <xs:extension base="vobase<id>,p">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="setbean" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="inode" >
+      <xs:complexContent>
+       <xs:extension base="serializable>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="finder" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jpadao" >
+      <xs:complexContent>
+       <xs:extension base="persistable<id>,id">
+         <xs:sequence>
+          <xs:element name="jpadao" type="xs:anyType" />
+          <xs:element name="entityinfo" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jpaquery" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="adapterjpadao" >
+      <xs:complexContent>
+       <xs:extension base="serializable>">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="setorg" >
+      <xs:complexContent>
+       <xs:extension base="rootdomain<id>,id">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="compare" >
+      <xs:sequence>
+        <xs:element name="/***等于*/eq" type="xs:string" />
+        <xs:element name="/***不等于*/ne" type="xs:string" />
+        <xs:element name="/***等于多个*/in" type="xs:string" />
+        <xs:element name="/***不等于多个*/notin" type="xs:string" />
+        <xs:element name="/***小于*/lt" type="xs:string" />
+        <xs:element name="/***大于*/gt" type="xs:string" />
+        <xs:element name="/***小于等于*/le" type="xs:string" />
+        <xs:element name="/***大于等于*/ge" type="xs:string" />
+        <xs:element name="//" type="xs:string" />
+        <xs:element name="notis" type="xs:string" />
+        <xs:element name="/***like：模糊查询*/like" type="xs:string" />
+        <xs:element name="//and" type="xs:string" />
+        <xs:element name="or" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hibernatequery" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="adapterhibernatedao" >
+      <xs:complexContent>
+       <xs:extension base="serializable>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="hibernatedao" >
+      <xs:complexContent>
+       <xs:extension base="persistable<id>,id">
+         <xs:sequence>
+          <xs:element name="jpadao" type="xs:anyType" />
+          <xs:element name="entityinfo" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="finderimpl" >
+      <xs:sequence>
+        <xs:element name="hqlbuilder" type="xs:anyType" />
+        <xs:element name="endbuilder" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="params" type="xs:anyType" />
+        <xs:element name="values" type="xs:anyType" />
+        <xs:element name="autoparammap" type="xs:anyType" />
+        <xs:element name="autoparam" type="xs:anyType" />
+        <xs:element name="detectalias" type="xs:string" />
+        <xs:element name="cacheable" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="queryutils" >
+      <xs:sequence>
+        <xs:element name="row_count" type="xs:string" />
+        <xs:element name="select" type="xs:string" />
+        <xs:element name="from" type="xs:string" />
+        <xs:element name="where" type="xs:string" />
+        <xs:element name="equal" type="xs:string" />
+        <xs:element name="distinct" type="xs:string" />
+        <xs:element name="blank" type="xs:string" />
+        <xs:element name="order_by" type="xs:anyType" />
+        <xs:element name="select_from" type="xs:anyType" />
+        <xs:element name="select_where" type="xs:anyType" />
+        <xs:element name="delete_from" type="xs:anyType" />
+        <xs:element name="delete_where" type="xs:anyType" />
+        <xs:element name="default_alias" type="xs:string" />
+        <xs:element name="count_query_" type="xs:string" />
+        <xs:element name="exists_query_" type="xs:string" />
+        <xs:element name="delete_all_query_" type="xs:string" />
+        <xs:element name="read_all_query" type="xs:string" />
+        <xs:element name="read_fieldname_query" type="xs:string" />
+        <xs:element name="read_field_id_name_query" type="xs:string" />
+        <xs:element name="read_distinct_fieldname_query" type="xs:string" />
+        <xs:element name="count_replacement" type="xs:string" />
+        <xs:element name="alias_match" type="xs:anyType" />
+        <xs:element name="count_match" type="xs:anyType" />
+        <xs:element name="identifier" type="xs:string" />
+        <xs:element name="identifier_group" type="xs:string" />
+        <xs:element name="left_join" type="xs:string" />
+        <xs:element name="left_join_" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="decoratequery" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="queryhqlparser" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="servicemethodtimeaspect" >
+      <xs:sequence>
+        <xs:element name="log" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="operationloglistener" >
+      <xs:complexContent>
+       <xs:extension base="defaultloadeventlistener">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="dynamichql" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cacheableparam" >
+      <xs:sequence>
+        <xs:element name="cacheable" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="basedao" >
+      <xs:complexContent>
+       <xs:extension base="persistable<id>,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="paramfactory" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="orneparam" >
+      <xs:complexContent>
+       <xs:extension base="orparam">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="baseparam" >
+      <xs:sequence>
+        <xs:element name="key" type="xs:string" />
+        <xs:element name="prefix" type="xs:string" />
+        <xs:element name="value" type="xs:anyType" />
+        <xs:element name="compare" type="xs:string" />
+        <xs:element name="property" type="xs:anyType" />
+        <xs:element name="childparam" type="queryparam" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="andleparam" >
+      <xs:complexContent>
+       <xs:extension base="andparam">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="andgeparam" >
+      <xs:complexContent>
+       <xs:extension base="andparam">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="orgtparam" >
+      <xs:complexContent>
+       <xs:extension base="orparam">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="orinparam" >
+      <xs:complexContent>
+       <xs:extension base="orparam">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="andisvalue" >
+      <xs:complexContent>
+       <xs:extension base="andparam">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="andlikeparam" >
+      <xs:complexContent>
+       <xs:extension base="andparam">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ornotinparam" >
+      <xs:complexContent>
+       <xs:extension base="orparam">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="orltparam" >
+      <xs:complexContent>
+       <xs:extension base="orparam">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="andeqparam" >
+      <xs:complexContent>
+       <xs:extension base="andparam">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="andnotinparam" >
+      <xs:complexContent>
+       <xs:extension base="andparam">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="oreqparam" >
+      <xs:complexContent>
+       <xs:extension base="orparam">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="orlikeparam" >
+      <xs:complexContent>
+       <xs:extension base="orparam">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="oranyparam" >
+      <xs:complexContent>
+       <xs:extension base="baseparam">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="oranyvalue" >
+      <xs:complexContent>
+       <xs:extension base="baseparam">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="andnotisvalue" >
+      <xs:complexContent>
+       <xs:extension base="andparam">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="andgtparam" >
+      <xs:complexContent>
+       <xs:extension base="andparam">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="orisvalue" >
+      <xs:complexContent>
+       <xs:extension base="orparam">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="andinparam" >
+      <xs:complexContent>
+       <xs:extension base="andparam">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="andparam" >
+      <xs:complexContent>
+       <xs:extension base="baseparam">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ornotisvalue" >
+      <xs:complexContent>
+       <xs:extension base="orparam">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="andltparam" >
+      <xs:complexContent>
+       <xs:extension base="andparam">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="andneparam" >
+      <xs:complexContent>
+       <xs:extension base="andparam">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="orleparam" >
+      <xs:complexContent>
+       <xs:extension base="orparam">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="orparam" >
+      <xs:complexContent>
+       <xs:extension base="baseparam">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="orgeparam" >
+      <xs:complexContent>
+       <xs:extension base="orparam">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="andanyparam" >
+      <xs:complexContent>
+       <xs:extension base="baseparam">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="andanyvalue" >
+      <xs:complexContent>
+       <xs:extension base="baseparam">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="propertyclass" >
+      <xs:sequence>
+        <xs:element name="/***时间类型*/date" type="xs:string" />
+        <xs:element name="/***整型*/byte" type="xs:string" />
+        <xs:element name="/***整型*/int" type="xs:string" />
+        <xs:element name="/***字符串型*/" type="xs:string" />
+        <xs:element name="/***long型*/long" type="xs:string" />
+        <xs:element name="/***float型*/float" type="xs:string" />
+        <xs:element name="/***double型*/double" type="xs:string" />
+        <xs:element name="/***任意类型，以字符串为基准，sql语句采用比较符合，不采用站位符*/any" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pagerequest" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="/***页码*/page" type="xs:long" />
+        <xs:element name="/***每页显示的条数*/size" type="xs:long" />
+        <xs:element name="/***排序*/" type="xs:anyType" />
+        <xs:element name="/***页面封装过来的查询字符串value:$u.name:$likes|$value:$u.name:$likes**/query" type="xs:string" />
+        <xs:element name="paramlist" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="anytype" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="fileusertype" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="clobtype" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="blobtype" >
+      <xs:complexContent>
+       <xs:extension base="serializable>">
+         <xs:sequence>
+          <xs:element name="class_name" type="xs:string" />
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sqlexception" >
+      <xs:complexContent>
+       <xs:extension base="runtimeexception">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="hibernateentityinfosupport" >
+      <xs:complexContent>
+       <xs:extension base="serializable>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="hibernateentityinfo" >
+      <xs:complexContent>
+       <xs:extension base="serializable>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jpapersistableentityinfo" >
+      <xs:complexContent>
+       <xs:extension base="persistable<id>,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jpametamodelentityinfo" >
+      <xs:complexContent>
+       <xs:extension base="serializable>">
+         <xs:sequence>
+          <xs:element name="idmetadata" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jpaentityinfosupport" >
+      <xs:complexContent>
+       <xs:extension base="serializable>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="abstractentityinfo" >
+      <xs:complexContent>
+       <xs:extension base="serializable>">
+         <xs:sequence>
+          <xs:element name="domainclass" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="hibernatemetamodelentityinfo" >
+      <xs:complexContent>
+       <xs:extension base="serializable>">
+         <xs:sequence>
+          <xs:element name="metamodel" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="hibernatepersistableentityinfo" >
+      <xs:complexContent>
+       <xs:extension base="persistable<id>,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jpaentityinfo" >
+      <xs:complexContent>
+       <xs:extension base="serializable>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="hibtoolsdemo" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="newmetadatasources" >
+      <xs:complexContent>
+       <xs:extension base="metadatasources{">
+         <xs:sequence>
+          <xs:element name="/***serialversionuid:(用一句话描述这个变量表示什么).*@sincejdk1.7*/serialversionuid" type="xs:long" />
+          <xs:element name="resource_pattern" type="xs:string" />
+          <xs:element name="package_info_suffix" type="xs:string" />
+          <xs:element name="entity_type_filters" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="suppliedconnectionhelper" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="toggleautocommit" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="suppliedconnectionproviderconnectionhelper" >
+      <xs:sequence>
+        <xs:element name="provider" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="toggleautocommit" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="fileexporter" >
+      <xs:sequence>
+        <xs:element name="writer" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="scriptexporter" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="newschemaexport" >
+      <xs:sequence>
+        <xs:element name="default_import_file" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="dropsql" type="xs:string" />
+        <xs:element name="createsql" type="xs:string" />
+        <xs:element name="importfiles" type="xs:string" />
+        <xs:element name="exceptions" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="outputfile" type="xs:string" />
+        <xs:element name="delimiter" type="xs:string" />
+        <xs:element name="haltonerror" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="databaseexporter" >
+      <xs:sequence>
+        <xs:element name="log" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persistentcomment" >
+      <xs:sequence>
+        <xs:element name="metadata" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="exporter" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tablecolumn" >
+      <xs:sequence>
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="field" type="xs:string" />
+        <xs:element name="width" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="statisticalparam" >
+      <xs:sequence>
+        <xs:element name="groupings" type="grouping" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="y" type="ycoordinate" nillable="true" minOccurs="0" />
+        <xs:element name="targets" type="target" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="wheres" type="where" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="sql" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ycoordinate" >
+      <xs:sequence>
+        <xs:element name="fieldname" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="grouping" >
+      <xs:sequence>
+        <xs:element name="field" type="xs:string" />
+        <xs:element name="fieldvalue" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="target" >
+      <xs:sequence>
+        <xs:element name="/***统计字段名称*/fieldname" type="xs:string" />
+        <xs:element name="/***统计方式*/statisticalmethods" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bracketswhere" >
+      <xs:complexContent>
+       <xs:extension base="where">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="xaxis" >
+      <xs:sequence>
+        <xs:element name="/***x轴显示内容*/categories" type="xs:anyType" />
+        <xs:element name="/***y轴十分显示小数*/allowdecimals" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="highchartschart" >
+      <xs:complexContent>
+       <xs:extension base="vobase{">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="" type="chart" nillable="true" minOccurs="0" />
+          <xs:element name="" type="title" nillable="true" minOccurs="0" />
+          <xs:element name="" type="subtitle" nillable="true" minOccurs="0" />
+          <xs:element name="xaxis" type="xaxis" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="yaxis" type="yaxis" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="" type="plotoptions" nillable="true" minOccurs="0" />
+          <xs:element name="" type="tooltip" nillable="true" minOccurs="0" />
+          <xs:element name="" type="legend" nillable="true" minOccurs="0" />
+          <xs:element name="series" type="series" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="dataitems" type="xs:anyType" />
+          <xs:element name="columns" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="title" >
+      <xs:sequence>
+        <xs:element name="text" type="xs:string" />
+        <xs:element name="GeneratedName" type="style" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="plotoptions" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="pie" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="column" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="style" >
+      <xs:sequence>
+        <xs:element name="color" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="yaxis" >
+      <xs:sequence>
+        <xs:element name="//y轴最小值min" type="xs:anyType" />
+        <xs:element name="//y轴最大值max" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="title" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="labels" nillable="true" minOccurs="0" />
+        <xs:element name="/***y轴，在左边或者右边显示*/opposite" type="xs:anyType" />
+        <xs:element name="/***y轴十分显示小数*/allowdecimals" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="subtitle" >
+      <xs:sequence>
+        <xs:element name="text" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="labels" >
+      <xs:sequence>
+        <xs:element name="format" type="xs:string" />
+        <xs:element name="GeneratedName" type="style" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pie" >
+      <xs:sequence>
+        <xs:element name="allowpointselect" type="xs:anyType" />
+        <xs:element name="cursor" type="xs:string" />
+        <xs:element name="GeneratedName" type="datalabels" nillable="true" minOccurs="0" />
+        <xs:element name="showinlegend" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tooltip" >
+      <xs:sequence>
+        <xs:element name="valuesuffix" type="xs:string" />
+        <xs:element name="shared" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="legend" >
+      <xs:sequence>
+        <xs:element name="layout" type="xs:string" />
+        <xs:element name="align" type="xs:string" />
+        <xs:element name="x" type="xs:anyType" />
+        <xs:element name="verticalalign" type="xs:string" />
+        <xs:element name="y" type="xs:anyType" />
+        <xs:element name="floating" type="xs:anyType" />
+        <xs:element name="backgroundcolor" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="datalabels" >
+      <xs:sequence>
+        <xs:element name="enabled" type="xs:anyType" />
+        <xs:element name="color" type="xs:string" />
+        <xs:element name="connectorcolor" type="xs:string" />
+        <xs:element name="format" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="series" >
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="color" type="xs:string" />
+        <xs:element name="type" type="xs:string" />
+        <xs:element name="yaxis" type="xs:anyType" />
+        <xs:element name="data" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="tooltip" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="chart" >
+      <xs:sequence>
+        <xs:element name="//变焦类型zoomtype" type="xs:string" />
+        <xs:element name="//右间距spacingright" type="xs:anyType" />
+        <xs:element name="//间距底部spacingbottom" type="xs:anyType" />
+        <xs:element name="//类型type" type="xs:string" />
+        <xs:element name="//阴影plotshadow" type="xs:anyType" />
+        <xs:element name="//颠倒inverted" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="column" >
+      <xs:sequence>
+        <xs:element name="pointpadding" type="xs:double" />
+        <xs:element name="borderwidth" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="where" >
+      <xs:sequence>
+        <xs:element name="/***字段名称*/fieldname" type="xs:string" />
+        <xs:element name="/***比较方式*/compare" type="xs:string" />
+        <xs:element name="/***字段值*/fieldvalue" type="xs:string" />
+        <xs:element name="/***and和or*/andor" type="xs:string" />
+        <xs:element name="child" type="where" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="annotate" >
+      <xs:sequence>
+        <xs:element name="//中文名称ch" type="xs:string" />
+        <xs:element name="//英文名称en" type="xs:string" />
+        <xs:element name="//首字母大写英文名称uppercaseen" type="xs:string" />
+        <xs:element name="//校验规则vtype" type="xs:string" />
+        <xs:element name="//长度len" type="xs:long" />
+        <xs:element name="//是否当做查询条件search" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="validationproperties" >
+      <xs:sequence>
+        <xs:element name="endmap" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="anno" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="validationutil" >
+      <xs:sequence>
+        <xs:element name="validationmap" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rootdomain" >
+      <xs:complexContent>
+       <xs:extension base="serializable>">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="simpledomain" >
+      <xs:complexContent>
+       <xs:extension base="serializable>">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="createdby" type="xs:long" />
+          <xs:element name="createtime" type="xs:dateTime" />
+          <xs:element name="updateby" type="xs:long" />
+          <xs:element name="updatetime" type="xs:long" />
+          <xs:element name="/***是否删除*/isdelete" type="xs:anyType" />
+          <xs:element name="version" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="orderbyer" >
+      <xs:complexContent>
+       <xs:extension base="serializable{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="queryparam" >
+      <xs:complexContent>
+       <xs:extension base="param{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="globalgenerator" >
+      <xs:sequence>
+        <xs:element name="sequence" type="globalsequence" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="keylooptimizer" >
+      <xs:sequence>
+        <xs:element name="return" type="xs:anyType" />
+        <xs:element name="incrementsize" type="xs:long" />
+        <xs:element name="log" type="xs:anyType" />
+        <xs:element name="lastsourcevalue" type="xs:anyType" />
+        <xs:element name="cachemaxvalue" type="xs:anyType" />
+        <xs:element name="value" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="customtablegenerator" >
+      <xs:sequence>
+        <xs:element name="log" type="xs:anyType" />
+        <xs:element name="config_prefer_segment_per_entity" type="xs:string" />
+        <xs:element name="table_param" type="xs:string" />
+        <xs:element name="def_table" type="xs:string" />
+        <xs:element name="value_column_param" type="xs:string" />
+        <xs:element name="def_value_column" type="xs:string" />
+        <xs:element name="segment_column_param" type="xs:string" />
+        <xs:element name="def_segment_column" type="xs:string" />
+        <xs:element name="segment_value_param" type="xs:string" />
+        <xs:element name="def_segment_value" type="xs:string" />
+        <xs:element name="segment_length_param" type="xs:string" />
+        <xs:element name="def_segment_length" type="xs:long" />
+        <xs:element name="initial_param" type="xs:string" />
+        <xs:element name="default_initial_value" type="xs:long" />
+        <xs:element name="increment_param" type="xs:string" />
+        <xs:element name="default_increment_size" type="xs:long" />
+        <xs:element name="opt_param" type="xs:string" />
+        <xs:element name="identifier" type="xs:anyType" />
+        <xs:element name="qualifiedtablename" type="xs:anyType" />
+        <xs:element name="renderedtablename" type="xs:string" />
+        <xs:element name="segmentcolumnname" type="xs:string" />
+        <xs:element name="segmentvalue" type="xs:string" />
+        <xs:element name="segmentvaluelength" type="xs:long" />
+        <xs:element name="valuecolumnname" type="xs:string" />
+        <xs:element name="initialvalue" type="xs:long" />
+        <xs:element name="incrementsize" type="xs:long" />
+        <xs:element name="selectquery" type="xs:string" />
+        <xs:element name="insertquery" type="xs:string" />
+        <xs:element name="updatequery" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="accesscount" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="globalsequence" >
+      <xs:sequence>
+        <xs:element name="log" type="xs:anyType" />
+        <xs:element name="//tablename" type="xs:string" />
+        <xs:element name="segmentcolumnname" type="xs:string" />
+        <xs:element name="segmentvalue" type="xs:string" />
+        <xs:element name="//valuecolumnname" type="xs:string" />
+        <xs:element name="initialvalue" type="xs:long" />
+        <xs:element name="incrementsize" type="xs:long" />
+        <xs:element name="accesscount" type="xs:long" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="globalsequence" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="snowflakeidworker" >
+      <xs:sequence>
+        <xs:element name="//" type="xs:long" />
+        <xs:element name="/***机器id所占的位数*/workeridbits" type="xs:long" />
+        <xs:element name="/***数据标识id所占的位数*/datacenteridbits" type="xs:long" />
+        <xs:element name="/***支持的最大机器id，结果是31(这个移位算法可以很快的计算出几位二进制数所能表示的最大十进制数)*/maxworkerid" type="xs:long" />
+        <xs:element name="/***支持的最大数据标识id，结果是31*/maxdatacenterid" type="xs:long" />
+        <xs:element name="/***序列在id中占的位数*/sequencebits" type="xs:long" />
+        <xs:element name="/***机器id向左移12位*/workeridshift" type="xs:long" />
+        <xs:element name="/***数据标识id向左移17位(12+5)*/datacenteridshift" type="xs:long" />
+        <xs:element name="/***时间截向左移22位(5+5+12)*/timestampleftshift" type="xs:long" />
+        <xs:element name="/***生成序列的掩码，这里为4095(0b111111111111" type="xs:long" />
+        <xs:element name="/***工作机器id(0~31)*/workerid" type="xs:long" />
+        <xs:element name="/***数据中心id(0~31)*/datacenterid" type="xs:long" />
+        <xs:element name="/***毫秒内序列(0~4095)*/sequence" type="xs:long" />
+        <xs:element name="/***上次生成id的时间截*/lasttimestamp" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

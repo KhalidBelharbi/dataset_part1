@@ -1,0 +1,1287 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="message" >
+      <xs:sequence>
+        <xs:element name="/***fieldnames*/id_field" type="xs:string" />
+        <xs:element name="originid_field" type="xs:string" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="/***theoriginidisanidprovidedbytheoriginatingsystemthatcreatesthemessage*/originid" type="xs:string" />
+        <xs:element name="deliverytype" type="xs:string" />
+        <xs:element name="channel" type="xs:string" />
+        <xs:element name="producer" type="xs:string" />
+        <xs:element name="creationdatetime" type="xs:anyType" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="content" type="xs:string" />
+        <xs:element name="contenttype" type="xs:string" />
+        <xs:element name="url" type="xs:string" />
+        <xs:element name="recipient" type="xs:string" />
+        <xs:element name="/***lockcolumnforojboptimisticlocking*/lockvernbr" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="messagedelivery" >
+      <xs:complexContent>
+       <xs:extension base="baselockable">
+         <xs:sequence>
+          <xs:element name="zero" type="xs:anyType" />
+          <xs:element name="/***fieldnames*/id_field" type="xs:string" />
+          <xs:element name="systemid_field" type="xs:string" />
+          <xs:element name="messageid_field" type="xs:string" />
+          <xs:element name="delivery_status" type="xs:string" />
+          <xs:element name="process_count" type="xs:string" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="deliverertypename" type="xs:string" />
+          <xs:element name="//canholdanidentifierfromtheendpointdeliverermechanismsystem(i.e.workflowid,smsid,etc)deliverersystemid" type="xs:string" />
+          <xs:element name="deliverystatus" type="xs:string" />
+          <xs:element name="processcount" type="xs:anyType" />
+          <xs:element name="/***thisdelivery's*/" type="message" nillable="true" minOccurs="0" />
+          <xs:element name="/***lockcolumnforojboptimisticlocking*/lockvernbr" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="recipientdelivererconfig" >
+      <xs:sequence>
+        <xs:element name="/***fieldnamesforqueries*/recipient_id" type="xs:string" />
+        <xs:element name="channel" type="xs:string" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="recipientid" type="xs:string" />
+        <xs:element name="deliverername" type="xs:string" />
+        <xs:element name="channel" type="xs:string" />
+        <xs:element name="/***lockcolumnforojboptimisticlocking*/lockvernbr" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="recipientpreference" >
+      <xs:sequence>
+        <xs:element name="/***fieldnamesforqueries*/recipient_field" type="xs:string" />
+        <xs:element name="property_field" type="xs:string" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="recipientid" type="xs:string" />
+        <xs:element name="property" type="xs:string" />
+        <xs:element name="value" type="xs:string" />
+        <xs:element name="/***lockcolumnforojboptimisticlocking*/lockvernbr" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="lookupresults" >
+      <xs:complexContent>
+       <xs:extension base="multiplevaluelookupmetadata">
+         <xs:sequence>
+          <xs:element name="serializedlookupresults" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="identitymanagementgroupdocument" >
+      <xs:complexContent>
+       <xs:extension base="identitymanagementtypeattributetransactionaldocument">
+         <xs:sequence>
+          <xs:element name="log" type="xs:anyType" />
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="//principaldatagroupid" type="xs:string" />
+          <xs:element name="grouptypeid" type="xs:string" />
+          <xs:element name="grouptypename" type="xs:string" />
+          <xs:element name="groupnamespace" type="xs:string" />
+          <xs:element name="groupname" type="xs:string" />
+          <xs:element name="groupdescription" type="xs:string" />
+          <xs:element name="active" type="xs:anyType" />
+          <xs:element name="editing" type="xs:anyType" />
+          <xs:element name="members" type="groupdocumentmember" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="qualifiers" type="groupdocumentqualifier" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="identitymanagementpersondocument" >
+      <xs:complexContent>
+       <xs:extension base="identitymanagementkimdocument">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="//principaldataprincipalid" type="xs:string" />
+          <xs:element name="principalname" type="xs:string" />
+          <xs:element name="entityid" type="xs:string" />
+          <xs:element name="password" type="xs:string" />
+          <xs:element name="univid" type="xs:string" />
+          <xs:element name="//affiliationdataaffiliations" type="persondocumentaffiliation" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="campuscode" type="xs:string" />
+          <xs:element name="externalidentifiers" type="xs:anyType" />
+          <xs:element name="active" type="xs:anyType" />
+          <xs:element name="//citizenshipcitizenships" type="persondocumentcitizenship" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="employmentinformationsnames" type="persondocumentname" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="addrs" type="persondocumentaddress" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="phones" type="persondocumentphone" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="emails" type="persondocumentemail" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="groups" type="persondocumentgroup" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="roles" type="persondocumentrole" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="privacy" type="persondocumentprivacy" nillable="true" minOccurs="0" />
+          <xs:element name="transient" type="xs:anyType" />
+          <xs:element name="transient" type="uidocumentservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="persondocumentcitizenship" >
+      <xs:complexContent>
+       <xs:extension base="kimdocumentboactivatableeditablebase">
+         <xs:sequence>
+          <xs:element name="entitycitizenshipid" type="xs:string" />
+          <xs:element name="entityid" type="xs:string" />
+          <xs:element name="countrycode" type="xs:string" />
+          <xs:element name="citizenshipstatuscode" type="xs:string" />
+          <xs:element name="start" type="xs:dateTime" />
+          <xs:element name="end" type="xs:dateTime" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="persondocumentemploymentinfo" >
+      <xs:complexContent>
+       <xs:extension base="kimdocumentboactivatableeditablebase">
+         <xs:sequence>
+          <xs:element name="entityemploymentid" type="xs:string" />
+          <xs:element name="entityaffiliationid" type="xs:string" />
+          <xs:element name="employmentstatuscode" type="xs:string" />
+          <xs:element name="employmenttypecode" type="xs:string" />
+          <xs:element name="primarydepartmentcode" type="xs:string" />
+          <xs:element name="basesalaryamount" type="xs:anyType" />
+          <xs:element name="employeeid" type="xs:string" />
+          <xs:element name="employmentrecordid" type="xs:string" />
+          <xs:element name="primary" type="xs:anyType" />
+          <xs:element name="employmenttype" type="xs:anyType" />
+          <xs:element name="employmentstatus" type="xs:anyType" />
+          <xs:element name="affiliation" type="persondocumentaffiliation" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="roledocumentdelegationmember" >
+      <xs:complexContent>
+       <xs:extension base="kimdocumentboactivatabletofrombase">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="delegationmemberid" type="xs:string" />
+          <xs:element name="rolememberid" type="xs:string" />
+          <xs:element name="rolemembermemberid" type="xs:string" />
+          <xs:element name="rolemembermembertypecode" type="xs:string" />
+          <xs:element name="rolemembername" type="xs:string" />
+          <xs:element name="rolemembernamespacecode" type="xs:string" />
+          <xs:element name="attributeshelper" type="kimtypeattributeshelper" nillable="true" minOccurs="0" />
+          <xs:element name="//forpersondocumentui-flatteningthedelegation-delegationmemberhierarchy" type="xs:anyType" />
+          <xs:element name="delegationid" type="xs:string" />
+          <xs:element name="memberid" type="xs:string" />
+          <xs:element name="membertypecode" type="xs:string" />
+          <xs:element name="membernamespacecode" type="xs:string" />
+          <xs:element name="membername" type="xs:string" />
+          <xs:element name="qualifiers" type="roledocumentdelegationmemberqualifier" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="delegationtypecode" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="persondocumentphone" >
+      <xs:complexContent>
+       <xs:extension base="persondocumentbodefaultbase">
+         <xs:sequence>
+          <xs:element name="entityphoneid" type="xs:string" />
+          <xs:element name="entitytypecode" type="xs:string" />
+          <xs:element name="phonetypecode" type="xs:string" />
+          <xs:element name="phonenumber" type="xs:string" />
+          <xs:element name="extensionnumber" type="xs:string" />
+          <xs:element name="countrycode" type="xs:string" />
+          <xs:element name="phonetype" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="kimdocumentroleresponsibilityaction" >
+      <xs:complexContent>
+       <xs:extension base="kimdocumentboeditablebase">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="roleresponsibilityactionid" type="xs:string" />
+          <xs:element name="roleresponsibilityid" type="xs:string" />
+          <xs:element name="rolememberid" type="xs:string" />
+          <xs:element name="actiontypecode" type="xs:string" />
+          <xs:element name="actionpolicycode" type="xs:string" />
+          <xs:element name="prioritynumber" type="xs:anyType" />
+          <xs:element name="forceaction" type="xs:anyType" />
+          <xs:element name="//temporarydefaultvalueinlieuofoptimisticlockingversionnumber" type="xs:long" />
+          <xs:element name="kimresponsibility" type="xs:anyType" />
+          <xs:element name="roleresponsibility" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="roledocumentdelegation" >
+      <xs:complexContent>
+       <xs:extension base="kimdocumentboactivatablebase">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="delegationid" type="xs:string" />
+          <xs:element name="roleid" type="xs:string" />
+          <xs:element name="kimtypeid" type="xs:string" />
+          <xs:element name="delegationtypecode" type="xs:string" />
+          <xs:element name="members" type="roledocumentdelegationmember" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="member" type="roledocumentdelegationmember" nillable="true" minOccurs="0" />
+          <xs:element name="qualifiers" type="kimdocumentrolequalifier" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="persondocumentprivacy" >
+      <xs:complexContent>
+       <xs:extension base="kimdocumentboeditablebase">
+         <xs:sequence>
+          <xs:element name="suppressname" type="xs:anyType" />
+          <xs:element name="suppressemail" type="xs:anyType" />
+          <xs:element name="suppressaddress" type="xs:anyType" />
+          <xs:element name="suppressphone" type="xs:anyType" />
+          <xs:element name="suppresspersonal" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="persondocumentrole" >
+      <xs:complexContent>
+       <xs:extension base="kimdocumentboactivatableeditablebase">
+         <xs:sequence>
+          <xs:element name="log" type="xs:anyType" />
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="roleid" type="xs:string" />
+          <xs:element name="kimtypeid" type="xs:string" />
+          <xs:element name="rolename" type="xs:string" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="namespacecode" type="xs:string" />
+          <xs:element name="kimroletype" type="xs:anyType" />
+          <xs:element name="attributes" type="xs:anyType" />
+          <xs:element name="transientdefinitions" type="xs:anyType" />
+          <xs:element name="attributeentry" type="xs:anyType" />
+          <xs:element name="roleprncpls" type="kimdocumentrolemember" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="newroleprncpl" type="kimdocumentrolemember" nillable="true" minOccurs="0" />
+          <xs:element name="//currentlymappedasmanytomanyeventhoughitistechnicallyaonetomany//thereasonforthisisitislinkedwithapartialcomposite-id,whichtechnicallycan't//guaranteeuniqueness.//})assignedresponsibilities" type="xs:anyType" />
+          <xs:element name="iseditable" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="persondocumentaddress" >
+      <xs:complexContent>
+       <xs:extension base="persondocumentbodefaultbase">
+         <xs:sequence>
+          <xs:element name="entityaddressid" type="xs:string" />
+          <xs:element name="addresstypecode" type="xs:string" />
+          <xs:element name="//@column(name" type="xs:string" />
+          <xs:element name="city" type="xs:string" />
+          <xs:element name="stateprovincecode" type="xs:string" />
+          <xs:element name="postalcode" type="xs:string" />
+          <xs:element name="countrycode" type="xs:string" />
+          <xs:element name="attentionline" type="xs:string" />
+          <xs:element name="line1" type="xs:string" />
+          <xs:element name="line2" type="xs:string" />
+          <xs:element name="line3" type="xs:string" />
+          <xs:element name="addressformat" type="xs:string" />
+          <xs:element name="modifieddate" type="xs:anyType" />
+          <xs:element name="validateddate" type="xs:anyType" />
+          <xs:element name="validated" type="xs:anyType" />
+          <xs:element name="notemessage" type="xs:string" />
+          <xs:element name="addresstype" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="kimdocumentrolemember" >
+      <xs:complexContent>
+       <xs:extension base="kimdocumentboactivatabletofromeditablebase">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="rolememberid" type="xs:string" />
+          <xs:element name="roleid" type="xs:string" />
+          <xs:element name="memberid" type="xs:string" />
+          <xs:element name="//todo:removethedefaultmembertypecode" type="xs:string" />
+          <xs:element name="membername" type="xs:string" />
+          <xs:element name="membernamespacecode" type="xs:string" />
+          <xs:element name="memberfullname" type="xs:string" />
+          <xs:element name="qualifiers" type="kimdocumentrolequalifier" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="qualifierstodisplay" type="xs:string" />
+          <xs:element name="rolerspactions" type="kimdocumentroleresponsibilityaction" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="persondocumentname" >
+      <xs:complexContent>
+       <xs:extension base="persondocumentbodefaultbase">
+         <xs:sequence>
+          <xs:element name="entitynameid" type="xs:string" />
+          <xs:element name="//@column(name" type="xs:string" />
+          <xs:element name="namecode" type="xs:string" />
+          <xs:element name="firstname" type="xs:string" />
+          <xs:element name="middlename" type="xs:string" />
+          <xs:element name="lastname" type="xs:string" />
+          <xs:element name="nameprefix" type="xs:string" />
+          <xs:element name="nametitle" type="xs:string" />
+          <xs:element name="namesuffix" type="xs:string" />
+          <xs:element name="notemessage" type="xs:string" />
+          <xs:element name="namechangeddate" type="xs:anyType" />
+          <xs:element name="entitynametype" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="kimdocumentrolepermission" >
+      <xs:complexContent>
+       <xs:extension base="kimdocumentboactivatablebase">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="rolepermissionid" type="xs:string" />
+          <xs:element name="roleid" type="xs:string" />
+          <xs:element name="permissionid" type="xs:string" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="namespacecode" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="groupdocumentqualifier" >
+      <xs:complexContent>
+       <xs:extension base="kimdocumentattributedatabusinessobjectbase">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="groupid" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="persondocumentgroup" >
+      <xs:complexContent>
+       <xs:extension base="kimdocumentboactivatabletofromeditablebase">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="groupmemberid" type="xs:string" />
+          <xs:element name="grouptype" type="xs:string" />
+          <xs:element name="groupid" type="xs:string" />
+          <xs:element name="groupname" type="xs:string" />
+          <xs:element name="namespacecode" type="xs:string" />
+          <xs:element name="principalid" type="xs:string" />
+          <xs:element name="transientkimgrouptype" type="xs:anyType" />
+          <xs:element name="kimtypeid" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="persondocumentemail" >
+      <xs:complexContent>
+       <xs:extension base="persondocumentbodefaultbase{">
+         <xs:sequence>
+          <xs:element name="entityemailid" type="xs:string" />
+          <xs:element name="entitytypecode" type="xs:string" />
+          <xs:element name="emailtypecode" type="xs:string" />
+          <xs:element name="emailaddress" type="xs:string" />
+          <xs:element name="emailtype" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="groupdocumentmember" >
+      <xs:complexContent>
+       <xs:extension base="kimdocumentboactivetofrombase">
+         <xs:sequence>
+          <xs:element name="groupmemberid" type="xs:string" />
+          <xs:element name="groupid" type="xs:string" />
+          <xs:element name="memberid" type="xs:string" />
+          <xs:element name="membername" type="xs:string" />
+          <xs:element name="membernamespacecode" type="xs:string" />
+          <xs:element name="edit" type="xs:anyType" />
+          <xs:element name="memberfullname" type="xs:string" />
+          <xs:element name="//todo:removethedefaultmembertypecode" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="persondocumentaffiliation" >
+      <xs:complexContent>
+       <xs:extension base="persondocumentbodefaultbase">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="entityaffiliationid" type="xs:string" />
+          <xs:element name="affiliationtypecode" type="xs:string" />
+          <xs:element name="campuscode" type="xs:string" />
+          <xs:element name="affiliationtype" type="xs:anyType" />
+          <xs:element name="newempinfo" type="persondocumentemploymentinfo" nillable="true" minOccurs="0" />
+          <xs:element name="empinfos" type="persondocumentemploymentinfo" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="kimdocumentroleresponsibility" >
+      <xs:complexContent>
+       <xs:extension base="kimdocumentboactivatablebase">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="roleresponsibilityid" type="xs:string" />
+          <xs:element name="roleid" type="xs:string" />
+          <xs:element name="responsibilityid" type="xs:string" />
+          <xs:element name="//temporarydefaultvalueinlieuofoptimisticlockingversionnumber" type="xs:long" />
+          <xs:element name="kimresponsibility" type="xs:anyType" />
+          <xs:element name="rolerspactions" type="kimdocumentroleresponsibilityaction" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="namespacecode" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="roledocumentdelegationmemberqualifier" >
+      <xs:complexContent>
+       <xs:extension base="kimdocumentattributedatabusinessobjectbase">
+         <xs:sequence>
+          <xs:element name="delegationmemberid" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="kimdocumentrolequalifier" >
+      <xs:complexContent>
+       <xs:extension base="kimdocumentattributedatabusinessobjectbase{">
+         <xs:sequence>
+          <xs:element name="rolememberid" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ruleresponsibilitybo" >
+      <xs:complexContent>
+       <xs:extension base="persistablebusinessobjectbase">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:string" />
+          <xs:element name="responsibilityid" type="xs:string" />
+          <xs:element name="rulebasevaluesid" type="xs:string" />
+          <xs:element name="actionrequestedcd" type="xs:string" />
+          <xs:element name="ruleresponsibilityname" type="xs:string" />
+          <xs:element name="ruleresponsibilitytype" type="xs:string" />
+          <xs:element name="priority" type="xs:anyType" />
+          <xs:element name="approvepolicy" type="xs:string" />
+          <xs:element name="" type="rulebasevalues" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ruletemplateattributebo" >
+      <xs:complexContent>
+       <xs:extension base="persistablebusinessobjectbase">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:string" />
+          <xs:element name="ruletemplateid" type="xs:string" />
+          <xs:element name="ruleattributeid" type="xs:string" />
+          <xs:element name="required" type="xs:anyType" />
+          <xs:element name="active" type="xs:anyType" />
+          <xs:element name="displayorder" type="xs:anyType" />
+          <xs:element name="defaultvalue" type="xs:string" />
+          <xs:element name="ruletemplate" type="ruletemplatebo" nillable="true" minOccurs="0" />
+          <xs:element name="" type="ruleattribute" nillable="true" minOccurs="0" />
+          <xs:element name="ruleextensions" type="ruleextensionbo" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ruletemplatebo" >
+      <xs:complexContent>
+       <xs:extension base="persistablebusinessobjectbase">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="default_option_keys" type="xs:string" />
+          <xs:element name="id" type="xs:string" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="delegationtemplateid" type="xs:string" />
+          <xs:element name="delegationtemplate" type="ruletemplatebo" nillable="true" minOccurs="0" />
+          <xs:element name="ruletemplateattributes" type="ruletemplateattributebo" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="ruletemplateoptions" type="ruletemplateoptionbo" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="//requiredtobelookupablereturnurl" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ruleattribute" >
+      <xs:complexContent>
+       <xs:extension base="persistablebusinessobjectbase">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:string" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="label" type="xs:string" />
+          <xs:element name="type" type="xs:string" />
+          <xs:element name="resourcedescriptor" type="xs:string" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="xmlconfigdata" type="xs:string" />
+          <xs:element name="applicationid" type="xs:string" />
+          <xs:element name="ruletemplateattributes" type="xs:anyType" />
+          <xs:element name="validvalues" type="xs:anyType" />
+          <xs:element name="//requiredtobelookupablereturnurl" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ruleexpressiondef" >
+      <xs:complexContent>
+       <xs:extension base="persistablebusinessobjectbase">
+         <xs:sequence>
+          <xs:element name="/***primarykey*/id" type="xs:string" />
+          <xs:element name="/***thetypeoftheexpression*/type" type="xs:string" />
+          <xs:element name="/***thecontentoftheexpression*/expression" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ruletemplateoptionbo" >
+      <xs:complexContent>
+       <xs:extension base="businessobjectbase">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:string" />
+          <xs:element name="ruletemplateid" type="xs:string" />
+          <xs:element name="code" type="xs:string" />
+          <xs:element name="value" type="xs:string" />
+          <xs:element name="versionnumber" type="xs:long" />
+          <xs:element name="ruletemplate" type="ruletemplatebo" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ruleextensionbo" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="ruleextensionid" type="xs:string" />
+        <xs:element name="ruletemplateattributeid" type="xs:string" />
+        <xs:element name="rulebasevaluesid" type="xs:string" />
+        <xs:element name="versionnumber" type="xs:long" />
+        <xs:element name="GeneratedName" type="rulebasevalues" nillable="true" minOccurs="0" />
+        <xs:element name="ruletemplateattribute" type="ruletemplateattributebo" nillable="true" minOccurs="0" />
+        <xs:element name="extensionvalues" type="ruleextensionvalue" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ruleextensionvalue" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="ruleextensionvalueid" type="xs:string" />
+        <xs:element name="ruleextensionid" type="xs:string" />
+        <xs:element name="value" type="xs:string" />
+        <xs:element name="key" type="xs:string" />
+        <xs:element name="lockvernbr" type="xs:anyType" />
+        <xs:element name="extension" type="ruleextensionbo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rulebasevalues" >
+      <xs:complexContent>
+       <xs:extension base="persistablebusinessobjectbase">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:string" />
+          <xs:element name="/***uniquerulename*/name" type="xs:string" />
+          <xs:element name="ruletemplateid" type="xs:string" />
+          <xs:element name="previousruleid" type="xs:string" />
+          <xs:element name="active" type="xs:anyType" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="doctypename" type="xs:string" />
+          <xs:element name="documentid" type="xs:string" />
+          <xs:element name="fromdatevalue" type="xs:anyType" />
+          <xs:element name="todatevalue" type="xs:anyType" />
+          <xs:element name="deactivationdate" type="xs:anyType" />
+          <xs:element name="currentind" type="xs:anyType" />
+          <xs:element name="versionnbr" type="xs:anyType" />
+          <xs:element name="forceaction" type="xs:anyType" />
+          <xs:element name="ruleresponsibilities" type="ruleresponsibilitybo" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="ruleextensions" type="ruleextensionbo" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="ruletemplate" type="ruletemplatebo" nillable="true" minOccurs="0" />
+          <xs:element name="" type="ruleexpressiondef" nillable="true" minOccurs="0" />
+          <xs:element name="previousversion" type="rulebasevalues" nillable="true" minOccurs="0" />
+          <xs:element name="activationdate" type="xs:anyType" />
+          <xs:element name="delegaterule" type="xs:anyType" />
+          <xs:element name="/***indicatorthatsignifiesthatthisruleisadefaults/templaterulewhichcontains*template-definedruledefaultsforotherruleswhichusetheassociatedtemplate*/templateruleind" type="xs:anyType" />
+          <xs:element name="//requiredtobelookupablereturnurl" type="xs:string" />
+          <xs:element name="destinationurl" type="xs:string" />
+          <xs:element name="" type="mycolumns" nillable="true" minOccurs="0" />
+          <xs:element name="personresponsibilities" type="personruleresponsibility" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="groupresponsibilities" type="groupruleresponsibility" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="roleresponsibilities" type="roleruleresponsibility" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="fieldvalues" type="xs:anyType" />
+          <xs:element name="groupreviewername" type="xs:string" />
+          <xs:element name="groupreviewernamespace" type="xs:string" />
+          <xs:element name="personreviewer" type="xs:string" />
+          <xs:element name="personreviewertype" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ruledelegationbo" >
+      <xs:complexContent>
+       <xs:extension base="persistablebusinessobjectbase">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="ruledelegationid" type="xs:string" />
+          <xs:element name="responsibilityid" type="xs:string" />
+          <xs:element name="delegateruleid" type="xs:string" />
+          <xs:element name="delegationtypecode" type="xs:string" />
+          <xs:element name="delegationrule" type="rulebasevalues" nillable="true" minOccurs="0" />
+          <xs:element name="//@manytoone(fetch" type="xs:string" />
+          <xs:element name="groupreviewernamespace" type="xs:string" />
+          <xs:element name="personreviewer" type="xs:string" />
+          <xs:element name="personreviewertype" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="note" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="noteid" type="xs:string" />
+        <xs:element name="documentid" type="xs:string" />
+        <xs:element name="noteauthorworkflowid" type="xs:string" />
+        <xs:element name="notecreatedate" type="xs:anyType" />
+        <xs:element name="notetext" type="xs:string" />
+        <xs:element name="lockvernbr" type="xs:anyType" />
+        <xs:element name="attachments" type="attachment" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="//additionaldatanotindatabasenoteauthoremailaddress" type="xs:string" />
+        <xs:element name="noteauthornetworkid" type="xs:string" />
+        <xs:element name="noteauthorfullname" type="xs:string" />
+        <xs:element name="notecreatedate" type="xs:long" />
+        <xs:element name="authorizedtoedit" type="xs:anyType" />
+        <xs:element name="editingnote" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="attachment" >
+      <xs:sequence>
+        <xs:element name="attachmentid" type="xs:string" />
+        <xs:element name="noteid" type="xs:string" />
+        <xs:element name="filename" type="xs:string" />
+        <xs:element name="fileloc" type="xs:string" />
+        <xs:element name="mimetype" type="xs:string" />
+        <xs:element name="lockvernbr" type="xs:anyType" />
+        <xs:element name="attachedobject" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="note" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="actionrequestvalue" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="log" type="xs:anyType" />
+        <xs:element name="//bisahackforallowingblanketapprovestocountforapproveandcompleterequestsinfindpreviousactioninactiontakenservicethisisahackandaccountsforthe-3oncompareactioncodeaction_code_rank" type="xs:string" />
+        <xs:element name="recipient_type_rank" type="xs:string" />
+        <xs:element name="delegation_type_rank" type="xs:anyType" />
+        <xs:element name="actionrequestid" type="xs:string" />
+        <xs:element name="actionrequested" type="xs:string" />
+        <xs:element name="documentid" type="xs:string" />
+        <xs:element name="status" type="xs:string" />
+        <xs:element name="responsibilityid" type="xs:string" />
+        <xs:element name="groupid" type="xs:string" />
+        <xs:element name="recipienttypecd" type="xs:string" />
+        <xs:element name="priority" type="xs:anyType" />
+        <xs:element name="routelevel" type="xs:anyType" />
+        <xs:element name="actiontakenid" type="xs:string" />
+        <xs:element name="docversion" type="xs:anyType" />
+        <xs:element name="createdate" type="xs:anyType" />
+        <xs:element name="responsibilitydesc" type="xs:string" />
+        <xs:element name="annotation" type="xs:string" />
+        <xs:element name="jrfvernbr" type="xs:anyType" />
+        <xs:element name="principalid" type="xs:string" />
+        <xs:element name="forceaction" type="xs:anyType" />
+        <xs:element name="parentactionrequestid" type="xs:string" />
+        <xs:element name="qualifiedrolename" type="xs:string" />
+        <xs:element name="rolename" type="xs:string" />
+        <xs:element name="qualifiedrolenamelabel" type="xs:string" />
+        <xs:element name="displaystatus" type="xs:string" />
+        <xs:element name="rulebasevaluesid" type="xs:string" />
+        <xs:element name="delegationtypecode" type="xs:string" />
+        <xs:element name="approvepolicy" type="xs:string" />
+        <xs:element name="parentactionrequest" type="actionrequestvalue" nillable="true" minOccurs="0" />
+        <xs:element name="childrenrequests" type="actionrequestvalue" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="actiontaken" type="actiontakenvalue" nillable="true" minOccurs="0" />
+        <xs:element name="//@onetomany(fetch" type="xs:anyType" />
+        <xs:element name="createdate" type="xs:string" />
+        <xs:element name="/*newworkflow2.1field*///thenodeinstanceatwhichthisrequestwasgeneratednodeinstance" type="routenodeinstance" nillable="true" minOccurs="0" />
+        <xs:element name="requestlabel" type="xs:string" />
+        <xs:element name="resolveresponsibility" type="xs:anyType" />
+        <xs:element name="routeheader" type="documentrouteheadervalue" nillable="true" minOccurs="0" />
+        <xs:element name="simulatedactionitems" type="actionitem" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="searchableattributestringvalue" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="attribute_database_table_name" type="xs:string" />
+        <xs:element name="default_wildcard_allowance_policy" type="xs:anyType" />
+        <xs:element name="allows_range_search" type="xs:anyType" />
+        <xs:element name="allows_case_insensitive_search" type="xs:anyType" />
+        <xs:element name="attribute_xml_representation" type="xs:string" />
+        <xs:element name="//shouldmatchtablecreationstring_max_length" type="xs:long" />
+        <xs:element name="searchableattributevalueid" type="xs:string" />
+        <xs:element name="searchableattributekey" type="xs:string" />
+        <xs:element name="searchableattributevalue" type="xs:string" />
+        <xs:element name="//attributeneededforojbpolymorphism-donotalter!ojbconcreteclass" type="xs:string" />
+        <xs:element name="documentid" type="xs:string" />
+        <xs:element name="routeheader" type="documentrouteheadervalue" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="searchableattributelongvalue" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="attribute_database_table_name" type="xs:string" />
+        <xs:element name="default_wildcard_allowance_policy" type="xs:anyType" />
+        <xs:element name="allows_range_search" type="xs:anyType" />
+        <xs:element name="allows_case_insensitive_search" type="xs:anyType" />
+        <xs:element name="default_validation_regex_expression" type="xs:string" />
+        <xs:element name="attribute_xml_representation" type="xs:string" />
+        <xs:element name="default_format_pattern" type="xs:string" />
+        <xs:element name="searchableattributevalueid" type="xs:string" />
+        <xs:element name="searchableattributekey" type="xs:string" />
+        <xs:element name="searchableattributevalue" type="xs:long" />
+        <xs:element name="//attributeneededforojbpolymorphism-donotalter!ojbconcreteclass" type="xs:string" />
+        <xs:element name="documentid" type="xs:string" />
+        <xs:element name="routeheader" type="documentrouteheadervalue" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="searchableattributedatetimevalue" >
+      <xs:sequence>
+        <xs:element name="log" type="xs:anyType" />
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="attribute_database_table_name" type="xs:string" />
+        <xs:element name="default_wildcard_allowance_policy" type="xs:anyType" />
+        <xs:element name="allows_range_search" type="xs:anyType" />
+        <xs:element name="allows_case_insensitive_search" type="xs:anyType" />
+        <xs:element name="attribute_xml_representation" type="xs:string" />
+        <xs:element name="searchableattributevalueid" type="xs:string" />
+        <xs:element name="searchableattributekey" type="xs:string" />
+        <xs:element name="searchableattributevalue" type="xs:anyType" />
+        <xs:element name="//attributeneededforojbpolymorphism-donotalter!ojbconcreteclass" type="xs:string" />
+        <xs:element name="documentid" type="xs:string" />
+        <xs:element name="routeheader" type="documentrouteheadervalue" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="searchableattributefloatvalue" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="attribute_database_table_name" type="xs:string" />
+        <xs:element name="default_wildcard_allowance_policy" type="xs:anyType" />
+        <xs:element name="allows_range_search" type="xs:anyType" />
+        <xs:element name="allows_case_insensitive_search" type="xs:anyType" />
+        <xs:element name="default_validation_regex_expression" type="xs:string" />
+        <xs:element name="attribute_xml_representation" type="xs:string" />
+        <xs:element name="default_format_pattern" type="xs:string" />
+        <xs:element name="searchableattributevalueid" type="xs:string" />
+        <xs:element name="searchableattributekey" type="xs:string" />
+        <xs:element name="searchableattributevalue" type="xs:anyType" />
+        <xs:element name="//attributeneededforojbpolymorphism-donotalter!ojbconcreteclass" type="xs:string" />
+        <xs:element name="documentid" type="xs:string" />
+        <xs:element name="routeheader" type="documentrouteheadervalue" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="actiontakenvalue" >
+      <xs:sequence>
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="actiontakenid" type="xs:string" />
+        <xs:element name="documentid" type="xs:string" />
+        <xs:element name="actiontaken" type="xs:string" />
+        <xs:element name="actiondate" type="xs:anyType" />
+        <xs:element name="annotation" type="xs:string" />
+        <xs:element name="docversion" type="xs:anyType" />
+        <xs:element name="lockvernbr" type="xs:anyType" />
+        <xs:element name="principalid" type="xs:string" />
+        <xs:element name="delegatorprincipalid" type="xs:string" />
+        <xs:element name="delegatorgroupid" type="xs:string" />
+        <xs:element name="//@manytoone(fetch" type="actionrequestvalue" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="currentindicator" type="xs:anyType" />
+        <xs:element name="actiondate" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="documentlink" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="doclinkid" type="xs:string" />
+        <xs:element name="orgndocid" type="xs:string" />
+        <xs:element name="destdocid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="actionitem" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="principalid" type="xs:string" />
+        <xs:element name="dateassigned" type="xs:anyType" />
+        <xs:element name="actionrequestcd" type="xs:string" />
+        <xs:element name="actionrequestid" type="xs:string" />
+        <xs:element name="documentid" type="xs:string" />
+        <xs:element name="groupid" type="xs:string" />
+        <xs:element name="doctitle" type="xs:string" />
+        <xs:element name="doclabel" type="xs:string" />
+        <xs:element name="dochandlerurl" type="xs:string" />
+        <xs:element name="docname" type="xs:string" />
+        <xs:element name="responsibilityid" type="xs:string" />
+        <xs:element name="rolename" type="xs:string" />
+        <xs:element name="delegatorprincipalid" type="xs:string" />
+        <xs:element name="delegatorgroupid" type="xs:string" />
+        <xs:element name="delegationtype" type="xs:string" />
+        <xs:element name="requestlabel" type="xs:string" />
+        <xs:element name="//usedbydocumentoperationsscreendateassignedvalue" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="outboxitemactionlistextension" >
+      <xs:complexContent>
+       <xs:extension base="actionitemactionlistextension">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="documentrouteheadervalue" >
+      <xs:complexContent>
+       <xs:extension base="persistablebusinessobjectbase">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="log" type="xs:anyType" />
+          <xs:element name="current_route_node_name_delimiter" type="xs:string" />
+          <xs:element name="documenttypeid" type="xs:string" />
+          <xs:element name="docroutestatus" type="xs:anyType" />
+          <xs:element name="docroutelevel" type="xs:anyType" />
+          <xs:element name="datemodified" type="xs:anyType" />
+          <xs:element name="createdate" type="xs:anyType" />
+          <xs:element name="approveddate" type="xs:anyType" />
+          <xs:element name="izeddate" type="xs:anyType" />
+          <xs:element name="documentcontent" type="documentrouteheadervaluecontent" nillable="true" minOccurs="0" />
+          <xs:element name="doctitle" type="xs:anyType" />
+          <xs:element name="appdocid" type="xs:anyType" />
+          <xs:element name="docversion" type="xs:anyType" />
+          <xs:element name="initiatorworkflowid" type="xs:anyType" />
+          <xs:element name="routedbyuserworkflowid" type="xs:anyType" />
+          <xs:element name="routestatusdate" type="xs:anyType" />
+          <xs:element name="appdocstatus" type="xs:anyType" />
+          <xs:element name="appdocstatusdate" type="xs:anyType" />
+          <xs:element name="documentid" type="xs:anyType" />
+          <xs:element name="//@onetomany(fetch" type="documentstatustransition" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="notes" type="note" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="searchableattributevalues" type="searchableattributevalue" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="queueitems" type="xs:anyType" />
+          <xs:element name="routingreport" type="xs:anyType" />
+          <xs:element name="simulatedactionrequests" type="actionrequestvalue" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="_state" type="xs:anyType" />
+          <xs:element name="legalactions" type="xs:anyType" />
+          <xs:element name="statetransitionmap" type="xs:anyType" />
+          <xs:element name="/*newworkflow2.1field*/initialroutenodeinstances" type="routenodeinstance" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="//anemptylistoftargetdocumentstatusesorlegalactionsterminal" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="documentrouteheadervalueactionlistextension" >
+      <xs:complexContent>
+       <xs:extension base="documentrouteheadervalue">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="initiatorname" type="xs:string" />
+          <xs:element name="isinitiatornameinitialized" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="documentstatustransition" >
+      <xs:complexContent>
+       <xs:extension base="persistablebusinessobjectbase">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="statustransitionid" type="xs:string" />
+          <xs:element name="documentid" type="xs:string" />
+          <xs:element name="oldappdocstatus" type="xs:string" />
+          <xs:element name="newappdocstatus" type="xs:string" />
+          <xs:element name="statustransitiondate" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="documentrouteheadervaluecontent" >
+      <xs:sequence>
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="documentid" type="xs:string" />
+        <xs:element name="documentcontent" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="documenttypeattributebo" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="ruleattributeid" type="xs:string" />
+        <xs:element name="GeneratedName" type="ruleattribute" nillable="true" minOccurs="0" />
+        <xs:element name="documenttypeid" type="xs:string" />
+        <xs:element name="GeneratedName" type="documenttype" nillable="true" minOccurs="0" />
+        <xs:element name="orderindex" type="xs:long" />
+        <xs:element name="lockvernbr" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="documenttypepolicy" >
+      <xs:complexContent>
+       <xs:extension base="persistablebusinessobjectbase">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="" type="documenttypepolicyid" nillable="true" minOccurs="0" />
+          <xs:element name="policyvalue" type="xs:anyType" />
+          <xs:element name="policyvalue" type="xs:string" />
+          <xs:element name="inheritedflag" type="xs:anyType" />
+          <xs:element name="" type="documenttype" nillable="true" minOccurs="0" />
+          <xs:element name="documenttypeid" type="xs:string" />
+          <xs:element name="policyname" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="applicationdocumentstatuscategory" >
+      <xs:complexContent>
+       <xs:extension base="persistablebusinessobjectbase">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="" type="applicationdocumentstatuscategoryid" nillable="true" minOccurs="0" />
+          <xs:element name="" type="documenttype" nillable="true" minOccurs="0" />
+          <xs:element name="documenttypeid" type="xs:string" />
+          <xs:element name="categoryname" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="applicationdocumentstatus" >
+      <xs:complexContent>
+       <xs:extension base="persistablebusinessobjectbase">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="" type="applicationdocumentstatusid" nillable="true" minOccurs="0" />
+          <xs:element name="//todo:jpamaporderingfieldsequencenumber" type="xs:anyType" />
+          <xs:element name="" type="documenttype" nillable="true" minOccurs="0" />
+          <xs:element name="documenttypeid" type="xs:string" />
+          <xs:element name="statusname" type="xs:string" />
+          <xs:element name="//todo:jpamapcategoryname" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="documenttype" >
+      <xs:complexContent>
+       <xs:extension base="persistablebusinessobjectbase">
+         <xs:sequence>
+          <xs:element name="log" type="xs:anyType" />
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="documenttypeid" type="xs:string" />
+          <xs:element name="doctypeparentid" type="xs:string" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="version" type="xs:anyType" />
+          <xs:element name="active" type="xs:anyType" />
+          <xs:element name="currentind" type="xs:anyType" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="label" type="xs:string" />
+          <xs:element name="previousversionid" type="xs:string" />
+          <xs:element name="/***theidofthedocumentwhichcausedthelastmodificationofthisdocumenttype.*nullifthisdoctypewasnevermodifiedviaadocumentrouting(ui).*/documentid" type="xs:string" />
+          <xs:element name="unresolvedhelpdefinitionurl" type="xs:string" />
+          <xs:element name="unresolveddocsearchhelpurl" type="xs:string" />
+          <xs:element name="unresolveddochandlerurl" type="xs:string" />
+          <xs:element name="postprocessorname" type="xs:string" />
+          <xs:element name="//longsuperuserworkgroupidworkgroupid" type="xs:string" />
+          <xs:element name="blanketapproveworkgroupid" type="xs:string" />
+          <xs:element name="blanketapprovepolicy" type="xs:string" />
+          <xs:element name="reportingworkgroupid" type="xs:string" />
+          <xs:element name="actualapplicationid" type="xs:string" />
+          <xs:element name="/***@since2.1.3*/authorizer" type="xs:string" />
+          <xs:element name="/*thesetwofieldsareforthewebtierlookupable*documenttypeisdoingdouble-dutyasaweb/businesstierobject*/returnurl" type="xs:string" />
+          <xs:element name="actionsurl" type="xs:string" />
+          <xs:element name="applyretroactively" type="xs:anyType" />
+          <xs:element name="/*thedefaultexceptionworktoapplytonodesthatlackanexceptionworkdefinition.*usedatparse-timeonlynotstoredindb.*/defaultexceptionwork" type="group" nillable="true" minOccurs="0" />
+          <xs:element name="documenttypepolicies" type="documenttypepolicy" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="/*thispropertycontainsthelistofvalidapplicationdocumentstatusvalues,*ifdefined,forthedocumenttype.ifthesestatusvaluesaredefined,onlythese*valuesmaybeassignedasthestatus.ifnotvalidvaluesaredefined,thestatusmay*besettoanyvaluebytheclient.*/validapplicationstatuses" type="applicationdocumentstatus" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="//todo:mapthisforjpaapplicationstatuscategories" type="applicationdocumentstatuscategory" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="routelevels" type="xs:anyType" />
+          <xs:element name="childrendoctypes" type="xs:anyType" />
+          <xs:element name="documenttypeattributes" type="documenttypeattributebo" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="/*newworkflow2.1field*/processes" type="processdefinitionbo" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="routingversion" type="xs:string" />
+          <xs:element name="/*workflow2.2fields*/actualnotificationfromaddress" type="xs:string" />
+          <xs:element name="documenttypesecurityxml" type="xs:string" />
+          <xs:element name="" type="documenttypesecurity" nillable="true" minOccurs="0" />
+          <xs:element name="/*workflow2.4xslt-basedemailmessagecustomization*/customemailstylesheet" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="useroptions" >
+      <xs:sequence>
+        <xs:element name="workflowid" type="xs:string" />
+        <xs:element name="optionid" type="xs:string" />
+        <xs:element name="optionval" type="xs:string" />
+        <xs:element name="lockvernbr" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="branchprototype" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="branchid" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="lockvernbr" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="branch" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="branchid" type="xs:string" />
+        <xs:element name="parent" type="branch" nillable="true" minOccurs="0" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="branchstate" type="branchstate" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="//apachelazylistcommentedoutduetonotbeingserializable//listbranchstate" type="routenodeinstance" nillable="true" minOccurs="0" />
+        <xs:element name="splitnode" type="routenodeinstance" nillable="true" minOccurs="0" />
+        <xs:element name="joinnode" type="routenodeinstance" nillable="true" minOccurs="0" />
+        <xs:element name="lockvernbr" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="routenodeconfigparam" >
+      <xs:complexContent>
+       <xs:extension base="persistablebusinessobjectbase">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="/***primarykey*///@sequencegenerator(name" type="xs:string" />
+          <xs:element name="key" type="xs:string" />
+          <xs:element name="value" type="xs:string" />
+          <xs:element name="/***foreignkeytotable*/" type="routenode" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="processdefinitionbo" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="processid" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="GeneratedName" type="documenttype" nillable="true" minOccurs="0" />
+        <xs:element name="initial" type="routenode" nillable="true" minOccurs="0" />
+        <xs:element name="initial" type="xs:anyType" />
+        <xs:element name="lockvernbr" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="branchstate" >
+      <xs:complexContent>
+       <xs:extension base="state">
+         <xs:sequence>
+          <xs:element name="/***prefixunderwhich"variables"arestoredinthebranchstatetable,todistinguish*themfromnon-variablekey/valuepairs.*/variable_prefix" type="xs:string" />
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="" type="branch" nillable="true" minOccurs="0" />
+          <xs:element name="lockvernbr" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="routenode" >
+      <xs:complexContent>
+       <xs:extension base="routenodeconfigurationparametercontract>">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="content_fragment_cfg_key" type="xs:string" />
+          <xs:element name="rule_selector_cfg_key" type="xs:string" />
+          <xs:element name="routenodeid" type="xs:string" />
+          <xs:element name="documenttypeid" type="xs:string" />
+          <xs:element name="routenodename" type="xs:string" />
+          <xs:element name="routemethodname" type="xs:string" />
+          <xs:element name="approvalind" type="xs:anyType" />
+          <xs:element name="mandatoryrouteind" type="xs:anyType" />
+          <xs:element name="exceptionworkgroupid" type="xs:string" />
+          <xs:element name="routemethodcode" type="xs:string" />
+          <xs:element name="activationtype" type="xs:string" />
+          <xs:element name="/***thenextdocstatuspropertyrepresentsthevalueoftheapplicationdocumentstatustobeset*intherouteheaderupontransitioningfromthisnode.*/nextdocstatus" type="xs:string" />
+          <xs:element name="lockvernbr" type="xs:anyType" />
+          <xs:element name="" type="documenttype" nillable="true" minOccurs="0" />
+          <xs:element name="exceptionworkgroupname" type="xs:string" />
+          <xs:element name="ruletemplate" type="ruletemplatebo" nillable="true" minOccurs="0" />
+          <xs:element name="nodetype" type="xs:string" />
+          <xs:element name="//@manytomany(fetch" type="routenode" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="//@manytomany(fetch" type="routenode" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="branch" type="branchprototype" nillable="true" minOccurs="0" />
+          <xs:element name="configparams" type="routenodeconfigparam" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="routenodeinstance" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="routenodeinstanceid" type="xs:string" />
+        <xs:element name="documentid" type="xs:string" />
+        <xs:element name="GeneratedName" type="branch" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="routenode" nillable="true" minOccurs="0" />
+        <xs:element name="active" type="xs:anyType" />
+        <xs:element name="complete" type="xs:anyType" />
+        <xs:element name="initial" type="xs:anyType" />
+        <xs:element name="process" type="routenodeinstance" nillable="true" minOccurs="0" />
+        <xs:element name="nextnodeinstances" type="routenodeinstance" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="//@jointable(name" type="routenodeinstance" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="state" type="nodestate" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="lockvernbr" type="xs:anyType" />
+        <xs:element name="initialdocumentrouteheadervalues" type="documentrouteheadervalue" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="nodestate" >
+      <xs:complexContent>
+       <xs:extension base="state">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="nodeinstance" type="routenodeinstance" nillable="true" minOccurs="0" />
+          <xs:element name="lockvernbr" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userchannelsubscriptionbo" >
+      <xs:complexContent>
+       <xs:extension base="persistablebusinessobjectbase">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="userid" type="xs:string" />
+          <xs:element name="channel" type="notificationchannelbo" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="notificationprioritybo" >
+      <xs:complexContent>
+       <xs:extension base="persistablebusinessobjectbase">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="order" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="notificationsenderbo" >
+      <xs:complexContent>
+       <xs:extension base="persistablebusinessobjectbase">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="notificationid" type="xs:long" />
+          <xs:element name="sendername" type="xs:string" />
+          <xs:element name="//addedforjpauni-directionalone-to-many(notyetsupportedbyjpa)notification" type="notificationbo" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="notificationrecipientlistbo" >
+      <xs:complexContent>
+       <xs:extension base="persistablebusinessobjectbase">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="recipienttype" type="xs:string" />
+          <xs:element name="recipientid" type="xs:string" />
+          <xs:element name="channel" type="notificationchannelbo" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="notificationchannelbo" >
+      <xs:complexContent>
+       <xs:extension base="persistablebusinessobjectbase">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="subscribable" type="xs:anyType" />
+          <xs:element name="//listreferencesrecipientlists" type="notificationrecipientlistbo" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="producers" type="notificationproducerbo" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="reviewers" type="notificationchannelreviewerbo" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="subscriptions" type="userchannelsubscriptionbo" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="notificationcontenttypebo" >
+      <xs:complexContent>
+       <xs:extension base="persistablebusinessobjectbase">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="current" type="xs:anyType" />
+          <xs:element name="version" type="xs:anyType" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="namespace" type="xs:string" />
+          <xs:element name="xsd" type="xs:string" />
+          <xs:element name="xsl" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="notificationchannelreviewerbo" >
+      <xs:complexContent>
+       <xs:extension base="persistablebusinessobjectbase">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="channel" type="notificationchannelbo" nillable="true" minOccurs="0" />
+          <xs:element name="reviewertype" type="xs:string" />
+          <xs:element name="reviewerid" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="notificationmessagedelivery" >
+      <xs:complexContent>
+       <xs:extension base="persistablebusinessobjectbase">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="messagedeliverystatus" type="xs:string" />
+          <xs:element name="userrecipientid" type="xs:string" />
+          <xs:element name="//canholdanidentifierfromtheendpointdeliverymechanismsystem(i.e.workflowid,smsid,etc)deliverysystemid" type="xs:string" />
+          <xs:element name="lockeddatevalue" type="xs:anyType" />
+          <xs:element name="/***lockcolumnforojboptimisticlocking*///@version//@column(name" type="notificationbo" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="notificationrecipientbo" >
+      <xs:complexContent>
+       <xs:extension base="persistablebusinessobjectbase">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="notificationid" type="xs:long" />
+          <xs:element name="recipienttype" type="xs:string" />
+          <xs:element name="recipientid" type="xs:string" />
+          <xs:element name="//addedforjpauni-directionalone-to-many(notyetsupportedbyjpa)notification" type="notificationbo" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="notificationproducerbo" >
+      <xs:complexContent>
+       <xs:extension base="persistablebusinessobjectbase">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="contactinfo" type="xs:string" />
+          <xs:element name="//listreferenceschannels" type="notificationchannelbo" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="notificationbo" >
+      <xs:complexContent>
+       <xs:extension base="persistablebusinessobjectbase">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="deliverytype" type="xs:string" />
+          <xs:element name="creationdatetimevalue" type="xs:anyType" />
+          <xs:element name="senddatetimevalue" type="xs:anyType" />
+          <xs:element name="autoremovedatetimevalue" type="xs:anyType" />
+          <xs:element name="title" type="xs:string" />
+          <xs:element name="content" type="xs:string" />
+          <xs:element name="processingflag" type="xs:string" />
+          <xs:element name="lockeddatevalue" type="xs:anyType" />
+          <xs:element name="/***lockcolumnforojboptimisticlocking*///@version//@column(name" type="notificationprioritybo" nillable="true" minOccurs="0" />
+          <xs:element name="contenttype" type="notificationcontenttypebo" nillable="true" minOccurs="0" />
+          <xs:element name="channel" type="notificationchannelbo" nillable="true" minOccurs="0" />
+          <xs:element name="producer" type="notificationproducerbo" nillable="true" minOccurs="0" />
+          <xs:element name="//listsrecipients" type="notificationrecipientbo" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="senders" type="notificationsenderbo" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema> 

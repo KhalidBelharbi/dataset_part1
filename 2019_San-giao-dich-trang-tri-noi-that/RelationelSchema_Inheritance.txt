@@ -1,0 +1,67 @@
+
+orderstatus(id:Long [PK], name:String, status:int);
+
+color(id:Long [PK], name:String, status:int);
+
+product(id:Long [PK], name:String, plug:String, description:String, quantity:int, avatar:String, avgstart:float, created_at:Date, upd_at:Date, status:int, s:Category #FK to(Category), s:Store #FK to(Store), s:Producer #FK to(Producer), s:Origin #FK to(origin), s:Material #FK to(Material));
+
+product_color(product_id:Product [PK] #FK to Product,color_id:Color [PK] #FK to Color);
+
+image360(id:Long [PK], path:String, status:int, _id:Product #FK to(Product));
+
+province(provinceid:String [PK], name:String);
+
+district(districtid:String [PK], name:String, provinceid:String);
+
+review(id:Long [PK], content:String, rating:int, status:int, created_at:Date, upd_at:Date, user:Users #FK to(Users), s:Product #FK to(Product), GeneratedName:Order #FK to(Order));
+
+image(id:Long [PK], path:String, status:int, _id:Product #FK to(Product));
+
+paymenttype(id:Long [PK], name:String, status:int);
+
+passwordresettoken(id:Long [PK], token:String, user:Users #FK to(Users), expiry:Date);
+
+unitprice(id:Long [PK], price:int, created_at:Date, start_time:Date, end_time:Date, root:int, GeneratedName:Product #FK to(Product));
+
+answer(id:Long [PK], content:String, status:int, created_at:Date, s:Question #FK to(Question), s:Store #FK to(Store));
+
+customer(id:Long [PK], name:String, address:String, sex:String, phone:String, birthday:Date, GeneratedName:Users #FK to(Users));
+
+store(id:Long [PK], name:String, address:String, phone:String, introduce:String, website:String, status:int, GeneratedName:Users #FK to(Users), GeneratedName:Province #FK to(Province), GeneratedName:District #FK to(District), GeneratedName:Ward #FK to(Ward));
+
+member(id:Long [PK], start_time:Date, end_time:Date, s:MemberType #FK to(Member), s:Store #FK to(Store));
+
+question(id:Long [PK], content:String, status:int, created_at:Date, s:Product #FK to(Product), user:Users #FK to(Users));
+
+membertype(id:Long [PK], name:String, price:int);
+
+role(id:Long [PK], name:String);
+
+inventory(id:Long [PK], quantity:int, created_at:Date, _receipt:Date, s:Product #FK to(Product));
+
+promotion(id:Long [PK], name:String, description:String, sale_off:int, status:int, created_at:Date, start_time:Date, end_time:Date, GeneratedName:Store #FK to(Store));
+
+product_promotion(promotion_id:Promotion [PK] #FK to Promotion,product_id:Product [PK] #FK to Product);
+
+ward(wardid:String [PK], name:String, districtid:String);
+
+orderdetail(id:OrderDetailId, quantity:int, GeneratedName:Product #FK to(Product), s:Order #FK to(Order), s:Color #FK to(Color), GeneratedName:UnitPrice #FK to(UnitPrice), GeneratedName:Promotion #FK to(Promotion));
+
+users(id:Long [PK], email:String, password:String, GeneratedName:Store #FK to(Store), GeneratedName:Customer #FK to(Customer));
+
+user_role(user_id:Users [PK] #FK to Users,role_id:Role [PK] #FK to Role);
+
+producer(id:Long [PK], name:String, status:int, plug:String);
+
+order(id:Long [PK], address:String, phone:String, created_at:Date, GeneratedName:PaymentType #FK to(PaymentType), user:Users #FK to(Users), GeneratedName:OrderStatus #FK to(OrderStatus), GeneratedName:OrderGroup #FK to(Order), s:Store #FK to(Store));
+
+category(id:Long [PK], name:String, plug:String, parentid:Long, status:int);
+
+material(id:Long [PK], name:String, plug:String, status:int);
+
+origin(id:Long [PK], name:String, plug:String, status:int);
+
+ordergroup(id:Long [PK], address:String, phone:String, created_at:Date, GeneratedName:PaymentType #FK to(PaymentType), user:Users #FK to(Users));
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

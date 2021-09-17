@@ -1,0 +1,51 @@
+
+payments(userid:String, amount:BigDecimal, pgprovider:String, platform:String, pgtransactionid:String, status:String, createddate:ZonedDateTime, updateddate:ZonedDateTime);
+
+orderreport(serialversionuid:long, reportid:Long, orderid:Long, status:boolean, note:String);
+
+orderaddress(serialversionuid:long, address:String, pincode:String, landmark:String, customername:String, phone:String, city:String);
+
+theme(serialversionuid:long, name:String, version:String, thumbnail:String, sourcepath:String);
+
+refunds(paymentid:Long, amount:BigDecimal, refundid:String, status:String, gatewayrefundresponse:String);
+
+image(productid:Long, imagetype:String, image:byte);
+
+orderdetail(serialversionuid:long, orderid:Long, productid:Long, name:String, description:String, quantity:int, saleprice:double, listprice:double, producttype:String);
+
+orders(serialversionuid:long, userid:Long, orderaddressid:Long, paymentid:Long, companyid:Long, status:String, itemscount:Integer, itemsquantity:Integer, deliveryid:String, couponid:String, totalitemscost:BigDecimal, deliverycharge:BigDecimal, coupondiscount:BigDecimal, amount:BigDecimal, customeremail:String, paymentpartnerorderid:String, previous_status:String, platform:String);
+
+usertoken(serialversionuid:long, token:String, companyid:Long, userid:Long, login:Date, expiration:Date, sessiondata:String);
+
+user(serialversionuid:long, companyid:Long, roleid:int, email:String, firstname:String, middlename:String, lastname:String, status:int, phone:String, encryptedpassword:String, salt:String);
+
+orderpayment(serialversionuid:long, orderid:Long, paymentid:Long, transactionid:Long, status:int);
+
+category(serialversionuid:long, companyid:Long, parentid:Long, name:String, status:int, position:Integer, description:String);
+
+product(serialversionuid:long, companyid:Long, name:String, saleprice:double, listprice:double, defaultimage:String, overview:String, quantity:int, isstockcontrolled:Boolean, status:int, description:String, rank:int, sku:String, browsingname:String);
+
+wishlist(userid:Long, data:String);
+
+orderitems(orderid:Long, productid:Long, displayamount:BigDecimal, amount:BigDecimal);
+
+useraddress(serialversionuid:long, userid:Long, address:String, pincode:String, landmark:String, username:String, phone:String, city:String);
+
+review(serialversionuid:long, reviewid:Integer, userid:Long, productid:Long, companyid:Long, rank:int, comment:String, create:Date);
+
+role(serialversionuid:long, name:String, description:String);
+
+company(serialversionuid:long, name:String, status:int, create:Date);
+
+productcategoryid(productid:Long, categoryid:Long);
+
+productcategory(name:String, description:String, type:CategoryType);
+
+userchoices(userid:Long, data:String, type:String);
+
+productattribute(serialversionuid:long, attributeid:Long, companyid:int, name:String);
+
+productattributedetail(serialversionuid:long, productid:Long, attributeid:Long, value:String, valuenumberic:Double);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

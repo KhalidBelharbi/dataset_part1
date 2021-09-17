@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="event.hbm" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="phonenumber.hbm" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="item.hbm" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="holidaycalendar.hbm" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="account.hbm" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="person.hbm" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jcacheregiontest" >
+      <xs:sequence>
+        <xs:element name="cache_name" type="xs:string" />
+        <xs:element name="region" type="jcacheregion" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jcachetransactionaldataregiontest" >
+      <xs:sequence>
+        <xs:element name="region" type="jcachetransactionaldataregion" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jcacheregionfactorytest" >
+      <xs:sequence>
+        <xs:element name="factory" type="jcacheregionfactory" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jcachegeneraldataregiontest" >
+      <xs:sequence>
+        <xs:element name="region" type="jcachegeneraldataregion" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="itemvalueextractor" >
+      <xs:complexContent>
+       <xs:extension base="abstractreadwriteregionaccessstrategy<jcachetransactionaldataregion>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jcacheentityregiontest" >
+      <xs:sequence>
+        <xs:element name="region" type="jcacheentityregion" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hibernatecachetest" >
+      <xs:complexContent>
+       <xs:extension base="basenonconfigcorefunctionaltestcase">
+         <xs:sequence>
+          <xs:element name="region_prefix" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="refreshupdateddatatest" >
+      <xs:complexContent>
+       <xs:extension base="basenonconfigcorefunctionaltestcase">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="inserteddatatest" >
+      <xs:complexContent>
+       <xs:extension base="basenonconfigcorefunctionaltestcase">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="phonenumber" >
+      <xs:sequence>
+        <xs:element name="personid" type="xs:long" />
+        <xs:element name="numbertype" type="xs:string" />
+        <xs:element name="phone" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="event" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:dateTime" />
+        <xs:element name="participants" type="xs:anyType" />
+        <xs:element name="organizer" type="person" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="person" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="age" type="xs:long" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+        <xs:element name="//semantics,e.g.,indexedevents" type="xs:anyType" />
+        <xs:element name="emailaddresses" type="xs:anyType" />
+        <xs:element name="phonenumbers" type="xs:anyType" />
+        <xs:element name="//abagofgood-luckcharms.talismans" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="account" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="person" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="uuiditem" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="versioneditem" >
+      <xs:complexContent>
+       <xs:extension base="item">
+         <xs:sequence>
+          <xs:element name="version" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="eventmanager" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="holidaycalendar" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="stringholidays" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="item" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="abstractreadwriteregionaccessstrategy" >
+      <xs:complexContent>
+       <xs:extension base="jcachetransactionaldataregion>">
+         <xs:sequence>
+          <xs:element name="log" type="jcachemessagelogger" nillable="true" minOccurs="0" />
+          <xs:element name="egion" type="xs:anyType" />
+          <xs:element name="version" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="nextlockid" type="xs:anyType" />
+          <xs:element name="nextitemid" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="readwriteentityregionaccessstrategy" >
+      <xs:complexContent>
+       <xs:extension base="">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="nonstrictentityregionaccessstrategy" >
+      <xs:complexContent>
+       <xs:extension base="jcacheregionaccessstrategy<jcacheentityregion>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="package-info" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="readwritenaturalidregionaccessstrategy" >
+      <xs:complexContent>
+       <xs:extension base="">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="readwritecollectionregionaccessstrategy" >
+      <xs:complexContent>
+       <xs:extension base="">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="readonlynaturalidregionaccessstrategy" >
+      <xs:complexContent>
+       <xs:extension base="">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="readonlycollectionregionaccessstrategy" >
+      <xs:complexContent>
+       <xs:extension base="">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jcacheregionaccessstrategy" >
+      <xs:complexContent>
+       <xs:extension base="jcachetransactionaldataregion>">
+         <xs:sequence>
+          <xs:element name="egion" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="readonlyentityregionaccessstrategy" >
+      <xs:complexContent>
+       <xs:extension base="jcacheregionaccessstrategy<jcacheentityregion>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="nonstrictnaturalidregionaccessstrategy" >
+      <xs:complexContent>
+       <xs:extension base="">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="nonstrictcollectionregionaccessstrategy" >
+      <xs:complexContent>
+       <xs:extension base="">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jcacheregionfactory" >
+      <xs:sequence>
+        <xs:element name="prop_prefix" type="xs:string" />
+        <xs:element name="provider" type="xs:string" />
+        <xs:element name="config_uri" type="xs:string" />
+        <xs:element name="log" type="jcachemessagelogger" nillable="true" minOccurs="0" />
+        <xs:element name="started" type="xs:anyType" />
+        <xs:element name="volatile" type="xs:anyType" />
+        <xs:element name="options" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jcacheentityregion" >
+      <xs:complexContent>
+       <xs:extension base="jcachetransactionaldataregion">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jcachemessagelogger" >
+      <xs:complexContent>
+       <xs:extension base="coremessagelogger">
+         <xs:sequence>
+          <xs:element name="namespace" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jcachenaturalidregion" >
+      <xs:complexContent>
+       <xs:extension base="jcachetransactionaldataregion">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jcacheregion" >
+      <xs:sequence>
+        <xs:element name="cache" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jcachegeneraldataregion" >
+      <xs:complexContent>
+       <xs:extension base="jcacheregion">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jcachequeryresultsregion" >
+      <xs:complexContent>
+       <xs:extension base="jcachegeneraldataregion">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jcachetimestampsregion" >
+      <xs:complexContent>
+       <xs:extension base="jcachegeneraldataregion">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="package-info" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="timestamper" >
+      <xs:sequence>
+        <xs:element name="bin_digits" type="xs:long" />
+        <xs:element name="one_ms" type="xs:long" />
+        <xs:element name="value" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jcachecollectionregion" >
+      <xs:complexContent>
+       <xs:extension base="jcachetransactionaldataregion">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jcachetransactionaldataregion" >
+      <xs:complexContent>
+       <xs:extension base="jcacheregion">
+         <xs:sequence>
+          <xs:element name="supported_access_types" type="xs:anyType" />
+          <xs:element name="metadata" type="xs:anyType" />
+          <xs:element name="options" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema> 

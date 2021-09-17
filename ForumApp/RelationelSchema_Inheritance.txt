@@ -1,0 +1,19 @@
+
+forumabusestatus(id:int [PK], topic:ForumTopic #FK to(ForumTopic), customer:ForumCustomer #FK to(ForumCustomer));
+
+forumtopic(topicid:int [PK], topic:String, description:String, category:ForumCategory #FK to(ForumCategory), dateofcreation:String, customer:ForumCustomer #FK to(ForumCustomer), approved:boolean);
+
+forummoderator(moderatorid:int [PK], moderatorname:String, GeneratedName:ForumAdmin #FK to(ForumAdmin));
+
+forumcustomer(customerid:int [PK], customername:String);
+
+forumcomment(commentid:int [PK], comment:String, customer:ForumCustomer #FK to(ForumCustomer), dateofcreation:String, topic:ForumTopic #FK to(ForumTopic));
+
+forumabusivewords(abusewordid:int [PK], abuseword:String);
+
+forumadmin(adminid:int [PK], adminname:String);
+
+forumcategory(categoryid:int [PK], category:String, GeneratedName:ForumModerator #FK to(ForumModerator), approved:boolean);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

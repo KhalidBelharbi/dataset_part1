@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="chat" >
+      <xs:sequence>
+        <xs:element name="chatid" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="participants" type="participant" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="messages" type="message" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="message" >
+      <xs:sequence>
+        <xs:element name="messageid" type="xs:long" />
+        <xs:element name="chatid" type="xs:long" />
+        <xs:element name="userid" type="xs:long" />
+        <xs:element name="text" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="attachment" >
+      <xs:sequence>
+        <xs:element name="attachmentid" type="xs:long" />
+        <xs:element name="messageid" type="xs:long" />
+        <xs:element name="type" type="xs:string" />
+        <xs:element name="content" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="participant" >
+      <xs:sequence>
+        <xs:element name="chatid" type="xs:long" />
+        <xs:element name="userid" type="xs:long" />
+        <xs:element name="isowner" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="notification" >
+      <xs:sequence>
+        <xs:element name="notificationid" type="xs:long" />
+        <xs:element name="recipientid" type="xs:long" />
+        <xs:element name="senderid" type="xs:long" />
+        <xs:element name="sendername" type="xs:string" />
+        <xs:element name="text" type="xs:string" />
+        <xs:element name="pictureurl" type="xs:string" />
+        <xs:element name="type" type="xs:string" />
+        <xs:element name="roomurl" type="xs:string" />
+        <xs:element name="filmtitle" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

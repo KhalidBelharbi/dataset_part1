@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="logementservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="logementrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="sejourrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="reservationrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="hoterepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="logements" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="log4jdbc.log4j2" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="voyageur" >
+      <xs:complexContent>
+       <xs:extension base="personne">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="hote" >
+      <xs:complexContent>
+       <xs:extension base="personne">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="delaireponse" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="personne" >
+      <xs:sequence>
+        <xs:element name="//1°-lesattributsnom" type="xs:string" />
+        <xs:element name="prenom" type="xs:string" />
+        <xs:element name="age" type="xs:long" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="mdp" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="airbnbdata" >
+      <xs:sequence>
+        <xs:element name="instance" type="airbnbdata" nillable="true" minOccurs="0" />
+        <xs:element name="hotes" type="hote" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="voyageurs" type="voyageur" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="logements" type="logement" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="listreservations" type="reservation" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="search" >
+      <xs:sequence>
+        <xs:element name="nbvoyageurs" type="xs:long" />
+        <xs:element name="tarifminparnuit" type="xs:long" />
+        <xs:element name="tarifmaxparnuit" type="xs:long" />
+        <xs:element name="possedepiscine" type="xs:long" />
+        <xs:element name="possedejardin" type="xs:long" />
+        <xs:element name="possedebalcon" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="appartement" >
+      <xs:complexContent>
+       <xs:extension base="logement{">
+         <xs:sequence>
+          <xs:element name="superficiebalcon" type="xs:long" />
+          <xs:element name="numeroetage" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="logement" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="hote" nillable="true" minOccurs="0" />
+        <xs:element name="tarifparnuit" type="xs:long" />
+        <xs:element name="adresse" type="xs:string" />
+        <xs:element name="superficie" type="xs:long" />
+        <xs:element name="nbvoyageursmax" type="xs:long" />
+        <xs:element name="index" type="xs:long" />
+        <xs:element name="cpt" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="maison" >
+      <xs:complexContent>
+       <xs:extension base="logement">
+         <xs:sequence>
+          <xs:element name="superficiejardin" type="xs:long" />
+          <xs:element name="possedepiscine" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="appartementdao" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sejourfactory" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="conditionstarifairesinterface" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sejourlong" >
+      <xs:complexContent>
+       <xs:extension base="sejour">
+         <xs:sequence>
+          <xs:element name="promotion_en_pourcentage" type="xs:long" />
+          <xs:element name="promotion" type="xs:long" />
+          <xs:element name="tarif" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sejourinterface" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sejourcourt" >
+      <xs:complexContent>
+       <xs:extension base="sejour">
+         <xs:sequence>
+          <xs:element name="tarif" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sejour" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="logement" nillable="true" minOccurs="0" />
+        <xs:element name="arrivee" type="xs:dateTime" />
+        <xs:element name="nbnuits" type="xs:long" />
+        <xs:element name="nbvoyageurs" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="reservation" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="sejour" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="voyageur" nillable="true" minOccurs="0" />
+        <xs:element name="dereservation" type="xs:dateTime" />
+        <xs:element name="estvalidee" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="application" >
+      <xs:sequence>
+        <xs:element name="log" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="logementcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="logementservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hotecontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="hoteservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="voyageurcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="voyageurservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="appartementcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="appartementservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sejourcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="sejourservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="maisoncontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="maisonservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sejourservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="sejourrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="logementservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="logementrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="maisonservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="maisonrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="appartementservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="appartementrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hoteservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="hoterepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="voyageurservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="voyageurrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="voyageurrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<voyageur,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="reservationrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<reservation,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="hoterepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<hote,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="appartementrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<appartement,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sejourlongrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<sejourlong,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sejourrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<sejour,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="maisonrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<maison,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="logementrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<logement,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sejourcourtrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<sejourcourt,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema> 

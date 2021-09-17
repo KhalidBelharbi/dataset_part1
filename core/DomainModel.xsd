@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="parameters" >
+      <xs:complexContent>
+       <xs:extension base="rootdomain<long>">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="parametervalue" type="xs:string" />
+          <xs:element name="parametertype" type="xs:anyType" />
+          <xs:element name="remark" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="dictionary" >
+      <xs:sequence>
+        <xs:element name="/***(用一句话描述这个变量表示什么).**@sincejdk1.7*/serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="dictionary" nillable="true" minOccurs="0" />
+        <xs:element name="dicttype" type="xs:string" />
+        <xs:element name="dictvalue" type="xs:string" />
+        <xs:element name="haschild" type="xs:anyType" />
+        <xs:element name="childcount" type="xs:anyType" />
+        <xs:element name="rank" type="xs:long" />
+        <xs:element name="remark" type="xs:string" />
+        <xs:element name="dictionaries" type="dictionary" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="organizationparameter" >
+      <xs:complexContent>
+       <xs:extension base="rootdomain<long>">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="value" type="xs:string" />
+          <xs:element name="orgid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sysmethodtimelog" >
+      <xs:complexContent>
+       <xs:extension base="rootdomain<long>">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="/***/id" type="xs:long" />
+          <xs:element name="/***日志创建时间*/createtime" type="xs:dateTime" />
+          <xs:element name="/***日志类名*/classname" type="xs:string" />
+          <xs:element name="/***方法名*/methodname" type="xs:string" />
+          <xs:element name="/***方法执行时间*/methodtime" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="organization" >
+      <xs:complexContent>
+       <xs:extension base="rootdomain<long>">
+         <xs:sequence>
+          <xs:element name="/***全局的根目录*/global" type="xs:long" />
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="parentid" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="aliases" type="xs:string" />
+          <xs:element name="adminuserid" type="xs:long" />
+          <xs:element name="adminroleid" type="xs:long" />
+          <xs:element name="saferesourcecollectionid" type="xs:long" />
+          <xs:element name="organizationlevel" type="xs:anyType" />
+          <xs:element name="leader" type="xs:anyType" />
+          <xs:element name="organizationstatus" type="xs:anyType" />
+          <xs:element name="isdelete" type="xs:anyType" />
+          <xs:element name="remark" type="xs:string" />
+          <xs:element name="////////////////一下字段不作为数据库字段children" type="xs:anyType" />
+          <xs:element name="/***是否存在子*/childcount" type="xs:anyType" />
+          <xs:element name="/***管理员名称*/adminusername" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema> 

@@ -1,0 +1,967 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="ejb3webservicefacadelogicimpl" >
+      <xs:complexContent>
+       <xs:extension base="ejb3webservicefacadelogic">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="/***thepropertywhichstoresthepatterndefiningthewebserviceinterfacename.*/web_service_interface_name_pattern" type="xs:string" />
+          <xs:element name="/***thepropertydefiningthedefaultstyletogivethewebservices.*/property_default_style" type="xs:string" />
+          <xs:element name="/***representsa"document"style.*/style_document" type="xs:string" />
+          <xs:element name="/***representsa"rpc"style.*/style_rpc" type="xs:string" />
+          <xs:element name="/***thepropertydefiningthedefaultstyletogivethewebservices.*/property_default_use" type="xs:string" />
+          <xs:element name="/***representsa"literal"use.*/use_literal" type="xs:string" />
+          <xs:element name="/***representsan"encoded"use.*/use_encoded" type="xs:string" />
+          <xs:element name="/***representsthedefaultparameterencodingstyle*/property_default_parameter_style" type="xs:string" />
+          <xs:element name="/***representsa"wrapped"parameterstyle.*/parameter_style_wrapped" type="xs:string" />
+          <xs:element name="/***representsa"bare"parameterstyle.*/parameter_style_bare" type="xs:string" />
+          <xs:element name="/***representsthequalifiednamelocalpartpattern*/qname_local_part_pattern" type="xs:string" />
+          <xs:element name="/***determineifthenamespaceshouldbereversed*/reverse_namespace" type="xs:string" />
+          <xs:element name="/***retrievethenamespacepatternusedtogeneratethenamespace*/namespace_pattern" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ejb3associationendfacadelogicimpl" >
+      <xs:complexContent>
+       <xs:extension base="ejb3associationendfacadelogic">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="/***thedefaultcompositeassociationcascadeproperty*/entity_default_composite_cascade" type="xs:string" />
+          <xs:element name="/***thedefaultaggregationassociationcascadeproperty*/entity_default_aggregation_cascade" type="xs:string" />
+          <xs:element name="/***thenamespacepropertystoringdefaultcollectiontypeforassociations*/association_collection_type" type="xs:string" />
+          <xs:element name="/***aflagindicatingwhetherornotspecific(java.util.set,java.util.list,*etc)collectioninterfacesshouldbeusedinassocationmutatorsand*accessorsorwhetherthegenericjava.util.collectioninterfaceshouldbe*used.*/specific_collection_interfaces" type="xs:string" />
+          <xs:element name="/***thepropertythatdefinesthedefaultcollectioninterface,thisisthe*interfaceusedifthepropertydefinedby*{@link#specific_collection_interfaces}isfalse.*/default_collection_interface" type="xs:string" />
+          <xs:element name="/***storesthedefaultcollectionindexname.*/collection_index_name" type="xs:string" />
+          <xs:element name="/***storesthedefaultcollectionindextype.*/collection_index_type" type="xs:string" />
+          <xs:element name="cascadeoptionandfullyqualifiedrepresentation.*/entity_cascade_all" type="xs:string" />
+          <xs:element name="entity_cascade_all_fqn" type="xs:string" />
+          <xs:element name="cascadeoption.*/entity_cascade_persist" type="xs:string" />
+          <xs:element name="entity_cascade_persist_fqn" type="xs:string" />
+          <xs:element name="cascadeoption.*/entity_cascade_merge" type="xs:string" />
+          <xs:element name="entity_cascade_merge_fqn" type="xs:string" />
+          <xs:element name="cascadeoption.*/entity_cascade_remove" type="xs:string" />
+          <xs:element name="entity_cascade_remove_fqn" type="xs:string" />
+          <xs:element name="cascadeoption.*/entity_cascade_refresh" type="xs:string" />
+          <xs:element name="entity_cascade_refresh_fqn" type="xs:string" />
+          <xs:element name="/***representsthevalueusedtorepresentsnocascadeoption.*/entity_cascade_none" type="xs:string" />
+          <xs:element name="cascadetable" type="xs:anyType" />
+          <xs:element name="/***valueforset*/collection_type_set" type="xs:string" />
+          <xs:element name="/***valueformap*/collection_type_map" type="xs:string" />
+          <xs:element name="/***valueforlist*/collection_type_list" type="xs:string" />
+          <xs:element name="/***valueforcollections*/collection_type_collection" type="xs:string" />
+          <xs:element name="/***storesthevalidcollectiontypes*/collectiontypes" type="xs:anyType" />
+          <xs:element name="/***storesthepropertyindicatingwhetherornotcompositionshoulddefine*theeagerloadingstrategyandaggregationdefinelazyloadingstrategy.*/composition_defines_eager_loading" type="xs:string" />
+          <xs:element name="/***thepropertythatstoreswhetherrelationshipcollectioncachingisenabled.*/hibernate_association_enable_cache" type="xs:string" />
+          <xs:element name="/***storesthedefaultcachestrategyforrelationshipcollections.*/hibernate_association_cache" type="xs:string" />
+          <xs:element name="/***the'list'typeimplementationtouse.*/list_type_implementation" type="xs:string" />
+          <xs:element name="/***the'set'typeimplementationtouse.*/set_type_implementation" type="xs:string" />
+          <xs:element name="/***the'map'typeimplementationtouse.*/map_type_implementation" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ejb3findermethodfacadelogicimpl" >
+      <xs:complexContent>
+       <xs:extension base="ejb3findermethodfacadelogic">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="/***storeswhetherornotnamedparametersshouldbeusedinejbqueries.*/query_use_named_parameters" type="xs:string" />
+          <xs:element name="//---------------methods---------------------/***storesthetranslatedquerysothatitsonlytranslatedonce.*/translatedquery" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ejb3associationfacadelogicimpl" >
+      <xs:complexContent>
+       <xs:extension base="ejb3associationfacadelogic">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ejb3operationfacadelogicimpl" >
+      <xs:complexContent>
+       <xs:extension base="ejb3operationfacadelogic">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ejb3findermethodargumentfacadelogicimpl" >
+      <xs:complexContent>
+       <xs:extension base="ejb3findermethodargumentfacadelogic">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ejb3enumerationfacadelogicimpl" >
+      <xs:complexContent>
+       <xs:extension base="ejb3enumerationfacadelogic">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ejb3typefacadelogicimpl" >
+      <xs:complexContent>
+       <xs:extension base="ejb3typefacadelogic">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ejb3mappedsuperclassattributefacadelogicimpl" >
+      <xs:complexContent>
+       <xs:extension base="ejb3mappedsuperclassattributefacadelogic">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ejb3webserviceoperationfacadelogicimpl" >
+      <xs:complexContent>
+       <xs:extension base="ejb3webserviceoperationfacadelogic">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="/***theinstance.*/" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ejb3messagedrivenfacadelogicimpl" >
+      <xs:complexContent>
+       <xs:extension base="ejb3messagedrivenfacadelogic">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="/***thepropertywhichstoresthedefaultdestinationtype*/message_driven_destination_type" type="xs:string" />
+          <xs:element name="/***thepropertywhichstoresthedefaultsubscriptiondurabilityforatopic*/message_driven_topic_subscription_durability" type="xs:string" />
+          <xs:element name="/***thepropertywhichstoresthepatterndefiningthejmsmessagedrivenbeanname.*/message_driven_name_pattern" type="xs:string" />
+          <xs:element name="/***thepropertywhichstoresthepatterndefiningthejmsmessagedrivenbeanlistenercallbackname.*/message_driven_listener_name_pattern" type="xs:string" />
+          <xs:element name="/***thepropertywhichstoresthepatterndefiningthejmsmessagedrivenbeanimplementationname.*/message_driven_implementation_name_pattern" type="xs:string" />
+          <xs:element name="/***thepropertywhichstoresthepatterndefiningthejmsmessagedrivenbeantestclassname*/message_driven_test_name_pattern" type="xs:string" />
+          <xs:element name="/***thepropertywhichstoresthepatterndefiningthejmsmessagedrivenbeantestpackage*/message_driven_test_package_name_pattern" type="xs:string" />
+          <xs:element name="/***thepropertywhichstoresthepatterndefiningthejmsdurablesubscriptionid*/message_driven_durable_subscription_id_pattern" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ejb3manageableentityattributefacadelogicimpl" >
+      <xs:complexContent>
+       <xs:extension base="ejb3manageableentityattributefacadelogic">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ejb3persistencecontextfacadelogicimpl" >
+      <xs:complexContent>
+       <xs:extension base="ejb3persistencecontextfacadelogic">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ejb3mappedsuperclassfacadelogicimpl" >
+      <xs:complexContent>
+       <xs:extension base="ejb3mappedsuperclassfacadelogic">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ejb3sessionoperationfacadelogicimpl" >
+      <xs:complexContent>
+       <xs:extension base="ejb3sessionoperationfacadelogic">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="/***thepropertywhichstoresthepatternusedtogeneratetheserviceoperationtestname*/service_operation_test_name_pattern" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ejb3sessionfacadelogicimpl" >
+      <xs:complexContent>
+       <xs:extension base="ejb3sessionfacadelogic">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="/***thepropertywhichstoresthepatterndefiningtheservicebeanname.*/service_name_pattern" type="xs:string" />
+          <xs:element name="/***thepropertywhichstoresthepatterndefiningtheservicebeanparentinterfacename.*/service_interface_name_pattern" type="xs:string" />
+          <xs:element name="/***thepropertywhichstoresthepatterndefiningtheservicebeanlocalinterfacename.*/service_local_interface_name_pattern" type="xs:string" />
+          <xs:element name="/***thepropertywhichstoresthepatterndefiningtheservicebeanremoteinterfacename.*/service_remote_interface_name_pattern" type="xs:string" />
+          <xs:element name="/***thepropertywhichstoresthepatterndefiningtheservicebeanlistenercallbackname.*/service_listener_name_pattern" type="xs:string" />
+          <xs:element name="/***thepropertywhichstoresthepatterndefiningtheservicebeanimplementationname.*/service_implementation_name_pattern" type="xs:string" />
+          <xs:element name="/***thepropertywhichstoresthepatterndefiningtheservicebeandelegateclassname.*/service_delegate_name_pattern" type="xs:string" />
+          <xs:element name="/***thepropertywhichstoresthepatterndefiningtheservicebeanbaseclassname.*/service_base_name_pattern" type="xs:string" />
+          <xs:element name="/***thepropertywhichstoresthepatterndefiningtheservicebeantestclassname*/service_test_name_pattern" type="xs:string" />
+          <xs:element name="/***thepropertywhichstoresthepatterndefiningtheservicetestpackage*/service_test_package_name_pattern" type="xs:string" />
+          <xs:element name="/***thepropertywhichstoresthepatterndefiningthedefaultservicebean*exceptionclassname.*/service_default_exception_name_pattern" type="xs:string" />
+          <xs:element name="/***thepropertythatstoresthepersistencecontainername.*/persistence_container" type="xs:string" />
+          <xs:element name="/***thepropertythatstoresthedeploymentplatformname.*/deployment_platform" type="xs:string" />
+          <xs:element name="/***thepropertywhichstoresthepersistencecontextunitnameassociatedwiththedefault*entitymanager.*/persistence_context_unit_name" type="xs:string" />
+          <xs:element name="/***thedefaultviewtypeaccessibilityforthesessionbean.*/service_default_view_type" type="xs:string" />
+          <xs:element name="/***thepropertythatstoreswhetherdefaultserviceexceptionsarepermitted.*/allow_default_service_exception" type="xs:string" />
+          <xs:element name="/***thepropertythatstoresthejndinameprefix.*/service_jndi_name_prefix" type="xs:string" />
+          <xs:element name="/***thepropertythatdeterminesapplicationwideclustering*/service_enable_clustering" type="xs:string" />
+          <xs:element name="/***thepropertythatsetswhetherejb3.0jsr181webservicesisenabled*/property_webservice_enabled" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ejb3entityattributefacadelogicimpl" >
+      <xs:complexContent>
+       <xs:extension base="ejb3entityattributefacadelogic">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="/***thepropertythatstoresthedefaultentityidgeneratortype*/entity_default_generator_type" type="xs:string" />
+          <xs:element name="/***thepropertythatstoresthedefaultgeneratorinitialvalue*/entity_default_generator_initial_value" type="xs:string" />
+          <xs:element name="/***thepropertythatstoresthedefaultgeneratorallocationsizeforincrementingids*/entity_default_generator_allocation_size" type="xs:string" />
+          <xs:element name="/***thepropertythatstoresthedefaultenumerationliteralcolumnlength.*/default_enum_literal_column_length" type="xs:string" />
+          <xs:element name="/***thepropertythatstoresthedefaulttemporaltypefordatebasedattributes*/entity_default_temporal_type" type="xs:string" />
+          <xs:element name="/***generator*/generator" type="xs:string" />
+          <xs:element name="/***_*/underscore" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ejb3messagedrivenoperationfacadelogicimpl" >
+      <xs:complexContent>
+       <xs:extension base="ejb3messagedrivenoperationfacadelogic">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ejb3interceptorfacadelogicimpl" >
+      <xs:complexContent>
+       <xs:extension base="ejb3interceptorfacadelogic">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="/***thepropertywhichstoresthepatterndefiningtheinterceptorclassname.*/interceptor_name_pattern" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ejb3dependencyfacadelogicimpl" >
+      <xs:complexContent>
+       <xs:extension base="ejb3dependencyfacadelogic">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="/***thesuffixforthetransformationanonymousname.*/transformation_anonymous_name_suffix" type="xs:string" />
+          <xs:element name="/***thesuffixforthetransformationtoentitymethodname.*/transformation_to_entity_method_name_suffix" type="xs:string" />
+          <xs:element name="/***thesuffixforthevalueobjecttoentitytransformer.*/value_object_to_entity_transformer_suffix" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ejb3manageableentityfacadelogicimpl" >
+      <xs:complexContent>
+       <xs:extension base="ejb3manageableentityfacadelogic">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="/***thepropertywhichstoresthepatterndefiningthemanageablecreateexceptionname.*/create_exception_name_pattern" type="xs:string" />
+          <xs:element name="/***thepropertywhichstoresthepatterndefiningthemanageablereadexceptionname.*/read_exception_name_pattern" type="xs:string" />
+          <xs:element name="/***thepropertywhichstoresthepatterndefiningthemanageableupdateexceptionname.*/update_exception_name_pattern" type="xs:string" />
+          <xs:element name="/***thepropertywhichstoresthepatterndefiningthemanageabledeleteexceptionname.*/delete_exception_name_pattern" type="xs:string" />
+          <xs:element name="/***thepropertythatstoresthejndinameprefix.*/service_jndi_name_prefix" type="xs:string" />
+          <xs:element name="/***thepropertythatstoresthemanageableservicebasenamepattern*/manageable_service_base_name_pattern" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ejb3manageableentityassociationendfacadelogicimpl" >
+      <xs:complexContent>
+       <xs:extension base="ejb3manageableentityassociationendfacadelogic">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ejb3sessionoperationparameterfacadelogicimpl" >
+      <xs:complexContent>
+       <xs:extension base="ejb3sessionoperationparameterfacadelogic">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ejb3sessionattributefacadelogicimpl" >
+      <xs:complexContent>
+       <xs:extension base="ejb3sessionattributefacadelogic">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ejb3entityfacadelogicimpl" >
+      <xs:complexContent>
+       <xs:extension base="ejb3entityfacadelogic">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="/***thedefaultentityassociationcascadeproperty*/entity_default_cascade" type="xs:string" />
+          <xs:element name="/***storesthedefaultentityinheritancestrategy*/entity_inheritance_strategy" type="xs:string" />
+          <xs:element name="/***storesthedefaultentitydiscriminatortypeusedinthe*inheritanceannotation*/entity_discriminator_type" type="xs:string" />
+          <xs:element name="/***storesthedefaultentitydiscriminatorcolumnnameusedin*thediscriminatorcolumnannotation*/entity_discriminator_column_name" type="xs:string" />
+          <xs:element name="/***thedefaultviewtypeaccessibilityforanentitypojobean*/entity_default_view_type" type="xs:string" />
+          <xs:element name="/***valueforonetableperrootclass*/inheritance_strategy_table_per_class" type="xs:string" />
+          <xs:element name="/***valueforasingletableforthehierarchy*/inheritance_strategy_single_table" type="xs:string" />
+          <xs:element name="/***valueforjoinedsubclass*/inheritance_strategy_joined_sublcass" type="xs:string" />
+          <xs:element name="/***storesthevalidinheritancestrategies*/inheritancestrategies" type="xs:anyType" />
+          <xs:element name="/***valueforbaseddiscriminatortype*/discriminatortype_" type="xs:string" />
+          <xs:element name="/***valueforcharbaseddiscriminatortype*/discriminatortype_char" type="xs:string" />
+          <xs:element name="/***valueforintegerbaseddiscriminatortype*/discriminatortype_integer" type="xs:string" />
+          <xs:element name="/***storesthevaliddiscriminatortypes*/discriminatortypes" type="xs:anyType" />
+          <xs:element name="/***thepropertywhichstoresthepatterndefiningtheentityname.*/entity_name_pattern" type="xs:string" />
+          <xs:element name="/***thepropertywhichstoresthepatterndefiningtheentity*implementationname.*/entity_implementation_name_pattern" type="xs:string" />
+          <xs:element name="/***thepropertythatstoresthepatterndefiningtheentity*listenerclassname.*/entity_listener_name_pattern" type="xs:string" />
+          <xs:element name="/***thepropertythatstoresthepatterndefiningtheentity*embeddablesuperclassname.*/entity_embeddable_name_pattern" type="xs:string" />
+          <xs:element name="/***thepropertythatstoresthepatterndefiningtheentity*compositeprimarykeyclassname.*/entity_composite_primary_key_name_pattern" type="xs:string" />
+          <xs:element name="/***thepropertythatstoresthegenericfindersoption*/entity_generic_finders" type="xs:string" />
+          <xs:element name="/***thepropertythatstoreswhethercachingisenabled.*/hibernate_enable_cache" type="xs:string" />
+          <xs:element name="/***thepropertythatstoresthehibernateentitycachevalue.*/hibernate_entity_cache" type="xs:string" />
+          <xs:element name="/***thepropertythatdetermineswhethertousethedefaultcacheregionfor*entitiesandqueries.*/use_default_cache_region" type="xs:string" />
+          <xs:element name="/***thepatternusedtoconstructthedaoimplementationname.*/dao_implementation_pattern" type="xs:string" />
+          <xs:element name="/***thepatternusedtoconstructthedaobasename.*/dao_base_pattern" type="xs:string" />
+          <xs:element name="/***thepropertywhichstoresthepatterndefiningthedaodefaultexceptionname.*/dao_default_exception_name_pattern" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ejb3valueobjectfacadelogicimpl" >
+      <xs:complexContent>
+       <xs:extension base="ejb3valueobjectfacadelogic">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ejb3embeddedvaluefacadelogicimpl" >
+      <xs:complexContent>
+       <xs:extension base="ejb3embeddedvaluefacadelogic">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="/***thepropertywhichstoresthepatterndefiningtheembeddedvalue*implementationname.*/embedded_value_implementation_name_pattern" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ejb3metafacadeutils" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ejb3globals" >
+      <xs:sequence>
+        <xs:element name="/***thepropertythatstoresthedefaultejbtransactiontype.*/transaction_type" type="xs:string" />
+        <xs:element name="/***thepatterntousefordeterminingthepackagenameforejbs.*/jndi_name_prefix" type="xs:string" />
+        <xs:element name="/***thepropertywhichstoresthepatterndefiningthedisplayattribute*labelnamewhenit'softypecollection.*/label_collection_name_pattern" type="xs:string" />
+        <xs:element name="/***thepropertywhichstoresthepatterndefiningthedisplayattribute*labelnamewhenit'snotoftypecollection.*/label_single_name_pattern" type="xs:string" />
+        <xs:element name="/***thepatternusedtoconstructthedaoname.*/dao_pattern" type="xs:string" />
+        <xs:element name="/***thepropertywhichstoresthepersistencecontextunitnameassociatedwiththedefault*entitymanager.*/persistence_context_unit_name" type="xs:string" />
+        <xs:element name="/***thepropertyusedtospecifytheimplementationoperationnamepattern*onserviceandentitybeans.*/implementation_operation_name_pattern" type="xs:string" />
+        <xs:element name="/***thepropertyusedtospecifywhethertoenablequerycache.*/hibernate_user_query_cache" type="xs:string" />
+        <xs:element name="/***thepropertythatstoresthecommaseparatedlistofrolesformanageable*servicebeans.*/manageable_roles_allowed" type="xs:string" />
+        <xs:element name="//---------------constants---------------------/***representstheeagerfetchtype*/fetch_type_eager" type="xs:string" />
+        <xs:element name="/***representsthelazyfetchtype*/fetch_type_lazy" type="xs:string" />
+        <xs:element name="/***representsthecloblobtype*/lob_type_clob" type="xs:string" />
+        <xs:element name="/***representsthebloblobtype*/lob_type_blob" type="xs:string" />
+        <xs:element name="/***representsthetablegeneratortype*/generator_type_table" type="xs:string" />
+        <xs:element name="/***representsthesequencegeneratortype*/generator_type_sequence" type="xs:string" />
+        <xs:element name="/***representstheidentitygeneratortype*/generator_type_identity" type="xs:string" />
+        <xs:element name="/***representstheautogeneratortype*/generator_type_auto" type="xs:string" />
+        <xs:element name="/***representsthegenericgeneratortype*/generator_type_generic" type="xs:string" />
+        <xs:element name="/***representsthenonegeneratortype*/generator_type_none" type="xs:string" />
+        <xs:element name="/***representsthedatetemporaltype*/temporal_type_date" type="xs:string" />
+        <xs:element name="/***representsthetimetemporaltype*/temporal_type_time" type="xs:string" />
+        <xs:element name="/***representsthetimestamptemporaltype*/temporal_type_timestamp" type="xs:string" />
+        <xs:element name="/***representsthenonetemporaltype*/temporal_type_none" type="xs:string" />
+        <xs:element name="/***representsthefindermethodindextypeontheparameter*/finder_result_type_first" type="xs:string" />
+        <xs:element name="/***representsthefindermethodmaxcountontheparameter*/finder_result_type_max" type="xs:string" />
+        <xs:element name="/***representstheviewtypefortheentitypojoasbothremoteandlocal*/view_type_both" type="xs:string" />
+        <xs:element name="/***representsthelocalviewtypefortheentitypojo*/view_type_local" type="xs:string" />
+        <xs:element name="/***representstheremoteviewtypefortheentitypojo*/view_type_remote" type="xs:string" />
+        <xs:element name="/***representsthemandatorytransactiontype*/transaction_type_mandatory" type="xs:string" />
+        <xs:element name="/***representsthenevertransactiontype*/transaction_type_never" type="xs:string" />
+        <xs:element name="/***representsthenotsupportedtransactiontype*/transaction_type_not_supported" type="xs:string" />
+        <xs:element name="/***representstherequiredtransactiontype*/transaction_type_required" type="xs:string" />
+        <xs:element name="/***representstherequiredtransactiontype*/transaction_type_requires_new" type="xs:string" />
+        <xs:element name="/***representsthesupportstransactiontype*/transaction_type_supports" type="xs:string" />
+        <xs:element name="/***representsthestatelesssessionbean*/service_type_stateless" type="xs:string" />
+        <xs:element name="/***representsthestatefulsessionbean*/service_type_stateful" type="xs:string" />
+        <xs:element name="/***representsthejbosspersistencecontainerconstant*/persistence_container_jboss" type="xs:string" />
+        <xs:element name="/***representstheweblogicpersistencecontainercontant*/persistence_container_weblogic" type="xs:string" />
+        <xs:element name="/***representsthedefaultsecuritydomain*/security_realm" type="xs:string" />
+        <xs:element name="/***representsthebeanmanagedtransactiondemarcation*/transaction_management_bean" type="xs:string" />
+        <xs:element name="/***representsthecontainermanagedtransactiondemarcation*/transaction_management_container" type="xs:string" />
+        <xs:element name="/***representsthefullyqualifiedtopicdestinationtypeforthe*jmsmessagedrivenbean*/mdb_destination_type_topic" type="xs:string" />
+        <xs:element name="/***representsthefullyqualifiedqueuedestinationtypeforthe*jmsmessagedrivenbean*/mdb_destination_type_queue" type="xs:string" />
+        <xs:element name="/***representsthedurablesubscriptiontopic*/mdb_subscription_durable" type="xs:string" />
+        <xs:element name="/***representsthenondurablesubscriptiontopic*/mdb_subscription_nondurable" type="xs:string" />
+        <xs:element name="/***thenamespacedelimiter(separatesnamespaces).*/namespace_delimiter" type="xs:anyType" />
+        <xs:element name="/***definestheprefixgiventothetransformationconstants.*/transformation_constant_prefix" type="xs:string" />
+        <xs:element name="/***thesuffixgiventothenotransformationconstant.*/no_transformation_constant_suffix" type="xs:string" />
+        <xs:element name="/***theprefixgiventotransformationmethodnames.*/transformation_method_prefix" type="xs:string" />
+        <xs:element name="/***thesuffixgiventotransformationmethodnames.*/transformation_to_collection_method_suffix" type="xs:string" />
+        <xs:element name="/***seamcomponentscopetypestateless*/seam_component_scope_stateless" type="xs:string" />
+        <xs:element name="/***seamcomponentscopetypeconversation*/seam_component_scope_conversation" type="xs:string" />
+        <xs:element name="/***thepropertyrepresentingthedefaultcollectioninterfaceofjava.util.sortedset*/collection_interface_sorted_set" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ejb3profile" >
+      <xs:complexContent>
+       <xs:extension base="umlprofile">
+         <xs:sequence>
+          <xs:element name="/***theinstancefromwhichweretrievethemappednames.*/" type="profile" nillable="true" minOccurs="0" />
+          <xs:element name="/*-----------------stereotypes--------------------*//***'entity'specifiestheentitybeanstereotype.*/stereotype_entity" type="xs:string" />
+          <xs:element name="/***'mappedsuperclass'specifiesthisclassasamapped/embeddablesuperclass.*/stereotype_mapped_superclass" type="xs:string" />
+          <xs:element name="/***'service'specifiestheservicebeanstereotype.*/stereotype_service" type="xs:string" />
+          <xs:element name="/***'messagedriven'specifiesthejmsmessagedrivenbeanstereotype.*/stereotype_message_driven" type="xs:string" />
+          <xs:element name="/***'createmethod'specifiesthecreatemethodstereotype-usedinentitypojo*andsessionbean.*/stereotype_create_method" type="xs:string" />
+          <xs:element name="/***specifiestheselectmethodstereotype-usedinejb2.x*thismaybedeprecatedinfuturereleases.*/stereotype_select_method" type="xs:string" />
+          <xs:element name="/***'enventry'specifiestheenvironmententrystereotypeusedonvariables*topermitresourceinjection.*/stereotype_env_entry" type="xs:string" />
+          <xs:element name="/***'version'specifiestheversionstereotype-optimisticlockvalueofanattributeofanentity.*/stereotype_version" type="xs:string" />
+          <xs:element name="/***'valueref'representsareferencetoavalueobject-usedinejb2.x*thismaybedeprecatedinfuturereleases.*/stereotype_value_ref" type="xs:string" />
+          <xs:element name="/***'persistencecontext'representsapersistencecontextinstancereferencedfromasessionbean.*/stereotype_persistence_context" type="xs:string" />
+          <xs:element name="/***'resourceref'representsareferencetoaresourcei.e.usertransactionordatasource.*/stereotype_resource_ref" type="xs:string" />
+          <xs:element name="/***'usertransaction'representsaclassusedtoinjectajavax.transaction.usertransactionasaresource.*/stereotype_user_transaction" type="xs:string" />
+          <xs:element name="/***'datasource'representsaclassusedtoinjectajavax.sql.datasourceasaresource.*/stereotype_data_source" type="xs:string" />
+          <xs:element name="/***'interceptor'representsaninterceptorclassforasessionormessage-drivenbean.*/stereotype_interceptor" type="xs:string" />
+          <xs:element name="/***'runas'representsadependencyfromanactorthatisidentifiedto*applyarun-asidentitytothebeanwhenmakingcalls.*/stereotype_security_runas" type="xs:string" />
+          <xs:element name="/***'listener'representsacallbacklistenerclassforentity,sessionand*messagedrivenbeanclasses.*/stereotype_listener" type="xs:string" />
+          <xs:element name="/***'timeout'specifiesthesessionbeanoperationasa*timerservicetimeoutcallbackmethod.*/stereotype_service_timer_timeout" type="xs:string" />
+          <xs:element name="/***'firstresult'thestereotypeindicatingthefindermethodparameterresulttype*isassignedtobethefirst/index.*/stereotype_finder_result_type_first" type="xs:string" />
+          <xs:element name="/***'maxresult'thestereotypeindicatingthefindermethodparameterresulttype*isassignedtobethemaxresultstoreturn.*/stereotype_finder_result_type_max" type="xs:string" />
+          <xs:element name="/***'postconstruct'specifiesthesession/message-drivenbeanoperationasapost-constructcallback*/stereotype_post_construct" type="xs:string" />
+          <xs:element name="/***'predestroy'specifiesthesession/message-drivenbeanoperationasapre-destroycallback*/stereotype_pre_destroy" type="xs:string" />
+          <xs:element name="/***'postactivate'specifiesthesessionbeanoperationasapost-activatecallback*/stereotype_post_activate" type="xs:string" />
+          <xs:element name="/***'prepassivate'specifiesthesessionbeanoperationasapre-passivatecallback*/stereotype_pre_passivate" type="xs:string" />
+          <xs:element name="/***'prepersist'specifiestheentitybeanoperationasapre-persistcallback*/stereotype_pre_persist" type="xs:string" />
+          <xs:element name="/***'postpersist'specifiestheentityoperationasapost-persistcallback*/stereotype_post_persist" type="xs:string" />
+          <xs:element name="/***'preremove'specifiestheentitybeanoperationasapre-removecallback*/stereotype_pre_remove" type="xs:string" />
+          <xs:element name="/***'postremove'specifiestheentitybeanoperationasapost-removecallback*/stereotype_post_remove" type="xs:string" />
+          <xs:element name="/***'preupdate'specifiestheentitybeanoperationasapre-updatecallback*/stereotype_pre_update" type="xs:string" />
+          <xs:element name="/***'postupdate'specifiestheentitybeanoperationasapost-updatecallback*/stereotype_post_update" type="xs:string" />
+          <xs:element name="/***'postload'specifiestheentitybeanoperationasapost-loadcallback*/stereotype_post_load" type="xs:string" />
+          <xs:element name="/***'seam'specifiesthebeanisaseamcomponent*/stereotype_seam_component" type="xs:string" />
+          <xs:element name="/***'startup'specifiesthatasessionscopecomponentisstarted*immediatelyatsessioncreationtime,unlessdependencies*arespecified.*/stereotype_seam_component_startup" type="xs:string" />
+          <xs:element name="/***'in'specifiesthebeanattributeisacomponentattributetobeinjectedfromacontextvariable*/stereotype_seam_bijection_in" type="xs:string" />
+          <xs:element name="/***'out'specifiesthebeanattributeisacomponentattributetobeoutjectedfromacontextvariable*/stereotype_seam_bijection_out" type="xs:string" />
+          <xs:element name="/***'unwrap'specifiesthattheobjectreturnedbytheannotatedgettermethod*isthethingthatisinjectedinsteadofthecomponentinstanceitself.*/stereotype_seam_bijection_unwrap" type="xs:string" />
+          <xs:element name="/***'factory'whenthisstereotypeisusedonanoperationwhichreturnvoid*thatoperationwillbeusedtoinitializethevalueofthenamed*contextvariable,whenthecontextvariablehasnovalue.**whenitisusedonanoperationthatreturnsavaluethenseam*shouldusethatvaluetoinitializethevalueofthenamedcontext*variable,whenthecontextvariablehasnovalue.**thecontextvariableisspecifiedbytaggedvalue*andromda.seam.bijection.factory.value.ifthemethodisagetter*method,defaulttothejavabeanspropertyname.**ifnoscopeisexplicitlyspecifiedbytaggedvalue*andromda.seam.bijection.factory.scope,thescopeofthecomponent*withthe@factorymethodisused(unlessthecomponentisstateless,*inwhichcasetheeventcontextisused).*/stereotype_seam_bijection_factory" type="xs:string" />
+          <xs:element name="/***'logger'specifiesthatacomponentfieldistobeinjectedwithaninstance*oforg.jboss.seam.log.log.*/stereotype_seam_bijection_logger" type="xs:string" />
+          <xs:element name="/***'requestparameter'specifiesthatacomponentattributeistobeinjectedwiththe*valueofarequestparameter.basictypeconversionsareperformed*automatically.*/stereotype_seam_bijection_request_parameter" type="xs:string" />
+          <xs:element name="/***'create'indicatesthatthemethodisaseamcomponentlifecycleoperation*andshouldbecalledwhenaninstanceofthecomponentisinstantiatedby*seam.*/stereotype_seam_lifecycle_create" type="xs:string" />
+          <xs:element name="/***'destroy'indicatesthatthemethodisaseamcomponentlifecycleoperation*andshouldbecalledwhenthecontextendsanditscontextvariables*aredestroyed.*allsfsbcomponentsmustdefineadestroymethodtoguarantee*destructionofthesfsbwhenthecontextends.*/stereotype_seam_lifecycle_destroy" type="xs:string" />
+          <xs:element name="/***'begin'specifiesthatalong-runningconversationbeginswhenthismethod*returnsanon-nulloutcomewithoutexception.*/stereotype_seam_conversation_begin" type="xs:string" />
+          <xs:element name="/***'end'specifiesthatalong-runningconversationendswhenthismethod*returnsanon-nulloutcomewithoutexception.*/stereotype_seam_conversation_end" type="xs:string" />
+          <xs:element name="/***'begintask'specifiesthatalong-runningconversationendswhenthismethod*returnsanon-nulloutcomewithoutexception.*/stereotype_seam_conversation_begin_task" type="xs:string" />
+          <xs:element name="/***'starttask'"starts"ajbpmtask.specifiesthatalong-runningconversation*beginswhenthismethodreturnsanon-nulloutcomewithoutexception.**thisconversationisassociatedwiththejbpmtaskspecifiedinthe*namedrequestparameter.withinthecontextofthisconversation,a*businessprocesscontextisalsodefined,forthebusinessprocess*instanceofthetaskinstance.**thejbpmtaskinstancewillbeavailableinarequestcontextvariable*namedtaskinstance.thejpbmprocessinstancewillbeavailableina*requestcontextvariablenamedprocessinstance.(ofcourse,these*objectsareavailableforinjectionvia@in.)*/stereotype_seam_conversation_start_task" type="xs:string" />
+          <xs:element name="/***'endtask'"ends"ajbpmtask.specifiesthatalong-runningconversationends*whenthismethodreturnsanon-nulloutcome,andthatthecurrent*taskiscomplete.triggersajbpmtransition.theactualtransition*triggeredwillbethedefaulttransitionunlesstheapplicationhas*calledtransition.setname()onthebuilt-incomponentnamed*transition.*/stereotype_seam_conversation_end_task" type="xs:string" />
+          <xs:element name="/***'createprocess'createsanewjbpmprocessinstancewhenthemethodreturnsa*non-nulloutcomewithoutexception.theprocessinstanceobjectwill*beavailableinacontextvariablenamedprocessinstance.*/stereotype_seam_conversation_create_process" type="xs:string" />
+          <xs:element name="/***'resumeprocess're-entersthescopeofanexistingjbpmprocessinstancewhenthe*methodreturnsanon-nulloutcomewithoutexception.the*processinstanceobjectwillbeavailableinacontextvariable*namedprocessinstance.*/stereotype_seam_conversation_resume_process" type="xs:string" />
+          <xs:element name="/***'transactional'specifiesthatajavabeancomponentshouldhaveasimilar*transactionalbehaviortothedefaultbehaviorofasessionbean*component.i.e.methodinvocationsshouldtakeplaceina*transaction,andifnotransactionexistswhenthemethodis*called,atransactionwillbestartedjustforthatmethod.this*annotationmaybeappliedateitherclassormethodlevel.*/stereotype_seam_transaction_transactional" type="xs:string" />
+          <xs:element name="/***'rollback'iftheoutcomeofthemethodmatchesanyofthelistedoutcomes,*orifnooutcomesarelisted,setthetransactiontorollbackonly*whenthemethodcompletes.*/stereotype_seam_transaction_rollback" type="xs:string" />
+          <xs:element name="/***'valid'specifiesthatthehibernatevalidatorshouldvalidatethisandrelated*componentattributesbeforeanactionlistenerseamcomponentmethodis*invoked.*/stereotype_seam_validation_valid" type="xs:string" />
+          <xs:element name="/***'validator'specifiesthatthevalidatorshouldvalidateallseamcomponentsmarked*with@validannotationbeforethemethodisinvoked.useof*taggedvaluesforoutcomewhenvalidationfailsandforrefreshing*entitieswhenvalidationfailsisprovided.*/stereotype_seam_validation_validator" type="xs:string" />
+          <xs:element name="/***'webremote'indicatesthattheannotatedmethodmaybecalledfromclient-side*javascript.theexcludepropertyisoptionalandallowsobjectsto*beexcludedfromtheresult'sobjectgraph.*/stereotype_seam_webremote" type="xs:string" />
+          <xs:element name="/***'interceptor'thisstereotypeappearonseaminterceptorclasses.**pleaserefertothedocumentationfortheejb3.0specification*forinformationabouttheannotationsrequiredforejbinterceptor*definition.*/stereotype_seam_interceptor" type="xs:string" />
+          <xs:element name="/***'asynchronous'specifiesthatthemethodcallisprocessedasynchronously.*/stereotype_seam_asynchronous" type="xs:string" />
+          <xs:element name="/***'duration'specifiesthataparameteroftheasynchronouscallistheduration*beforethecallisprocessed(orfirstprocessedforrecurring*calls).*/stereotype_seam_asynchronous_duration" type="xs:string" />
+          <xs:element name="/***'expiration'specifiesthataparameteroftheasynchronouscallisthedatetime*atwhichthecallisprocessed(orfirstprocessedforrecurring*calls).*/stereotype_seam_asynchronous_expiration" type="xs:string" />
+          <xs:element name="/***'intervalduration'specifiesthatanasynchronousmethodcallrecurs,andthatthe*annotatedparameterisdurationbetweenrecurrences.*/stereotype_seam_asynchronous_interval_duration" type="xs:string" />
+          <xs:element name="asajsf*datamodelintothescopeoftheowningcomponent(ortheevent*scopeiftheowningcomponentisstateless).inthecaseofmap,*eachrowofthedatamodelisamap.entry.*/stereotype_seam_data_datamodel" type="xs:string" />
+          <xs:element name="/***'datamodelselection'injectstheselectedvaluefromthejsfdatamodel(thisisthe*elementoftheunderlyingcollection,orthemapvalue).*/stereotype_seam_data_datamodel_selection" type="xs:string" />
+          <xs:element name="/***'datamodelselectionindex'exposestheselectionindexofthejsfdatamodelasanattribute*ofthecomponent(thisistherownumberoftheunderlying*collection,orthemapkey).*/stereotype_seam_data_datamodel_selection_index" type="xs:string" />
+          <xs:element name="/*-----------------taggedvalues--------------------*//***andromda_ejb_generatecmr*/taggedvalue_generate_cmr" type="xs:string" />
+          <xs:element name="/***'andromda_ejb_query'thetaggedvalueindicatingtheejbquery.*/taggedvalue_ejb_query" type="xs:string" />
+          <xs:element name="/***'andromda_ejb_viewtype'thetaggedvalueindicatingtheviewtypeforthe*classoroperation.*/taggedvalue_ejb_viewtype" type="xs:string" />
+          <xs:element name="/***'andromda_ejb_transaction_type'thetaggedvalueindicatingthetransactionproperty.*/taggedvalue_ejb_transaction_type" type="xs:string" />
+          <xs:element name="/***'andromda_ejb_transaction_management'thetaggedvalueindicatingthetransactiondemarcation*strategy.thisonlyappliesattheclasslevelofa*sessionandmessage-drivenbean.*/taggedvalue_ejb_transaction_management" type="xs:string" />
+          <xs:element name="/***'andromda_ejb_nosyntheticcreatemethod'thetaggedvalueindicatingwhethertonotallowsynthetic*(autogenerated)create/constructors.*/taggedvalue_ejb_no_synthetic_create_method" type="xs:string" />
+          <xs:element name="/***'andromda_persistence_temporal_type'thetaggedvalueindicatingthetemporaltypespecifiedonattributesor*findermethodargumentsoftemporalnature.*/taggedvalue_persistence_temporal_type" type="xs:string" />
+          <xs:element name="/***'andromda_hibernate_type'thetaggedvalueindicatingtheoverriddentypespecifiedonattributesor*findermethodarguments,togenerate@org.hibernate.annotations.typeannotations.*/taggedvalue_persistence_override_type" type="xs:string" />
+          <xs:element name="/***'andromda_persistence_table'thetaggedvalueindicatingtheentitytablename.*/taggedvalue_persistence_entity_table_name" type="xs:string" />
+          <xs:element name="/***'andromda_persistence_fetch_type'thetaggedvalueindicatingthefetchtype.*/taggedvalue_persistence_fetch_type" type="xs:string" />
+          <xs:element name="/***'andromda_persistence_cascade_type'thetaggedvalueindicatingthecascadetype.*/taggedvalue_persistence_cascade_type" type="xs:string" />
+          <xs:element name="/***'andromda_persistence_enumeration_type'thetaggedvalueindicatingtheenumerationtype(ordinal,).*/taggedvalue_persistence_enumeration_type" type="xs:string" />
+          <xs:element name="/***'andromda_persistence_generator_type'thetaggedvalueindicatingthegeneratortype.*/taggedvalue_persistence_generator_type" type="xs:string" />
+          <xs:element name="/***'andromda_persistence_generator_name'thetaggedvalueindicatingthegeneratorname.*/taggedvalue_persistence_generator_name" type="xs:string" />
+          <xs:element name="/***'andromda_persistence_generator_genericstrategy'thetaggedvalueindicatingthegeneratorgenericstrategy.*/taggedvalue_persistence_generator_generic_strategy" type="xs:string" />
+          <xs:element name="/***'andromda_persistence_generator_source_name'thetaggedvalueindicatingthegeneratorsourcename.*/taggedvalue_persistence_generator_source_name" type="xs:string" />
+          <xs:element name="/***'andromda_persistence_generator_pkcolumn_value'thetaggedvalueindicatingtheprimarykeycolumnvalueforthegenerator.*/taggedvalue_persistence_generator_pkcolumn_value" type="xs:string" />
+          <xs:element name="/***'andromda_persistence_generator_initial_value'thetaggedvalueindicatingtheinitialvalueforthegenerator.*/taggedvalue_persistence_generator_initial_value" type="xs:string" />
+          <xs:element name="/***'andromda_persistence_generator_allocation_size'thetaggedvalueindicatingthestepsizeforthegenerator.*/taggedvalue_persistence_generator_allocation_size" type="xs:string" />
+          <xs:element name="/***'andromda_persistence_column_definition'thetaggedvalueindicatingthesqldefinitionforacolumn.*/taggedvalue_persistence_column_definition" type="xs:string" />
+          <xs:element name="/***'andromda_persistence_column_precision'thetaggedvaluefortheprecisioninafloat/doublecolumn.*/taggedvalue_persistence_column_precision" type="xs:string" />
+          <xs:element name="/***'andromda_persistence_column_scale'thetaggedvalueforthescaleinafloat/doublecolumn.*/taggedvalue_persistence_column_scale" type="xs:string" />
+          <xs:element name="/***'andromda_persistence_column_nullable'thetaggedvaluetorepresentacolumnthatisnullable.*/taggedvalue_persistence_column_nullable" type="xs:string" />
+          <xs:element name="/***'andromda_persistence_column_insert'thetaggedvaluethatspecifieswhetheramappedcolumnshouldbe*includedinsqlinsertstatements.*/taggedvalue_persistence_column_insert" type="xs:string" />
+          <xs:element name="/***'andromda_persistence_column_update'thetaggedvaluethatspecifieswhetheramappedcolumnshouldbeincluded*insqlupdatestatements.*/taggedvalue_persistence_column_update" type="xs:string" />
+          <xs:element name="/***'andromda_persistence_orderby'thetaggedvaluethatindicatestheorderbylogiconthe*manysideoftheone-to-manyandmany-to-manyrelationships.*/taggedvalue_persistence_orderby" type="xs:string" />
+          <xs:element name="/***'andromda_persistence_optional'thetaggedvalueindicatingtheunderlyingrelationshipmay*benull.ifsettofalse,non-nullrelationshipmustalways*exist.*/taggedvalue_persistence_optional" type="xs:string" />
+          <xs:element name="*seeejb3.0documentationforspecificdetails.*/taggedvalue_persistence_inheritance" type="xs:string" />
+          <xs:element name="*seetheejb3.0documentationforspecificdetails.*/taggedvalue_persistence_discriminator_type" type="xs:string" />
+          <xs:element name="/***'andromda_persistence_discriminator_value'thetaggedvalueindicatingthattherowisanentityof*theannotatedentitytype.*/taggedvalue_persistence_discriminator_value" type="xs:string" />
+          <xs:element name="/***'andromda_persistence_discriminator_column_name'*thetaggedvalueindicatingthenameofthecolumnused*forthediscriminator*/taggedvalue_persistence_discriminator_column" type="xs:string" />
+          <xs:element name="/***'andromda_persistence_discriminator_column_definition'*thetaggedvaluerepresentingthesqlusedingeneration*ofddlforthediscriminatorcolumn*/taggedvalue_persistence_discriminator_column_definition" type="xs:string" />
+          <xs:element name="/***'andromda_persistence_discriminator_column_length'*thetaggedvaluerepresentingthecolumnlengthforthe*discriminatorcolumntype.*/taggedvalue_persistence_discriminator_column_length" type="xs:string" />
+          <xs:element name="/***'andromda_service_persistence_context_unit_name'*thetaggedvaluerepresentingthepersistencecontext*unitname(entitymanager)*/taggedvalue_ejb_persistence_context_unit_name" type="xs:string" />
+          <xs:element name="/***'andromda_service_persistence_context_unit_type'*thetaggedvaluerepresentingthepersistencecontext*transaction/extendedtype*/taggedvalue_ejb_persistence_context_type" type="xs:string" />
+          <xs:element name="/***'andromda_service_persistence_context_datasource'*thetaggedvaluerepresentingthepersistencecontext*datasourcejndiname*/taggedvalue_ejb_persistence_context_datasource" type="xs:string" />
+          <xs:element name="/***'andromda_service_persistence_flush_mode'*thetaggedvaluerepresentingtheflushmodeonbeanoperation.*/taggedvalue_ejb_persistence_flush_mode" type="xs:string" />
+          <xs:element name="/***'andromda_persistence_lob_type'*thetaggedvalueoverridingthedefaultlobtypeforattribute.*/taggedvalue_ejb_persistence_lob_type" type="xs:string" />
+          <xs:element name="/***'andromda_service_type'*thetaggedvaluerepresentingthesessionejbtype(statelessorstateful)*/taggedvalue_ejb_session_type" type="xs:string" />
+          <xs:element name="/***'andromda_service_security_permitall'*thetaggedvaluerepresentingwhethertopermitallrolestoexecute*operationsinthebean.*/taggedvalue_ejb_security_permit_all" type="xs:string" />
+          <xs:element name="/***'andromda_service_security_denyall'*thetaggedvaluerepresentingwhethertodenyallrolesaccessrights*toexecuteoperationsinthebean.*/taggedvalue_ejb_security_deny_all" type="xs:string" />
+          <xs:element name="/***'andromda_service_security_realm'*thetaggedvaluerepresentingthesecuritydomaintospecifyat*thesessionbeanclasslevel.*/taggedvalue_ejb_security_realm" type="xs:string" />
+          <xs:element name="/***'andromda_ejb_mdb_acknowledge_mode'*thetaggedvaluerepresentingthejmsmessagedrivenbean*acknowledgemode.*/taggedvalue_ejb_mdb_acknowledge_mode" type="xs:string" />
+          <xs:element name="/***'andromda_ejb_mdb_destination'*thetaggedvaluerepresentingthejmsmessagedrivenbean*destinationjndiname.*/taggedvalue_ejb_mdb_destination" type="xs:string" />
+          <xs:element name="/***'andromda_ejb_mdb_destination_type'*thetaggedvaluerepresentingthejmsmessagedrivenbean*destinationtype.*/taggedvalue_ejb_mdb_destination_type" type="xs:string" />
+          <xs:element name="/***'andromda_ejb_mdb_selector'*thetaggedvaluerepresentingthejmsmessagedrivenbean*selectorlogic.*/taggedvalue_ejb_mdb_selector" type="xs:string" />
+          <xs:element name="/***'andromda_ejb_mdb_subscription_durability'*thetaggedvaluerepresentingthejmsmessagedrivenbean*topicsubscriptiondurabilitymode.*/taggedvalue_ejb_mdb_durability" type="xs:string" />
+          <xs:element name="/***'andromda_service_jndi_remote'*thetaggedvaluerepresentingthesessionbeanremoteinterface*jndiname.*/taggedvalue_ejb_session_jndi_name_remote" type="xs:string" />
+          <xs:element name="/***'andromda_service_jndi_local'*thetaggedvaluerepresentingthesessionbeanlocalinterface*jndiname.*/taggedvalue_ejb_session_jndi_name_local" type="xs:string" />
+          <xs:element name="/***'andromda_ejb_mdb_pool_size_min'*thetaggedvalueindicatingthebeanminimumpoolsize*/taggedvalue_ejb_mdb_minimum_pool_size" type="xs:string" />
+          <xs:element name="/***'andromda_ejb_mdb_pool_size_max'*thetaggedvalueindicatingthebeanmaximumpoolsize*/taggedvalue_ejb_mdb_maximum_pool_size" type="xs:string" />
+          <xs:element name="/***'andromda_persistence_collection_type'*definestheassociationcollectiontype*/taggedvalue_association_collection_type" type="xs:string" />
+          <xs:element name="/***'andromda_persistence_collection_index_type'*definestheindexcolumntypeforejb3indexedcollections*/taggedvalue_association_index_type" type="xs:string" />
+          <xs:element name="/***'andromda_persistence_collection_index'*definestheindexcolumnforejb3indexedcollections*/taggedvalue_association_index" type="xs:string" />
+          <xs:element name="/***'andromda_service_interceptor_excludedefault'*defineswhethertoexcludethedefaultinterceptorsforthesessionoperation.*/taggedvalue_service_interceptor_exclude_default" type="xs:string" />
+          <xs:element name="/***'andromda_service_interceptor_excludeclass'*defineswhethertoexcludetheclassinterceptorsforthesessionoperation.*/taggedvalue_service_interceptor_exclude_class" type="xs:string" />
+          <xs:element name="/***'andromda_service_interceptor_default'*definesadefaultinterceptorforasessionormessage-drivenbean.*/taggedvalue_default_interceptor" type="xs:string" />
+          <xs:element name="/***'andromda_persistence_entity_cache'*definesthecachetypefortheentity.*/taggedvalue_hibernate_entity_cache" type="xs:string" />
+          <xs:element name="/***'andromda_persistence_association_cache'*definesthecachetypeforarelationshipcollection.*/taggedvalue_hibernate_association_cache" type="xs:string" />
+          <xs:element name="/***'andromda_persistence_associationend_primary'*definestheowningsideofabidirectionalnavigablerelationship.*/taggedvalue_persistence_association_end_primary" type="xs:string" />
+          <xs:element name="/***'andromda_hibernate_cascade'*definesthetaggedvalueforhibernatecascadeonanassociationend*/taggedvalue_hibernate_cascade" type="xs:string" />
+          <xs:element name="/***'andromda_ejb_query_usecache'*defineswhetherquerycacheisenableforquery.*/taggedvalue_ejb_use_query_cache" type="xs:string" />
+          <xs:element name="/***'andromda_webservice_parameter_style'*definesthewebserviceparameterstyle*/taggedvalue_webservice_parameter_style" type="xs:string" />
+          <xs:element name="/***'andromda_webservice_operation_oneway'*definesthewebservicemethodasoneway*/taggedvalue_webservice_operation_oneway" type="xs:string" />
+          <xs:element name="/***'andromda_webservice_operation_name'*definesthewebservicemethodname*/taggedvalue_webservice_operation_name" type="xs:string" />
+          <xs:element name="/***'andromda_webservice_operation_result_name'*definesthewebservicemethodresultname*/taggedvalue_webservice_operation_result_name" type="xs:string" />
+          <xs:element name="/***'andromda_seam_component_name'*definestheseamcomponentname*/taggedvalue_seam_component_name" type="xs:string" />
+          <xs:element name="/***'andromda_seam_component_role_scope'*definesthejbossseamcomponentscopetype*/taggedvalue_seam_scope_type" type="xs:string" />
+          <xs:element name="/***'andromda_seam_component_role_name'*allowsaseamcomponenttobeboundtomultiplecontextsvariables.*the@name/@scopeannotationsdefinea"defaultrole".each@role*annotationdefinesanadditionalrole.**thistaggedvaluespecifiesthecontextvariablename.*/taggedvalue_seam_component_role_name" type="xs:string" />
+          <xs:element name="/***thecontextvariablescope.whennoscopeisexplicitlyspecified,*thedefaultdependsuponthecomponenttype,asabove.**note!ifmultiplerolesarespecifiedthenthelistofscopesmust*beinthesameorderastherolenames.*/taggedvalue_seam_component_role_scope_type" type="xs:string" />
+          <xs:element name="/***'andromda_seam_component_intercept'*determineswhenseaminterceptorsareactive.whennointerception*typeisexplicitlyspecified,thedefaultdependsuponthe*componenttype.forentitybeans,thedefaultisnever.forsession*beans,messagedrivenbeansandjavabeans,thedefaultisalways.*/taggedvalue_seam_component_intercept" type="xs:string" />
+          <xs:element name="/***'andromda_seam_component_jndiname'*specifiesthejndinamethatseamwillusetolookuptheejb*component.ifnojndinameisexplicitlyspecified,seamwilluse*thejndipatternspecifiedbyorg.jboss.seam.core.init.jndipattern.*/taggedvalue_seam_component_jndi_name" type="xs:string" />
+          <xs:element name="/***'andromda_seam_component_conversional_ifnotbegunoutcome'*specifiesthataconversationscopecomponentisconversational,*meaningthatnomethodofthecomponentcanbecalledunlessa*long-runningconversationstartedbythiscomponentisactive*(unlessthemethodwouldbeginanewlong-runningconversation).*/taggedvalue_seam_component_conversional_ifnotbegunoutcome" type="xs:string" />
+          <xs:element name="/***'andromda_seam_component_startup_depends'*namedcomponentsmustbestartedfirst,iftheyareinstalled.*/taggedvalue_seam_component_startup_depends" type="xs:string" />
+          <xs:element name="/***'andromda_seam_component_synchronized_timeout'*specifiesthatacomponentisaccessedconcurrentlybymultiple*clients,andthatseamshouldserializerequests.ifarequestis*notabletoobtainitslockonthecomponentinthegiventimeout*period,anexceptionwillberaised.*/taggedvalue_seam_component_synchronized_timeout" type="xs:string" />
+          <xs:element name="/***'andromda_seam_component_readonly'*specifiesthatajavabeancomponentorcomponentmethoddoesnot*requirestatereplicationattheendoftheinvocation.*/taggedvalue_seam_component_readonly" type="xs:string" />
+          <xs:element name="/***'andromda_seam_bijection_in_create'*specifiesthatseamshouldinstantiatethecomponentwiththesame*nameasthecontextvariableifthecontextvariableisundefined*(null)inallcontexts.defaulttofalse.*/taggedvalue_seam_bijection_in_create" type="xs:string" />
+          <xs:element name="/***'andromda_seam_bijection_in_value'*specifiesthenameofthecontextvariable.defaulttothenameof*thecomponentattribute.alternatively,specifiesajsfel*expression,surroundedby#{...}.*/taggedvalue_seam_bijection_in_value" type="xs:string" />
+          <xs:element name="/***'andromda_seam_bijection_out_value'*specifiesthenameofthecontextvariableexplicitly,insteadof*usingtheannotatedinstancevariablename.*/taggedvalue_seam_bijection_out_value" type="xs:string" />
+          <xs:element name="/***'andromda_seam_bijection_out_scope'*specifiesthatacomponentattributethatisnotaseamcomponent*typeistobeoutjectedtoaspecificscopeattheendofthe*invocation.**alternatively,ifnoscopeisexplicitlyspecified,thescopeof*thecomponentwiththe@outattributeisused(ortheeventscope*ifthecomponentisstateless).*/taggedvalue_seam_bijection_out_scope_type" type="xs:string" />
+          <xs:element name="/***'andromda_seam_bijection_factory_value'*specifiesthenameofthecontextvariable.ifthemethodisa*gettermethod,defaulttothejavabeanspropertyname.*/taggedvalue_seam_bijection_factory_value" type="xs:string" />
+          <xs:element name="/***'andromda_seam_bijection_factory_scope'*specifiesthescopethatseamshouldbindthereturnedvalueto.*onlymeaningfulforfactorymethodswhichreturnavalue.*/taggedvalue_seam_bijection_factory_scope_type" type="xs:string" />
+          <xs:element name="/***'andromda_seam_bijection_logger_value'*specifiesthenameofthelogcategory.defaulttothenameofthe*componentclass.*/taggedvalue_seam_bijection_logger_value" type="xs:string" />
+          <xs:element name="/***'andromda_seam_bijection_requestparameter_value'*specifiesthenameoftherequestparameter.defaulttothename*ofthecomponentattribute.*/taggedvalue_seam_bijection_request_parameter_value" type="xs:string" />
+          <xs:element name="/***'andromda_seam_lifecycle_observer_event'*specifiesthatthemethodshouldbecalledwhenacomponent-driven*eventofthespecifiedtypeoccurs.*/taggedvalue_seam_lifecycle_observer_event" type="xs:string" />
+          <xs:element name="/***'andromda_seam_conversation_begin_ifoutcome'*specifiesthatalong-runningconversationbeginswhenthisaction*listenermethodreturnswithoneofthegivenoutcomes.**example:@begin(ifoutcome" type="xs:string" />
+          <xs:element name="/***'andromda_seam_conversation_begin_join'*specifiesthatifalong-runningconversationisalreadyin*progress,theconversationcontextissimplypropagated.*/taggedvalue_seam_conversation_begin_join" type="xs:string" />
+          <xs:element name="/***'andromda_seam_conversation_begin_nested'*specifiesthatifalong-runningconversationisalreadyin*progress,anewnestedconversationcontextbegins.thenested*conversationwillendwhenthenext@endisencountered,andthe*outerconversationwillresume.itisperfectlylegalformultiple*nestedconversationstoexistconcurrentlyinthesameouter*conversation.*/taggedvalue_seam_conversation_begin_nested" type="xs:string" />
+          <xs:element name="/***'andromda_seam_conversation_begin_flushmode'*specifytheflushmodeofanyseam-managedpersistencecontexts.*flushmode" type="xs:string" />
+          <xs:element name="/***'andromda_seam_conversation_begin_pageflow'*specifiesajbpmprocessdefinitionnamethatdefinesthepageflow*forthisconversation.*/taggedvalue_seam_conversation_begin_pageflow" type="xs:string" />
+          <xs:element name="/***'andromda_seam_conversation_end_ifoutcome'*specifiesthatalong-runningconversationendswhenthisaction*listenermethodreturnswithoneofthegivenoutcomes.*/taggedvalue_seam_conversation_end_if_outcome" type="xs:string" />
+          <xs:element name="/***'andromda_seam_conversation_end_beforeredirect'*bydefault,theconversationwillnotactuallybedestroyeduntil*afteranyredirecthasoccurred.settingbeforeredirect" type="xs:string" />
+          <xs:element name="/***'andromda_seam_conversation_end_evenifexception'*specifiesthatalong-runningconversationendswhenthisaction*listenermethodthrowsoneofthespecifiedclassesofexception.*/taggedvalue_seam_conversation_end_even_if_exception" type="xs:string" />
+          <xs:element name="/***'andromda_seam_conversation_begintask_taskidparameter'*thenameofarequestparameterwhichholdstheidofthetask.*defaultto"taskid",whichisalsothedefaultusedbytheseam*tasklistjsfcomponent.*/taggedvalue_seam_conversation_start_task_id_parameter" type="xs:string" />
+          <xs:element name="/***'andromda_seam_conversation_starttask_flushmode'*settheflushmodeofanyseam-managedhibernatesessionsorjpa*persistencecontextsthatarecreatedduringthisconversation.*/taggedvalue_seam_conversation_start_task_flush_mode" type="xs:string" />
+          <xs:element name="/***'andromda_seam_conversation_begintask_taskidparameter'*thenameofarequestparameterwhichholdstheidofthetask.*defaultto"taskid",whichisalsothedefaultusedbytheseam*tasklistjsfcomponent.*/taggedvalue_seam_conversation_begin_task_id_parameter" type="xs:string" />
+          <xs:element name="/***'andromda_seam_conversation_begintask_flushmode'*settheflushmodeofanyseam-managedhibernatesessionsorjpa*persistencecontextsthatarecreatedduringthisconversation.*/taggedvalue_seam_conversation_begin_task_flush_mode" type="xs:string" />
+          <xs:element name="/***'andromda_seam_conversation_endtask_transition_name'*triggersthegivenjbpmtransition.*/taggedvalue_seam_conversation_end_task_transition_name" type="xs:string" />
+          <xs:element name="/***'andromda_seam_conversation_endtask_ifoutcome'*specifiesthejsfoutcomeoroutcomesthatresultintheendof*thetask.*/taggedvalue_seam_conversation_end_task_if_outcome" type="xs:string" />
+          <xs:element name="/***'andromda_seam_conversation_endtask_beforeredirect'*bydefault,theconversationwillnotactuallybedestroyeduntil*afteranyredirecthasoccurred.settingbeforeredirect" type="xs:string" />
+          <xs:element name="/***'andromda_seam_conversation_createprocess_definition'*thenameofthejbpmprocessdefinitiondeployedvia*org.jboss.seam.core.jbpm.processdefinitions.*/taggedvalue_seam_conversation_create_process_definition" type="xs:string" />
+          <xs:element name="/***'andromda_seam_conversation_resumeprocess_processidparameter'*thenamearequestparameterholdingtheprocessid.defaultto*"processid".*/taggedvalue_seam_conversation_resume_process_process_id_parameter" type="xs:string" />
+          <xs:element name="/***'andromda_seam_transaction_rollback_ifoutcome'*thejsfoutcomesthatcauseatransactionrollback(nooutcomesis*interpretedtomeananyoutcome).*/taggedvalue_seam_transaction_rollback_if_outcome" type="xs:string" />
+          <xs:element name="/***'andromda_seam_validation_outcome'*returnsthejsfoutcomewhenvalidationfails.*/taggedvalue_seam_validation_outcome" type="xs:string" />
+          <xs:element name="/***'andromda_seam_validation_refreshentities'*specifieswhetherinvalidentitiesinthemanagedstate*shouldberefreshedfromthedatabasewhenvalidationfails.*/taggedvalue_seam_validation_refresh_entities" type="xs:string" />
+          <xs:element name="/***'andromda_seam_webremote_exclude'*excludesobjectsfromthewebremotecallresult'sobjectgraph*(seetheremotingchapterinseamdocformoredetails).*/taggedvalue_seam_webremote_exclude" type="xs:string" />
+          <xs:element name="/***'andromda_seam_interceptor_stateless'*specifiesthatthisinterceptorisstatelessandseammayoptimize*replication.*/taggedvalue_seam_interceptor_stateless" type="xs:string" />
+          <xs:element name="/***'andromda_seam_interceptor_type'*specifiesthatthisinterceptorisa"client-side"interceptor*thatiscalledbeforetheejbcontainer.*/taggedvalue_seam_interceptor_type" type="xs:string" />
+          <xs:element name="/***'andromda_seam_interceptor_around'*specifiesthatthisinterceptorispositionedhigherinthestack*thanthegiveninterceptors.*/taggedvalue_seam_interceptor_around" type="xs:string" />
+          <xs:element name="/***'andromda_seam_interceptor_within'*specifiesthatthisinterceptorispositioneddeeperinthestack*thanthegiveninterceptors.*/taggedvalue_seam_interceptor_within" type="xs:string" />
+          <xs:element name="/***'andromda_seam_data_datamodel_value'*nameoftheconversationcontextvariable.defaulttotheattributename.*/taggedvalue_seam_data_datamodel_value" type="xs:string" />
+          <xs:element name="/***'andromda_seam_data_datamodel_scope'*ifscope" type="xs:string" />
+          <xs:element name="/***'andromda_seam_data_datamodelselection_value'*nameoftheconversationcontextvariable.notneededifthereis*exactlyone@datamodelinthecomponent.*/taggedvalue_seam_data_datamodel_selection_value" type="xs:string" />
+          <xs:element name="/***'andromda_seam_data_datamodelselectionindex_value'*nameoftheconversationcontextvariable.notneededifthereis*exactlyone@datamodelinthecomponent.*/taggedvalue_seam_data_datamodel_selection_index_value" type="xs:string" />
+          <xs:element name="/***'andromda_seam_data_databinderclass'*thismeta-annotationmakeitpossibletoimplementsimilar*functionalityto@datamodeland@datamodelselectionforother*datastructuresapartfromlists.**theclassnameofthedatamodelbinderclass*/taggedvalue_seam_data_databinder_class" type="xs:string" />
+          <xs:element name="/***'andromda_seam_data_dataselectorclass'*thismeta-annotationmakeitpossibletoimplementsimilar*functionalityto@datamodeland@datamodelselectionforother*datastructuresapartfromlists.**thedatamodelselectorclass.*/taggedvalue_seam_data_dataselector_class" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ejb3scripthelper" >
+      <xs:sequence>
+        <xs:element name="backslash" type="xs:string" />
+        <xs:element name="quote" type="xs:string" />
+        <xs:element name="comma" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="org.andromda.profile.andromda-meta.profile" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cartridge" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="metafacades" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="priority.java" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jpajunitancestor.java" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="/***usedhereandindescendants-threadsafe*/emf" type="xs:anyType" />
+        <xs:element name="/***-notthreadsafe*/em" type="xs:anyType" />
+        <xs:element name="/***"unit_test"*/persistence_unit" type="xs:string" />
+        <xs:element name="/***entitytologdataon,anddeletefrom*/entityname" type="xs:string" />
+        <xs:element name="/***tabletologdataon,anddeletefrom*/table" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="h2.java" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="security-beans.xml" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="log4j.xml" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="auth.conf" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="andromda-messaging.profile" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="andromda-xml.profile" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="andromda-service.profile" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="andromda-presentation.profile" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="andromda-persistence.profile" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ejb3cartridgetestmodel" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="andromda-common.profile" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="andromda-process.profile" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="andromda-meta.profile" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="andromda-webservice.profile" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="mergemappings" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="site" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="howto7" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="howto12" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="howto14" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="howto13" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="samples" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="index" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="howto11" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rentalserviceexception" >
+      <xs:complexContent>
+       <xs:extension base="runtimeexception">
+         <xs:sequence>
+          <xs:element name="/***theserialversionuidofthisclass.neededforserialization.*/serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="cartype" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persondaobase" >
+      <xs:sequence>
+        <xs:element name="//------sessioncontextinjection------context" type="xs:anyType" />
+        <xs:element name="//------persistencecontextinjection--------/***injectpersistencecontexthowtomodelcaching*/emanager" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="person" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="//-----------attributedefinitions------------name" type="xs:string" />
+        <xs:element name="birth" type="xs:dateTime" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="//---------relationshipdefinitions-----------cars" type="car" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="//----manageabledisplayattributes(transient)-----carslabels" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persondaoexception" >
+      <xs:complexContent>
+       <xs:extension base="exception">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ejb3-entity-cache-service" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rentalexception" >
+      <xs:complexContent>
+       <xs:extension base="exception">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="rentalservicedelegate" >
+      <xs:complexContent>
+       <xs:extension base="servicedelegatebase">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="persondaoimpl" >
+      <xs:complexContent>
+       <xs:extension base="persondaobase">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="rentalservicebean" >
+      <xs:complexContent>
+       <xs:extension base="rentalservicebase">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="andromda" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="servicedelegatebase" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rentalservicebase" >
+      <xs:sequence>
+        <xs:element name="//------sessioncontextinjection------context" type="xs:anyType" />
+        <xs:element name="//------persistencecontextdefinitions--------/***injectpersistencecontexthowtomodelcaching*/emanager" type="xs:anyType" />
+        <xs:element name="//------daoinjectiondefinitions--------/***injectdao*/" type="cardao" nillable="true" minOccurs="0" />
+        <xs:element name="/***injectdao*/" type="persondao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="carembeddable" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="//-----------attributedefinitions------------serial" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="type" type="cartype" nillable="true" minOccurs="0" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="//---------relationshipdefinitions-----------owner" type="person" nillable="true" minOccurs="0" />
+        <xs:element name="//----manageabledisplayattributes(transient)-----//manageabledisplayattributeownerlabel" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rentalserviceremote" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cardaoimpl" >
+      <xs:complexContent>
+       <xs:extension base="cardaobase">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="persondao" >
+      <xs:sequence>
+        <xs:element name="*thisspecificflagdenotesnotransformationwilloccur.*/transform_none" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cardao" >
+      <xs:sequence>
+        <xs:element name="*thisspecificflagdenotesnotransformationwilloccur.*/transform_none" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cardaobase" >
+      <xs:sequence>
+        <xs:element name="//------sessioncontextinjection------context" type="xs:anyType" />
+        <xs:element name="//------persistencecontextinjection--------/***injectpersistencecontexthowtomodelcaching*/emanager" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cardaoexception" >
+      <xs:complexContent>
+       <xs:extension base="exception">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="car" >
+      <xs:complexContent>
+       <xs:extension base="carembeddable">
+         <xs:sequence>
+          <xs:element name="/***theserialversionuidofthisclassrequiredforserialization.*/serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="carform" >
+      <xs:complexContent>
+       <xs:extension base="validatorform">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="manageable" type="xs:anyType" />
+          <xs:element name="selectedrows" type="xs:long" />
+          <xs:element name="serial" type="xs:string" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="type" type="xs:string" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="owner" type="xs:long" />
+          <xs:element name="ownerbacking" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="manageperson" >
+      <xs:complexContent>
+       <xs:extension base="dispatchaction">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="car_help" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="person_help" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="personform" >
+      <xs:complexContent>
+       <xs:extension base="validatorform">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="manageable" type="xs:anyType" />
+          <xs:element name="selectedrows" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="birth" type="xs:dateTime" />
+          <xs:element name="birthter" type="xs:anyType" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="cars" type="xs:long" />
+          <xs:element name="carsbacking" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="managecar" >
+      <xs:complexContent>
+       <xs:extension base="dispatchaction">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="cardetails" >
+      <xs:sequence>
+        <xs:element name="/***theserialversionuidofthisclass.neededforserialization.*/serialversionuid" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="serial" type="xs:string" />
+        <xs:element name="ownername" type="xs:string" />
+        <xs:element name="year" type="xs:dateTime" />
+        <xs:element name="timesrented" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="carlistitem" >
+      <xs:sequence>
+        <xs:element name="/***theserialversionuidofthisclass.neededforserialization.*/serialversionuid" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="serial" type="xs:string" />
+        <xs:element name="ownername" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="howtomodel-login-service" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="auth" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

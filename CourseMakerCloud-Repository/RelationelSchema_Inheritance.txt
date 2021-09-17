@@ -1,0 +1,99 @@
+
+courseauthor(serialversionuid:long, courseauthorid:int [PK], upd:Date, courseid:Course #FK to(Course), authorid:Author #FK to(Author));
+
+instructorrating(serialversionuid:long, instructorratingid:int [PK], upd:Date, comment:String, completedflag:int, ratingid:Rating #FK to(Rating), coursetraineeactivityid:CourseTraineeActivity #FK to(CourseTraineeActivity), instructorid:Instructor #FK to(Instructor));
+
+teammember(serialversionuid:long, teammemberid:int [PK], registered:Date, activeflag:int, teamid:Team #FK to(Team), traineeid:Trainee #FK to(Trainee));
+
+lessonschedule(serialversionuid:long, lessonscheduleid:int [PK], schedule:Date, end:Date, activityid:Activity #FK to(Activity), trainingclassid:TrainingClass #FK to(TrainingClass));
+
+instructor(activeflag:int, serialversionuid:long, instructorid:int [PK], firstname:String, lastname:String, email:String, cellphone:String, registered:Date, password:String, gcmregistrationid:String, administratorid:Administrator #FK to(Administrator), companyid:Company #FK to(Company), cityid:City #FK to(City));
+
+guardiantrainee(serialversionuid:long, guardiantraineeid:int [PK], activeflag:int, traineeid:Trainee #FK to(Trainee), guardianid:Guardian #FK to(Guardian));
+
+gcmdevice(serialversionuid:long, gcmdeviceid:int [PK], registrationid:String, manufacturer:String, model:String, product:String, messagecount:int, registered:Date, serialnumber:String, reportuserid:ReportUser #FK to(reportuser), traineeid:Trainee #FK to(Trainee), instructorid:Instructor #FK to(Instructor), authorid:Author #FK to(Author), administratorid:Administrator #FK to(Administrator));
+
+administrator(activeflag:Integer, superuserflag:Integer, serialversionuid:long, administratorid:int [PK], firstname:String, lastname:String, email:String, cellphone:String, password:String, registered:Date, gcmregistrationid:String, companyid:Company #FK to(Company));
+
+province(serialversionuid:long, provinceid:int [PK], provincename:String, countryid:Country #FK to(Country));
+
+coursetraineeactivity(serialversionuid:long, coursetraineeactivityid:int [PK], completedflag:int, comment:String, upd:Date, completion:Date, refreshrequested:int, completionpercentage:int, ratingid:Rating #FK to(Rating), activityid:Activity #FK to(Activity), coursetraineeid:CourseTrainee #FK to(Course));
+
+course(serialversionuid:long, courseid:int [PK], upd:Date, activeflag:int, coursename:String, description:String, shareflag:int, priorityflag:int, localid:long, sync:Date, categoryid:Category #FK to(category), companyid:Company #FK to(Company));
+
+traineestatus(serialversionuid:long, traineestatusid:int [PK], upd:Date, remarks:String, traineestatustypeid:TraineeStatusType #FK to(TraineeStatus), traineeid:Trainee #FK to(Trainee));
+
+trainingclasscourse(serialversionuid:long, trainingclasscourseid:int [PK], upd:Date, priorityflag:int, start:Date, end:Date, trainingclassid:TrainingClass #FK to(TrainingClass), courseid:Course #FK to(Course));
+
+rating(serialversionuid:long, ratingid:int [PK], ratingname:String, ratingnumber:int, companyid:Company #FK to(Company));
+
+skilllevel(companyid:Company #FK to(Company), serialversionuid:long, skilllevelid:Integer [PK], skilllevelname:String, level:int);
+
+helptype(serialversionuid:long, helptypeid:int [PK], helptypename:String, companyid:Company #FK to(Company));
+
+helprequest(serialversionuid:long, helprequestid:int [PK], requested:Date, comment:String, trainingclassid:TrainingClass #FK to(TrainingClass), coursetraineeactivityid:CourseTraineeActivity #FK to(CourseTraineeActivity), helptypeid:HelpType #FK to(HelpType));
+
+traineerating(serialversionuid:long, traineeratingid:int [PK], upd:Date, comment:String, traineeid:Trainee #FK to(Trainee), ratingid:Rating #FK to(Rating), coursetraineeactivityid:CourseTraineeActivity #FK to(CourseTraineeActivity));
+
+skill(companyid:Company #FK to(Company), serialversionuid:long, skillid:int [PK], skillname:String);
+
+traineeshout(serialversionuid:long, traineeshoutid:int [PK], registered:Date, remarks:String, traineeid:Trainee #FK to(Trainee), helptypeid:HelpType #FK to(HelpType));
+
+author(serialversionuid:long, authorid:int [PK], firstname:String, lastname:String, //@pattern(regexp:String, cellphone:String, registered:Date, password:String, activeflag:int, gcmregistrationid:String, companyid:Company #FK to(Company));
+
+attendance(serialversionuid:long, attendanceid:int [PK], checkin:Date, checkout:Date, //@max(value:double, checkinlongitude:double, checkoutlatitude:double, checkoutlongitude:double, traineeid:Trainee #FK to(Trainee), trainingclassid:TrainingClass #FK to(TrainingClass));
+
+objective(serialversionuid:long, objectiveid:int [PK], objectivename:String, description:String, courseid:Course #FK to(Course));
+
+coursetrainee(serialversionuid:long, coursetraineeid:int [PK], enrolled:Date, rating:Date, comment:String, ratingid:Rating #FK to(Rating), traineeid:Trainee #FK to(Trainee), trainingclasscourseid:TrainingClassCourse #FK to(Course));
+
+activity(serialversionuid:long, activityid:int [PK], activityname:String, description:String, priorityflag:int, localid:long, sync:Date, //@max(value:double, courseid:Course #FK to(Course));
+
+traineestatustype(serialversionuid:long, traineestatustypeid:int [PK], traineestatustypename:String);
+
+demoannouncement(serialversionuid:long, demoannouncementid:int [PK], demo:Date, requested:Date, description:String, cancellation:Date, teamid:Team #FK to(Team), traineeid:Trainee #FK to(Trainee), trainingclassid:TrainingClass #FK to(TrainingClass));
+
+inventory(serialversionuid:long, inventoryid:int [PK], serialnumber:String, registered:Date, conditionflag:int, upd:Date, model:String, yearpurchased:int, administratorid:Administrator #FK to(Administrator), equipmentid:Equipment #FK to(Equipment));
+
+traineeequipment(serialversionuid:long, traineeequipmentid:int [PK], registered:Date, returned:Date, conditionflag:int, administratorid:Administrator #FK to(Administrator), inventoryid:Inventory #FK to(Inventory), traineeid:Trainee #FK to(Trainee));
+
+guardian(serialversionuid:long, guardianid:int [PK], name:String, lastname:String, //@pattern(regexp:String, cellphone:String, registered:Date);
+
+city(//@max(value:Double, longitude:Double, serialversionuid:long, cityid:int [PK], cityname:String, provinceid:Province #FK to(Province));
+
+team(serialversionuid:long, teamid:int [PK], teamname:String, registered:Date, trainingclassid:TrainingClass #FK to(TrainingClass));
+
+traineeskillhistory(serialversionuid:long, traineeskillhistoryid:int [PK], assessed:Date, skillid:Skill #FK to(Skill), skilllevelid:SkillLevel #FK to(SkillLevel), traineeid:Trainee #FK to(Trainee), instructorid:Instructor #FK to(Instructor));
+
+trainee(gender:int, activeflag:int, serialversionuid:long, traineeid:int [PK], firstname:String, middlename:String, lastname:String, email:String, cellphone:String, registered:Date, idnumber:String, address:String, password:String, gcmregistrationid:String, upd:Date, administratorid:Administrator #FK to(Administrator), trainingclassid:TrainingClass #FK to(TrainingClass), cityid:City #FK to(City), companyid:Company #FK to(Company), institutionid:Institution #FK to(Institution));
+
+lessonresource(serialversionuid:long, lessonresourceid:int [PK], url:String, upd:Date, resourcename:String, localid:long, sync:Date, courseid:Course #FK to(Course), instructorid:Instructor #FK to(Instructor), traineeid:Trainee #FK to(Trainee), authorid:Author #FK to(Author));
+
+equipment(serialversionuid:long, equipmentid:int [PK], equipmentname:String, administratorid:Administrator #FK to(Administrator), companyid:Company #FK to(Company));
+
+errorstoreandroid(serialversionuid:long, errorstoreandroidid:Integer [PK], error:Date, packagename:String, appversionname:String, appversioncode:String, brand:String, phonemodel:String, androidversion:String, stacktrace:String, logcat:String, companyid:Company #FK to(Company));
+
+country(serialversionuid:long, countryid:int [PK], countryname:String, //@max(value:Double, longitude:Double, countrycode:String);
+
+errorstore(serialversionuid:long, errorstoreid:int [PK], statuscode:int, message:String, occured:Date, origin:String);
+
+trainingclassevent(serialversionuid:long, trainingclasseventid:int [PK], eventname:String, description:String, registered:Date, location:String, start:Date, end:Date, trainingclassid:TrainingClass #FK to(TrainingClass), trainingclasscourseid:TrainingClassCourse #FK to(Course));
+
+institution(serialversionuid:long, institutionid:int [PK], institutionname:String, cityid:City #FK to(City));
+
+helpresponse(serialversionuid:long, helpresponseid:int [PK], message:String, response:Date, schedulemeeting:int, problemsorted:int, meeting:Date, instructorid:Instructor #FK to(Instructor), helprequestid:HelpRequest #FK to(HelpRequest));
+
+company(serialversionuid:long, companyid:int [PK], companyname:String, //@pattern(regexp:String, registered:Date, cityid:City #FK to(City));
+
+instructorclass(serialversionuid:long, instructorclassid:int [PK], registered:Date, trainingclassid:TrainingClass #FK to(TrainingClass), instructorid:Instructor #FK to(Instructor));
+
+trainingclass(isopen:Integer, calendarid:Integer, serialversionuid:long, trainingclassid:int [PK], trainingclassname:String, start:Date, end:Date, administratorid:Administrator #FK to(Administrator), companyid:Company #FK to(Company));
+
+traineeskill(serialversionuid:long, traineeskillid:int [PK], assessed:Date, skillid:Skill #FK to(Skill), skilllevelid:SkillLevel #FK to(SkillLevel), traineeid:Trainee #FK to(Trainee), instructorid:Instructor #FK to(Instructor));
+
+reportuser(serialversionuid:long, reportuserid:int [PK], firstname:String, lastname:String, //@pattern(regexp:String, cellphone:String, registered:Date, password:String, gcmregistrationid:String);
+
+category(serialversionuid:long, categoryid:int [PK], categoryname:String, localid:long, sync:Date, priorityflag:int, companyid:Company #FK to(Company));
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

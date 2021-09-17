@@ -1,0 +1,13 @@
+ClassDiagram.Class>> Authority =>=>=> RelationalSchema.Table>> authority;
+ClassDiagram.Class>> User =>=>=> RelationalSchema.Table>> user;
+ClassDiagram.Attribut>> Authority.serialversionuid:long =>=>=> RelationalSchema.Column>> authority.serialversionuid;
+ClassDiagram.Attribut>> Authority.//用户的唯一标识id:Long =>=>=> RelationalSchema.Column>> authority.//用户的唯一标识id PRIMARY KEY;
+ClassDiagram.Attribut>> Authority.name:String =>=>=> RelationalSchema.Column>> authority.name;
+ClassDiagram.Attribut>> User.serialversionuid:long =>=>=> RelationalSchema.Column>> user.serialversionuid;
+ClassDiagram.Attribut>> User.//用户的唯一标识id:Long =>=>=> RelationalSchema.Column>> user.//用户的唯一标识id PRIMARY KEY;
+ClassDiagram.Attribut>> User.name:String =>=>=> RelationalSchema.Column>> user.name;
+ClassDiagram.Attribut>> User.email:String =>=>=> RelationalSchema.Column>> user.email;
+ClassDiagram.Attribut>> User.//用户账号，用户登录时的唯一标识username:String =>=>=> RelationalSchema.Column>> user.//用户账号，用户登录时的唯一标识username;
+ClassDiagram.Attribut>> User.//登录时密码password:String =>=>=> RelationalSchema.Column>> user.//登录时密码password;
+ClassDiagram.Attribut>> User.//头像图片地址avatar:String =>=>=> RelationalSchema.Column>> user.//头像图片地址avatar;
+Many-To-Many relationship between ClassDiagram.Class>>User  and ClassDiagram.Class>>list<authority>: user_authority(user_id:User [PK] #FK to User,authority_id:list<authority> [PK] #FK to list<authority>);

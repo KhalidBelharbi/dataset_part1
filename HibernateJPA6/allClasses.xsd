@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="backendstresstest" >
+      <xs:sequence>
+        <xs:element name="/***syncorasync*/" type="xs:anyType" />
+        <xs:element name="/***directoryused*/" type="xs:anyType" />
+        <xs:element name="/***indexmanager*/" type="xs:anyType" />
+        <xs:element name="/***threadsdoingread/updates/deletes*/numberofthreads" type="xs:long" />
+        <xs:element name="/***totalnumberofindexingworkseachthreadwillcarry*/docsperthread" type="xs:long" />
+        <xs:element name="/***percentageofthetotalworkthatwillbeadd*/addpercentage" type="xs:long" />
+        <xs:element name="/***percentageofthetotalworkthatwillbeupdate(0-100).*ifaddpercentage+updatespercentage<100theremainder*oftheoperationswillbedelete.deletesarealwaysdone*onpreviouslyaddeddocuments*/updatespercentage" type="xs:long" />
+        <xs:element name="/***chunksize,usedonlyfortheinfinispandirectory*/chunksize" type="xs:long" />
+        <xs:element name="/***forprogressoutput*/preach" type="xs:long" />
+        <xs:element name="/***numberoftimestoexecutethetest*/repeat" type="xs:long" />
+        <xs:element name="/***numberofhibernatesearchenginestostart.*thiswon'taffectthebackend,butaffectsthelatency*ofstorageoperationsininfinispan.*defaultsto4forinfinispanonlyasitmakesnosense*tohaveavaluedifferentthan1forotherdirectories.*/cluster_nodes" type="xs:long" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="worklog" nillable="true" minOccurs="0" />
+        <xs:element name="sfholdersync" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="worklog" >
+      <xs:sequence>
+        <xs:element name="worklog" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="volatileaddcounter,deletecounter,updatecounter" type="xs:anyType" />
+        <xs:element name="volatilelastaddeddocumentid" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="testrunnerstandalone" >
+      <xs:sequence>
+        <xs:element name="scenario" type="testscenario" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="book" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="summary" type="xs:string" />
+        <xs:element name="publication" type="xs:dateTime" />
+        <xs:element name="rating" type="xs:double" />
+        <xs:element name="totalsold" type="xs:long" />
+        <xs:element name="authors" type="author" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="author" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="checkeruncaughtexceptions" >
+      <xs:sequence>
+        <xs:element name="uncaught_exceptions" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="batchsupport" >
+      <xs:sequence>
+        <xs:element name="batchsize" type="xs:long" />
+        <xs:element name="sf" type="xs:anyType" />
+        <xs:element name="initialoffset" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="checkerluceneindex" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="batchcallback" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="targetdirhelper" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="util" >
+      <xs:sequence>
+        <xs:element name="gc_cycle" type="xs:long" />
+        <xs:element name="gc_timeout" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="updatebookratingtask" >
+      <xs:complexContent>
+       <xs:extension base="abstracttask">
+         <xs:sequence>
+          <xs:element name="max_rating" type="xs:double" />
+          <xs:element name="_rating" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="querybooksbynewestpublishedtask" >
+      <xs:complexContent>
+       <xs:extension base="abstracttask">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="querybooksbytitletask" >
+      <xs:complexContent>
+       <xs:extension base="abstracttask">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="querybooksbybestratingtask" >
+      <xs:complexContent>
+       <xs:extension base="abstracttask">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="querybooksbysummarytask" >
+      <xs:complexContent>
+       <xs:extension base="abstracttask">
+         <xs:sequence>
+          <xs:element name="phrases" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="abstracttask" >
+      <xs:sequence>
+        <xs:element name="ctx" type="testcontext" nillable="true" minOccurs="0" />
+        <xs:element name="counter" type="xs:anyType" />
+        <xs:element name="timer" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="querybooksbyauthortask" >
+      <xs:complexContent>
+       <xs:extension base="abstracttask">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="insertbooktask" >
+      <xs:complexContent>
+       <xs:extension base="abstracttask">
+         <xs:sequence>
+          <xs:element name="ation__zero" type="xs:dateTime" />
+          <xs:element name="summaries" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="querybooksbytotalsoldtask" >
+      <xs:complexContent>
+       <xs:extension base="abstracttask">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="querybooksbyaverageratingtask" >
+      <xs:complexContent>
+       <xs:extension base="abstracttask">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="updatebooktotalsoldtask" >
+      <xs:complexContent>
+       <xs:extension base="abstracttask">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="testrunnerarquillian" >
+      <xs:sequence>
+        <xs:element name="scenario" type="testscenario" nillable="true" minOccurs="0" />
+        <xs:element name="runner_properties" type="xs:string" />
+        <xs:element name="target_dir_key" type="xs:string" />
+        <xs:element name="em" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="filesystemnearrealtimetestscenario" >
+      <xs:complexContent>
+       <xs:extension base="testscenario">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="testscenariofactory" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="smoketestscenario" >
+      <xs:complexContent>
+       <xs:extension base="testscenario">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="testscenario" >
+      <xs:sequence>
+        <xs:element name="performance_enabled" type="xs:anyType" />
+        <xs:element name="initialoffset" type="xs:long" />
+        <xs:element name="initialautorcount" type="xs:long" />
+        <xs:element name="initialbookcount" type="xs:long" />
+        <xs:element name="warmupcyclescount" type="xs:long" />
+        <xs:element name="measuredcyclescount" type="xs:long" />
+        <xs:element name="initindex" type="xs:anyType" />
+        <xs:element name="initdatabase" type="xs:anyType" />
+        <xs:element name="warmup" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="testcontext" >
+      <xs:sequence>
+        <xs:element name="performance_enabled" type="xs:anyType" />
+        <xs:element name="verbose" type="xs:anyType" />
+        <xs:element name="measure_memory" type="xs:anyType" />
+        <xs:element name="measure_task_time" type="xs:anyType" />
+        <xs:element name="assert_query_results" type="xs:anyType" />
+        <xs:element name="check_index_state" type="xs:anyType" />
+        <xs:element name="max_authors" type="xs:long" />
+        <xs:element name="threads_count" type="xs:long" />
+        <xs:element name="sf" type="xs:anyType" />
+        <xs:element name="scenario" type="testscenario" nillable="true" minOccurs="0" />
+        <xs:element name="executor" type="xs:anyType" />
+        <xs:element name="startsignal" type="xs:anyType" />
+        <xs:element name="tasks" type="abstracttask" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="bookidcounter" type="xs:anyType" />
+        <xs:element name="authoridcounter" type="xs:anyType" />
+        <xs:element name="book" type="xs:anyType" />
+        <xs:element name="author" type="xs:anyType" />
+        <xs:element name="firstknownerror" type="xs:anyType" />
+        <xs:element name="starttime" type="xs:long" />
+        <xs:element name="stoptime" type="xs:long" />
+        <xs:element name="freememory" type="xs:long" />
+        <xs:element name="totalmemory" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="testreporter" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="filesystemdefaulttestscenario" >
+      <xs:complexContent>
+       <xs:extension base="testscenario">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema> 

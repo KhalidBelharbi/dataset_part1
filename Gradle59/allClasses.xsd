@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="userservicetest" >
+      <xs:sequence>
+        <xs:element name="container" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userdaotest" >
+      <xs:sequence>
+        <xs:element name="container" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="index" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="beans" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="web" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="comment" >
+      <xs:complexContent>
+       <xs:extension base="model">
+         <xs:sequence>
+          <xs:element name="author" type="xs:string" />
+          <xs:element name="content" type="xs:string" />
+          <xs:element name="" type="post" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="datedmodel" >
+      <xs:complexContent>
+       <xs:extension base="model">
+         <xs:sequence>
+          <xs:element name="created" type="xs:dateTime" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:complexContent>
+       <xs:extension base="model">
+         <xs:sequence>
+          <xs:element name="fullname" type="xs:string" />
+          <xs:element name="password" type="xs:string" />
+          <xs:element name="email" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="model" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="post" >
+      <xs:complexContent>
+       <xs:extension base="datedmodel">
+         <xs:sequence>
+          <xs:element name="title" type="xs:string" />
+          <xs:element name="content" type="xs:string" />
+          <xs:element name="" type="user" nillable="true" minOccurs="0" />
+          <xs:element name="comments" type="comment" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userdao" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="dao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="postdao" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="dao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dao" >
+      <xs:sequence>
+        <xs:element name="em" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="commentdao" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="dao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="commentservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="commentdao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="postservice" >
+      <xs:sequence>
+        <xs:element name="dao" type="postdao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userservice" >
+      <xs:sequence>
+        <xs:element name="dao" type="userdao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sampledatamanager" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="em" type="xs:anyType" />
+        <xs:element name="comments" type="commentdao" nillable="true" minOccurs="0" />
+        <xs:element name="posts" type="postdao" nillable="true" minOccurs="0" />
+        <xs:element name="users" type="userdao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="resources" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="beans" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

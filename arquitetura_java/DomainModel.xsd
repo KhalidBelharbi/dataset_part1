@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="fatura" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="datafechamento" type="xs:dateTime" />
+        <xs:element name="GeneratedName" type="cliente" nillable="true" minOccurs="0" />
+        <xs:element name="lancamentos" type="lancamento" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cliente" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="nome" type="xs:string" />
+        <xs:element name="lancamentos" type="lancamento" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="faturas" type="fatura" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="lancamento" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="descricao" type="xs:string" />
+        <xs:element name="valor" type="xs:double" />
+        <xs:element name="GeneratedName" type="moeda" nillable="true" minOccurs="0" />
+        <xs:element name="data" type="xs:dateTime" />
+        <xs:element name="GeneratedName" type="cliente" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="fatura" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

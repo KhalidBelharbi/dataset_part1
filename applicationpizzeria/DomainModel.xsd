@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="commande" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="numerocommande" type="xs:string" />
+        <xs:element name="statut" type="statutcommande" nillable="true" minOccurs="0" />
+        <xs:element name="statutpaiement" type="statutcommandepaiement" nillable="true" minOccurs="0" />
+        <xs:element name="datecommande" type="xs:anyType" />
+        <xs:element name="supprime" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="livreur" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="client" nillable="true" minOccurs="0" />
+        <xs:element name="pizzas" type="commandepizza" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="email" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="expediteur" type="xs:string" />
+        <xs:element name="destinataire" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:dateTime" />
+        <xs:element name="objet" type="xs:string" />
+        <xs:element name="pizza" type="xs:string" />
+        <xs:element name="message" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pizzaingredients" >
+      <xs:sequence>
+        <xs:element name="id" type="pizzaingredientid" nillable="true" minOccurs="0" />
+        <xs:element name="quantiterequise" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="commandepizza" >
+      <xs:sequence>
+        <xs:element name="commandeid" type="xs:anyType" />
+        <xs:element name="pizzaid" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="commande" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="pizza" nillable="true" minOccurs="0" />
+        <xs:element name="quantite" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="utilisateur" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="nom" type="xs:string" />
+        <xs:element name="prenom" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="motdepasse" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pizza" >
+      <xs:complexContent>
+       <xs:extension base="string>">
+         <xs:sequence>
+          <xs:element name="format" type="xs:anyType" />
+          <xs:element name="autre_format" type="xs:string" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="code" type="xs:string" />
+          <xs:element name="nom" type="xs:string" />
+          <xs:element name="prix" type="xs:anyType" />
+          <xs:element name="categorie" type="categoriepizza" nillable="true" minOccurs="0" />
+          <xs:element name="urlimage" type="xs:string" />
+          <xs:element name="ingredients" type="pizzaingredients" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="actif" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="client" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="nom" type="xs:string" />
+        <xs:element name="prenom" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="actif" type="xs:anyType" />
+        <xs:element name="adresse" type="xs:string" />
+        <xs:element name="telephone" type="xs:string" />
+        <xs:element name="dernieremodification" type="xs:dateTime" />
+        <xs:element name="abonne" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ingredient" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="code" type="xs:string" />
+        <xs:element name="nom" type="xs:string" />
+        <xs:element name="quantite" type="xs:double" />
+        <xs:element name="seuil" type="xs:double" />
+        <xs:element name="actif" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="livreur" >
+      <xs:sequence>
+        <xs:element name="code_livreur_par_defaut" type="xs:string" />
+        <xs:element name="nb_caracteres_nom_prenom_code" type="xs:long" />
+        <xs:element name="//caractèreajoutésiunnomouprénomesttropcourtcaractere_remplissage_code" type="xs:anyType" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="code" type="xs:string" />
+        <xs:element name="nom" type="xs:string" />
+        <xs:element name="prenom" type="xs:string" />
+        <xs:element name="actif" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

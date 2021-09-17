@@ -1,0 +1,29 @@
+
+trip(tripid:UUID [PK], statusid:String, created:Date, currentfinishedseqid:long, start:Date, end:Date, shipperid:UUID);
+
+securitygroup(groupid:String [PK], description:String, createdstamp:Date, lastupdstamp:Date);
+
+customer(customerid:UUID [PK], currentlocation:String);
+
+statustype(id:String [PK], status_type_id:StatusType #FK to(statustype), description:String, createdstamp:Date, lastupdstamp:Date);
+
+partytype(id:String [PK], party_type_id:PartyType #FK to(partytype), hastable:boolean, description:String, createdstamp:Date, lastupdstamp:Date);
+
+userlogin(password_encoder:PasswordEncoder, userloginid:String [PK], password:String, issystem:boolean, enabled:boolean, //@joincolumn(name:UUID);
+
+status(id:String [PK], status_type_id:StatusType #FK to(statustype), statuscode:String, sequenceid:String, description:String);
+
+person(partyid:UUID [PK], firstname:String, middlename:String, lastname:String, gender:String, birth:Date);
+
+shipper(shipperid:UUID [PK], currentlocation:String);
+
+party(partyid:UUID [PK], partycode:String, userid:String, partytypeid:String, description:String, statusid:String, isunread:boolean, created:Date, lastmodified:Date);
+
+point(pointid:UUID [PK], seqid:int, suggestionseqid:int, estimatedcost:double, deliveryrequestid:UUID, requesttype:String, lat:double, lng:double, assigntime:Date, statusid:String, GeneratedName:Trip #FK to(trip), tripid:UUID);
+
+deliveryrequest(deliveryrequestid:UUID [PK], pickupaddress:String, deliveryaddress:String, unit:String, weight:double, quantity:double, customerphonenumber:String, pickuplocation:String, deliverylocation:String, statusid:String, assignedshipperid:UUID, customerid:UUID, created:Date, lastmodified:Date);
+
+partysecuritygroup(partyid:UUID [PK], groupid:String [PK]);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

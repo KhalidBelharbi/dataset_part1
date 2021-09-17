@@ -1,0 +1,39 @@
+
+uniquescoresystem(systemid:int [PK], catid:int, catname:String, catdescription:String, catdisptext:String, catdispposition:String, catweight:String, catisactive:String, factorid:int, factordescription:String, factordisptext:String, factordispposition:String, factorweight:String, factorisactive:String, systemname:String, description:String, maxscore:String, type:String, systemisactive:String, agencyalias:String, loginid:String, timestamp:String);
+
+customproject(id:int [PK], dbnum:String, sri:String, mpstart:Double, mpend:Double, systemid:int);
+
+scrcdpproject(dbnum:String [PK], mpstartseg:Double [PK], mpendseg:Double [PK], totalcountlt:Double, crlt:Double, severity:Double, nationalhighwayfreightnetwork:Double, intermodal:Double, njaccess:Double, nhs:Double, meantt:Double, tt95:Double, tttr:Double, overweight:Double, ltpercstip:Double, totalscore:Double, scrsystemid:String [PK], route:String, sri:String);
+
+decisionvariablescorerange(category_name:String, start_range:double, end_range:double, score:double, id:Long [PK], transientediting:boolean, transientnewrecord:boolean);
+
+scorefactor(systemid:int, categoryid:int, factorid:int, factor_description:String [PK], weight:double, dispposition:String, disptext:String, isactive:String);
+
+scoresegment(id:Long [PK], dbnum:String, mpstartseg:Double, mpendseg:Double, totalcountlt:Double, crlt:Double, severity:Double, nationalhighwayfreightnetwork:Double, intermodal:Double, njaccess:Double, nhs:Double, meantt:Double, tt95:Double, tttr:Double, overweight:Double, ltpercstip:Double, totalscore:Double, scrsystemid:String, route:String, sri:String, imagepath:String, projectinfouser:String);
+
+projectsystemscore(scoresystem:String [PK], score:Double, dbnum:String, systemid:String);
+
+computedsegmentscoremanagementdata(dbnum:String [PK], mpstartseg:Double [PK], mpendseg:Double [PK], totalcountlt:Double, crlt:Double, severity:Double, nationalhighwayfreightnetwork:Double, intermodal:Double, njaccess:Double, nhs:Double, meantt:Double, tt95:Double, tttr:Double, overweight:Double, ltpercstip:Double, totalscore:Double, sri:String, route:String);
+
+fmsstip(year:String, dbnum:String [PK], upc:String, contract_number:String, m_posts:String);
+
+user(transientprincipleid:String, groupid:String, transientdomain:String, loginid:String [PK], fullname:String, transientroleid:int, transientisgroup:boolean, transientpassword:String);
+
+scoresystem(systemid:int [PK], systemname:String, description:String, type:String, maxscore:int, agencyalias:String, isactive:int, loginid:String, timestamp:String);
+
+dashboard(dummyid:int [PK]);
+
+cdpprojects(id:Long [PK], dbnum:String, projectname:String, sri:String, mpstart:double, mpend:double, username:String, imagepath:String, route:String, transientfailuremessage:String);
+
+scorecategory(systemid:int, catid:int [PK], cat_name:String, cat_description:String, weight:String, dispposition:String, disptext:String, isactive:String, target:String, transientscorefactors:List<ScoreFactor>);
+
+cdpprojectswithscore(id:Long, dbnum:String [PK], projectname:String, sri:String, mpstart:double, mpend:double, username:String, imagepath:String, route:String, score:Double, systemid:Integer [PK], systemname:String, transientfailuremessage:String);
+
+priorityscorerange(acceptable_range_from:Double, acceptable_range_to:Double, low_range_from:Double [PK], low_range_to:Double, medium_range_from:Double, medium_range_to:Double, high_range_from:Double, high_range_to:Double);
+
+uniquecdpprojectswithscores(id:Long, dbnum:String [PK], projectname:String, sri:String, mpstart:double, mpend:double, username:String, imagepath:String, route:String, score:Double, //@idsystemid:Integer, systemname:String, transientfailuremessage:String);
+
+scoreproject(year:int [PK], dbnum:String [PK], revision:int [PK], systemid:int [PK], catid:int [PK], factorid:int [PK], score:double);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

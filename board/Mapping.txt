@@ -1,0 +1,17 @@
+ClassDiagram.Class>> Reply =>=>=> RelationalSchema.Table>> reply;
+ClassDiagram.Class>> BaseEntity =>=>=> RelationalSchema.Table>> baseentity;
+ClassDiagram.Class>> Board =>=>=> RelationalSchema.Table>> board;
+ClassDiagram.Class>> Member =>=>=> RelationalSchema.Table>> member;
+ClassDiagram.Attribut>> Reply.rno:Long =>=>=> RelationalSchema.Column>> reply.rno PRIMARY KEY;
+ClassDiagram.Attribut>> Reply.text:String =>=>=> RelationalSchema.Column>> reply.text;
+ClassDiagram.Attribut>> Reply.replyer:String =>=>=> RelationalSchema.Column>> reply.replyer;
+ClassDiagram.Attribut>> BaseEntity.regdate:LocalDateTime =>=>=> RelationalSchema.Column>> baseentity.regdate;
+ClassDiagram.Attribut>> BaseEntity.moddate:LocalDateTime =>=>=> RelationalSchema.Column>> baseentity.moddate;
+ClassDiagram.Attribut>> Board.bno:Long =>=>=> RelationalSchema.Column>> board.bno PRIMARY KEY;
+ClassDiagram.Attribut>> Board.title:String =>=>=> RelationalSchema.Column>> board.title;
+ClassDiagram.Attribut>> Board.content:String =>=>=> RelationalSchema.Column>> board.content;
+ClassDiagram.Attribut>> Member.email:String =>=>=> RelationalSchema.Column>> member.email PRIMARY KEY;
+ClassDiagram.Attribut>> Member.password:String =>=>=> RelationalSchema.Column>> member.password;
+ClassDiagram.Attribut>> Member.name:String =>=>=> RelationalSchema.Column>> member.name;
+Many-To-One relationship from ClassDiagram.Class>>Reply  to ClassDiagram.Class>>board represented by ClassDiagram.Atrribute>>/**하나의댓글은오직하나의게시글에소속되고*하나의게시글은여러개의댓글을가질수있다.*manytoone의관계일때many측의레코드가져올때*그럼lazy(지연),eager(즉)로딩이냐?*eager로딩한다.**/;
+Many-To-One relationship from ClassDiagram.Class>>Board  to ClassDiagram.Class>>member represented by ClassDiagram.Atrribute>>writer;

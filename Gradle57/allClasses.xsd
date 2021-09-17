@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="springrepository" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="metatype" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="age" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userspringdatadao" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<user,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="springdataproxy" >
+      <xs:sequence>
+        <xs:element name="em" type="xs:anyType" />
+        <xs:element name="//implicitlyforthiskindofproxyimplementinginterfaceclass" type="xs:anyType" />
+        <xs:element name="repository" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="beans" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dynamicuserdaotest" >
+      <xs:sequence>
+        <xs:element name="container" type="xs:anyType" />
+        <xs:element name="initialized" type="xs:anyType" />
+        <xs:element name="dao" type="userspringdatadao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="beans" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

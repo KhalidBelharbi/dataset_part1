@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="user" >
+      <xs:complexContent>
+       <xs:extension base="abstracttrackableentity">
+         <xs:sequence>
+          <xs:element name="version" type="xs:anyType" />
+          <xs:element name="firstname" type="xs:string" />
+          <xs:element name="lastname" type="xs:string" />
+          <xs:element name="username" type="xs:string" />
+          <xs:element name="password" type="xs:string" />
+          <xs:element name="manager" type="xs:anyType" />
+          <xs:element name="enabled" type="xs:anyType" />
+          <xs:element name="userroles" type="userrole" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userrole" >
+      <xs:complexContent>
+       <xs:extension base="abstractentity">
+         <xs:sequence>
+          <xs:element name="" type="user" nillable="true" minOccurs="0" />
+          <xs:element name="" type="role" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="role" >
+      <xs:complexContent>
+       <xs:extension base="abstractentity{">
+         <xs:sequence>
+          <xs:element name="role_employee" type="xs:string" />
+          <xs:element name="role_manager" type="xs:string" />
+          <xs:element name="name" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema> 

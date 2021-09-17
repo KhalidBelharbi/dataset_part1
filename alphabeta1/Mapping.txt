@@ -1,0 +1,12 @@
+ClassDiagram.Class>> GroupingViewRecord =>=>=> RelationalSchema.Table>> groupingviewrecord;
+ClassDiagram.Class>> GroupingLinkRecord =>=>=> RelationalSchema.Table>> groupinglinkrecord;
+ClassDiagram.Class>> GroupingLevelRecord =>=>=> RelationalSchema.Table>> groupinglevelrecord;
+ClassDiagram.Attribut>> GroupingViewRecord.view:Grouping.View =>=>=> RelationalSchema.Column>> groupingviewrecord.view PRIMARY KEY;
+ClassDiagram.Attribut>> GroupingViewRecord.level:GroupingLevelRecord =>=>=> RelationalSchema.Column>> groupingviewrecord.level PRIMARY KEY;
+ClassDiagram.Attribut>> GroupingLinkRecord.from:GroupingLevelRecord =>=>=> RelationalSchema.Column>> groupinglinkrecord.from PRIMARY KEY;
+ClassDiagram.Attribut>> GroupingLinkRecord.to:GroupingLevelRecord =>=>=> RelationalSchema.Column>> groupinglinkrecord.to PRIMARY KEY;
+ClassDiagram.Attribut>> GroupingLevelRecord.strategy:Grouping.Strategy =>=>=> RelationalSchema.Column>> groupinglevelrecord.strategy PRIMARY KEY;
+ClassDiagram.Attribut>> GroupingLevelRecord.name:Grouping.Name =>=>=> RelationalSchema.Column>> groupinglevelrecord.name PRIMARY KEY;
+Many-To-One relationship from ClassDiagram.Class>>GroupingViewRecord  to ClassDiagram.Class>>groupinglevelrecord represented by ClassDiagram.Atrribute>>strategy;
+Many-To-One relationship from ClassDiagram.Class>>GroupingLinkRecord  to ClassDiagram.Class>>groupinglevelrecord represented by ClassDiagram.Atrribute>>strategy;
+Many-To-One relationship from ClassDiagram.Class>>GroupingLinkRecord  to ClassDiagram.Class>>groupinglevelrecord represented by ClassDiagram.Atrribute>>strategy;

@@ -1,0 +1,590 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="report" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="start" type="xs:dateTime" />
+        <xs:element name="end" type="xs:dateTime" />
+        <xs:element name="performer" type="xs:string" />
+        <xs:element name="activity" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="productimage" >
+      <xs:sequence>
+        <xs:element name="pk" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="contenttype" type="xs:string" />
+        <xs:element name="lob" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="product" nillable="true" minOccurs="0" />
+        <xs:element name="created" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="guest" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="modification" type="xs:dateTime" />
+        <xs:element name="creation" type="xs:dateTime" />
+        <xs:element name="version" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="address" type="xs:string" />
+        <xs:element name="phone" type="xs:string" />
+        <xs:element name="//reference//branch//@onetoone(targetentity" type="visit" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="category" >
+      <xs:sequence>
+        <xs:element name="//id//@fieldcategoryid" type="xs:long" />
+        <xs:element name="//@field(type" type="xs:string" />
+        <xs:element name="//@fielddescription" type="xs:string" />
+        <xs:element name="//relationshipmappingprojectreviewset" type="projectreview" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="//photosphotos" type="photo" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="//@timeformat(pattern" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="position" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="persons" type="user" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="department" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="contactemail" type="xs:string" />
+        <xs:element name="contactphone" type="xs:string" />
+        <xs:element name="//relationshipmappingposts" type="post" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="//employee-aka.useremployees" type="user" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="meetinglist" type="meeting" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="created" type="xs:dateTime" />
+        <xs:element name="//officeoffices" type="office" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="company" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tag" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="GeneratedName" type="subcategory" nillable="true" minOccurs="0" />
+        <xs:element name="//@jsonignoreposts" type="post" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="//addphotophoto" type="photo" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="roomoption" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="price" type="xs:anyType" />
+        <xs:element name="//relationshiptablerooms" type="room" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="meeting" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="departmentlist" type="department" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="salesorder" >
+      <xs:sequence>
+        <xs:element name="salesorderid" type="xs:long" />
+        <xs:element name="/**theonwhichtheorderwasplaced*/order" type="xs:dateTime" />
+        <xs:element name="/**timeatwhichtheorderwasrecorded*/ordertime" type="xs:dateTime" />
+        <xs:element name="//totalcostofthesalesordertotalcost" type="xs:long" />
+        <xs:element name="/*	*thisfieldmapscustomertoitssalesorder	*asalesorderwillhaveonecustomer,butacustomercanhave	*multiplesalesorder	*//*	@joincolumn(name" type="employee" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="node" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="parent" type="node" nillable="true" minOccurs="0" />
+        <xs:element name="children" type="node" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ranking" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="office" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="GeneratedName" type="address" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="department" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="taskdetail" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="message" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:dateTime" />
+        <xs:element name="time" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="car" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="registrationnumber" type="xs:string" />
+        <xs:element name="//relationship" type="company" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="//////egeriduserid" type="xs:long" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="//@basic(optional" type="xs:string" />
+        <xs:element name="_of_birth" type="xs:dateTime" />
+        <xs:element name="registered" type="xs:dateTime" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="website" type="xs:string" />
+        <xs:element name="//@onetomany(cascade" type="role" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="contact" nillable="true" minOccurs="0" />
+        <xs:element name="////@manytoone(fetch" type="meetup" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="//meetupattendingmeetupsattending" type="meetup" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="//projectreviewprojectreviews" type="projectreview" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="//" type="address" nillable="true" minOccurs="0" />
+        <xs:element name="//photo//@onetomany(mappedby" type="photo" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="//postposts" type="post" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="position" nillable="true" minOccurs="0" />
+        <xs:element name="//tasktabletasks" type="task" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="following" type="relationship" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="//addbookingsbookings" type="booking" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="company" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="logourl" type="xs:string" />
+        <xs:element name="location" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="website" type="xs:string" />
+        <xs:element name="//entityrelationshipdepartments" type="department" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="cars" type="car" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="user" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="comment" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="postid" type="xs:long" />
+        <xs:element name="content" type="xs:string" />
+        <xs:element name="author" type="xs:string" />
+        <xs:element name="creation" type="xs:dateTime" />
+        <xs:element name="user" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="upload" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="data" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="appointment" >
+      <xs:sequence>
+        <xs:element name="appomentid" type="xs:long" />
+        <xs:element name="GeneratedName" type="xs:dateTime" />
+        <xs:element name="location" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="confirmed" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="user" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tutorial" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="tutorialid" type="xs:long" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="category" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="relationship" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="//relationshiptable//-followfollower" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="//followedfollowed" type="user" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="commentchild" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="comment" type="xs:string" />
+        <xs:element name="idcomment" type="xs:long" />
+        <xs:element name="user" type="xs:string" />
+        <xs:element name="date" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="workschedule" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="starttime" type="xs:anyType" />
+        <xs:element name="endtime" type="xs:anyType" />
+        <xs:element name="workday" type="weekday" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="education" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="schoolname" type="xs:string" />
+        <xs:element name="degree" type="xs:string" />
+        <xs:element name="field" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="message" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="body" type="xs:string" />
+        <xs:element name="created" type="xs:dateTime" />
+        <xs:element name="senderid" type="xs:string" />
+        <xs:element name="receiverid" type="xs:string" />
+        <xs:element name="messageid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="admin" >
+      <xs:sequence>
+        <xs:element name="adminid" type="xs:long" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="phone" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userrank" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="users" type="user" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="address" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="street" type="xs:string" />
+        <xs:element name="housenumber" type="xs:string" />
+        <xs:element name="zipcode" type="xs:string" />
+        <xs:element name="//creationcreatedat" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="expertise" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="projectmanager" >
+      <xs:sequence>
+        <xs:element name="projectmanagerid" type="xs:string" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="photo" >
+      <xs:sequence>
+        <xs:element name="photo_id" type="xs:long" />
+        <xs:element name="photo_name" type="xs:string" />
+        <xs:element name="photo_description" type="xs:string" />
+        <xs:element name="photo_likes" type="xs:long" />
+        <xs:element name="photo_views" type="xs:long" />
+        <xs:element name="upload_data" type="xs:dateTime" />
+        <xs:element name="photo_file" type="xs:string" />
+        <xs:element name="GeneratedName" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="category" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="task" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="iscomplete" type="xs:anyType" />
+        <xs:element name="start" type="xs:dateTime" />
+        <xs:element name="end" type="xs:dateTime" />
+        <xs:element name="//relationshipjointabletaskdetails" type="taskdetail" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="users" type="user" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="customer" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+        <xs:element name="//versionversion" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="visit" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="//privateemployeeemployee//@basic" type="xs:dateTime" />
+        <xs:element name="//@basicstatus" type="xs:anyType" />
+        <xs:element name="//refreplationship" type="guest" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="restauranttable" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="seats" type="xs:long" />
+        <xs:element name="isreserved" type="xs:long" />
+        <xs:element name="invoiceid" type="xs:long" />
+        <xs:element name="totaltablecount" type="xs:long" />
+        <xs:element name="max_table_count" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="post" >
+      <xs:sequence>
+        <xs:element name="//@generatedvalue(strategy" type="xs:anyType" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="body" type="xs:string" />
+        <xs:element name="//transientfieldshorttext" type="xs:string" />
+        <xs:element name="create" type="xs:dateTime" />
+        <xs:element name="modify" type="xs:dateTime" />
+        <xs:element name="imageurl" type="xs:string" />
+        <xs:element name="GeneratedName" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="tags" type="tag" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="//relationshipwithothertablecategorization" type="tag" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="department" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="projectreview" >
+      <xs:sequence>
+        <xs:element name="projectreviewid" type="xs:long" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="GeneratedName" type="editiontype" nillable="true" minOccurs="0" />
+        <xs:element name="release" type="xs:dateTime" />
+        <xs:element name="//relationshipmappingcategories" type="category" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="user" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="role" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="rolename" type="xs:string" />
+        <xs:element name="users" type="user" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="event" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="alternativelocations" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="meetup" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="location" type="xs:string" />
+        <xs:element name="date" type="xs:anyType" />
+        <xs:element name="time" type="xs:anyType" />
+        <xs:element name="topic" type="xs:string" />
+        <xs:element name="//entityrelationship//organiserorganizer" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="attendees" type="user" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="description" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="model" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="product" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="cost" type="xs:double" />
+        <xs:element name="orders" type="order" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="productimages" type="productimage" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="contact" >
+      <xs:sequence>
+        <xs:element name="contactid" type="xs:long" />
+        <xs:element name="//@field(analyze" type="xs:string" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="phone" type="xs:string" />
+        <xs:element name="image" type="xs:string" />
+        <xs:element name="birthday" type="xs:dateTime" />
+        <xs:element name="GeneratedName" type="user" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="manager" >
+      <xs:sequence>
+        <xs:element name="carallowance" type="xs:long" />
+        <xs:element name="bonusallowance" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="article" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="articleid" type="xs:long" />
+        <xs:element name="//@fieldtitle" type="xs:string" />
+        <xs:element name="//@fieldcategory" type="xs:string" />
+        <xs:element name="//@fieldcontent" type="xs:string" />
+        <xs:element name="/*@field*/description" type="xs:string" />
+        <xs:element name="//@fieldcreatedat" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="file" >
+      <xs:sequence>
+        <xs:element name="fileid" type="xs:long" />
+        <xs:element name="file" type="xs:anyType" />
+        <xs:element name="custom" type="xs:string" />
+        <xs:element name="make" type="xs:string" />
+        <xs:element name="year" type="xs:long" />
+        <xs:element name="redlinespeed" type="xs:long" />
+        <xs:element name="maxcapacity" type="xs:double" />
+        <xs:element name="lastmodified" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="course" >
+      <xs:sequence>
+        <xs:element name="courseid" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="GeneratedName" type="category" nillable="true" minOccurs="0" />
+        <xs:element name="//" type="topic" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="order" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+        <xs:element name="birthday" type="xs:dateTime" />
+        <xs:element name="deliveryaddress" type="xs:string" />
+        <xs:element name="products" type="product" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="delivery" type="xs:dateTime" />
+        <xs:element name="totalcost" type="xs:double" />
+        <xs:element name="GeneratedName" type="orderstatus" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="guestbranch" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="guestbranchid" type="xs:long" />
+        <xs:element name="branchno" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="salesitemline" >
+      <xs:sequence>
+        <xs:element name="salesitemid" type="salesitemlineid" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="salesorder" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="menuitem" nillable="true" minOccurs="0" />
+        <xs:element name="quantity" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="subcategory" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="GeneratedName" type="category" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="project" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="content" type="xs:string" />
+        <xs:element name="////departmentdepartmentdeadline" type="xs:dateTime" />
+        <xs:element name="status" type="xs:string" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="nosprints" type="xs:anyType" />
+        <xs:element name="sprintlengthdays" type="xs:anyType" />
+        <xs:element name="//entityrelationship" type="projectmanager" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="employee" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="ssn" type="xs:string" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+        <xs:element name="ofbirth" type="xs:dateTime" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="joining" type="xs:dateTime" />
+        <xs:element name="salary" type="xs:long" />
+        <xs:element name="aptno" type="xs:string" />
+        <xs:element name="streetname" type="xs:string" />
+        <xs:element name="city" type="xs:string" />
+        <xs:element name="zipcode" type="xs:string" />
+        <xs:element name="employeeskins" type="employeekin" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="//fortestingpurpose//string" type="department" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="booking" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="start" type="xs:dateTime" />
+        <xs:element name="end" type="xs:dateTime" />
+        <xs:element name="cost" type="xs:long" />
+        <xs:element name="//relationshiptable" type="room" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="user" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="room" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="roomcategory" type="xs:string" />
+        <xs:element name="price" type="xs:anyType" />
+        <xs:element name="//relationshiptableroomoptions" type="roomoption" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="bookings" type="booking" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="topic" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="employeekin" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="//thefieldtracksstotheirkinparent" type="employee" nillable="true" minOccurs="0" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+        <xs:element name="streetaddress" type="xs:string" />
+        <xs:element name="cityaddress" type="xs:string" />
+        <xs:element name="zipcode" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="menuitem" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="itemname" type="xs:string" />
+        <xs:element name="itemprice" type="xs:long" />
+        <xs:element name="decription" type="xs:string" />
+        <xs:element name="itemtype" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="balance" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="balanceamount" type="xs:long" />
+        <xs:element name="//relationshipref" type="user" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="auditinfo" >
+      <xs:sequence>
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="createdon" type="xs:dateTime" />
+        <xs:element name="createdby" type="xs:string" />
+        <xs:element name="updon" type="xs:dateTime" />
+        <xs:element name="updatedby" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hibernateconfiguration" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

@@ -1,0 +1,11 @@
+
+transacao(id:Integer [PK], valor:Double, data:LocalDateTime, GeneratedName:PlanoConta #FK to(planoconta), origem:Conta #FK to(conta), destino:Conta #FK to(conta));
+
+usuario(login_max_length:int, cpf_max_length:int, senha_max_length:int, nome_max_length:int, id:Integer [PK], login:String, cpf:String, senha:String, nome:String, GeneratedName:Conta #FK to(conta));
+
+conta(numero:Long [PK], saldo:Double, GeneratedName:Usuario #FK to(usuario));
+
+planoconta(id:Integer [PK], nome:String, tipo:TipoOperacao, GeneratedName:Usuario #FK to(usuario));
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

@@ -1,0 +1,15 @@
+ClassDiagram.Class>> Livre =>=>=> RelationalSchema.Table>> livre;
+ClassDiagram.Class>> Lecteur =>=>=> RelationalSchema.Table>> lecteur;
+ClassDiagram.Class>> Role =>=>=> RelationalSchema.Table>> role;
+ClassDiagram.Attribut>> Livre.id:int =>=>=> RelationalSchema.Column>> livre.id PRIMARY KEY;
+ClassDiagram.Attribut>> Livre.titre:String =>=>=> RelationalSchema.Column>> livre.titre;
+ClassDiagram.Attribut>> Livre.isbn:String =>=>=> RelationalSchema.Column>> livre.isbn;
+ClassDiagram.Attribut>> Lecteur.id:int =>=>=> RelationalSchema.Column>> lecteur.id PRIMARY KEY;
+ClassDiagram.Attribut>> Lecteur.username:String =>=>=> RelationalSchema.Column>> lecteur.username;
+ClassDiagram.Attribut>> Lecteur.password:String =>=>=> RelationalSchema.Column>> lecteur.password;
+ClassDiagram.Attribut>> Lecteur.email:String =>=>=> RelationalSchema.Column>> lecteur.email;
+ClassDiagram.Attribut>> Lecteur.enabled:boolean =>=>=> RelationalSchema.Column>> lecteur.enabled;
+ClassDiagram.Attribut>> Role.id:int =>=>=> RelationalSchema.Column>> role.id PRIMARY KEY;
+ClassDiagram.Attribut>> Role.rolename:String =>=>=> RelationalSchema.Column>> role.rolename;
+set<role>: lecteur_set<role>(lecteurID:lecteur [PK] #FK to lecteur,set<role>ID:set<role> [PK] #FK to set<role>);
+set<livre>: lecteur_set<role>(lecteurID:lecteur [PK] #FK to lecteur,set<role>ID:set<role> [PK] #FK to set<role>);lecteur_set<livre>(lecteurID:lecteur [PK] #FK to lecteur,set<livre>ID:set<livre> [PK] #FK to set<livre>);

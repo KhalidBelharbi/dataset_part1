@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="country" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="states" type="state" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="created_by" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="//validationtest//@max(100)//@min(50)//integerrangetestupdated_by" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="created_datetime" type="xs:anyType" />
+        <xs:element name="updated_datetime" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="district" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="GeneratedName" type="state" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="state" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="GeneratedName" type="country" nillable="true" minOccurs="0" />
+        <xs:element name="districts" type="district" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="username" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="account" >
+      <xs:sequence>
+        <xs:element name="accountnumber" type="xs:string" />
+        <xs:element name="accounttype" type="xs:string" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="address" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

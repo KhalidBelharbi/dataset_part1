@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="role" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="template" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="path" type="xs:string" />
+        <xs:element name="developer" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="uploadtime" type="xs:dateTime" />
+        <xs:element name="content" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="history" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="path" type="xs:string" />
+        <xs:element name="GeneratedName" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="usedtime" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="modelrelation" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="job" nillable="true" minOccurs="0" />
+        <xs:element name="modelid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="job" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="path" type="xs:string" />
+        <xs:element name="mapper" type="xs:string" />
+        <xs:element name="reducer" type="xs:string" />
+        <xs:element name="inputformat" type="xs:string" />
+        <xs:element name="mapinputvalue" type="xs:string" />
+        <xs:element name="mapinputkey" type="xs:string" />
+        <xs:element name="mapoutputkey" type="xs:string" />
+        <xs:element name="mapoutputvalue" type="xs:string" />
+        <xs:element name="outputkey" type="xs:string" />
+        <xs:element name="outputvalue" type="xs:string" />
+        <xs:element name="isiterative" type="xs:anyType" />
+        <xs:element name="ismaptype" type="xs:anyType" />
+        <xs:element name="parameters" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="developer" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="uploadtime" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jobrelation" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="templateid" type="xs:long" />
+        <xs:element name="jobidonhadoop" type="xs:string" />
+        <xs:element name="ownerid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

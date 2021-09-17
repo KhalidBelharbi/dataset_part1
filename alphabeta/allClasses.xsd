@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="grouprepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<grouprecord,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="applicationrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<applicationrecord,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="translationrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<translationrecord,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="rhozetaapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="translationservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="translationrecord" >
+      <xs:sequence>
+        <xs:element name="key" type="xs:anyType" />
+        <xs:element name="values" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="grouprecord" >
+      <xs:sequence>
+        <xs:element name="key" type="xs:anyType" />
+        <xs:element name="translations" type="translationrecord" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="applicationrecord" >
+      <xs:sequence>
+        <xs:element name="key" type="xs:anyType" />
+        <xs:element name="translations" type="grouprecord" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rhozetaconfig" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="whenretrievingtranslations" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="translationrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

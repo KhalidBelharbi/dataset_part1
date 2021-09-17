@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="viewtaskstats" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="GeneratedName" type="task" nillable="true" minOccurs="0" />
+        <xs:element name="prioritynumber" type="xs:long" />
+        <xs:element name="unbegun" type="xs:long" />
+        <xs:element name="fail" type="xs:long" />
+        <xs:element name="done" type="xs:long" />
+        <xs:element name="total" type="xs:long" />
+        <xs:element name="localityname" type="xs:string" />
+        <xs:element name="assigneename" type="xs:string" />
+        <xs:element name="casename" type="xs:string" />
+        <xs:element name="listingname" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="viewfullcaseactivity" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="curso" type="case" nillable="true" minOccurs="0" />
+        <xs:element name="createdon" type="xs:dateTime" />
+        <xs:element name="createdby" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="log" type="xs:string" />
+        <xs:element name="type" type="activitytype" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="viewactivity" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="GeneratedName" type="activity" nillable="true" minOccurs="0" />
+        <xs:element name="taskid" type="xs:long" />
+        <xs:element name="caseid" type="xs:long" />
+        <xs:element name="claimid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="viewbookingstats" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="GeneratedName" type="booking" nillable="true" minOccurs="0" />
+        <xs:element name="laundry" type="xs:anyType" />
+        <xs:element name="cleaning" type="xs:anyType" />
+        <xs:element name="deposittotal" type="xs:anyType" />
+        <xs:element name="fee" type="xs:anyType" />
+        <xs:element name="feevat" type="xs:anyType" />
+        <xs:element name="laundry_all" type="xs:anyType" />
+        <xs:element name="cleaning_all" type="xs:anyType" />
+        <xs:element name="fee_all" type="xs:anyType" />
+        <xs:element name="laundry_all_count" type="xs:long" />
+        <xs:element name="cleaning_all_count" type="xs:long" />
+        <xs:element name="fee_all_count" type="xs:long" />
+        <xs:element name="next" type="booking" nillable="true" minOccurs="0" />
+        <xs:element name="prev" type="booking" nillable="true" minOccurs="0" />
+        <xs:element name="transaction_items_sum" type="xs:anyType" />
+        <xs:element name="transaction_booking_items_sum" type="xs:anyType" />
+        <xs:element name="transaction_other_items_sum" type="xs:anyType" />
+        <xs:element name="transaction_items_price" type="xs:anyType" />
+        <xs:element name="transaction_booking_items_price" type="xs:anyType" />
+        <xs:element name="transaction_items_count" type="xs:long" />
+        <xs:element name="transaction_booking_items_count" type="xs:long" />
+        <xs:element name="transaction_other_items_count" type="xs:long" />
+        <xs:element name="notes_count" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="listingbookingoverview" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="GeneratedName" type="listing" nillable="true" minOccurs="0" />
+        <xs:element name="month" type="xs:dateTime" />
+        <xs:element name="currency_code" type="xs:string" />
+        <xs:element name="sum" type="xs:anyType" />
+        <xs:element name="grosssum" type="xs:anyType" />
+        <xs:element name="avg" type="xs:anyType" />
+        <xs:element name="grossavg" type="xs:anyType" />
+        <xs:element name="daysoccupied" type="xs:anyType" />
+        <xs:element name="rentprice" type="xs:anyType" />
+        <xs:element name="ownerbookings" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userstats" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="GeneratedName" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="keys30d" type="xs:long" />
+        <xs:element name="money" type="xs:anyType" />
+        <xs:element name="avail30d" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="viewcasestats" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="x" type="case" nillable="true" minOccurs="0" />
+        <xs:element name="finished" type="xs:long" />
+        <xs:element name="inprogress" type="xs:long" />
+        <xs:element name="done" type="xs:long" />
+        <xs:element name="total" type="xs:long" />
+        <xs:element name="prioritynumber" type="xs:long" />
+        <xs:element name="localityname" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="viewlistingcurrentbooking" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="listing" nillable="true" minOccurs="0" />
+        <xs:element name="current" type="booking" nillable="true" minOccurs="0" />
+        <xs:element name="last" type="booking" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="casetag" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="disabled" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="currency" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="code" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="subtask" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="state" type="subtaskstate" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="task" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="group" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="users" type="user" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="department" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="casefeedback" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="curso" type="case" nillable="true" minOccurs="0" />
+        <xs:element name="hostinformed" type="xs:anyType" />
+        <xs:element name="guestinformed" type="xs:anyType" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="type" type="casefeedbacktype" nillable="true" minOccurs="0" />
+        <xs:element name="reviewedby" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="reviewedon" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="phone" type="xs:string" />
+        <xs:element name="created" type="xs:dateTime" />
+        <xs:element name="groups" type="group" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="createdby" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="stats" type="userstats" nillable="true" minOccurs="0" />
+        <xs:element name="lastactivityfetch" type="xs:dateTime" />
+        <xs:element name="lastactivityread" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="taskcomment" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="createdon" type="xs:dateTime" />
+        <xs:element name="createdby" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="task" nillable="true" minOccurs="0" />
+        <xs:element name="text" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="caseactivity" >
+      <xs:complexContent>
+       <xs:extension base="activity">
+         <xs:sequence>
+          <xs:element name="curso" type="case" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="taskactivity" >
+      <xs:complexContent>
+       <xs:extension base="activity">
+         <xs:sequence>
+          <xs:element name="" type="task" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="casecomment" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="createdon" type="xs:dateTime" />
+        <xs:element name="createdby" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="curso" type="case" nillable="true" minOccurs="0" />
+        <xs:element name="text" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="locality" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="color" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="listing" >
+      <xs:complexContent>
+       <xs:extension base="unobj">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="created" type="xs:dateTime" />
+          <xs:element name="position" type="coordinates" nillable="true" minOccurs="0" />
+          <xs:element name="capacity" type="xs:anyType" />
+          <xs:element name="address" type="xs:string" />
+          <xs:element name="disabled" type="xs:anyType" />
+          <xs:element name="listingbookingoverview" type="listingbookingoverview" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="currentbookingview" type="viewlistingcurrentbooking" nillable="true" minOccurs="0" />
+          <xs:element name="" type="locality" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="case" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="createdon" type="xs:dateTime" />
+        <xs:element name="finishedon" type="xs:dateTime" />
+        <xs:element name="deadline" type="xs:dateTime" />
+        <xs:element name="GeneratedName" type="listing" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="booking" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="casestate" nillable="true" minOccurs="0" />
+        <xs:element name="approvedwithclient" type="caseoption" nillable="true" minOccurs="0" />
+        <xs:element name="guestinformed" type="caseoption" nillable="true" minOccurs="0" />
+        <xs:element name="createdby" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="finishedby" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="owner" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="previousowner" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="priority" type="casepriority" nillable="true" minOccurs="0" />
+        <xs:element name="stats" type="viewcasestats" nillable="true" minOccurs="0" />
+        <xs:element name="assignee" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="previousassignee" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="assigned" type="xs:dateTime" />
+        <xs:element name="tags" type="casetag" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="followers" type="user" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="role" type="group" nillable="true" minOccurs="0" />
+        <xs:element name="template" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="contact" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="type" type="contacttype" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="user" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="activity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="createdon" type="xs:dateTime" />
+        <xs:element name="createdby" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="log" type="xs:string" />
+        <xs:element name="changes" type="activitychange" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="type" type="activitytype" nillable="true" minOccurs="0" />
+        <xs:element name="view" type="viewactivity" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="booking" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="stats" type="viewbookingstats" nillable="true" minOccurs="0" />
+        <xs:element name="created" type="xs:dateTime" />
+        <xs:element name="GeneratedName" type="listing" nillable="true" minOccurs="0" />
+        <xs:element name="start" type="xs:dateTime" />
+        <xs:element name="end" type="xs:dateTime" />
+        <xs:element name="starttime" type="xs:dateTime" />
+        <xs:element name="endtime" type="xs:dateTime" />
+        <xs:element name="guestname" type="xs:string" />
+        <xs:element name="guestcount" type="xs:long" />
+        <xs:element name="state" type="bookingstate" nillable="true" minOccurs="0" />
+        <xs:element name="createdby" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="canceled" type="xs:anyType" />
+        <xs:element name="canceledby" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="price" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="task" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="curso" type="case" nillable="true" minOccurs="0" />
+        <xs:element name="previous" type="case" nillable="true" minOccurs="0" />
+        <xs:element name="assignee" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="assigneerole" type="group" nillable="true" minOccurs="0" />
+        <xs:element name="previousassignee" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="priority" type="taskpriority" nillable="true" minOccurs="0" />
+        <xs:element name="finished" type="xs:anyType" />
+        <xs:element name="createdon" type="xs:dateTime" />
+        <xs:element name="finishedon" type="xs:dateTime" />
+        <xs:element name="finshedby" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="deadline" type="xs:dateTime" />
+        <xs:element name="deadlineindays" type="xs:long" />
+        <xs:element name="priorityonscreen" type="xs:long" />
+        <xs:element name="stats" type="viewtaskstats" nillable="true" minOccurs="0" />
+        <xs:element name="createdby" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="reviewedby" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="locality" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="listing" nillable="true" minOccurs="0" />
+        <xs:element name="plannedon" type="xs:dateTime" />
+        <xs:element name="plannedonindays" type="xs:long" />
+        <xs:element name="approvedwithclient" type="caseoption" nillable="true" minOccurs="0" />
+        <xs:element name="guestinformed" type="caseoption" nillable="true" minOccurs="0" />
+        <xs:element name="subtask" type="subtask" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="comments" type="taskcomment" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="finishedstate" type="taskfinishstate" nillable="true" minOccurs="0" />
+        <xs:element name="lockbox" type="booking" nillable="true" minOccurs="0" />
+        <xs:element name="estimatedpurchaseprice" type="xs:anyType" />
+        <xs:element name="purchaseditem" type="xs:string" />
+        <xs:element name="emailtext" type="xs:string" />
+        <xs:element name="problemtext" type="xs:string" />
+        <xs:element name="suitableforsupplycheckdepartment" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="ads" >
+      <xs:sequence>
+        <xs:element name="adid" type="xs:long" />
+        <xs:element name="adname" type="xs:string" />
+        <xs:element name="adlocation" type="xs:string" />
+        <xs:element name="addescription" type="xs:string" />
+        <xs:element name="price" type="xs:long" />
+        <xs:element name="ad" type="xs:dateTime" />
+        <xs:element name="area" type="xs:double" />
+        <xs:element name="roomno" type="xs:long" />
+        <xs:element name="type" type="property_type" nillable="true" minOccurs="0" />
+        <xs:element name="parkingspace" type="xs:anyType" />
+        <xs:element name="customers" type="customer" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="real_estate" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="real_estate" >
+      <xs:sequence>
+        <xs:element name="status" type="xs:long" />
+        <xs:element name="location" type="xs:string" />
+        <xs:element name="purchasing_price" type="xs:double" />
+        <xs:element name="buy_rent" type="xs:anyType" />
+        <xs:element name="claims" type="claim" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="visits" type="visit" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="owner" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="vote" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="type" type="xs:long" />
+        <xs:element name="GeneratedName" type="annonce" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="user" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bank" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="bankid" type="xs:long" />
+        <xs:element name="bankname" type="xs:string" />
+        <xs:element name="interestrate" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="chatmessage" >
+      <xs:sequence>
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="idchat" type="xs:long" />
+        <xs:element name="type" type="xs:anyType" />
+        <xs:element name="content" type="xs:string" />
+        <xs:element name="sender" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="loan" >
+      <xs:sequence>
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="idcredit" type="xs:long" />
+        <xs:element name="price" type="xs:double" />
+        <xs:element name="interestrate" type="xs:double" />
+        <xs:element name="monthly_payment" type="xs:double" />
+        <xs:element name="loan_duration" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="operator" >
+      <xs:complexContent>
+       <xs:extension base="user">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="lasttname" type="xs:string" />
+        <xs:element name="mobile" type="xs:long" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="enabled" type="xs:anyType" />
+        <xs:element name="role" type="xs:string" />
+        <xs:element name="pwd" type="xs:string" />
+        <xs:element name="verificationcode" type="xs:string" />
+        <xs:element name="asingaler_cmpt" type="xs:long" />
+        <xs:element name="bsingaler_cmpt" type="xs:long" />
+        <xs:element name="nsingaler_cmpt" type="xs:long" />
+        <xs:element name="resetpwdcode" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="contract" >
+      <xs:sequence>
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="contractnum" type="xs:long" />
+        <xs:element name="effective_price" type="xs:double" />
+        <xs:element name="effective_" type="xs:dateTime" />
+        <xs:element name="real_estates" type="real_estate" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="admin" >
+      <xs:complexContent>
+       <xs:extension base="user">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="annonce" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="nom" type="xs:string" />
+        <xs:element name="dep" type="xs:dateTime" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="location" type="xs:string" />
+        <xs:element name="area" type="xs:double" />
+        <xs:element name="prix" type="xs:double" />
+        <xs:element name="roomnb" type="xs:long" />
+        <xs:element name="image" type="xs:string" />
+        <xs:element name="parckingplace" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="type" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="user" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="visit" >
+      <xs:sequence>
+        <xs:element name="idvisit" type="xs:long" />
+        <xs:element name="responsable" type="xs:string" />
+        <xs:element name="v" type="real_estate" nillable="true" minOccurs="0" />
+        <xs:element name="v" type="customer" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="subscription" >
+      <xs:sequence>
+        <xs:element name="idsub" type="xs:long" />
+        <xs:element name="offer" type="xs:string" />
+        <xs:element name="GeneratedName" type="customer" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="claim" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="idclaim" type="xs:long" />
+        <xs:element name="claimsubject" type="claimtype" nillable="true" minOccurs="0" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="GeneratedName" type="real_estate" nillable="true" minOccurs="0" />
+        <xs:element name="client" type="customer" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="owner" >
+      <xs:complexContent>
+       <xs:extension base="user">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="real_estates" type="real_estate" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="customer" >
+      <xs:complexContent>
+       <xs:extension base="user">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="trial" type="xs:long" />
+          <xs:element name="claimsc" type="claim" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="visitsc" type="visit" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="/*@onetomany(cascade" type="subscription" nillable="true" minOccurs="0" />
+          <xs:element name="loan_list" type="loan" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="" type="ads" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema> 

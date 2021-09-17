@@ -1,0 +1,680 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="requestfield" >
+      <xs:complexContent>
+       <xs:extension base="gentity<long>">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="" type="inputtype" nillable="true" minOccurs="0" />
+          <xs:element name="disabledon" type="xs:dateTime" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="regionphonenumber" >
+      <xs:complexContent>
+       <xs:extension base="gentity<long>{">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="code" type="xs:long" />
+          <xs:element name="dfrom" type="xs:anyType" />
+          <xs:element name="dto" type="xs:anyType" />
+          <xs:element name="region" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="integrationconfig" >
+      <xs:complexContent>
+       <xs:extension base="gentity<string>">
+         <xs:sequence>
+          <xs:element name="code" type="xs:string" />
+          <xs:element name="server" type="xs:string" />
+          <xs:element name="port" type="xs:string" />
+          <xs:element name="username" type="xs:string" />
+          <xs:element name="key" type="xs:string" />
+          <xs:element name="servicename" type="xs:string" />
+          <xs:element name="passwordhash" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="requestfieldvalue" >
+      <xs:complexContent>
+       <xs:extension base="gentity<long>">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="field" type="xs:long" />
+          <xs:element name="value" type="xs:string" />
+          <xs:element name="disabledon" type="xs:dateTime" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="name" >
+      <xs:complexContent>
+       <xs:extension base="gentity<long>">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="namecount" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="managersubject" >
+      <xs:complexContent>
+       <xs:extension base="gentity<managersubjectkey>">
+         <xs:sequence>
+          <xs:element name="manager" type="xs:long" />
+          <xs:element name="subject" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="requestfieldsubsubject" >
+      <xs:complexContent>
+       <xs:extension base="gentity<requestfieldsubsubjectkey>">
+         <xs:sequence>
+          <xs:element name="subsubject" type="xs:long" />
+          <xs:element name="requestfield" type="xs:long" />
+          <xs:element name="required" type="xs:anyType" />
+          <xs:element name="disabledon" type="xs:dateTime" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="surname" >
+      <xs:complexContent>
+       <xs:extension base="gentity<long>">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="namecount" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="managerroleroute" >
+      <xs:complexContent>
+       <xs:extension base="gentity<managerroleroutekey>">
+         <xs:sequence>
+          <xs:element name="key" type="managerroleroutekey" nillable="true" minOccurs="0" />
+          <xs:element name="" type="managerrole" nillable="true" minOccurs="0" />
+          <xs:element name="" type="route" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="letter" >
+      <xs:complexContent>
+       <xs:extension base="gentity<long>{">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="subject" type="xs:string" />
+          <xs:element name="body" type="xs:string" />
+          <xs:element name="signature" type="xs:string" />
+          <xs:element name="type" type="xs:long" />
+          <xs:element name="sender" type="xs:long" />
+          <xs:element name="request" type="xs:long" />
+          <xs:element name="sent" type="xs:dateTime" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="departmentaddressbook" >
+      <xs:complexContent>
+       <xs:extension base="gentity<long>">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="city" type="xs:string" />
+          <xs:element name="region" type="xs:string" />
+          <xs:element name="address" type="xs:string" />
+          <xs:element name="phone" type="xs:string" />
+          <xs:element name="email" type="xs:string" />
+          <xs:element name="contact" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="service" >
+      <xs:complexContent>
+       <xs:extension base="gentity<string>">
+         <xs:sequence>
+          <xs:element name="code" type="xs:string" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="disabledon" type="xs:dateTime" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="messagesignature" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="body" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="routetype" >
+      <xs:complexContent>
+       <xs:extension base="gentity<string>">
+         <xs:sequence>
+          <xs:element name="code" type="xs:string" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="description" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="subject" >
+      <xs:complexContent>
+       <xs:extension base="gentity<long>{">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="section" type="xs:long" />
+          <xs:element name="maxexecutiontime" type="xs:long" />
+          <xs:element name="complaint" type="xs:anyType" />
+          <xs:element name="disabledon" type="xs:dateTime" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="region" >
+      <xs:complexContent>
+       <xs:extension base="gentity<long>">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="disabledon" type="xs:dateTime" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="admissioneventtype" >
+      <xs:complexContent>
+       <xs:extension base="gentity<string>">
+         <xs:sequence>
+          <xs:element name="code" type="xs:string" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="template" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="managerrole" >
+      <xs:complexContent>
+       <xs:extension base="gentity<string>">
+         <xs:sequence>
+          <xs:element name="code" type="xs:string" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="disabled" type="xs:dateTime" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="route" >
+      <xs:complexContent>
+       <xs:extension base="gentity<long>">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="method" type="xs:string" />
+          <xs:element name="path" type="xs:string" />
+          <xs:element name="open" type="xs:anyType" />
+          <xs:element name="system" type="xs:anyType" />
+          <xs:element name="disabled" type="xs:dateTime" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="section" >
+      <xs:complexContent>
+       <xs:extension base="gentity<long>">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="disabledon" type="xs:dateTime" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="managerstatus" >
+      <xs:complexContent>
+       <xs:extension base="gentity<string>">
+         <xs:sequence>
+          <xs:element name="code" type="xs:string" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="workmode" type="xs:string" />
+          <xs:element name="reasoncode" type="xs:string" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="disabled" type="xs:dateTime" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="clienttype" >
+      <xs:complexContent>
+       <xs:extension base="gentity<string>">
+         <xs:sequence>
+          <xs:element name="code" type="xs:string" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="disabledon" type="xs:dateTime" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="requestfieldsubject" >
+      <xs:complexContent>
+       <xs:extension base="gentity<rqfieldsubjectkey>">
+         <xs:sequence>
+          <xs:element name="subject" type="xs:long" />
+          <xs:element name="requestfield" type="xs:long" />
+          <xs:element name="required" type="xs:anyType" />
+          <xs:element name="disabled" type="xs:dateTime" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="messegetmpl" >
+      <xs:complexContent>
+       <xs:extension base="gentity<long>{">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="subject" type="xs:string" />
+          <xs:element name="body" type="xs:string" />
+          <xs:element name="signature" type="messagesignature" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="requestcomment" >
+      <xs:complexContent>
+       <xs:extension base="gentity<long>">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="comment" type="xs:string" />
+          <xs:element name="author" type="xs:long" />
+          <xs:element name="request" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="eventtype" >
+      <xs:complexContent>
+       <xs:extension base="gentity<string>">
+         <xs:sequence>
+          <xs:element name="code" type="xs:string" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="template" type="xs:string" />
+          <xs:element name="disabledon" type="xs:dateTime" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="subsubject" >
+      <xs:complexContent>
+       <xs:extension base="gentity<long>">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="maxexecutiontime" type="xs:long" />
+          <xs:element name="subject" type="xs:long" />
+          <xs:element name="disabledon" type="xs:dateTime" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="status" >
+      <xs:complexContent>
+       <xs:extension base="gentity<string>">
+         <xs:sequence>
+          <xs:element name="code" type="xs:string" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="" type="state" nillable="true" minOccurs="0" />
+          <xs:element name="routetype" type="xs:string" />
+          <xs:element name="color" type="xs:string" />
+          <xs:element name="expireddaysnum" type="xs:long" />
+          <xs:element name="expiredstatus" type="xs:string" />
+          <xs:element name="lifespan" type="xs:long" />
+          <xs:element name="lifespanstatus" type="xs:string" />
+          <xs:element name="disabledon" type="xs:dateTime" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="request" >
+      <xs:complexContent>
+       <xs:extension base="gentity<long>">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="assignee" type="xs:long" />
+          <xs:element name="requester" type="xs:long" />
+          <xs:element name="status" type="xs:string" />
+          <xs:element name="created" type="xs:dateTime" />
+          <xs:element name="routetype" type="xs:string" />
+          <xs:element name="" type="channel" nillable="true" minOccurs="0" />
+          <xs:element name="" type="platform" nillable="true" minOccurs="0" />
+          <xs:element name="link" type="xs:long" />
+          <xs:element name="body" type="mfield" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="subject" type="xs:long" />
+          <xs:element name="subsubject" type="xs:long" />
+          <xs:element name="admission" type="xs:long" />
+          <xs:element name="applicantcontacts" type="xs:anyType" />
+          <xs:element name="text" type="xs:string" />
+          <xs:element name="disabled" type="xs:dateTime" />
+          <xs:element name="expires" type="xs:dateTime" />
+          <xs:element name="lifespan" type="xs:dateTime" />
+          <xs:element name="closed" type="xs:dateTime" />
+          <xs:element name="assigned" type="xs:dateTime" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="requestsearchentity" >
+      <xs:complexContent>
+       <xs:extension base="gentity<long>">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="assignee" type="manager" nillable="true" minOccurs="0" />
+          <xs:element name="requester" type="client" nillable="true" minOccurs="0" />
+          <xs:element name="" type="status" nillable="true" minOccurs="0" />
+          <xs:element name="created" type="xs:dateTime" />
+          <xs:element name="" type="routetype" nillable="true" minOccurs="0" />
+          <xs:element name="" type="channel" nillable="true" minOccurs="0" />
+          <xs:element name="" type="platform" nillable="true" minOccurs="0" />
+          <xs:element name="link" type="xs:long" />
+          <xs:element name="body" type="mfield" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="" type="subject" nillable="true" minOccurs="0" />
+          <xs:element name="subsubject" type="xs:long" />
+          <xs:element name="admission" type="xs:long" />
+          <xs:element name="applicantcontacts" type="xs:anyType" />
+          <xs:element name="text" type="xs:string" />
+          <xs:element name="disabled" type="xs:dateTime" />
+          <xs:element name="expires" type="xs:dateTime" />
+          <xs:element name="lifespan" type="xs:dateTime" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="manageraddressbook" >
+      <xs:complexContent>
+       <xs:extension base="gentity<long>">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="firstname" type="xs:string" />
+          <xs:element name="lastname" type="xs:string" />
+          <xs:element name="middlename" type="xs:string" />
+          <xs:element name="position" type="xs:string" />
+          <xs:element name="phone" type="xs:string" />
+          <xs:element name="email" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="managernotification" >
+      <xs:complexContent>
+       <xs:extension base="gentity<long>">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="role" type="xs:string" />
+          <xs:element name="created" type="xs:dateTime" />
+          <xs:element name="notification" type="xs:dateTime" />
+          <xs:element name="disabled" type="xs:dateTime" />
+          <xs:element name="body" type="xs:string" />
+          <xs:element name="title" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="managerschedule" >
+      <xs:complexContent>
+       <xs:extension base="gentity<long>">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="manager" type="xs:long" />
+          <xs:element name="" type="xs:dateTime" />
+          <xs:element name="type" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="generalschedule" >
+      <xs:complexContent>
+       <xs:extension base="gentity<long>">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="xs:dateTime" />
+          <xs:element name="type" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="event" >
+      <xs:complexContent>
+       <xs:extension base="gentity<long>">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="created" type="xs:dateTime" />
+          <xs:element name="initiator" type="xs:long" />
+          <xs:element name="type" type="xs:string" />
+          <xs:element name="body" type="xs:anyType" />
+          <xs:element name="commentary" type="xs:string" />
+          <xs:element name="request" type="xs:long" />
+          <xs:element name="disabled" type="xs:dateTime" />
+          <xs:element name="checked" type="xs:dateTime" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="managerstatusinfo" >
+      <xs:complexContent>
+       <xs:extension base="gentity<long>">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="manager" type="xs:long" />
+          <xs:element name="" type="xs:dateTime" />
+          <xs:element name="modified" type="xs:dateTime" />
+          <xs:element name="currentstatus" type="xs:string" />
+          <xs:element name="info" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="managerstatuschange" >
+      <xs:complexContent>
+       <xs:extension base="gentity<long>">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="manager" type="xs:long" />
+          <xs:element name="status" type="xs:string" />
+          <xs:element name="" type="xs:dateTime" />
+          <xs:element name="start" type="xs:dateTime" />
+          <xs:element name="end" type="xs:dateTime" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="admission" >
+      <xs:complexContent>
+       <xs:extension base="gentity<long>">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="clientemail" type="xs:string" />
+          <xs:element name="clientphone" type="xs:string" />
+          <xs:element name="clientname" type="xs:string" />
+          <xs:element name="client" type="xs:long" />
+          <xs:element name="subject" type="xs:long" />
+          <xs:element name="call" type="xs:long" />
+          <xs:element name="result" type="xs:string" />
+          <xs:element name="comment" type="xs:string" />
+          <xs:element name="created" type="xs:dateTime" />
+          <xs:element name="disabled" type="xs:dateTime" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="admissionsearchentity" >
+      <xs:complexContent>
+       <xs:extension base="gentity<long>">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="client" nillable="true" minOccurs="0" />
+          <xs:element name="created" type="xs:dateTime" />
+          <xs:element name="" type="subject" nillable="true" minOccurs="0" />
+          <xs:element name="" type="callsearchentity" nillable="true" minOccurs="0" />
+          <xs:element name="disabled" type="xs:dateTime" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="callsearchentity" >
+      <xs:complexContent>
+       <xs:extension base="gentity<long>">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="manager" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="config" >
+      <xs:complexContent>
+       <xs:extension base="gentity<string>">
+         <xs:sequence>
+          <xs:element name="key" type="xs:string" />
+          <xs:element name="value" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="requestreminder" >
+      <xs:complexContent>
+       <xs:extension base="gentity<long>">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="created" type="xs:dateTime" />
+          <xs:element name="signal" type="xs:dateTime" />
+          <xs:element name="disabled" type="xs:dateTime" />
+          <xs:element name="checked" type="xs:anyType" />
+          <xs:element name="body" type="xs:string" />
+          <xs:element name="request" type="xs:long" />
+          <xs:element name="title" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="uploadedfile" >
+      <xs:complexContent>
+       <xs:extension base="gentity<string>{">
+         <xs:sequence>
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="uploaded" type="xs:dateTime" />
+          <xs:element name="size" type="xs:string" />
+          <xs:element name="content" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="manager" >
+      <xs:complexContent>
+       <xs:extension base="gentity<long>">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="firstname" type="xs:string" />
+          <xs:element name="lastname" type="xs:string" />
+          <xs:element name="middlename" type="xs:string" />
+          <xs:element name="email" type="xs:string" />
+          <xs:element name="role" type="xs:string" />
+          <xs:element name="registered" type="xs:dateTime" />
+          <xs:element name="platform" type="xs:string" />
+          <xs:element name="username" type="xs:string" />
+          <xs:element name="disabled" type="xs:dateTime" />
+          <xs:element name="agentid" type="xs:string" />
+          <xs:element name="agentpasswordhash" type="xs:string" />
+          <xs:element name="stationid" type="xs:string" />
+          <xs:element name="workdaystatus" type="xs:string" />
+          <xs:element name="ofdismissal" type="xs:dateTime" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="session" >
+      <xs:complexContent>
+       <xs:extension base="gentity<long>">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="manager" type="xs:long" />
+          <xs:element name="created" type="xs:dateTime" />
+          <xs:element name="upd" type="xs:dateTime" />
+          <xs:element name="expired" type="xs:dateTime" />
+          <xs:element name="disabled" type="xs:dateTime" />
+          <xs:element name="station" type="xs:long" />
+          <xs:element name="user" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="call" >
+      <xs:complexContent>
+       <xs:extension base="gentity<long>">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="identifier" type="xs:string" />
+          <xs:element name="stationid" type="xs:string" />
+          <xs:element name="agentid" type="xs:string" />
+          <xs:element name="phone" type="xs:string" />
+          <xs:element name="manager" type="xs:long" />
+          <xs:element name="started" type="xs:dateTime" />
+          <xs:element name="ended" type="xs:dateTime" />
+          <xs:element name="onhold" type="xs:dateTime" />
+          <xs:element name="incoming" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="admissionevent" >
+      <xs:complexContent>
+       <xs:extension base="gentity<long>">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="initiator" type="xs:long" />
+          <xs:element name="type" type="admissioneventtypes" nillable="true" minOccurs="0" />
+          <xs:element name="body" type="xs:anyType" />
+          <xs:element name="admission" type="xs:long" />
+          <xs:element name="created" type="xs:dateTime" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="client" >
+      <xs:complexContent>
+       <xs:extension base="gentity<long>">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="firstname" type="xs:string" />
+          <xs:element name="middlename" type="xs:string" />
+          <xs:element name="lastname" type="xs:string" />
+          <xs:element name="email" type="xs:string" />
+          <xs:element name="phone" type="xs:string" />
+          <xs:element name="communicationtype" type="communicationmethod" nillable="true" minOccurs="0" />
+          <xs:element name="company" type="xs:string" />
+          <xs:element name="commentary" type="xs:string" />
+          <xs:element name="region" type="xs:long" />
+          <xs:element name="contact" type="xs:string" />
+          <xs:element name="clienttype" type="xs:string" />
+          <xs:element name="disabledon" type="xs:dateTime" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema> 

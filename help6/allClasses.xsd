@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="data" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="post" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="json2" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persistence" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="app.view" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="manifest" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="app.view" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="manifest" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="app.view" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="manifest" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="salesorderheaderprocessor" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="salesorderprocessingextension" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="manufacturer" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="founded" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="address" nillable="true" minOccurs="0" />
+        <xs:element name="cars" type="car" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="salesorderdetailkey" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="docid" type="salesorder" nillable="true" minOccurs="0" />
+        <xs:element name="linenum" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="key" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="idl" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="salesorder" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="////integerbusinesspartneriddoctotal" type="xs:anyType" />
+        <xs:element name="//@transient" type="businesspartner" nillable="true" minOccurs="0" />
+        <xs:element name="//@joincolumn(name" type="salesorderdetail" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="driver" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+        <xs:element name="nickname" type="xs:string" />
+        <xs:element name="GeneratedName" type="car" nillable="true" minOccurs="0" />
+        <xs:element name="birthday" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="salesorderdetail" >
+      <xs:sequence>
+        <xs:element name="docid" type="salesorder" nillable="true" minOccurs="0" />
+        <xs:element name="linenum" type="xs:long" />
+        <xs:element name="id" type="item" nillable="true" minOccurs="0" />
+        <xs:element name="price" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="car" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="key" nillable="true" minOccurs="0" />
+        <xs:element name="model" type="xs:string" />
+        <xs:element name="price" type="xs:double" />
+        <xs:element name="modelyear" type="xs:anyType" />
+        <xs:element name="upd" type="xs:dateTime" />
+        <xs:element name="GeneratedName" type="manufacturer" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="driver" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="businesspartner" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="address" >
+      <xs:sequence>
+        <xs:element name="street" type="xs:string" />
+        <xs:element name="city" type="xs:string" />
+        <xs:element name="zipcode" type="xs:string" />
+        <xs:element name="country" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="item" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="itemcode" type="xs:string" />
+        <xs:element name="itemname" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entityidresolver" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="catservlet" >
+      <xs:complexContent>
+       <xs:extension base="odataservlet">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="em" type="xs:anyType" />
+          <xs:element name="emf" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="appodata2jpa" >
+      <xs:sequence>
+        <xs:element name="emf" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="odatacallbackimpl" >
+      <xs:complexContent>
+       <xs:extension base="odatajpaerrorcallback">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="odatajpacarservicefactory" >
+      <xs:complexContent>
+       <xs:extension base="odatajpaservicefactory">
+         <xs:sequence>
+          <xs:element name="page_size" type="xs:long" />
+          <xs:element name="emf" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema> 

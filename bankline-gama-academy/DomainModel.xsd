@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="transacao" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="valor" type="xs:double" />
+        <xs:element name="data" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="planoconta" nillable="true" minOccurs="0" />
+        <xs:element name="origem" type="conta" nillable="true" minOccurs="0" />
+        <xs:element name="destino" type="conta" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usuario" >
+      <xs:sequence>
+        <xs:element name="login_max_length" type="xs:long" />
+        <xs:element name="cpf_max_length" type="xs:long" />
+        <xs:element name="senha_max_length" type="xs:long" />
+        <xs:element name="nome_max_length" type="xs:long" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="login" type="xs:string" />
+        <xs:element name="cpf" type="xs:string" />
+        <xs:element name="senha" type="xs:string" />
+        <xs:element name="nome" type="xs:string" />
+        <xs:element name="GeneratedName" type="conta" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="conta" >
+      <xs:sequence>
+        <xs:element name="numero" type="xs:long" />
+        <xs:element name="saldo" type="xs:double" />
+        <xs:element name="GeneratedName" type="usuario" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="planoconta" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="nome" type="xs:string" />
+        <xs:element name="tipo" type="tipooperacao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="usuario" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

@@ -1,0 +1,19 @@
+
+cliente(/***/serialversionuid:long, id:Integer [PK], filiali:Filiale #FK to(filiale), nag:String, cab:String, nome:String, datanascita:Date, telefono:String, email:String, p1:Boolean, p2:Boolean, p3:Boolean, p4:Boolean, p5:Boolean, p6:Boolean, p7:Boolean, firma:Boolean, codice:String, confermato:Boolean, utenti:Utente #FK to(utente), lastmodify:Date);
+
+variazionecliente(id:Integer [PK], clienti:Cliente #FK to(cliente), campo:String, utenti:Utente #FK to(utente), lastmodify:Date);
+
+ruoloutente(id:Integer [PK], ruolo:String, utenti:Utente #FK to(utente), lastmodify:Date);
+
+articoli(serialversionuid:long, codicearticolo:String [PK], nomeprodotto:String, descrizione:String);
+
+filiale(id:Integer [PK], nome:String, codice:Integer, cab:String, lastmodify:Date, clienti:List<Cliente>, utenti:List<Utente>);
+
+ordini(serialversionuid:long, codiceordine:String [PK], dataordine:Date);
+
+utente(id:Integer [PK], filiali:Filiale #FK to(filiale), ruoliutenti:RuoloUtente #FK to(ruoloutente), username:String, nome:String, cognome:String, password:String, statoattivo:Boolean, cambiopassword:Boolean, lastmodify:Date);
+
+dettagliordine(serialversionuid:long, id:int [PK], articolo:Articoli #FK to(articoli), GeneratedName:Ordini #FK to(ordini), quantità:int);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

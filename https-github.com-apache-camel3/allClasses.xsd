@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="persistence" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="spring" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persistence" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="spring" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persistence" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="spring" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="multipleprocessestest" >
+      <xs:complexContent>
+       <xs:extension base="bamroutetest">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="multipleactivitiesconcurrentlytest" >
+      <xs:complexContent>
+       <xs:extension base="multipleprocessestest">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="entitymanagerstest" >
+      <xs:complexContent>
+       <xs:extension base="assert">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="bamroutetest" >
+      <xs:complexContent>
+       <xs:extension base="camelspringtestsupport">
+         <xs:sequence>
+          <xs:element name="overdueendpoint" type="xs:anyType" />
+          <xs:element name="errortimeout" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="spring" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="notice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="queryutils" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="processrules" >
+      <xs:complexContent>
+       <xs:extension base="servicesupport">
+         <xs:sequence>
+          <xs:element name="" type="processdefinition" nillable="true" minOccurs="0" />
+          <xs:element name="activities" type="activityrules" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="temporalrule" >
+      <xs:complexContent>
+       <xs:extension base="servicesupport">
+         <xs:sequence>
+          <xs:element name="log" type="xs:anyType" />
+          <xs:element name="first" type="timeexpression" nillable="true" minOccurs="0" />
+          <xs:element name="second" type="timeexpression" nillable="true" minOccurs="0" />
+          <xs:element name="expectedmillis" type="xs:long" />
+          <xs:element name="overduemillis" type="xs:long" />
+          <xs:element name="overdueaction" type="xs:anyType" />
+          <xs:element name="overdueprocessors" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="activityrules" >
+      <xs:complexContent>
+       <xs:extension base="servicesupport">
+         <xs:sequence>
+          <xs:element name="expectedmessages" type="xs:long" />
+          <xs:element name="" type="processrules" nillable="true" minOccurs="0" />
+          <xs:element name="rules" type="temporalrule" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="activityname" type="xs:string" />
+          <xs:element name="builder" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="entitymanagercallback" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entitymanagertemplate" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="processbuilder" >
+      <xs:complexContent>
+       <xs:extension base="routebuilder">
+         <xs:sequence>
+          <xs:element name="processcounter" type="xs:long" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="entitymanagertemplate" nillable="true" minOccurs="0" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="processname" type="xs:string" />
+          <xs:element name="activitybuilders" type="activitybuilder" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="entitytype" type="processinstance" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="" type="processrules" nillable="true" minOccurs="0" />
+          <xs:element name="volatile" type="processdefinition" nillable="true" minOccurs="0" />
+          <xs:element name="engine" type="activitymonitorengine" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="timeexpression" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="activityrules" nillable="true" minOccurs="0" />
+        <xs:element name="builder" type="activitybuilder" nillable="true" minOccurs="0" />
+        <xs:element name="lifecycle" type="activitylifecycle" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="processdefinition" >
+      <xs:complexContent>
+       <xs:extension base="entitysupport">
+         <xs:sequence>
+          <xs:element name="log" type="xs:anyType" />
+          <xs:element name="name" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="activitystate" >
+      <xs:complexContent>
+       <xs:extension base="temporalentity">
+         <xs:sequence>
+          <xs:element name="log" type="xs:anyType" />
+          <xs:element name="" type="processinstance" nillable="true" minOccurs="0" />
+          <xs:element name="receivedmessagecount" type="xs:anyType" />
+          <xs:element name="" type="activitydefinition" nillable="true" minOccurs="0" />
+          <xs:element name="timeexpected" type="xs:dateTime" />
+          <xs:element name="timeoverdue" type="xs:dateTime" />
+          <xs:element name="escalationlevel" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="activitydefinition" >
+      <xs:complexContent>
+       <xs:extension base="entitysupport">
+         <xs:sequence>
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="" type="processdefinition" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="temporalentity" >
+      <xs:complexContent>
+       <xs:extension base="entitysupport">
+         <xs:sequence>
+          <xs:element name="timestarted" type="xs:dateTime" />
+          <xs:element name="timecompleted" type="xs:dateTime" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="processinstance" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="processdefinition" nillable="true" minOccurs="0" />
+        <xs:element name="activitystates" type="activitystate" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="correlationkey" type="xs:string" />
+        <xs:element name="timestarted" type="xs:dateTime" />
+        <xs:element name="timecompleted" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entitysupport" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entitymanagers" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="activitylifecycle" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="activitybuilder" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="processbuilder" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="activityrules" nillable="true" minOccurs="0" />
+        <xs:element name="correlation" type="xs:anyType" />
+        <xs:element name="volatile" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jpabamprocessorsupport" >
+      <xs:complexContent>
+       <xs:extension base="bamprocessorsupport<t>">
+         <xs:sequence>
+          <xs:element name="log" type="xs:anyType" />
+          <xs:element name="//usedforconcurrencyissues" type="xs:anyType" />
+          <xs:element name="" type="activityrules" nillable="true" minOccurs="0" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="entitymanagertemplate" nillable="true" minOccurs="0" />
+          <xs:element name="findbykeyquery" type="xs:string" />
+          <xs:element name="keypropertyname" type="xs:string" />
+          <xs:element name="correlationkeyisprimary" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="processcontext" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="processrules" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="activityrules" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="processinstance" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="activitystate" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bamprocessorsupport" >
+      <xs:sequence>
+        <xs:element name="log" type="xs:anyType" />
+        <xs:element name="entitytype" type="xs:anyType" />
+        <xs:element name="correlationkey" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="retrycount" type="xs:long" />
+        <xs:element name="retrysleep" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jpabamprocessor" >
+      <xs:complexContent>
+       <xs:extension base="jpabamprocessorsupport<processinstance>">
+         <xs:sequence>
+          <xs:element name="log" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="nocorrelationkeyexception" >
+      <xs:complexContent>
+       <xs:extension base="camelexchangeexception">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="processor" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="activitymonitorengine" >
+      <xs:complexContent>
+       <xs:extension base="servicesupport">
+         <xs:sequence>
+          <xs:element name="log" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="entitymanagertemplate" nillable="true" minOccurs="0" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="rules" type="processrules" nillable="true" minOccurs="0" />
+          <xs:element name="windowmillis" type="xs:long" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="uselocking" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema> 

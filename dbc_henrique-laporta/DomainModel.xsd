@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="//@jsonignorepassword" type="xs:string" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+        <xs:element name="roles" type="role" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="valormidia" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="//@max(value" type="xs:long" />
+        <xs:element name="valor" type="xs:double" />
+        <xs:element name="iniciovigencia" type="xs:anyType" />
+        <xs:element name="vigencia" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="midia" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="filme" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="//@max(value" type="xs:long" />
+        <xs:element name="titulo" type="xs:string" />
+        <xs:element name="lancamento" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="categoria" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="role" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="rolename" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="midia" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="//@max(value" type="xs:long" />
+        <xs:element name="tipo" type="tipomidia" nillable="true" minOccurs="0" />
+        <xs:element name="//@onetomany(cascade" type="filme" nillable="true" minOccurs="0" />
+        <xs:element name="id" type="aluguel" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="aluguel" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="//@max(value" type="xs:long" />
+        <xs:element name="retirada" type="xs:anyType" />
+        <xs:element name="previsao" type="xs:anyType" />
+        <xs:element name="devolucao" type="xs:anyType" />
+        <xs:element name="multa" type="xs:double" />
+        <xs:element name="id" type="cliente" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cliente" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="//@max(value" type="xs:long" />
+        <xs:element name="nome" type="xs:string" />
+        <xs:element name="telefone" type="xs:string" />
+        <xs:element name="rua" type="xs:string" />
+        <xs:element name="bairro" type="xs:string" />
+        <xs:element name="cidade" type="xs:string" />
+        <xs:element name="estado" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

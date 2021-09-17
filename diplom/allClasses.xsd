@@ -1,0 +1,3810 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="manifest" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="gcontextservice" >
+      <xs:sequence>
+        <xs:element name="profile" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="requester" type="xs:string" />
+        <xs:element name="system" type="xs:string" />
+        <xs:element name="keys" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="gfilter" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="redisservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="client" type="xs:anyType" />
+        <xs:element name="enabled" type="xs:anyType" />
+        <xs:element name="timeout" type="xs:anyType" />
+        <xs:element name="host" type="xs:string" />
+        <xs:element name="port" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="objectutils" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="simplejsonconverter" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dateutils" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="human_date" type="xs:string" />
+        <xs:element name="human_time" type="xs:string" />
+        <xs:element name="human_date_time" type="xs:string" />
+        <xs:element name="system_date" type="xs:string" />
+        <xs:element name="system_date_time" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="encryptionutils" >
+      <xs:sequence>
+        <xs:element name="algorithm" type="xs:string" />
+        <xs:element name="key_16_bytes" type="xs:string" />
+        <xs:element name="init_vector_16_bytes" type="xs:string" />
+        <xs:element name="transform_format" type="xs:string" />
+        <xs:element name="iv_parameter_spec" type="xs:anyType" />
+        <xs:element name="secret_key_spec" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jwtutils" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="token_prefix" type="xs:string" />
+        <xs:element name="secret" type="xs:string" />
+        <xs:element name="system_secret" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="passwordutils" >
+      <xs:sequence>
+        <xs:element name="iterations" type="xs:long" />
+        <xs:element name="key_length" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="serializationutils" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="exceptionutils" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="gerrors" >
+      <xs:sequence>
+        <xs:element name="message" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="gconstants" >
+      <xs:sequence>
+        <xs:element name="header_app" type="xs:string" />
+        <xs:element name="header_user" type="xs:string" />
+        <xs:element name="header_session" type="xs:string" />
+        <xs:element name="header_session_expired" type="xs:string" />
+        <xs:element name="header_domain" type="xs:string" />
+        <xs:element name="header_path" type="xs:string" />
+        <xs:element name="header_method" type="xs:string" />
+        <xs:element name="header_log_type" type="xs:string" />
+        <xs:element name="header_event_type" type="xs:string" />
+        <xs:element name="header_username" type="xs:string" />
+        <xs:element name="header_event_id" type="xs:string" />
+        <xs:element name="header_error_code" type="xs:string" />
+        <xs:element name="header_requester" type="xs:string" />
+        <xs:element name="header_system" type="xs:string" />
+        <xs:element name="header_agent" type="xs:string" />
+        <xs:element name="header_subject" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="gunauthorized" >
+      <xs:complexContent>
+       <xs:extension base="gexception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="galreadyexists" >
+      <xs:complexContent>
+       <xs:extension base="gexception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="gnotallowed" >
+      <xs:complexContent>
+       <xs:extension base="gexception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="gnotfound" >
+      <xs:complexContent>
+       <xs:extension base="gexception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="gexception" >
+      <xs:complexContent>
+       <xs:extension base="exception">
+         <xs:sequence>
+          <xs:element name="transientdefault_code" type="igenum" nillable="true" minOccurs="0" />
+          <xs:element name="code" type="igenum" nillable="true" minOccurs="0" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="text" type="xs:string" />
+          <xs:element name="pairs" type="gpair" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="gbadrequest" >
+      <xs:complexContent>
+       <xs:extension base="gexception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="gsystemerror" >
+      <xs:complexContent>
+       <xs:extension base="gexception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="gfilter" >
+      <xs:complexContent>
+       <xs:extension base="serializable,">
+         <xs:sequence>
+          <xs:element name="page" type="xs:anyType" />
+          <xs:element name="size" type="xs:anyType" />
+          <xs:element name="direction" type="xs:string" />
+          <xs:element name="from" type="xs:dateTime" />
+          <xs:element name="to" type="xs:dateTime" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="gresponse" >
+      <xs:complexContent>
+       <xs:extension base="gobject">
+         <xs:sequence>
+          <xs:element name="code" type="xs:string" />
+          <xs:element name="message" type="xs:string" />
+          <xs:element name="" type="xs:dateTime" />
+          <xs:element name="data" type="xs:anyType" />
+          <xs:element name="fields" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="zuulconfigs" >
+      <xs:sequence>
+        <xs:element name="routes" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="containercustomizerconfig" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="gcontrolleradvice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="contexts" type="gcontextservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="gpair" >
+      <xs:complexContent>
+       <xs:extension base="gobject">
+         <xs:sequence>
+          <xs:element name="key" type="xs:string" />
+          <xs:element name="value" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="gobject" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="igenum" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="igconfig" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="gentity" >
+      <xs:complexContent>
+       <xs:extension base="serializable>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="grediscache" >
+      <xs:complexContent>
+       <xs:extension base="serializable,">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="clazz" type="xs:anyType" />
+          <xs:element name="seconds" type="xs:anyType" />
+          <xs:element name="system" type="xs:string" />
+          <xs:element name="" type="redisservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="rqsubsubject" >
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="subject" type="xs:long" />
+        <xs:element name="maxexecutiontime" type="xs:long" />
+        <xs:element name="complaint" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rssubsubject" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="maxexecutiontime" type="xs:long" />
+        <xs:element name="requestfields" type="rsrequestfield" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="requestfilter" >
+      <xs:complexContent>
+       <xs:extension base="gfilter<long,">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="subject" type="xs:long" />
+          <xs:element name="" type="platform" nillable="true" minOccurs="0" />
+          <xs:element name="" type="channel" nillable="true" minOccurs="0" />
+          <xs:element name="routetype" type="xs:string" />
+          <xs:element name="" type="communicationmethod" nillable="true" minOccurs="0" />
+          <xs:element name="status" type="xs:string" />
+          <xs:element name="assignee" type="xs:long" />
+          <xs:element name="keys" type="xs:string" />
+          <xs:element name="clienttype" type="xs:string" />
+          <xs:element name="clientname" type="xs:string" />
+          <xs:element name="clientphone" type="xs:string" />
+          <xs:element name="clientemail" type="xs:string" />
+          <xs:element name="includeclosedrequests" type="xs:anyType" />
+          <xs:element name="statelist" type="state" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="searchpageable" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="limit" type="xs:long" />
+        <xs:element name="offset" type="xs:long" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rqauth" >
+      <xs:complexContent>
+       <xs:extension base="gobject">
+         <xs:sequence>
+          <xs:element name="username" type="xs:string" />
+          <xs:element name="password" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="searchpage" >
+      <xs:complexContent>
+       <xs:extension base="pageimpl<t>">
+         <xs:sequence>
+          <xs:element name="adnum" type="xs:long" />
+          <xs:element name="rqnum" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="message" >
+      <xs:sequence>
+        <xs:element name="message" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="clientfilter" >
+      <xs:complexContent>
+       <xs:extension base="gfilter<long,">
+         <xs:sequence>
+          <xs:element name="email" type="xs:string" />
+          <xs:element name="phone" type="xs:string" />
+          <xs:element name="firstname" type="xs:string" />
+          <xs:element name="lastname" type="xs:string" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="company" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="rsclient" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="middlename" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="phone" type="xs:string" />
+        <xs:element name="communicationtype" type="communicationmethod" nillable="true" minOccurs="0" />
+        <xs:element name="company" type="xs:string" />
+        <xs:element name="commentary" type="xs:string" />
+        <xs:element name="contact" type="xs:string" />
+        <xs:element name="GeneratedName" type="region" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="clienttype" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rqclient" >
+      <xs:sequence>
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+        <xs:element name="middlename" type="xs:string" />
+        <xs:element name="communicationtype" type="communicationmethod" nillable="true" minOccurs="0" />
+        <xs:element name="region" type="xs:long" />
+        <xs:element name="clienttype" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="contact" type="xs:string" />
+        <xs:element name="phone" type="xs:string" />
+        <xs:element name="company" type="xs:string" />
+        <xs:element name="commentary" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rqrequestadmission" >
+      <xs:sequence>
+        <xs:element name="page" type="xs:anyType" />
+        <xs:element name="size" type="xs:anyType" />
+        <xs:element name="subject" type="xs:long" />
+        <xs:element name="GeneratedName" type="platform" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="channel" nillable="true" minOccurs="0" />
+        <xs:element name="routetype" type="xs:string" />
+        <xs:element name="GeneratedName" type="communicationmethod" nillable="true" minOccurs="0" />
+        <xs:element name="from" type="xs:dateTime" />
+        <xs:element name="to" type="xs:dateTime" />
+        <xs:element name="status" type="xs:string" />
+        <xs:element name="number" type="xs:long" />
+        <xs:element name="clientphone" type="xs:string" />
+        <xs:element name="clientemail" type="xs:string" />
+        <xs:element name="clientname" type="xs:string" />
+        <xs:element name="clienttype" type="xs:string" />
+        <xs:element name="assignee" type="xs:long" />
+        <xs:element name="keys" type="xs:string" />
+        <xs:element name="includeclosedrequests" type="xs:anyType" />
+        <xs:element name="includerequests" type="xs:anyType" />
+        <xs:element name="includeadmissions" type="xs:anyType" />
+        <xs:element name="forcurrentuser" type="xs:anyType" />
+        <xs:element name="statelist" type="state" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rqsection" >
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rssection" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="header" type="xs:string" />
+        <xs:element name="subjects" type="rssubject" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rsstat" >
+      <xs:sequence>
+        <xs:element name="average" type="xs:long" />
+        <xs:element name="managers" type="xs:long" />
+        <xs:element name="notifications" type="xs:long" />
+        <xs:element name="sections" type="section" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rsmanagerstat" >
+      <xs:sequence>
+        <xs:element name="managerstat" type="xs:anyType" />
+        <xs:element name="exclude" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="statrequestfilter" >
+      <xs:sequence>
+        <xs:element name="from" type="xs:dateTime" />
+        <xs:element name="to" type="xs:dateTime" />
+        <xs:element name="GeneratedName" type="platform" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="channel" nillable="true" minOccurs="0" />
+        <xs:element name="statelist" type="state" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rqstat" >
+      <xs:sequence>
+        <xs:element name="platforms" type="platform" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rsrequeststat" >
+      <xs:sequence>
+        <xs:element name="total" type="xs:long" />
+        <xs:element name="platforms" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rqrequestreminder" >
+      <xs:sequence>
+        <xs:element name="signal" type="xs:dateTime" />
+        <xs:element name="body" type="xs:string" />
+        <xs:element name="request" type="xs:long" />
+        <xs:element name="title" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rqclose" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="reason" type="closereason" nillable="true" minOccurs="0" />
+        <xs:element name="comment" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rsrequestcomment" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="text" type="xs:string" />
+        <xs:element name="author" type="xs:long" />
+        <xs:element name="request" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rqgetreminderbydate" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rqrequestreminderpostpone" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="newsignal" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rqrequestfield" >
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="GeneratedName" type="inputtype" nillable="true" minOccurs="0" />
+        <xs:element name="subject" type="xs:long" />
+        <xs:element name="subsubject" type="xs:long" />
+        <xs:element name="required" type="xs:anyType" />
+        <xs:element name="values" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rsrequestfield" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="type" type="inputtype" nillable="true" minOccurs="0" />
+        <xs:element name="required" type="xs:anyType" />
+        <xs:element name="data" type="rsrequestfieldvalue" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="requestfilter" >
+      <xs:sequence>
+        <xs:element name="predicates" type="xs:anyType" />
+        <xs:element name="default_page_size" type="xs:long" />
+        <xs:element name="pagenumber" type="xs:long" />
+        <xs:element name="pagesize" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rqrequest" >
+      <xs:sequence>
+        <xs:element name="subject" type="xs:long" />
+        <xs:element name="subsubject" type="xs:long" />
+        <xs:element name="data" type="mfield" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="clientcontacts" type="applicantcontacts" nillable="true" minOccurs="0" />
+        <xs:element name="clientphone" type="xs:string" />
+        <xs:element name="GeneratedName" type="channel" nillable="true" minOccurs="0" />
+        <xs:element name="status" type="xs:string" />
+        <xs:element name="text" type="xs:string" />
+        <xs:element name="link" type="xs:long" />
+        <xs:element name="callidentifier" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rsrequestfieldvalue" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="field" type="xs:long" />
+        <xs:element name="value" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="closereason" >
+      <xs:sequence>
+        <xs:element name="statuses" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rsrequest" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="subject" type="xs:long" />
+        <xs:element name="subsubject" type="xs:long" />
+        <xs:element name="data" type="mfield" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="clientcontacts" type="xs:anyType" />
+        <xs:element name="clientid" type="xs:long" />
+        <xs:element name="channel" type="xs:string" />
+        <xs:element name="status" type="xs:string" />
+        <xs:element name="text" type="xs:string" />
+        <xs:element name="assigned" type="xs:long" />
+        <xs:element name="admission" type="xs:long" />
+        <xs:element name="GeneratedName" type="platform" nillable="true" minOccurs="0" />
+        <xs:element name="link" type="xs:long" />
+        <xs:element name="events" type="rsevent" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="expires" type="xs:dateTime" />
+        <xs:element name="lifespan" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rsrequestreminder" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="signal" type="xs:dateTime" />
+        <xs:element name="created" type="xs:dateTime" />
+        <xs:element name="disabled" type="xs:dateTime" />
+        <xs:element name="checked" type="xs:anyType" />
+        <xs:element name="body" type="xs:string" />
+        <xs:element name="request" type="xs:long" />
+        <xs:element name="title" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="mfield" >
+      <xs:complexContent>
+       <xs:extension base="gobject">
+         <xs:sequence>
+          <xs:element name="requestfield" type="xs:long" />
+          <xs:element name="requestfieldname" type="xs:string" />
+          <xs:element name="value" type="xs:string" />
+          <xs:element name="requestfieldvalue" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="rqeditrequest" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="subject" type="xs:long" />
+        <xs:element name="subsubject" type="xs:long" />
+        <xs:element name="data" type="mfield" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="clientcontacts" type="applicantcontacts" nillable="true" minOccurs="0" />
+        <xs:element name="clientphone" type="xs:string" />
+        <xs:element name="GeneratedName" type="channel" nillable="true" minOccurs="0" />
+        <xs:element name="status" type="xs:string" />
+        <xs:element name="text" type="xs:string" />
+        <xs:element name="admission" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="regionfilter" >
+      <xs:complexContent>
+       <xs:extension base="gfilter<long,">
+         <xs:sequence>
+          <xs:element name="name" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="rsregionphonenumber" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="phonecode" type="xs:long" />
+        <xs:element name="regionname" type="xs:string" />
+        <xs:element name="diapasonfrom" type="xs:anyType" />
+        <xs:element name="diapasonto" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rsdefregionphonenumber" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="phonecode" type="xs:long" />
+        <xs:element name="regionname" type="xs:string" />
+        <xs:element name="diapasonfrom" type="xs:anyType" />
+        <xs:element name="diapasonto" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rqdefregionphonenumber" >
+      <xs:sequence>
+        <xs:element name="code" type="xs:long" />
+        <xs:element name="from" type="xs:long" />
+        <xs:element name="to" type="xs:long" />
+        <xs:element name="region" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rqabcregionphonenumber" >
+      <xs:sequence>
+        <xs:element name="code" type="xs:long" />
+        <xs:element name="region" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="fileinfo" >
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="size" type="xs:string" />
+        <xs:element name="date" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rsabcregionphonenumber" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="regionname" type="xs:string" />
+        <xs:element name="code" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rqsubject" >
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="section" type="xs:long" />
+        <xs:element name="maxexecutiontime" type="xs:long" />
+        <xs:element name="complaint" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rssubject" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="requestfields" type="rsrequestfield" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="subsubjects" type="rssubsubject" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="managersallowedtoworkwith" type="rsmanager" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="managersnotallowedtoworkwith" type="rsmanager" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="maxexecutiontime" type="xs:long" />
+        <xs:element name="complaint" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rqletter" >
+      <xs:sequence>
+        <xs:element name="subject" type="xs:string" />
+        <xs:element name="body" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="request" type="xs:long" />
+        <xs:element name="signature" type="xs:string" />
+        <xs:element name="type" type="lettertype" nillable="true" minOccurs="0" />
+        <xs:element name="attachments" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rqintegrationconfig" >
+      <xs:sequence>
+        <xs:element name="server" type="xs:string" />
+        <xs:element name="port" type="xs:string" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="key" type="xs:string" />
+        <xs:element name="servicename" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="admissionfilter" >
+      <xs:complexContent>
+       <xs:extension base="gfilter<long,">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="subject" type="xs:long" />
+          <xs:element name="" type="platform" nillable="true" minOccurs="0" />
+          <xs:element name="" type="channel" nillable="true" minOccurs="0" />
+          <xs:element name="" type="communicationmethod" nillable="true" minOccurs="0" />
+          <xs:element name="clientname" type="xs:string" />
+          <xs:element name="clientphone" type="xs:string" />
+          <xs:element name="clientemail" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="rsadmissionevent" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="initiator" type="xs:long" />
+        <xs:element name="type" type="xs:string" />
+        <xs:element name="created" type="xs:string" />
+        <xs:element name="admission" type="xs:long" />
+        <xs:element name="template" type="xs:string" />
+        <xs:element name="body" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="admissionsearchfilter" >
+      <xs:complexContent>
+       <xs:extension base="gfilter<long,">
+         <xs:sequence>
+          <xs:element name="from" type="xs:dateTime" />
+          <xs:element name="to" type="xs:dateTime" />
+          <xs:element name="subject" type="xs:long" />
+          <xs:element name="clientname" type="xs:string" />
+          <xs:element name="clientphone" type="xs:string" />
+          <xs:element name="clientemail" type="xs:string" />
+          <xs:element name="clienttype" type="xs:string" />
+          <xs:element name="" type="channel" nillable="true" minOccurs="0" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="platform" nillable="true" minOccurs="0" />
+          <xs:element name="routetype" type="xs:string" />
+          <xs:element name="" type="communicationmethod" nillable="true" minOccurs="0" />
+          <xs:element name="status" type="xs:string" />
+          <xs:element name="assignee" type="xs:long" />
+          <xs:element name="keys" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="rqadmission" >
+      <xs:sequence>
+        <xs:element name="clientname" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="phone" type="xs:string" />
+        <xs:element name="result" type="xs:string" />
+        <xs:element name="subject" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rsadmission" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="managername" type="xs:string" />
+        <xs:element name="managerplatform" type="xs:string" />
+        <xs:element name="clientphone" type="xs:string" />
+        <xs:element name="clientemail" type="xs:string" />
+        <xs:element name="clientname" type="xs:string" />
+        <xs:element name="region" type="xs:string" />
+        <xs:element name="subject" type="xs:string" />
+        <xs:element name="result" type="xs:string" />
+        <xs:element name="starton" type="xs:string" />
+        <xs:element name="callduration" type="xs:string" />
+        <xs:element name="endon" type="xs:string" />
+        <xs:element name="onhold" type="xs:string" />
+        <xs:element name="comment" type="xs:string" />
+        <xs:element name="events" type="rsadmissionevent" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rsauth" >
+      <xs:sequence>
+        <xs:element name="token" type="xs:string" />
+        <xs:element name="manager" type="rsmanager" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rsdepartmentaddressbook" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="city" type="xs:string" />
+        <xs:element name="region" type="xs:string" />
+        <xs:element name="address" type="xs:string" />
+        <xs:element name="phone" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="contact" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rqeditdepartmentaddress" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="city" type="xs:string" />
+        <xs:element name="region" type="xs:string" />
+        <xs:element name="address" type="xs:string" />
+        <xs:element name="phone" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="contact" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="departmentfilter" >
+      <xs:complexContent>
+       <xs:extension base="gfilter<long,">
+         <xs:sequence>
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="region" type="xs:string" />
+          <xs:element name="city" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="rqdepartmentaddressbook" >
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="city" type="xs:string" />
+        <xs:element name="region" type="xs:string" />
+        <xs:element name="address" type="xs:string" />
+        <xs:element name="phone" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="contact" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rsrequestoradmission" >
+      <xs:complexContent>
+       <xs:extension base="gobject">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="subject" type="xs:string" />
+          <xs:element name="channel" type="xs:string" />
+          <xs:element name="routetype" type="xs:string" />
+          <xs:element name="communicationmethod" type="xs:string" />
+          <xs:element name="status" type="xs:string" />
+          <xs:element name="statuscode" type="xs:string" />
+          <xs:element name="type" type="xs:string" />
+          <xs:element name="platform" type="xs:string" />
+          <xs:element name="client" type="xs:string" />
+          <xs:element name="assignee" type="xs:string" />
+          <xs:element name="text" type="xs:string" />
+          <xs:element name="color" type="xs:string" />
+          <xs:element name="expires" type="xs:dateTime" />
+          <xs:element name="lifespan" type="xs:dateTime" />
+          <xs:element name="created" type="xs:dateTime" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="rsevent" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="created" type="xs:dateTime" />
+        <xs:element name="initiator" type="xs:long" />
+        <xs:element name="type" type="xs:string" />
+        <xs:element name="body" type="xs:anyType" />
+        <xs:element name="commentary" type="xs:string" />
+        <xs:element name="request" type="xs:long" />
+        <xs:element name="template" type="xs:string" />
+        <xs:element name="disabled" type="xs:dateTime" />
+        <xs:element name="checked" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rqmanagernotificationfilter" >
+      <xs:sequence>
+        <xs:element name="role" type="xs:string" />
+        <xs:element name="start" type="xs:dateTime" />
+        <xs:element name="end" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rsmanagernotification" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="role" type="xs:string" />
+        <xs:element name="created" type="xs:dateTime" />
+        <xs:element name="notification" type="xs:dateTime" />
+        <xs:element name="text" type="xs:string" />
+        <xs:element name="title" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rqmanagernotification" >
+      <xs:sequence>
+        <xs:element name="roles" type="xs:anyType" />
+        <xs:element name="text" type="xs:string" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="notification" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rqeditmanagernotification" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="roles" type="xs:anyType" />
+        <xs:element name="text" type="xs:string" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="notification" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="mname" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="surname" type="xs:string" />
+        <xs:element name="count" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rqreassignmanager" >
+      <xs:sequence>
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="num" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="externalservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rqreassign" >
+      <xs:sequence>
+        <xs:element name="managers" type="rqreassignmanager" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="requests" type="xs:anyType" />
+        <xs:element name="auto" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rqeventtype" >
+      <xs:sequence>
+        <xs:element name="code" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="template" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rqstationinfo" >
+      <xs:complexContent>
+       <xs:extension base="gobject">
+         <xs:sequence>
+          <xs:element name="username" type="xs:string" />
+          <xs:element name="agentid" type="xs:string" />
+          <xs:element name="password" type="xs:string" />
+          <xs:element name="stationid" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="rstodaymanagerstat" >
+      <xs:sequence>
+        <xs:element name="callamount" type="xs:long" />
+        <xs:element name="averagecallduration" type="xs:string" />
+        <xs:element name="averageonhold" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rqcreatemanager" >
+      <xs:sequence>
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+        <xs:element name="middlename" type="xs:string" />
+        <xs:element name="rolecode" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="platform" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rqeditmanager" >
+      <xs:sequence>
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+        <xs:element name="middlename" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="platform" type="xs:string" />
+        <xs:element name="role" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rsstatusinfo" >
+      <xs:sequence>
+        <xs:element name="agentid" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:dateTime" />
+        <xs:element name="modified" type="xs:dateTime" />
+        <xs:element name="currentstatus" type="xs:string" />
+        <xs:element name="info" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rsmanagerschedule" >
+      <xs:sequence>
+        <xs:element name="manager" type="xs:long" />
+        <xs:element name="isdismissed" type="xs:anyType" />
+        <xs:element name="ofdismissal" type="xs:dateTime" />
+        <xs:element name="shouldshow" type="xs:anyType" />
+        <xs:element name="fullname" type="xs:string" />
+        <xs:element name="days" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rsscheduleday" >
+      <xs:sequence>
+        <xs:element name="daytype" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:dateTime" />
+        <xs:element name="color" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rqeditmanagerschedule" >
+      <xs:sequence>
+        <xs:element name="from" type="xs:dateTime" />
+        <xs:element name="to" type="xs:dateTime" />
+        <xs:element name="managerid" type="xs:long" />
+        <xs:element name="workdays" type="xs:anyType" />
+        <xs:element name="weekends" type="xs:anyType" />
+        <xs:element name="sickleave" type="xs:anyType" />
+        <xs:element name="vacation" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rsstatuschange" >
+      <xs:sequence>
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="status" type="xs:string" />
+        <xs:element name="start" type="xs:dateTime" />
+        <xs:element name="end" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rsmanager" >
+      <xs:complexContent>
+       <xs:extension base="gobject">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="username" type="xs:string" />
+          <xs:element name="firstname" type="xs:string" />
+          <xs:element name="middlename" type="xs:string" />
+          <xs:element name="lastname" type="xs:string" />
+          <xs:element name="fullname" type="xs:string" />
+          <xs:element name="email" type="xs:string" />
+          <xs:element name="platform" type="xs:string" />
+          <xs:element name="role" type="rsrole" nillable="true" minOccurs="0" />
+          <xs:element name="disabled" type="xs:anyType" />
+          <xs:element name="stationinfo" type="rqstationinfo" nillable="true" minOccurs="0" />
+          <xs:element name="statusname" type="xs:string" />
+          <xs:element name="statuscode" type="xs:string" />
+          <xs:element name="workdaytype" type="xs:string" />
+          <xs:element name="ofdismissal" type="xs:dateTime" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="rsmanagersubject" >
+      <xs:sequence>
+        <xs:element name="manager" type="xs:long" />
+        <xs:element name="subject" type="rssubject" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rsrole" >
+      <xs:sequence>
+        <xs:element name="code" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rqcompcall" >
+      <xs:sequence>
+        <xs:element name="identifier" type="xs:string" />
+        <xs:element name="ended" type="xs:dateTime" />
+        <xs:element name="onhold" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="calltype" >
+      <xs:sequence>
+        <xs:element name="value" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rqregcall" >
+      <xs:sequence>
+        <xs:element name="started" type="xs:dateTime" />
+        <xs:element name="identifier" type="xs:string" />
+        <xs:element name="phone" type="xs:string" />
+        <xs:element name="stationid" type="xs:string" />
+        <xs:element name="agentid" type="xs:string" />
+        <xs:element name="GeneratedName" type="calltype" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rqmanageraddressbook" >
+      <xs:sequence>
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+        <xs:element name="middlename" type="xs:string" />
+        <xs:element name="position" type="xs:string" />
+        <xs:element name="phone" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rsmanageraddressbook" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+        <xs:element name="middlename" type="xs:string" />
+        <xs:element name="fullname" type="xs:string" />
+        <xs:element name="position" type="xs:string" />
+        <xs:element name="phone" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rqeditmanageraddress" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+        <xs:element name="middlename" type="xs:string" />
+        <xs:element name="position" type="xs:string" />
+        <xs:element name="phone" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="manageraddressbookfilter" >
+      <xs:complexContent>
+       <xs:extension base="gfilter<long,">
+         <xs:sequence>
+          <xs:element name="firstname" type="xs:string" />
+          <xs:element name="lastname" type="xs:string" />
+          <xs:element name="position" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="fileloader" >
+      <xs:sequence>
+        <xs:element name="log" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="fileservice" nillable="true" minOccurs="0" />
+        <xs:element name="regionphonenumberrepo" type="regionphonenumberrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="filepathholder" >
+      <xs:sequence>
+        <xs:element name="abc3" type="xs:string" />
+        <xs:element name="abc4" type="xs:string" />
+        <xs:element name="abc8" type="xs:string" />
+        <xs:element name="def9" type="xs:string" />
+        <xs:element name="abc_def_path_resources" type="xs:string" />
+        <xs:element name="log" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rawregionphonecode" >
+      <xs:sequence>
+        <xs:element name="remove_filter" type="xs:string" />
+        <xs:element name="replace_filter" type="xs:anyType" />
+        <xs:element name="code" type="xs:string" />
+        <xs:element name="from" type="xs:long" />
+        <xs:element name="to" type="xs:long" />
+        <xs:element name="capacity" type="xs:long" />
+        <xs:element name="operator" type="xs:string" />
+        <xs:element name="region" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="filesaver" >
+      <xs:sequence>
+        <xs:element name="upfilerepo" type="uploadedfilerepository" nillable="true" minOccurs="0" />
+        <xs:element name="content" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="fileregionphonenumberparser" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="weekendsparser" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="scheduleservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="generalschedulecache" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="gapplicationstart" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="system" type="xs:string" />
+        <xs:element name="timezone" type="xs:string" />
+        <xs:element name="GeneratedName" type="redisservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="weekendsparser" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="namesloaderservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="subjectsaccessservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="configcache" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="fileloader" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="managercache" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="integrationconfigcache" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="corsconfig" >
+      <xs:sequence>
+        <xs:element name="domains" type="xs:anyType" />
+        <xs:element name="methods" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="securityconfig" >
+      <xs:complexContent>
+       <xs:extension base="websecurityconfigureradapter">
+         <xs:sequence>
+          <xs:element name="session_lifetime_time_seconds" type="xs:long" />
+          <xs:element name="context" type="gcontextservice" nillable="true" minOccurs="0" />
+          <xs:element name="" type="cookieservice" nillable="true" minOccurs="0" />
+          <xs:element name="" type="sessionservice" nillable="true" minOccurs="0" />
+          <xs:element name="" type="managercache" nillable="true" minOccurs="0" />
+          <xs:element name="" type="routerepository" nillable="true" minOccurs="0" />
+          <xs:element name="adminuser" type="xs:string" />
+          <xs:element name="adminpassword" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="databaseconfig" >
+      <xs:sequence>
+        <xs:element name="driver" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="url" type="xs:string" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="hibernatedialect" type="xs:string" />
+        <xs:element name="hibernateshowsql" type="xs:string" />
+        <xs:element name="hibernatehbm2ddlauto" type="xs:string" />
+        <xs:element name="connpoolmaxsize" type="xs:long" />
+        <xs:element name="connpoolminsize" type="xs:long" />
+        <xs:element name="connpoolidleperiod" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="requestfieldvalueservice" >
+      <xs:sequence>
+        <xs:element name="cache" type="requestfieldvaluecache" nillable="true" minOccurs="0" />
+        <xs:element name="fieldcache" type="requestfieldcache" nillable="true" minOccurs="0" />
+        <xs:element name="repo" type="requestfieldvaluerepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="managerroleservice" >
+      <xs:sequence>
+        <xs:element name="cache" type="managerrolecache" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="clienttypeservice" >
+      <xs:sequence>
+        <xs:element name="cache" type="clienttypecache" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="statservice" >
+      <xs:sequence>
+        <xs:element name="arrived" type="xs:string" />
+        <xs:element name="input_channel" type="xs:string" />
+        <xs:element name="in_processed" type="xs:string" />
+        <xs:element name="completed" type="xs:string" />
+        <xs:element name="arrive_distributed" type="xs:string" />
+        <xs:element name="arrive_undistributed" type="xs:string" />
+        <xs:element name="channel_phone" type="xs:string" />
+        <xs:element name="channel_email" type="xs:string" />
+        <xs:element name="channel_rosreestrs_portal" type="xs:string" />
+        <xs:element name="channel_rosreestrs_site" type="xs:string" />
+        <xs:element name="channel_information_service" type="xs:string" />
+        <xs:element name="channel_others" type="xs:string" />
+        <xs:element name="process_esroo" type="xs:string" />
+        <xs:element name="process_to_po" type="xs:string" />
+        <xs:element name="process_need_for_client_request" type="xs:string" />
+        <xs:element name="completed_self_dependent_processed" type="xs:string" />
+        <xs:element name="completed_esroo_response" type="xs:string" />
+        <xs:element name="completed_term_violation" type="xs:string" />
+        <xs:element name="completed_manager_decision" type="xs:string" />
+        <xs:element name="completed_others" type="xs:string" />
+        <xs:element name="GeneratedName" type="statuscache" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="requestcache" nillable="true" minOccurs="0" />
+        <xs:element name="repository" type="requestrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="managercache" nillable="true" minOccurs="0" />
+        <xs:element name="notificationsrepository" type="requestremindersrepository" nillable="true" minOccurs="0" />
+        <xs:element name="schedulerepository" type="managerschedulerepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="managerrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="requestsearchentityrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sessionservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="sessioncache" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="managercache" nillable="true" minOccurs="0" />
+        <xs:element name="context" type="gcontextservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="externalservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="integrationconfigcache" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="managerrolerouteservice" >
+      <xs:sequence>
+        <xs:element name="cache" type="managerroleroutecache" nillable="true" minOccurs="0" />
+        <xs:element name="repo" type="managerrolerouterepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="routecache" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="managerrolecache" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="clientservice" >
+      <xs:sequence>
+        <xs:element name="cache" type="clientcache" nillable="true" minOccurs="0" />
+        <xs:element name="repo" type="clientrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="clienttypecache" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="regionscache" nillable="true" minOccurs="0" />
+        <xs:element name="typecache" type="clienttypecache" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="manageraddressbookservice" >
+      <xs:sequence>
+        <xs:element name="cache" type="manageraddressbookcache" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="managerstatusservice" >
+      <xs:sequence>
+        <xs:element name="cache" type="managerstatuscache" nillable="true" minOccurs="0" />
+        <xs:element name="repo" type="managerstatusrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="integrationconfigservice" >
+      <xs:sequence>
+        <xs:element name="cache" type="integrationconfigcache" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="subjectservice" >
+      <xs:sequence>
+        <xs:element name="cache" type="subjectcache" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="managercache" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="managersubjectcache" nillable="true" minOccurs="0" />
+        <xs:element name="repo" type="subjectrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="sectioncache" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="subsubjectservice" nillable="true" minOccurs="0" />
+        <xs:element name="rqfieldser" type="requestfieldservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="subjectsaccessservice" nillable="true" minOccurs="0" />
+        <xs:element name="contextservice" type="gcontextservice" nillable="true" minOccurs="0" />
+        <xs:element name="rqfieldsubjectrepo" type="requestfieldsubjectrepository" nillable="true" minOccurs="0" />
+        <xs:element name="rqfieldsubjectsubsubjectrepo" type="rqfieldsubsubjectrepository" nillable="true" minOccurs="0" />
+        <xs:element name="fieldservice" type="requestfieldservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="managersubjectservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="subjectservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="managercache" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="subjectcache" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="managersubjectcache" nillable="true" minOccurs="0" />
+        <xs:element name="repository" type="managersubjectrepository" nillable="true" minOccurs="0" />
+        <xs:element name="contextservice" type="gcontextservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="admissioneventservice" >
+      <xs:sequence>
+        <xs:element name="cache" type="admissioneventcache" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="admissioncache" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="callcache" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="managercache" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="subjectcache" nillable="true" minOccurs="0" />
+        <xs:element name="admeventtypeserv" type="admissioneventtypeservice" nillable="true" minOccurs="0" />
+        <xs:element name="context" type="gcontextservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="namesloaderservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="namesrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="surnamesrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="requeststatuschangeservice" >
+      <xs:sequence>
+        <xs:element name="statuschanges" type="xs:anyType" />
+        <xs:element name="context" type="gcontextservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="managerservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="statusservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="requestcache" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="eventservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="generalschedulerepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="statuscache" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="statuschangeservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="managercache" nillable="true" minOccurs="0" />
+        <xs:element name="statuscache" type="managerstatuscache" nillable="true" minOccurs="0" />
+        <xs:element name="statusinfocache" type="managerstatusinfocache" nillable="true" minOccurs="0" />
+        <xs:element name="statuschangecache" type="managerstatuschangecache" nillable="true" minOccurs="0" />
+        <xs:element name="statusrepository" type="managerstatusrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="regionsservice" >
+      <xs:sequence>
+        <xs:element name="cache" type="regionscache" nillable="true" minOccurs="0" />
+        <xs:element name="repo" type="regionsrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="regionphonenumbercache" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="requestfieldsubsubjectservice" >
+      <xs:sequence>
+        <xs:element name="cache" type="rqfieldsubsubjectcache" nillable="true" minOccurs="0" />
+        <xs:element name="repository" type="rqfieldsubsubjectrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="routetypeservice" >
+      <xs:sequence>
+        <xs:element name="cache" type="routetypecache" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="managerservice" >
+      <xs:sequence>
+        <xs:element name="cache" type="managercache" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="managerroleservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="subjectcache" nillable="true" minOccurs="0" />
+        <xs:element name="statusinfo" type="managerstatusinfocache" nillable="true" minOccurs="0" />
+        <xs:element name="statuscache" type="managerstatuscache" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="managersubjectservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="callcache" nillable="true" minOccurs="0" />
+        <xs:element name="context" type="gcontextservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="requestfieldservice" >
+      <xs:sequence>
+        <xs:element name="cache" type="requestfieldcache" nillable="true" minOccurs="0" />
+        <xs:element name="valcache" type="requestfieldvaluecache" nillable="true" minOccurs="0" />
+        <xs:element name="valrepository" type="requestfieldvaluerepository" nillable="true" minOccurs="0" />
+        <xs:element name="rqfieldsubjectrepo" type="requestfieldsubjectrepository" nillable="true" minOccurs="0" />
+        <xs:element name="rqfieldsubjectcache" type="requestfieldsubjectcache" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="subjectcache" nillable="true" minOccurs="0" />
+        <xs:element name="rqfieldsubjectclonerepo" type="rqfieldsubsubjectrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="rqfieldsubsubjectcache" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="subsubjectcache" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="subjectsaccessservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="subjectcache" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="subsubjectcache" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="configscache" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="routeservice" >
+      <xs:sequence>
+        <xs:element name="cache" type="routecache" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sectionservice" >
+      <xs:sequence>
+        <xs:element name="cache" type="sectioncache" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="subjectservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cookieservice" >
+      <xs:sequence>
+        <xs:element name="auth_cookie_name" type="xs:string" />
+        <xs:element name="context" type="gcontextservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="managercache" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="sessioncache" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="searchservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="requestsearchentityrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="admissionsearchentityrepository" nillable="true" minOccurs="0" />
+        <xs:element name="contexts" type="gcontextservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="namesrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="surnamesrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="eventtypeservice" >
+      <xs:sequence>
+        <xs:element name="cache" type="eventtypecache" nillable="true" minOccurs="0" />
+        <xs:element name="repo" type="eventtyperepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="admissioneventtypeservice" >
+      <xs:sequence>
+        <xs:element name="cache" type="admissioneventtypecache" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="requestreminderservice" >
+      <xs:sequence>
+        <xs:element name="cache" type="requestreminderscache" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="requestcache" nillable="true" minOccurs="0" />
+        <xs:element name="repository" type="requestremindersrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="admissionservice" >
+      <xs:sequence>
+        <xs:element name="cache" type="admissioncache" nillable="true" minOccurs="0" />
+        <xs:element name="repo" type="admissionrepository" nillable="true" minOccurs="0" />
+        <xs:element name="admeventservice" type="admissioneventservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="clientcache" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="callcache" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="managercache" nillable="true" minOccurs="0" />
+        <xs:element name="regioncache" type="regionscache" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="regionsservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="subjectcache" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="servicesmanager" >
+      <xs:sequence>
+        <xs:element name="cache" type="servicecache" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="authenticationservice" >
+      <xs:sequence>
+        <xs:element name="contexts" type="gcontextservice" nillable="true" minOccurs="0" />
+        <xs:element name="rolecache" type="managerrolecache" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="managerrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="sessionservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="configcache" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="requestservice" >
+      <xs:sequence>
+        <xs:element name="cache" type="requestcache" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="clientcache" nillable="true" minOccurs="0" />
+        <xs:element name="repo" type="requestrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="requestfieldsubjectservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="requestcache" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="admissionservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="admissioneventservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="admissioncache" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="eventservice" nillable="true" minOccurs="0" />
+        <xs:element name="context" type="gcontextservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="requestcommentsrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="requestcommentscache" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="configcache" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="requeststatuschangeservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="clientservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="statuscache" nillable="true" minOccurs="0" />
+        <xs:element name="em" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="socketservice" >
+      <xs:sequence>
+        <xs:element name="builder" type="xs:anyType" />
+        <xs:element name="url" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="departmentaddressbookservice" >
+      <xs:sequence>
+        <xs:element name="cache" type="departmentaddressbookcache" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="managersstatservice" >
+      <xs:sequence>
+        <xs:element name="completed_today" type="xs:string" />
+        <xs:element name="esroo_to_requests_today" type="xs:string" />
+        <xs:element name="esroo_requests" type="xs:string" />
+        <xs:element name="life_span_violation" type="xs:string" />
+        <xs:element name="managerrepo" type="managerrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="managercache" nillable="true" minOccurs="0" />
+        <xs:element name="rqrepository" type="requestrepository" nillable="true" minOccurs="0" />
+        <xs:element name="emf" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="callservice" >
+      <xs:sequence>
+        <xs:element name="cache" type="callcache" nillable="true" minOccurs="0" />
+        <xs:element name="repo" type="callrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="managercache" nillable="true" minOccurs="0" />
+        <xs:element name="admservice" type="admissionservice" nillable="true" minOccurs="0" />
+        <xs:element name="admeventservice" type="admissioneventservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="closerequestservice" >
+      <xs:sequence>
+        <xs:element name="rqcache" type="requestcache" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="statuscache" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="eventservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="eventrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="subsubjectservice" >
+      <xs:sequence>
+        <xs:element name="repo" type="subsubjectrepository" nillable="true" minOccurs="0" />
+        <xs:element name="cache" type="subsubjectcache" nillable="true" minOccurs="0" />
+        <xs:element name="subcache" type="subjectcache" nillable="true" minOccurs="0" />
+        <xs:element name="rqfieldservice" type="requestfieldservice" nillable="true" minOccurs="0" />
+        <xs:element name="rqfieldsubsubjectrepo" type="rqfieldsubsubjectrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="regionphonenumberservice" >
+      <xs:sequence>
+        <xs:element name="cache" type="regionphonenumbercache" nillable="true" minOccurs="0" />
+        <xs:element name="regioncache" type="regionscache" nillable="true" minOccurs="0" />
+        <xs:element name="service" type="fileservice" nillable="true" minOccurs="0" />
+        <xs:element name="upfilerepo" type="uploadedfilerepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="eventservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="eventcache" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="eventrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="managercache" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="eventtypecache" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="requestcache" nillable="true" minOccurs="0" />
+        <xs:element name="context" type="gcontextservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="socketservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="sessionrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="mailsenderservice" >
+      <xs:sequence>
+        <xs:element name="max_file_size" type="xs:long" />
+        <xs:element name="max_all_files_size" type="xs:long" />
+        <xs:element name="confservice" type="integrationconfigservice" nillable="true" minOccurs="0" />
+        <xs:element name="context" type="gcontextservice" nillable="true" minOccurs="0" />
+        <xs:element name="cache" type="lettercache" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="managercache" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="requestcache" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="eventservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="activedirectory" >
+      <xs:sequence>
+        <xs:element name="userattributes" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="requestfieldsubjectservice" >
+      <xs:sequence>
+        <xs:element name="cache" type="requestfieldsubjectcache" nillable="true" minOccurs="0" />
+        <xs:element name="repository" type="requestfieldsubjectrepository" nillable="true" minOccurs="0" />
+        <xs:element name="subsubcache" type="rqfieldsubsubjectcache" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="subsubjectservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="requestfieldservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="requestfieldvalueservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="subjectcache" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="fileservice" >
+      <xs:sequence>
+        <xs:element name="tobase" type="regionphonenumber" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="regionphonenumberrepository" nillable="true" minOccurs="0" />
+        <xs:element name="regcache" type="regionscache" nillable="true" minOccurs="0" />
+        <xs:element name="regrepository" type="regionsrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="filesaver" nillable="true" minOccurs="0" />
+        <xs:element name="upfilerepo" type="uploadedfilerepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="statusservice" >
+      <xs:sequence>
+        <xs:element name="cache" type="statuscache" nillable="true" minOccurs="0" />
+        <xs:element name="repo" type="statusrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jwtexplorerservice" >
+      <xs:sequence>
+        <xs:element name="context" type="gcontextservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="managersnotificationsservice" >
+      <xs:sequence>
+        <xs:element name="cache" type="managersnotificationscache" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="managerrolecache" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="managersnotificationsrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="scheduleservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="managerschedulecache" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="managerschedulerepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="generalschedulecache" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="generalschedulerepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="managercache" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="distributerequestsservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="requestcache" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="managerservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="managercache" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="requestrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="managersubjectservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="requeststatuschangeservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="eventservice" nillable="true" minOccurs="0" />
+        <xs:element name="context" type="gcontextservice" nillable="true" minOccurs="0" />
+        <xs:element name="em" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="statuscache" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sourcefilter" >
+      <xs:complexContent>
+       <xs:extension base="gfilter">
+         <xs:sequence>
+          <xs:element name="contexts" type="gcontextservice" nillable="true" minOccurs="0" />
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="pathcheckfilter" >
+      <xs:complexContent>
+       <xs:extension base="gfilter">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="contexts" type="gcontextservice" nillable="true" minOccurs="0" />
+          <xs:element name="" type="managercache" nillable="true" minOccurs="0" />
+          <xs:element name="" type="routeservice" nillable="true" minOccurs="0" />
+          <xs:element name="" type="managerrolerouteservice" nillable="true" minOccurs="0" />
+          <xs:element name="" type="managerroleservice" nillable="true" minOccurs="0" />
+          <xs:element name="" type="routerepository" nillable="true" minOccurs="0" />
+          <xs:element name="ignored" type="xs:string" />
+          <xs:element name="ignore" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="requestresponseloggingfilter" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="context" type="gcontextservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userauthorizationfilter" >
+      <xs:complexContent>
+       <xs:extension base="basicauthenticationfilter">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="context" type="gcontextservice" nillable="true" minOccurs="0" />
+          <xs:element name="" type="cookieservice" nillable="true" minOccurs="0" />
+          <xs:element name="" type="sessionservice" nillable="true" minOccurs="0" />
+          <xs:element name="" type="managercache" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="grouptype" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="accesstype" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="admissioneventtypes" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="experterrors" >
+      <xs:sequence>
+        <xs:element name="message" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="channel" >
+      <xs:sequence>
+        <xs:element name="channel" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="configs" >
+      <xs:sequence>
+        <xs:element name="value" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="externalservicescodes" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="logtype" >
+      <xs:sequence>
+        <xs:element name="value" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="eventtypevalues" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="platform" >
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="extcode" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="configcode" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="state" >
+      <xs:sequence>
+        <xs:element name="status" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="daytypes" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="inputtype" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="gplatformvalidator" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="stringlistvalidator" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="gphonevalidator" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="gplatform" >
+      <xs:complexContent>
+       <xs:extension base="payload>[]">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="stringlistvalidation" >
+      <xs:complexContent>
+       <xs:extension base="payload>[]">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="gphone" >
+      <xs:complexContent>
+       <xs:extension base="payload>[]">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="gphoneparser" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="requestfieldrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<requestfield,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="requestfieldcache" >
+      <xs:complexContent>
+       <xs:extension base="grediscache<long,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="requestfield" >
+      <xs:complexContent>
+       <xs:extension base="gentity<long>">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="" type="inputtype" nillable="true" minOccurs="0" />
+          <xs:element name="disabledon" type="xs:dateTime" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="regionphonenumber" >
+      <xs:complexContent>
+       <xs:extension base="gentity<long>{">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="code" type="xs:long" />
+          <xs:element name="dfrom" type="xs:anyType" />
+          <xs:element name="dto" type="xs:anyType" />
+          <xs:element name="region" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="regionphonenumberrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<regionphonenumber,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="regionphonenumbercache" >
+      <xs:complexContent>
+       <xs:extension base="grediscache<long,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="integrationconfig" >
+      <xs:complexContent>
+       <xs:extension base="gentity<string>">
+         <xs:sequence>
+          <xs:element name="code" type="xs:string" />
+          <xs:element name="server" type="xs:string" />
+          <xs:element name="port" type="xs:string" />
+          <xs:element name="username" type="xs:string" />
+          <xs:element name="key" type="xs:string" />
+          <xs:element name="servicename" type="xs:string" />
+          <xs:element name="passwordhash" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="integrationconfigcache" >
+      <xs:complexContent>
+       <xs:extension base="grediscache<string,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="integrationconfigrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<integrationconfig,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="requestfieldvaluecache" >
+      <xs:complexContent>
+       <xs:extension base="grediscache<long,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="requestfieldvaluerepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<requestfieldvalue,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="requestfieldvalue" >
+      <xs:complexContent>
+       <xs:extension base="gentity<long>">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="field" type="xs:long" />
+          <xs:element name="value" type="xs:string" />
+          <xs:element name="disabledon" type="xs:dateTime" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="name" >
+      <xs:complexContent>
+       <xs:extension base="gentity<long>">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="namecount" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="namesrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<name,long>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="managersubjectkey" >
+      <xs:sequence>
+        <xs:element name="manager" type="xs:long" />
+        <xs:element name="subject" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="managersubjectcache" >
+      <xs:complexContent>
+       <xs:extension base="grediscache<managersubjectkey,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="managersubject" >
+      <xs:complexContent>
+       <xs:extension base="gentity<managersubjectkey>">
+         <xs:sequence>
+          <xs:element name="manager" type="xs:long" />
+          <xs:element name="subject" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="managersubjectrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<managersubject,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="requestfieldsubsubject" >
+      <xs:complexContent>
+       <xs:extension base="gentity<requestfieldsubsubjectkey>">
+         <xs:sequence>
+          <xs:element name="subsubject" type="xs:long" />
+          <xs:element name="requestfield" type="xs:long" />
+          <xs:element name="required" type="xs:anyType" />
+          <xs:element name="disabledon" type="xs:dateTime" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="rqfieldsubsubjectcache" >
+      <xs:complexContent>
+       <xs:extension base="grediscache<requestfieldsubsubjectkey,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="requestfieldsubsubjectkey" >
+      <xs:sequence>
+        <xs:element name="requestfield" type="xs:long" />
+        <xs:element name="subsubject" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rqfieldsubsubjectrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<requestfieldsubsubject,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="surnamesrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<surname,long>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="surname" >
+      <xs:complexContent>
+       <xs:extension base="gentity<long>">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="namecount" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="managerroleroutekey" >
+      <xs:sequence>
+        <xs:element name="managercode" type="xs:string" />
+        <xs:element name="routeid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="managerroleroute" >
+      <xs:complexContent>
+       <xs:extension base="gentity<managerroleroutekey>">
+         <xs:sequence>
+          <xs:element name="key" type="managerroleroutekey" nillable="true" minOccurs="0" />
+          <xs:element name="" type="managerrole" nillable="true" minOccurs="0" />
+          <xs:element name="" type="route" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="managerrolerouterepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<managerroleroute,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="managerroleroutecache" >
+      <xs:complexContent>
+       <xs:extension base="grediscache<managerroleroutekey,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="lettercache" >
+      <xs:complexContent>
+       <xs:extension base="grediscache<long,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="letterrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<letter,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="lettertype" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="letter" >
+      <xs:complexContent>
+       <xs:extension base="gentity<long>{">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="subject" type="xs:string" />
+          <xs:element name="body" type="xs:string" />
+          <xs:element name="signature" type="xs:string" />
+          <xs:element name="type" type="xs:long" />
+          <xs:element name="sender" type="xs:long" />
+          <xs:element name="request" type="xs:long" />
+          <xs:element name="sent" type="xs:dateTime" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="departmentaddressbookcache" >
+      <xs:complexContent>
+       <xs:extension base="grediscache<long,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="departmentaddressbookrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<departmentaddressbook,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="departmentaddressbook" >
+      <xs:complexContent>
+       <xs:extension base="gentity<long>">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="city" type="xs:string" />
+          <xs:element name="region" type="xs:string" />
+          <xs:element name="address" type="xs:string" />
+          <xs:element name="phone" type="xs:string" />
+          <xs:element name="email" type="xs:string" />
+          <xs:element name="contact" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="servicerepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<service,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="service" >
+      <xs:complexContent>
+       <xs:extension base="gentity<string>">
+         <xs:sequence>
+          <xs:element name="code" type="xs:string" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="disabledon" type="xs:dateTime" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="servicecache" >
+      <xs:complexContent>
+       <xs:extension base="grediscache<string,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="messagesignature" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="body" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="routetyperepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<routetype,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="routetypecache" >
+      <xs:complexContent>
+       <xs:extension base="grediscache<string,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="routetype" >
+      <xs:complexContent>
+       <xs:extension base="gentity<string>">
+         <xs:sequence>
+          <xs:element name="code" type="xs:string" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="description" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="subjectcache" >
+      <xs:complexContent>
+       <xs:extension base="grediscache<long,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="subjectrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<subject,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="subject" >
+      <xs:complexContent>
+       <xs:extension base="gentity<long>{">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="section" type="xs:long" />
+          <xs:element name="maxexecutiontime" type="xs:long" />
+          <xs:element name="complaint" type="xs:anyType" />
+          <xs:element name="disabledon" type="xs:dateTime" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="regionscache" >
+      <xs:complexContent>
+       <xs:extension base="grediscache<long,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="regionsrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<region,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="region" >
+      <xs:complexContent>
+       <xs:extension base="gentity<long>">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="disabledon" type="xs:dateTime" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="admissioneventtyperepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<admissioneventtype,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="admissioneventtype" >
+      <xs:complexContent>
+       <xs:extension base="gentity<string>">
+         <xs:sequence>
+          <xs:element name="code" type="xs:string" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="template" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="admissioneventtypecache" >
+      <xs:complexContent>
+       <xs:extension base="grediscache<string,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="managerrolecache" >
+      <xs:complexContent>
+       <xs:extension base="grediscache<string,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="managerrolerepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<managerrole,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="managerrole" >
+      <xs:complexContent>
+       <xs:extension base="gentity<string>">
+         <xs:sequence>
+          <xs:element name="code" type="xs:string" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="disabled" type="xs:dateTime" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="routecache" >
+      <xs:complexContent>
+       <xs:extension base="grediscache<long,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="route" >
+      <xs:complexContent>
+       <xs:extension base="gentity<long>">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="method" type="xs:string" />
+          <xs:element name="path" type="xs:string" />
+          <xs:element name="open" type="xs:anyType" />
+          <xs:element name="system" type="xs:anyType" />
+          <xs:element name="disabled" type="xs:dateTime" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="routerepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<route,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="section" >
+      <xs:complexContent>
+       <xs:extension base="gentity<long>">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="disabledon" type="xs:dateTime" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sectioncache" >
+      <xs:complexContent>
+       <xs:extension base="grediscache<long,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sectionrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<section,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="managerstatus" >
+      <xs:complexContent>
+       <xs:extension base="gentity<string>">
+         <xs:sequence>
+          <xs:element name="code" type="xs:string" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="workmode" type="xs:string" />
+          <xs:element name="reasoncode" type="xs:string" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="disabled" type="xs:dateTime" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="managerstatuscache" >
+      <xs:complexContent>
+       <xs:extension base="grediscache<string,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="managerstatusrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<managerstatus,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="clienttype" >
+      <xs:complexContent>
+       <xs:extension base="gentity<string>">
+         <xs:sequence>
+          <xs:element name="code" type="xs:string" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="disabledon" type="xs:dateTime" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="clienttyperepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<clienttype,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="clienttypecontainer" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="clienttype" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="clienttypecache" >
+      <xs:complexContent>
+       <xs:extension base="grediscache<string,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="rqfieldsubjectkey" >
+      <xs:sequence>
+        <xs:element name="requestfield" type="xs:long" />
+        <xs:element name="subject" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="requestfieldsubject" >
+      <xs:complexContent>
+       <xs:extension base="gentity<rqfieldsubjectkey>">
+         <xs:sequence>
+          <xs:element name="subject" type="xs:long" />
+          <xs:element name="requestfield" type="xs:long" />
+          <xs:element name="required" type="xs:anyType" />
+          <xs:element name="disabled" type="xs:dateTime" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="requestfieldsubjectcache" >
+      <xs:complexContent>
+       <xs:extension base="grediscache<rqfieldsubjectkey,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="requestfieldsubjectrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<requestfieldsubject,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="messegetmpl" >
+      <xs:complexContent>
+       <xs:extension base="gentity<long>{">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="subject" type="xs:string" />
+          <xs:element name="body" type="xs:string" />
+          <xs:element name="signature" type="messagesignature" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="messagetmplcache" >
+      <xs:complexContent>
+       <xs:extension base="grediscache<long,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="massagetmplreposiroty" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<messegetmpl,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="requestcommentsrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<requestcomment,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="requestcomment" >
+      <xs:complexContent>
+       <xs:extension base="gentity<long>">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="comment" type="xs:string" />
+          <xs:element name="author" type="xs:long" />
+          <xs:element name="request" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="requestcommentscache" >
+      <xs:complexContent>
+       <xs:extension base="grediscache<long">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="eventtyperepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<eventtype,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="eventtype" >
+      <xs:complexContent>
+       <xs:extension base="gentity<string>">
+         <xs:sequence>
+          <xs:element name="code" type="xs:string" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="template" type="xs:string" />
+          <xs:element name="disabledon" type="xs:dateTime" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="eventtypecache" >
+      <xs:complexContent>
+       <xs:extension base="grediscache<string,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="subsubject" >
+      <xs:complexContent>
+       <xs:extension base="gentity<long>">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="maxexecutiontime" type="xs:long" />
+          <xs:element name="subject" type="xs:long" />
+          <xs:element name="disabledon" type="xs:dateTime" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="subsubjectcache" >
+      <xs:complexContent>
+       <xs:extension base="grediscache<long,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="subsubjectrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<subsubject,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="statuscache" >
+      <xs:complexContent>
+       <xs:extension base="grediscache<string,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="status" >
+      <xs:complexContent>
+       <xs:extension base="gentity<string>">
+         <xs:sequence>
+          <xs:element name="code" type="xs:string" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="" type="state" nillable="true" minOccurs="0" />
+          <xs:element name="routetype" type="xs:string" />
+          <xs:element name="color" type="xs:string" />
+          <xs:element name="expireddaysnum" type="xs:long" />
+          <xs:element name="expiredstatus" type="xs:string" />
+          <xs:element name="lifespan" type="xs:long" />
+          <xs:element name="lifespanstatus" type="xs:string" />
+          <xs:element name="disabledon" type="xs:dateTime" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="statusrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<status,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="requestsearchentityrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<requestsearchentity,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="requestrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<request,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="requestcache" >
+      <xs:complexContent>
+       <xs:extension base="grediscache<long,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="request" >
+      <xs:complexContent>
+       <xs:extension base="gentity<long>">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="assignee" type="xs:long" />
+          <xs:element name="requester" type="xs:long" />
+          <xs:element name="status" type="xs:string" />
+          <xs:element name="created" type="xs:dateTime" />
+          <xs:element name="routetype" type="xs:string" />
+          <xs:element name="" type="channel" nillable="true" minOccurs="0" />
+          <xs:element name="" type="platform" nillable="true" minOccurs="0" />
+          <xs:element name="link" type="xs:long" />
+          <xs:element name="body" type="mfield" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="subject" type="xs:long" />
+          <xs:element name="subsubject" type="xs:long" />
+          <xs:element name="admission" type="xs:long" />
+          <xs:element name="applicantcontacts" type="xs:anyType" />
+          <xs:element name="text" type="xs:string" />
+          <xs:element name="disabled" type="xs:dateTime" />
+          <xs:element name="expires" type="xs:dateTime" />
+          <xs:element name="lifespan" type="xs:dateTime" />
+          <xs:element name="closed" type="xs:dateTime" />
+          <xs:element name="assigned" type="xs:dateTime" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="requestsearchentity" >
+      <xs:complexContent>
+       <xs:extension base="gentity<long>">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="assignee" type="manager" nillable="true" minOccurs="0" />
+          <xs:element name="requester" type="client" nillable="true" minOccurs="0" />
+          <xs:element name="" type="status" nillable="true" minOccurs="0" />
+          <xs:element name="created" type="xs:dateTime" />
+          <xs:element name="" type="routetype" nillable="true" minOccurs="0" />
+          <xs:element name="" type="channel" nillable="true" minOccurs="0" />
+          <xs:element name="" type="platform" nillable="true" minOccurs="0" />
+          <xs:element name="link" type="xs:long" />
+          <xs:element name="body" type="mfield" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="" type="subject" nillable="true" minOccurs="0" />
+          <xs:element name="subsubject" type="xs:long" />
+          <xs:element name="admission" type="xs:long" />
+          <xs:element name="applicantcontacts" type="xs:anyType" />
+          <xs:element name="text" type="xs:string" />
+          <xs:element name="disabled" type="xs:dateTime" />
+          <xs:element name="expires" type="xs:dateTime" />
+          <xs:element name="lifespan" type="xs:dateTime" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="incomingrequestbodyconverter" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="applicantcontacts" >
+      <xs:complexContent>
+       <xs:extension base="gobject">
+         <xs:sequence>
+          <xs:element name="firstname" type="xs:string" />
+          <xs:element name="lastname" type="xs:string" />
+          <xs:element name="middlename" type="xs:string" />
+          <xs:element name="clienttype" type="xs:string" />
+          <xs:element name="phone" type="xs:string" />
+          <xs:element name="commtype" type="communicationmethod" nillable="true" minOccurs="0" />
+          <xs:element name="email" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="manageraddressbook" >
+      <xs:complexContent>
+       <xs:extension base="gentity<long>">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="firstname" type="xs:string" />
+          <xs:element name="lastname" type="xs:string" />
+          <xs:element name="middlename" type="xs:string" />
+          <xs:element name="position" type="xs:string" />
+          <xs:element name="phone" type="xs:string" />
+          <xs:element name="email" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="manageraddressbookrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<manageraddressbook,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="manageraddressbookcache" >
+      <xs:complexContent>
+       <xs:extension base="grediscache<long,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="managersnotificationsrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<managernotification,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="managersnotificationscache" >
+      <xs:complexContent>
+       <xs:extension base="grediscache<long,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="managernotification" >
+      <xs:complexContent>
+       <xs:extension base="gentity<long>">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="role" type="xs:string" />
+          <xs:element name="created" type="xs:dateTime" />
+          <xs:element name="notification" type="xs:dateTime" />
+          <xs:element name="disabled" type="xs:dateTime" />
+          <xs:element name="body" type="xs:string" />
+          <xs:element name="title" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="managerschedulecache" >
+      <xs:complexContent>
+       <xs:extension base="grediscache<long,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="managerschedulerepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<managerschedule,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="managerschedule" >
+      <xs:complexContent>
+       <xs:extension base="gentity<long>">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="manager" type="xs:long" />
+          <xs:element name="" type="xs:dateTime" />
+          <xs:element name="type" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="generalschedulecache" >
+      <xs:complexContent>
+       <xs:extension base="grediscache<long,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="generalschedule" >
+      <xs:complexContent>
+       <xs:extension base="gentity<long>">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="xs:dateTime" />
+          <xs:element name="type" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="generalschedulerepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<generalschedule,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="event" >
+      <xs:complexContent>
+       <xs:extension base="gentity<long>">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="created" type="xs:dateTime" />
+          <xs:element name="initiator" type="xs:long" />
+          <xs:element name="type" type="xs:string" />
+          <xs:element name="body" type="xs:anyType" />
+          <xs:element name="commentary" type="xs:string" />
+          <xs:element name="request" type="xs:long" />
+          <xs:element name="disabled" type="xs:dateTime" />
+          <xs:element name="checked" type="xs:dateTime" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="eventcache" >
+      <xs:complexContent>
+       <xs:extension base="grediscache<long,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="eventrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<event,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="managerstatusinforepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<managerstatusinfo,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="managerstatusinfo" >
+      <xs:complexContent>
+       <xs:extension base="gentity<long>">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="manager" type="xs:long" />
+          <xs:element name="" type="xs:dateTime" />
+          <xs:element name="modified" type="xs:dateTime" />
+          <xs:element name="currentstatus" type="xs:string" />
+          <xs:element name="info" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="managerstatusinfocache" >
+      <xs:complexContent>
+       <xs:extension base="grediscache<long,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="managerstatuschangerepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<managerstatuschange,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="managerstatuschangecache" >
+      <xs:complexContent>
+       <xs:extension base="grediscache<long,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="managerstatuschange" >
+      <xs:complexContent>
+       <xs:extension base="gentity<long>">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="manager" type="xs:long" />
+          <xs:element name="status" type="xs:string" />
+          <xs:element name="" type="xs:dateTime" />
+          <xs:element name="start" type="xs:dateTime" />
+          <xs:element name="end" type="xs:dateTime" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="admission" >
+      <xs:complexContent>
+       <xs:extension base="gentity<long>">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="clientemail" type="xs:string" />
+          <xs:element name="clientphone" type="xs:string" />
+          <xs:element name="clientname" type="xs:string" />
+          <xs:element name="client" type="xs:long" />
+          <xs:element name="subject" type="xs:long" />
+          <xs:element name="call" type="xs:long" />
+          <xs:element name="result" type="xs:string" />
+          <xs:element name="comment" type="xs:string" />
+          <xs:element name="created" type="xs:dateTime" />
+          <xs:element name="disabled" type="xs:dateTime" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="admissionrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<admission,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="admissioncache" >
+      <xs:complexContent>
+       <xs:extension base="grediscache<long,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="admissionsearchentity" >
+      <xs:complexContent>
+       <xs:extension base="gentity<long>">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="client" nillable="true" minOccurs="0" />
+          <xs:element name="created" type="xs:dateTime" />
+          <xs:element name="" type="subject" nillable="true" minOccurs="0" />
+          <xs:element name="" type="callsearchentity" nillable="true" minOccurs="0" />
+          <xs:element name="disabled" type="xs:dateTime" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="callsearchentity" >
+      <xs:complexContent>
+       <xs:extension base="gentity<long>">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="manager" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="admissionresult" >
+      <xs:sequence>
+        <xs:element name="value" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="admissionsearchentityrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<admissionsearchentity,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="communicationmethod" >
+      <xs:sequence>
+        <xs:element name="value" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="config" >
+      <xs:complexContent>
+       <xs:extension base="gentity<string>">
+         <xs:sequence>
+          <xs:element name="key" type="xs:string" />
+          <xs:element name="value" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="configrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<config,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="configcache" >
+      <xs:complexContent>
+       <xs:extension base="grediscache<string,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="configsrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<config,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="configscache" >
+      <xs:complexContent>
+       <xs:extension base="grediscache<string,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="requestremindersrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<requestreminder,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="requestreminder" >
+      <xs:complexContent>
+       <xs:extension base="gentity<long>">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="created" type="xs:dateTime" />
+          <xs:element name="signal" type="xs:dateTime" />
+          <xs:element name="disabled" type="xs:dateTime" />
+          <xs:element name="checked" type="xs:anyType" />
+          <xs:element name="body" type="xs:string" />
+          <xs:element name="request" type="xs:long" />
+          <xs:element name="title" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="requestreminderscache" >
+      <xs:complexContent>
+       <xs:extension base="grediscache<long">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="uploadedfile" >
+      <xs:complexContent>
+       <xs:extension base="gentity<string>{">
+         <xs:sequence>
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="uploaded" type="xs:dateTime" />
+          <xs:element name="size" type="xs:string" />
+          <xs:element name="content" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="uploadedfilerepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<uploadedfile,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="managercache" >
+      <xs:complexContent>
+       <xs:extension base="grediscache<long,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="managerrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<manager,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="manager" >
+      <xs:complexContent>
+       <xs:extension base="gentity<long>">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="firstname" type="xs:string" />
+          <xs:element name="lastname" type="xs:string" />
+          <xs:element name="middlename" type="xs:string" />
+          <xs:element name="email" type="xs:string" />
+          <xs:element name="role" type="xs:string" />
+          <xs:element name="registered" type="xs:dateTime" />
+          <xs:element name="platform" type="xs:string" />
+          <xs:element name="username" type="xs:string" />
+          <xs:element name="disabled" type="xs:dateTime" />
+          <xs:element name="agentid" type="xs:string" />
+          <xs:element name="agentpasswordhash" type="xs:string" />
+          <xs:element name="stationid" type="xs:string" />
+          <xs:element name="workdaystatus" type="xs:string" />
+          <xs:element name="ofdismissal" type="xs:dateTime" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sessioncache" >
+      <xs:complexContent>
+       <xs:extension base="grediscache<long,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="session" >
+      <xs:complexContent>
+       <xs:extension base="gentity<long>">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="manager" type="xs:long" />
+          <xs:element name="created" type="xs:dateTime" />
+          <xs:element name="upd" type="xs:dateTime" />
+          <xs:element name="expired" type="xs:dateTime" />
+          <xs:element name="disabled" type="xs:dateTime" />
+          <xs:element name="station" type="xs:long" />
+          <xs:element name="user" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sessionrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<session,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="callcache" >
+      <xs:complexContent>
+       <xs:extension base="grediscache<long,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="call" >
+      <xs:complexContent>
+       <xs:extension base="gentity<long>">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="identifier" type="xs:string" />
+          <xs:element name="stationid" type="xs:string" />
+          <xs:element name="agentid" type="xs:string" />
+          <xs:element name="phone" type="xs:string" />
+          <xs:element name="manager" type="xs:long" />
+          <xs:element name="started" type="xs:dateTime" />
+          <xs:element name="ended" type="xs:dateTime" />
+          <xs:element name="onhold" type="xs:dateTime" />
+          <xs:element name="incoming" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="callrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<call,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="admissionevent" >
+      <xs:complexContent>
+       <xs:extension base="gentity<long>">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="initiator" type="xs:long" />
+          <xs:element name="type" type="admissioneventtypes" nillable="true" minOccurs="0" />
+          <xs:element name="body" type="xs:anyType" />
+          <xs:element name="admission" type="xs:long" />
+          <xs:element name="created" type="xs:dateTime" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="admissioneventrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<admissionevent,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="admissioneventcache" >
+      <xs:complexContent>
+       <xs:extension base="grediscache<long,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="clientcache" >
+      <xs:complexContent>
+       <xs:extension base="grediscache<long,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="clientrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<client,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="client" >
+      <xs:complexContent>
+       <xs:extension base="gentity<long>">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="firstname" type="xs:string" />
+          <xs:element name="middlename" type="xs:string" />
+          <xs:element name="lastname" type="xs:string" />
+          <xs:element name="email" type="xs:string" />
+          <xs:element name="phone" type="xs:string" />
+          <xs:element name="communicationtype" type="communicationmethod" nillable="true" minOccurs="0" />
+          <xs:element name="company" type="xs:string" />
+          <xs:element name="commentary" type="xs:string" />
+          <xs:element name="region" type="xs:long" />
+          <xs:element name="contact" type="xs:string" />
+          <xs:element name="clienttype" type="xs:string" />
+          <xs:element name="disabledon" type="xs:dateTime" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="clienttypes" >
+      <xs:complexContent>
+       <xs:extension base="gcontrolleradvice">
+         <xs:sequence>
+          <xs:element name="service" type="clienttypeservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="departmentsaddressbook" >
+      <xs:complexContent>
+       <xs:extension base="gcontrolleradvice">
+         <xs:sequence>
+          <xs:element name="service" type="departmentaddressbookservice" nillable="true" minOccurs="0" />
+          <xs:element name="cache" type="departmentaddressbookcache" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="eventtypes" >
+      <xs:complexContent>
+       <xs:extension base="gcontrolleradvice">
+         <xs:sequence>
+          <xs:element name="service" type="eventtypeservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="clearcache" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="redisservice" nillable="true" minOccurs="0" />
+        <xs:element name="system" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="routetypes" >
+      <xs:complexContent>
+       <xs:extension base="gcontrolleradvice">
+         <xs:sequence>
+          <xs:element name="service" type="routetypeservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="statuses" >
+      <xs:complexContent>
+       <xs:extension base="gcontrolleradvice">
+         <xs:sequence>
+          <xs:element name="service" type="statusservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="messagetemplates" >
+      <xs:complexContent>
+       <xs:extension base="gcontrolleradvice">
+         <xs:sequence>
+          <xs:element name="cache" type="messagetmplcache" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="regions" >
+      <xs:complexContent>
+       <xs:extension base="gcontrolleradvice">
+         <xs:sequence>
+          <xs:element name="service" type="regionsservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="managersnotifications" >
+      <xs:complexContent>
+       <xs:extension base="gcontrolleradvice">
+         <xs:sequence>
+          <xs:element name="service" type="managersnotificationsservice" nillable="true" minOccurs="0" />
+          <xs:element name="cache" type="managersnotificationscache" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="integrationsconfigs" >
+      <xs:complexContent>
+       <xs:extension base="gcontrolleradvice">
+         <xs:sequence>
+          <xs:element name="configcache" type="integrationconfigcache" nillable="true" minOccurs="0" />
+          <xs:element name="service" type="integrationconfigservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="statistics" >
+      <xs:complexContent>
+       <xs:extension base="gcontrolleradvice">
+         <xs:sequence>
+          <xs:element name="service" type="statservice" nillable="true" minOccurs="0" />
+          <xs:element name="managerstatservice" type="managersstatservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="regionphonenumbers" >
+      <xs:complexContent>
+       <xs:extension base="gcontrolleradvice">
+         <xs:sequence>
+          <xs:element name="regphonenumberservice" type="regionphonenumberservice" nillable="true" minOccurs="0" />
+          <xs:element name="" type="fileservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="requestfields" >
+      <xs:complexContent>
+       <xs:extension base="gcontrolleradvice">
+         <xs:sequence>
+          <xs:element name="service" type="requestfieldservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="testcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="externalservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="managers" >
+      <xs:complexContent>
+       <xs:extension base="gcontrolleradvice">
+         <xs:sequence>
+          <xs:element name="service" type="managerservice" nillable="true" minOccurs="0" />
+          <xs:element name="cache" type="managercache" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="configs" >
+      <xs:complexContent>
+       <xs:extension base="gcontrolleradvice">
+         <xs:sequence>
+          <xs:element name="cache" type="configcache" nillable="true" minOccurs="0" />
+          <xs:element name="" type="managercache" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="admissions" >
+      <xs:complexContent>
+       <xs:extension base="gcontrolleradvice">
+         <xs:sequence>
+          <xs:element name="service" type="admissionservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="search" >
+      <xs:complexContent>
+       <xs:extension base="gcontrolleradvice">
+         <xs:sequence>
+          <xs:element name="service" type="searchservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="requests" >
+      <xs:complexContent>
+       <xs:extension base="gcontrolleradvice">
+         <xs:sequence>
+          <xs:element name="service" type="requestservice" nillable="true" minOccurs="0" />
+          <xs:element name="" type="distributerequestsservice" nillable="true" minOccurs="0" />
+          <xs:element name="" type="requeststatuschangeservice" nillable="true" minOccurs="0" />
+          <xs:element name="" type="mailsenderservice" nillable="true" minOccurs="0" />
+          <xs:element name="" type="closerequestservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="telephony" >
+      <xs:complexContent>
+       <xs:extension base="gcontrolleradvice">
+         <xs:sequence>
+          <xs:element name="" type="sessionservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="services" >
+      <xs:complexContent>
+       <xs:extension base="gcontrolleradvice">
+         <xs:sequence>
+          <xs:element name="service" type="servicesmanager" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="statuschanges" >
+      <xs:complexContent>
+       <xs:extension base="gcontrolleradvice">
+         <xs:sequence>
+          <xs:element name="service" type="statuschangeservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sections" >
+      <xs:complexContent>
+       <xs:extension base="gcontrolleradvice">
+         <xs:sequence>
+          <xs:element name="service" type="sectionservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="clients" >
+      <xs:complexContent>
+       <xs:extension base="gcontrolleradvice">
+         <xs:sequence>
+          <xs:element name="service" type="clientservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="events" >
+      <xs:complexContent>
+       <xs:extension base="gcontrolleradvice">
+         <xs:sequence>
+          <xs:element name="service" type="eventservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="authorization" >
+      <xs:complexContent>
+       <xs:extension base="gcontrolleradvice">
+         <xs:sequence>
+          <xs:element name="" type="authenticationservice" nillable="true" minOccurs="0" />
+          <xs:element name="" type="cookieservice" nillable="true" minOccurs="0" />
+          <xs:element name="" type="managerrolecache" nillable="true" minOccurs="0" />
+          <xs:element name="statusinfo" type="managerstatusinfocache" nillable="true" minOccurs="0" />
+          <xs:element name="statuscache" type="managerstatuscache" nillable="true" minOccurs="0" />
+          <xs:element name="" type="sessioncache" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jwtexplorer" >
+      <xs:complexContent>
+       <xs:extension base="gcontrolleradvice">
+         <xs:sequence>
+          <xs:element name="context" type="gcontextservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="subjects" >
+      <xs:complexContent>
+       <xs:extension base="gcontrolleradvice">
+         <xs:sequence>
+          <xs:element name="service" type="subjectservice" nillable="true" minOccurs="0" />
+          <xs:element name="" type="subjectsaccessservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sessioncontrol" >
+      <xs:complexContent>
+       <xs:extension base="gcontrolleradvice">
+         <xs:sequence>
+          <xs:element name="" type="managercache" nillable="true" minOccurs="0" />
+          <xs:element name="" type="sessioncache" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="managersubject" >
+      <xs:complexContent>
+       <xs:extension base="gcontrolleradvice">
+         <xs:sequence>
+          <xs:element name="service" type="managersubjectservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="subsubjects" >
+      <xs:complexContent>
+       <xs:extension base="gcontrolleradvice">
+         <xs:sequence>
+          <xs:element name="service" type="subsubjectservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="managersaddressbook" >
+      <xs:complexContent>
+       <xs:extension base="gcontrolleradvice">
+         <xs:sequence>
+          <xs:element name="service" type="manageraddressbookservice" nillable="true" minOccurs="0" />
+          <xs:element name="cache" type="manageraddressbookcache" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="requestreminders" >
+      <xs:complexContent>
+       <xs:extension base="gcontrolleradvice">
+         <xs:sequence>
+          <xs:element name="service" type="requestreminderservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="calls" >
+      <xs:complexContent>
+       <xs:extension base="gcontrolleradvice">
+         <xs:sequence>
+          <xs:element name="service" type="callservice" nillable="true" minOccurs="0" />
+          <xs:element name="date_format" type="xs:string" />
+          <xs:element name="time_format" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="managerschedulecontroller" >
+      <xs:complexContent>
+       <xs:extension base="gcontrolleradvice">
+         <xs:sequence>
+          <xs:element name="service" type="scheduleservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="managerroles" >
+      <xs:complexContent>
+       <xs:extension base="gcontrolleradvice">
+         <xs:sequence>
+          <xs:element name="service" type="managerroleservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="swaggerconfig" >
+      <xs:complexContent>
+       <xs:extension base="securityscheme>">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="system" type="xs:string" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="version" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="defaultswaggerconfig" >
+      <xs:complexContent>
+       <xs:extension base="swaggerconfig">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="application" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="def-9xx" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="weekends" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="application-module" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="2029_create-tb-region_phone_numbers" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="2031_create-tb-managers_notifications" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="2033_create-tb-requests_comments" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="3008_create-tb-names" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="1008_create-tb-message_signatures" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="3006_create-tb-general_schedule" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="3003_create-tb-department_address_book" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="1010_create-tb-managers" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="1006_create-tb-routes" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="1020_create-tb-services" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="1014_create-tb-request_field_values" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="1024_create-tb-mail_type" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="1035_create-tb-manager_status_info" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="1012_create-tb-manager_subject" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="3004_create-tb-managers_address_book" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="3009_create-tb-surnames" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="1011_create-tb-clients" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="1039_create-tb-request_field_subjects" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="1013_create-tb-request_fields" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="1033_create-tb-admission_events" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="2022_create-tb-service_responses" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="1019_create-tb-calls" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="3005_create-tb-managers_schedule" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="2025_create-tb-letters" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="2028_create-tb-request_reminders" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="1040_create-tb-request_field_sub_subjects" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="1029_create-tb-messege_signatures" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="2030_create-tb-uploaded_files" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="1009_create-tb-message_templates" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="1034_create-tb-sessions" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="1037_create-tb-manager_status_change" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="2021_create-tb-requests" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="2023_create-tb-service_requests" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="0_databasechangelog" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="1031_create-tb-admissions" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="1015_create-tb-manager_sessions" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="3007_create-tb-configs" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="master" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="russian_names" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="russian_surnames" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="logback-spring" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

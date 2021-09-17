@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="blog" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="//用户的唯一标识id" type="xs:long" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="summary" type="xs:string" />
+        <xs:element name="content" type="xs:string" />
+        <xs:element name="//将md转为htmlhtmlcontent" type="xs:string" />
+        <xs:element name="GeneratedName" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="createtime" type="xs:anyType" />
+        <xs:element name="//访问量、阅读量reading" type="xs:long" />
+        <xs:element name="//评论量comments" type="xs:long" />
+        <xs:element name="//点赞量likes" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:complexContent>
+       <xs:extension base="grantedauthority>">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="//用户的唯一标识id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="email" type="xs:string" />
+          <xs:element name="//用户账号，用户登录时的唯一标识username" type="xs:string" />
+          <xs:element name="//登录时密码password" type="xs:string" />
+          <xs:element name="//头像图片地址avatar" type="xs:string" />
+          <xs:element name="authorities" type="authority" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="authority" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="//用户的唯一标识id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

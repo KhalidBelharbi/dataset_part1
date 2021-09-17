@@ -1,0 +1,23 @@
+
+jobentity(/*beadvisedthatupdatingtheernalstateofa'json'columnwillnotmarkthefieldasdirtyandthereforenotresultinadatabaseupdate.theonlywaytoachieveanupdateistoreplacethefieldvaluewithanewinstance(longlivecopyconstructors).*/id:int [PK], eoj:boolean, fatalerror:boolean, partnumber:int, numberofchunks:int, numberofitems:int, priority:int, skipped:int, //todo:4/4/17droptimeoflastmodificationdbtriggeranduse@prepersistand@preupdatecallbacksinstead(toavoidunnecessaryflush()andrefresh()calls)timeofcreation:Timestamp, timeoflastmodification:Timestamp, timeofcompletion:Timestamp, specification:JobSpecification, GeneratedName:State, cachedflow:FlowCacheEntity #FK to(flowcacheentity), cachedsink:SinkCacheEntity #FK to(sinkcacheentity), GeneratedName:FlowStoreReferences, GeneratedName:WorkflowNote);
+
+itementity(/*beadvisedthatupdatingtheinternalstateofa'json'columnwillnotmarkthefieldasdirtyandthereforenotresultinadatabaseupdate.theonlywaytoachieveanupdateistoreplacethefieldvaluewithanewinstance(longlivecopyconstructors).*/:Key, //todo:4/4/17droptimeoflastmodificationdbtriggeranduse@prepersistand@preupdatecallbacksinstead(toavoidunnecessaryflush()andrefresh()calls)timeofcreation:Timestamp, timeofcompletion:Timestamp, timeoflastmodification:Timestamp, GeneratedName:State, partitioningoutcome:ChunkItem, processingoutcome:ChunkItem, nextprocessingoutcome:ChunkItem, deliveringoutcome:ChunkItem, GeneratedName:WorkflowNote, GeneratedName:RecordInfo, positionindatafile:Integer);
+
+notificationentity(select_by_type:String, id:Integer [PK], timeofcreation:Timestamp, timeoflastmodification:Timestamp, type:Notification.Type, status:Notification.Status, statusmessage:String, destination:String, content:String, context:String, job:JobEntity #FK to(jobentity), jobid:Integer);
+
+dependencytrackingentity(sinkid_status_count_result:String, key_result:String, sinkid_status_count_query:String, job_count_chunk_count_query:String, related_chunks_query:String, by_sinkid_and_state_query:String, chunks_to_wait_for_query:String, GeneratedName:Key, sinkid:int, status:ChunkSchedulingStatus, priority:int, waitingon:Set<Key>, matchkeys:Set<String>, hashes:Integer, submitter:int);
+
+flowcacheentity(named_query_set_cache:String, id:int [PK], checksum:String, GeneratedName:Flow);
+
+reordereditementity(get_items_count_by_jobid_query_name:String, get_items_count_by_jobid_query:String, get_next_item_by_jobid_query_name:String, get_next_item_by_jobid_query:String, query_get_parent:String, /*beadvisedthatupdatingtheernalstateofa'json'columnwillnotmarkthefieldasdirtyandthereforenotresultinadatabaseupdate.theonlywaytoachieveanupdateistoreplacethefieldvaluewithanewinstance(longlivecopyconstructors).*///jpaentitiesneedtohaveaprimarykeyid:int [PK], jobid:int, sortkey:int, positionindatafile:int, GeneratedName:ChunkItem, recordinfo:MarcRecordInfo);
+
+sinkcacheentity(named_query_set_cache:String, id:int [PK], checksum:String, GeneratedName:Sink);
+
+rerunentity(find_head_query_name:String, find_by_state_query_name:String, field_state:String, id:int [PK], GeneratedName:State, timeofcreation:Timestamp, job:JobEntity #FK to(jobentity), includefailedonly:Boolean);
+
+jobqueueentity(nq_find_by_state:String, //thisisnativesqlbecausejpqldoesn'tsupportjsonoperators.//findsjobqueueentitieswithsubmitteridswhicharenotalreadyinjobsmarkedasinprogressnq_find_by_sink_and_available_submitter:String, field_sink_id:String, field_state:String, id:int [PK], timeofentry:Timestamp, job:JobEntity #FK to(jobentity), sinkid:long, GeneratedName:State, type:RecordSplitter, retries:int, includefilter:byte);
+
+chunkentity(/*beadvisedthatupdatingtheinternalstateofa'json'columnwillnotmarkthefieldasdirtyandthereforenotresultinadatabaseupdate.theonlywaytoachieveanupdateistoreplacethefieldvaluewithanewinstance(longlivecopyconstructors).*/:Key, datafileid:String, numberofitems:short, timeofcreation:Timestamp, timeoflastmodification:Timestamp, timeofcompletion:Timestamp, GeneratedName:SequenceAnalysisData, GeneratedName:State);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

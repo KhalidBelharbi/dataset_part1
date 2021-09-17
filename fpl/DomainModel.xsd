@@ -1,0 +1,578 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="degameweekreport" >
+      <xs:sequence>
+        <xs:element name="reportid" type="xs:anyType" />
+        <xs:element name="userid" type="xs:anyType" />
+        <xs:element name="gameweekid" type="xs:anyType" />
+        <xs:element name="point" type="xs:anyType" />
+        <xs:element name="rank" type="xs:anyType" />
+        <xs:element name="totalrank" type="xs:anyType" />
+        <xs:element name="totalpoint" type="xs:anyType" />
+        <xs:element name="clubrank" type="xs:anyType" />
+        <xs:element name="countryrank" type="xs:anyType" />
+        <xs:element name="userfavclub" type="xs:anyType" />
+        <xs:element name="usercountryid" type="xs:anyType" />
+        <xs:element name="userstartgameweekid" type="xs:anyType" />
+        <xs:element name="userstartgameweekrank" type="xs:anyType" />
+        <xs:element name="transfer" type="xs:anyType" />
+        <xs:element name="filed1" type="xs:anyType" />
+        <xs:element name="filed2" type="xs:anyType" />
+        <xs:element name="filed3" type="xs:string" />
+        <xs:element name="planid" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="paymentext" >
+      <xs:sequence>
+        <xs:element name="paymentextid" type="xs:anyType" />
+        <xs:element name="transactionid" type="xs:anyType" />
+        <xs:element name="merchantkey" type="xs:string" />
+        <xs:element name="payumoneyid" type="xs:string" />
+        <xs:element name="unmappedstatus" type="xs:string" />
+        <xs:element name="cardnum" type="xs:string" />
+        <xs:element name="nameoncard" type="xs:string" />
+        <xs:element name="hash" type="xs:string" />
+        <xs:element name="incpaymoneyid" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="phone" type="xs:string" />
+        <xs:element name="udf1" type="xs:string" />
+        <xs:element name="udf2" type="xs:string" />
+        <xs:element name="udf3" type="xs:string" />
+        <xs:element name="udf4" type="xs:string" />
+        <xs:element name="udf5" type="xs:string" />
+        <xs:element name="udf6" type="xs:string" />
+        <xs:element name="udf7" type="xs:string" />
+        <xs:element name="udf8" type="xs:string" />
+        <xs:element name="udf9" type="xs:string" />
+        <xs:element name="udf10" type="xs:string" />
+        <xs:element name="field1" type="xs:string" />
+        <xs:element name="field2" type="xs:string" />
+        <xs:element name="field3" type="xs:string" />
+        <xs:element name="field4" type="xs:string" />
+        <xs:element name="field5" type="xs:string" />
+        <xs:element name="field6" type="xs:string" />
+        <xs:element name="field7" type="xs:string" />
+        <xs:element name="field8" type="xs:string" />
+        <xs:element name="field9" type="xs:string" />
+        <xs:element name="field10" type="xs:string" />
+        <xs:element name="field11" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userplayer" >
+      <xs:sequence>
+        <xs:element name="userplayerid" type="xs:anyType" />
+        <xs:element name="userid" type="xs:anyType" />
+        <xs:element name="gameclubplayerid" type="xs:anyType" />
+        <xs:element name="isplaying" type="xs:string" />
+        <xs:element name="playercategory" type="xs:string" />
+        <xs:element name="segnum" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userpayment" >
+      <xs:sequence>
+        <xs:element name="transactionid" type="xs:anyType" />
+        <xs:element name="plan" type="gameweekplan" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="merchantid" type="xs:string" />
+        <xs:element name="payuid" type="xs:string" />
+        <xs:element name="status" type="xs:string" />
+        <xs:element name="paymentmsg" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:dateTime" />
+        <xs:element name="amount" type="xs:double" />
+        <xs:element name="extracharge" type="xs:double" />
+        <xs:element name="totalamount" type="xs:double" />
+        <xs:element name="currency" type="xs:string" />
+        <xs:element name="paymentmode" type="xs:string" />
+        <xs:element name="bankcode" type="xs:string" />
+        <xs:element name="pgtype" type="xs:string" />
+        <xs:element name="bankreferenceno" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="gameweekplan" >
+      <xs:sequence>
+        <xs:element name="planid" type="xs:anyType" />
+        <xs:element name="planname" type="xs:string" />
+        <xs:element name="plandesc" type="xs:string" />
+        <xs:element name="plantype" type="xs:anyType" />
+        <xs:element name="gameweekid" type="xs:anyType" />
+        <xs:element name="isactive" type="xs:string" />
+        <xs:element name="planamount" type="xs:double" />
+        <xs:element name="offerprice" type="xs:double" />
+        <xs:element name="currency" type="xs:string" />
+        <xs:element name="winingprice" type="xs:double" />
+        <xs:element name="algorithm" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userpayment" >
+      <xs:sequence>
+        <xs:element name="transactionid" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="plandiscount" nillable="true" minOccurs="0" />
+        <xs:element name="plan" type="leagueplan" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="merchantid" type="xs:string" />
+        <xs:element name="payuid" type="xs:string" />
+        <xs:element name="status" type="xs:string" />
+        <xs:element name="paymentmsg" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:dateTime" />
+        <xs:element name="amount" type="xs:double" />
+        <xs:element name="extracharge" type="xs:double" />
+        <xs:element name="totalamount" type="xs:double" />
+        <xs:element name="currency" type="xs:string" />
+        <xs:element name="paymentmode" type="xs:string" />
+        <xs:element name="bankcode" type="xs:string" />
+        <xs:element name="pgtype" type="xs:string" />
+        <xs:element name="bankreferenceno" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="player" >
+      <xs:sequence>
+        <xs:element name="playerid" type="xs:anyType" />
+        <xs:element name="playername" type="xs:string" />
+        <xs:element name="playerdesc" type="xs:string" />
+        <xs:element name="worldranking" type="xs:anyType" />
+        <xs:element name="heighetscore" type="xs:anyType" />
+        <xs:element name="totalscore" type="xs:anyType" />
+        <xs:element name="bestposition" type="xs:string" />
+        <xs:element name="status" type="xs:string" />
+        <xs:element name="isinternationalplayer" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="leagueplan" >
+      <xs:sequence>
+        <xs:element name="planid" type="xs:anyType" />
+        <xs:element name="planname" type="xs:string" />
+        <xs:element name="plandesc" type="xs:string" />
+        <xs:element name="plantypeval" type="xs:anyType" />
+        <xs:element name="plantypename" type="xs:string" />
+        <xs:element name="activated" type="xs:dateTime" />
+        <xs:element name="isactive" type="xs:string" />
+        <xs:element name="isfree" type="xs:string" />
+        <xs:element name="planamount" type="xs:double" />
+        <xs:element name="totalnoofdays" type="xs:anyType" />
+        <xs:element name="currency" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="playergroup" >
+      <xs:sequence>
+        <xs:element name="playergroupid" type="xs:anyType" />
+        <xs:element name="userid" type="xs:anyType" />
+        <xs:element name="gameweekid" type="xs:anyType" />
+        <xs:element name="groupname" type="xs:string" />
+        <xs:element name="grouptype" type="xs:string" />
+        <xs:element name="field1" type="xs:anyType" />
+        <xs:element name="field2" type="xs:string" />
+        <xs:element name="playerlist" type="playergroupplayer" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="playerpoint" >
+      <xs:sequence>
+        <xs:element name="playerpointid" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="point" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="gameclubplayer" nillable="true" minOccurs="0" />
+        <xs:element name="gameid" type="xs:anyType" />
+        <xs:element name="matchid" type="xs:anyType" />
+        <xs:element name="dateofarival" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="userid" type="xs:anyType" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+        <xs:element name="displayname" type="xs:string" />
+        <xs:element name="logonid" type="xs:string" />
+        <xs:element name="logonpassword" type="xs:string" />
+        <xs:element name="usertype" type="xs:string" />
+        <xs:element name="ofbirth" type="xs:dateTime" />
+        <xs:element name="lastlogin" type="xs:dateTime" />
+        <xs:element name="lastup" type="xs:dateTime" />
+        <xs:element name="created" type="xs:dateTime" />
+        <xs:element name="register" type="xs:dateTime" />
+        <xs:element name="emailid" type="xs:string" />
+        <xs:element name="contactnumber" type="xs:string" />
+        <xs:element name="fullaaddress" type="xs:string" />
+        <xs:element name="gender" type="xs:string" />
+        <xs:element name="field1_" type="xs:anyType" />
+        <xs:element name="field1_" type="xs:string" />
+        <xs:element name="field1_" type="xs:dateTime" />
+        <xs:element name="field2" type="xs:string" />
+        <xs:element name="field3" type="xs:string" />
+        <xs:element name="policy" type="xs:string" />
+        <xs:element name="status" type="xs:string" />
+        <xs:element name="country" type="xs:string" />
+        <xs:element name="state" type="xs:string" />
+        <xs:element name="city" type="xs:string" />
+        <xs:element name="pincode" type="xs:string" />
+        <xs:element name="address1" type="xs:string" />
+        <xs:element name="address2" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="plandiscount" >
+      <xs:sequence>
+        <xs:element name="plandiscountid" type="xs:anyType" />
+        <xs:element name="planid" type="xs:anyType" />
+        <xs:element name="userid" type="xs:anyType" />
+        <xs:element name="plandiscountcode" type="xs:string" />
+        <xs:element name="plandiscountdesc" type="xs:string" />
+        <xs:element name="plandiscountmsg" type="xs:string" />
+        <xs:element name="activated" type="xs:dateTime" />
+        <xs:element name="end" type="xs:dateTime" />
+        <xs:element name="isactive" type="xs:string" />
+        <xs:element name="plandiscountvalue" type="xs:double" />
+        <xs:element name="currency" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="match" >
+      <xs:sequence>
+        <xs:element name="matchid" type="xs:anyType" />
+        <xs:element name="status" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="desc" type="xs:string" />
+        <xs:element name="starttime" type="xs:anyType" />
+        <xs:element name="endtime" type="xs:anyType" />
+        <xs:element name="best" type="player" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="game" nillable="true" minOccurs="0" />
+        <xs:element name="first" type="club" nillable="true" minOccurs="0" />
+        <xs:element name="second" type="club" nillable="true" minOccurs="0" />
+        <xs:element name="winner" type="club" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="gameweek" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pointcategory" >
+      <xs:sequence>
+        <xs:element name="couponcategoryid" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="couponlist" type="coupon" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="type" type="xs:string" />
+        <xs:element name="isactive" type="xs:string" />
+        <xs:element name="status" type="xs:string" />
+        <xs:element name="minpoint" type="xs:anyType" />
+        <xs:element name="maxpoint" type="xs:anyType" />
+        <xs:element name="algo" type="xs:string" />
+        <xs:element name="field1" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userplayer" >
+      <xs:sequence>
+        <xs:element name="userplayerid" type="xs:anyType" />
+        <xs:element name="userid" type="xs:anyType" />
+        <xs:element name="gameclubplayerid" type="xs:anyType" />
+        <xs:element name="isplaying" type="xs:string" />
+        <xs:element name="playercategory" type="xs:string" />
+        <xs:element name="segnum" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="game" >
+      <xs:sequence>
+        <xs:element name="gameid" type="xs:anyType" />
+        <xs:element name="gamename" type="xs:string" />
+        <xs:element name="gamedesc" type="xs:string" />
+        <xs:element name="totalclub" type="xs:anyType" />
+        <xs:element name="totaplyers" type="xs:anyType" />
+        <xs:element name="winnerclubid" type="xs:anyType" />
+        <xs:element name="bestplayerid" type="xs:anyType" />
+        <xs:element name="start" type="xs:dateTime" />
+        <xs:element name="end" type="xs:dateTime" />
+        <xs:element name="isactive" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="gameclubplayer" >
+      <xs:sequence>
+        <xs:element name="gameclubplayerid" type="xs:anyType" />
+        <xs:element name="status" type="xs:string" />
+        <xs:element name="playingposition" type="xs:string" />
+        <xs:element name="pricecurrency" type="xs:string" />
+        <xs:element name="price" type="xs:double" />
+        <xs:element name="playertotalpoint" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="player" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="game" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="club" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="coupon" >
+      <xs:sequence>
+        <xs:element name="couponid" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="couponcategory" type="pointcategory" nillable="true" minOccurs="0" />
+        <xs:element name="type" type="xs:string" />
+        <xs:element name="isactive" type="xs:string" />
+        <xs:element name="total" type="xs:anyType" />
+        <xs:element name="code" type="xs:string" />
+        <xs:element name="vendor" type="xs:string" />
+        <xs:element name="logo" type="xs:string" />
+        <xs:element name="appurl" type="xs:string" />
+        <xs:element name="field1" type="xs:string" />
+        <xs:element name="field2" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="point" >
+      <xs:sequence>
+        <xs:element name="pointid" type="xs:anyType" />
+        <xs:element name="pointname" type="xs:string" />
+        <xs:element name="pointdesc" type="xs:string" />
+        <xs:element name="gameid" type="xs:anyType" />
+        <xs:element name="pointtodeduct" type="xs:anyType" />
+        <xs:element name="pointtoadd" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="gameweek" >
+      <xs:sequence>
+        <xs:element name="gameweekid" type="xs:anyType" />
+        <xs:element name="weekname" type="xs:string" />
+        <xs:element name="iscurrentweek" type="xs:string" />
+        <xs:element name="GeneratedName" type="game" nillable="true" minOccurs="0" />
+        <xs:element name="start" type="xs:dateTime" />
+        <xs:element name="end" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userpoint" >
+      <xs:sequence>
+        <xs:element name="userpointid" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="playerpoint" nillable="true" minOccurs="0" />
+        <xs:element name="gameid" type="xs:anyType" />
+        <xs:element name="matchid" type="xs:anyType" />
+        <xs:element name="userid" type="xs:anyType" />
+        <xs:element name="currentpoint" type="xs:anyType" />
+        <xs:element name="pointactivity" type="xs:string" />
+        <xs:element name="pointactivitytime" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="gameweekreport" >
+      <xs:sequence>
+        <xs:element name="reportid" type="xs:anyType" />
+        <xs:element name="userid" type="xs:anyType" />
+        <xs:element name="gameweekid" type="xs:anyType" />
+        <xs:element name="point" type="xs:anyType" />
+        <xs:element name="rank" type="xs:anyType" />
+        <xs:element name="totalrank" type="xs:anyType" />
+        <xs:element name="totalpoint" type="xs:anyType" />
+        <xs:element name="clubrank" type="xs:anyType" />
+        <xs:element name="countryrank" type="xs:anyType" />
+        <xs:element name="userfavclub" type="xs:anyType" />
+        <xs:element name="usercountryid" type="xs:anyType" />
+        <xs:element name="userstartgameweekid" type="xs:anyType" />
+        <xs:element name="userstartgameweekrank" type="xs:anyType" />
+        <xs:element name="transfer" type="xs:anyType" />
+        <xs:element name="filed1" type="xs:anyType" />
+        <xs:element name="filed2" type="xs:anyType" />
+        <xs:element name="filed3" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="offer" >
+      <xs:sequence>
+        <xs:element name="offerid" type="xs:anyType" />
+        <xs:element name="userid" type="xs:anyType" />
+        <xs:element name="gameid" type="xs:anyType" />
+        <xs:element name="gameweekid" type="xs:anyType" />
+        <xs:element name="matchid" type="xs:anyType" />
+        <xs:element name="totallimit" type="xs:anyType" />
+        <xs:element name="offertype" type="xs:string" />
+        <xs:element name="isactive" type="xs:string" />
+        <xs:element name="filed1" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="gameweekplayerreport" >
+      <xs:sequence>
+        <xs:element name="reportid" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="gameclubplayer" nillable="true" minOccurs="0" />
+        <xs:element name="gameweekid" type="xs:anyType" />
+        <xs:element name="point" type="xs:anyType" />
+        <xs:element name="rank" type="xs:anyType" />
+        <xs:element name="totalrank" type="xs:anyType" />
+        <xs:element name="totalpoint" type="xs:anyType" />
+        <xs:element name="filed1" type="xs:anyType" />
+        <xs:element name="filed2" type="xs:anyType" />
+        <xs:element name="filed3" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usergame" >
+      <xs:sequence>
+        <xs:element name="usergameid" type="xs:anyType" />
+        <xs:element name="userid" type="xs:anyType" />
+        <xs:element name="gameid" type="xs:anyType" />
+        <xs:element name="totalpoint" type="xs:anyType" />
+        <xs:element name="teamname" type="xs:string" />
+        <xs:element name="addedplayercount" type="xs:anyType" />
+        <xs:element name="favorite" type="club" nillable="true" minOccurs="0" />
+        <xs:element name="favorite" type="player" nillable="true" minOccurs="0" />
+        <xs:element name="rank" type="xs:anyType" />
+        <xs:element name="field1" type="xs:string" />
+        <xs:element name="field2" type="xs:string" />
+        <xs:element name="field3" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usedcoupon" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="userid" type="xs:anyType" />
+        <xs:element name="gameid" type="xs:anyType" />
+        <xs:element name="gameweekid" type="xs:anyType" />
+        <xs:element name="matchid" type="xs:anyType" />
+        <xs:element name="couponid" type="xs:anyType" />
+        <xs:element name="couponcategoryid" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="countrystatecity" >
+      <xs:sequence>
+        <xs:element name="countrystatecityid" type="xs:anyType" />
+        <xs:element name="countryname" type="xs:string" />
+        <xs:element name="statename" type="xs:string" />
+        <xs:element name="cityname" type="xs:string" />
+        <xs:element name="areacode" type="xs:string" />
+        <xs:element name="field1" type="xs:string" />
+        <xs:element name="field2" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="club" >
+      <xs:sequence>
+        <xs:element name="clubid" type="xs:anyType" />
+        <xs:element name="clubname" type="xs:string" />
+        <xs:element name="clubdesc" type="xs:string" />
+        <xs:element name="created" type="xs:dateTime" />
+        <xs:element name="clublogopath" type="xs:string" />
+        <xs:element name="isactive" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userplan" >
+      <xs:sequence>
+        <xs:element name="userplanid" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="plandiscount" nillable="true" minOccurs="0" />
+        <xs:element name="plan" type="leagueplan" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="payment" type="userpayment" nillable="true" minOccurs="0" />
+        <xs:element name="plandesc" type="xs:string" />
+        <xs:element name="start" type="xs:dateTime" />
+        <xs:element name="end" type="xs:dateTime" />
+        <xs:element name="balanceamount" type="xs:double" />
+        <xs:element name="currency" type="xs:string" />
+        <xs:element name="isactive" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="playergroupplayer" >
+      <xs:sequence>
+        <xs:element name="playergroupplayerid" type="xs:anyType" />
+        <xs:element name="playergroupid" type="xs:anyType" />
+        <xs:element name="gameclubplayerid" type="xs:anyType" />
+        <xs:element name="isplaying" type="xs:string" />
+        <xs:element name="playercategory" type="xs:string" />
+        <xs:element name="segnum" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="paymentext" >
+      <xs:sequence>
+        <xs:element name="paymentextid" type="xs:anyType" />
+        <xs:element name="transactionid" type="xs:anyType" />
+        <xs:element name="merchantkey" type="xs:string" />
+        <xs:element name="payumoneyid" type="xs:string" />
+        <xs:element name="unmappedstatus" type="xs:string" />
+        <xs:element name="cardnum" type="xs:string" />
+        <xs:element name="nameoncard" type="xs:string" />
+        <xs:element name="hash" type="xs:string" />
+        <xs:element name="incpaymoneyid" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="phone" type="xs:string" />
+        <xs:element name="udf1" type="xs:string" />
+        <xs:element name="udf2" type="xs:string" />
+        <xs:element name="udf3" type="xs:string" />
+        <xs:element name="udf4" type="xs:string" />
+        <xs:element name="udf5" type="xs:string" />
+        <xs:element name="udf6" type="xs:string" />
+        <xs:element name="udf7" type="xs:string" />
+        <xs:element name="udf8" type="xs:string" />
+        <xs:element name="udf9" type="xs:string" />
+        <xs:element name="udf10" type="xs:string" />
+        <xs:element name="field1" type="xs:string" />
+        <xs:element name="field2" type="xs:string" />
+        <xs:element name="field3" type="xs:string" />
+        <xs:element name="field4" type="xs:string" />
+        <xs:element name="field5" type="xs:string" />
+        <xs:element name="field6" type="xs:string" />
+        <xs:element name="field7" type="xs:string" />
+        <xs:element name="field8" type="xs:string" />
+        <xs:element name="field9" type="xs:string" />
+        <xs:element name="field10" type="xs:string" />
+        <xs:element name="field11" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="v_position" >
+      <xs:sequence>
+        <xs:element name="position_id" type="xs:anyType" />
+        <xs:element name="position_code" type="xs:string" />
+        <xs:element name="page_name" type="xs:string" />
+        <xs:element name="page_part" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="isactive" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="v_article" >
+      <xs:sequence>
+        <xs:element name="article_id" type="xs:anyType" />
+        <xs:element name="vendor_id" type="xs:anyType" />
+        <xs:element name="position_id" type="xs:anyType" />
+        <xs:element name="position_price_id" type="xs:anyType" />
+        <xs:element name="category" type="xs:string" />
+        <xs:element name="heading" type="xs:string" />
+        <xs:element name="content" type="xs:string" />
+        <xs:element name="link" type="xs:string" />
+        <xs:element name="published_" type="xs:dateTime" />
+        <xs:element name="image_path" type="xs:string" />
+        <xs:element name="isactive" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="v_vendor_position" >
+      <xs:sequence>
+        <xs:element name="vendor_position_id" type="xs:anyType" />
+        <xs:element name="vendorid" type="xs:anyType" />
+        <xs:element name="position_id" type="xs:anyType" />
+        <xs:element name="position_price_id" type="xs:anyType" />
+        <xs:element name="active_from" type="xs:anyType" />
+        <xs:element name="active_to" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="vendor" >
+      <xs:sequence>
+        <xs:element name="vendorid" type="xs:anyType" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+        <xs:element name="displayname" type="xs:string" />
+        <xs:element name="logonid" type="xs:string" />
+        <xs:element name="logonpassword" type="xs:string" />
+        <xs:element name="vendortype" type="xs:string" />
+        <xs:element name="ofbirth" type="xs:dateTime" />
+        <xs:element name="lastlogin" type="xs:dateTime" />
+        <xs:element name="lastup" type="xs:dateTime" />
+        <xs:element name="created" type="xs:dateTime" />
+        <xs:element name="register" type="xs:dateTime" />
+        <xs:element name="emailid" type="xs:string" />
+        <xs:element name="contactnumber" type="xs:string" />
+        <xs:element name="fullaaddress" type="xs:string" />
+        <xs:element name="gender" type="xs:string" />
+        <xs:element name="field1_" type="xs:anyType" />
+        <xs:element name="field_" type="xs:string" />
+        <xs:element name="field1_" type="xs:dateTime" />
+        <xs:element name="field2" type="xs:string" />
+        <xs:element name="field3" type="xs:string" />
+        <xs:element name="policy" type="xs:string" />
+        <xs:element name="status" type="xs:string" />
+        <xs:element name="country" type="xs:string" />
+        <xs:element name="state" type="xs:string" />
+        <xs:element name="city" type="xs:string" />
+        <xs:element name="pincode" type="xs:string" />
+        <xs:element name="address1" type="xs:string" />
+        <xs:element name="address2" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="v_position_price" >
+      <xs:sequence>
+        <xs:element name="position_price_id" type="xs:anyType" />
+        <xs:element name="position_id" type="xs:anyType" />
+        <xs:element name="position_priority" type="xs:double" />
+        <xs:element name="position_name" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="price" type="xs:double" />
+        <xs:element name="isactive" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

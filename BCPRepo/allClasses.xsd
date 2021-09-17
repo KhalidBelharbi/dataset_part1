@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="iadmindao" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userdaoimpl" >
+      <xs:sequence>
+        <xs:element name="factory" type="xs:anyType" />
+        <xs:element name="manager" type="xs:anyType" />
+        <xs:element name="transaction" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="iuserdao" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="admindaoimpl" >
+      <xs:sequence>
+        <xs:element name="factory" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="testcases" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="testcases" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="registerservlet" >
+      <xs:complexContent>
+       <xs:extension base="httpservlet">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="loginservlet" >
+      <xs:complexContent>
+       <xs:extension base="httpservlet">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="createcenterservlet" >
+      <xs:complexContent>
+       <xs:extension base="httpservlet">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="stringsequenceidgenerator" >
+      <xs:complexContent>
+       <xs:extension base="sequencestylegenerator">
+         <xs:sequence>
+          <xs:element name="value_prefix_parameter" type="xs:string" />
+          <xs:element name="value_prefix_default" type="xs:string" />
+          <xs:element name="valueprefix" type="xs:string" />
+          <xs:element name="number_format_parameter" type="xs:string" />
+          <xs:element name="number_format_default" type="xs:string" />
+          <xs:element name="numberformat" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jpautility" >
+      <xs:sequence>
+        <xs:element name="factory" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="diagnosticcenter" >
+      <xs:sequence>
+        <xs:element name="centerid" type="xs:string" />
+        <xs:element name="centername" type="xs:string" />
+        <xs:element name="listoftests" type="test" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="listofapps" type="appointment" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="users" >
+      <xs:sequence>
+        <xs:element name="userid" type="xs:string" />
+        <xs:element name="userpassword" type="xs:string" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="contactno" type="xs:long" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="userrole" type="xs:string" />
+        <xs:element name="appointmentlist" type="appointment" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="appointment" >
+      <xs:sequence>
+        <xs:element name="appid" type="xs:long" />
+        <xs:element name="appdate" type="xs:string" />
+        <xs:element name="isapproved" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="test" nillable="true" minOccurs="0" />
+        <xs:element name="user" type="users" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="test" >
+      <xs:sequence>
+        <xs:element name="testid" type="xs:string" />
+        <xs:element name="testname" type="xs:string" />
+        <xs:element name="center" type="diagnosticcenter" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hcsexception" >
+      <xs:complexContent>
+       <xs:extension base="exception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="iadminservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userserviceimpl" >
+      <xs:sequence>
+        <xs:element name="userdaointerface" type="iuserdao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="adminserviceimpl" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="iuserservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

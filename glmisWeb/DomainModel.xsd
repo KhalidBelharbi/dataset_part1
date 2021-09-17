@@ -1,0 +1,859 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="testdomain" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="num" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="minorclass" >
+      <xs:complexContent>
+       <xs:extension base="classify">
+         <xs:sequence>
+          <xs:element name="/***@generated*@ordered*一个班级有多个学生*双向关联*/student" type="student" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="/***辅修学院，双向多对一*/" type="minormajor" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="major" >
+      <xs:complexContent>
+       <xs:extension base="classify">
+         <xs:sequence>
+          <xs:element name="/***主修班级*双向一对多*/class1" type="classes" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="/***双向一对一关系*辅修专业*/" type="minormajor" nillable="true" minOccurs="0" />
+          <xs:element name="/***学院,双向多对一关系*/" type="academy" nillable="true" minOccurs="0" />
+          <xs:element name="/***专业学科*单向多对一*/" type="subjects" nillable="true" minOccurs="0" />
+          <xs:element name="/***专业所属*单向多对一*/" type="affiliation" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="student_course" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="/***学分互认*/confirm" type="xs:anyType" />
+        <xs:element name="/***成绩*/score" type="xs:double" />
+        <xs:element name="/***学生*/" type="student" nillable="true" minOccurs="0" />
+        <xs:element name="/***课程*/" type="course" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="courseplan" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="/***课程*/" type="course" nillable="true" minOccurs="0" />
+        <xs:element name="/***辅修专业*/" type="minormajor" nillable="true" minOccurs="0" />
+        <xs:element name="/***年级*/" type="grade" nillable="true" minOccurs="0" />
+        <xs:element name="/***学年*/" type="year" nillable="true" minOccurs="0" />
+        <xs:element name="/***学期*/" type="season" nillable="true" minOccurs="0" />
+        <xs:element name="/***教室*/classroom" type="xs:string" />
+        <xs:element name="/***上课时间*/classtime" type="xs:string" />
+        <xs:element name="/***老师*/teacher" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="year" >
+      <xs:sequence>
+        <xs:element name="/***学年编号*/id" type="xs:anyType" />
+        <xs:element name="/***开设学年*/year_name" type="xs:anyType" />
+        <xs:element name="/***教学计划*一对多*/courseplanlist" type="courseplan" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="affiliation" >
+      <xs:complexContent>
+       <xs:extension base="classify">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="grade" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="/***年级（获取当前年份，其上三年，其下三年）*/grade_name" type="xs:anyType" />
+        <xs:element name="/***教学计划*一对多*/courseplanlist" type="courseplan" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="student" >
+      <xs:complexContent>
+       <xs:extension base="actor">
+         <xs:sequence>
+          <xs:element name="/***主修班级*双向*/class1" type="classes" nillable="true" minOccurs="0" />
+          <xs:element name="/***辅修班级*双向*/" type="minorclass" nillable="true" minOccurs="0" />
+          <xs:element name="/***学生_课程*双向一对多*/student_courses" type="student_course" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="minormajor" >
+      <xs:complexContent>
+       <xs:extension base="classify">
+         <xs:sequence>
+          <xs:element name="/***辅修班级*双向一对多*/minorclasses" type="minorclass" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="/***主修专业*双向一对一*/" type="major" nillable="true" minOccurs="0" />
+          <xs:element name="/***教学计划*一对多*/courseplanlist" type="courseplan" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="academy" >
+      <xs:complexContent>
+       <xs:extension base="classify">
+         <xs:sequence>
+          <xs:element name="/***主修专业*双向一对多*/major" type="major" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="subjects" >
+      <xs:complexContent>
+       <xs:extension base="classify">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="classify" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="description" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="course" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="/***课程名*/name" type="xs:string" />
+        <xs:element name="/***教材名*/book" type="xs:string" />
+        <xs:element name="/***学分*/credit" type="xs:long" />
+        <xs:element name="/***学时*/period" type="xs:string" />
+        <xs:element name="/***学费*/money" type="xs:string" />
+        <xs:element name="/***学生_课程*双向一对多*/student_courses" type="student_course" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="/***教学计划*一对多*/courseplanlist" type="courseplan" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="classes" >
+      <xs:complexContent>
+       <xs:extension base="classify">
+         <xs:sequence>
+          <xs:element name="/***@generated*@ordered*一个班级有多个学生*/student" type="student" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="/***多个班级对应一个专业*双向关联*/" type="major" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="reward" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="/***授予日期*/granteddate" type="calendar" nillable="true" minOccurs="0" />
+        <xs:element name="/***名称*/name" type="xs:string" />
+        <xs:element name="/***级别*/rank" type="xs:string" />
+        <xs:element name="/***位次*/precedence" type="xs:string" />
+        <xs:element name="/**总人数**/numofparticipants" type="xs:string" />
+        <xs:element name="/***授予机关*/grantedby" type="xs:string" />
+        <xs:element name="/***员工*/" type="employee" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="employeeasspractisingcertification" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="/***证书*/" type="practisingcertification" nillable="true" minOccurs="0" />
+        <xs:element name="/***注册编号*/registerno" type="xs:string" />
+        <xs:element name="/***证书编号*/certificateno" type="xs:string" />
+        <xs:element name="/***聘用企业*/servedorganization" type="xs:string" />
+        <xs:element name="/***获得时间*/issueddate" type="calendar" nillable="true" minOccurs="0" />
+        <xs:element name="photo" type="xs:anyType" />
+        <xs:element name="/***员工*/" type="employee" nillable="true" minOccurs="0" />
+        <xs:element name="/***发证机构*/" type="issuer" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="employmentcategory" >
+      <xs:complexContent>
+       <xs:extension base="abstractcategory">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="academicconference" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="/***开始时间*/starttime" type="calendar" nillable="true" minOccurs="0" />
+        <xs:element name="/***结束时间*/endtime" type="calendar" nillable="true" minOccurs="0" />
+        <xs:element name="/***会议名称*/name" type="xs:string" />
+        <xs:element name="/***主办机构*/" type="host" nillable="true" minOccurs="0" />
+        <xs:element name="/***汇报时间*/reporttime" type="calendar" nillable="true" minOccurs="0" />
+        <xs:element name="/***审核结果*/" type="reviewresult" nillable="true" minOccurs="0" />
+        <xs:element name="/***职工*/" type="employee" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="department" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="/***部门名字*/departmentname" type="xs:string" />
+        <xs:element name="GeneratedName" type="school" nillable="true" minOccurs="0" />
+        <xs:element name="/***员工*/employees" type="employee" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="yesorno" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="description" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="post" >
+      <xs:complexContent>
+       <xs:extension base="abstractcategory">
+         <xs:sequence>
+          <xs:element name="/***员工职位信息*/employeeassposts" type="employeeasspost" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="host" >
+      <xs:complexContent>
+       <xs:extension base="abstractcategory">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="nation" >
+      <xs:complexContent>
+       <xs:extension base="abstractcategory">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="visitingacademic" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="/***进修名称*实际上是项目名称*/program" type="xs:string" />
+        <xs:element name="/***开始时间*/starttime" type="calendar" nillable="true" minOccurs="0" />
+        <xs:element name="/***结束时间*/endtime" type="calendar" nillable="true" minOccurs="0" />
+        <xs:element name="/***受访机构*/visitedorganization" type="xs:string" />
+        <xs:element name="/***导师姓名*/supervisorname" type="xs:string" />
+        <xs:element name="/***汇报时间*/reporttime" type="calendar" nillable="true" minOccurs="0" />
+        <xs:element name="/***审核结果*/" type="reviewresult" nillable="true" minOccurs="0" />
+        <xs:element name="/***资助机构*/" type="sponsor" nillable="true" minOccurs="0" />
+        <xs:element name="/***是否国内访问*/domesticornot" type="yesorno" nillable="true" minOccurs="0" />
+        <xs:element name="/***员工*/" type="employee" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="employeeasspost" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="/***任命时间*/appointeddate" type="calendar" nillable="true" minOccurs="0" />
+        <xs:element name="/***红头文件*文件号*任命书*/commissionno" type="xs:string" />
+        <xs:element name="/***职位名称*/" type="post" nillable="true" minOccurs="0" />
+        <xs:element name="/***员工*/" type="employee" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="schoolworkexperience" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="/***开始工作时间*/starttime" type="calendar" nillable="true" minOccurs="0" />
+        <xs:element name="/***结束工作时间*/endtime" type="calendar" nillable="true" minOccurs="0" />
+        <xs:element name="/***部门名称*/" type="school" nillable="true" minOccurs="0" />
+        <xs:element name="/***级别*/" type="positionrank" nillable="true" minOccurs="0" />
+        <xs:element name="/***担任职务*/" type="post" nillable="true" minOccurs="0" />
+        <xs:element name="/***员工*/" type="employee" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="employeeassprofessionaltitle" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="/***职称*/" type="professionaltitle" nillable="true" minOccurs="0" />
+        <xs:element name="/***评定时间*/nominateddate" type="calendar" nillable="true" minOccurs="0" />
+        <xs:element name="/***评定文号*/nominatedno" type="xs:string" />
+        <xs:element name="/***聘任时间*/appointeddate" type="calendar" nillable="true" minOccurs="0" />
+        <xs:element name="/***聘任文号*/appointedno" type="xs:string" />
+        <xs:element name="/***员工*/" type="employee" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="reviewresult" >
+      <xs:complexContent>
+       <xs:extension base="abstractcategory">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="educationqualification" >
+      <xs:complexContent>
+       <xs:extension base="abstractcategory">
+         <xs:sequence>
+          <xs:element name="employeeasseducationqualifications" type="employeeasseducationqualification" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="employeeassacademicdegree" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="/***学位层次*/" type="academicdegreetype" nillable="true" minOccurs="0" />
+        <xs:element name="/***学位名称*单向*/" type="academicdegree" nillable="true" minOccurs="0" />
+        <xs:element name="/***获得时间*/granteddate" type="calendar" nillable="true" minOccurs="0" />
+        <xs:element name="/***专业*/major" type="xs:string" />
+        <xs:element name="/***证书编号*/certificateno" type="xs:string" />
+        <xs:element name="/***学校*/university" type="xs:string" />
+        <xs:element name="/***员工*/" type="employee" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="abstractcategory" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="/***编号*/no" type="xs:string" />
+        <xs:element name="/***类别*/description" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="employeeasseducationqualification" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="/***学历名称*单向关联，多端维护外键（关联关系）*	@jsonignore当json数据不能被解析的时候*	@jacksoninject反序列时标记该属性应经被注入*	@jsonunwrapped将子json对象的属性添加到封闭的json对象*	自定义反序列化*/" type="educationqualification" nillable="true" minOccurs="0" />
+        <xs:element name="/***入学时间*/enrolldate" type="calendar" nillable="true" minOccurs="0" />
+        <xs:element name="/***获得学历时间*/graduatedate" type="calendar" nillable="true" minOccurs="0" />
+        <xs:element name="/***专业*/major" type="xs:string" />
+        <xs:element name="/***学制*/duration" type="xs:anyType" />
+        <xs:element name="/***导师姓名*/supervisorname" type="xs:string" />
+        <xs:element name="/***毕业证书编号*/certificateno" type="xs:string" />
+        <xs:element name="/***学校*/university" type="xs:string" />
+        <xs:element name="/***员工*/" type="employee" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="practisingcertification" >
+      <xs:complexContent>
+       <xs:extension base="abstractcategory">
+         <xs:sequence>
+          <xs:element name="/***执业资格证书信息*/employeeasspractisingcertifications" type="employeeasspractisingcertification" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="politicalparty" >
+      <xs:complexContent>
+       <xs:extension base="abstractcategory{">
+         <xs:sequence>
+          <xs:element name="/***政治面貌*/employeeasspoliticalparties" type="employeeasspoliticalparty" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="school" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="schoolname" type="xs:string" />
+        <xs:element name="departments" type="department" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="previousworkexperience" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="/***开始工作时间*/starttime" type="calendar" nillable="true" minOccurs="0" />
+        <xs:element name="/***结束工作时间*/endtime" type="calendar" nillable="true" minOccurs="0" />
+        <xs:element name="/***单位名称*/hiredbycompany" type="xs:string" />
+        <xs:element name="/***部门名称*/departmentname" type="xs:string" />
+        <xs:element name="/***级别*/rank" type="xs:string" />
+        <xs:element name="/***担任职务*/post" type="xs:string" />
+        <xs:element name="/***员工*/" type="employee" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="positionrank" >
+      <xs:complexContent>
+       <xs:extension base="abstractcategory">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="professionaltitle" >
+      <xs:complexContent>
+       <xs:extension base="abstractcategory">
+         <xs:sequence>
+          <xs:element name="employeeassprofessionaltitles" type="employeeassprofessionaltitle" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="actor" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="/***用户编号*/no" type="xs:string" />
+        <xs:element name="/***用户姓名*/name" type="xs:string" />
+        <xs:element name="/***性别*///string" type="sex" nillable="true" minOccurs="0" />
+        <xs:element name="/***出生日期*注解是日期转化为json数据时，转化为需要的模式*"yyyy-mm-ddhh-mm-ss"*/birth" type="calendar" nillable="true" minOccurs="0" />
+        <xs:element name="/***年龄*不需要被映射到数据库表中*/age" type="xs:anyType" />
+        <xs:element name="/***身份证号*/idno" type="xs:string" />
+        <xs:element name="/***籍贯*/grandpabirthplace" type="xs:string" />
+        <xs:element name="/***电话*/mobile" type="xs:string" />
+        <xs:element name="/***来学校工作的时间*/datetoschool" type="calendar" nillable="true" minOccurs="0" />
+        <xs:element name="/***参加工作的时间*/datetowork" type="calendar" nillable="true" minOccurs="0" />
+        <xs:element name="/***退休时间*/datetoretire" type="calendar" nillable="true" minOccurs="0" />
+        <xs:element name="/***工龄*/workage" type="xs:anyType" />
+        <xs:element name="/***是否华侨*///stringoverseaschineseornotoverseaschineseornot" type="yesorno" nillable="true" minOccurs="0" />
+        <xs:element name="/***紧急电话*/emergencymobile" type="xs:long" />
+        <xs:element name="/***家庭地址*/address" type="xs:string" />
+        <xs:element name="/***邮箱*/email" type="xs:string" />
+        <xs:element name="/***qq*/qq" type="xs:string" />
+        <xs:element name="/***微信*/wechat" type="xs:string" />
+        <xs:element name="/***用户*/" type="user" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="employeeasspoliticalparty" >
+      <xs:sequence>
+        <xs:element name="pid" type="xs:long" />
+        <xs:element name="/*	*入党时间	*注解是日期转化为json数据时，转化为需要的模式	*"yyyy-mm-ddhh-mm-ss"	*/membershipfrom" type="calendar" nillable="true" minOccurs="0" />
+        <xs:element name="/***党派*/" type="politicalparty" nillable="true" minOccurs="0" />
+        <xs:element name="/***职工*/" type="employee" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sponsor" >
+      <xs:complexContent>
+       <xs:extension base="abstractcategory">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="employee" >
+      <xs:complexContent>
+       <xs:extension base="actor">
+         <xs:sequence>
+          <xs:element name=",char和java.lang.string将被持久化为clob类型.java.sql.blob,,和serializabletype将被持久化为blob类型。//持久化为blob或者clob类型,根据get方法的不同,自动进行clob和blob的转换//@jsonignorephoto" type="xs:anyType" />
+          <xs:element name="/***工资号*/salaryno" type="xs:string" />
+          <xs:element name="/**民族*/" type="nation" nillable="true" minOccurs="0" />
+          <xs:element name="/***职工类别*/" type="employmentcategory" nillable="true" minOccurs="0" />
+          <xs:element name="/***学历信息*加上	注解，表示在转化为json的时候，忽略该关联属性*如果没有这个属性，就会出现死循环情况，因为他的实体对象包括的其他实体对象，其他实体对象也包括其他的实体对象，就会陷入死循环中*即通过该实体对象获取到关联实体对象json数据，关联实体对象里又关联该实体对象，就会无限循环下去。*/employeeasseducationqualifications" type="employeeasseducationqualification" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="/***员工职务信息记录*/employeeassposts" type="employeeasspost" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="/***来校前工作经历*/previousworkexperiences" type="previousworkexperience" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="/***在校工作经历*/schoolworkexperiences" type="schoolworkexperience" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="/***奖励信息记录*/rewards" type="reward" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="/***访学记录*/visitingacademics" type="visitingacademic" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="/***学术会议信息记录*/academicconferences" type="academicconference" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="/***职称信息记录*/employeeassprofessionaltitles" type="employeeassprofessionaltitle" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="/***执业资格信息记录*/employeeasspractisingcertifications" type="employeeasspractisingcertification" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="/***学位信息记录*/employeeassacademicdegrees" type="employeeassacademicdegree" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="/**考勤信息**/attendances" type="attendance" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="//考勤纸attendancesummaries" type="attendancesummary" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="/**请假信息**/leaves" type="leave" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="/***政治面貌*/employeeasspoliticalparties" type="employeeasspoliticalparty" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="/***部门/教研室*/" type="department" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="academicdegreetype" >
+      <xs:complexContent>
+       <xs:extension base="abstractcategory">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sex" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="description" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="academicdegree" >
+      <xs:complexContent>
+       <xs:extension base="abstractcategory">
+         <xs:sequence>
+          <xs:element name="/***学位信息记录*/employeeassacademicdegrees" type="employeeassacademicdegree" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="issuer" >
+      <xs:complexContent>
+       <xs:extension base="abstractcategory">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="appointment" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="/***日期（年月日" type="xs:dateTime" />
+        <xs:element name="/***事由*/reason" type="xs:string" />
+        <xs:element name="/***参加人数*/numofperson" type="xs:long" />
+        <xs:element name="/***时间段*///@jsonidentityinfo(generator" type="xs:dateTime" />
+        <xs:element name="//用户" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="/***教室或设备资源*/bookingadress" type="bookingresources" nillable="true" minOccurs="0" />
+        <xs:element name="bookingequipments" type="bookingresources" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="equipment" >
+      <xs:complexContent>
+       <xs:extension base="bookingresources">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="adress" >
+      <xs:complexContent>
+       <xs:extension base="bookingresources">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="time" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="/***节次*/num" type="xs:anyType" />
+        <xs:element name="/***开始时间*/begin" type="xs:dateTime" />
+        <xs:element name="/***结束时间*/end" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="projectfundedbygovernmentrank" >
+      <xs:complexContent>
+       <xs:extension base="rank">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="projectfundedbyprivatesectorrank" >
+      <xs:complexContent>
+       <xs:extension base="rank">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="textbookrank" >
+      <xs:complexContent>
+       <xs:extension base="rank">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="citation" >
+      <xs:complexContent>
+       <xs:extension base="abstractcategory">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="monograph" >
+      <xs:complexContent>
+       <xs:extension base="publishedbook{">
+         <xs:sequence>
+          <xs:element name="author" type="xs:string" />
+          <xs:element name="//专著级别" type="monographrank" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="project" >
+      <xs:complexContent>
+       <xs:extension base="scientificresearch{">
+         <xs:sequence>
+          <xs:element name="//名称name" type="xs:string" />
+          <xs:element name="//编号no" type="xs:string" />
+          <xs:element name="//来源resource" type="xs:string" />
+          <xs:element name="//项目负责人leader" type="xs:string" />
+          <xs:element name="//批准部门sponsor" type="xs:string" />
+          <xs:element name="//立项时间starttime" type="calendar" nillable="true" minOccurs="0" />
+          <xs:element name="//结题时间endtime" type="calendar" nillable="true" minOccurs="0" />
+          <xs:element name="//经费expenditure" type="xs:double" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="textbook" >
+      <xs:complexContent>
+       <xs:extension base="publishedbook">
+         <xs:sequence>
+          <xs:element name="editor" type="xs:string" />
+          <xs:element name="//教材级别" type="textbookrank" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="projectfundedbyprivatesector" >
+      <xs:complexContent>
+       <xs:extension base="project">
+         <xs:sequence>
+          <xs:element name="projectfundedbysectorrank//横向项目级别projectfundedbysectorrank" type="projectfundedbyprivatesectorrank" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="scienreascheckingstatus" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="//审核状态state" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="thesis" >
+      <xs:complexContent>
+       <xs:extension base="scientificresearch">
+         <xs:sequence>
+          <xs:element name="//题目title" type="xs:string" />
+          <xs:element name="//期刊名称name" type="xs:string" />
+          <xs:element name="//类属性--期刊级别--属性名-***********" type="journalrank" nillable="true" minOccurs="0" />
+          <xs:element name="//发表-年year" type="xs:string" />
+          <xs:element name="//发表-期--属性名---issueissue" type="xs:anyType" />
+          <xs:element name="//发表-卷---属性名---volumevolume" type="xs:anyType" />
+          <xs:element name="//起始页码--属性名--startingpagenostartingpageno" type="xs:anyType" />
+          <xs:element name="//结束页码--属性名--endingpagenoendingpageno" type="xs:anyType" />
+          <xs:element name="//类属性-收录情况-属性名--值域ei，sci，csci" type="citation" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="awardsrank" >
+      <xs:complexContent>
+       <xs:extension base="rank">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="awardlevel" >
+      <xs:complexContent>
+       <xs:extension base="abstractcategory{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="awards" >
+      <xs:complexContent>
+       <xs:extension base="scientificresearch{">
+         <xs:sequence>
+          <xs:element name="/***单向：*指明n：1关系*@joincolumn指明外键列名**@onetomany映射1：n关系**双向：mappedby维护关联关系*1：n注意2个实体类的外键名一致*1：1@onetoone*///获奖等级" type="awardlevel" nillable="true" minOccurs="0" />
+          <xs:element name="//成果名称title" type="xs:string" />
+          <xs:element name="//代表作者author" type="xs:string" />
+          <xs:element name="//奖项名称name" type="xs:string" />
+          <xs:element name="//奖项级别" type="awardsrank" nillable="true" minOccurs="0" />
+          <xs:element name="//批准部门sponsor" type="xs:string" />
+          <xs:element name="//获奖时间dateofaward" type="calendar" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="rank" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="/***编号*/no" type="xs:string" />
+        <xs:element name="/***类别*/description" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="journalrank" >
+      <xs:complexContent>
+       <xs:extension base="rank">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="monographrank" >
+      <xs:complexContent>
+       <xs:extension base="rank">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="scientificresearch" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="employee" nillable="true" minOccurs="0" />
+        <xs:element name="//审核状态checkingstatus" type="scienreascheckingstatus" nillable="true" minOccurs="0" />
+        <xs:element name="//本人位次seating" type="xs:string" />
+        <xs:element name="//参加人数numofparticipants" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="projectfundedbygovernment" >
+      <xs:complexContent>
+       <xs:extension base="project">
+         <xs:sequence>
+          <xs:element name="//纵向项目级别" type="projectfundedbygovernmentrank" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="publishedbook" >
+      <xs:complexContent>
+       <xs:extension base="scientificresearch">
+         <xs:sequence>
+          <xs:element name="//名称name" type="xs:string" />
+          <xs:element name="//出版社press" type="xs:string" />
+          <xs:element name="//出版时间publicationtime" type="calendar" nillable="true" minOccurs="0" />
+          <xs:element name="//isbnisbn" type="xs:string" />
+          <xs:element name="//千字数words" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userrole" >
+      <xs:sequence>
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="role" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="userroles" type="userrole" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="/***optional" type="actor" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="actor" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="resource" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="//easyuitree结点显示的文字text" type="xs:string" />
+        <xs:element name="no" type="xs:string" />
+        <xs:element name="/***结点的状态，有两个值openclose*/state" type="xs:string" />
+        <xs:element name="/***菜单路径*/url" type="xs:string" />
+        <xs:element name="/***自关联*子类*/children" type="resource" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="/***jpa的自关联*父类*/parent" type="resource" nillable="true" minOccurs="0" />
+        <xs:element name="role1set" type="role" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="role" >
+      <xs:sequence>
+        <xs:element name="/***角色id*/id" type="xs:anyType" />
+        <xs:element name="/***角色描述，*目前有teacher、student、manager*/description" type="xs:string" />
+        <xs:element name="/***英文描述角色名字*/rolename" type="xs:string" />
+        <xs:element name="/***角色和菜单之间是多对多关系，*生成中间表确定角色和菜单之间的权限*/resource" type="resource" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="/***角色多对应的用户*一种角色对应多个用户*/userroles" type="userrole" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="attendance" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="employee" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="attendancesummary" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="privateleavedescription" >
+      <xs:complexContent>
+       <xs:extension base="abstractdescription">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="attendancesummary" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="//考勤名称attendancename" type="xs:string" />
+        <xs:element name="//考勤时间attendancetime" type="calendar" nillable="true" minOccurs="0" />
+        <xs:element name="//考勤人(管理员)attendancemanager" type="employee" nillable="true" minOccurs="0" />
+        <xs:element name="//会议纪要minutes" type="xs:string" />
+        <xs:element name="//实际考勤attendances" type="attendance" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="//候选人candidates" type="employee" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="presencedescription" >
+      <xs:complexContent>
+       <xs:extension base="abstractdescription">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="leave" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="starttime" type="calendar" nillable="true" minOccurs="0" />
+        <xs:element name="endtime" type="calendar" nillable="true" minOccurs="0" />
+        <xs:element name="realtime" type="calendar" nillable="true" minOccurs="0" />
+        <xs:element name="reason" type="xs:string" />
+        <xs:element name="GeneratedName" type="employee" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="abstractdescription" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="description" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="privateleave" >
+      <xs:complexContent>
+       <xs:extension base="schoolabsence">
+         <xs:sequence>
+          <xs:element name="leavedescriptionleavedescription" type="privateleavedescription" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="universityabsencedescription" >
+      <xs:complexContent>
+       <xs:extension base="abstractdescription">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="neglectworkdescription" >
+      <xs:complexContent>
+       <xs:extension base="abstractdescription">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="universityabsence" >
+      <xs:complexContent>
+       <xs:extension base="absence">
+         <xs:sequence>
+          <xs:element name="" type="universityabsencedescription" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="businessleave" >
+      <xs:complexContent>
+       <xs:extension base="schoolabsence">
+         <xs:sequence>
+          <xs:element name="" type="businessleavedescription" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="neglectwork" >
+      <xs:complexContent>
+       <xs:extension base="schoolabsence">
+         <xs:sequence>
+          <xs:element name="" type="neglectworkdescription" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="presence" >
+      <xs:complexContent>
+       <xs:extension base="attendance">
+         <xs:sequence>
+          <xs:element name="" type="presencedescription" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="businessleavedescription" >
+      <xs:complexContent>
+       <xs:extension base="abstractdescription">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema> 

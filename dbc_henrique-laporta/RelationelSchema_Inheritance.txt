@@ -1,0 +1,19 @@
+
+user(id:Long [PK], username:String, //@jsonignorepassword:String, firstname:String, lastname:String);
+
+user_role(user_id:User [PK] #FK to User,role_id:list<role> [PK] #FK to list<role>);
+
+valormidia(serialversionuid:long, //@max(value:Long [PK], valor:double, iniciovigencia:LocalDateTime, vigencia:LocalDateTime, id:Midia #FK to(midia));
+
+filme(serialversionuid:long, //@max(value:Long [PK], titulo:String, lancamento:LocalDate, GeneratedName:Categoria);
+
+role(serialversionuid:long, id:Long [PK], rolename:String, description:String);
+
+midia(serialversionuid:long, //@max(value:Long [PK], tipo:TipoMidia, id:Filme #FK to(filme), id:Aluguel #FK to(aluguel));
+
+aluguel(serialversionuid:long, //@max(value:Long [PK], retirada:LocalDateTime, previsao:LocalDateTime, devolucao:LocalDateTime, multa:Double, id:Cliente #FK to(cliente));
+
+cliente(serialversionuid:long, //@max(value:Long [PK], nome:String, telefone:String, rua:String, bairro:String, cidade:String, estado:String);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

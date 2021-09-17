@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="bcrypt" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="resposta" >
+      <xs:sequence>
+        <xs:element name="dados" type="xs:anyType" />
+        <xs:element name="erros" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="util" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dtoconverter" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="despesafixamescontrol" >
+      <xs:sequence>
+        <xs:element name="service" type="despesafixamesservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="despesafixacontrol" >
+      <xs:sequence>
+        <xs:element name="service" type="despesafixaservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="usuarioservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="mescontrol" >
+      <xs:sequence>
+        <xs:element name="service" type="messervice" nillable="true" minOccurs="0" />
+        <xs:element name="userservice" type="usuarioservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="publiccontrol" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="despesacontrol" >
+      <xs:sequence>
+        <xs:element name="service" type="despesaservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="despesacartaocontrol" >
+      <xs:sequence>
+        <xs:element name="service" type="despesacartaoservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="messervice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cartaocontrol" >
+      <xs:sequence>
+        <xs:element name="service" type="cartaoservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usuariocontrol" >
+      <xs:sequence>
+        <xs:element name="service" type="usuarioservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="despesafixadto" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="nome" type="xs:string" />
+        <xs:element name="vencimento" type="xs:long" />
+        <xs:element name="usuario" type="usuariodto" nillable="true" minOccurs="0" />
+        <xs:element name="tipo" type="xs:string" />
+        <xs:element name="calculo" type="xs:string" />
+        <xs:element name="ativo" type="xs:anyType" />
+        <xs:element name="valor" type="xs:double" />
+        <xs:element name="parte" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="despesadto" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="mes" type="mesdto" nillable="true" minOccurs="0" />
+        <xs:element name="data" type="xs:long" />
+        <xs:element name="nome" type="xs:string" />
+        <xs:element name="valor" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usuariodto" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="senha" type="xs:string" />
+        <xs:element name="nome" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="despesacartaodto" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="nome" type="xs:string" />
+        <xs:element name="cartao" type="cartaodto" nillable="true" minOccurs="0" />
+        <xs:element name="valor" type="xs:double" />
+        <xs:element name="mes" type="mesdto" nillable="true" minOccurs="0" />
+        <xs:element name="terceiros" type="xs:anyType" />
+        <xs:element name="vezes" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="despesafixamesdto" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="mes" type="mesdto" nillable="true" minOccurs="0" />
+        <xs:element name="despesafixa" type="despesafixadto" nillable="true" minOccurs="0" />
+        <xs:element name="ativo" type="xs:anyType" />
+        <xs:element name="valor" type="xs:double" />
+        <xs:element name="previsao" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="mesdto" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="mes" type="xs:long" />
+        <xs:element name="ano" type="xs:long" />
+        <xs:element name="usuario" type="usuariodto" nillable="true" minOccurs="0" />
+        <xs:element name="encerrado" type="xs:anyType" />
+        <xs:element name="salario" type="xs:double" />
+        <xs:element name="economia" type="xs:double" />
+        <xs:element name="livre" type="xs:double" />
+        <xs:element name="totalgasto" type="xs:double" />
+        <xs:element name="totalfixo" type="xs:double" />
+        <xs:element name="totalcartao" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cartaodto" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="nome" type="xs:string" />
+        <xs:element name="ativo" type="xs:anyType" />
+        <xs:element name="fechamento" type="xs:anyType" />
+        <xs:element name="vencimento" type="xs:anyType" />
+        <xs:element name="usuario" type="usuariodto" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="controlefinanceiroapiapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usuarioserviceimpl" >
+      <xs:sequence>
+        <xs:element name="repo" type="usuariorepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="messerviceimpl" >
+      <xs:sequence>
+        <xs:element name="repo" type="mesrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="despesaserviceimpl" >
+      <xs:sequence>
+        <xs:element name="repo" type="despesarepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="despesafixamesserviceimpl" >
+      <xs:sequence>
+        <xs:element name="repo" type="despesafixamesrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="despesacartaoserviceimpl" >
+      <xs:sequence>
+        <xs:element name="repo" type="despesacartaorepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cartaoserviceimpl" >
+      <xs:sequence>
+        <xs:element name="repo" type="cartaorepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="despesafixaserviceimpl" >
+      <xs:sequence>
+        <xs:element name="repo" type="despesafixarepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jwtauthorization" >
+      <xs:complexContent>
+       <xs:extension base="basicauthenticationfilter">
+         <xs:sequence>
+          <xs:element name="" type="jwtutil" nillable="true" minOccurs="0" />
+          <xs:element name="uds" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jwtutil" >
+      <xs:sequence>
+        <xs:element name="secret" type="xs:string" />
+        <xs:element name="expiration" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userdetailserviceimpl" >
+      <xs:sequence>
+        <xs:element name="repo" type="usuariorepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="websecurityconfig" >
+      <xs:complexContent>
+       <xs:extension base="websecurityconfigureradapter">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="jwtutil" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userdetail" >
+      <xs:complexContent>
+       <xs:extension base="grantedauthority>">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="email" type="xs:string" />
+          <xs:element name="senha" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jwtauthentication" >
+      <xs:complexContent>
+       <xs:extension base="usernamepasswordauthenticationfilter">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="jwtutil" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="credencialdto" >
+      <xs:sequence>
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="senha" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="despesafixames" >
+      <xs:sequence>
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="mes" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="despesafixa" nillable="true" minOccurs="0" />
+        <xs:element name="ativo" type="xs:anyType" />
+        <xs:element name="valor" type="xs:double" />
+        <xs:element name="previsao" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="despesa" >
+      <xs:sequence>
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="mes" nillable="true" minOccurs="0" />
+        <xs:element name="data" type="xs:long" />
+        <xs:element name="nome" type="xs:string" />
+        <xs:element name="valor" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usuario" >
+      <xs:sequence>
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="senha" type="xs:string" />
+        <xs:element name="nome" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="mes" >
+      <xs:sequence>
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="mes" type="xs:long" />
+        <xs:element name="ano" type="xs:long" />
+        <xs:element name="GeneratedName" type="usuario" nillable="true" minOccurs="0" />
+        <xs:element name="encerrado" type="xs:anyType" />
+        <xs:element name="salario" type="xs:double" />
+        <xs:element name="economia" type="xs:double" />
+        <xs:element name="livre" type="xs:double" />
+        <xs:element name="totalcartao" type="xs:double" />
+        <xs:element name="totalfixo" type="xs:double" />
+        <xs:element name="totalgasto" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="despesacartao" >
+      <xs:sequence>
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="nome" type="xs:string" />
+        <xs:element name="GeneratedName" type="cartao" nillable="true" minOccurs="0" />
+        <xs:element name="valor" type="xs:double" />
+        <xs:element name="GeneratedName" type="mes" nillable="true" minOccurs="0" />
+        <xs:element name="terceiros" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="despesafixa" >
+      <xs:sequence>
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="nome" type="xs:string" />
+        <xs:element name="vencimento" type="xs:long" />
+        <xs:element name="GeneratedName" type="usuario" nillable="true" minOccurs="0" />
+        <xs:element name="tipo" type="xs:string" />
+        <xs:element name="calculo" type="xs:string" />
+        <xs:element name="ativo" type="xs:anyType" />
+        <xs:element name="valor" type="xs:double" />
+        <xs:element name="parte" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cartao" >
+      <xs:sequence>
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="nome" type="xs:string" />
+        <xs:element name="ativo" type="xs:anyType" />
+        <xs:element name="fechamento" type="xs:anyType" />
+        <xs:element name="vencimento" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="usuario" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cartaoservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="despesacartaoservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="despesafixaservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="messervice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="despesaservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="despesafixamesservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usuarioservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cartaorepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<cartao,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="mesrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<mes,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="usuariorepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<usuario,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="despesafixamesrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<despesafixames,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="despesacartaorepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<despesacartao,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="despesarepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<despesa,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="despesafixarepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<despesafixa,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="controlefinanceiroapiapplicationtests" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

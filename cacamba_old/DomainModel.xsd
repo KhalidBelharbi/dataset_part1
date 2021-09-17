@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="usuarioentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="nome" type="xs:string" />
+        <xs:element name="login" type="xs:string" />
+        <xs:element name="senha" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="telefoneentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="cliente" type="clienteentity" nillable="true" minOccurs="0" />
+        <xs:element name="tipo" type="enumtipotelefone" nillable="true" minOccurs="0" />
+        <xs:element name="numero" type="xs:string" />
+        <xs:element name="pessoa" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="clienteentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="nome" type="xs:string" />
+        <xs:element name="apelido" type="xs:string" />
+        <xs:element name="tipo" type="enumtipopessoa" nillable="true" minOccurs="0" />
+        <xs:element name="cpfcnpj" type="xs:string" />
+        <xs:element name="responsavel" type="xs:string" />
+        <xs:element name="construtor" type="clienteentity" nillable="true" minOccurs="0" />
+        <xs:element name="enderecos" type="enderecoentity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="telefones" type="telefoneentity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="emails" type="emailentity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="emailentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="cliente" type="clienteentity" nillable="true" minOccurs="0" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="pessoa" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="enderecoentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="cliente" type="clienteentity" nillable="true" minOccurs="0" />
+        <xs:element name="tipo" type="enumtipoendereco" nillable="true" minOccurs="0" />
+        <xs:element name="tipologradouro" type="enumtipologradouro" nillable="true" minOccurs="0" />
+        <xs:element name="logradouro" type="xs:string" />
+        <xs:element name="numero" type="xs:string" />
+        <xs:element name="complemento" type="xs:string" />
+        <xs:element name="bairro" type="xs:string" />
+        <xs:element name="cidade" type="xs:string" />
+        <xs:element name="cep" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="construtorentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="cliente" type="clienteentity" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

@@ -1,0 +1,1802 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="serviceaccount" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="walletviewcontroller" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="walletapicontroller" >
+      <xs:sequence>
+        <xs:element name="trasferpp" type="xs:string" />
+        <xs:element name="GeneratedName" type="coinfactory" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="tokensaleservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="walletsyncscheduler" >
+      <xs:sequence>
+        <xs:element name="tag" type="xs:string" />
+        <xs:element name="erval" type="xs:long" />
+        <xs:element name="//ervalsec_15" type="xs:long" />
+        <xs:element name="//ervalmin_1" type="xs:long" />
+        <xs:element name="//ervalmin_3" type="xs:long" />
+        <xs:element name="//ervalmin_10" type="xs:long" />
+        <xs:element name="//ervalhour_3" type="xs:long" />
+        <xs:element name="count" type="xs:long" />
+        <xs:element name="GeneratedName" type="coinfactory" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="tokensaleservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="krwrpcservice" nillable="true" minOccurs="0" />
+        <xs:element name="enabled_symbols" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="erc20standard" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="gatherablewallet" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ownchain" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="passphraseaddresswallet" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tokensupport" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sendmanywallet" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="passphrasewallet" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cryptosharedservice" >
+      <xs:sequence>
+        <xs:element name="tag" type="xs:string" />
+        <xs:element name="enabled_symbols" type="xs:string" />
+        <xs:element name="enabled_erc20s" type="xs:string" />
+        <xs:element name="fsvc" type="firebaseservice" nillable="true" minOccurs="0" />
+        <xs:element name="//입출금테이블addrbalancerepo" type="addressbalancerepository" nillable="true" minOccurs="0" />
+        <xs:element name="recvrepo" type="recvrepository" nillable="true" minOccurs="0" />
+        <xs:element name="sendrepo" type="sendrepository" nillable="true" minOccurs="0" />
+        <xs:element name="sendreqrepo" type="sendrequestrepository" nillable="true" minOccurs="0" />
+        <xs:element name="orphanaddrrepo" type="orphanaddressrepository" nillable="true" minOccurs="0" />
+        <xs:element name="cryptomasterrepo" type="cryptomasterrepository" nillable="true" minOccurs="0" />
+        <xs:element name="tokenbuyrequestrepo" type="tokenbuyrequestrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="manualpayrequestrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="pointexchangerequestrepository" nillable="true" minOccurs="0" />
+        <xs:element name="sender" type="kafkasender" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="coinfactory" nillable="true" minOccurs="0" />
+        <xs:element name="emf" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="erc20abstractservice" >
+      <xs:complexContent>
+       <xs:extension base="cryptosharedservice">
+         <xs:sequence>
+          <xs:element name="gasprice" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ethereumabstractservice" >
+      <xs:complexContent>
+       <xs:extension base="cryptosharedservice">
+         <xs:sequence>
+          <xs:element name="//stringquery_calc_balance//" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="emf" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="coinfactory" >
+      <xs:sequence>
+        <xs:element name="//btc계열btcrpcservice" type="cryptosharedservice" nillable="true" minOccurs="0" />
+        <xs:element name="//eth계열ethrpcservice" type="cryptosharedservice" nillable="true" minOccurs="0" />
+        <xs:element name="//erc20계열cpdrpcservice" type="cryptosharedservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="firebaseservice" >
+      <xs:sequence>
+        <xs:element name="fapp" type="xs:anyType" />
+        <xs:element name="aservice" type="androidpushnotificationsservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="androidpushnotificationsservice" >
+      <xs:sequence>
+        <xs:element name="firebase_server_key" type="xs:string" />
+        <xs:element name="firebase_api_url" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tokensaleservice" >
+      <xs:sequence>
+        <xs:element name="api_endpoint" type="xs:string" />
+        <xs:element name="param_eth" type="xs:string" />
+        <xs:element name="param_btc" type="xs:string" />
+        <xs:element name="q_total_order_count" type="xs:string" />
+        <xs:element name="q_current_sale" type="xs:string" />
+        <xs:element name="free_mem" type="xs:string" />
+        <xs:element name="total_mem" type="xs:string" />
+        <xs:element name="usage_cpu" type="xs:string" />
+        <xs:element name="url_best_blockheight_infura" type="xs:string" />
+        <xs:element name="url_bonus_balance_cellpinda" type="xs:string" />
+        <xs:element name="url_point_balance_cellpinda" type="xs:string" />
+        <xs:element name="check_disk_dir" type="xs:string" />
+        <xs:element name="enabled_symbols" type="xs:string" />
+        <xs:element name="enabled_erc20s" type="xs:string" />
+        <xs:element name="eth_reserve_addr" type="xs:string" />
+        <xs:element name="cpd_reware_addr" type="xs:string" />
+        <xs:element name="GeneratedName" type="coinfactory" nillable="true" minOccurs="0" />
+        <xs:element name="marketpricerepo" type="marketpricerepository" nillable="true" minOccurs="0" />
+        <xs:element name="recvrepo" type="recvrepository" nillable="true" minOccurs="0" />
+        <xs:element name="sendrepo" type="sendrepository" nillable="true" minOccurs="0" />
+        <xs:element name="cryptomasterrepo" type="cryptomasterrepository" nillable="true" minOccurs="0" />
+        <xs:element name="addressbalancerepo" type="addressbalancerepository" nillable="true" minOccurs="0" />
+        <xs:element name="tokenbuyrequestrepo" type="tokenbuyrequestrepository" nillable="true" minOccurs="0" />
+        <xs:element name="userkrwbalancerepo" type="userkrwbalancerepository" nillable="true" minOccurs="0" />
+        <xs:element name="fiatdepositrepo" type="fiatdepositrepository" nillable="true" minOccurs="0" />
+        <xs:element name="bonusrequestrepo" type="bonusrequestrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="manualpayrequestrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="pointexchangerequestrepository" nillable="true" minOccurs="0" />
+        <xs:element name="emf" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="krwrpcservice" >
+      <xs:sequence>
+        <xs:element name="fiatdepositrepo" type="fiatdepositrepository" nillable="true" minOccurs="0" />
+        <xs:element name="cryptomasterrepo" type="cryptomasterrepository" nillable="true" minOccurs="0" />
+        <xs:element name="tokenbuyrequestrepo" type="tokenbuyrequestrepository" nillable="true" minOccurs="0" />
+        <xs:element name="emf" type="xs:anyType" />
+        <xs:element name="krw_sum_str" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bitcoinabstractservice" >
+      <xs:complexContent>
+       <xs:extension base="cryptosharedservice">
+         <xs:sequence>
+          <xs:element name="emf" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="btcrpcserviceimpl" >
+      <xs:complexContent>
+       <xs:extension base="bitcoinabstractservice">
+         <xs:sequence>
+          <xs:element name="symbol" type="xs:string" />
+          <xs:element name="rpcurl" type="xs:string" />
+          <xs:element name="rpcid" type="xs:string" />
+          <xs:element name="rpcpw" type="xs:string" />
+          <xs:element name="decimals" type="xs:long" />
+          <xs:element name="sendaccount" type="xs:string" />
+          <xs:element name="sendaddr" type="xs:string" />
+          <xs:element name="reserveaccount" type="xs:string" />
+          <xs:element name="reserveaddr" type="xs:string" />
+          <xs:element name="pp" type="xs:string" />
+          <xs:element name="initialblock" type="xs:long" />
+          <xs:element name="minconfirm" type="xs:long" />
+          <xs:element name="minamtgather" type="xs:double" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="cpdrpcserviceimpl" >
+      <xs:complexContent>
+       <xs:extension base="erc20abstractservice">
+         <xs:sequence>
+          <xs:element name="symbol" type="xs:string" />
+          <xs:element name="minamtgather" type="xs:double" />
+          <xs:element name="contractaddr" type="xs:string" />
+          <xs:element name="decimals" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ethrpcserviceimpl" >
+      <xs:complexContent>
+       <xs:extension base="ethereumabstractservice">
+         <xs:sequence>
+          <xs:element name="symbol" type="xs:string" />
+          <xs:element name="rpcurl" type="xs:string" />
+          <xs:element name="decimals" type="xs:long" />
+          <xs:element name="pp" type="xs:string" />
+          <xs:element name="sendaddr" type="xs:string" />
+          <xs:element name="reserveaddr" type="xs:string" />
+          <xs:element name="minconfirm" type="xs:long" />
+          <xs:element name="minamtgather" type="xs:double" />
+          <xs:element name="initialblock" type="xs:long" />
+          <xs:element name="mingasamt" type="xs:double" />
+          <xs:element name="txs_about_tokens" type="xs:anyType" />
+          <xs:element name="emf" type="xs:anyType" />
+          <xs:element name="select_erc20_notenough_gas" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="senderconfig" >
+      <xs:sequence>
+        <xs:element name="bootstrapservers" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="kafkasender" >
+      <xs:sequence>
+        <xs:element name="tag" type="xs:string" />
+        <xs:element name="kafkatemplate" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="recvrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<tbrecv,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="bonusrequestrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<tbbonusrequest,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userkrwbalancerepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<vwuserkrwbalance,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="orphanaddressrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<tborphanaddress,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sendrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<tbsend,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="pointexchangerequestrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<tbpointexchangerequest,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tokenbuyrequestrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<tbtokenbuyrequest,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="cryptomasterrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<tbcryptomaster,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="manualpayrequestrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<tbmanualpayrequest,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="addressbalancerepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<tbaddressbalance,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="fiatdepositrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<tbfiatdeposit">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sendrequestrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<tbsendrequest,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="marketpricerepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<tbmarketprice,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="bitcoinconst" >
+      <xs:sequence>
+        <xs:element name="method_newaddr" type="xs:string" />
+        <xs:element name="method_validaddr" type="xs:string" />
+        <xs:element name="method_accountaddr" type="xs:string" />
+        <xs:element name="method_getaddresses" type="xs:string" />
+        <xs:element name="method_listaccounts" type="xs:string" />
+        <xs:element name="method_listbalances" type="xs:string" />
+        <xs:element name="method_getbalance" type="xs:string" />
+        <xs:element name="method_sendfromaddr" type="xs:string" />
+        <xs:element name="method_sendmany" type="xs:string" />
+        <xs:element name="method_move" type="xs:string" />
+        <xs:element name="method_gettx" type="xs:string" />
+        <xs:element name="method_getblockcount" type="xs:string" />
+        <xs:element name="method_getblockhash" type="xs:string" />
+        <xs:element name="method_getblock" type="xs:string" />
+        <xs:element name="method_decoderawtx" type="xs:string" />
+        <xs:element name="method_listsinceblock" type="xs:string" />
+        <xs:element name="method_walletpp" type="xs:string" />
+        <xs:element name="method_walletlock" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ethereumconst" >
+      <xs:sequence>
+        <xs:element name="method_sendfromaddr" type="xs:string" />
+        <xs:element name="method_gas_price" type="xs:string" />
+        <xs:element name="method_estimategas" type="xs:string" />
+        <xs:element name="method_getbalance" type="xs:string" />
+        <xs:element name="method_syncing" type="xs:string" />
+        <xs:element name="//etc?method_accounts" type="xs:string" />
+        <xs:element name="//eth?method_listaccounts" type="xs:string" />
+        <xs:element name="method_walletpp" type="xs:string" />
+        <xs:element name="method_walletlock" type="xs:string" />
+        <xs:element name="method_newaddr" type="xs:string" />
+        <xs:element name="method_gettx" type="xs:string" />
+        <xs:element name="method_txreceipt" type="xs:string" />
+        <xs:element name="method_blockbynumber" type="xs:string" />
+        <xs:element name="method_blockbyhash" type="xs:string" />
+        <xs:element name="method_getblockcount" type="xs:string" />
+        <xs:element name="erc_transfer_code" type="xs:string" />
+        <xs:element name="erc_transferfrom_code" type="xs:string" />
+        <xs:element name="erc_approve_code" type="xs:string" />
+        <xs:element name="erc_eventtransfer_code" type="xs:string" />
+        <xs:element name="erc_transferowner_code" type="xs:string" />
+        <xs:element name="enabled_erc_methods" type="xs:string" />
+        <xs:element name="erc_transfer_name" type="xs:string" />
+        <xs:element name="erc_approve_name" type="xs:string" />
+        <xs:element name="erc_transferfrom_name" type="xs:string" />
+        <xs:element name="erc_eventtransfer_name" type="xs:string" />
+        <xs:element name="method_erc_balanceof" type="xs:string" />
+        <xs:element name="method_erc_unknown" type="xs:string" />
+        <xs:element name="err_eth_tx_fail" type="xs:string" />
+        <xs:element name="err_eth_tx_success" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="walletapiapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bitcoingeneralresponse" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="error" type="btcrpcerror" nillable="true" minOccurs="0" />
+        <xs:element name="result" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cryptoindex" >
+      <xs:sequence>
+        <xs:element name="market_data" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="totalbalance" >
+      <xs:sequence>
+        <xs:element name="symbol" type="xs:string" />
+        <xs:element name="total" type="xs:double" />
+        <xs:element name="owners" type="xs:double" />
+        <xs:element name="users" type="xs:double" />
+        <xs:element name="avail" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bitcoinjsonresultresponse" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="error" type="btcrpcerror" nillable="true" minOccurs="0" />
+        <xs:element name="result" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bonusbalance" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="uid" type="xs:long" />
+        <xs:element name="symbol" type="xs:string" />
+        <xs:element name="value" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bitcoinstringresponse" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="result" type="xs:string" />
+        <xs:element name="error" type="btcrpcerror" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="newaddress" >
+      <xs:sequence>
+        <xs:element name="symbol" type="xs:string" />
+        <xs:element name="uid" type="xs:long" />
+        <xs:element name="brokerid" type="xs:string" />
+        <xs:element name="address" type="xs:string" />
+        <xs:element name="addresstag" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cryptobalance" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="uid" type="xs:long" />
+        <xs:element name="symbol" type="xs:string" />
+        <xs:element name="balance" type="xs:double" />
+        <xs:element name="recv" type="xs:double" />
+        <xs:element name="send" type="xs:double" />
+        <xs:element name="buy" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="addressbalance" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="symbol" type="xs:string" />
+        <xs:element name="addr" type="xs:string" />
+        <xs:element name="balance" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="fcmsendres" >
+      <xs:sequence>
+        <xs:element name="multicast_id" type="xs:long" />
+        <xs:element name="success" type="xs:long" />
+        <xs:element name="failure" type="xs:long" />
+        <xs:element name="canonical_ids" type="xs:long" />
+        <xs:element name="results" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bitcoinbooleanresponse" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="result" type="xs:anyType" />
+        <xs:element name="error" type="btcrpcerror" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cryptobalancebyaddr" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="symbol" type="xs:string" />
+        <xs:element name="addr" type="xs:string" />
+        <xs:element name="balance" type="xs:double" />
+        <xs:element name="recv" type="xs:double" />
+        <xs:element name="send" type="xs:double" />
+        <xs:element name="buy" type="xs:double" />
+        <xs:element name="actual" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="wallettransaction" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="result" type="transaction" nillable="true" minOccurs="0" />
+        <xs:element name="error" type="btcrpcerror" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="blockchaininfo" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="error" type="btcrpcerror" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pagedeserializer" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="transaction" >
+      <xs:sequence>
+        <xs:element name="ctsid" type="xs:string" />
+        <xs:element name="ctstxtimeissued" type="xs:long" />
+        <xs:element name="ctsblocktimeissued" type="xs:long" />
+        <xs:element name="ctsblockheight" type="xs:long" />
+        <xs:element name="ctsblockepoch" type="xs:long" />
+        <xs:element name="ctsblockslot" type="xs:long" />
+        <xs:element name="ctsblockhash" type="xs:string" />
+        <xs:element name="ctsrelayedby" type="xs:string" />
+        <xs:element name="ctstotalinput" type="ccoin" nillable="true" minOccurs="0" />
+        <xs:element name="ctstotaloutput" type="ccoin" nillable="true" minOccurs="0" />
+        <xs:element name="ctsfees" type="ccoin" nillable="true" minOccurs="0" />
+        <xs:element name="ctsinputs" type="inputoutput" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="ctsoutputs" type="inputoutput" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="inputoutput" >
+      <xs:sequence>
+        <xs:element name="address" type="xs:string" />
+        <xs:element name="amount" type="ccoin" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="page" >
+      <xs:sequence>
+        <xs:element name="index" type="xs:long" />
+        <xs:element name="blocks" type="block" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="blocktransaction" >
+      <xs:sequence>
+        <xs:element name="ctbid" type="xs:string" />
+        <xs:element name="ctbtimeissued" type="xs:long" />
+        <xs:element name="ctbinputs" type="inputoutput" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="ctboutputs" type="inputoutput" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="ctbinputsum" type="ccoin" nillable="true" minOccurs="0" />
+        <xs:element name="ctboutputsum" type="ccoin" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="listofrecenttransactions" >
+      <xs:sequence>
+        <xs:element name="right" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="blocktransactionsdeserializer" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="blocktransactiondeserializer" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="blocktransactions" >
+      <xs:sequence>
+        <xs:element name="blocktransactions" type="blocktransaction" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="block" >
+      <xs:sequence>
+        <xs:element name="cbeepoch" type="xs:long" />
+        <xs:element name="cbeslot" type="xs:long" />
+        <xs:element name="cbeblkhash" type="xs:string" />
+        <xs:element name="timeissued" type="xs:long" />
+        <xs:element name="cbetxnum" type="xs:long" />
+        <xs:element name="cbetotalsent" type="ccoin" nillable="true" minOccurs="0" />
+        <xs:element name="cbesize" type="xs:long" />
+        <xs:element name="cbeblocklead" type="xs:string" />
+        <xs:element name="cbefees" type="ccoin" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="transactiondeserializer" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ccoin" >
+      <xs:sequence>
+        <xs:element name="getcoin" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="inputoutputdeserializer" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="address" >
+      <xs:sequence>
+        <xs:element name="used" type="xs:anyType" />
+        <xs:element name="changeaddress" type="xs:anyType" />
+        <xs:element name="id" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="getwalletresponse" >
+      <xs:sequence>
+        <xs:element name="data" type="wallet" nillable="true" minOccurs="0" />
+        <xs:element name="status" type="xs:string" />
+        <xs:element name="GeneratedName" type="meta" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="getaddressresponse" >
+      <xs:sequence>
+        <xs:element name="data" type="address" nillable="true" minOccurs="0" />
+        <xs:element name="status" type="xs:string" />
+        <xs:element name="GeneratedName" type="meta" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="addressesresponse" >
+      <xs:sequence>
+        <xs:element name="data" type="address" nillable="true" minOccurs="0" />
+        <xs:element name="status" type="xs:string" />
+        <xs:element name="GeneratedName" type="meta" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="getwalletsresponse" >
+      <xs:sequence>
+        <xs:element name="data" type="wallet" nillable="true" minOccurs="0" />
+        <xs:element name="status" type="xs:string" />
+        <xs:element name="GeneratedName" type="meta" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="syncprogress" >
+      <xs:sequence>
+        <xs:element name="blockchainheight" type="xs:anyType" />
+        <xs:element name="localtimermation" type="xs:anyType" />
+        <xs:element name="syncprogress" type="xs:anyType" />
+        <xs:element name="localblockchainheight" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="getsyncprogressresponse" >
+      <xs:sequence>
+        <xs:element name="data" type="syncprogress" nillable="true" minOccurs="0" />
+        <xs:element name="status" type="xs:string" />
+        <xs:element name="GeneratedName" type="meta" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="wallet" >
+      <xs:sequence>
+        <xs:element name="createdat" type="xs:string" />
+        <xs:element name="balance" type="xs:anyType" />
+        <xs:element name="hasspendingpassword" type="xs:anyType" />
+        <xs:element name="assurancelevel" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="spendingpasswordlastupdate" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="meta" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="getaccountresponse" >
+      <xs:sequence>
+        <xs:element name="data" type="account" nillable="true" minOccurs="0" />
+        <xs:element name="status" type="xs:string" />
+        <xs:element name="GeneratedName" type="meta" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="adatransactions" >
+      <xs:sequence>
+        <xs:element name="data" type="transaction" nillable="true" minOccurs="0" />
+        <xs:element name="status" type="xs:string" />
+        <xs:element name="GeneratedName" type="meta" nillable="true" minOccurs="0" />
+        <xs:element name="message" type="xs:string" />
+        <xs:element name="diagnostic" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="account" >
+      <xs:sequence>
+        <xs:element name="amount" type="xs:anyType" />
+        <xs:element name="addresses" type="address" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="walletid" type="xs:string" />
+        <xs:element name="index" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="inputoutput" >
+      <xs:sequence>
+        <xs:element name="amount" type="xs:string" />
+        <xs:element name="address" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="transaction" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="confirmations" type="xs:long" />
+        <xs:element name="amount" type="xs:string" />
+        <xs:element name="inputs" type="inputoutput" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="outputs" type="inputoutput" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="type" type="xs:string" />
+        <xs:element name="direction" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="creationtime" type="xs:string" />
+        <xs:element name="GeneratedName" type="meta" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="validateaddress" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="error" type="btcrpcerror" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rawtx" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="error" type="btcrpcerror" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="getblock" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="result" type="block" nillable="true" minOccurs="0" />
+        <xs:element name="error" type="btcrpcerror" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="btcrpcerror" >
+      <xs:sequence>
+        <xs:element name="code" type="xs:long" />
+        <xs:element name="message" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="gettransaction" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="error" type="btcrpcerror" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="listsinceblock" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="error" type="btcrpcerror" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bitcoinlistaddressbalanceresponse" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="error" type="btcrpcerror" nillable="true" minOccurs="0" />
+        <xs:element name="result" type="addressbalance" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ethtransactionresponse" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="result" type="ethtransaction" nillable="true" minOccurs="0" />
+        <xs:element name="error" type="btcrpcerror" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ethtransaction" >
+      <xs:sequence>
+        <xs:element name="//1)foreth_gettransactionbyhashblockhash" type="xs:string" />
+        <xs:element name="blocknumber" type="xs:string" />
+        <xs:element name="from" type="xs:string" />
+        <xs:element name="to" type="xs:string" />
+        <xs:element name="hash" type="xs:string" />
+        <xs:element name="input" type="xs:string" />
+        <xs:element name="//bignumbervalue" type="xs:string" />
+        <xs:element name="gas" type="xs:string" />
+        <xs:element name="gasprice" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="balance" >
+      <xs:sequence>
+        <xs:element name="amount" type="xs:double" />
+        <xs:element name="error" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ethtxreceipt" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="result" type="xs:anyType" />
+        <xs:element name="error" type="btcrpcerror" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ethblock" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="error" type="btcrpcerror" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ethlistaccount" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="error" type="btcrpcerror" nillable="true" minOccurs="0" />
+        <xs:element name="result" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tborphanaddress" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="upddt" type="xs:dateTime" />
+        <xs:element name="symbol" type="xs:string" />
+        <xs:element name="balance" type="xs:double" />
+        <xs:element name="account" type="xs:string" />
+        <xs:element name="addr" type="xs:string" />
+        <xs:element name="tag" type="xs:string" />
+        <xs:element name="regdt" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="vwsalesstat" >
+      <xs:sequence>
+        <xs:element name="symbol" type="xs:string" />
+        <xs:element name="yyyymmddhhmi" type="xs:long" />
+        <xs:element name="soldamt" type="xs:double" />
+        <xs:element name="krwsoldamt" type="xs:double" />
+        <xs:element name="ethsoldamt" type="xs:double" />
+        <xs:element name="krwpaidamt" type="xs:double" />
+        <xs:element name="ethpaidamt" type="xs:double" />
+        <xs:element name="krwunpaidamt" type="xs:double" />
+        <xs:element name="ethunpaidamt" type="xs:double" />
+        <xs:element name="cpuusage" type="xs:long" />
+        <xs:element name="memusage" type="xs:long" />
+        <xs:element name="diskusage" type="xs:long" />
+        <xs:element name="//0:fail,1:warn,2:successapistat" type="xs:anyType" />
+        <xs:element name="regdt" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tbcryptomaster" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="upddt" type="xs:dateTime" />
+        <xs:element name="symbol" type="xs:string" />
+        <xs:element name="decimals" type="xs:long" />
+        <xs:element name="sendmastaddr" type="xs:string" />
+        <xs:element name="currsyncheight" type="xs:long" />
+        <xs:element name="latestheight" type="xs:long" />
+        <xs:element name="totalbal" type="xs:double" />
+        <xs:element name="sendmastbal" type="xs:double" />
+        <xs:element name="theotherbal" type="xs:double" />
+        <xs:element name="prvprice" type="xs:double" />
+        <xs:element name="pre1_price" type="xs:double" />
+        <xs:element name="pre2_price" type="xs:double" />
+        <xs:element name="gasprice" type="xs:double" />
+        <xs:element name="gasused" type="xs:double" />
+        <xs:element name="actualfee" type="xs:double" />
+        <xs:element name="regdt" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tbbonusrequest" >
+      <xs:sequence>
+        <xs:element name="upddt" type="xs:dateTime" />
+        <xs:element name="symbol" type="xs:string" />
+        <xs:element name="orderid" type="xs:string" />
+        <xs:element name="uid" type="xs:long" />
+        <xs:element name="brokerid" type="xs:string" />
+        <xs:element name="toaddr" type="xs:string" />
+        <xs:element name="totag" type="xs:string" />
+        <xs:element name="amount" type="xs:double" />
+        <xs:element name="bonusbal" type="xs:double" />
+        <xs:element name="regdt" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tbsend" >
+      <xs:sequence>
+        <xs:element name="upddt" type="xs:dateTime" />
+        <xs:element name="renotify" type="xs:anyType" />
+        <xs:element name="intent" type="xs:anyType" />
+        <xs:element name="symbol" type="xs:string" />
+        <xs:element name="txid" type="xs:string" />
+        <xs:element name="txidx" type="xs:string" />
+        <xs:element name="notifiable" type="xs:anyType" />
+        <xs:element name="confirm" type="xs:long" />
+        <xs:element name="noticnt" type="xs:long" />
+        <xs:element name="toaddr" type="xs:string" />
+        <xs:element name="totag" type="xs:string" />
+        <xs:element name="amount" type="xs:double" />
+        <xs:element name="orderid" type="xs:string" />
+        <xs:element name="uid" type="xs:long" />
+        <xs:element name="brokerid" type="xs:string" />
+        <xs:element name="exptfee" type="xs:double" />
+        <xs:element name="realfee" type="xs:double" />
+        <xs:element name="fromaccount" type="xs:string" />
+        <xs:element name="fromaddr" type="xs:string" />
+        <xs:element name="fromtag" type="xs:string" />
+        <xs:element name="blockid" type="xs:string" />
+        <xs:element name="txtime" type="xs:long" />
+        <xs:element name="errmsg" type="xs:string" />
+        <xs:element name="regdt" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tbfiatdeposit" >
+      <xs:sequence>
+        <xs:element name="upddt" type="xs:dateTime" />
+        <xs:element name="orderid" type="xs:string" />
+        <xs:element name="uid" type="xs:long" />
+        <xs:element name="symbol" type="xs:string" />
+        <xs:element name="amount" type="xs:double" />
+        <xs:element name="brokerid" type="xs:string" />
+        <xs:element name="fromaddr" type="xs:string" />
+        <xs:element name="regusr" type="xs:string" />
+        <xs:element name="errmsg" type="xs:string" />
+        <xs:element name="regdt" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tbrecv" >
+      <xs:sequence>
+        <xs:element name="upddt" type="xs:dateTime" />
+        <xs:element name="renotify" type="xs:anyType" />
+        <xs:element name="intent" type="xs:anyType" />
+        <xs:element name="symbol" type="xs:string" />
+        <xs:element name="txid" type="xs:string" />
+        <xs:element name="txidx" type="xs:string" />
+        <xs:element name="orderid" type="xs:string" />
+        <xs:element name="notifiable" type="xs:anyType" />
+        <xs:element name="confirm" type="xs:long" />
+        <xs:element name="noticnt" type="xs:long" />
+        <xs:element name="toaccount" type="xs:string" />
+        <xs:element name="toaddr" type="xs:string" />
+        <xs:element name="totag" type="xs:string" />
+        <xs:element name="amount" type="xs:double" />
+        <xs:element name="uid" type="xs:long" />
+        <xs:element name="brokerid" type="xs:string" />
+        <xs:element name="fromaddr" type="xs:string" />
+        <xs:element name="fromtag" type="xs:string" />
+        <xs:element name="blockid" type="xs:string" />
+        <xs:element name="txtime" type="xs:long" />
+        <xs:element name="errmsg" type="xs:string" />
+        <xs:element name="regdt" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="vwuserkrwbalance" >
+      <xs:sequence>
+        <xs:element name="uid" type="xs:long" />
+        <xs:element name="symbol" type="xs:string" />
+        <xs:element name="recv" type="xs:double" />
+        <xs:element name="buy" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tbmarketprice" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="upddt" type="xs:dateTime" />
+        <xs:element name="symbol" type="xs:string" />
+        <xs:element name="krw" type="xs:double" />
+        <xs:element name="usd" type="xs:double" />
+        <xs:element name="regdt" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tbtokenbuyrequest" >
+      <xs:sequence>
+        <xs:element name="upddt" type="xs:dateTime" />
+        <xs:element name="orderid" type="xs:string" />
+        <xs:element name="uid" type="xs:long" />
+        <xs:element name="tokensymbol" type="xs:string" />
+        <xs:element name="paysymbol" type="xs:string" />
+        <xs:element name="payamount" type="xs:double" />
+        <xs:element name="tokenamount" type="xs:double" />
+        <xs:element name="fromaddr" type="xs:string" />
+        <xs:element name="fromtag" type="xs:string" />
+        <xs:element name="status" type="xs:anyType" />
+        <xs:element name="error" type="xs:string" />
+        <xs:element name="regdt" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tbpointexchangerequest" >
+      <xs:sequence>
+        <xs:element name="upddt" type="xs:dateTime" />
+        <xs:element name="orderid" type="xs:string" />
+        <xs:element name="uid" type="xs:long" />
+        <xs:element name="tokensymbol" type="xs:string" />
+        <xs:element name="tokenamount" type="xs:double" />
+        <xs:element name="pointamount" type="xs:double" />
+        <xs:element name="fromaddr" type="xs:string" />
+        <xs:element name="fromtag" type="xs:string" />
+        <xs:element name="status" type="xs:anyType" />
+        <xs:element name="error" type="xs:string" />
+        <xs:element name="regdt" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tbaddressbalance" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="upddt" type="xs:dateTime" />
+        <xs:element name="uid" type="xs:long" />
+        <xs:element name="symbol" type="xs:string" />
+        <xs:element name="addr" type="xs:string" />
+        <xs:element name="balance" type="xs:double" />
+        <xs:element name="actual" type="xs:double" />
+        <xs:element name="recv" type="xs:double" />
+        <xs:element name="send" type="xs:double" />
+        <xs:element name="buy" type="xs:double" />
+        <xs:element name="brokerid" type="xs:string" />
+        <xs:element name="tag" type="xs:string" />
+        <xs:element name="regdt" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tbmanualpayrequest" >
+      <xs:sequence>
+        <xs:element name="upddt" type="xs:dateTime" />
+        <xs:element name="orderid" type="xs:string" />
+        <xs:element name="uid" type="xs:long" />
+        <xs:element name="tokensymbol" type="xs:string" />
+        <xs:element name="tokenamount" type="xs:double" />
+        <xs:element name="payreason" type="xs:anyType" />
+        <xs:element name="snscode" type="xs:anyType" />
+        <xs:element name="bountyurl" type="xs:string" />
+        <xs:element name="toaddr" type="xs:string" />
+        <xs:element name="totag" type="xs:string" />
+        <xs:element name="status" type="xs:anyType" />
+        <xs:element name="error" type="xs:string" />
+        <xs:element name="regdt" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tbsendrequest" >
+      <xs:sequence>
+        <xs:element name="upddt" type="xs:dateTime" />
+        <xs:element name="symbol" type="xs:string" />
+        <xs:element name="orderid" type="xs:string" />
+        <xs:element name="uid" type="xs:long" />
+        <xs:element name="brokerid" type="xs:string" />
+        <xs:element name="exptfee" type="xs:string" />
+        <xs:element name="toaddr" type="xs:string" />
+        <xs:element name="totag" type="xs:string" />
+        <xs:element name="amount" type="xs:double" />
+        <xs:element name="fromaccount" type="xs:string" />
+        <xs:element name="fromaddr" type="xs:string" />
+        <xs:element name="fromtag" type="xs:string" />
+        <xs:element name="regdt" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pksymbolorderid" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="symbol" type="xs:string" />
+        <xs:element name="orderid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pksymbolyyyymmddhhmi" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="symbol" type="xs:string" />
+        <xs:element name="yyyymmddhhmi" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pksymboladdr" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="symbol" type="xs:string" />
+        <xs:element name="addr" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pkuidsymbol" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="symbol" type="xs:string" />
+        <xs:element name="uid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pkuidsymbolorderid" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="orderid" type="xs:string" />
+        <xs:element name="symbol" type="xs:string" />
+        <xs:element name="uid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pksymbolorderidtoaddr" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="symbol" type="xs:string" />
+        <xs:element name="orderid" type="xs:string" />
+        <xs:element name="toaddr" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pksymboltxidtoaddr" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="symbol" type="xs:string" />
+        <xs:element name="txid" type="xs:string" />
+        <xs:element name="toaddr" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="walletconst" >
+      <xs:sequence>
+        <xs:element name="uid_system" type="xs:long" />
+        <xs:element name="uid_test" type="xs:long" />
+        <xs:element name="noti_cnt_none" type="xs:long" />
+        <xs:element name="noti_cnt_progress" type="xs:long" />
+        <xs:element name="noti_cnt_finished" type="xs:long" />
+        <xs:element name="noti_cnt_withdraw" type="xs:long" />
+        <xs:element name="noti_cnt_complete" type="xs:long" />
+        <xs:element name="sendmany_tx_once" type="xs:long" />
+        <xs:element name="send_unsent_tx_limit_date" type="xs:long" />
+        <xs:element name="send_gather_limit_hour" type="xs:long" />
+        <xs:element name="send_tx_search_limit_date" type="xs:long" />
+        <xs:element name="code_success" type="xs:long" />
+        <xs:element name="code_fail_param" type="xs:long" />
+        <xs:element name="code_fail_logical" type="xs:long" />
+        <xs:element name="code_fail_not_enough_balance" type="xs:long" />
+        <xs:element name="code_fail_dup_order_id" type="xs:long" />
+        <xs:element name="code_wallet_not_exists" type="xs:long" />
+        <xs:element name="code_fail_io_problem" type="xs:long" />
+        <xs:element name="code_fail_not_my_wallet" type="xs:long" />
+        <xs:element name="max_transfer_manual_payment" type="xs:double" />
+        <xs:element name="eth_to_wei" type="xs:anyType" />
+        <xs:element name="system_expct_fee" type="xs:double" />
+        <xs:element name="test_amount_big" type="xs:double" />
+        <xs:element name="test_amount" type="xs:double" />
+        <xs:element name="test_expct_fee" type="xs:double" />
+        <xs:element name="ada_to_lovelace" type="xs:double" />
+        <xs:element name="intent_puretx" type="xs:anyType" />
+        <xs:element name="intent_buy_token" type="xs:anyType" />
+        <xs:element name="intent_bonus_token" type="xs:anyType" />
+        <xs:element name="intent_manual_pay" type="xs:anyType" />
+        <xs:element name="intent_point_exchange" type="xs:anyType" />
+        <xs:element name="//unknownstat_unknown" type="xs:anyType" />
+        <xs:element name="//acceptedstat_accepted" type="xs:anyType" />
+        <xs:element name="//beforedepoststat_beforedeposit" type="xs:anyType" />
+        <xs:element name="//depositingstat_depositing" type="xs:anyType" />
+        <xs:element name="//beforewithdrawalstat_beforewithdrawal" type="xs:anyType" />
+        <xs:element name="//범용:진행중stat_progress" type="xs:anyType" />
+        <xs:element name="//withdrawingstat_withdrawing" type="xs:anyType" />
+        <xs:element name="//completedstat_completed" type="xs:anyType" />
+        <xs:element name="//failedstat_failed" type="xs:anyType" />
+        <xs:element name="//notusingnowstat_waitconfirm" type="xs:anyType" />
+        <xs:element name="type_tx_send" type="xs:anyType" />
+        <xs:element name="type_tx_recv" type="xs:anyType" />
+        <xs:element name="json_header" type="xs:string" />
+        <xs:element name="//.ssszzziso_format" type="xs:string" />
+        <xs:element name="tag_test" type="xs:string" />
+        <xs:element name="success_ada" type="xs:string" />
+        <xs:element name="fail_ada" type="xs:string" />
+        <xs:element name="test_topic_id" type="xs:string" />
+        <xs:element name="order_id_system" type="xs:string" />
+        <xs:element name="broker_id_system" type="xs:string" />
+        <xs:element name="coinbase_name" type="xs:string" />
+        <xs:element name="category_send" type="xs:string" />
+        <xs:element name="category_receive" type="xs:string" />
+        <xs:element name="category_send_ada" type="xs:string" />
+        <xs:element name="category_receive_ada" type="xs:string" />
+        <xs:element name="category_generate" type="xs:string" />
+        <xs:element name="unit_krw" type="xs:string" />
+        <xs:element name="max_queue_poll_size" type="xs:string" />
+        <xs:element name="wallet_unlock_short" type="xs:string" />
+        <xs:element name="wallet_unlock_10secs" type="xs:string" />
+        <xs:element name="wallet_unlock_batch" type="xs:string" />
+        <xs:element name="ada_to_lovelace_str" type="xs:string" />
+        <xs:element name="msg_empty_symbol" type="xs:string" />
+        <xs:element name="msg_empty_uid" type="xs:string" />
+        <xs:element name="msg_empty_address" type="xs:string" />
+        <xs:element name="msg_empty_txid" type="xs:string" />
+        <xs:element name="msg_invalid_symbol" type="xs:string" />
+        <xs:element name="msg_invalid_buy_token" type="xs:string" />
+        <xs:element name="msg_dup_order_id" type="xs:string" />
+        <xs:element name="msg_wallet_not_exists" type="xs:string" />
+        <xs:element name="msg_not_enough_balance" type="xs:string" />
+        <xs:element name="msg_unlock_fail" type="xs:string" />
+        <xs:element name="msg_send_fail" type="xs:string" />
+        <xs:element name="msg_block_tx_fail" type="xs:string" />
+        <xs:element name="msg_uncate_crypto" type="xs:string" />
+        <xs:element name="msg_io_problem" type="xs:string" />
+        <xs:element name="symbol_krw" type="xs:string" />
+        <xs:element name="symbol_btc" type="xs:string" />
+        <xs:element name="symbol_eth" type="xs:string" />
+        <xs:element name="symbol_cpd" type="xs:string" />
+        <xs:element name="symbol_bcd" type="xs:string" />
+        <xs:element name="symbol_kai" type="xs:string" />
+        <xs:element name="symbol_bhpc" type="xs:string" />
+        <xs:element name="symbol_zil" type="xs:string" />
+        <xs:element name="symbol_etc" type="xs:string" />
+        <xs:element name="symbol_clo" type="xs:string" />
+        <xs:element name="symbol_bch" type="xs:string" />
+        <xs:element name="symbol_btg" type="xs:string" />
+        <xs:element name="symbol_ltc" type="xs:string" />
+        <xs:element name="symbol_ada" type="xs:string" />
+        <xs:element name="symbol_doge" type="xs:string" />
+        <xs:element name="symbol_eos" type="xs:string" />
+        <xs:element name="symbol_neo" type="xs:string" />
+        <xs:element name="symbol_xrp" type="xs:string" />
+        <xs:element name="symbol_xlm" type="xs:string" />
+        <xs:element name="symbol_omg" type="xs:string" />
+        <xs:element name="symbol_qtum" type="xs:string" />
+        <xs:element name="symbol_xmr" type="xs:string" />
+        <xs:element name="symbol_zec" type="xs:string" />
+        <xs:element name="token_erc20" type="xs:string" />
+        <xs:element name="token_qrc20" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="logexecutiontime" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="loggingaspect" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="validateaddressresponse" >
+      <xs:complexContent>
+       <xs:extension base="walletresponse">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="txhistoryresponse" >
+      <xs:complexContent>
+       <xs:extension base="walletresponse">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="result" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="newaddressresponse" >
+      <xs:complexContent>
+       <xs:extension base="walletresponse">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="pointexchangeresponse" >
+      <xs:complexContent>
+       <xs:extension base="walletresponse">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="cryptobalancesresponse" >
+      <xs:complexContent>
+       <xs:extension base="walletresponse">
+         <xs:sequence>
+          <xs:element name="result" type="cryptobalancebyaddr" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="cryptoindexresponse" >
+      <xs:complexContent>
+       <xs:extension base="walletresponse">
+         <xs:sequence>
+          <xs:element name="result" type="tbmarketprice" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tokenbuyresponse" >
+      <xs:complexContent>
+       <xs:extension base="walletresponse">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="txstatusresponse" >
+      <xs:complexContent>
+       <xs:extension base="txstatusrequest">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="fiatdepositresponse" >
+      <xs:complexContent>
+       <xs:extension base="walletresponse">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="transactionresponse" >
+      <xs:sequence>
+        <xs:element name="type" type="xs:anyType" />
+        <xs:element name="status" type="xs:anyType" />
+        <xs:element name="symbol" type="xs:string" />
+        <xs:element name="uid" type="xs:long" />
+        <xs:element name="brokerid" type="xs:string" />
+        <xs:element name="orderid" type="xs:string" />
+        <xs:element name="txid" type="xs:string" />
+        <xs:element name="amount" type="xs:double" />
+        <xs:element name="confirmation" type="xs:long" />
+        <xs:element name="txtime" type="xs:long" />
+        <xs:element name="error" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="privatesaletxresponse" >
+      <xs:sequence>
+        <xs:element name="orderid" type="xs:string" />
+        <xs:element name="uid" type="xs:long" />
+        <xs:element name="tokensymbol" type="xs:string" />
+        <xs:element name="tokenamount" type="xs:double" />
+        <xs:element name="paysymbol" type="xs:string" />
+        <xs:element name="payamount" type="xs:double" />
+        <xs:element name="fromaddr" type="xs:string" />
+        <xs:element name="fromtag" type="xs:string" />
+        <xs:element name="status" type="xs:anyType" />
+        <xs:element name="error" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sendresponse" >
+      <xs:complexContent>
+       <xs:extension base="walletresponse">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="purchaseresponse" >
+      <xs:complexContent>
+       <xs:extension base="walletresponse">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="result" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="bonusresponse" >
+      <xs:complexContent>
+       <xs:extension base="walletresponse">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="totalbalancesresponse" >
+      <xs:complexContent>
+       <xs:extension base="walletresponse">
+         <xs:sequence>
+          <xs:element name="result" type="totalbalance" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="systemstatusresponse" >
+      <xs:complexContent>
+       <xs:extension base="walletresponse">
+         <xs:sequence>
+          <xs:element name="result" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="manualpayresponse" >
+      <xs:complexContent>
+       <xs:extension base="walletresponse">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="walletresponse" >
+      <xs:sequence>
+        <xs:element name="code" type="xs:long" />
+        <xs:element name="error" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bonusrequest" >
+      <xs:sequence>
+        <xs:element name="orderid" type="xs:string" />
+        <xs:element name="uid" type="xs:long" />
+        <xs:element name="symbol" type="xs:string" />
+        <xs:element name="amount" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pointexchangerequest" >
+      <xs:sequence>
+        <xs:element name="orderid" type="xs:string" />
+        <xs:element name="uid" type="xs:long" />
+        <xs:element name="tokensymbol" type="xs:string" />
+        <xs:element name="tokenamount" type="xs:double" />
+        <xs:element name="pointamount" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tokenbuyrequest" >
+      <xs:sequence>
+        <xs:element name="orderid" type="xs:string" />
+        <xs:element name="uid" type="xs:long" />
+        <xs:element name="paysymbol" type="xs:string" />
+        <xs:element name="payamount" type="xs:double" />
+        <xs:element name="tokensymbol" type="xs:string" />
+        <xs:element name="tokenamount" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="manualpayrequest" >
+      <xs:sequence>
+        <xs:element name="orderid" type="xs:string" />
+        <xs:element name="uid" type="xs:long" />
+        <xs:element name="tokensymbol" type="xs:string" />
+        <xs:element name="tokenamount" type="xs:double" />
+        <xs:element name="//m/spayreason" type="xs:anyType" />
+        <xs:element name="snscode" type="xs:anyType" />
+        <xs:element name="bountyurl" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="fiatdepositrequest" >
+      <xs:sequence>
+        <xs:element name="symbol" type="xs:string" />
+        <xs:element name="uid" type="xs:long" />
+        <xs:element name="amount" type="xs:double" />
+        <xs:element name="orderid" type="xs:string" />
+        <xs:element name="regusr" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="txstatusrequest" >
+      <xs:sequence>
+        <xs:element name="symbol" type="xs:string" />
+        <xs:element name="orderid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sendrequest" >
+      <xs:sequence>
+        <xs:element name="symbol" type="xs:string" />
+        <xs:element name="uid" type="xs:long" />
+        <xs:element name="orderid" type="xs:string" />
+        <xs:element name="fromaccount" type="xs:string" />
+        <xs:element name="fromaddress" type="xs:string" />
+        <xs:element name="fromtag" type="xs:string" />
+        <xs:element name="toaddress" type="xs:string" />
+        <xs:element name="totag" type="xs:string" />
+        <xs:element name="amount" type="xs:double" />
+        <xs:element name="notifiable" type="xs:anyType" />
+        <xs:element name="brokerid" type="xs:string" />
+        <xs:element name="//전송요청결과txidtxid" type="xs:string" />
+        <xs:element name="//전송결과최종confirm/fail통지여부finished" type="xs:anyType" />
+        <xs:element name="//거래소수수료expectfee" type="xs:double" />
+        <xs:element name="//실전송수수료realfee" type="xs:double" />
+        <xs:element name="//중복수신자개수dupecount" type="xs:long" />
+        <xs:element name="//에러메시지errmsg" type="xs:string" />
+        <xs:element name="pp" type="xs:string" />
+        <xs:element name="//'t':tokenbuyintent" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="personalinforequest" >
+      <xs:sequence>
+        <xs:element name="symbol" type="xs:string" />
+        <xs:element name="uid" type="xs:long" />
+        <xs:element name="brokerid" type="xs:string" />
+        <xs:element name="orderid" type="xs:string" />
+        <xs:element name="address" type="xs:string" />
+        <xs:element name="addresstag" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cipherutil" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="headerrequestinterceptor" >
+      <xs:sequence>
+        <xs:element name="headername" type="xs:string" />
+        <xs:element name="headervalue" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="walletutil" >
+      <xs:sequence>
+        <xs:element name="tag" type="xs:string" />
+        <xs:element name="utc" type="xs:anyType" />
+        <xs:element name="isoformatter" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="adajsonutil" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="securityconfig" >
+      <xs:complexContent>
+       <xs:extension base="websecurityconfigureradapter">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="webmvcconfig" >
+      <xs:sequence>
+        <xs:element name="classpath_resource_locations" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="swaggerconfig" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sharedtest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="coinfactory" nillable="true" minOccurs="0" />
+        <xs:element name="topic_notify_tx_confirm" type="xs:string" />
+        <xs:element name="sender" type="kafkasender" nillable="true" minOccurs="0" />
+        <xs:element name="invalidcasebtc" type="xs:string" />
+        <xs:element name="invalidcaseeth" type="xs:string" />
+        <xs:element name="service" type="cryptosharedservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="kafkareceivertest" >
+      <xs:sequence>
+        <xs:element name="tag" type="xs:string" />
+        <xs:element name="latch" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="receivertest" >
+      <xs:sequence>
+        <xs:element name="bootstrapservers" type="xs:string" />
+        <xs:element name="listeninggroup" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="lastblockheighttest" >
+      <xs:sequence>
+        <xs:element name="tag" type="xs:string" />
+        <xs:element name="GeneratedName" type="coinfactory" nillable="true" minOccurs="0" />
+        <xs:element name="enabled_symbols" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="syncblockstest" >
+      <xs:sequence>
+        <xs:element name="tag" type="xs:string" />
+        <xs:element name="testcase" type="sharedtest" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="kafkanotifytest" >
+      <xs:sequence>
+        <xs:element name="tag" type="xs:string" />
+        <xs:element name="testcase" type="sharedtest" nillable="true" minOccurs="0" />
+        <xs:element name="receiver" type="kafkareceivertest" nillable="true" minOccurs="0" />
+        <xs:element name="enabled_symbols" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="passphrasetest" >
+      <xs:sequence>
+        <xs:element name="tag" type="xs:string" />
+        <xs:element name="testcase" type="sharedtest" nillable="true" minOccurs="0" />
+        <xs:element name="enabled_symbols" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sendtxrequesttest" >
+      <xs:sequence>
+        <xs:element name="tag" type="xs:string" />
+        <xs:element name="GeneratedName" type="coinfactory" nillable="true" minOccurs="0" />
+        <xs:element name="enabled_symbols" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="getstartlastblockheighttest" >
+      <xs:sequence>
+        <xs:element name="tag" type="xs:string" />
+        <xs:element name="testcase" type="sharedtest" nillable="true" minOccurs="0" />
+        <xs:element name="enabled_symbols" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="batchsendtest" >
+      <xs:sequence>
+        <xs:element name="tag" type="xs:string" />
+        <xs:element name="GeneratedName" type="coinfactory" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="utctimetest" >
+      <xs:sequence>
+        <xs:element name="tag" type="xs:string" />
+        <xs:element name="GeneratedName" type="coinfactory" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="newaddresstest" >
+      <xs:sequence>
+        <xs:element name="tag" type="xs:string" />
+        <xs:element name="testcase" type="sharedtest" nillable="true" minOccurs="0" />
+        <xs:element name="enabled_symbols" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="getcontracttest" >
+      <xs:complexContent>
+       <xs:extension base="erc20test">
+         <xs:sequence>
+          <xs:element name="enabled_erc20s" type="xs:string" />
+          <xs:element name="addrrepo" type="addressbalancerepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="coinfactory" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="gatheringtest" >
+      <xs:sequence>
+        <xs:element name="tag" type="xs:string" />
+        <xs:element name="testcase" type="sharedtest" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="validateaddresstest" >
+      <xs:sequence>
+        <xs:element name="testcase" type="sharedtest" nillable="true" minOccurs="0" />
+        <xs:element name="enabled_symbols" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="erc20approvetest" >
+      <xs:complexContent>
+       <xs:extension base="erc20test">
+         <xs:sequence>
+          <xs:element name="enabled_erc20s" type="xs:string" />
+          <xs:element name="addrrepo" type="addressbalancerepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="coinfactory" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="erc20balancetest" >
+      <xs:complexContent>
+       <xs:extension base="erc20test">
+         <xs:sequence>
+          <xs:element name="enabled_erc20s" type="xs:string" />
+          <xs:element name="addrrepo" type="addressbalancerepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="coinfactory" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jointest" >
+      <xs:sequence>
+        <xs:element name="tag" type="xs:string" />
+        <xs:element name="testcase" type="sharedtest" nillable="true" minOccurs="0" />
+        <xs:element name="recvrepo" type="recvrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="notifyprocesstest" >
+      <xs:sequence>
+        <xs:element name="tag" type="xs:string" />
+        <xs:element name="testcase" type="sharedtest" nillable="true" minOccurs="0" />
+        <xs:element name="enabled_symbols" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="batchsendtransactiontest" >
+      <xs:sequence>
+        <xs:element name="tag" type="xs:string" />
+        <xs:element name="testcase" type="sharedtest" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="getalladdressestest" >
+      <xs:sequence>
+        <xs:element name="//privatestringtag" type="sharedtest" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="coinfactory" nillable="true" minOccurs="0" />
+        <xs:element name="enabled_symbols" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="erc20balancestest" >
+      <xs:complexContent>
+       <xs:extension base="erc20test">
+         <xs:sequence>
+          <xs:element name="enabled_erc20s" type="xs:string" />
+          <xs:element name="addrrepo" type="addressbalancerepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="coinfactory" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="getbalancetest" >
+      <xs:sequence>
+        <xs:element name="//privatestringtag" type="sharedtest" nillable="true" minOccurs="0" />
+        <xs:element name="enabled_symbols" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sendoptionaltest" >
+      <xs:sequence>
+        <xs:element name="tag" type="xs:string" />
+        <xs:element name="testcase" type="sharedtest" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sendfromrequesttest" >
+      <xs:sequence>
+        <xs:element name="tag" type="xs:string" />
+        <xs:element name="testcase" type="sharedtest" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="updateconfirmationtest" >
+      <xs:sequence>
+        <xs:element name="tag" type="xs:string" />
+        <xs:element name="testcase" type="sharedtest" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="coinfactory" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ciphertest" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="btctest" >
+      <xs:complexContent>
+       <xs:extension base="bitcointest">
+         <xs:sequence>
+          <xs:element name="symbol" type="xs:string" />
+          <xs:element name="masteraccount" type="xs:string" />
+          <xs:element name="masteraddr" type="xs:string" />
+          <xs:element name="testuseraddr" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="etctest" >
+      <xs:complexContent>
+       <xs:extension base="ethereumtest">
+         <xs:sequence>
+          <xs:element name="symbol" type="xs:string" />
+          <xs:element name="masteraddr" type="xs:string" />
+          <xs:element name="testuseraddr" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="fcmtest" >
+      <xs:sequence>
+        <xs:element name="symbol" type="xs:string" />
+        <xs:element name="tag" type="xs:string" />
+        <xs:element name="fsvc" type="firebaseservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="adatest" >
+      <xs:complexContent>
+       <xs:extension base="wallettest">
+         <xs:sequence>
+          <xs:element name="symbol" type="xs:string" />
+          <xs:element name="tag" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ziltest" >
+      <xs:complexContent>
+       <xs:extension base="erc20test">
+         <xs:sequence>
+          <xs:element name="symbol" type="xs:string" />
+          <xs:element name="masteraddr" type="xs:string" />
+          <xs:element name="testuseraddr" type="xs:string" />
+          <xs:element name="addrrepo" type="addressbalancerepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="rpcservice" type="cryptosharedservice" nillable="true" minOccurs="0" />
+          <xs:element name="" type="coinfactory" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="erc20test" >
+      <xs:complexContent>
+       <xs:extension base="wallettest">
+         <xs:sequence>
+          <xs:element name="tag" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="bitcointest" >
+      <xs:complexContent>
+       <xs:extension base="wallettest">
+         <xs:sequence>
+          <xs:element name="tag" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ethereumtest" >
+      <xs:complexContent>
+       <xs:extension base="wallettest">
+         <xs:sequence>
+          <xs:element name="tag" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="wallettest" >
+      <xs:sequence>
+        <xs:element name="tag" type="xs:string" />
+        <xs:element name="enabled_symbols" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="rpcservice" type="cryptosharedservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="coinfactory" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ethtest" >
+      <xs:complexContent>
+       <xs:extension base="ethereumtest">
+         <xs:sequence>
+          <xs:element name="symbol" type="xs:string" />
+          <xs:element name="masteraddr" type="xs:string" />
+          <xs:element name="testuseraddr" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema> 

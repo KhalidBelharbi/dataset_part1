@@ -1,0 +1,2588 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="localstrings_ru" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="package-info" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hashutils" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dateutils" >
+      <xs:sequence>
+        <xs:element name="global_date_format" type="xs:string" />
+        <xs:element name="short_date_format" type="xs:string" />
+        <xs:element name="timezone" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="fileio" >
+      <xs:sequence>
+        <xs:element name="chunk_size" type="xs:long" />
+        <xs:element name="buffer_capacity" type="xs:long" />
+        <xs:element name="doc_extensions" type="xs:anyType" />
+        <xs:element name="encoding_charset" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="alphanumericcomparator" >
+      <xs:sequence>
+        <xs:element name="/***theusedforcomparisonofthealphapart.*/" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tools" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="namingconvention" >
+      <xs:sequence>
+        <xs:element name="documents_forbidden_s" type="xs:anyType" />
+        <xs:element name="parts_forbidden_s" type="xs:anyType" />
+        <xs:element name="forbidden_s" type="xs:anyType" />
+        <xs:element name="forbidden_s_mask" type="xs:anyType" />
+        <xs:element name="forbidden_s_file" type="xs:anyType" />
+        <xs:element name="forbidden_names" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="taskwrapper" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="task" nillable="true" minOccurs="0" />
+        <xs:element name="workspaceid" type="xs:string" />
+        <xs:element name="holdertype" type="xs:string" />
+        <xs:element name="holderreference" type="xs:string" />
+        <xs:element name="holderversion" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="parallelactivity" >
+      <xs:complexContent>
+       <xs:extension base="activity">
+         <xs:sequence>
+          <xs:element name="taskstocomplete" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="taskkey" >
+      <xs:sequence>
+        <xs:element name="activity" type="activitykey" nillable="true" minOccurs="0" />
+        <xs:element name="num" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="workspaceworkflow" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="GeneratedName" type="workspace" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="workflow" nillable="true" minOccurs="0" />
+        <xs:element name="abortedworkflows" type="workflow" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="workspaceworkflowkey" >
+      <xs:sequence>
+        <xs:element name="workspace" type="xs:string" />
+        <xs:element name="id" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rolekey" >
+      <xs:sequence>
+        <xs:element name="workspace" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="taskmodel" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="activitymodel" nillable="true" minOccurs="0" />
+        <xs:element name="num" type="xs:long" />
+        <xs:element name="instructions" type="xs:string" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="duration" type="xs:long" />
+        <xs:element name="GeneratedName" type="role" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="activitykey" >
+      <xs:sequence>
+        <xs:element name="workflow" type="xs:long" />
+        <xs:element name="step" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="taskmodelkey" >
+      <xs:sequence>
+        <xs:element name="activitymodel" type="xs:long" />
+        <xs:element name="num" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sequentialactivity" >
+      <xs:complexContent>
+       <xs:extension base="activity">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="workflowmodel" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="workspaceid" type="xs:string" />
+        <xs:element name="activitymodels" type="activitymodel" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="lifecyclestate" type="xs:string" />
+        <xs:element name="author" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="creation" type="xs:dateTime" />
+        <xs:element name="GeneratedName" type="workspace" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="acl" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="task" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="activity" nillable="true" minOccurs="0" />
+        <xs:element name="num" type="xs:long" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="instructions" type="xs:string" />
+        <xs:element name="duration" type="xs:long" />
+        <xs:element name="start" type="xs:dateTime" />
+        <xs:element name="/***thewhoeffectivelyperformedthetask,whichhenceisin*the{@linkstatus#approved}or{@linkstatus#rejected}state.*/worker" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="assignedusers" type="user" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="assignedgroups" type="usergroup" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="targetiteration" type="xs:long" />
+        <xs:element name="closurecomment" type="xs:string" />
+        <xs:element name="closure" type="xs:dateTime" />
+        <xs:element name="signature" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="role" >
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="GeneratedName" type="workspace" nillable="true" minOccurs="0" />
+        <xs:element name="defaultassignedusers" type="user" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="defaultassignedgroups" type="usergroup" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="activitymodel" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="workflowmodel" nillable="true" minOccurs="0" />
+        <xs:element name="taskmodels" type="taskmodel" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="step" type="xs:long" />
+        <xs:element name="relaunchactivity" type="activitymodel" nillable="true" minOccurs="0" />
+        <xs:element name="lifecyclestate" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="workflowmodelkey" >
+      <xs:sequence>
+        <xs:element name="workspaceid" type="xs:string" />
+        <xs:element name="id" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sequentialactivitymodel" >
+      <xs:complexContent>
+       <xs:extension base="activitymodel">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="package-info" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="activity" >
+      <xs:sequence>
+        <xs:element name="step" type="xs:long" />
+        <xs:element name="GeneratedName" type="workflow" nillable="true" minOccurs="0" />
+        <xs:element name="tasks" type="task" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="lifecyclestate" type="xs:string" />
+        <xs:element name="relaunch" type="activity" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="workflow" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="activities" type="activity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="aborted" type="xs:dateTime" />
+        <xs:element name="lifecyclestate" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="parallelactivitymodel" >
+      <xs:complexContent>
+       <xs:extension base="activitymodel">
+         <xs:sequence>
+          <xs:element name="taskstocomplete" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="partlog" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="log" type="xs:dateTime" />
+        <xs:element name="partworkspaceid" type="xs:string" />
+        <xs:element name="partnumber" type="xs:string" />
+        <xs:element name="partversion" type="xs:string" />
+        <xs:element name="partiteration" type="xs:long" />
+        <xs:element name="userlogin" type="xs:string" />
+        <xs:element name="event" type="xs:string" />
+        <xs:element name="info" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="workspacelog" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="log" type="xs:dateTime" />
+        <xs:element name="workspaceid" type="xs:string" />
+        <xs:element name="userlogin" type="xs:string" />
+        <xs:element name="event" type="xs:string" />
+        <xs:element name="info" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="documentlog" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="log" type="xs:dateTime" />
+        <xs:element name="documentworkspaceid" type="xs:string" />
+        <xs:element name="documentid" type="xs:string" />
+        <xs:element name="documentversion" type="xs:string" />
+        <xs:element name="documentiteration" type="xs:long" />
+        <xs:element name="userlogin" type="xs:string" />
+        <xs:element name="event" type="xs:string" />
+        <xs:element name="info" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="package-info" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="workspaceusermembership" >
+      <xs:sequence>
+        <xs:element name="workspaceid" type="xs:string" />
+        <xs:element name="GeneratedName" type="workspace" nillable="true" minOccurs="0" />
+        <xs:element name="memberworkspaceid" type="xs:string" />
+        <xs:element name="memberlogin" type="xs:string" />
+        <xs:element name="member" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="readonly" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="aclpermission" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="workspaceusermembershipkey" >
+      <xs:sequence>
+        <xs:element name="memberworkspaceid" type="xs:string" />
+        <xs:element name="memberlogin" type="xs:string" />
+        <xs:element name="workspaceid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="workspaceusergroupmembership" >
+      <xs:sequence>
+        <xs:element name="workspaceid" type="xs:string" />
+        <xs:element name="GeneratedName" type="workspace" nillable="true" minOccurs="0" />
+        <xs:element name="memberworkspaceid" type="xs:string" />
+        <xs:element name="memberid" type="xs:string" />
+        <xs:element name="member" type="usergroup" nillable="true" minOccurs="0" />
+        <xs:element name="readonly" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="acluserentrykey" >
+      <xs:sequence>
+        <xs:element name="principal" type="userkey" nillable="true" minOccurs="0" />
+        <xs:element name="acl" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="package-info" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="aclusergroupentry" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="acl" nillable="true" minOccurs="0" />
+        <xs:element name="principal" type="usergroup" nillable="true" minOccurs="0" />
+        <xs:element name="permission" type="aclpermission" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usergroupmapping" >
+      <xs:sequence>
+        <xs:element name="login" type="xs:string" />
+        <xs:element name="groupname" type="xs:string" />
+        <xs:element name="regular_user_role_id" type="xs:string" />
+        <xs:element name="admin_role_id" type="xs:string" />
+        <xs:element name="guest_role_id" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="acl" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="userentries" type="xs:anyType" />
+        <xs:element name="groupentries" type="xs:anyType" />
+        <xs:element name="enabled" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="passwordrecoveryrequest" >
+      <xs:sequence>
+        <xs:element name="uuid" type="xs:string" />
+        <xs:element name="login" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="workspaceusergroupmembershipkey" >
+      <xs:sequence>
+        <xs:element name="memberworkspaceid" type="xs:string" />
+        <xs:element name="memberid" type="xs:string" />
+        <xs:element name="workspaceid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="credential" >
+      <xs:sequence>
+        <xs:element name="login" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="aclusergroupentrykey" >
+      <xs:sequence>
+        <xs:element name="principal" type="usergroupkey" nillable="true" minOccurs="0" />
+        <xs:element name="acl" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="acluserentry" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="acl" nillable="true" minOccurs="0" />
+        <xs:element name="principal" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="permission" type="aclpermission" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sharedentity" >
+      <xs:sequence>
+        <xs:element name="uuid" type="xs:string" />
+        <xs:element name="GeneratedName" type="workspace" nillable="true" minOccurs="0" />
+        <xs:element name="author" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="creation" type="xs:dateTime" />
+        <xs:element name="expire" type="xs:dateTime" />
+        <xs:element name="password" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sharedentitykey" >
+      <xs:sequence>
+        <xs:element name="workspace" type="xs:string" />
+        <xs:element name="uuid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="shareddocument" >
+      <xs:complexContent>
+       <xs:extension base="sharedentity{">
+         <xs:sequence>
+          <xs:element name="" type="documentrevision" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sharedpart" >
+      <xs:complexContent>
+       <xs:extension base="sharedentity{">
+         <xs:sequence>
+          <xs:element name="" type="partrevision" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="package-info" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="package-info" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="documentmasterkey" >
+      <xs:sequence>
+        <xs:element name="workspace" type="xs:string" />
+        <xs:element name="id" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="documentmastertemplatekey" >
+      <xs:sequence>
+        <xs:element name="workspaceid" type="xs:string" />
+        <xs:element name="id" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="documentrevisionkey" >
+      <xs:sequence>
+        <xs:element name="documentmaster" type="documentmasterkey" nillable="true" minOccurs="0" />
+        <xs:element name="version" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="documentmastertemplate" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="workspaceid" type="xs:string" />
+        <xs:element name="idgenerated" type="xs:anyType" />
+        <xs:element name="documenttype" type="xs:string" />
+        <xs:element name="mask" type="xs:string" />
+        <xs:element name="GeneratedName" type="acl" nillable="true" minOccurs="0" />
+        <xs:element name="attachedfiles" type="binaryresource" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="attributetemplates" type="instanceattributetemplate" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="attributeslocked" type="xs:anyType" />
+        <xs:element name="author" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="creation" type="xs:dateTime" />
+        <xs:element name="modification" type="xs:dateTime" />
+        <xs:element name="GeneratedName" type="workspace" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="workflowmodel" nillable="true" minOccurs="0" />
+        <xs:element name="workflowmodelid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="documentiteration" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="documentrevision" nillable="true" minOccurs="0" />
+        <xs:element name="iteration" type="xs:long" />
+        <xs:element name="attachedfiles" type="binaryresource" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="revisionnote" type="xs:string" />
+        <xs:element name="author" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="creation" type="xs:dateTime" />
+        <xs:element name="modification" type="xs:dateTime" />
+        <xs:element name="checkin" type="xs:dateTime" />
+        <xs:element name="linkeddocuments" type="documentlink" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="instanceattributes" type="instanceattribute" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="iterationchangesubscription" >
+      <xs:complexContent>
+       <xs:extension base="subscription{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="documentmaster" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="GeneratedName" type="workspace" nillable="true" minOccurs="0" />
+        <xs:element name="author" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="creation" type="xs:dateTime" />
+        <xs:element name="type" type="xs:string" />
+        <xs:element name="documentrevisions" type="documentrevision" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="attributeslocked" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="subscriptionkey" >
+      <xs:sequence>
+        <xs:element name="subscriberworkspaceid" type="xs:string" />
+        <xs:element name="subscriberlogin" type="xs:string" />
+        <xs:element name="observeddocumentrevisionworkspaceid" type="xs:string" />
+        <xs:element name="observeddocumentrevisionversion" type="xs:string" />
+        <xs:element name="observeddocumentrevisionid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="subscription" >
+      <xs:sequence>
+        <xs:element name="subscriber" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="observed" type="documentrevision" nillable="true" minOccurs="0" />
+        <xs:element name="subscriberworkspaceid" type="xs:string" />
+        <xs:element name="subscriberlogin" type="xs:string" />
+        <xs:element name="observeddocumentrevisionworkspaceid" type="xs:string" />
+        <xs:element name="observeddocumentrevisionversion" type="xs:string" />
+        <xs:element name="observeddocumentrevisionid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="documentlink" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="targetdocument" type="documentrevision" nillable="true" minOccurs="0" />
+        <xs:element name="targetdocumentmasterid" type="xs:string" />
+        <xs:element name="targetdocumentversion" type="xs:string" />
+        <xs:element name="targetdocumentworkspaceid" type="xs:string" />
+        <xs:element name="comment" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="documentrevision" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="documentmaster" nillable="true" minOccurs="0" />
+        <xs:element name="version" type="xs:string" />
+        <xs:element name="author" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="creation" type="xs:dateTime" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="documentiterations" type="documentiteration" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="checkout" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="checkout" type="xs:dateTime" />
+        <xs:element name="GeneratedName" type="workflow" nillable="true" minOccurs="0" />
+        <xs:element name="abortedworkflows" type="workflow" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="location" type="folder" nillable="true" minOccurs="0" />
+        <xs:element name="tags" type="tag" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="documentmasterid" type="xs:string" />
+        <xs:element name="documentmasterworkspaceid" type="xs:string" />
+        <xs:element name="GeneratedName" type="acl" nillable="true" minOccurs="0" />
+        <xs:element name="publicshared" type="xs:anyType" />
+        <xs:element name="status" type="revisionstatus" nillable="true" minOccurs="0" />
+        <xs:element name="release" type="statuschange" nillable="true" minOccurs="0" />
+        <xs:element name="obsolete" type="statuschange" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="statechangesubscription" >
+      <xs:complexContent>
+       <xs:extension base="subscription{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="documentiterationkey" >
+      <xs:sequence>
+        <xs:element name="documentrevision" type="documentrevisionkey" nillable="true" minOccurs="0" />
+        <xs:element name="iteration" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tagusersubscriptionkey" >
+      <xs:sequence>
+        <xs:element name="usersubscriber" type="userkey" nillable="true" minOccurs="0" />
+        <xs:element name="tag" type="tagkey" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tagusergroupsubscriptionkey" >
+      <xs:sequence>
+        <xs:element name="groupsubscriber" type="usergroupkey" nillable="true" minOccurs="0" />
+        <xs:element name="tag" type="tagkey" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tagusersubscription" >
+      <xs:sequence>
+        <xs:element name="subscriber" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="tag" nillable="true" minOccurs="0" />
+        <xs:element name="oniterationchange" type="xs:anyType" />
+        <xs:element name="onstatechange" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tagusergroupsubscription" >
+      <xs:sequence>
+        <xs:element name="groupsubscriber" type="usergroup" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="tag" nillable="true" minOccurs="0" />
+        <xs:element name="oniterationchange" type="xs:anyType" />
+        <xs:element name="onstatechange" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="package-info" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rotationtype" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="importresult" >
+      <xs:sequence>
+        <xs:element name="imported" type="xs:anyType" />
+        <xs:element name="warnings" type="xs:anyType" />
+        <xs:element name="errors" type="xs:anyType" />
+        <xs:element name="stdoutput" type="xs:string" />
+        <xs:element name="erroroutput" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="import" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="GeneratedName" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="warnings" type="xs:anyType" />
+        <xs:element name="errors" type="xs:anyType" />
+        <xs:element name="filename" type="xs:string" />
+        <xs:element name="start" type="xs:dateTime" />
+        <xs:element name="end" type="xs:dateTime" />
+        <xs:element name="pending" type="xs:anyType" />
+        <xs:element name="succeed" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="component" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="partmaster" nillable="true" minOccurs="0" />
+        <xs:element name="retainediteration" type="partiteration" nillable="true" minOccurs="0" />
+        <xs:element name="path" type="partlink" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="components" type="component" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="isvirtual" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="partlinklist" >
+      <xs:sequence>
+        <xs:element name="path" type="partlink" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="configurationitemkey" >
+      <xs:sequence>
+        <xs:element name="workspace" type="xs:string" />
+        <xs:element name="id" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="conversion" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="partiteration" nillable="true" minOccurs="0" />
+        <xs:element name="start" type="xs:dateTime" />
+        <xs:element name="end" type="xs:dateTime" />
+        <xs:element name="pending" type="xs:anyType" />
+        <xs:element name="succeed" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="partiteration" >
+      <xs:sequence>
+        <xs:element name="native_cad_subtype" type="xs:string" />
+        <xs:element name="attached_files_subtype" type="xs:string" />
+        <xs:element name="GeneratedName" type="partrevision" nillable="true" minOccurs="0" />
+        <xs:element name="iteration" type="xs:long" />
+        <xs:element name="geometries" type="geometry" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="nativecadfile" type="binaryresource" nillable="true" minOccurs="0" />
+        <xs:element name="linkeddocuments" type="documentlink" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="attachedfiles" type="binaryresource" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="iterationnote" type="xs:string" />
+        <xs:element name="author" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="creation" type="xs:dateTime" />
+        <xs:element name="modification" type="xs:dateTime" />
+        <xs:element name="checkin" type="xs:dateTime" />
+        <xs:element name="instanceattributes" type="instanceattribute" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="instanceattributetemplates" type="instanceattributetemplate" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="components" type="partusagelink" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="/*typetypepublicenumtype{component,inseparable_assembly,separable_assembly}*/" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="geometry" >
+      <xs:complexContent>
+       <xs:extension base="binaryresource{">
+         <xs:sequence>
+          <xs:element name="/***startsat0,smallerisgreater.*/quality" type="xs:long" />
+          <xs:element name="//boundingboxxmin" type="xs:double" />
+          <xs:element name="ymin" type="xs:double" />
+          <xs:element name="zmin" type="xs:double" />
+          <xs:element name="xmax" type="xs:double" />
+          <xs:element name="ymax" type="xs:double" />
+          <xs:element name="zmax" type="xs:double" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="lotbasedeffectivity" >
+      <xs:complexContent>
+       <xs:extension base="effectivity{">
+         <xs:sequence>
+          <xs:element name="/***theidentificationofthefirstbatchofitems*thattheeffectivityappliesto.*/startlotid" type="xs:string" />
+          <xs:element name="/***theidentificationofthelastbatchofitems*thattheeffectivityappliesto.*thisvalueisoptional.*/endlotid" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="typeeffectivity" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="partmaster" >
+      <xs:sequence>
+        <xs:element name="number" type="xs:string" />
+        <xs:element name="GeneratedName" type="workspace" nillable="true" minOccurs="0" />
+        <xs:element name="author" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="alternates" type="partalternatelink" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="creationdate" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="type" type="xs:string" />
+        <xs:element name="partrevisions" type="partrevision" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="standardpart" type="xs:anyType" />
+        <xs:element name="attributeslocked" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cadinstance" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="/***translationonxaxis.*/tx" type="xs:double" />
+        <xs:element name="/***translationonyaxis.*/ty" type="xs:double" />
+        <xs:element name="/***translationonzaxis.*/tz" type="xs:double" />
+        <xs:element name="/***radianorientationonxaxis.*/rx" type="xs:double" />
+        <xs:element name="/***radianorientationonyaxis.*/ry" type="xs:double" />
+        <xs:element name="/***radianorientationonzaxis.*/rz" type="xs:double" />
+        <xs:element name="/***rotationmatrix*/" type="rotationmatrix" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="rotationtype" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pathtopathlink" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="type" type="xs:string" />
+        <xs:element name="sourcepath" type="xs:string" />
+        <xs:element name="targetpath" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rotationmatrix" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="m00,m01,m02,m10,m11,m12,m20,m21,m22" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="partmasterkey" >
+      <xs:sequence>
+        <xs:element name="workspace" type="xs:string" />
+        <xs:element name="number" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="partiterationkey" >
+      <xs:sequence>
+        <xs:element name="partrevision" type="partrevisionkey" nillable="true" minOccurs="0" />
+        <xs:element name="iteration" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="partnumberattributetemplate" >
+      <xs:complexContent>
+       <xs:extension base="instanceattributetemplate">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="partmastertemplate" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="workspaceid" type="xs:string" />
+        <xs:element name="idgenerated" type="xs:anyType" />
+        <xs:element name="parttype" type="xs:string" />
+        <xs:element name="mask" type="xs:string" />
+        <xs:element name="GeneratedName" type="acl" nillable="true" minOccurs="0" />
+        <xs:element name="attachedfile" type="binaryresource" nillable="true" minOccurs="0" />
+        <xs:element name="attributetemplates" type="instanceattributetemplate" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="attributeslocked" type="xs:anyType" />
+        <xs:element name="author" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="creation" type="xs:dateTime" />
+        <xs:element name="modification" type="xs:dateTime" />
+        <xs:element name="GeneratedName" type="workspace" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="workflowmodel" nillable="true" minOccurs="0" />
+        <xs:element name="workflowmodelid" type="xs:string" />
+        <xs:element name="attributeinstancetemplates" type="instanceattributetemplate" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="partmastertemplatekey" >
+      <xs:sequence>
+        <xs:element name="workspaceid" type="xs:string" />
+        <xs:element name="id" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="package-info" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="layer" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="author" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="creationdate" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="markers" type="marker" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="configurationitem" nillable="true" minOccurs="0" />
+        <xs:element name="color" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="configurationitem" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="GeneratedName" type="workspace" nillable="true" minOccurs="0" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="/***thetoplevelofthedesignoftheconfigurationitem*whichisthecontextforeffectivities.*/designitem" type="partmaster" nillable="true" minOccurs="0" />
+        <xs:element name="author" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="pathtopathlinks" type="pathtopathlink" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="partsubstitutelink" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="amount" type="xs:double" />
+        <xs:element name="unit" type="xs:string" />
+        <xs:element name="referencedescription" type="xs:string" />
+        <xs:element name="comment" type="xs:string" />
+        <xs:element name="substitute" type="partmaster" nillable="true" minOccurs="0" />
+        <xs:element name="cadinstances" type="cadinstance" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="partusagelink" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="amount" type="xs:double" />
+        <xs:element name="unit" type="xs:string" />
+        <xs:element name="referencedescription" type="xs:string" />
+        <xs:element name="comment" type="xs:string" />
+        <xs:element name="component" type="partmaster" nillable="true" minOccurs="0" />
+        <xs:element name="substitutes" type="partsubstitutelink" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="cadinstances" type="cadinstance" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="optional" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="partalternatelink" >
+      <xs:sequence>
+        <xs:element name="referencedescription" type="xs:string" />
+        <xs:element name="comment" type="xs:string" />
+        <xs:element name="alternate" type="partmaster" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="partlink" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="importpreview" >
+      <xs:sequence>
+        <xs:element name="/***partrevisionswhichwillbecheckedout*/partrevstocheckout" type="partrevision" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="/***partrevisionswhichwillbecreated*/partstocreate" type="partmaster" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="marker" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="effectivities" type="effectivity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="relatedparts" type="partmaster" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="author" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="creationdate" type="xs:anyType" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="/***positiononxaxis.*/x" type="xs:double" />
+        <xs:element name="/***positiononyaxis.*/y" type="xs:double" />
+        <xs:element name="/***positiononzaxis.*/z" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="datebasedeffectivity" >
+      <xs:complexContent>
+       <xs:extension base="effectivity{">
+         <xs:sequence>
+          <xs:element name="/***theand/ortimewhentheeffectivitystarts.*/start" type="xs:dateTime" />
+          <xs:element name="/***theand/ortimewhentheeffectivityends.*ifavalueforthisattributeisnotset,*thentheeffectivityhasnodefinedend.*/end" type="xs:dateTime" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="serialnumberbasedeffectivity" >
+      <xs:complexContent>
+       <xs:extension base="effectivity{">
+         <xs:sequence>
+          <xs:element name="/***theserialnumberofthefirstitemthattheeffectivityappliesto.*/startnumber" type="xs:string" />
+          <xs:element name="/***theserialnumberofthelastitemthattheeffectivityappliesto.*thisvalueisoptional.*/endnumber" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="effectivity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="GeneratedName" type="configurationitem" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="partrevision" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="partmaster" nillable="true" minOccurs="0" />
+        <xs:element name="version" type="xs:string" />
+        <xs:element name="author" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="creation" type="xs:dateTime" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="effectivities" type="effectivity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="partiterations" type="partiteration" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="checkout" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="checkout" type="xs:dateTime" />
+        <xs:element name="GeneratedName" type="workflow" nillable="true" minOccurs="0" />
+        <xs:element name="abortedworkflows" type="workflow" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="partmasternumber" type="xs:string" />
+        <xs:element name="partmasterworkspaceid" type="xs:string" />
+        <xs:element name="GeneratedName" type="acl" nillable="true" minOccurs="0" />
+        <xs:element name="tags" type="tag" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="publicshared" type="xs:anyType" />
+        <xs:element name="status" type="revisionstatus" nillable="true" minOccurs="0" />
+        <xs:element name="release" type="statuschange" nillable="true" minOccurs="0" />
+        <xs:element name="obsolete" type="statuschange" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="partrevisionkey" >
+      <xs:sequence>
+        <xs:element name="partmaster" type="partmasterkey" nillable="true" minOccurs="0" />
+        <xs:element name="version" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="instancepartnumberattribute" >
+      <xs:complexContent>
+       <xs:extension base="instanceattribute{">
+         <xs:sequence>
+          <xs:element name="value" type="partmaster" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="idocumentbaselinemanagerlocal" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="iimportermanagerlocal" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="package-info" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="iaccountmanagerlocal" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ilovmanagerlocal" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="iworkspacemanagerlocal" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ipublicentitymanagerlocal" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="iproductbaselinemanagerlocal" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="idocumentworkflowmanagerlocal" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ioauthmanagerlocal" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="iondemandconvertermanagerlocal" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="iwebhookmanagerlocal" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="iworkflowmanagerlocal" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="icascadeactionmanagerlocal" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ipartworkflowmanagerlocal" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="inotificationmanagerlocal" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="igcmsenderlocal" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ipsfiltermanagerlocal" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="iplatformoptionsmanagerlocal" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="itaskmanagerlocal" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="iusermanagerlocal" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="iconvertermanagerlocal" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="iproductinstancemanagerlocal" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="inotifierlocal" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="iindexermanagerlocal" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="idocumentmanagerlocal" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ibinarystoragemanagerlocal" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="isharemanagerlocal" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ichangemanagerlocal" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="icontextmanagerlocal" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="iplatformhealthmanagerlocal" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="iproductmanagerlocal" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="iorganizationmanagerlocal" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ieffectivitymanagerlocal" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userkey" >
+      <xs:sequence>
+        <xs:element name="workspace" type="xs:string" />
+        <xs:element name="account" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usergroup" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="workspaceid" type="xs:string" />
+        <xs:element name="GeneratedName" type="workspace" nillable="true" minOccurs="0" />
+        <xs:element name="users" type="user" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usergroupkey" >
+      <xs:sequence>
+        <xs:element name="workspaceid" type="xs:string" />
+        <xs:element name="id" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="providedaccountkey" >
+      <xs:sequence>
+        <xs:element name="provider" type="xs:long" />
+        <xs:element name="sub" type="xs:string" />
+        <xs:element name="account" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="binaryresource" >
+      <xs:sequence>
+        <xs:element name="fullname" type="xs:string" />
+        <xs:element name="contentlength" type="xs:long" />
+        <xs:element name="lastmodified" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="workspace" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="admin" type="account" nillable="true" minOccurs="0" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="folderlocked" type="xs:anyType" />
+        <xs:element name="enabled" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="fileholder" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="workspaceid" type="xs:string" />
+        <xs:element name="login" type="xs:string" />
+        <xs:element name="GeneratedName" type="account" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="workspace" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="providedaccount" >
+      <xs:sequence>
+        <xs:element name="provider" type="oauthprovider" nillable="true" minOccurs="0" />
+        <xs:element name="sub" type="xs:string" />
+        <xs:element name="GeneratedName" type="account" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="package-info" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="version" >
+      <xs:sequence>
+        <xs:element name="mversionunits" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="account" >
+      <xs:sequence>
+        <xs:element name="login" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="language" type="xs:string" />
+        <xs:element name="timezone" type="xs:string" />
+        <xs:element name="enabled" type="xs:anyType" />
+        <xs:element name="creation" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="oauthprovider" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="enabled" type="xs:anyType" />
+        <xs:element name="authority" type="xs:string" />
+        <xs:element name="issuer" type="xs:string" />
+        <xs:element name="clientid" type="xs:string" />
+        <xs:element name="jwsalgorithm" type="xs:string" />
+        <xs:element name="jwkseturl" type="xs:string" />
+        <xs:element name="redirecturi" type="xs:string" />
+        <xs:element name="secret" type="xs:string" />
+        <xs:element name="scope" type="xs:string" />
+        <xs:element name="responsetype" type="xs:string" />
+        <xs:element name="authorizationendpoint" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="versionformatexception" >
+      <xs:complexContent>
+       <xs:extension base="illegalargumentexception">
+         <xs:sequence>
+          <xs:element name="merroroffset" type="xs:long" />
+          <xs:element name="minput" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="organization" >
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="owner" type="account" nillable="true" minOccurs="0" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="members" type="account" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="package-info" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="gcmaccount" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="account" nillable="true" minOccurs="0" />
+        <xs:element name="gcmid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="package-info" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="snswebhookapp" >
+      <xs:complexContent>
+       <xs:extension base="webhookapp">
+         <xs:sequence>
+          <xs:element name="app_name" type="xs:string" />
+          <xs:element name="topicarn" type="xs:string" />
+          <xs:element name="region" type="xs:string" />
+          <xs:element name="awsaccount" type="xs:string" />
+          <xs:element name="awssecret" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="webhookapp" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="package-info" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="simplewebhookapp" >
+      <xs:complexContent>
+       <xs:extension base="webhookapp">
+         <xs:sequence>
+          <xs:element name="app_name" type="xs:string" />
+          <xs:element name="method" type="xs:string" />
+          <xs:element name="uri" type="xs:string" />
+          <xs:element name="authorization" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="webhook" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="active" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="workspace" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="webhookapp" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tagkey" >
+      <xs:sequence>
+        <xs:element name="workspace" type="xs:string" />
+        <xs:element name="label" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="folder" >
+      <xs:sequence>
+        <xs:element name="completepath" type="xs:string" />
+        <xs:element name="parent" type="folder" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="listofvalues" >
+      <xs:sequence>
+        <xs:element name="workspaceid" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="GeneratedName" type="workspace" nillable="true" minOccurs="0" />
+        <xs:element name="values" type="namevaluepair" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="defaultattributetemplate" >
+      <xs:complexContent>
+       <xs:extension base="instanceattributetemplate">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="listofvalueskey" >
+      <xs:sequence>
+        <xs:element name="workspaceid" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="instanceattribute" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="mandatory" type="xs:anyType" />
+        <xs:element name="locked" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="instanceurlattribute" >
+      <xs:complexContent>
+       <xs:extension base="instanceattribute">
+         <xs:sequence>
+          <xs:element name="urlvalue" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="statuschange" >
+      <xs:sequence>
+        <xs:element name="statuschangeauthor" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="statusmodification" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="instancedateattribute" >
+      <xs:complexContent>
+       <xs:extension base="instanceattribute{">
+         <xs:sequence>
+          <xs:element name="value" type="xs:dateTime" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="revisionstatus" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="package-info" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="instancelistofvaluesattribute" >
+      <xs:complexContent>
+       <xs:extension base="instanceattribute{">
+         <xs:sequence>
+          <xs:element name="indexvalue" type="xs:long" />
+          <xs:element name="items" type="namevaluepair" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="namevaluepair" >
+      <xs:sequence>
+        <xs:element name="name,value" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="instancebooleanattribute" >
+      <xs:complexContent>
+       <xs:extension base="instanceattribute{">
+         <xs:sequence>
+          <xs:element name="value" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="listofvaluesattributetemplate" >
+      <xs:complexContent>
+       <xs:extension base="instanceattributetemplate">
+         <xs:sequence>
+          <xs:element name="lov" type="listofvalues" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="instancetextattribute" >
+      <xs:complexContent>
+       <xs:extension base="instanceattribute{">
+         <xs:sequence>
+          <xs:element name="textvalue" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="instanceattributetemplate" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="mandatory" type="xs:anyType" />
+        <xs:element name="locked" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="instancelongtextattribute" >
+      <xs:complexContent>
+       <xs:extension base="instanceattribute{">
+         <xs:sequence>
+          <xs:element name="longtextvalue" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tag" >
+      <xs:sequence>
+        <xs:element name="workspaceid" type="xs:string" />
+        <xs:element name="label" type="xs:string" />
+        <xs:element name="GeneratedName" type="workspace" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="instancenumberattribute" >
+      <xs:complexContent>
+       <xs:extension base="instanceattribute{">
+         <xs:sequence>
+          <xs:element name="numbervalue" type="xs:double" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="pathdatamaster" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="path" type="xs:string" />
+        <xs:element name="pathdataiterations" type="pathdataiteration" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="baselineddocumentkey" >
+      <xs:sequence>
+        <xs:element name="documentcollectionid" type="xs:long" />
+        <xs:element name="targetdocumentworkspaceid" type="xs:string" />
+        <xs:element name="targetdocumentid" type="xs:string" />
+        <xs:element name="targetdocumentversion" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pathdataiterationkey" >
+      <xs:sequence>
+        <xs:element name="pathdatamaster" type="xs:long" />
+        <xs:element name="iteration" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="productbaselinetype" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="package-info" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="documentbaselinetype" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="productbaseline" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="configurationitem" nillable="true" minOccurs="0" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="type" type="productbaselinetype" nillable="true" minOccurs="0" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="creationdate" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="partcollection" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="documentcollection" nillable="true" minOccurs="0" />
+        <xs:element name="author" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="*pathsarestringsmadeoforderedlistsofusagelinkidsjoinedby"-".*/substitutelinks" type="xs:anyType" />
+        <xs:element name="*pathsarestringsmadeoforderedlistsofusagelinkidsjoinedby"-".*/optionalusagelinks" type="xs:anyType" />
+        <xs:element name="pathtopathlinks" type="pathtopathlink" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="productinstancemaster" >
+      <xs:sequence>
+        <xs:element name="serialnumber" type="xs:string" />
+        <xs:element name="instanceof" type="configurationitem" nillable="true" minOccurs="0" />
+        <xs:element name="productinstanceiterations" type="productinstanceiteration" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="acl" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="productconfigspec" >
+      <xs:sequence>
+        <xs:element name="retainedpartiterations" type="partiteration" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="retainedsubstitutelinks" type="xs:anyType" />
+        <xs:element name="retainedoptionalusagelinks" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="baselineddocument" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="baselineddocumentkey" nillable="true" minOccurs="0" />
+        <xs:element name="//@mapsid("id")" type="documentcollection" nillable="true" minOccurs="0" />
+        <xs:element name="targetdocument" type="documentiteration" nillable="true" minOccurs="0" />
+        <xs:element name="targetdocumentiteration" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="productinstancemasterkey" >
+      <xs:sequence>
+        <xs:element name="instanceof" type="configurationitemkey" nillable="true" minOccurs="0" />
+        <xs:element name="serialnumber" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pathdataiteration" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="pathdatamaster" nillable="true" minOccurs="0" />
+        <xs:element name="iteration" type="xs:long" />
+        <xs:element name="iterationnote" type="xs:string" />
+        <xs:element name="dateiteration" type="xs:anyType" />
+        <xs:element name="instanceattributes" type="instanceattribute" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="linkeddocuments" type="documentlink" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="attachedfiles" type="binaryresource" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="documentcollection" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="author" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="creation" type="xs:dateTime" />
+        <xs:element name="baselineddocuments" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pathchoice" >
+      <xs:sequence>
+        <xs:element name="resolvedpath" type="resolvedpartlink" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="partusagelink" type="partlink" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="documentbaseline" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="type" type="documentbaselinetype" nillable="true" minOccurs="0" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="creation" type="xs:dateTime" />
+        <xs:element name="GeneratedName" type="documentcollection" nillable="true" minOccurs="0" />
+        <xs:element name="author" type="user" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="baselinedpartkey" >
+      <xs:sequence>
+        <xs:element name="partcollectionid" type="xs:long" />
+        <xs:element name="targetpartworkspaceid" type="xs:string" />
+        <xs:element name="targetpartnumber" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="resolveddocumentlink" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="documentlink" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="documentiteration" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="baselineddocumentbinaryresourcecollection" >
+      <xs:sequence>
+        <xs:element name="rootfoldername" type="xs:string" />
+        <xs:element name="attachedfiles" type="binaryresource" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="productinstanceiteration" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="productinstancemaster" nillable="true" minOccurs="0" />
+        <xs:element name="iteration" type="xs:long" />
+        <xs:element name="iterationnote" type="xs:string" />
+        <xs:element name="GeneratedName" type="partcollection" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="documentcollection" nillable="true" minOccurs="0" />
+        <xs:element name="attachedfiles" type="binaryresource" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="linkeddocuments" type="documentlink" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="instanceattributes" type="instanceattribute" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="basedon" type="productbaseline" nillable="true" minOccurs="0" />
+        <xs:element name="pathdatamasterlist" type="pathdatamaster" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="*pathsarestringsmadeoforderedlistsofusagelinkidsjoinedby"-".*/substitutelinks" type="xs:anyType" />
+        <xs:element name="*pathsarestringsmadeoforderedlistsofusagelinkidsjoinedby"-".*/optionalusagelinks" type="xs:anyType" />
+        <xs:element name="pathtopathlinks" type="pathtopathlink" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="author" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="creation" type="xs:dateTime" />
+        <xs:element name="modification" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="baselinedpart" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="baselinedpartkey" nillable="true" minOccurs="0" />
+        <xs:element name="//@mapsid("id")" type="partcollection" nillable="true" minOccurs="0" />
+        <xs:element name="targetpart" type="partiteration" nillable="true" minOccurs="0" />
+        <xs:element name="targetpartiteration" type="xs:long" />
+        <xs:element name="targetpartversion" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="resolvedcollection" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="partcollection" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="author" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="creationdate" type="xs:anyType" />
+        <xs:element name="baselinedparts" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="resolvedpartlink" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="partiteration" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="partlink" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="productconfiguration" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="configurationitem" nillable="true" minOccurs="0" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="creation" type="xs:dateTime" />
+        <xs:element name="GeneratedName" type="acl" nillable="true" minOccurs="0" />
+        <xs:element name="/***setofsubstitutelinks(actuallytheirpathfromtherootnode)*thathavebeenincludedintothebaseline.*onlyselectedsubstitutelinksarestoredaspartusagelinksareconsideredasthedefault*choicesforbaselines.**pathsarestringsmadeoforderedlistsofusagelinkidsjoinedby"-".*/substitutelinks" type="xs:anyType" />
+        <xs:element name="/***setofoptionalusagelinks(actuallytheirpathfromtherootnode)*thathavebeenincludedintothebaseline.**pathsarestringsmadeoforderedlistsofusagelinkidsjoinedby"-".*/optionalusagelinks" type="xs:anyType" />
+        <xs:element name="author" type="user" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="productstructurefilter" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="productinstanceiterationkey" >
+      <xs:sequence>
+        <xs:element name="productinstancemaster" type="productinstancemasterkey" nillable="true" minOccurs="0" />
+        <xs:element name="iteration" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cascaderesult" >
+      <xs:sequence>
+        <xs:element name="succeedattempts" type="xs:long" />
+        <xs:element name="failedattempts" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="milestone" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="due" type="xs:dateTime" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="GeneratedName" type="workspace" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="acl" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="changeitempriority" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="changeissue" >
+      <xs:complexContent>
+       <xs:extension base="changeitem">
+         <xs:sequence>
+          <xs:element name="/***identifiesthepersonororganizationattheoriginofthechange,maybenull*ifitistheuserwhocreatedtheobject.*/initiator" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="changeorder" >
+      <xs:complexContent>
+       <xs:extension base="changeitem">
+         <xs:sequence>
+          <xs:element name="addressedchangerequests" type="changerequest" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="" type="milestone" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="changeitem" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="GeneratedName" type="workspace" nillable="true" minOccurs="0" />
+        <xs:element name="author" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="assignee" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="acl" nillable="true" minOccurs="0" />
+        <xs:element name="creationdate" type="xs:anyType" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="priority" type="changeitempriority" nillable="true" minOccurs="0" />
+        <xs:element name="/***anadaptivechangemaintainsfunctionalityforadifferentplatformor*environment.*acorrectivechangecorrectsadefect.*aperfectivechangeaddsfunctionality.*apreventivechangeimprovesmaintainability.*/category" type="changeitemcategory" nillable="true" minOccurs="0" />
+        <xs:element name="affectedparts" type="partiteration" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="affecteddocuments" type="documentiteration" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="tags" type="tag" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="modificationnotification" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="modifiedpart" type="partiteration" nillable="true" minOccurs="0" />
+        <xs:element name="impactedpart" type="partiteration" nillable="true" minOccurs="0" />
+        <xs:element name="acknowledged" type="xs:anyType" />
+        <xs:element name="acknowledgementauthor" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="acknowledgement" type="xs:dateTime" />
+        <xs:element name="acknowledgementcomment" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="changerequest" >
+      <xs:complexContent>
+       <xs:extension base="changeitem">
+         <xs:sequence>
+          <xs:element name="addressedchangeissues" type="changeissue" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="" type="milestone" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="package-info" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="changeitemcategory" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="foldernotfoundexception" >
+      <xs:complexContent>
+       <xs:extension base="entitynotfoundexception">
+         <xs:sequence>
+          <xs:element name="mcompletepath" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="changeordernotfoundexception" >
+      <xs:complexContent>
+       <xs:extension base="entitynotfoundexception">
+         <xs:sequence>
+          <xs:element name="mchange" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="applicationexception" >
+      <xs:complexContent>
+       <xs:extension base="exception">
+         <xs:sequence>
+          <xs:element name="bundle_base_name" type="xs:string" />
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="accessrightexception" >
+      <xs:complexContent>
+       <xs:extension base="applicationexception">
+         <xs:sequence>
+          <xs:element name="mname" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="entitynotfoundexception" >
+      <xs:complexContent>
+       <xs:extension base="applicationexception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tagalreadyexistsexception" >
+      <xs:complexContent>
+       <xs:extension base="entityalreadyexistsexception">
+         <xs:sequence>
+          <xs:element name="m" type="tag" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="organizationnotfoundexception" >
+      <xs:complexContent>
+       <xs:extension base="entitynotfoundexception">
+         <xs:sequence>
+          <xs:element name="mname" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="workflowmodelalreadyexistsexception" >
+      <xs:complexContent>
+       <xs:extension base="entityalreadyexistsexception">
+         <xs:sequence>
+          <xs:element name="m" type="workflowmodel" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="productinstanceiterationnotfoundexception" >
+      <xs:complexContent>
+       <xs:extension base="entitynotfoundexception">
+         <xs:sequence>
+          <xs:element name="mproductinstanceiteration" type="productinstanceiterationkey" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="changerequestnotfoundexception" >
+      <xs:complexContent>
+       <xs:extension base="entitynotfoundexception">
+         <xs:sequence>
+          <xs:element name="mchange" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="documentrevisionnotfoundexception" >
+      <xs:complexContent>
+       <xs:extension base="entitynotfoundexception">
+         <xs:sequence>
+          <xs:element name="mdocmid" type="xs:string" />
+          <xs:element name="mdocrversion" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="notallowedexception" >
+      <xs:complexContent>
+       <xs:extension base="applicationexception">
+         <xs:sequence>
+          <xs:element name="mkey" type="xs:string" />
+          <xs:element name="mname" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="convertedresourceexception" >
+      <xs:complexContent>
+       <xs:extension base="applicationexception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="milestonenotfoundexception" >
+      <xs:complexContent>
+       <xs:extension base="entitynotfoundexception">
+         <xs:sequence>
+          <xs:element name="mchange" type="xs:long" />
+          <xs:element name="mtitle" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="configurationitemalreadyexistsexception" >
+      <xs:complexContent>
+       <xs:extension base="entityalreadyexistsexception">
+         <xs:sequence>
+          <xs:element name="m" type="configurationitem" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="workflowmodelnotfoundexception" >
+      <xs:complexContent>
+       <xs:extension base="entitynotfoundexception">
+         <xs:sequence>
+          <xs:element name="mid" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="partiterationnotfoundexception" >
+      <xs:complexContent>
+       <xs:extension base="entitynotfoundexception">
+         <xs:sequence>
+          <xs:element name="mpartmnumber" type="xs:string" />
+          <xs:element name="mpartrversion" type="xs:string" />
+          <xs:element name="mpartiiteration" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="partusagelinknotfoundexception" >
+      <xs:complexContent>
+       <xs:extension base="entitynotfoundexception">
+         <xs:sequence>
+          <xs:element name="mpartusagelink" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="creationexception" >
+      <xs:complexContent>
+       <xs:extension base="applicationexception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="effectivityalreadyexistsexception" >
+      <xs:complexContent>
+       <xs:extension base="entityalreadyexistsexception">
+         <xs:sequence>
+          <xs:element name="m" type="effectivity" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="filealreadyexistsexception" >
+      <xs:complexContent>
+       <xs:extension base="entityalreadyexistsexception">
+         <xs:sequence>
+          <xs:element name="mfullname" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="usergroupnotfoundexception" >
+      <xs:complexContent>
+       <xs:extension base="entitynotfoundexception">
+         <xs:sequence>
+          <xs:element name="mkey" type="usergroupkey" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="markernotfoundexception" >
+      <xs:complexContent>
+       <xs:extension base="entitynotfoundexception">
+         <xs:sequence>
+          <xs:element name="mmarker" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="package-info" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="indexernotavailableexception" >
+      <xs:complexContent>
+       <xs:extension base="applicationexception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tasknotfoundexception" >
+      <xs:complexContent>
+       <xs:extension base="entitynotfoundexception">
+         <xs:sequence>
+          <xs:element name="m" type="taskkey" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="gcmaccountnotfoundexception" >
+      <xs:complexContent>
+       <xs:extension base="entitynotfoundexception">
+         <xs:sequence>
+          <xs:element name="mlogin" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="changeissuenotfoundexception" >
+      <xs:complexContent>
+       <xs:extension base="entitynotfoundexception">
+         <xs:sequence>
+          <xs:element name="mchange" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="filenotfoundexception" >
+      <xs:complexContent>
+       <xs:extension base="entitynotfoundexception">
+         <xs:sequence>
+          <xs:element name="mfullname" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="entityalreadyexistsexception" >
+      <xs:complexContent>
+       <xs:extension base="applicationexception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sharedentitynotfoundexception" >
+      <xs:complexContent>
+       <xs:extension base="entitynotfoundexception">
+         <xs:sequence>
+          <xs:element name="uuid" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="importpreviewexception" >
+      <xs:complexContent>
+       <xs:extension base="exception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="queryalreadyexistsexception" >
+      <xs:complexContent>
+       <xs:extension base="entityalreadyexistsexception">
+         <xs:sequence>
+          <xs:element name="m" type="query" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="wronginputexception" >
+      <xs:complexContent>
+       <xs:extension base="applicationexception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="updateexception" >
+      <xs:complexContent>
+       <xs:extension base="applicationexception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="pathdataalreadyexistsexception" >
+      <xs:complexContent>
+       <xs:extension base="entityalreadyexistsexception">
+         <xs:sequence>
+          <xs:element name="" type="pathdatamaster" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="platformhealthexception" >
+      <xs:complexContent>
+       <xs:extension base="applicationexception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="storageexception" >
+      <xs:complexContent>
+       <xs:extension base="exception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="productinstancealreadyexistsexception" >
+      <xs:complexContent>
+       <xs:extension base="entityalreadyexistsexception">
+         <xs:sequence>
+          <xs:element name="" type="productinstancemaster" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="accountnotfoundexception" >
+      <xs:complexContent>
+       <xs:extension base="entitynotfoundexception">
+         <xs:sequence>
+          <xs:element name="mlogin" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="documentmastertemplatealreadyexistsexception" >
+      <xs:complexContent>
+       <xs:extension base="entityalreadyexistsexception">
+         <xs:sequence>
+          <xs:element name="mdocmtemplate" type="documentmastertemplate" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="pathtopathlinknotfoundexception" >
+      <xs:complexContent>
+       <xs:extension base="entitynotfoundexception">
+         <xs:sequence>
+          <xs:element name="mpathtopathlinkid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="partmasteralreadyexistsexception" >
+      <xs:complexContent>
+       <xs:extension base="entityalreadyexistsexception">
+         <xs:sequence>
+          <xs:element name="m" type="partmaster" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="partmasternotfoundexception" >
+      <xs:complexContent>
+       <xs:extension base="entitynotfoundexception">
+         <xs:sequence>
+          <xs:element name="mpartm" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="baselinenotfoundexception" >
+      <xs:complexContent>
+       <xs:extension base="entitynotfoundexception">
+         <xs:sequence>
+          <xs:element name="mbaseline" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="rolenotfoundexception" >
+      <xs:complexContent>
+       <xs:extension base="entitynotfoundexception">
+         <xs:sequence>
+          <xs:element name="m" type="rolekey" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="documentiterationnotfoundexception" >
+      <xs:complexContent>
+       <xs:extension base="entitynotfoundexception">
+         <xs:sequence>
+          <xs:element name="mdocmid" type="xs:string" />
+          <xs:element name="mdocrversion" type="xs:string" />
+          <xs:element name="mdocistringiteration" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="pathtopathcyclicexception" >
+      <xs:complexContent>
+       <xs:extension base="applicationexception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="milestonealreadyexistsexception" >
+      <xs:complexContent>
+       <xs:extension base="entityalreadyexistsexception">
+         <xs:sequence>
+          <xs:element name="mtitle" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="webhooknotfoundexception" >
+      <xs:complexContent>
+       <xs:extension base="entitynotfoundexception">
+         <xs:sequence>
+          <xs:element name="mid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="usernotfoundexception" >
+      <xs:complexContent>
+       <xs:extension base="entitynotfoundexception">
+         <xs:sequence>
+          <xs:element name="mlogin" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="passwordrecoveryrequestnotfoundexception" >
+      <xs:complexContent>
+       <xs:extension base="entitynotfoundexception">
+         <xs:sequence>
+          <xs:element name="mrecoveryuuid" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="providedaccountnotfoundexception" >
+      <xs:complexContent>
+       <xs:extension base="entitynotfoundexception">
+         <xs:sequence>
+          <xs:element name="mid" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="workspacenotenabledexception" >
+      <xs:complexContent>
+       <xs:extension base="applicationexception">
+         <xs:sequence>
+          <xs:element name="mid" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="usergroupalreadyexistsexception" >
+      <xs:complexContent>
+       <xs:extension base="entityalreadyexistsexception">
+         <xs:sequence>
+          <xs:element name="m" type="usergroup" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="effectivitynotfoundexception" >
+      <xs:complexContent>
+       <xs:extension base="entitynotfoundexception">
+         <xs:sequence>
+          <xs:element name="mid" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="partrevisionnotfoundexception" >
+      <xs:complexContent>
+       <xs:extension base="entitynotfoundexception">
+         <xs:sequence>
+          <xs:element name="mpartmnumber" type="xs:string" />
+          <xs:element name="mpartrversion" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="gcmaccountalreadyexistsexception" >
+      <xs:complexContent>
+       <xs:extension base="entityalreadyexistsexception">
+         <xs:sequence>
+          <xs:element name="mlogin" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="usernotactiveexception" >
+      <xs:complexContent>
+       <xs:extension base="applicationexception">
+         <xs:sequence>
+          <xs:element name="mname" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="entityconstraintexception" >
+      <xs:complexContent>
+       <xs:extension base="applicationexception{">
+         <xs:sequence>
+          <xs:element name="mkey" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="layernotfoundexception" >
+      <xs:complexContent>
+       <xs:extension base="entitynotfoundexception">
+         <xs:sequence>
+          <xs:element name="mlayer" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="workflownotfoundexception" >
+      <xs:complexContent>
+       <xs:extension base="entitynotfoundexception">
+         <xs:sequence>
+          <xs:element name="mid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="accountalreadyexistsexception" >
+      <xs:complexContent>
+       <xs:extension base="entityalreadyexistsexception">
+         <xs:sequence>
+          <xs:element name="mlogin" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="organizationalreadyexistsexception" >
+      <xs:complexContent>
+       <xs:extension base="entityalreadyexistsexception">
+         <xs:sequence>
+          <xs:element name="m" type="organization" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="folderalreadyexistsexception" >
+      <xs:complexContent>
+       <xs:extension base="entityalreadyexistsexception">
+         <xs:sequence>
+          <xs:element name="m" type="folder" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="documentmasteralreadyexistsexception" >
+      <xs:complexContent>
+       <xs:extension base="entityalreadyexistsexception">
+         <xs:sequence>
+          <xs:element name="mdocm" type="documentmaster" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="productinstancemasternotfoundexception" >
+      <xs:complexContent>
+       <xs:extension base="entitynotfoundexception">
+         <xs:sequence>
+          <xs:element name="mproductinstancemaster" type="productinstancemasterkey" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="configurationitemnotfoundexception" >
+      <xs:complexContent>
+       <xs:extension base="entitynotfoundexception">
+         <xs:sequence>
+          <xs:element name="mciid" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="partmastertemplatenotfoundexception" >
+      <xs:complexContent>
+       <xs:extension base="entitynotfoundexception">
+         <xs:sequence>
+          <xs:element name="mpartmtemplateid" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="documentrevisionalreadyexistsexception" >
+      <xs:complexContent>
+       <xs:extension base="entityalreadyexistsexception">
+         <xs:sequence>
+          <xs:element name="mdocr" type="documentrevision" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="workspacealreadyexistsexception" >
+      <xs:complexContent>
+       <xs:extension base="entityalreadyexistsexception">
+         <xs:sequence>
+          <xs:element name="mworkspaceid" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="oauthprovidernotfoundexception" >
+      <xs:complexContent>
+       <xs:extension base="entitynotfoundexception">
+         <xs:sequence>
+          <xs:element name="mid" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="productconfigurationnotfoundexception" >
+      <xs:complexContent>
+       <xs:extension base="entitynotfoundexception">
+         <xs:sequence>
+          <xs:element name="mproductconfigurationid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="indexerrequestexception" >
+      <xs:complexContent>
+       <xs:extension base="applicationexception">
+         <xs:sequence>
+          <xs:element name="error" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="partrevisionalreadyexistsexception" >
+      <xs:complexContent>
+       <xs:extension base="entityalreadyexistsexception">
+         <xs:sequence>
+          <xs:element name="mpartr" type="partrevision" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="listofvaluesnotfoundexception" >
+      <xs:complexContent>
+       <xs:extension base="entitynotfoundexception">
+         <xs:sequence>
+          <xs:element name="mname" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="listofvaluesalreadyexistsexception" >
+      <xs:complexContent>
+       <xs:extension base="entityalreadyexistsexception">
+         <xs:sequence>
+          <xs:element name="mlov" type="listofvalues" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="documentmastertemplatenotfoundexception" >
+      <xs:complexContent>
+       <xs:extension base="entitynotfoundexception">
+         <xs:sequence>
+          <xs:element name="mdocmtemplateid" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="pathdatamasternotfoundexception" >
+      <xs:complexContent>
+       <xs:extension base="entitynotfoundexception">
+         <xs:sequence>
+          <xs:element name="mpathdatamasterid" type="xs:anyType" />
+          <xs:element name="mpathdatamasterpath" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="partmastertemplatealreadyexistsexception" >
+      <xs:complexContent>
+       <xs:extension base="entityalreadyexistsexception">
+         <xs:sequence>
+          <xs:element name="mpartmtemplate" type="partmastertemplate" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="workspacenotfoundexception" >
+      <xs:complexContent>
+       <xs:extension base="entitynotfoundexception">
+         <xs:sequence>
+          <xs:element name="mid" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="useralreadyexistsexception" >
+      <xs:complexContent>
+       <xs:extension base="entityalreadyexistsexception">
+         <xs:sequence>
+          <xs:element name="m" type="user" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="partrevisionnotreleasedexception" >
+      <xs:complexContent>
+       <xs:extension base="applicationexception">
+         <xs:sequence>
+          <xs:element name="mciid" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tagnotfoundexception" >
+      <xs:complexContent>
+       <xs:extension base="entitynotfoundexception">
+         <xs:sequence>
+          <xs:element name="m" type="tagkey" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="pathtopathlinkalreadyexistsexception" >
+      <xs:complexContent>
+       <xs:extension base="entityalreadyexistsexception">
+         <xs:sequence>
+          <xs:element name="m" type="pathtopathlink" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="rolealreadyexistsexception" >
+      <xs:complexContent>
+       <xs:extension base="entityalreadyexistsexception">
+         <xs:sequence>
+          <xs:element name="m" type="role" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="package-info" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="workspacebackoptions" >
+      <xs:sequence>
+        <xs:element name="send_emails_default" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="workspace" nillable="true" minOccurs="0" />
+        <xs:element name="/***indicatesthatthesystemmustnotsendemailnotifications.*usuallyusedwhenusingathirdnotificationsystemconnectedthrough*webhooks.*/sendemails" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="workspacefrontoptions" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="workspace" nillable="true" minOccurs="0" />
+        <xs:element name="parttablecolumns" type="xs:anyType" />
+        <xs:element name="documenttablecolumns" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="operationsecuritystrategy" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="platformoptions" >
+      <xs:sequence>
+        <xs:element name="unique_id" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="registrationstrategy" type="operationsecuritystrategy" nillable="true" minOccurs="0" />
+        <xs:element name="workspacecreationstrategy" type="operationsecuritystrategy" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="queryrule" >
+      <xs:sequence>
+        <xs:element name="qid" type="xs:long" />
+        <xs:element name="condition" type="xs:string" />
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="field" type="xs:string" />
+        <xs:element name="type" type="xs:string" />
+        <xs:element name="operator" type="xs:string" />
+        <xs:element name="values" type="xs:anyType" />
+        <xs:element name="parent" type="queryrule" nillable="true" minOccurs="0" />
+        <xs:element name="subqueryrules" type="queryrule" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="query" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="author" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="creation" type="xs:dateTime" />
+        <xs:element name="GeneratedName" type="queryrule" nillable="true" minOccurs="0" />
+        <xs:element name="pathdata" type="queryrule" nillable="true" minOccurs="0" />
+        <xs:element name="selects" type="xs:anyType" />
+        <xs:element name="orderbylist" type="xs:anyType" />
+        <xs:element name="groupedbylist" type="xs:anyType" />
+        <xs:element name="contexts" type="querycontext" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="documentsearchquery" >
+      <xs:complexContent>
+       <xs:extension base="searchquery">
+         <xs:sequence>
+          <xs:element name="docmid" type="xs:string" />
+          <xs:element name="title" type="xs:string" />
+          <xs:element name="folder" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="searchquery" >
+      <xs:complexContent>
+       <xs:extension base="abstractattributequery{">
+         <xs:sequence>
+          <xs:element name="workspaceid" type="xs:string" />
+          <xs:element name="query" type="xs:string" />
+          <xs:element name="version" type="xs:string" />
+          <xs:element name="author" type="xs:string" />
+          <xs:element name="type" type="xs:string" />
+          <xs:element name="creationfrom" type="xs:dateTime" />
+          <xs:element name="creationto" type="xs:dateTime" />
+          <xs:element name="modificationfrom" type="xs:dateTime" />
+          <xs:element name="modificationto" type="xs:dateTime" />
+          <xs:element name="attributes" type="xs:anyType" />
+          <xs:element name="tags" type="xs:string" />
+          <xs:element name="content" type="xs:string" />
+          <xs:element name="fetchheadonly" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="querycontext" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="workspaceid" type="xs:string" />
+        <xs:element name="serialnumber" type="xs:string" />
+        <xs:element name="configurationitemid" type="xs:string" />
+        <xs:element name="parent" type="query" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="queryfield" >
+      <xs:sequence>
+        <xs:element name="part_master_number" type="xs:string" />
+        <xs:element name="part_master_name" type="xs:string" />
+        <xs:element name="part_master_type" type="xs:string" />
+        <xs:element name="part_master_is_standard" type="xs:string" />
+        <xs:element name="part_revision_part_key" type="xs:string" />
+        <xs:element name="part_revision_version" type="xs:string" />
+        <xs:element name="part_revision_modification_date" type="xs:string" />
+        <xs:element name="part_revision_checkin_date" type="xs:string" />
+        <xs:element name="part_revision_checkout_date" type="xs:string" />
+        <xs:element name="part_revision_creation_date" type="xs:string" />
+        <xs:element name="part_revision_lifecycle_state" type="xs:string" />
+        <xs:element name="part_revision_status" type="xs:string" />
+        <xs:element name="part_iteration_linked_documents" type="xs:string" />
+        <xs:element name="part_revision_attributes_prefix" type="xs:string" />
+        <xs:element name="path_data_attributes_prefix" type="xs:string" />
+        <xs:element name="author_login" type="xs:string" />
+        <xs:element name="author_name" type="xs:string" />
+        <xs:element name="ctx_serial_number" type="xs:string" />
+        <xs:element name="ctx_product_id" type="xs:string" />
+        <xs:element name="ctx_depth" type="xs:string" />
+        <xs:element name="ctx_amount" type="xs:string" />
+        <xs:element name="ctx_p2p_source" type="xs:string" />
+        <xs:element name="ctx_p2p_target" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="queryresultrow" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="partrevision" nillable="true" minOccurs="0" />
+        <xs:element name="depth" type="xs:long" />
+        <xs:element name="sources" type="xs:anyType" />
+        <xs:element name="targets" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="pathdataiteration" nillable="true" minOccurs="0" />
+        <xs:element name="results" type="xs:double" />
+        <xs:element name="context" type="querycontext" nillable="true" minOccurs="0" />
+        <xs:element name="amount" type="xs:double" />
+        <xs:element name="path" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="package-info" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="partsearchquery" >
+      <xs:complexContent>
+       <xs:extension base="searchquery">
+         <xs:sequence>
+          <xs:element name="partnumber" type="xs:string" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="standardpart" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="partrevisiontest" >
+      <xs:complexContent>
+       <xs:extension base="testcase">
+         <xs:sequence>
+          <xs:element name="" type="partrevision" nillable="true" minOccurs="0" />
+          <xs:element name="" type="user" nillable="true" minOccurs="0" />
+          <xs:element name="partiterations" type="partiteration" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema> 

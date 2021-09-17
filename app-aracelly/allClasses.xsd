@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="application" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="marcacontroller" >
+      <xs:sequence>
+        <xs:element name="service" type="imarcaservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="compraproductocontroller" >
+      <xs:sequence>
+        <xs:element name="service" type="icompraproductoservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="productocontroller" >
+      <xs:sequence>
+        <xs:element name="service" type="iproductoservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="supervisorcontroller" >
+      <xs:sequence>
+        <xs:element name="service" type="isupervisorservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="clientecontroller" >
+      <xs:sequence>
+        <xs:element name="service" type="iclienteservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="vendedorcontroller" >
+      <xs:sequence>
+        <xs:element name="service" type="ivendedorservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ventacontroller" >
+      <xs:sequence>
+        <xs:element name="service" type="iventaservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="iproductoservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="imarcaservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="iclienteservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ivendedorservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="icrud" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="iventaservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="icompraproductoservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="isupervisorservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="compraproductoserviceimpl" >
+      <xs:sequence>
+        <xs:element name="repo" type="icompraproductorepo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="marcaserviceimpl" >
+      <xs:sequence>
+        <xs:element name="repo" type="imarcarepo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="productoserviceimpl" >
+      <xs:sequence>
+        <xs:element name="repo" type="iproductorepo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ventaserviceimpl" >
+      <xs:sequence>
+        <xs:element name="repo" type="iventarepo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="vendedorserviceimpl" >
+      <xs:sequence>
+        <xs:element name="repo" type="ivendedorrepo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="clienteserviceimpl" >
+      <xs:sequence>
+        <xs:element name="repo" type="iclienterepo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="supervisorserviceimpl" >
+      <xs:sequence>
+        <xs:element name="repo" type="isupervisorrepo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="modelonotfoundexception" >
+      <xs:complexContent>
+       <xs:extension base="runtimeexception{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="compraproducto" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="producto" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="venta" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="venta" >
+      <xs:sequence>
+        <xs:element name="idventa" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="vendedor" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="cliente" nillable="true" minOccurs="0" />
+        <xs:element name="costo" type="xs:long" />
+        <xs:element name="fecha" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="compraproductopk" >
+      <xs:sequence>
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="GeneratedName" type="producto" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="venta" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="vendedor" >
+      <xs:sequence>
+        <xs:element name="idvendedor" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="supervisor" nillable="true" minOccurs="0" />
+        <xs:element name="nombre" type="xs:string" />
+        <xs:element name="direccion" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cliente" >
+      <xs:sequence>
+        <xs:element name="idcliente" type="xs:anyType" />
+        <xs:element name="nombrecliente" type="xs:string" />
+        <xs:element name="direccioncliente" type="xs:string" />
+        <xs:element name="telefonocliente" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="producto" >
+      <xs:sequence>
+        <xs:element name="idproducto" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="marca" nillable="true" minOccurs="0" />
+        <xs:element name="valor" type="xs:long" />
+        <xs:element name="descripcion" type="xs:string" />
+        <xs:element name="ventas" type="venta" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="supervisor" >
+      <xs:sequence>
+        <xs:element name="idsupervisor" type="xs:anyType" />
+        <xs:element name="nombre" type="xs:string" />
+        <xs:element name="direccion" type="xs:string" />
+        <xs:element name="telefono" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="marca" >
+      <xs:sequence>
+        <xs:element name="idmarca" type="xs:anyType" />
+        <xs:element name="descripcion" type="xs:string" />
+        <xs:element name="direccion" type="xs:string" />
+        <xs:element name="ciudad" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="apparacellyapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="iproductorepo" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<producto,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="isupervisorrepo" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<supervisor,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="imarcarepo" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<marca,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="icompraproductorepo" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<compraproducto,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="iclienterepo" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<cliente,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ivendedorrepo" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<vendedor,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="iventarepo" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<venta,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="apparacellyapplicationtests" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

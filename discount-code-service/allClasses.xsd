@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="swaggerconfiguration" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="crossreferenceid" >
+      <xs:sequence>
+        <xs:element name="customerid" type="xs:long" />
+        <xs:element name="companyid" type="xs:long" />
+        <xs:element name="discountcode" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="discountcode" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="code" type="xs:string" />
+        <xs:element name="available" type="xs:anyType" />
+        <xs:element name="companyid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="customer" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+        <xs:element name="phone" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="company" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="companyname" type="xs:string" />
+        <xs:element name="website" type="xs:string" />
+        <xs:element name="contactinfo" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="customerdiscount" >
+      <xs:sequence>
+        <xs:element name="customerid" type="xs:long" />
+        <xs:element name="companyid" type="xs:long" />
+        <xs:element name="discountcode" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="fetchercontroller" >
+      <xs:sequence>
+        <xs:element name="discountcode" type="fetcherservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="fetcherservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="discountcoderepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="customerrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="customerdiscountrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="fetchrequest" >
+      <xs:sequence>
+        <xs:element name="companyid" type="xs:long" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="phone" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="generatorcontroller" >
+      <xs:sequence>
+        <xs:element name="codegeneratingservice" type="generatorservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="generaterequest" >
+      <xs:sequence>
+        <xs:element name="companyid" type="xs:long" />
+        <xs:element name="numberofcodes" type="xs:long" />
+        <xs:element name="discountamount" type="xs:long" />
+        <xs:element name="ispercentage" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="generatorservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="discountcoderepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="customerdiscountrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<customerdiscount,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="discountcoderepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<discountcode,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="companyrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<company,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="customerrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<customer,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="discountcodeserviceapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="liquibase-changelog" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="application" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="fetcherservicetest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="discountcoderepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="customerrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="customerdiscountrepository" nillable="true" minOccurs="0" />
+        <xs:element name="discountcode" type="fetcherservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="fetchercontrollertest" >
+      <xs:sequence>
+        <xs:element name="template" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="generatorservicetest" >
+      <xs:sequence>
+        <xs:element name="repository" type="discountcoderepository" nillable="true" minOccurs="0" />
+        <xs:element name="code" type="generatorservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="generatorcontrollertest" >
+      <xs:sequence>
+        <xs:element name="template" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="discountcodeserviceapplicationtests" >
+      <xs:sequence>
+        <xs:element name="template" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

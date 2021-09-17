@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="area" >
+      <xs:sequence>
+        <xs:element name="areaid" type="xs:anyType" />
+        <xs:element name="areaname" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="activity" >
+      <xs:sequence>
+        <xs:element name="activityid" type="xs:anyType" />
+        <xs:element name="activityname" type="xs:string" />
+        <xs:element name="activity" type="xs:dateTime" />
+        <xs:element name="activitytime" type="xs:string" />
+        <xs:element name="duration" type="xs:long" />
+        <xs:element name="memberid" type="member" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="member" >
+      <xs:sequence>
+        <xs:element name="memberid" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="address" type="xs:string" />
+        <xs:element name="town" type="xs:string" />
+        <xs:element name="city" type="xs:string" />
+        <xs:element name="postcode" type="xs:string" />
+        <xs:element name="//@column(nullable" type="xs:string" />
+        <xs:element name="phone" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="role" type="xs:string" />
+        <xs:element name="enabled" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bookmember" >
+      <xs:sequence>
+        <xs:element name="activityid" type="xs:anyType" />
+        <xs:element name="memberid" type="xs:anyType" />
+        <xs:element name="activityroleid" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="activityrole" >
+      <xs:sequence>
+        <xs:element name="roleid" type="xs:anyType" />
+        <xs:element name="rolename" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

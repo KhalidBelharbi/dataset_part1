@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="tacorepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<taco,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="orderrepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<order,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ingredientrepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userrepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<user,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ingredient" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="securityconfig" >
+      <xs:complexContent>
+       <xs:extension base="websecurityconfigureradapter{">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="registrationform" >
+      <xs:sequence>
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="fullname" type="xs:string" />
+        <xs:element name="street" type="xs:string" />
+        <xs:element name="city" type="xs:string" />
+        <xs:element name="state" type="xs:string" />
+        <xs:element name="zip" type="xs:string" />
+        <xs:element name="phone" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userrepositoryuserdetailsservice" >
+      <xs:sequence>
+        <xs:element name="userrepo" type="userrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="registrationcontroller" >
+      <xs:sequence>
+        <xs:element name="userrepo" type="userrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="order" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="deliveryname" type="xs:string" />
+        <xs:element name="deliverystreet" type="xs:string" />
+        <xs:element name="deliverycity" type="xs:string" />
+        <xs:element name="deliverystate" type="xs:string" />
+        <xs:element name="deliveryzip" type="xs:string" />
+        <xs:element name="ccnumber" type="xs:string" />
+        <xs:element name="ccexpiration" type="xs:string" />
+        <xs:element name="cccvv" type="xs:string" />
+        <xs:element name="tacos" type="taco" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="placedat" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:complexContent>
+       <xs:extension base="grantedauthority>">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="username" type="xs:string" />
+          <xs:element name="password" type="xs:string" />
+          <xs:element name="fullname" type="xs:string" />
+          <xs:element name="street" type="xs:string" />
+          <xs:element name="city" type="xs:string" />
+          <xs:element name="state" type="xs:string" />
+          <xs:element name="zip" type="xs:string" />
+          <xs:element name="phonenumber" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="taco" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="createdat" type="xs:dateTime" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="ingredients" type="ingredient" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tacocloudapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ordercontroller" >
+      <xs:sequence>
+        <xs:element name="orderrepo" type="orderrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="webconfig" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="designtacocontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="ingredientrepository" nillable="true" minOccurs="0" />
+        <xs:element name="designrepo" type="tacorepository" nillable="true" minOccurs="0" />
+        <xs:element name="userrepo" type="userrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ingredientbyidconverter" >
+      <xs:sequence>
+        <xs:element name="ingredientrepo" type="ingredientrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="styles" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="login" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="registration" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="home" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="application" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="schema" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="homecontrollertest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tacocloudapplicationtests" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

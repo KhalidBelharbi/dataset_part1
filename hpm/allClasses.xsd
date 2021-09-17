@@ -1,0 +1,845 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="consignmentcompanyapplication" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="consignmentcompany" nillable="true" minOccurs="0" />
+        <xs:element name="startdt" type="xs:anyType" />
+        <xs:element name="enddt" type="xs:anyType" />
+        <xs:element name="/***접수자*/reg" type="member" nillable="true" minOccurs="0" />
+        <xs:element name="applicationloglist" type="applicationlog" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="consignmentcompany" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="tel" type="xs:string" />
+        <xs:element name="fax" type="xs:string" />
+        <xs:element name="postnumber" type="xs:anyType" />
+        <xs:element name="adress" type="xs:string" />
+        <xs:element name="adressdetail" type="xs:string" />
+        <xs:element name="etc" type="xs:string" />
+        <xs:element name="del" type="yn" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="consignmentcompanysearchvo" >
+      <xs:complexContent>
+       <xs:extension base="commonsearchvo{">
+         <xs:sequence>
+          <xs:element name="name" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="consignmentcompanyservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="consignmentcompanyrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="consignmentcompanyapplicationservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="consignmentcompanyapplicationrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="applicationlogrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="consignmentcompanyrepositorydslimpl" >
+      <xs:complexContent>
+       <xs:extension base="querydslrepositorysupport">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="consignmentcompanyapplicationrepositorydsl" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="consignmentcompanyapplicationrepositorydslimpl" >
+      <xs:complexContent>
+       <xs:extension base="querydslrepositorysupport">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="consignmentcompanyrepositorydsl" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="consignmentcompanyapplicationrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<consignmentcompanyapplication,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="consignmentcompanyrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<consignmentcompany,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="customerrepositorydslimpl" >
+      <xs:complexContent>
+       <xs:extension base="querydslrepositorysupport">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="customerrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<customer,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="customerrepositorydsl" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="customersearchvo" >
+      <xs:complexContent>
+       <xs:extension base="commonsearchvo{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="customer" >
+      <xs:sequence>
+        <xs:element name="/***serialversionuid*/serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="/***거래처명*/name" type="xs:string" />
+        <xs:element name="/***대표자명*/repname" type="xs:string" />
+        <xs:element name="/***사업자번호*/companyregnumber" type="xs:string" />
+        <xs:element name="/***업태*/bizcondition" type="xs:string" />
+        <xs:element name="/***종목*/item" type="xs:string" />
+        <xs:element name="/***전화번호*/tel" type="xs:string" />
+        <xs:element name="/***연락처*/mobile" type="xs:string" />
+        <xs:element name="/***이메일*/email" type="xs:string" />
+        <xs:element name="/***팩스번호*/fax" type="xs:string" />
+        <xs:element name="/***담당자*/picname" type="xs:string" />
+        <xs:element name="/***우편번호*/postnumber" type="xs:anyType" />
+        <xs:element name="/***주소*/adress" type="xs:string" />
+        <xs:element name="/***상세주소*/adressdetail" type="xs:string" />
+        <xs:element name="/***/etc" type="xs:string" />
+        <xs:element name="del" type="yn" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="customerservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="customerrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="applicationlogvo" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="consignmentcompany" type="xs:long" />
+        <xs:element name="/***검수타입*/inspectiontype" type="xs:string" />
+        <xs:element name="/***접수번호*/regnumber" type="xs:string" />
+        <xs:element name="/***장비명*/devicename" type="xs:string" />
+        <xs:element name="/***기기번호*/devicenumber" type="xs:string" />
+        <xs:element name="/***제조사*/productioncompany" type="xs:string" />
+        <xs:element name="/***모델*/model" type="xs:string" />
+        <xs:element name="/***규격*/standard" type="xs:string" />
+        <xs:element name="/***분해능*/resolution" type="xs:string" />
+        <xs:element name="/***수량*/quantity" type="xs:long" />
+        <xs:element name="/***성적서번호*/reportnumber" type="xs:string" />
+        <xs:element name="/***단위*/unit" type="xs:string" />
+        <xs:element name="/***비고*/etc" type="xs:string" />
+        <xs:element name="/***입출타입*/carrytype" type="xs:string" />
+        <xs:element name="/***교정료*/correctionfee" type="xs:long" />
+        <xs:element name="/***교정일자*/correctiondate" type="xs:anyType" />
+        <xs:element name="/***장소*/place" type="xs:string" />
+        <xs:element name="/***실무자*/practitioner" type="xs:string" />
+        <xs:element name="/***중분류*/middlecategory" type="xs:string" />
+        <xs:element name="/***소분류*/smallcategory" type="xs:string" />
+        <xs:element name="/***발행일*/publisheddate" type="xs:anyType" />
+        <xs:element name="/***기술챔임자*/technicalmanager" type="xs:string" />
+        <xs:element name="/***성적서영어*/reportlanguage" type="xs:string" />
+        <xs:element name="/***수정유무*/edite" type="xs:anyType" />
+        <xs:element name="/***삭제구분*/del" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="applogalllistvo" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="/***업체*/customername" type="xs:string" />
+        <xs:element name="/***담당자*/customerpicname" type="xs:string" />
+        <xs:element name="/***전화번호*/customertel" type="xs:string" />
+        <xs:element name="/***연락처*/customermobile" type="xs:string" />
+        <xs:element name="/***이메일*/customeremail" type="xs:string" />
+        <xs:element name="requestcustomername" type="xs:string" />
+        <xs:element name="requestcustomeraddress" type="xs:string" />
+        <xs:element name="/***발행업체동일여부*/customersame" type="yn" nillable="true" minOccurs="0" />
+        <xs:element name="/***현장교정필요*/fieldcorrectionneed" type="yn" nillable="true" minOccurs="0" />
+        <xs:element name="/***권장교정일주기기입여부*/reccalibrationday" type="yn" nillable="true" minOccurs="0" />
+        <xs:element name="/***교정신청날짜타입*/" type="appliregdatetype" nillable="true" minOccurs="0" />
+        <xs:element name="/***교정신청일*/appliregdate" type="xs:anyType" />
+        <xs:element name="/***신청인*/applicant" type="xs:string" />
+        <xs:element name="/***신청인이메일*/applicantemail" type="xs:string" />
+        <xs:element name="/***인수자*/consignee" type="xs:string" />
+        <xs:element name="/***인수일*/takeoverdate" type="xs:anyType" />
+        <xs:element name="/***전달방법*/" type="takeovertype" nillable="true" minOccurs="0" />
+        <xs:element name="/***접수자*/regmembername" type="xs:string" />
+        <xs:element name="/***접수일*/regdate" type="xs:anyType" />
+        <xs:element name="applicationloglistconsignmentcompanyname" type="xs:string" />
+        <xs:element name="/***기기명*/devicename" type="xs:string" />
+        <xs:element name="/***수량*/quantity" type="xs:long" />
+        <xs:element name="/***성적서번호*/reportnumber" type="xs:string" />
+        <xs:element name="/***제작회사*/productioncompany" type="xs:string" />
+        <xs:element name="/***기기번호*/devicenumber" type="xs:string" />
+        <xs:element name="/***규격*/standard" type="xs:string" />
+        <xs:element name="/***단위*/unit" type="xs:string" />
+        <xs:element name="/***교정일자*/correctiondate" type="xs:anyType" />
+        <xs:element name="/***장소*/place" type="xs:string" />
+        <xs:element name="/***실무자*/practitioner" type="xs:string" />
+        <xs:element name="/***중분류*/middlecategory" type="xs:string" />
+        <xs:element name="/***소분류*/smallcategory" type="xs:string" />
+        <xs:element name="/***발행일*/publisheddate" type="xs:anyType" />
+        <xs:element name="/***기술챔임자*/technicalmanager" type="xs:string" />
+        <xs:element name="/***성적서영어*/" type="reportlanguage" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="applicationvo" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="customer" nillable="true" minOccurs="0" />
+        <xs:element name="requestcustomername" type="xs:string" />
+        <xs:element name="requestcustomeraddress" type="xs:string" />
+        <xs:element name="/***발행업체동일여부*/customersame" type="yn" nillable="true" minOccurs="0" />
+        <xs:element name="/***현장교정필요*/fieldcorrectionneed" type="yn" nillable="true" minOccurs="0" />
+        <xs:element name="/***권장교정일주기기입여부*/reccalibrationday" type="yn" nillable="true" minOccurs="0" />
+        <xs:element name="/***교정신청날짜타입*/appliregdatetype" type="xs:string" />
+        <xs:element name="/***교정신청일*/appliregdate" type="xs:anyType" />
+        <xs:element name="/***신청인*/applicant" type="xs:string" />
+        <xs:element name="/***신청인이메일*/applicantemail" type="xs:string" />
+        <xs:element name="/***인수자*/consignee" type="xs:string" />
+        <xs:element name="/***인수일*/takeoverdate" type="xs:anyType" />
+        <xs:element name="/***전달방법*/takeovertype" type="xs:string" />
+        <xs:element name="/***접수자*/reg" type="member" nillable="true" minOccurs="0" />
+        <xs:element name="/***접수일*/regdate" type="xs:anyType" />
+        <xs:element name="applicationloglist" type="applicationlogvo" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="customersignimg" type="attachfile" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="applicationsearchvo" >
+      <xs:complexContent>
+       <xs:extension base="commonsearchvo{">
+         <xs:sequence>
+          <xs:element name="customer" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="applicationlogsearchvo" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="consignmentcompany" nillable="true" minOccurs="0" />
+        <xs:element name="startdt" type="xs:anyType" />
+        <xs:element name="enddt" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="applicationrepositorydsl" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="applicationrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<application,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="applicationlogrepositorydslimpl" >
+      <xs:complexContent>
+       <xs:extension base="querydslrepositorysupport">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="applicationlogrepositorydsl" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="applicationlogrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<applicationlog,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="applicationrepositorydslimpl" >
+      <xs:complexContent>
+       <xs:extension base="querydslrepositorysupport">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="applicationlogservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="applicationlogrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="applicationservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="applicationrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="applicationlogrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="attachfilerepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="uploadresourceimagefileutil" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="applicationlog" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="application" nillable="true" minOccurs="0" />
+        <xs:element name="/***위탁기관*/" type="consignmentcompany" nillable="true" minOccurs="0" />
+        <xs:element name="/***검수타입*/" type="inspectiontype" nillable="true" minOccurs="0" />
+        <xs:element name="/***접수번호*/regnumber" type="xs:string" />
+        <xs:element name="/***장비명*/devicename" type="xs:string" />
+        <xs:element name="/***기기번호*/devicenumber" type="xs:string" />
+        <xs:element name="/***제조사*/productioncompany" type="xs:string" />
+        <xs:element name="/***모델*/model" type="xs:string" />
+        <xs:element name="/***규격*/standard" type="xs:string" />
+        <xs:element name="/***분해능*/resolution" type="xs:string" />
+        <xs:element name="/***수량*/quantity" type="xs:long" />
+        <xs:element name="/***성적서번호*/reportnumber" type="xs:string" />
+        <xs:element name="/***단위*/unit" type="xs:string" />
+        <xs:element name="/***비고*/etc" type="xs:string" />
+        <xs:element name="/***입출타입*/" type="carrytype" nillable="true" minOccurs="0" />
+        <xs:element name="/***교정료*/correctionfee" type="xs:long" />
+        <xs:element name="/***교정일자*/correctiondate" type="xs:anyType" />
+        <xs:element name="/***장소*/place" type="xs:string" />
+        <xs:element name="/***실무자*/practitioner" type="xs:string" />
+        <xs:element name="/***중분류*/middlecategory" type="xs:string" />
+        <xs:element name="/***소분류*/smallcategory" type="xs:string" />
+        <xs:element name="/***발행일*/publisheddate" type="xs:anyType" />
+        <xs:element name="/***기술챔임자*/technicalmanager" type="xs:string" />
+        <xs:element name="/***성적서영어*/" type="reportlanguage" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="application" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="/***업체*/" type="customer" nillable="true" minOccurs="0" />
+        <xs:element name="requestcustomername" type="xs:string" />
+        <xs:element name="requestcustomeraddress" type="xs:string" />
+        <xs:element name="/***발행업체동일여부*/customersame" type="yn" nillable="true" minOccurs="0" />
+        <xs:element name="/***현장교정필요*/fieldcorrectionneed" type="yn" nillable="true" minOccurs="0" />
+        <xs:element name="/***권장교정일주기기입여부*/reccalibrationday" type="yn" nillable="true" minOccurs="0" />
+        <xs:element name="/***교정신청날짜타입*/" type="appliregdatetype" nillable="true" minOccurs="0" />
+        <xs:element name="/***교정신청일*/appliregdate" type="xs:anyType" />
+        <xs:element name="/***신청인*/applicant" type="xs:string" />
+        <xs:element name="/***신청인이메일*/applicantemail" type="xs:string" />
+        <xs:element name="/***인수자*/consignee" type="xs:string" />
+        <xs:element name="/***인수일*/takeoverdate" type="xs:anyType" />
+        <xs:element name="/***전달방법*/" type="takeovertype" nillable="true" minOccurs="0" />
+        <xs:element name="/***접수자*/reg" type="member" nillable="true" minOccurs="0" />
+        <xs:element name="/***접수일*/regdate" type="xs:anyType" />
+        <xs:element name="applicationloglist" type="applicationlog" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="customersignimg" type="attachfile" nillable="true" minOccurs="0" />
+        <xs:element name="del" type="yn" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="customauthenticationprovider" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="customuserdetailsservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="customusernamepasswordautthenticationfilter" >
+      <xs:complexContent>
+       <xs:extension base="usernamepasswordauthenticationfilter{">
+         <xs:sequence>
+          <xs:element name="postonly" type="xs:anyType" />
+          <xs:element name="jsonrequest" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="springsecurityconfig" >
+      <xs:complexContent>
+       <xs:extension base="websecurityconfigureradapter{">
+         <xs:sequence>
+          <xs:element name="authprovider" type="customauthenticationprovider" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="securitymember" >
+      <xs:complexContent>
+       <xs:extension base="user{">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="memberid" type="xs:string" />
+          <xs:element name="name" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="restauthenticationsuccesshandler" >
+      <xs:complexContent>
+       <xs:extension base="simpleurlauthenticationsuccesshandler{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="restauthenticationfailurehandler" >
+      <xs:complexContent>
+       <xs:extension base="simpleurlauthenticationfailurehandler{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="webmvcconfig" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="customuserdetailsservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="memberrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="springsecurityoauth2config" >
+      <xs:complexContent>
+       <xs:extension base="websecurityconfigureradapter{">
+         <xs:sequence>
+          <xs:element name="authprovider" type="customauthenticationprovider" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="oauth2resourceserverconfig" >
+      <xs:complexContent>
+       <xs:extension base="resourceserverconfigureradapter">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="corsfilter" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="customtokenenhancer" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="oauth2authorizationconfig" >
+      <xs:complexContent>
+       <xs:extension base="authorizationserverconfigureradapter{">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="customaccesstokenconverter" nillable="true" minOccurs="0" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="customuserdetailsservice" nillable="true" minOccurs="0" />
+          <xs:element name="signkey" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="customaccesstokenconverter" >
+      <xs:complexContent>
+       <xs:extension base="defaultaccesstokenconverter">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="oauthtoken" >
+      <xs:sequence>
+        <xs:element name="access_token" type="xs:string" />
+        <xs:element name="token_type" type="xs:string" />
+        <xs:element name="refresh_token" type="xs:string" />
+        <xs:element name="expires_in" type="xs:long" />
+        <xs:element name="scope" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hpmapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="commonsearchvo" >
+      <xs:sequence>
+        <xs:element name="/***검색조건*/condition" type="xs:string" />
+        <xs:element name="/***검색키워드*/keyword" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="servletinitializer" >
+      <xs:complexContent>
+       <xs:extension base="springbootservletinitializer">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="takeovertype" >
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="value" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="reportlanguage" >
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="value" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="appliregdatetype" >
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="value" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="carrytype" >
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="value" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="yn" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="inspectiontype" >
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="value" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="imageutil" >
+      <xs:sequence>
+        <xs:element name="mediamap" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="uploadresourceimagefileutil" >
+      <xs:sequence>
+        <xs:element name="resourceimagepath" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="fileutil" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="fileconfig" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="uploadfileutil" >
+      <xs:sequence>
+        <xs:element name="uploadfilepath" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="commoncoderepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<commoncode,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="commoncoderepositorydsl" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="commoncoderepositorydslimpl" >
+      <xs:complexContent>
+       <xs:extension base="querydslrepositorysupport">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="commoncodeservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="commoncoderepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="commoncode" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="/***분류코드*/code" type="xs:string" />
+        <xs:element name="/***분류코드이름*/codename" type="xs:string" />
+        <xs:element name="/***분류코드설명*/codedesc" type="xs:string" />
+        <xs:element name="pid" type="commoncode" nillable="true" minOccurs="0" />
+        <xs:element name="codelist" type="commoncode" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="/***수정유무*/edite" type="xs:anyType" />
+        <xs:element name="/***삭제구분*/del" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="commoncodesearchvo" >
+      <xs:complexContent>
+       <xs:extension base="commonsearchvo{">
+         <xs:sequence>
+          <xs:element name="name" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="commoncodevo" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="/***분류코드*/code" type="xs:string" />
+        <xs:element name="/***분류코드이름*/codename" type="xs:string" />
+        <xs:element name="/***분류코드설명*/codedesc" type="xs:string" />
+        <xs:element name="/***수정유무*/edite" type="xs:anyType" />
+        <xs:element name="/***삭제구분*/del" type="xs:anyType" />
+        <xs:element name="pid" type="xs:long" />
+        <xs:element name="codelist" type="commoncodevo" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="menurole" >
+      <xs:sequence>
+        <xs:element name="rolemenu" type="xs:anyType" />
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="//@joincolumn(name" type="menu" nillable="true" minOccurs="0" />
+        <xs:element name="//@joincolumn(name" type="role" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="menu" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="url" type="xs:string" />
+        <xs:element name="menuname" type="xs:string" />
+        <xs:element name="level" type="xs:long" />
+        <xs:element name="naviuseyn" type="xs:string" />
+        <xs:element name="useyn" type="xs:string" />
+        <xs:element name="menulist" type="menu" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="pid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="fileservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="attachfilerepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="attachfilerepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<attachfile,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="attachfilevo" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="realname" type="xs:string" />
+        <xs:element name="virtualname" type="xs:string" />
+        <xs:element name="extension" type="xs:string" />
+        <xs:element name="thumbnailyn" type="xs:string" />
+        <xs:element name="regid" type="xs:long" />
+        <xs:element name="resourcepath" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="attachfile" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="fullpath" type="xs:string" />
+        <xs:element name="savedpath" type="xs:string" />
+        <xs:element name="//@transientresourcepath" type="xs:string" />
+        <xs:element name="realname" type="xs:string" />
+        <xs:element name="virtualname" type="xs:string" />
+        <xs:element name="extension" type="xs:string" />
+        <xs:element name="thumbnailyn" type="xs:string" />
+        <xs:element name="regid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="roleservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="rolerepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="role" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="rolename" type="xs:string" />
+        <xs:element name="roledesc" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rolerepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<role,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="membervo" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="memberid" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="memberpassword" type="xs:string" />
+        <xs:element name="passwordconfirm" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="mobile" type="xs:string" />
+        <xs:element name="GeneratedName" type="role" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="memberpasswordchangevo" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="memberpassword" type="xs:string" />
+        <xs:element name="passwordconfirm" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="membersearchvo" >
+      <xs:complexContent>
+       <xs:extension base="commonsearchvo{">
+         <xs:sequence>
+          <xs:element name="memberid" type="xs:string" />
+          <xs:element name="name" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="memberrepositorydsl" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="memberrepositorydslimpl" >
+      <xs:complexContent>
+       <xs:extension base="querydslrepositorysupport">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="memberrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<member,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="memberrolerepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<memberrole,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="memberrole" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="GeneratedName" type="member" nillable="true" minOccurs="0" />
+        <xs:element name="//@jsonignore" type="role" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="memberrolepk" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="GeneratedName" type="member" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="role" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="member" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="memberid" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="memberpassword" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="mobile" type="xs:string" />
+        <xs:element name="del" type="yn" nillable="true" minOccurs="0" />
+        <xs:element name="//@onetomany(fetch" type="role" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="memberservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="memberrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rolecontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="roleservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="customercontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="customerservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="logincontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="apierrorcontroller" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="consignmentcompanycontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="consignmentcompanyservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="applicationcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="applicationservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="applicationlogservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="commoncodeservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="applicationlogcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="applicationlogservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="filecontroller" >
+      <xs:sequence>
+        <xs:element name="filepath" type="xs:string" />
+        <xs:element name="GeneratedName" type="fileservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="uploadresourceimagefileutil" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="commoncodecontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="commoncodeservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="membercontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="memberservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="consignmentcompanyapplicationcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="consignmentcompanyapplicationservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="logincontrollertest" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hpmapplicationtests" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

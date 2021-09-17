@@ -1,0 +1,23 @@
+
+accountrequestdocument(requester:String, reason1:String, reason2:String, requesttype:String);
+
+trav_doc_2_accounts(doc_hdr_id:AccountRequestDocument [PK] #FK to AccountRequestDocument,acct_num:list<account> [PK] #FK to list<account>);
+
+accounttype(accounttypecode:String [PK], name:String);
+
+accountextension(number:String [PK], accounttypecode:String, GeneratedName:AccountType #FK to(accounttype));
+
+accountmanager(username:String, amid:Long [PK]);
+
+account(number:String [PK], name:String, amid:Long, GeneratedName:AccountManager #FK to(accountmanager));
+
+accountwithddattributesdocument(serialversionuid:long, accountnumber:Integer, accountowner:String, accountbalance:KualiDecimal, accountopen:Date, accountupdatedatetime:Timestamp, accountstate:String, accountawake:boolean);
+
+searchattributeindextestdocument(log:org.apache.log4j.Logger, serialversionuid:long, routelevelcount:int, constant:String, routed:String, heldrouted:String, readaccesscount:int);
+
+accountrequestdocumentwithcyclicalreference(requester:String, reason1:String, reason2:String, requesttype:String, child:AccountRequestDocumentWithCyclicalReference #FK to(accountrequestdocumentwithcyclicalreference), parent:AccountRequestDocumentWithCyclicalReference #FK to(accountrequestdocumentwithcyclicalreference));
+
+trav_doc_2_accounts(doc_hdr_id:AccountRequestDocumentWithCyclicalReference [PK] #FK to AccountRequestDocumentWithCyclicalReference,acct_num:list<account> [PK] #FK to list<account>);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

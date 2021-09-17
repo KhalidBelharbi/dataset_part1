@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="aplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="loginwebcontroller" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="indexwebcontroller" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bankaccountscontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="bankaccountsservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sessioncontroller" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bankaccountsmapper" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usersmapper" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="securityconfig" >
+      <xs:complexContent>
+       <xs:extension base="websecurityconfigureradapter">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="authenticationfilter" >
+      <xs:complexContent>
+       <xs:extension base="usernamepasswordauthenticationfilter">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="customuserdetailsservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="usersservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="custompasswordencoder" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="businesslogicexception" >
+      <xs:complexContent>
+       <xs:extension base="runtimeexception">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="bankaccountentity" >
+      <xs:sequence>
+        <xs:element name="bankaccountid" type="xs:long" />
+        <xs:element name="iban" type="xs:string" />
+        <xs:element name="balance" type="xs:double" />
+        <xs:element name="owner" type="userentity" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userentity" >
+      <xs:sequence>
+        <xs:element name="userid" type="xs:long" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="role" type="xs:string" />
+        <xs:element name="ownedbankaccounts" type="bankaccountentity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="allowedaccounts" type="bankaccountentity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="successdto" >
+      <xs:sequence>
+        <xs:element name="success" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sessioninfodto" >
+      <xs:sequence>
+        <xs:element name="authenticated" type="xs:anyType" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="roles" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="deletebankaccountdto" >
+      <xs:sequence>
+        <xs:element name="iban" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bankaccountdto" >
+      <xs:sequence>
+        <xs:element name="iban" type="xs:string" />
+        <xs:element name="balance" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userdto" >
+      <xs:sequence>
+        <xs:element name="userid" type="xs:long" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="role" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="fundsdto" >
+      <xs:sequence>
+        <xs:element name="iban" type="xs:string" />
+        <xs:element name="funds" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="logindto" >
+      <xs:sequence>
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bankaccountsrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<bankaccountentity,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jparepository" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usersrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<userentity,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ibanservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bankaccountsservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="bankaccountsrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="bankaccountsmapper" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="usersrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="ibanservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usersservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="usersrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="usersmapper" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

@@ -1,0 +1,75 @@
+
+personauth(/***thepersonid.*/personid:String [PK], /***thepersonname.*/personname:String, /***theage.*/age:Integer, a:byte);
+
+personcassandra(/***thepersonid.*/personid:String [PK], /***thepersonname.*/personname:String, /***theage.*/age:Integer, a:byte);
+
+counters(id:String [PK], counter:int);
+
+supercounters(id:String [PK], counter:int, lcounter:long, GeneratedName:SubCounter);
+
+employee(personid:String [PK], personname:String, manager:Employee #FK to(Employee));
+
+studentcassandra(//primitivetypesstudentid:long [PK], uniqueid:long, studentname:String, isexceptional:boolean, age:int, //a,b,c,d,e,fforitovisemester:char, digitalsignature:byte, //1-10cgpa:short, percentage:float, height:double, //date-timetypesenrolmentdate:java.util.Date, enrolmenttime:java.util.Date, joiningdateandtime:java.util.Date, //wrappertypesyearsspent:Integer, rollnumber:Long, monthlyfee:Double, sqldate:java.sql.Date, sqltimestamp:java.sql.Timestamp, sqltime:java.sql.Time, GeneratedName:BigInteger, GeneratedName:BigDecimal, GeneratedName:Calendar);
+
+usercassandra(userid:String [PK], //embeddedobject,willpersistco-located:PersonalDetail, //elementcollection,willpersistco-locatedtweets:List<Tweet>, //one-to-one,willbepersistedseparatelypreference:PreferenceCassandra #FK to(PreferenceCassandra));
+
+externallinkcassandra(extlinkid:String [PK], linktype:String, linkaddress:String);
+
+preferencecassandra(preferenceid:String [PK], websitetheme:String, //1,2,3privacylevel:String);
+
+cassandraentitypersonbi1to1pk(/***thepersonid.*/personid:String [PK], /***thepersonname.*/personname:String, /***thepersonaldata.*/personaldata:CassandraPersonalData, /***theaddress.*/address:CassandraEntityAddressBi1To1PK #FK to(cassandraentityaddressbi1to1pk));
+
+cassandraentityaddressbi1to1fk(/***theaddressid.*/addressid:String [PK], /***thestreet.*/street:String, /***theperson.*/person:CassandraEntityPersonBi1To1FK #FK to(cassandraentitypersonbi1to1fk));
+
+validcountercolumnfamily(id:int [PK], counter:long, lcounter:Long);
+
+cassandraentitypersonunimto1(/***thepersonid.*/personid:String [PK], /***thepersonname.*/personname:String, /***theage.*/age:short, /***thepersonaldata.*/personaldata:CassandraPersonalData, /***theaddress.*/address:CassandraEntityAddressUniMTo1 #FK to(cassandraentityaddressunimto1));
+
+cassandraentityhabitatunimtom(addressid:String [PK], street:String);
+
+cassandraentitypersonuni1to1pk(/***thepersonid.*/personid:String [PK], /***thepersonname.*/personname:String, /***thepersonaldata.*/personaldata:CassandraPersonalData, /***theaddress.*/address:CassandraEntityAddressUni1To1PK #FK to(cassandraentityaddressuni1to1pk));
+
+cassandraentityaddressuni1tom(/***theaddressid.*/addressid:String [PK], /***thestreet.*/street:String);
+
+cassandraentitypersonbi1to1fk(/***thepersonid.*/personid:String [PK], /***thepersonname.*/personname:String, /***thepersonaldata.*/personaldata:CassandraPersonalData, /***theaddress.*/address:CassandraEntityAddressBi1To1FK #FK to(cassandraentityaddressbi1to1fk));
+
+cassandraentityaddressuni1to1(/***theaddressid.*/addressid:String [PK], /***thestreet.*/street:String);
+
+cassandraentitysimple(/***thepersonid.*/personid:String [PK], /***thepersonname.*/personname:String, /***theage.*/age:short);
+
+cassandraentityaddressbi1to1pk(/***thepersonid.*/personid:String [PK], /***theaddressid.*/addressid:String, /***thestreet.*/street:String, /***theperson.*/person:CassandraEntityPersonBi1To1PK #FK to(CassandraEntityPersonBi1To1PK));
+
+cassandraentitysuper(/***thepersonid.*/personid:String [PK], /***thepersonname.*/personname:String, /***theage.*/age:short, /***thepersonaldata.*/personaldata:CassandraPersonalData);
+
+cassandraentityaddressunimto1(/***theaddressid.*/addressid:String [PK], /***thestreet.*/street:String);
+
+cassandraentitypersonbimto1(/***thepersonid.*/personid:String [PK], /***thepersonname.*/personname:String, /***thepersonaldata.*/personaldata:CassandraPersonalData, /***theaddress.*/address:CassandraEntityAddressBiMTo1 #FK to(cassandraentityaddressbimto1));
+
+cassandraentitypersonbi1tom(/***thepersonid.*/personid:String [PK], /***thepersonname.*/personname:String, /***thepersonaldata.*/personaldata:CassandraPersonalData);
+
+invalidcountercolumnentity(id:int [PK], counter:long, lcounter:String);
+
+cassandraentitypersonnelunimtom(personid:String [PK], personname:String, personaldata:CassandraPersonalData);
+
+personnel_address(person_id:CassandraEntityPersonnelUniMToM [PK] #FK to CassandraEntityPersonnelUniMToM,address_id:set<cassandraentityhabitatunimtom> [PK] #FK to set<cassandraentityhabitatunimtom>);
+
+cassandraentitypersonuni1to1(/***thepersonid.*/personid:String [PK], /***thepersonname.*/personname:String, /***theage.*/age:short, /***thepersonaldata.*/personaldata:CassandraPersonalData, /***theaddress.*/address:CassandraEntityAddressUni1To1 #FK to(cassandraentityaddressuni1to1));
+
+cassandraentityaddressbi1tom(/***theaddressid.*/addressid:String [PK], /***thestreet.*/street:String, /***theperson.*/person:CassandraEntityPersonBi1ToM #FK to(cassandraentitypersonbi1tom));
+
+cassandraentitypersonuni1tom(/***thepersonid.*/personid:String [PK], /***thepersonname.*/personname:String, /***theage.*/age:short, /***thepersonaldata.*/personaldata:CassandraPersonalData);
+
+doctor(id:String [PK], name:String, age:long);
+
+cassandraentityaddressbimto1(/***theaddressid.*/addressid:String [PK], /***thestreet.*/street:String);
+
+cassandraentityaddressuni1to1pk(/***thepersonid.*/personid:String [PK], /***theaddressid.*/addressid:String, /***thestreet.*/street:String);
+
+cassandrauuidentity(key:UUID [PK], name:String, age:Integer);
+
+cassandraentitysample(key:String [PK], full_name:String, birth_date:Integer, state:String);
+
+pelopsdatahandler(/***thetimestamp.*/timestamp:long, /***the.*/:Log);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

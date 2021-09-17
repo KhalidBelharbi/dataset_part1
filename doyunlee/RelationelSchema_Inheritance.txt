@@ -1,0 +1,17 @@
+
+product(prdno:long [PK], prdname:String, prdimg:String, prdprice:String, prdinv:String, ctgname:String, GeneratedName:Category #FK to(category));
+
+reply(rplno:long [PK], rplcontent:String, rplwrtdate:String, usrname:String, usrno:String, boardno:String, GeneratedName:Board #FK to(board));
+
+uservo(usrno:Long [PK], //usrname:String, usrnickname:String, usremail:String, password:String, usrages:String, usrcity:String, usrgender:String, usrphone:String, //사용자아이디username:String, usraddr:String, roles:List<Role>);
+
+payment(payno:long [PK], payprice:String, payinfo:String, paydate:String, paystate:String, rcvname:String, rcvphone:String, rcvaddr:String, GeneratedName:UserVo #FK to(uservo), GeneratedName:Product #FK to(Product), GeneratedName:Cart #FK to(cart));
+
+board(brdno:long [PK], brdtitle:String, brdcontent:String, brdwrtdate:String, brdrank:String, brdimg:String, brdkind:long, brdcount:long, brdlike:String, brdpwd:String, usrname:String, usrno:String, productno:long, //(fetch:Payment #FK to(payment), GeneratedName:Product #FK to(Product));
+
+cart(cartno:long [PK], cartamount:long, GeneratedName:Payment #FK to(payment));
+
+category(ctgno:long [PK], ctgname:String);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

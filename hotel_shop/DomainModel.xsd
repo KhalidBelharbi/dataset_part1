@@ -1,0 +1,2474 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="sobject" >
+      <xs:sequence>
+        <xs:element name="/***theconstantserialversionuid.*/serialversionuid" type="xs:long" />
+        <xs:element name="/***thefirmid.*/firmid" type="xs:anyType" />
+        <xs:element name="/***theversion.*/version" type="xs:anyType" />
+        <xs:element name="/***theserieskey.*/serieskey" type="xs:string" />
+        <xs:element name="/***thecreatedby.*/createdby" type="xs:string" />
+        <xs:element name="/***thelastmodifiedby.*/lastmodifiedby" type="xs:string" />
+        <xs:element name="/***thecreateon.*/createon" type="xs:dateTime" />
+        <xs:element name="/***themodifyon.*/modifyon" type="xs:dateTime" />
+        <xs:element name="popularity" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userrole" >
+      <xs:sequence>
+        <xs:element name="/***theconstantserialversionuid.*/serialversionuid" type="xs:long" />
+        <xs:element name="/***theid.*/id" type="xs:anyType" />
+        <xs:element name="/***the.*/" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="/***therole.*/role" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:complexContent>
+       <xs:extension base="sobject">
+         <xs:sequence>
+          <xs:element name="/***theconstantserialversionuid.*/serialversionuid" type="xs:long" />
+          <xs:element name="/***theid.*/id" type="xs:anyType" />
+          <xs:element name="/***theusername.*/username" type="xs:string" />
+          <xs:element name="/***thepassword.*/password" type="xs:string" />
+          <xs:element name="/***thefirstname.*/firstname" type="xs:string" />
+          <xs:element name="/***thelastname.*/lastname" type="xs:string" />
+          <xs:element name="/***theemail.*/email" type="xs:string" />
+          <xs:element name="/***theenabled.*/enabled" type="xs:anyType" />
+          <xs:element name="/***theactivated.*/activated" type="xs:anyType" />
+          <xs:element name="/***thelangkey.*/langkey" type="xs:string" />
+          <xs:element name="/***theactivationkey.*/activationkey" type="xs:string" />
+          <xs:element name="landingpage" type="xs:string" />
+          <xs:element name="/***theuserrole.*/userrole" type="userrole" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="servtransfer" >
+      <xs:complexContent>
+       <xs:extension base="sentity">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="" type="currcurrency" nillable="true" minOccurs="0" />
+          <xs:element name="bypaymenttypeid" type="dictglobal" nillable="true" minOccurs="0" />
+          <xs:element name="bytypetransferid" type="dictglobal" nillable="true" minOccurs="0" />
+          <xs:element name="bytransportid" type="dictglobal" nillable="true" minOccurs="0" />
+          <xs:element name="" type="locationcities" nillable="true" minOccurs="0" />
+          <xs:element name="" type="locationcountries" nillable="true" minOccurs="0" />
+          <xs:element name="" type="tmaccount" nillable="true" minOccurs="0" />
+          <xs:element name="from" type="xs:dateTime" />
+          <xs:element name="to" type="xs:dateTime" />
+          <xs:element name="descr" type="xs:string" />
+          <xs:element name="passengersphones" type="xs:string" />
+          <xs:element name="price" type="xs:anyType" />
+          <xs:element name="transfername" type="xs:string" />
+          <xs:element name="visittable" type="xs:string" />
+          <xs:element name="relservtransfertmcontacts" type="relservtransfertmcontact" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="servtransferroutes" type="servtransferroute" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="currcurrency" >
+      <xs:complexContent>
+       <xs:extension base="sentity">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="course" type="xs:anyType" />
+          <xs:element name="currencyname" type="xs:string" />
+          <xs:element name="descr" type="xs:string" />
+          <xs:element name="isbase" type="xs:anyType" />
+          <xs:element name="isocode" type="xs:string" />
+          <xs:element name="nameeng" type="xs:string" />
+          <xs:element name="nameru" type="xs:string" />
+          <xs:element name="servtransfers" type="servtransfer" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="servtransferroutes" type="servtransferroute" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="locationcountries" >
+      <xs:complexContent>
+       <xs:extension base="sobject">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="countryname" type="xs:string" />
+          <xs:element name="descr" type="xs:string" />
+          <xs:element name="isocode" type="xs:string" />
+          <xs:element name="nameeng" type="xs:string" />
+          <xs:element name="tmcontacts" type="tmcontact" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="servhotels" type="servhotel" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="locationcitieses" type="locationcities" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="servtransfers" type="servtransfer" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="tmaccounts" type="tmaccount" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="tmcontacteasies" type="tmcontacteasy" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="shopuser" >
+      <xs:complexContent>
+       <xs:extension base="sentity">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="activated" type="xs:anyType" />
+          <xs:element name="activationkey" type="xs:string" />
+          <xs:element name="email" type="xs:string" />
+          <xs:element name="enabled" type="xs:anyType" />
+          <xs:element name="firstname" type="xs:string" />
+          <xs:element name="lastname" type="xs:string" />
+          <xs:element name="password" type="xs:string" />
+          <xs:element name="username" type="xs:string" />
+          <xs:element name="imageid" type="xs:anyType" />
+          <xs:element name="token" type="xs:string" />
+          <xs:element name="phonenumber" type="xs:string" />
+          <xs:element name="shoppermissionid" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="paymenttariffshop" >
+      <xs:complexContent>
+       <xs:extension base="sentity">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="percentageofallowances" type="xs:anyType" />
+          <xs:element name="ispercentageofallowances" type="xs:anyType" />
+          <xs:element name="paymentpriceshops" type="paymentpriceshop" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="servhotelrooms" type="servhotelroom" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="relservhotelimage" >
+      <xs:complexContent>
+       <xs:extension base="srel">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="" type="servhotel" nillable="true" minOccurs="0" />
+          <xs:element name="" type="tmimage" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tmcontact" >
+      <xs:complexContent>
+       <xs:extension base="sobject">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="" type="locationcountries" nillable="true" minOccurs="0" />
+          <xs:element name="birthday" type="xs:dateTime" />
+          <xs:element name="contactname" type="xs:string" />
+          <xs:element name="contactpatronymic" type="xs:string" />
+          <xs:element name="contactsurname" type="xs:string" />
+          <xs:element name="descr" type="xs:string" />
+          <xs:element name="passportend" type="xs:dateTime" />
+          <xs:element name="passportnumber" type="xs:string" />
+          <xs:element name="passportstart" type="xs:dateTime" />
+          <xs:element name="relservtransfertmcontacts" type="relservtransfertmcontact" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tmmailnewsletterview" >
+      <xs:complexContent>
+       <xs:extension base="sview">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="version" type="xs:anyType" />
+          <xs:element name="subject" type="xs:string" />
+          <xs:element name="content" type="xs:string" />
+          <xs:element name="backgroundcolor" type="xs:string" />
+          <xs:element name="badge" type="xs:string" />
+          <xs:element name="badgetype" type="xs:string" />
+          <xs:element name="createdby" type="xs:string" />
+          <xs:element name="createon" type="xs:dateTime" />
+          <xs:element name="firm" type="xs:anyType" />
+          <xs:element name="lastmodifiedby" type="xs:string" />
+          <xs:element name="modifyon" type="xs:dateTime" />
+          <xs:element name="popularity" type="xs:anyType" />
+          <xs:element name="serieskey" type="xs:string" />
+          <xs:element name="label" type="xs:string" />
+          <xs:element name="relmailnewslettergroups" type="relmailnewslettergroupview" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userrolesview" >
+      <xs:complexContent>
+       <xs:extension base="sview">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="role" type="xs:string" />
+          <xs:element name="users" type="xs:string" />
+          <xs:element name="usersid" type="xs:anyType" />
+          <xs:element name="usersusercolor" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="reqservhotelprocessedview" >
+      <xs:complexContent>
+       <xs:extension base="sview">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="version" type="xs:anyType" />
+          <xs:element name="createdby" type="xs:string" />
+          <xs:element name="createon" type="xs:dateTime" />
+          <xs:element name="firm" type="xs:anyType" />
+          <xs:element name="lastmodifiedby" type="xs:string" />
+          <xs:element name="modifyon" type="xs:dateTime" />
+          <xs:element name="serieskey" type="xs:string" />
+          <xs:element name="label" type="xs:string" />
+          <xs:element name="accept" type="xs:anyType" />
+          <xs:element name="datedifference" type="xs:string" />
+          <xs:element name="decline" type="xs:anyType" />
+          <xs:element name="departure" type="xs:dateTime" />
+          <xs:element name="descr" type="xs:string" />
+          <xs:element name="paymenttype" type="xs:anyType" />
+          <xs:element name="price" type="xs:anyType" />
+          <xs:element name="progress" type="xs:anyType" />
+          <xs:element name="race" type="xs:dateTime" />
+          <xs:element name="roomcount" type="xs:anyType" />
+          <xs:element name="singleprice" type="xs:anyType" />
+          <xs:element name="tariffcurrency" type="xs:string" />
+          <xs:element name="requestnumber" type="xs:string" />
+          <xs:element name="cancel" type="xs:anyType" />
+          <xs:element name="confirm" type="xs:anyType" />
+          <xs:element name="archived" type="xs:anyType" />
+          <xs:element name="popularity" type="xs:anyType" />
+          <xs:element name="docdocumentsbydocumentforuser" type="xs:string" />
+          <xs:element name="docdocumentsbydocumentforuserid" type="xs:anyType" />
+          <xs:element name="docdocumentsbydocumentforhotel" type="xs:string" />
+          <xs:element name="docdocumentsbydocumentforhotelid" type="xs:anyType" />
+          <xs:element name="paymentprice" type="xs:string" />
+          <xs:element name="paymentpriceid" type="xs:anyType" />
+          <xs:element name="paymenttariff" type="xs:string" />
+          <xs:element name="paymenttariffid" type="xs:anyType" />
+          <xs:element name="servhotel" type="xs:string" />
+          <xs:element name="servhotelid" type="xs:anyType" />
+          <xs:element name="servhotelroom" type="xs:string" />
+          <xs:element name="servhotelroomid" type="xs:anyType" />
+          <xs:element name="usersbyrequestuser" type="xs:string" />
+          <xs:element name="usersbyrequestuserid" type="xs:anyType" />
+          <xs:element name="usersbyrequestuserusercolor" type="xs:string" />
+          <xs:element name="usersbyresponseuser" type="xs:string" />
+          <xs:element name="usersbyresponseuserid" type="xs:anyType" />
+          <xs:element name="usersbyresponseuserusercolor" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="docdocumentsview" >
+      <xs:complexContent>
+       <xs:extension base="sview">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="version" type="xs:anyType" />
+          <xs:element name="createdby" type="xs:string" />
+          <xs:element name="createon" type="xs:dateTime" />
+          <xs:element name="firm" type="xs:anyType" />
+          <xs:element name="lastmodifiedby" type="xs:string" />
+          <xs:element name="modifyon" type="xs:dateTime" />
+          <xs:element name="serieskey" type="xs:string" />
+          <xs:element name="contenttype" type="xs:string" />
+          <xs:element name="extension" type="xs:string" />
+          <xs:element name="originalfilename" type="xs:string" />
+          <xs:element name="path" type="xs:string" />
+          <xs:element name="simpletype" type="xs:string" />
+          <xs:element name="size" type="xs:string" />
+          <xs:element name="synopsis" type="xs:string" />
+          <xs:element name="popularity" type="xs:anyType" />
+          <xs:element name="label" type="xs:string" />
+          <xs:element name="tmfirmsettingses" type="tmfirmsettingsview" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="relservhoteldocdocumentses" type="relservhoteldocdocumentsview" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="reqservhotelsfordocumentforuserid" type="reqservhotelview" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="reqservhotelsfordocumentforhotelid" type="reqservhotelview" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="infopermissions" type="infopermissionview" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="infopermissionview" >
+      <xs:complexContent>
+       <xs:extension base="sview">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="version" type="xs:anyType" />
+          <xs:element name="descr" type="xs:string" />
+          <xs:element name="createdby" type="xs:string" />
+          <xs:element name="createon" type="xs:dateTime" />
+          <xs:element name="firm" type="xs:anyType" />
+          <xs:element name="lastmodifiedby" type="xs:string" />
+          <xs:element name="modifyon" type="xs:dateTime" />
+          <xs:element name="popularity" type="xs:anyType" />
+          <xs:element name="serieskey" type="xs:string" />
+          <xs:element name="label" type="xs:string" />
+          <xs:element name="docdocuments" type="xs:string" />
+          <xs:element name="docdocumentsid" type="xs:anyType" />
+          <xs:element name="relshoppermissions" type="relshoppermissionview" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="paymenttariffsimpleview" >
+      <xs:complexContent>
+       <xs:extension base="sview">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="createdby" type="xs:string" />
+          <xs:element name="createon" type="xs:dateTime" />
+          <xs:element name="firmid" type="xs:anyType" />
+          <xs:element name="lastmodifiedby" type="xs:string" />
+          <xs:element name="modifyon" type="xs:dateTime" />
+          <xs:element name="serieskey" type="xs:string" />
+          <xs:element name="version" type="xs:anyType" />
+          <xs:element name="price" type="xs:anyType" />
+          <xs:element name="humannumber" type="xs:anyType" />
+          <xs:element name="cost" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="relservtransfertmcontactview" >
+      <xs:complexContent>
+       <xs:extension base="sview">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="servtransfer" type="xs:string" />
+          <xs:element name="servtransferid" type="xs:anyType" />
+          <xs:element name="tmcontact" type="xs:string" />
+          <xs:element name="tmcontactid" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userdetailview" >
+      <xs:complexContent>
+       <xs:extension base="sview">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="version" type="xs:anyType" />
+          <xs:element name="companyname" type="xs:string" />
+          <xs:element name="companysite" type="xs:string" />
+          <xs:element name="createdby" type="xs:string" />
+          <xs:element name="createon" type="xs:dateTime" />
+          <xs:element name="firm" type="xs:anyType" />
+          <xs:element name="lastmodifiedby" type="xs:string" />
+          <xs:element name="modifyon" type="xs:dateTime" />
+          <xs:element name="popularity" type="xs:anyType" />
+          <xs:element name="serieskey" type="xs:string" />
+          <xs:element name="label" type="xs:string" />
+          <xs:element name="reluserdetailses" type="reluserdetailsview" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tmimageview" >
+      <xs:complexContent>
+       <xs:extension base="sview">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="version" type="xs:anyType" />
+          <xs:element name="createdby" type="xs:string" />
+          <xs:element name="createon" type="xs:dateTime" />
+          <xs:element name="firm" type="xs:anyType" />
+          <xs:element name="lastmodifiedby" type="xs:string" />
+          <xs:element name="modifyon" type="xs:dateTime" />
+          <xs:element name="serieskey" type="xs:string" />
+          <xs:element name="contenttype" type="xs:string" />
+          <xs:element name="extension" type="xs:string" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="originalfilename" type="xs:string" />
+          <xs:element name="path" type="xs:string" />
+          <xs:element name="size" type="xs:string" />
+          <xs:element name="popularity" type="xs:anyType" />
+          <xs:element name="relservhotelimages" type="relservhotelimageview" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="relservhotelroomimages" type="relservhotelroomimageview" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="reqservhotelview" >
+      <xs:complexContent>
+       <xs:extension base="sview">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="version" type="xs:anyType" />
+          <xs:element name="createdby" type="xs:string" />
+          <xs:element name="createon" type="xs:dateTime" />
+          <xs:element name="firm" type="xs:anyType" />
+          <xs:element name="lastmodifiedby" type="xs:string" />
+          <xs:element name="modifyon" type="xs:dateTime" />
+          <xs:element name="serieskey" type="xs:string" />
+          <xs:element name="label" type="xs:string" />
+          <xs:element name="accept" type="xs:anyType" />
+          <xs:element name="datedifference" type="xs:string" />
+          <xs:element name="decline" type="xs:anyType" />
+          <xs:element name="departure" type="xs:dateTime" />
+          <xs:element name="descr" type="xs:string" />
+          <xs:element name="paymenttype" type="xs:anyType" />
+          <xs:element name="price" type="xs:anyType" />
+          <xs:element name="progress" type="xs:anyType" />
+          <xs:element name="race" type="xs:dateTime" />
+          <xs:element name="roomcount" type="xs:anyType" />
+          <xs:element name="singleprice" type="xs:anyType" />
+          <xs:element name="tariffcurrency" type="xs:string" />
+          <xs:element name="requestnumber" type="xs:string" />
+          <xs:element name="cancel" type="xs:anyType" />
+          <xs:element name="confirm" type="xs:anyType" />
+          <xs:element name="archived" type="xs:anyType" />
+          <xs:element name="popularity" type="xs:anyType" />
+          <xs:element name="docdocumentsbydocumentforuser" type="xs:string" />
+          <xs:element name="docdocumentsbydocumentforuserid" type="xs:anyType" />
+          <xs:element name="docdocumentsbydocumentforhotel" type="xs:string" />
+          <xs:element name="docdocumentsbydocumentforhotelid" type="xs:anyType" />
+          <xs:element name="paymentprice" type="xs:string" />
+          <xs:element name="paymentpriceid" type="xs:anyType" />
+          <xs:element name="paymenttariff" type="xs:string" />
+          <xs:element name="paymenttariffid" type="xs:anyType" />
+          <xs:element name="servhotel" type="xs:string" />
+          <xs:element name="servhotelid" type="xs:anyType" />
+          <xs:element name="servhotelroom" type="xs:string" />
+          <xs:element name="servhotelroomid" type="xs:anyType" />
+          <xs:element name="usersbyrequestuser" type="xs:string" />
+          <xs:element name="usersbyrequestuserid" type="xs:anyType" />
+          <xs:element name="usersbyrequestuserusercolor" type="xs:string" />
+          <xs:element name="usersbyresponseuser" type="xs:string" />
+          <xs:element name="usersbyresponseuserid" type="xs:anyType" />
+          <xs:element name="usersbyresponseuserusercolor" type="xs:string" />
+          <xs:element name="tmcontacteasies" type="tmcontacteasyview" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="currcurrencyview" >
+      <xs:complexContent>
+       <xs:extension base="sview">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="version" type="xs:anyType" />
+          <xs:element name="createdby" type="xs:string" />
+          <xs:element name="createon" type="xs:dateTime" />
+          <xs:element name="firm" type="xs:anyType" />
+          <xs:element name="lastmodifiedby" type="xs:string" />
+          <xs:element name="modifyon" type="xs:dateTime" />
+          <xs:element name="serieskey" type="xs:string" />
+          <xs:element name="course" type="xs:anyType" />
+          <xs:element name="currencyname" type="xs:string" />
+          <xs:element name="descr" type="xs:string" />
+          <xs:element name="isbase" type="xs:anyType" />
+          <xs:element name="isocode" type="xs:string" />
+          <xs:element name="nameeng" type="xs:string" />
+          <xs:element name="nameru" type="xs:string" />
+          <xs:element name="popularity" type="xs:anyType" />
+          <xs:element name="servtransfers" type="servtransferview" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="servtransferroutes" type="servtransferrouteview" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tmcontacteasyview" >
+      <xs:complexContent>
+       <xs:extension base="sview">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="version" type="xs:anyType" />
+          <xs:element name="createdby" type="xs:string" />
+          <xs:element name="createon" type="xs:dateTime" />
+          <xs:element name="firm" type="xs:anyType" />
+          <xs:element name="lastmodifiedby" type="xs:string" />
+          <xs:element name="modifyon" type="xs:dateTime" />
+          <xs:element name="serieskey" type="xs:string" />
+          <xs:element name="label" type="xs:string" />
+          <xs:element name="descr" type="xs:string" />
+          <xs:element name="email" type="xs:string" />
+          <xs:element name="manfoman" type="xs:anyType" />
+          <xs:element name="phone" type="xs:string" />
+          <xs:element name="card" type="xs:anyType" />
+          <xs:element name="entitynumber" type="xs:string" />
+          <xs:element name="passport" type="xs:anyType" />
+          <xs:element name="popularity" type="xs:anyType" />
+          <xs:element name="locationcountries" type="xs:string" />
+          <xs:element name="locationcountriesid" type="xs:anyType" />
+          <xs:element name="reqservhotel" type="xs:string" />
+          <xs:element name="reqservhotelid" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="relshoppermissionview" >
+      <xs:complexContent>
+       <xs:extension base="sview">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="infopermission" type="xs:string" />
+          <xs:element name="infopermissionid" type="xs:anyType" />
+          <xs:element name="shoppermission" type="xs:string" />
+          <xs:element name="shoppermissionid" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tmfirmsview" >
+      <xs:complexContent>
+       <xs:extension base="sview">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="version" type="xs:anyType" />
+          <xs:element name="createdby" type="xs:string" />
+          <xs:element name="createon" type="xs:dateTime" />
+          <xs:element name="firm" type="xs:anyType" />
+          <xs:element name="lastmodifiedby" type="xs:string" />
+          <xs:element name="modifyon" type="xs:dateTime" />
+          <xs:element name="serieskey" type="xs:string" />
+          <xs:element name="label" type="xs:string" />
+          <xs:element name="account" type="xs:anyType" />
+          <xs:element name="active" type="xs:string" />
+          <xs:element name="firmname" type="xs:string" />
+          <xs:element name="lastpay" type="xs:dateTime" />
+          <xs:element name="mounthcount" type="xs:anyType" />
+          <xs:element name="popularity" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="servtransferrouteview" >
+      <xs:complexContent>
+       <xs:extension base="sview">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="version" type="xs:anyType" />
+          <xs:element name="createdby" type="xs:string" />
+          <xs:element name="createon" type="xs:dateTime" />
+          <xs:element name="firm" type="xs:anyType" />
+          <xs:element name="lastmodifiedby" type="xs:string" />
+          <xs:element name="modifyon" type="xs:dateTime" />
+          <xs:element name="serieskey" type="xs:string" />
+          <xs:element name="label" type="xs:string" />
+          <xs:element name="descr" type="xs:string" />
+          <xs:element name="driver" type="xs:string" />
+          <xs:element name="driverphone" type="xs:string" />
+          <xs:element name="fixedallowance" type="xs:anyType" />
+          <xs:element name="free" type="xs:anyType" />
+          <xs:element name="percentageofallowances" type="xs:anyType" />
+          <xs:element name="sum" type="xs:anyType" />
+          <xs:element name="popularity" type="xs:anyType" />
+          <xs:element name="currcurrency" type="xs:string" />
+          <xs:element name="currcurrencyid" type="xs:anyType" />
+          <xs:element name="servtransfer" type="xs:string" />
+          <xs:element name="servtransferid" type="xs:anyType" />
+          <xs:element name="servtransferroutepoints" type="servtransferroutepointview" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="shopuserview" >
+      <xs:complexContent>
+       <xs:extension base="sview">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="version" type="xs:anyType" />
+          <xs:element name="createdby" type="xs:string" />
+          <xs:element name="createon" type="xs:dateTime" />
+          <xs:element name="firm" type="xs:anyType" />
+          <xs:element name="lastmodifiedby" type="xs:string" />
+          <xs:element name="modifyon" type="xs:dateTime" />
+          <xs:element name="serieskey" type="xs:string" />
+          <xs:element name="activated" type="xs:anyType" />
+          <xs:element name="activationkey" type="xs:string" />
+          <xs:element name="email" type="xs:string" />
+          <xs:element name="enabled" type="xs:anyType" />
+          <xs:element name="firstname" type="xs:string" />
+          <xs:element name="lastname" type="xs:string" />
+          <xs:element name="password" type="xs:string" />
+          <xs:element name="username" type="xs:string" />
+          <xs:element name="image" type="xs:anyType" />
+          <xs:element name="token" type="xs:string" />
+          <xs:element name="phonenumber" type="xs:string" />
+          <xs:element name="popularity" type="xs:anyType" />
+          <xs:element name="shoppermission" type="xs:anyType" />
+          <xs:element name="label" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tmuserinfoview" >
+      <xs:complexContent>
+       <xs:extension base="sview">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="version" type="xs:anyType" />
+          <xs:element name="createdby" type="xs:string" />
+          <xs:element name="createon" type="xs:dateTime" />
+          <xs:element name="firm" type="xs:anyType" />
+          <xs:element name="lastmodifiedby" type="xs:string" />
+          <xs:element name="modifyon" type="xs:dateTime" />
+          <xs:element name="serieskey" type="xs:string" />
+          <xs:element name="label" type="xs:string" />
+          <xs:element name="browser" type="xs:string" />
+          <xs:element name="browserversion" type="xs:string" />
+          <xs:element name="lastlogin" type="xs:dateTime" />
+          <xs:element name="platform" type="xs:string" />
+          <xs:element name="platformversion" type="xs:string" />
+          <xs:element name="proxycontent" type="xs:string" />
+          <xs:element name="remotehost" type="xs:string" />
+          <xs:element name="useragent" type="xs:string" />
+          <xs:element name="useripaddress" type="xs:string" />
+          <xs:element name="username" type="xs:string" />
+          <xs:element name="popularity" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="shoproomtarrifforiginalrateview" >
+      <xs:complexContent>
+       <xs:extension base="sview">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="createdby" type="xs:string" />
+          <xs:element name="createon" type="xs:dateTime" />
+          <xs:element name="firmid" type="xs:anyType" />
+          <xs:element name="lastmodifiedby" type="xs:string" />
+          <xs:element name="modifyon" type="xs:dateTime" />
+          <xs:element name="serieskey" type="xs:string" />
+          <xs:element name="version" type="xs:anyType" />
+          <xs:element name="humannumber" type="xs:anyType" />
+          <xs:element name="price" type="xs:anyType" />
+          <xs:element name="paymenttariffid" type="xs:anyType" />
+          <xs:element name="paymenttariffversion" type="xs:anyType" />
+          <xs:element name="roomid" type="xs:anyType" />
+          <xs:element name="percentageofallowances" type="xs:anyType" />
+          <xs:element name="ispercentageofallowances" type="xs:anyType" />
+          <xs:element name="usdid" type="xs:anyType" />
+          <xs:element name="usdversion" type="xs:anyType" />
+          <xs:element name="usdnameru" type="xs:string" />
+          <xs:element name="usdcourse" type="xs:anyType" />
+          <xs:element name="usdcurrencysign" type="xs:string" />
+          <xs:element name="kztcurrencysign" type="xs:string" />
+          <xs:element name="currcurrencycourse" type="xs:anyType" />
+          <xs:element name="currcurrencyisocode" type="xs:string" />
+          <xs:element name="currcurrency" type="xs:string" />
+          <xs:element name="currcurrencyid" type="xs:anyType" />
+          <xs:element name="currcurrencyversion" type="xs:anyType" />
+          <xs:element name="currencyname" type="xs:string" />
+          <xs:element name="cost" type="xs:anyType" />
+          <xs:element name="costnationalcurrency" type="xs:anyType" />
+          <xs:element name="costusdcurrency" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userregistrationrequestview" >
+      <xs:complexContent>
+       <xs:extension base="sview">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="createdby" type="xs:string" />
+          <xs:element name="createon" type="xs:dateTime" />
+          <xs:element name="firm" type="xs:anyType" />
+          <xs:element name="lastmodifiedby" type="xs:string" />
+          <xs:element name="modifyon" type="xs:dateTime" />
+          <xs:element name="serieskey" type="xs:string" />
+          <xs:element name="version" type="xs:anyType" />
+          <xs:element name="activated" type="xs:anyType" />
+          <xs:element name="activationkey" type="xs:string" />
+          <xs:element name="email" type="xs:string" />
+          <xs:element name="enabled" type="xs:anyType" />
+          <xs:element name="firstname" type="xs:string" />
+          <xs:element name="lastname" type="xs:string" />
+          <xs:element name="username" type="xs:string" />
+          <xs:element name="token" type="xs:string" />
+          <xs:element name="phonenumber" type="xs:string" />
+          <xs:element name="popularity" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="shoproomview" >
+      <xs:complexContent>
+       <xs:extension base="sview">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="version" type="xs:anyType" />
+          <xs:element name="createdby" type="xs:string" />
+          <xs:element name="createon" type="xs:dateTime" />
+          <xs:element name="firm" type="xs:anyType" />
+          <xs:element name="lastmodifiedby" type="xs:string" />
+          <xs:element name="modifyon" type="xs:dateTime" />
+          <xs:element name="serieskey" type="xs:string" />
+          <xs:element name="label" type="xs:string" />
+          <xs:element name="breakfast" type="xs:anyType" />
+          <xs:element name="descr" type="xs:string" />
+          <xs:element name="guestnumber" type="xs:anyType" />
+          <xs:element name="roomnumber" type="xs:anyType" />
+          <xs:element name="dictglobalbyroomtype" type="xs:string" />
+          <xs:element name="dictglobalbyroomtypeid" type="xs:anyType" />
+          <xs:element name="servhotel" type="xs:string" />
+          <xs:element name="servhotelid" type="xs:anyType" />
+          <xs:element name="servhotelversion" type="xs:anyType" />
+          <xs:element name="image" type="xs:string" />
+          <xs:element name="cost" type="xs:anyType" />
+          <xs:element name="//#setter_and_gettertarriffcollapsed" type="xs:anyType" />
+          <xs:element name="tariffgeneralrate" type="shoproomtarriffgeneralrateview" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="images" type="shophotelroomimagesview" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="reqservhotelarchivedview" >
+      <xs:complexContent>
+       <xs:extension base="sview">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="version" type="xs:anyType" />
+          <xs:element name="createdby" type="xs:string" />
+          <xs:element name="createon" type="xs:dateTime" />
+          <xs:element name="firm" type="xs:anyType" />
+          <xs:element name="lastmodifiedby" type="xs:string" />
+          <xs:element name="modifyon" type="xs:dateTime" />
+          <xs:element name="serieskey" type="xs:string" />
+          <xs:element name="label" type="xs:string" />
+          <xs:element name="accept" type="xs:anyType" />
+          <xs:element name="datedifference" type="xs:string" />
+          <xs:element name="decline" type="xs:anyType" />
+          <xs:element name="departure" type="xs:dateTime" />
+          <xs:element name="descr" type="xs:string" />
+          <xs:element name="paymenttype" type="xs:anyType" />
+          <xs:element name="price" type="xs:anyType" />
+          <xs:element name="progress" type="xs:anyType" />
+          <xs:element name="race" type="xs:dateTime" />
+          <xs:element name="roomcount" type="xs:anyType" />
+          <xs:element name="singleprice" type="xs:anyType" />
+          <xs:element name="tariffcurrency" type="xs:string" />
+          <xs:element name="requestnumber" type="xs:string" />
+          <xs:element name="cancel" type="xs:anyType" />
+          <xs:element name="confirm" type="xs:anyType" />
+          <xs:element name="archived" type="xs:anyType" />
+          <xs:element name="popularity" type="xs:anyType" />
+          <xs:element name="docdocumentsbydocumentforuser" type="xs:string" />
+          <xs:element name="docdocumentsbydocumentforuserid" type="xs:anyType" />
+          <xs:element name="docdocumentsbydocumentforhotel" type="xs:string" />
+          <xs:element name="docdocumentsbydocumentforhotelid" type="xs:anyType" />
+          <xs:element name="paymentprice" type="xs:string" />
+          <xs:element name="paymentpriceid" type="xs:anyType" />
+          <xs:element name="paymenttariff" type="xs:string" />
+          <xs:element name="paymenttariffid" type="xs:anyType" />
+          <xs:element name="servhotel" type="xs:string" />
+          <xs:element name="servhotelid" type="xs:anyType" />
+          <xs:element name="servhotelroom" type="xs:string" />
+          <xs:element name="servhotelroomid" type="xs:anyType" />
+          <xs:element name="usersbyrequestuser" type="xs:string" />
+          <xs:element name="usersbyrequestuserid" type="xs:anyType" />
+          <xs:element name="usersbyrequestuserusercolor" type="xs:string" />
+          <xs:element name="usersbyresponseuser" type="xs:string" />
+          <xs:element name="usersbyresponseuserid" type="xs:anyType" />
+          <xs:element name="usersbyresponseuserusercolor" type="xs:string" />
+          <xs:element name="status" type="xs:anyType" />
+          <xs:element name="reqdate" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tmmailnewslettergroupview" >
+      <xs:complexContent>
+       <xs:extension base="sview">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="version" type="xs:anyType" />
+          <xs:element name="email" type="xs:string" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="createdby" type="xs:string" />
+          <xs:element name="createon" type="xs:dateTime" />
+          <xs:element name="firm" type="xs:anyType" />
+          <xs:element name="lastmodifiedby" type="xs:string" />
+          <xs:element name="modifyon" type="xs:dateTime" />
+          <xs:element name="popularity" type="xs:anyType" />
+          <xs:element name="serieskey" type="xs:string" />
+          <xs:element name="label" type="xs:string" />
+          <xs:element name="relmailnewslettergroups" type="relmailnewslettergroupview" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="mailnotebookview" >
+      <xs:complexContent>
+       <xs:extension base="sview">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:string" />
+          <xs:element name="objectid" type="xs:anyType" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="email" type="xs:string" />
+          <xs:element name="firm" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="shopservhotel2view" >
+      <xs:complexContent>
+       <xs:extension base="sview">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="modifyon" type="xs:dateTime" />
+          <xs:element name="label" type="xs:string" />
+          <xs:element name="conditiontext" type="xs:string" />
+          <xs:element name="descr" type="xs:string" />
+          <xs:element name="synopsis" type="xs:string" />
+          <xs:element name="favorite" type="xs:anyType" />
+          <xs:element name="freesale" type="xs:anyType" />
+          <xs:element name="showonline" type="xs:anyType" />
+          <xs:element name="starcount" type="xs:anyType" />
+          <xs:element name="timedeparture" type="xs:string" />
+          <xs:element name="timerace" type="xs:string" />
+          <xs:element name="timeearlyrace" type="xs:string" />
+          <xs:element name="timelatedeparture" type="xs:string" />
+          <xs:element name="price" type="xs:anyType" />
+          <xs:element name="humannumber" type="xs:anyType" />
+          <xs:element name="cost" type="xs:anyType" />
+          <xs:element name="cityname" type="xs:string" />
+          <xs:element name="countryname" type="xs:string" />
+          <xs:element name="image" type="xs:string" />
+          <xs:element name="currencyid" type="xs:anyType" />
+          <xs:element name="currencyname" type="xs:string" />
+          <xs:element name="currencysign" type="xs:string" />
+          <xs:element name="usdcurrencysign" type="xs:string" />
+          <xs:element name="usdcost" type="xs:anyType" />
+          <xs:element name="addressname" type="xs:string" />
+          <xs:element name="yandexmappointx" type="xs:string" />
+          <xs:element name="yandexmappointy" type="xs:string" />
+          <xs:element name="//#setter_and_getterrooms" type="shoproomview" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="images" type="shophotelimagesview" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="reluserdetailsview" >
+      <xs:complexContent>
+       <xs:extension base="sview">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="userdetail" type="xs:string" />
+          <xs:element name="userdetailid" type="xs:anyType" />
+          <xs:element name="users" type="xs:string" />
+          <xs:element name="usersid" type="xs:anyType" />
+          <xs:element name="usersusercolor" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="relmailnewslettergroupview" >
+      <xs:complexContent>
+       <xs:extension base="sview">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="tmmailnewsletter" type="xs:string" />
+          <xs:element name="tmmailnewsletterid" type="xs:anyType" />
+          <xs:element name="tmmailnewslettergroup" type="xs:string" />
+          <xs:element name="tmmailnewslettergroupid" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="usersview" >
+      <xs:complexContent>
+       <xs:extension base="sview">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="version" type="xs:anyType" />
+          <xs:element name="createdby" type="xs:string" />
+          <xs:element name="createon" type="xs:dateTime" />
+          <xs:element name="firm" type="xs:anyType" />
+          <xs:element name="lastmodifiedby" type="xs:string" />
+          <xs:element name="modifyon" type="xs:dateTime" />
+          <xs:element name="serieskey" type="xs:string" />
+          <xs:element name="activated" type="xs:anyType" />
+          <xs:element name="activationkey" type="xs:string" />
+          <xs:element name="email" type="xs:string" />
+          <xs:element name="enabled" type="xs:anyType" />
+          <xs:element name="firstname" type="xs:string" />
+          <xs:element name="landingpage" type="xs:string" />
+          <xs:element name="langkey" type="xs:string" />
+          <xs:element name="lastname" type="xs:string" />
+          <xs:element name="password" type="xs:string" />
+          <xs:element name="username" type="xs:string" />
+          <xs:element name="token" type="xs:string" />
+          <xs:element name="phonenumber" type="xs:string" />
+          <xs:element name="usercolor" type="xs:string" />
+          <xs:element name="popularity" type="xs:anyType" />
+          <xs:element name="shopuser" type="xs:anyType" />
+          <xs:element name="physicalperson" type="xs:anyType" />
+          <xs:element name="legalentity" type="xs:anyType" />
+          <xs:element name="tmimage" type="xs:string" />
+          <xs:element name="tmimageid" type="xs:anyType" />
+          <xs:element name="reqservhotelsforrequestuserid" type="reqservhotelview" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="userroleses" type="userrolesview" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="reluserdetailses" type="reluserdetailsview" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="reqservhotelsforresponseuserid" type="reqservhotelview" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="apitoken" type="xs:string" />
+          <xs:element name="hashkey" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="paymenttariffshopsimpleview" >
+      <xs:complexContent>
+       <xs:extension base="sview">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="createdby" type="xs:string" />
+          <xs:element name="createon" type="xs:dateTime" />
+          <xs:element name="firmid" type="xs:anyType" />
+          <xs:element name="lastmodifiedby" type="xs:string" />
+          <xs:element name="modifyon" type="xs:dateTime" />
+          <xs:element name="serieskey" type="xs:string" />
+          <xs:element name="version" type="xs:anyType" />
+          <xs:element name="price" type="xs:anyType" />
+          <xs:element name="humannumber" type="xs:anyType" />
+          <xs:element name="cost" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="servhotelroomview" >
+      <xs:complexContent>
+       <xs:extension base="sview">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="version" type="xs:anyType" />
+          <xs:element name="createdby" type="xs:string" />
+          <xs:element name="createon" type="xs:dateTime" />
+          <xs:element name="firm" type="xs:anyType" />
+          <xs:element name="lastmodifiedby" type="xs:string" />
+          <xs:element name="modifyon" type="xs:dateTime" />
+          <xs:element name="serieskey" type="xs:string" />
+          <xs:element name="label" type="xs:string" />
+          <xs:element name="breakfast" type="xs:anyType" />
+          <xs:element name="descr" type="xs:string" />
+          <xs:element name="guestnumber" type="xs:anyType" />
+          <xs:element name="roomnumber" type="xs:anyType" />
+          <xs:element name="dinner" type="xs:anyType" />
+          <xs:element name="lunch" type="xs:anyType" />
+          <xs:element name="discount" type="xs:anyType" />
+          <xs:element name="isdiscount" type="xs:anyType" />
+          <xs:element name="commission" type="xs:anyType" />
+          <xs:element name="fresale" type="xs:anyType" />
+          <xs:element name="fresaletoday" type="xs:anyType" />
+          <xs:element name="fresaleenabled" type="xs:anyType" />
+          <xs:element name="fresalestart" type="xs:dateTime" />
+          <xs:element name="fresaleend" type="xs:dateTime" />
+          <xs:element name="iscommission" type="xs:anyType" />
+          <xs:element name="popularity" type="xs:anyType" />
+          <xs:element name="dictglobal" type="xs:string" />
+          <xs:element name="dictglobalid" type="xs:anyType" />
+          <xs:element name="paymenttariffbycosttarriff" type="xs:string" />
+          <xs:element name="paymenttariffbycosttarriffid" type="xs:anyType" />
+          <xs:element name="paymenttariffbyrrtarriff" type="xs:string" />
+          <xs:element name="paymenttariffbyrrtarriffid" type="xs:anyType" />
+          <xs:element name="paymenttariffshop" type="xs:string" />
+          <xs:element name="paymenttariffshopid" type="xs:anyType" />
+          <xs:element name="servhotel" type="xs:string" />
+          <xs:element name="servhotelid" type="xs:anyType" />
+          <xs:element name="reqservhotels" type="reqservhotelview" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="relservhotelroomimages" type="relservhotelroomimageview" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="shoproomtarriffgeneralrateview" >
+      <xs:complexContent>
+       <xs:extension base="sview">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="paymenttariffid" type="xs:anyType" />
+          <xs:element name="paymenttariffversion" type="xs:anyType" />
+          <xs:element name="priceversion" type="xs:anyType" />
+          <xs:element name="humannumber" type="xs:anyType" />
+          <xs:element name="roomid" type="xs:anyType" />
+          <xs:element name="corporateratecost" type="xs:anyType" />
+          <xs:element name="corporateratecostnationalcurrency" type="xs:anyType" />
+          <xs:element name="corporateratecostusdcurrency" type="xs:anyType" />
+          <xs:element name="corporateratecostusdcurrencysign" type="xs:string" />
+          <xs:element name="corporateratecurrcurrencyid" type="xs:anyType" />
+          <xs:element name="corporateratecurrcurrencyversion" type="xs:anyType" />
+          <xs:element name="corporateratecurrencyname" type="xs:string" />
+          <xs:element name="originalratecost" type="xs:anyType" />
+          <xs:element name="originalratecostnationalcurrency" type="xs:anyType" />
+          <xs:element name="originalratecostusdcurrency" type="xs:anyType" />
+          <xs:element name="originalratecostusdcurrencysign" type="xs:string" />
+          <xs:element name="originalratecurrcurrencyid" type="xs:anyType" />
+          <xs:element name="originalratecurrcurrencyversion" type="xs:anyType" />
+          <xs:element name="originalratecurrencyname" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="locationcountriesview" >
+      <xs:complexContent>
+       <xs:extension base="sview">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="version" type="xs:anyType" />
+          <xs:element name="createdby" type="xs:string" />
+          <xs:element name="createon" type="xs:dateTime" />
+          <xs:element name="firm" type="xs:anyType" />
+          <xs:element name="lastmodifiedby" type="xs:string" />
+          <xs:element name="modifyon" type="xs:dateTime" />
+          <xs:element name="serieskey" type="xs:string" />
+          <xs:element name="countryname" type="xs:string" />
+          <xs:element name="descr" type="xs:string" />
+          <xs:element name="isocode" type="xs:string" />
+          <xs:element name="nameeng" type="xs:string" />
+          <xs:element name="popularity" type="xs:anyType" />
+          <xs:element name="tmcontacts" type="tmcontactview" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="servhotels" type="servhotelview" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="locationcitieses" type="locationcitiesview" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="servtransfers" type="servtransferview" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="tmaccounts" type="tmaccountview" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="tmcontacteasies" type="tmcontacteasyview" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="shophotelroomimagesview" >
+      <xs:complexContent>
+       <xs:extension base="sview">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="servhotelroomid" type="xs:anyType" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="createdby" type="xs:string" />
+          <xs:element name="createon" type="xs:dateTime" />
+          <xs:element name="firmid" type="xs:anyType" />
+          <xs:element name="lastmodifiedby" type="xs:string" />
+          <xs:element name="modifyon" type="xs:dateTime" />
+          <xs:element name="serieskey" type="xs:string" />
+          <xs:element name="version" type="xs:anyType" />
+          <xs:element name="contenttype" type="xs:string" />
+          <xs:element name="extension" type="xs:string" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="originalfilename" type="xs:string" />
+          <xs:element name="path" type="xs:string" />
+          <xs:element name="size" type="xs:string" />
+          <xs:element name="image" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="servhotelview" >
+      <xs:complexContent>
+       <xs:extension base="sview">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="version" type="xs:anyType" />
+          <xs:element name="createdby" type="xs:string" />
+          <xs:element name="createon" type="xs:dateTime" />
+          <xs:element name="firm" type="xs:anyType" />
+          <xs:element name="lastmodifiedby" type="xs:string" />
+          <xs:element name="modifyon" type="xs:dateTime" />
+          <xs:element name="serieskey" type="xs:string" />
+          <xs:element name="label" type="xs:string" />
+          <xs:element name="blacklist" type="xs:anyType" />
+          <xs:element name="conditiontext" type="xs:string" />
+          <xs:element name="descr" type="xs:string" />
+          <xs:element name="descrinternal" type="xs:string" />
+          <xs:element name="favorite" type="xs:anyType" />
+          <xs:element name="freesale" type="xs:anyType" />
+          <xs:element name="problem" type="xs:anyType" />
+          <xs:element name="showonline" type="xs:anyType" />
+          <xs:element name="starcount" type="xs:anyType" />
+          <xs:element name="synopsis" type="xs:string" />
+          <xs:element name="timedeparture" type="xs:string" />
+          <xs:element name="timeearlyrace" type="xs:string" />
+          <xs:element name="timelatedeparture" type="xs:string" />
+          <xs:element name="timerace" type="xs:string" />
+          <xs:element name="whereroomsarebooked" type="xs:string" />
+          <xs:element name="popularity" type="xs:anyType" />
+          <xs:element name="infocontactinformation" type="xs:string" />
+          <xs:element name="infocontactinformationid" type="xs:anyType" />
+          <xs:element name="locationaddress" type="xs:string" />
+          <xs:element name="locationaddressid" type="xs:anyType" />
+          <xs:element name="locationcities" type="xs:string" />
+          <xs:element name="locationcitiesid" type="xs:anyType" />
+          <xs:element name="locationcountries" type="xs:string" />
+          <xs:element name="locationcountriesid" type="xs:anyType" />
+          <xs:element name="paymentdetails" type="xs:string" />
+          <xs:element name="paymentdetailsid" type="xs:anyType" />
+          <xs:element name="relservhotelimages" type="relservhotelimageview" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="relservhoteldocdocumentses" type="relservhoteldocdocumentsview" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="reqservhotels" type="reqservhotelview" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="servhotelrooms" type="servhotelroomview" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="reqservhotelopenview" >
+      <xs:complexContent>
+       <xs:extension base="sview">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="version" type="xs:anyType" />
+          <xs:element name="createdby" type="xs:string" />
+          <xs:element name="createon" type="xs:dateTime" />
+          <xs:element name="firm" type="xs:anyType" />
+          <xs:element name="lastmodifiedby" type="xs:string" />
+          <xs:element name="modifyon" type="xs:dateTime" />
+          <xs:element name="serieskey" type="xs:string" />
+          <xs:element name="label" type="xs:string" />
+          <xs:element name="accept" type="xs:anyType" />
+          <xs:element name="datedifference" type="xs:string" />
+          <xs:element name="decline" type="xs:anyType" />
+          <xs:element name="departure" type="xs:dateTime" />
+          <xs:element name="descr" type="xs:string" />
+          <xs:element name="paymenttype" type="xs:anyType" />
+          <xs:element name="price" type="xs:anyType" />
+          <xs:element name="progress" type="xs:anyType" />
+          <xs:element name="race" type="xs:dateTime" />
+          <xs:element name="roomcount" type="xs:anyType" />
+          <xs:element name="singleprice" type="xs:anyType" />
+          <xs:element name="tariffcurrency" type="xs:string" />
+          <xs:element name="requestnumber" type="xs:string" />
+          <xs:element name="cancel" type="xs:anyType" />
+          <xs:element name="confirm" type="xs:anyType" />
+          <xs:element name="archived" type="xs:anyType" />
+          <xs:element name="popularity" type="xs:anyType" />
+          <xs:element name="docdocumentsbydocumentforuser" type="xs:string" />
+          <xs:element name="docdocumentsbydocumentforuserid" type="xs:anyType" />
+          <xs:element name="docdocumentsbydocumentforhotel" type="xs:string" />
+          <xs:element name="docdocumentsbydocumentforhotelid" type="xs:anyType" />
+          <xs:element name="paymentprice" type="xs:string" />
+          <xs:element name="paymentpriceid" type="xs:anyType" />
+          <xs:element name="paymenttariff" type="xs:string" />
+          <xs:element name="paymenttariffid" type="xs:anyType" />
+          <xs:element name="servhotel" type="xs:string" />
+          <xs:element name="servhotelid" type="xs:anyType" />
+          <xs:element name="servhotelroom" type="xs:string" />
+          <xs:element name="servhotelroomid" type="xs:anyType" />
+          <xs:element name="usersbyrequestuser" type="xs:string" />
+          <xs:element name="usersbyrequestuserid" type="xs:anyType" />
+          <xs:element name="usersbyrequestuserusercolor" type="xs:string" />
+          <xs:element name="usersbyresponseuser" type="xs:string" />
+          <xs:element name="usersbyresponseuserid" type="xs:anyType" />
+          <xs:element name="usersbyresponseuserusercolor" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="relservhotelroomimagesimpleview" >
+      <xs:complexContent>
+       <xs:extension base="sview">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="servhotelroomid" type="xs:anyType" />
+          <xs:element name="image" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="shoppermissionview" >
+      <xs:complexContent>
+       <xs:extension base="sview">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="version" type="xs:anyType" />
+          <xs:element name="allocatedfirm" type="xs:anyType" />
+          <xs:element name="physicalperson" type="xs:anyType" />
+          <xs:element name="corporatecustomer" type="xs:anyType" />
+          <xs:element name="travelagency" type="xs:anyType" />
+          <xs:element name="traveloperator" type="xs:anyType" />
+          <xs:element name="partner" type="xs:anyType" />
+          <xs:element name="createdby" type="xs:string" />
+          <xs:element name="createon" type="xs:dateTime" />
+          <xs:element name="firm" type="xs:anyType" />
+          <xs:element name="lastmodifiedby" type="xs:string" />
+          <xs:element name="modifyon" type="xs:dateTime" />
+          <xs:element name="popularity" type="xs:anyType" />
+          <xs:element name="serieskey" type="xs:string" />
+          <xs:element name="label" type="xs:string" />
+          <xs:element name="relshoppermissions" type="relshoppermissionview" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tmfirmsettingsview" >
+      <xs:complexContent>
+       <xs:extension base="sview">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="version" type="xs:anyType" />
+          <xs:element name="logo" type="xs:anyType" />
+          <xs:element name="brand" type="xs:string" />
+          <xs:element name="createdby" type="xs:string" />
+          <xs:element name="createon" type="xs:dateTime" />
+          <xs:element name="firm" type="xs:anyType" />
+          <xs:element name="lastmodifiedby" type="xs:string" />
+          <xs:element name="modifyon" type="xs:dateTime" />
+          <xs:element name="popularity" type="xs:anyType" />
+          <xs:element name="serieskey" type="xs:string" />
+          <xs:element name="docdocuments" type="xs:string" />
+          <xs:element name="docdocumentsid" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="paymentpriceshopview" >
+      <xs:complexContent>
+       <xs:extension base="sview">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="version" type="xs:anyType" />
+          <xs:element name="createdby" type="xs:string" />
+          <xs:element name="createon" type="xs:dateTime" />
+          <xs:element name="firm" type="xs:anyType" />
+          <xs:element name="lastmodifiedby" type="xs:string" />
+          <xs:element name="modifyon" type="xs:dateTime" />
+          <xs:element name="serieskey" type="xs:string" />
+          <xs:element name="humannumber" type="xs:anyType" />
+          <xs:element name="price" type="xs:anyType" />
+          <xs:element name="popularity" type="xs:anyType" />
+          <xs:element name="paymenttariffshop" type="xs:string" />
+          <xs:element name="paymenttariffshopid" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="servtransferroutepointview" >
+      <xs:complexContent>
+       <xs:extension base="sview">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="version" type="xs:anyType" />
+          <xs:element name="createdby" type="xs:string" />
+          <xs:element name="createon" type="xs:dateTime" />
+          <xs:element name="firm" type="xs:anyType" />
+          <xs:element name="lastmodifiedby" type="xs:string" />
+          <xs:element name="modifyon" type="xs:dateTime" />
+          <xs:element name="serieskey" type="xs:string" />
+          <xs:element name="label" type="xs:string" />
+          <xs:element name="fixedallowance" type="xs:anyType" />
+          <xs:element name="free" type="xs:anyType" />
+          <xs:element name="percentageofallowances" type="xs:anyType" />
+          <xs:element name="pointfrom" type="xs:string" />
+          <xs:element name="pointto" type="xs:string" />
+          <xs:element name="starton" type="xs:dateTime" />
+          <xs:element name="sum" type="xs:anyType" />
+          <xs:element name="popularity" type="xs:anyType" />
+          <xs:element name="servtransferroute" type="xs:string" />
+          <xs:element name="servtransferrouteid" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="servhotelsimpleview" >
+      <xs:complexContent>
+       <xs:extension base="sview">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="firmid" type="xs:anyType" />
+          <xs:element name="modifyon" type="xs:dateTime" />
+          <xs:element name="label" type="xs:string" />
+          <xs:element name="conditiontext" type="xs:string" />
+          <xs:element name="descr" type="xs:string" />
+          <xs:element name="synopsis" type="xs:string" />
+          <xs:element name="favorite" type="xs:anyType" />
+          <xs:element name="freesale" type="xs:anyType" />
+          <xs:element name="showonline" type="xs:anyType" />
+          <xs:element name="starcount" type="xs:anyType" />
+          <xs:element name="timedeparture" type="xs:string" />
+          <xs:element name="timerace" type="xs:string" />
+          <xs:element name="timeearlyrace" type="xs:string" />
+          <xs:element name="timelatedeparture" type="xs:string" />
+          <xs:element name="locationcitiesid" type="xs:anyType" />
+          <xs:element name="locationcountriesid" type="xs:anyType" />
+          <xs:element name="addressid" type="xs:anyType" />
+          <xs:element name="price" type="xs:anyType" />
+          <xs:element name="humannumber" type="xs:anyType" />
+          <xs:element name="cost" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="relservhotelroomimageview" >
+      <xs:complexContent>
+       <xs:extension base="sview">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="servhotelroom" type="xs:string" />
+          <xs:element name="servhotelroomid" type="xs:anyType" />
+          <xs:element name="tmimage" type="xs:string" />
+          <xs:element name="tmimageid" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="paymenttariffview" >
+      <xs:complexContent>
+       <xs:extension base="sview">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="version" type="xs:anyType" />
+          <xs:element name="createdby" type="xs:string" />
+          <xs:element name="createon" type="xs:dateTime" />
+          <xs:element name="firm" type="xs:anyType" />
+          <xs:element name="lastmodifiedby" type="xs:string" />
+          <xs:element name="modifyon" type="xs:dateTime" />
+          <xs:element name="serieskey" type="xs:string" />
+          <xs:element name="popularity" type="xs:anyType" />
+          <xs:element name="servhotelroomsforcosttarriffid" type="servhotelroomview" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="servhotelroomsforrrtarriffid" type="servhotelroomview" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="reqservhotels" type="reqservhotelview" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="paymentprices" type="paymentpriceview" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="dictglobalview" >
+      <xs:complexContent>
+       <xs:extension base="sview">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="version" type="xs:anyType" />
+          <xs:element name="createdby" type="xs:string" />
+          <xs:element name="createon" type="xs:dateTime" />
+          <xs:element name="firm" type="xs:anyType" />
+          <xs:element name="lastmodifiedby" type="xs:string" />
+          <xs:element name="modifyon" type="xs:dateTime" />
+          <xs:element name="serieskey" type="xs:string" />
+          <xs:element name="dicttype" type="xs:string" />
+          <xs:element name="dictvalue" type="xs:string" />
+          <xs:element name="dictvalueadditional" type="xs:string" />
+          <xs:element name="popularity" type="xs:anyType" />
+          <xs:element name="servtransfersforpaymenttypeid" type="servtransferview" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="servtransfersfortypetransferid" type="servtransferview" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="servtransfersfortransportid" type="servtransferview" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="servhotelrooms" type="servhotelroomview" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="relservhotelimageview" >
+      <xs:complexContent>
+       <xs:extension base="sview">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="servhotel" type="xs:string" />
+          <xs:element name="servhotelid" type="xs:anyType" />
+          <xs:element name="tmimage" type="xs:string" />
+          <xs:element name="tmimageid" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="shoproomtarriffcorporaterateview" >
+      <xs:complexContent>
+       <xs:extension base="sview">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="createdby" type="xs:string" />
+          <xs:element name="createon" type="xs:dateTime" />
+          <xs:element name="firmid" type="xs:anyType" />
+          <xs:element name="lastmodifiedby" type="xs:string" />
+          <xs:element name="modifyon" type="xs:dateTime" />
+          <xs:element name="serieskey" type="xs:string" />
+          <xs:element name="version" type="xs:anyType" />
+          <xs:element name="humannumber" type="xs:anyType" />
+          <xs:element name="price" type="xs:anyType" />
+          <xs:element name="paymenttariffid" type="xs:anyType" />
+          <xs:element name="paymenttariffversion" type="xs:anyType" />
+          <xs:element name="roomid" type="xs:anyType" />
+          <xs:element name="percentageofallowances" type="xs:anyType" />
+          <xs:element name="ispercentageofallowances" type="xs:anyType" />
+          <xs:element name="usdid" type="xs:anyType" />
+          <xs:element name="usdversion" type="xs:anyType" />
+          <xs:element name="usdnameru" type="xs:string" />
+          <xs:element name="usdcourse" type="xs:anyType" />
+          <xs:element name="usdcurrencysign" type="xs:string" />
+          <xs:element name="kztcurrencysign" type="xs:string" />
+          <xs:element name="currcurrencycourse" type="xs:anyType" />
+          <xs:element name="currcurrencyisocode" type="xs:string" />
+          <xs:element name="currcurrency" type="xs:string" />
+          <xs:element name="currcurrencyid" type="xs:anyType" />
+          <xs:element name="currcurrencyversion" type="xs:anyType" />
+          <xs:element name="currencyname" type="xs:string" />
+          <xs:element name="cost" type="xs:anyType" />
+          <xs:element name="costnationalcurrency" type="xs:anyType" />
+          <xs:element name="costusdcurrency" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="paymentpricesimpleview" >
+      <xs:complexContent>
+       <xs:extension base="sview">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="createdby" type="xs:string" />
+          <xs:element name="createon" type="xs:dateTime" />
+          <xs:element name="firmid" type="xs:anyType" />
+          <xs:element name="lastmodifiedby" type="xs:string" />
+          <xs:element name="modifyon" type="xs:dateTime" />
+          <xs:element name="serieskey" type="xs:string" />
+          <xs:element name="version" type="xs:anyType" />
+          <xs:element name="humannumber" type="xs:anyType" />
+          <xs:element name="price" type="xs:anyType" />
+          <xs:element name="paymenttariffid" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="paymentpriceview" >
+      <xs:complexContent>
+       <xs:extension base="sview">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="version" type="xs:anyType" />
+          <xs:element name="createdby" type="xs:string" />
+          <xs:element name="createon" type="xs:dateTime" />
+          <xs:element name="firm" type="xs:anyType" />
+          <xs:element name="lastmodifiedby" type="xs:string" />
+          <xs:element name="modifyon" type="xs:dateTime" />
+          <xs:element name="serieskey" type="xs:string" />
+          <xs:element name="humannumber" type="xs:anyType" />
+          <xs:element name="price" type="xs:anyType" />
+          <xs:element name="popularity" type="xs:anyType" />
+          <xs:element name="paymenttariff" type="xs:string" />
+          <xs:element name="paymenttariffid" type="xs:anyType" />
+          <xs:element name="reqservhotels" type="reqservhotelview" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="staticgeolocationview" >
+      <xs:complexContent>
+       <xs:extension base="sview">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="x" type="xs:string" />
+          <xs:element name="y" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="shophotelimagesview" >
+      <xs:complexContent>
+       <xs:extension base="sview">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="servhotelid" type="xs:anyType" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="createdby" type="xs:string" />
+          <xs:element name="createon" type="xs:dateTime" />
+          <xs:element name="firmid" type="xs:anyType" />
+          <xs:element name="lastmodifiedby" type="xs:string" />
+          <xs:element name="modifyon" type="xs:dateTime" />
+          <xs:element name="serieskey" type="xs:string" />
+          <xs:element name="version" type="xs:anyType" />
+          <xs:element name="contenttype" type="xs:string" />
+          <xs:element name="extension" type="xs:string" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="originalfilename" type="xs:string" />
+          <xs:element name="path" type="xs:string" />
+          <xs:element name="size" type="xs:string" />
+          <xs:element name="image" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="relservhoteldocdocumentsview" >
+      <xs:complexContent>
+       <xs:extension base="sview">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="docdocuments" type="xs:string" />
+          <xs:element name="docdocumentsid" type="xs:anyType" />
+          <xs:element name="servhotel" type="xs:string" />
+          <xs:element name="servhotelid" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="relservhotelimagesimpleview" >
+      <xs:complexContent>
+       <xs:extension base="sview">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="servhotelid" type="xs:anyType" />
+          <xs:element name="image" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="locationaddressview" >
+      <xs:complexContent>
+       <xs:extension base="sview">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="version" type="xs:anyType" />
+          <xs:element name="createdby" type="xs:string" />
+          <xs:element name="createon" type="xs:dateTime" />
+          <xs:element name="firm" type="xs:anyType" />
+          <xs:element name="lastmodifiedby" type="xs:string" />
+          <xs:element name="modifyon" type="xs:dateTime" />
+          <xs:element name="serieskey" type="xs:string" />
+          <xs:element name="label" type="xs:string" />
+          <xs:element name="descr" type="xs:string" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="yandexmappointx" type="xs:string" />
+          <xs:element name="yandexmappointy" type="xs:string" />
+          <xs:element name="popularity" type="xs:anyType" />
+          <xs:element name="servhotels" type="servhotelview" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tmcontactview" >
+      <xs:complexContent>
+       <xs:extension base="sview">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="version" type="xs:anyType" />
+          <xs:element name="createdby" type="xs:string" />
+          <xs:element name="createon" type="xs:dateTime" />
+          <xs:element name="firm" type="xs:anyType" />
+          <xs:element name="lastmodifiedby" type="xs:string" />
+          <xs:element name="modifyon" type="xs:dateTime" />
+          <xs:element name="serieskey" type="xs:string" />
+          <xs:element name="birthday" type="xs:dateTime" />
+          <xs:element name="contactname" type="xs:string" />
+          <xs:element name="contactpatronymic" type="xs:string" />
+          <xs:element name="contactsurname" type="xs:string" />
+          <xs:element name="descr" type="xs:string" />
+          <xs:element name="passportend" type="xs:dateTime" />
+          <xs:element name="passportnumber" type="xs:string" />
+          <xs:element name="passportstart" type="xs:dateTime" />
+          <xs:element name="popularity" type="xs:anyType" />
+          <xs:element name="locationcountries" type="xs:string" />
+          <xs:element name="locationcountriesid" type="xs:anyType" />
+          <xs:element name="relservtransfertmcontacts" type="relservtransfertmcontactview" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="infocontactinformationview" >
+      <xs:complexContent>
+       <xs:extension base="sview">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="version" type="xs:anyType" />
+          <xs:element name="createdby" type="xs:string" />
+          <xs:element name="createon" type="xs:dateTime" />
+          <xs:element name="firm" type="xs:anyType" />
+          <xs:element name="lastmodifiedby" type="xs:string" />
+          <xs:element name="modifyon" type="xs:dateTime" />
+          <xs:element name="serieskey" type="xs:string" />
+          <xs:element name="contact" type="xs:string" />
+          <xs:element name="descr" type="xs:string" />
+          <xs:element name="email" type="xs:string" />
+          <xs:element name="email2" type="xs:string" />
+          <xs:element name="email3" type="xs:string" />
+          <xs:element name="phone" type="xs:string" />
+          <xs:element name="phone2" type="xs:string" />
+          <xs:element name="phone3" type="xs:string" />
+          <xs:element name="website" type="xs:string" />
+          <xs:element name="popularity" type="xs:anyType" />
+          <xs:element name="servhotels" type="servhotelview" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="paymenttariffshopview" >
+      <xs:complexContent>
+       <xs:extension base="sview">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="version" type="xs:anyType" />
+          <xs:element name="percentageofallowances" type="xs:anyType" />
+          <xs:element name="ispercentageofallowances" type="xs:anyType" />
+          <xs:element name="createdby" type="xs:string" />
+          <xs:element name="createon" type="xs:dateTime" />
+          <xs:element name="firm" type="xs:anyType" />
+          <xs:element name="lastmodifiedby" type="xs:string" />
+          <xs:element name="modifyon" type="xs:dateTime" />
+          <xs:element name="popularity" type="xs:anyType" />
+          <xs:element name="serieskey" type="xs:string" />
+          <xs:element name="paymentpriceshops" type="paymentpriceshopview" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="servhotelrooms" type="servhotelroomview" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="paymentdetailsview" >
+      <xs:complexContent>
+       <xs:extension base="sview">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="version" type="xs:anyType" />
+          <xs:element name="createdby" type="xs:string" />
+          <xs:element name="createon" type="xs:dateTime" />
+          <xs:element name="firm" type="xs:anyType" />
+          <xs:element name="lastmodifiedby" type="xs:string" />
+          <xs:element name="modifyon" type="xs:dateTime" />
+          <xs:element name="serieskey" type="xs:string" />
+          <xs:element name="banklocation" type="xs:string" />
+          <xs:element name="bin" type="xs:string" />
+          <xs:element name="correspondentaccount" type="xs:string" />
+          <xs:element name="currentaccount" type="xs:string" />
+          <xs:element name="fullname" type="xs:string" />
+          <xs:element name="iin" type="xs:string" />
+          <xs:element name="legaladdress" type="xs:string" />
+          <xs:element name="nameofthebank" type="xs:string" />
+          <xs:element name="nceo" type="xs:string" />
+          <xs:element name="phone" type="xs:string" />
+          <xs:element name="phone2" type="xs:string" />
+          <xs:element name="postaladdress" type="xs:string" />
+          <xs:element name="popularity" type="xs:anyType" />
+          <xs:element name="servhotels" type="servhotelview" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="locationcitiesview" >
+      <xs:complexContent>
+       <xs:extension base="sview">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="version" type="xs:anyType" />
+          <xs:element name="createdby" type="xs:string" />
+          <xs:element name="createon" type="xs:dateTime" />
+          <xs:element name="firm" type="xs:anyType" />
+          <xs:element name="lastmodifiedby" type="xs:string" />
+          <xs:element name="modifyon" type="xs:dateTime" />
+          <xs:element name="serieskey" type="xs:string" />
+          <xs:element name="cityname" type="xs:string" />
+          <xs:element name="descr" type="xs:string" />
+          <xs:element name="popularity" type="xs:anyType" />
+          <xs:element name="locationcountries" type="xs:string" />
+          <xs:element name="locationcountriesid" type="xs:anyType" />
+          <xs:element name="servtransfers" type="servtransferview" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="servhotels" type="servhotelview" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="currcourseview" >
+      <xs:complexContent>
+       <xs:extension base="sview">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="version" type="xs:anyType" />
+          <xs:element name="createdby" type="xs:string" />
+          <xs:element name="createon" type="xs:dateTime" />
+          <xs:element name="firm" type="xs:anyType" />
+          <xs:element name="lastmodifiedby" type="xs:string" />
+          <xs:element name="modifyon" type="xs:dateTime" />
+          <xs:element name="serieskey" type="xs:string" />
+          <xs:element name="course" type="xs:anyType" />
+          <xs:element name="currency" type="xs:anyType" />
+          <xs:element name="course" type="xs:dateTime" />
+          <xs:element name="popularity" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tmaccountview" >
+      <xs:complexContent>
+       <xs:extension base="sview">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="version" type="xs:anyType" />
+          <xs:element name="createdby" type="xs:string" />
+          <xs:element name="createon" type="xs:dateTime" />
+          <xs:element name="firm" type="xs:anyType" />
+          <xs:element name="lastmodifiedby" type="xs:string" />
+          <xs:element name="modifyon" type="xs:dateTime" />
+          <xs:element name="serieskey" type="xs:string" />
+          <xs:element name="accountfullname" type="xs:string" />
+          <xs:element name="accountname" type="xs:string" />
+          <xs:element name="descr" type="xs:string" />
+          <xs:element name="popularity" type="xs:anyType" />
+          <xs:element name="locationcountries" type="xs:string" />
+          <xs:element name="locationcountriesid" type="xs:anyType" />
+          <xs:element name="servtransfers" type="servtransferview" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="servtransferview" >
+      <xs:complexContent>
+       <xs:extension base="sview">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="version" type="xs:anyType" />
+          <xs:element name="createdby" type="xs:string" />
+          <xs:element name="createon" type="xs:dateTime" />
+          <xs:element name="firm" type="xs:anyType" />
+          <xs:element name="lastmodifiedby" type="xs:string" />
+          <xs:element name="modifyon" type="xs:dateTime" />
+          <xs:element name="serieskey" type="xs:string" />
+          <xs:element name="label" type="xs:string" />
+          <xs:element name="from" type="xs:dateTime" />
+          <xs:element name="to" type="xs:dateTime" />
+          <xs:element name="descr" type="xs:string" />
+          <xs:element name="passengersphones" type="xs:string" />
+          <xs:element name="price" type="xs:anyType" />
+          <xs:element name="transfername" type="xs:string" />
+          <xs:element name="visittable" type="xs:string" />
+          <xs:element name="popularity" type="xs:anyType" />
+          <xs:element name="currcurrency" type="xs:string" />
+          <xs:element name="currcurrencyid" type="xs:anyType" />
+          <xs:element name="dictglobalbypaymenttype" type="xs:string" />
+          <xs:element name="dictglobalbypaymenttypeid" type="xs:anyType" />
+          <xs:element name="dictglobalbytypetransfer" type="xs:string" />
+          <xs:element name="dictglobalbytypetransferid" type="xs:anyType" />
+          <xs:element name="dictglobalbytransport" type="xs:string" />
+          <xs:element name="dictglobalbytransportid" type="xs:anyType" />
+          <xs:element name="locationcities" type="xs:string" />
+          <xs:element name="locationcitiesid" type="xs:anyType" />
+          <xs:element name="locationcountries" type="xs:string" />
+          <xs:element name="locationcountriesid" type="xs:anyType" />
+          <xs:element name="tmaccount" type="xs:string" />
+          <xs:element name="tmaccountid" type="xs:anyType" />
+          <xs:element name="relservtransfertmcontacts" type="relservtransfertmcontactview" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="servtransferroutes" type="servtransferrouteview" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="paymentpriceshopsimpleview" >
+      <xs:complexContent>
+       <xs:extension base="sview">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="createdby" type="xs:string" />
+          <xs:element name="createon" type="xs:dateTime" />
+          <xs:element name="firmid" type="xs:anyType" />
+          <xs:element name="lastmodifiedby" type="xs:string" />
+          <xs:element name="modifyon" type="xs:dateTime" />
+          <xs:element name="serieskey" type="xs:string" />
+          <xs:element name="version" type="xs:anyType" />
+          <xs:element name="humannumber" type="xs:anyType" />
+          <xs:element name="price" type="xs:anyType" />
+          <xs:element name="paymenttariffshopid" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="relreqservhoteltmcontacteasyview" >
+      <xs:complexContent>
+       <xs:extension base="sview">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="reqservhotel" type="xs:string" />
+          <xs:element name="reqservhotelid" type="xs:anyType" />
+          <xs:element name="tmcontacteasy" type="xs:string" />
+          <xs:element name="tmcontacteasyid" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="paymentprice" >
+      <xs:complexContent>
+       <xs:extension base="sentity">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="" type="paymenttariff" nillable="true" minOccurs="0" />
+          <xs:element name="humannumber" type="xs:anyType" />
+          <xs:element name="price" type="xs:anyType" />
+          <xs:element name="reqservhotels" type="reqservhotel" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="locationaddress" >
+      <xs:complexContent>
+       <xs:extension base="sentity">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="descr" type="xs:string" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="yandexmappointx" type="xs:string" />
+          <xs:element name="yandexmappointy" type="xs:string" />
+          <xs:element name="servhotels" type="servhotel" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tmfirmsettings" >
+      <xs:complexContent>
+       <xs:extension base="sentity">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="" type="docdocuments" nillable="true" minOccurs="0" />
+          <xs:element name="logoid" type="xs:anyType" />
+          <xs:element name="brand" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tmfirms" >
+      <xs:complexContent>
+       <xs:extension base="sentity">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="accountid" type="xs:anyType" />
+          <xs:element name="active" type="xs:string" />
+          <xs:element name="firmname" type="xs:string" />
+          <xs:element name="lastpay" type="xs:dateTime" />
+          <xs:element name="mounthcount" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="servhotelroom" >
+      <xs:complexContent>
+       <xs:extension base="sentity">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="" type="dictglobal" nillable="true" minOccurs="0" />
+          <xs:element name="bycosttarriffid" type="paymenttariff" nillable="true" minOccurs="0" />
+          <xs:element name="byrrtarriffid" type="paymenttariff" nillable="true" minOccurs="0" />
+          <xs:element name="" type="paymenttariffshop" nillable="true" minOccurs="0" />
+          <xs:element name="" type="servhotel" nillable="true" minOccurs="0" />
+          <xs:element name="breakfast" type="xs:anyType" />
+          <xs:element name="descr" type="xs:string" />
+          <xs:element name="guestnumber" type="xs:anyType" />
+          <xs:element name="roomnumber" type="xs:anyType" />
+          <xs:element name="dinner" type="xs:anyType" />
+          <xs:element name="lunch" type="xs:anyType" />
+          <xs:element name="discount" type="xs:anyType" />
+          <xs:element name="isdiscount" type="xs:anyType" />
+          <xs:element name="commission" type="xs:anyType" />
+          <xs:element name="fresale" type="xs:anyType" />
+          <xs:element name="fresaletoday" type="xs:anyType" />
+          <xs:element name="fresaleenabled" type="xs:anyType" />
+          <xs:element name="fresalestart" type="xs:dateTime" />
+          <xs:element name="fresaleend" type="xs:dateTime" />
+          <xs:element name="iscommission" type="xs:anyType" />
+          <xs:element name="reqservhotels" type="reqservhotel" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="relservhotelroomimages" type="relservhotelroomimage" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userdetail" >
+      <xs:complexContent>
+       <xs:extension base="sentity">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="companyname" type="xs:string" />
+          <xs:element name="companysite" type="xs:string" />
+          <xs:element name="reluserdetailses" type="reluserdetails" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tmimage" >
+      <xs:complexContent>
+       <xs:extension base="sobject">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="contenttype" type="xs:string" />
+          <xs:element name="extension" type="xs:string" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="originalfilename" type="xs:string" />
+          <xs:element name="path" type="xs:string" />
+          <xs:element name="size" type="xs:string" />
+          <xs:element name="relservhotelimages" type="relservhotelimage" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="relservhotelroomimages" type="relservhotelroomimage" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="userses" type="users" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="relshoppermission" >
+      <xs:complexContent>
+       <xs:extension base="srel">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="" type="infopermission" nillable="true" minOccurs="0" />
+          <xs:element name="" type="shoppermission" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="servtransferroute" >
+      <xs:complexContent>
+       <xs:extension base="sentity">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="" type="currcurrency" nillable="true" minOccurs="0" />
+          <xs:element name="" type="servtransfer" nillable="true" minOccurs="0" />
+          <xs:element name="descr" type="xs:string" />
+          <xs:element name="driver" type="xs:string" />
+          <xs:element name="driverphone" type="xs:string" />
+          <xs:element name="fixedallowance" type="xs:anyType" />
+          <xs:element name="free" type="xs:anyType" />
+          <xs:element name="percentageofallowances" type="xs:anyType" />
+          <xs:element name="sum" type="xs:anyType" />
+          <xs:element name="servtransferroutepoints" type="servtransferroutepoint" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tmuserinfo" >
+      <xs:complexContent>
+       <xs:extension base="sentity">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="browser" type="xs:string" />
+          <xs:element name="browserversion" type="xs:string" />
+          <xs:element name="lastlogin" type="xs:dateTime" />
+          <xs:element name="platform" type="xs:string" />
+          <xs:element name="platformversion" type="xs:string" />
+          <xs:element name="proxycontent" type="xs:string" />
+          <xs:element name="remotehost" type="xs:string" />
+          <xs:element name="useragent" type="xs:string" />
+          <xs:element name="useripaddress" type="xs:string" />
+          <xs:element name="username" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tmmailnewsletter" >
+      <xs:complexContent>
+       <xs:extension base="sentity">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="subject" type="xs:string" />
+          <xs:element name="content" type="xs:string" />
+          <xs:element name="backgroundcolor" type="xs:string" />
+          <xs:element name="badge" type="xs:string" />
+          <xs:element name="badgetype" type="xs:string" />
+          <xs:element name="relmailnewslettergroups" type="relmailnewslettergroup" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="paymentdetails" >
+      <xs:complexContent>
+       <xs:extension base="sentity">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="banklocation" type="xs:string" />
+          <xs:element name="bin" type="xs:string" />
+          <xs:element name="correspondentaccount" type="xs:string" />
+          <xs:element name="currentaccount" type="xs:string" />
+          <xs:element name="fullname" type="xs:string" />
+          <xs:element name="iin" type="xs:string" />
+          <xs:element name="legaladdress" type="xs:string" />
+          <xs:element name="nameofthebank" type="xs:string" />
+          <xs:element name="nceo" type="xs:string" />
+          <xs:element name="phone" type="xs:string" />
+          <xs:element name="phone2" type="xs:string" />
+          <xs:element name="postaladdress" type="xs:string" />
+          <xs:element name="servhotels" type="servhotel" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="servtransferroutepoint" >
+      <xs:complexContent>
+       <xs:extension base="sentity">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="" type="servtransferroute" nillable="true" minOccurs="0" />
+          <xs:element name="fixedallowance" type="xs:anyType" />
+          <xs:element name="free" type="xs:anyType" />
+          <xs:element name="percentageofallowances" type="xs:anyType" />
+          <xs:element name="pointfrom" type="xs:string" />
+          <xs:element name="pointto" type="xs:string" />
+          <xs:element name="starton" type="xs:dateTime" />
+          <xs:element name="sum" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userroles" >
+      <xs:complexContent>
+       <xs:extension base="srel">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="" type="users" nillable="true" minOccurs="0" />
+          <xs:element name="role" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="shoppermission" >
+      <xs:complexContent>
+       <xs:extension base="sentity">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="allocatedfirmid" type="xs:anyType" />
+          <xs:element name="physicalperson" type="xs:anyType" />
+          <xs:element name="corporatecustomer" type="xs:anyType" />
+          <xs:element name="travelagency" type="xs:anyType" />
+          <xs:element name="traveloperator" type="xs:anyType" />
+          <xs:element name="partner" type="xs:anyType" />
+          <xs:element name="relshoppermissions" type="relshoppermission" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="paymentpriceshop" >
+      <xs:complexContent>
+       <xs:extension base="sentity">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="" type="paymenttariffshop" nillable="true" minOccurs="0" />
+          <xs:element name="humannumber" type="xs:anyType" />
+          <xs:element name="price" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tmcontacteasy" >
+      <xs:complexContent>
+       <xs:extension base="sentity">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="" type="locationcountries" nillable="true" minOccurs="0" />
+          <xs:element name="" type="reqservhotel" nillable="true" minOccurs="0" />
+          <xs:element name="descr" type="xs:string" />
+          <xs:element name="email" type="xs:string" />
+          <xs:element name="manfoman" type="xs:anyType" />
+          <xs:element name="phone" type="xs:string" />
+          <xs:element name="idcard" type="xs:anyType" />
+          <xs:element name="identitynumber" type="xs:string" />
+          <xs:element name="passport" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="locationcities" >
+      <xs:complexContent>
+       <xs:extension base="sobject">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="" type="locationcountries" nillable="true" minOccurs="0" />
+          <xs:element name="cityname" type="xs:string" />
+          <xs:element name="descr" type="xs:string" />
+          <xs:element name="servtransfers" type="servtransfer" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="servhotels" type="servhotel" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="paymenttariff" >
+      <xs:complexContent>
+       <xs:extension base="sentity">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="servhotelroomsforcosttarriffid" type="servhotelroom" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="servhotelroomsforrrtarriffid" type="servhotelroom" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="reqservhotels" type="reqservhotel" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="paymentprices" type="paymentprice" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="dictglobal" >
+      <xs:complexContent>
+       <xs:extension base="sobject">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="dicttype" type="xs:string" />
+          <xs:element name="dictvalue" type="xs:string" />
+          <xs:element name="dictvalueadditional" type="xs:string" />
+          <xs:element name="servtransfersforpaymenttypeid" type="servtransfer" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="servtransfersfortypetransferid" type="servtransfer" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="servtransfersfortransportid" type="servtransfer" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="servhotelrooms" type="servhotelroom" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="relservhoteldocdocuments" >
+      <xs:complexContent>
+       <xs:extension base="srel">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="" type="docdocuments" nillable="true" minOccurs="0" />
+          <xs:element name="" type="servhotel" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tmmailnewslettergroup" >
+      <xs:complexContent>
+       <xs:extension base="sentity">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="email" type="xs:string" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="relmailnewslettergroups" type="relmailnewslettergroup" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="currcourse" >
+      <xs:complexContent>
+       <xs:extension base="sentity">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="course" type="xs:anyType" />
+          <xs:element name="currencyid" type="xs:anyType" />
+          <xs:element name="course" type="xs:dateTime" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="relservhotelroomimage" >
+      <xs:complexContent>
+       <xs:extension base="srel">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="" type="servhotelroom" nillable="true" minOccurs="0" />
+          <xs:element name="" type="tmimage" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="infopermission" >
+      <xs:complexContent>
+       <xs:extension base="sentity">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="" type="docdocuments" nillable="true" minOccurs="0" />
+          <xs:element name="descr" type="xs:string" />
+          <xs:element name="relshoppermissions" type="relshoppermission" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="reqservhotel" >
+      <xs:complexContent>
+       <xs:extension base="sentity">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="bydocumentforuserid" type="docdocuments" nillable="true" minOccurs="0" />
+          <xs:element name="bydocumentforhotelid" type="docdocuments" nillable="true" minOccurs="0" />
+          <xs:element name="" type="paymentprice" nillable="true" minOccurs="0" />
+          <xs:element name="" type="paymenttariff" nillable="true" minOccurs="0" />
+          <xs:element name="" type="servhotel" nillable="true" minOccurs="0" />
+          <xs:element name="" type="servhotelroom" nillable="true" minOccurs="0" />
+          <xs:element name="byrequestuserid" type="users" nillable="true" minOccurs="0" />
+          <xs:element name="byresponseuserid" type="users" nillable="true" minOccurs="0" />
+          <xs:element name="accept" type="xs:anyType" />
+          <xs:element name="datedifference" type="xs:string" />
+          <xs:element name="decline" type="xs:anyType" />
+          <xs:element name="departure" type="xs:dateTime" />
+          <xs:element name="descr" type="xs:string" />
+          <xs:element name="paymenttype" type="xs:anyType" />
+          <xs:element name="price" type="xs:anyType" />
+          <xs:element name="progress" type="xs:anyType" />
+          <xs:element name="race" type="xs:dateTime" />
+          <xs:element name="roomcount" type="xs:anyType" />
+          <xs:element name="singleprice" type="xs:anyType" />
+          <xs:element name="tariffcurrency" type="xs:string" />
+          <xs:element name="requestnumber" type="xs:string" />
+          <xs:element name="cancel" type="xs:anyType" />
+          <xs:element name="confirm" type="xs:anyType" />
+          <xs:element name="archived" type="xs:anyType" />
+          <xs:element name="tmcontacteasies" type="tmcontacteasy" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tmaccount" >
+      <xs:complexContent>
+       <xs:extension base="sobject">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="" type="locationcountries" nillable="true" minOccurs="0" />
+          <xs:element name="accountfullname" type="xs:string" />
+          <xs:element name="accountname" type="xs:string" />
+          <xs:element name="descr" type="xs:string" />
+          <xs:element name="servtransfers" type="servtransfer" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="timelineview" >
+      <xs:complexContent>
+       <xs:extension base="sview">
+         <xs:sequence>
+          <xs:element name="/***theconstantserialversionuid.*/serialversionuid" type="xs:long" />
+          <xs:element name="/***theid.*/id" type="xs:anyType" />
+          <xs:element name="/***thelabel.*/label" type="xs:string" />
+          <xs:element name="/***thefirmid.*/firmid" type="xs:anyType" />
+          <xs:element name="/***thecreateon.*/createon" type="xs:dateTime" />
+          <xs:element name="/***themodifyon.*/modifyon" type="xs:dateTime" />
+          <xs:element name="/***thecreatedby.*/createdby" type="xs:string" />
+          <xs:element name="/***thelastmodifiedby.*/lastmodifiedby" type="xs:string" />
+          <xs:element name="/***themodule.*/module" type="xs:string" />
+          <xs:element name="/***thehashid.*/hashid" type="xs:string" />
+          <xs:element name="/***theicon.*/icon" type="xs:string" />
+          <xs:element name="/***theinvert.*/invert" type="xs:anyType" />
+          <xs:element name="/***thebadge.*/badge" type="xs:string" />
+          <xs:element name="/***thetitle.*/title" type="xs:string" />
+          <xs:element name="/***thegone.*/gone" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="users" >
+      <xs:complexContent>
+       <xs:extension base="sobject">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="" type="tmimage" nillable="true" minOccurs="0" />
+          <xs:element name="activated" type="xs:anyType" />
+          <xs:element name="activationkey" type="xs:string" />
+          <xs:element name="email" type="xs:string" />
+          <xs:element name="enabled" type="xs:anyType" />
+          <xs:element name="firstname" type="xs:string" />
+          <xs:element name="landingpage" type="xs:string" />
+          <xs:element name="langkey" type="xs:string" />
+          <xs:element name="lastname" type="xs:string" />
+          <xs:element name="password" type="xs:string" />
+          <xs:element name="username" type="xs:string" />
+          <xs:element name="token" type="xs:string" />
+          <xs:element name="phonenumber" type="xs:string" />
+          <xs:element name="usercolor" type="xs:string" />
+          <xs:element name="shopuser" type="xs:anyType" />
+          <xs:element name="physicalperson" type="xs:anyType" />
+          <xs:element name="legalentity" type="xs:anyType" />
+          <xs:element name="reqservhotelsforrequestuserid" type="reqservhotel" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="userroleses" type="userroles" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="reluserdetailses" type="reluserdetails" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="reqservhotelsforresponseuserid" type="reqservhotel" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="apitoken" type="xs:string" />
+          <xs:element name="hashkey" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="servhotel" >
+      <xs:complexContent>
+       <xs:extension base="sentity">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="" type="infocontactinformation" nillable="true" minOccurs="0" />
+          <xs:element name="" type="locationaddress" nillable="true" minOccurs="0" />
+          <xs:element name="" type="locationcities" nillable="true" minOccurs="0" />
+          <xs:element name="" type="locationcountries" nillable="true" minOccurs="0" />
+          <xs:element name="" type="paymentdetails" nillable="true" minOccurs="0" />
+          <xs:element name="blacklist" type="xs:anyType" />
+          <xs:element name="conditiontext" type="xs:string" />
+          <xs:element name="descr" type="xs:string" />
+          <xs:element name="descrinternal" type="xs:string" />
+          <xs:element name="favorite" type="xs:anyType" />
+          <xs:element name="freesale" type="xs:anyType" />
+          <xs:element name="problem" type="xs:anyType" />
+          <xs:element name="showonline" type="xs:anyType" />
+          <xs:element name="starcount" type="xs:anyType" />
+          <xs:element name="synopsis" type="xs:string" />
+          <xs:element name="timedeparture" type="xs:string" />
+          <xs:element name="timeearlyrace" type="xs:string" />
+          <xs:element name="timelatedeparture" type="xs:string" />
+          <xs:element name="timerace" type="xs:string" />
+          <xs:element name="whereroomsarebooked" type="xs:string" />
+          <xs:element name="relservhotelimages" type="relservhotelimage" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="relservhoteldocdocumentses" type="relservhoteldocdocuments" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="reqservhotels" type="reqservhotel" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="servhotelrooms" type="servhotelroom" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="reluserdetails" >
+      <xs:complexContent>
+       <xs:extension base="srel">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="" type="userdetail" nillable="true" minOccurs="0" />
+          <xs:element name="" type="users" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="infocontactinformation" >
+      <xs:complexContent>
+       <xs:extension base="sentity">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="contact" type="xs:string" />
+          <xs:element name="descr" type="xs:string" />
+          <xs:element name="email" type="xs:string" />
+          <xs:element name="email2" type="xs:string" />
+          <xs:element name="email3" type="xs:string" />
+          <xs:element name="phone" type="xs:string" />
+          <xs:element name="phone2" type="xs:string" />
+          <xs:element name="phone3" type="xs:string" />
+          <xs:element name="website" type="xs:string" />
+          <xs:element name="servhotels" type="servhotel" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="relreqservhoteltmcontacteasy" >
+      <xs:complexContent>
+       <xs:extension base="srel">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="" type="reqservhotel" nillable="true" minOccurs="0" />
+          <xs:element name="" type="tmcontacteasy" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="docdocuments" >
+      <xs:complexContent>
+       <xs:extension base="sentity">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="contenttype" type="xs:string" />
+          <xs:element name="extension" type="xs:string" />
+          <xs:element name="originalfilename" type="xs:string" />
+          <xs:element name="path" type="xs:string" />
+          <xs:element name="simpletype" type="xs:string" />
+          <xs:element name="size" type="xs:string" />
+          <xs:element name="synopsis" type="xs:string" />
+          <xs:element name="tmfirmsettingses" type="tmfirmsettings" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="relservhoteldocdocumentses" type="relservhoteldocdocuments" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="reqservhotelsfordocumentforuserid" type="reqservhotel" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="reqservhotelsfordocumentforhotelid" type="reqservhotel" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="infopermissions" type="infopermission" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="relservtransfertmcontact" >
+      <xs:complexContent>
+       <xs:extension base="srel">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="" type="servtransfer" nillable="true" minOccurs="0" />
+          <xs:element name="" type="tmcontact" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="relmailnewslettergroup" >
+      <xs:complexContent>
+       <xs:extension base="srel">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:anyType" />
+          <xs:element name="" type="tmmailnewsletter" nillable="true" minOccurs="0" />
+          <xs:element name="" type="tmmailnewslettergroup" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sentity" >
+      <xs:complexContent>
+       <xs:extension base="sobject">
+         <xs:sequence>
+          <xs:element name="/***theconstantserialversionuid.*/serialversionuid" type="xs:long" />
+          <xs:element name="/***thelabel.*/label" type="xs:string" />
+          <xs:element name="sync" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema> 

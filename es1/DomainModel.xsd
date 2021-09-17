@@ -1,0 +1,489 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="show" >
+      <xs:complexContent>
+       <xs:extension base="baseentity<long>">
+         <xs:sequence>
+          <xs:element name="/***标题*/name" type="xs:string" />
+          <xs:element name="status" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="audit" >
+      <xs:complexContent>
+       <xs:extension base="baseentity<long>">
+         <xs:sequence>
+          <xs:element name="/***标题*/name" type="xs:string" />
+          <xs:element name="status" type="xs:anyType" />
+          <xs:element name="comment" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="exceldata" >
+      <xs:complexContent>
+       <xs:extension base="baseentity<long>">
+         <xs:sequence>
+          <xs:element name="content" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="deletedsample" >
+      <xs:complexContent>
+       <xs:extension base="baseentity<long>">
+         <xs:sequence>
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="//@range(min" type="xs:anyType" />
+          <xs:element name="birthday" type="xs:dateTime" />
+          <xs:element name="" type="sex" nillable="true" minOccurs="0" />
+          <xs:element name="show" type="xs:anyType" />
+          <xs:element name="deleted" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tree" >
+      <xs:complexContent>
+       <xs:extension base="baseentity<long>">
+         <xs:sequence>
+          <xs:element name="/***标题*/name" type="xs:string" />
+          <xs:element name="/***父路径*/parentid" type="xs:long" />
+          <xs:element name="parentids" type="xs:string" />
+          <xs:element name="weight" type="xs:anyType" />
+          <xs:element name="/***图标*/icon" type="xs:string" />
+          <xs:element name="/***是否有叶子节点*/haschildren" type="xs:anyType" />
+          <xs:element name="/***是否显示*/show" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="child" >
+      <xs:complexContent>
+       <xs:extension base="baseentity<long>">
+         <xs:sequence>
+          <xs:element name="" type="parent" nillable="true" minOccurs="0" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="type" type="parentchildtype" nillable="true" minOccurs="0" />
+          <xs:element name="begintime" type="xs:dateTime" />
+          <xs:element name="endtime" type="xs:dateTime" />
+          <xs:element name="show" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="parent" >
+      <xs:complexContent>
+       <xs:extension base="baseentity<long>">
+         <xs:sequence>
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="type" type="parentchildtype" nillable="true" minOccurs="0" />
+          <xs:element name="begin" type="xs:dateTime" />
+          <xs:element name="end" type="xs:dateTime" />
+          <xs:element name="show" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sample" >
+      <xs:complexContent>
+       <xs:extension base="baseentity<long>">
+         <xs:sequence>
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="//@range(min" type="xs:anyType" />
+          <xs:element name="birthday" type="xs:dateTime" />
+          <xs:element name="" type="sex" nillable="true" minOccurs="0" />
+          <xs:element name="show" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="move" >
+      <xs:complexContent>
+       <xs:extension base="baseentity<long>">
+         <xs:sequence>
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="weight" type="xs:anyType" />
+          <xs:element name="show" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="editor" >
+      <xs:complexContent>
+       <xs:extension base="baseentity<long>">
+         <xs:sequence>
+          <xs:element name="title" type="xs:string" />
+          <xs:element name="content" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="upload" >
+      <xs:complexContent>
+       <xs:extension base="baseentity<long>">
+         <xs:sequence>
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="src" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="category" >
+      <xs:complexContent>
+       <xs:extension base="baseentity<long>">
+         <xs:sequence>
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="weight" type="xs:anyType" />
+          <xs:element name="show" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="product" >
+      <xs:complexContent>
+       <xs:extension base="baseentity<long>">
+         <xs:sequence>
+          <xs:element name="" type="category" nillable="true" minOccurs="0" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="/***价格以“角”为单位*/price" type="xs:long" />
+          <xs:element name="/***数量*/number" type="xs:long" />
+          <xs:element name="begin" type="xs:dateTime" />
+          <xs:element name="end" type="xs:dateTime" />
+          <xs:element name="show" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="role" >
+      <xs:complexContent>
+       <xs:extension base="baseentity<long>">
+         <xs:sequence>
+          <xs:element name="/***前端显示名称*/name" type="xs:string" />
+          <xs:element name="/***系统中验证时使用的角色标识*/role" type="xs:string" />
+          <xs:element name="/***详细描述*/description" type="xs:string" />
+          <xs:element name="/***用户组织机构工作职务关联表*/resourcepermissions" type="roleresourcepermission" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="/***是否显示也表示是否可用为了统一都使用这个*/show" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="permission" >
+      <xs:complexContent>
+       <xs:extension base="baseentity<long>">
+         <xs:sequence>
+          <xs:element name="/***前端显示名称*/name" type="xs:string" />
+          <xs:element name="/***系统中验证时使用的权限标识*/permission" type="xs:string" />
+          <xs:element name="/***详细描述*/description" type="xs:string" />
+          <xs:element name="/***是否显示也表示是否可用为了统一都使用这个*/show" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="roleresourcepermission" >
+      <xs:complexContent>
+       <xs:extension base="baseentity<long>">
+         <xs:sequence>
+          <xs:element name="/***角色id*//***角色id*/" type="role" nillable="true" minOccurs="0" />
+          <xs:element name="/***资源id*/resourceid" type="xs:long" />
+          <xs:element name="/***权限id列表*数据库通过字符串存储逗号分隔*/permissionids" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="job" >
+      <xs:complexContent>
+       <xs:extension base="baseentity<long>">
+         <xs:sequence>
+          <xs:element name="/***标题*/name" type="xs:string" />
+          <xs:element name="/***父路径*/parentid" type="xs:long" />
+          <xs:element name="parentids" type="xs:string" />
+          <xs:element name="weight" type="xs:anyType" />
+          <xs:element name="/***图标*/icon" type="xs:string" />
+          <xs:element name="/***是否有叶子节点*/haschildren" type="xs:anyType" />
+          <xs:element name="/***是否显示*/show" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="organization" >
+      <xs:complexContent>
+       <xs:extension base="baseentity<long>">
+         <xs:sequence>
+          <xs:element name="/***标题*/name" type="xs:string" />
+          <xs:element name="/***组织机构类型默认分公司*/type" type="organizationtype" nillable="true" minOccurs="0" />
+          <xs:element name="/***父路径*/parentid" type="xs:long" />
+          <xs:element name="parentids" type="xs:string" />
+          <xs:element name="weight" type="xs:anyType" />
+          <xs:element name="/***图标*/icon" type="xs:string" />
+          <xs:element name="/***是否有叶子节点*/haschildren" type="xs:anyType" />
+          <xs:element name="/***是否显示*/show" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="auth" >
+      <xs:complexContent>
+       <xs:extension base="baseentity<long>">
+         <xs:sequence>
+          <xs:element name="/***组织机构*/organizationid" type="xs:long" />
+          <xs:element name="/***工作职务*/jobid" type="xs:long" />
+          <xs:element name="/***用户*/userid" type="xs:long" />
+          <xs:element name="/***组*/groupid" type="xs:long" />
+          <xs:element name="roleids" type="xs:anyType" />
+          <xs:element name="type" type="authtype" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="grouprelation" >
+      <xs:complexContent>
+       <xs:extension base="baseentity<long>">
+         <xs:sequence>
+          <xs:element name="groupid" type="xs:long" />
+          <xs:element name="organizationid" type="xs:long" />
+          <xs:element name="/***关联的单个用户*/userid" type="xs:long" />
+          <xs:element name="闭区间*/startuserid" type="xs:long" />
+          <xs:element name="enduserid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="group" >
+      <xs:complexContent>
+       <xs:extension base="baseentity<long>">
+         <xs:sequence>
+          <xs:element name="/***分组名称*/name" type="xs:string" />
+          <xs:element name="/***分组类型如用户分组/组织机构分组*/type" type="grouptype" nillable="true" minOccurs="0" />
+          <xs:element name="/***是否是默认分组*/defaultgroup" type="xs:anyType" />
+          <xs:element name="/***是否显示/可用*/show" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:complexContent>
+       <xs:extension base="baseentity<long>">
+         <xs:sequence>
+          <xs:element name="username_pattern" type="xs:string" />
+          <xs:element name="email_pattern" type="xs:string" />
+          <xs:element name="mobile_phone_number_pattern" type="xs:string" />
+          <xs:element name="username_min_length" type="xs:long" />
+          <xs:element name="username_max_length" type="xs:long" />
+          <xs:element name="password_min_length" type="xs:long" />
+          <xs:element name="password_max_length" type="xs:long" />
+          <xs:element name="username" type="xs:string" />
+          <xs:element name="email" type="xs:string" />
+          <xs:element name="mobilephonenumber" type="xs:string" />
+          <xs:element name="/***使用md5(username+originalpassword+salt)加密存储*/password" type="xs:string" />
+          <xs:element name="/***加密密码时使用的种子*/salt" type="xs:string" />
+          <xs:element name="/***创建时间*/create" type="xs:dateTime" />
+          <xs:element name="/***系统用户的状态*/status" type="userstatus" nillable="true" minOccurs="0" />
+          <xs:element name="/***是否是管理员*/admin" type="xs:anyType" />
+          <xs:element name="/***逻辑删除flag*/deleted" type="xs:anyType" />
+          <xs:element name="/***用户组织机构工作职务关联表*/organizationjobs" type="userorganizationjob" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="organizationjobsmap" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userorganizationjob" >
+      <xs:complexContent>
+       <xs:extension base="baseentity<long>">
+         <xs:sequence>
+          <xs:element name="" type="user" nillable="true" minOccurs="0" />
+          <xs:element name="organizationid" type="xs:long" />
+          <xs:element name="jobid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="useronline" >
+      <xs:complexContent>
+       <xs:extension base="abstractentity<string>">
+         <xs:sequence>
+          <xs:element name="/***用户会话id" type="xs:string" />
+          <xs:element name="//当前登录的用户iduserid" type="xs:long" />
+          <xs:element name="username" type="xs:string" />
+          <xs:element name="/***用户主机地址*/host" type="xs:string" />
+          <xs:element name="/***用户登录时系统ip*/systemhost" type="xs:string" />
+          <xs:element name="/***用户浏览器类型*/useragent" type="xs:string" />
+          <xs:element name="/***在线状态*/status" type="xs:anyType" />
+          <xs:element name="/***session创建时间*/starttimestamp" type="xs:dateTime" />
+          <xs:element name="/***session最后访问时间*/lastaccesstime" type="xs:dateTime" />
+          <xs:element name="/***超时时间*/timeout" type="xs:long" />
+          <xs:element name="/***备份的当前用户会话*/session" type="onlinesession" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userstatushistory" >
+      <xs:complexContent>
+       <xs:extension base="baseentity<long>">
+         <xs:sequence>
+          <xs:element name="/***锁定的用户*/" type="user" nillable="true" minOccurs="0" />
+          <xs:element name="/***备注信息*/reason" type="xs:string" />
+          <xs:element name="/***操作的状态*/status" type="userstatus" nillable="true" minOccurs="0" />
+          <xs:element name="/***操作的管理员*/op" type="user" nillable="true" minOccurs="0" />
+          <xs:element name="/***操作时间*/op" type="xs:dateTime" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userlastonline" >
+      <xs:complexContent>
+       <xs:extension base="baseentity<long>">
+         <xs:sequence>
+          <xs:element name="/***在线的用户*/userid" type="xs:long" />
+          <xs:element name="username" type="xs:string" />
+          <xs:element name="/***最后退出时的uid*/uid" type="xs:string" />
+          <xs:element name="/***用户主机地址*/host" type="xs:string" />
+          <xs:element name="/***用户浏览器类型*/useragent" type="xs:string" />
+          <xs:element name="/***用户登录时系统ip*/systemhost" type="xs:string" />
+          <xs:element name="/***最后登录时间*/lastlogintimestamp" type="xs:dateTime" />
+          <xs:element name="/***最后退出时间*/laststoptimestamp" type="xs:dateTime" />
+          <xs:element name="/***登录次数*/logincount" type="xs:anyType" />
+          <xs:element name="/***总的在线时长（秒为单位）*/totalonlinetime" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="resource" >
+      <xs:complexContent>
+       <xs:extension base="baseentity<long>">
+         <xs:sequence>
+          <xs:element name="/***标题*/name" type="xs:string" />
+          <xs:element name="/***资源标识符用于权限匹配的如sys:resource*/identity" type="xs:string" />
+          <xs:element name="/***点击后前往的地址*菜单才有*/url" type="xs:string" />
+          <xs:element name="/***父路径*/parentid" type="xs:long" />
+          <xs:element name="parentids" type="xs:string" />
+          <xs:element name="weight" type="xs:anyType" />
+          <xs:element name="/***图标*/icon" type="xs:string" />
+          <xs:element name="/***是否有叶子节点*/haschildren" type="xs:anyType" />
+          <xs:element name="/***是否显示*/show" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="notificationdata" >
+      <xs:complexContent>
+       <xs:extension base="baseentity<long>">
+         <xs:sequence>
+          <xs:element name="/***接收通知的用户*/userid" type="xs:long" />
+          <xs:element name="/***通知所属系统*/system" type="notificationsystem" nillable="true" minOccurs="0" />
+          <xs:element name="title" type="xs:string" />
+          <xs:element name="/***通知内容*/content" type="xs:string" />
+          <xs:element name="/***通知时间*/" type="xs:dateTime" />
+          <xs:element name="/***是否已读*/read" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="notificationtemplate" >
+      <xs:complexContent>
+       <xs:extension base="baseentity<long>">
+         <xs:sequence>
+          <xs:element name="/***模板名称必须唯一发送时使用*/name" type="xs:string" />
+          <xs:element name="/***所属系统*/system" type="notificationsystem" nillable="true" minOccurs="0" />
+          <xs:element name="/***模板标题*/title" type="xs:string" />
+          <xs:element name="/***模板内容*/template" type="xs:string" />
+          <xs:element name="/***是否已逻辑删除*/deleted" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="icon" >
+      <xs:complexContent>
+       <xs:extension base="baseentity<long>">
+         <xs:sequence>
+          <xs:element name="/***标识前台使用时的名称*/identity" type="xs:string" />
+          <xs:element name="/***类名称*/cssclass" type="xs:string" />
+          <xs:element name="//////和class、csssprite三者选一/***图片地址*/imgsrc" type="xs:string" />
+          <xs:element name="//////和class、csssprite三者选一/***css背景图位置*绝对地址如http://a.com/a.png*相对于上下文地址如/a/a.png不加上下文*/spritesrc" type="xs:string" />
+          <xs:element name="/***距离sprite图片左边多少*/left" type="xs:anyType" />
+          <xs:element name="/***距离sprite图片上边多少*/top" type="xs:anyType" />
+          <xs:element name="/***宽度*/width" type="xs:anyType" />
+          <xs:element name="/***高度*/height" type="xs:anyType" />
+          <xs:element name="/***额外添加的css样式*/style" type="xs:string" />
+          <xs:element name="type" type="icontype" nillable="true" minOccurs="0" />
+          <xs:element name="/***描述*/description" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="keyvalue" >
+      <xs:complexContent>
+       <xs:extension base="baseentity<long>">
+         <xs:sequence>
+          <xs:element name="key" type="xs:string" />
+          <xs:element name="value" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="taskdefinition" >
+      <xs:complexContent>
+       <xs:extension base="baseentity<long>">
+         <xs:sequence>
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="/***cron表达式*/cron" type="xs:string" />
+          <xs:element name="/***要执行的class类名*/beanclass" type="xs:string" />
+          <xs:element name="/***要执行的bean名字*/beanname" type="xs:string" />
+          <xs:element name="/***要执行的bean的方法名*/methodname" type="xs:string" />
+          <xs:element name="/***是否已启动*/start" type="xs:anyType" />
+          <xs:element name="/***描述*/description" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="messagecontent" >
+      <xs:complexContent>
+       <xs:extension base="baseentity<long>">
+         <xs:sequence>
+          <xs:element name="" type="message" nillable="true" minOccurs="0" />
+          <xs:element name="/***消息内容*/content" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="message" >
+      <xs:complexContent>
+       <xs:extension base="baseentity<long>">
+         <xs:sequence>
+          <xs:element name="/***消息发送者id*/senderid" type="xs:long" />
+          <xs:element name="/***消息接收者id*/receiverid" type="xs:long" />
+          <xs:element name="/***消息发送时间*/send" type="xs:dateTime" />
+          <xs:element name="/***标题*/title" type="xs:string" />
+          <xs:element name="/***onetoone如果不生成字节码代理不能代理所以改成onetomany*/contents" type="messagecontent" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="/***发件人状态*/senderstate" type="messagestate" nillable="true" minOccurs="0" />
+          <xs:element name="/***发件人状态改变时间默认发送时间*/senderstatechange" type="xs:dateTime" />
+          <xs:element name="//收件人状态receiverstate" type="messagestate" nillable="true" minOccurs="0" />
+          <xs:element name="/***收件人状态改变时间默认发送时间*/receiverstatechange" type="xs:dateTime" />
+          <xs:element name="/***消息类型,默认普通消息*/type" type="messagetype" nillable="true" minOccurs="0" />
+          <xs:element name="/***是否已读*/read" type="xs:anyType" />
+          <xs:element name="/***是否已回复*/replied" type="xs:anyType" />
+          <xs:element name="/***父编号*/parentid" type="xs:long" />
+          <xs:element name="/***父消息编号列表如1/2/3/4*/parentids" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="calendar" >
+      <xs:complexContent>
+       <xs:extension base="baseentity<long>">
+         <xs:sequence>
+          <xs:element name="/***所属人*/userid" type="xs:long" />
+          <xs:element name="/***标题*/title" type="xs:string" />
+          <xs:element name="/***详细信息*/details" type="xs:string" />
+          <xs:element name="/***开始日期*/start" type="xs:dateTime" />
+          <xs:element name="/***持续时间*/length" type="xs:anyType" />
+          <xs:element name="/***开始时间*/starttime" type="xs:dateTime" />
+          <xs:element name="/***结束时间*/endtime" type="xs:dateTime" />
+          <xs:element name="backgroundcolor" type="xs:string" />
+          <xs:element name="textcolor" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema> 

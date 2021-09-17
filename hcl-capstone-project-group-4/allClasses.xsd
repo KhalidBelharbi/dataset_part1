@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="capstoneapplicationtests" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userdto" >
+      <xs:sequence>
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+        <xs:element name="phonenumber" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="es" type="address" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="clientuserdto" >
+      <xs:sequence>
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+        <xs:element name="phonenumber" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="es" type="address" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="orderedproductdto" >
+      <xs:sequence>
+        <xs:element name="productid" type="xs:long" />
+        <xs:element name="quantity" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="addressdto" >
+      <xs:sequence>
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+        <xs:element name="//addressline1streetaddr" type="xs:string" />
+        <xs:element name="city" type="xs:string" />
+        <xs:element name="state" type="xs:string" />
+        <xs:element name="zipcode" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="placeorderdto" >
+      <xs:sequence>
+        <xs:element name="token" type="xs:string" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="addressid" type="xs:long" />
+        <xs:element name="items" type="orderedproductdto" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usernameunavailableexception" >
+      <xs:complexContent>
+       <xs:extension base="exception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="productcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="ps" type="productservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ordercontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="orderservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jwtauthenticationcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="jwttokenutil" nillable="true" minOccurs="0" />
+        <xs:element name="userdetailsservice" type="jwtuserdetailsservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="userservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jwtuserdetailsservice" >
+      <xs:sequence>
+        <xs:element name="ur" type="userrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userservice" >
+      <xs:sequence>
+        <xs:element name="ur" type="userrepository" nillable="true" minOccurs="0" />
+        <xs:element name="rr" type="rolerepository" nillable="true" minOccurs="0" />
+        <xs:element name="ar" type="addressrepository" nillable="true" minOccurs="0" />
+        <xs:element name="encoder" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="orderservice" >
+      <xs:sequence>
+        <xs:element name="ur" type="userrepository" nillable="true" minOccurs="0" />
+        <xs:element name="ar" type="addressrepository" nillable="true" minOccurs="0" />
+        <xs:element name="pr" type="productrepository" nillable="true" minOccurs="0" />
+        <xs:element name="or" type="orderrepository" nillable="true" minOccurs="0" />
+        <xs:element name="oir" type="orderitemrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="productservice" >
+      <xs:sequence>
+        <xs:element name="pr" type="productrepository" nillable="true" minOccurs="0" />
+        <xs:element name="cr" type="categoryrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="capstoneapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jwtrequest" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="role" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="type" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="orderitemid" >
+      <xs:sequence>
+        <xs:element name="orderid" type="xs:long" />
+        <xs:element name="productid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jwtresponse" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="jwttoken" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="product" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="brand" type="xs:string" />
+        <xs:element name="inventory" type="xs:long" />
+        <xs:element name="price" type="xs:double" />
+        <xs:element name="image" type="xs:anyType" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="categories" type="category" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="myuserdetails" >
+      <xs:complexContent>
+       <xs:extension base="grantedauthority>">
+         <xs:sequence>
+          <xs:element name="" type="user" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="order" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="shippingaddrid" type="address" nillable="true" minOccurs="0" />
+        <xs:element name="timeoforder" type="xs:dateTime" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="total" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="address" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="/*thewaythisclassiscurrentlysetup,eachaddressisassociatedwithone,whomayhavemanyaddresses.	thenameintheaddressentityneednotbethesameasthe'sname,incasetheshipssomething	toanotherperson,orifabillingaddresshasadifferentnameassociatedwithit*/" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+        <xs:element name="//addressline1streetaddr" type="xs:string" />
+        <xs:element name="city" type="xs:string" />
+        <xs:element name="state" type="xs:string" />
+        <xs:element name="zipcode" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+        <xs:element name="phonenumber" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="enabled" type="xs:anyType" />
+        <xs:element name="addresses" type="address" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="roles" type="role" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="orderitem" >
+      <xs:sequence>
+        <xs:element name="orderid" type="xs:long" />
+        <xs:element name="id" type="product" nillable="true" minOccurs="0" />
+        <xs:element name="quantity" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="category" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="products" type="product" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jwtauthenticationentrypoint" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jwttokenutil" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="jwt_token_validity" type="xs:long" />
+        <xs:element name="secret" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="websecurityconfig" >
+      <xs:complexContent>
+       <xs:extension base="websecurityconfigureradapter">
+         <xs:sequence>
+          <xs:element name="" type="jwtauthenticationentrypoint" nillable="true" minOccurs="0" />
+          <xs:element name="//impelementsuserdetailservice" type="jwtuserdetailsservice" nillable="true" minOccurs="0" />
+          <xs:element name="" type="jwtrequestfilter" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jwtrequestfilter" >
+      <xs:complexContent>
+       <xs:extension base="onceperrequestfilter">
+         <xs:sequence>
+          <xs:element name="" type="jwtuserdetailsservice" nillable="true" minOccurs="0" />
+          <xs:element name="" type="jwttokenutil" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="productrepositoryfilteredimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<user,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="productrepositoryfiltered" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="productrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<product,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="orderrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<order,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="orderitemrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<orderitem,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="rolerepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<role,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="productfilterobject" >
+      <xs:sequence>
+        <xs:element name="usingminprice" type="xs:anyType" />
+        <xs:element name="minprice" type="xs:double" />
+        <xs:element name="usingmaxprice" type="xs:anyType" />
+        <xs:element name="maxprice" type="xs:double" />
+        <xs:element name="usingname" type="xs:anyType" />
+        <xs:element name="nameincludes" type="xs:string" />
+        <xs:element name="usingcategories" type="xs:anyType" />
+        <xs:element name="categories" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="addressrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<address,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="categoryrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<category,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema> 

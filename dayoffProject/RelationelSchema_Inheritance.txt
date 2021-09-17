@@ -1,0 +1,49 @@
+
+category(id:Integer [PK], name:String, subname:String, engname:String);
+
+grade(level:String [PK], rate:Integer, required:Integer);
+
+users(id:Integer [PK], socialid:String, name:String, birth:Date, sex:String, height:String, weight:String, phone:String, accrue:Integer, GeneratedName:Grade #FK to(Grade), role:String, signup:Date, accesstoken:String, refreshtoken:String, totalemoney:Integer);
+
+code(code:String [PK], content:String);
+
+product(id:Integer [PK], name:String, price:Integer, detailimage:String, register:Date, isavailable:Integer, GeneratedName:Category #FK to(Category));
+
+productcolor(productid:Product [PK] #FK to Product,colorid:list<color> [PK] #FK to list<color>);
+
+review(id:Integer [PK], title:String, content:String, review:Date, rating:Integer, productid:Integer, GeneratedName:Users #FK to(Users));
+
+productimage(id:Integer [PK], name:String, originalname:String, GeneratedName:Product #FK to(Product));
+
+productsize(size:String [PK], GeneratedName:Product [PK] #FK to(Product));
+
+productview(id:Integer [PK], name:String, price:String, register:Date, categoryid:Integer, categoryname:String, categorysubname:String, isavailable:Integer, productthumbnailname:String, ordercount:Integer);
+
+loginhistory(id:Integer [PK], login:Date, GeneratedName:Users #FK to(Users));
+
+ordergroup(tid:String [PK], GeneratedName:Users #FK to(Users), totalpay:Integer, order:Date, gradediscount:Integer, pointuse:Integer, GeneratedName:Deliver #FK to(Deliver), GeneratedName:Stores #FK to(stores), invoice:String, aid:String, cid:String);
+
+refunds(id:Integer [PK], GeneratedName:Orders #FK to(orders), GeneratedName:Code #FK to(Code), request:Date, refund:Date, refundamount:Integer);
+
+orderview(orderid:Integer [PK], productid:Integer, productthumbnailname:String, productname:String, productisavailable:Integer, ordercolor:String, ordersize:String, orderquantity:Integer, orderprice:Integer, groupid:String, userid:Integer, username:String, gradediscount:Integer, pointuse:Integer, totalpay:Integer, deliverdate:String, order:Date, invoice:String, code:String, codecontent:String);
+
+orderdetailview(orderid:Integer [PK], productid:Integer, productthumbnailname:String, productname:String, productprice:Integer, productisavailable:Integer, ordercolor:String, ordersize:String, orderquantity:Integer, orderprice:Integer, code:String, codecontent:String, groupid:String, userid:Integer, username:String, totalpay:Integer, order:Date, gradediscount:Integer, pointuse:Integer, invoice:String, refundrequest:Date, refund:Date, refundamount:Integer, storesid:Integer, storesname:String, storeslocation:String, deliverid:Integer, delivername:String, deliverlocation:String, deliverpostalcode:String, deliverphone:String);
+
+withdrawhistory(id:Integer [PK], GeneratedName:Users #FK to(Users), GeneratedName:Code #FK to(Code), withdraw:Date);
+
+deliver(id:Integer [PK], name:String, location:String, postalcode:String, phone:String, GeneratedName:Users #FK to(Users));
+
+cartview(id:Integer [PK], color:String, size:String, quantity:Integer, productid:Integer, name:String, price:Integer, totalprice:Integer, productthumbnailname:String, userid:Integer);
+
+cart(id:Integer [PK], GeneratedName:Product #FK to(Product), color:String, size:String, quantity:Integer, cart:Date, price:Integer, GeneratedName:Users #FK to(Users));
+
+orders(id:Integer [PK], GeneratedName:Code #FK to(Code), GeneratedName:OrderGroup #FK to(OrderGroup), GeneratedName:Product #FK to(Product), color:String, size:String, quantity:Integer, price:Integer, deliver:Date);
+
+color(id:Integer [PK], color:String, image:String);
+
+recommendbycategory(productname:String, categoryname:String, categorysubname:String, price:int, productid:int [PK], productthumbnailname:String, ordercount:int);
+
+stores(id:Integer [PK], name:String, location:String);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

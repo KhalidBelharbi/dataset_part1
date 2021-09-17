@@ -1,0 +1,31 @@
+
+consultaexamen(GeneratedName:Examen [PK], GeneratedName:Consulta [PK]);
+
+consulta(idconsulta:Integer [PK], GeneratedName:Paciente #FK to(paciente), GeneratedName:Medico #FK to(medico), GeneratedName:Especialidad #FK to(especialidad), numconsultorio:String, //@jsonserialize(using:LocalDateTime);
+
+menu(idmenu:Integer [PK], icono:String, nombre:String, url:String);
+
+menu_rol(id_menu:Menu [PK] #FK to Menu,id_rol:list<rol> [PK] #FK to list<rol>);
+
+rol(idrol:Integer [PK], nombre:String, descripcion:String);
+
+resettoken(id:Integer [PK], token:String, user:Usuario #FK to(usuario), expiracion:LocalDateTime);
+
+usuario(idusuario:Integer [PK], username:String, password:String, enabled:boolean);
+
+usuario_rol(id_usuario:Usuario [PK] #FK to Usuario,id_rol:list<rol> [PK] #FK to list<rol>);
+
+archivo(idarchivo:Integer [PK], filename:String, filetype:String, value:byte);
+
+paciente(idpaciente:Integer [PK], nombres:String, apellidos:String, dni:String, direccion:String, telefono:String, email:String);
+
+examen(idexamen:Integer [PK], nombre:String, descripcion:String);
+
+medico(idmedico:Integer [PK], nombres:String, apellidos:String, cmp:String, fotourl:String);
+
+detalleconsulta(iddetalle:int [PK], GeneratedName:Consulta #FK to(consulta), diagnostico:String, tratamiento:String);
+
+especialidad(idespecialidad:Integer [PK], nombre:String);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

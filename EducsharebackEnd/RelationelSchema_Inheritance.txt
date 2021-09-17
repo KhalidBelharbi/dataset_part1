@@ -1,0 +1,33 @@
+
+favori(id:Long [PK], documentid:Long, userid:Long, createdat:Date, updat:Date);
+
+course(id:Long [PK], coursename:String, createdat:Date, updat:Date);
+
+comment(id:Long [PK], content:String, commentvalidated:boolean, createdat:Date, updat:Date, GeneratedName:Document #FK to(document), user:AppUser #FK to(appuser));
+
+basket(id:Long [PK], createdat:Date, updat:Date, user:AppUser #FK to(appuser), GeneratedName:Document #FK to(document));
+
+message(id:Long [PK], email:String, content:String, telnumber:String, firstname:String, lastname:String, createdat:Date, updat:Date);
+
+approle(id:Long [PK], rolename:String);
+
+university(id:Long [PK], universityname:String, universityacronyme:String, countryname:String, createdat:Date, updat:Date);
+
+faq(id:Long [PK], question:String, faqvalidated:String, createdat:Date, updat:Date, user:AppUser #FK to(appuser));
+
+rank(id:Long [PK], rankvalue:Long, documentid:Long, userid:Long, createdat:Date, updat:Date);
+
+document(id:Long [PK], documentname:String, documentmatter:String, documentvalidated:String, documentlevel:String, documentyear:String, documenttheme:String, documenttype:String, documentsemestre:Long, documentcountry:String, documentuniversity:String, documentdepartment:String, documentfileenonce:String, documentfilecorrige:String, enoncedata:byte, corrigedata:byte, createdat:Date, updat:Date, //documentbestouser//@manytoone//@joincolumn(name:Long);
+
+departement(id:Long [PK], departementname:String, createdat:Date, updat:Date);
+
+task(id:int [PK], taskname:String);
+
+matter(id:Long [PK], mattername:String, createdat:Date, updat:Date);
+
+appuser(id:Long [PK], firstname:String, lastname:String, birth:Date, email:String, password:String, confirmpassword:String, telnumber:String, cin:String, city:String, avatar:byte, fillename:String, //@notblankuserlevel:String, //@notblankusersection:String, //@notblankuserclass:String, createdat:Date, updat:Date, userrole:String, usercountry:String, useruniversity:String);
+
+notification(id:Long [PK], content:String, userid:Long, documentid:Long, createdat:Date, updat:Date);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="livroserviceimpltest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="livrorepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="livroserviceimpl" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="categoriacontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="categoriaservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="categoriaservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="categoriaserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="categoriarepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="categoriarepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<categoria,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="categoria" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="nome" type="xs:string" />
+        <xs:element name="livros" type="livro" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="livrocontrolleradvice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="resourcenotfoundexception" >
+      <xs:complexContent>
+       <xs:extension base="runtimeexception{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="swaggerconfig" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="livroserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="livrorepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="categoriaservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="avaliacaoservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="livroservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="livrorepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<livro,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="livro" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="titulo" type="xs:string" />
+        <xs:element name="quantidadeestoque" type="xs:long" />
+        <xs:element name="avaliacoes" type="avaliacao" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="categorias" type="categoria" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="livrocontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="livroservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="leitor" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="nome" type="xs:string" />
+        <xs:element name="avaliacoes" type="avaliacao" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="segurancaconfiguration" >
+      <xs:complexContent>
+       <xs:extension base="websecurityconfigureradapter">
+         <xs:sequence>
+          <xs:element name="userservice" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="usuariorepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<usuario,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="usuarioserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="usuariorepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usuario" >
+      <xs:complexContent>
+       <xs:extension base="grantedauthority>">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="login" type="xs:string" />
+          <xs:element name="password" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="avaliacaoidentity" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="leitor" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="livro" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="avaliacao" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="avaliacaoidentity" nillable="true" minOccurs="0" />
+        <xs:element name="nota" type="xs:anyType" />
+        <xs:element name="avaliacao" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="avaliacaorepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<avaliacao,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="avaliacaocontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="avaliacaoservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="avaliacaoservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="avaliacaoserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="avaliacaorepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bibliotecaapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="attachment" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="attachid" type="xs:long" />
+        <xs:element name="/***附件文件名*/attachname" type="xs:string" />
+        <xs:element name="/***附件路径*/attachpath" type="xs:string" />
+        <xs:element name="/***附件缩略图路径*/attachsmallpath" type="xs:string" />
+        <xs:element name="/***附件类型*/attachtype" type="xs:string" />
+        <xs:element name="/***附件后缀*/attachsuffix" type="xs:string" />
+        <xs:element name="/***上传时间*/attachcreated" type="xs:dateTime" />
+        <xs:element name="/***附件大小*/attachsize" type="xs:string" />
+        <xs:element name="/***附件长宽*/attachwh" type="xs:string" />
+        <xs:element name="/***附件存储地址*/attachlocation" type="xs:string" />
+        <xs:element name="/***附件来源:0:上传,1:外部链接*/attachorigin" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="menu" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="menuid" type="xs:long" />
+        <xs:element name="/***菜单名称*/menuname" type="xs:string" />
+        <xs:element name="/***菜单链接路径*/menuurl" type="xs:string" />
+        <xs:element name="/***排序编号*/menusort" type="xs:anyType" />
+        <xs:element name="/***图标*/menuicon" type="xs:string" />
+        <xs:element name="/***打开方式*/menutarget" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="post" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="postid" type="xs:long" />
+        <xs:element name="posttitle" type="xs:string" />
+        <xs:element name="/***文章类型*/posttype" type="xs:string" />
+        <xs:element name="/***markdown格式*/postcontentmd" type="xs:string" />
+        <xs:element name="/***html格式*/postcontent" type="xs:string" />
+        <xs:element name="/***文章路径*/posturl" type="xs:string" />
+        <xs:element name="/***摘要*/postsummary" type="xs:string" />
+        <xs:element name="/***缩略图*/postthumbnail" type="xs:string" />
+        <xs:element name="/***发表日期*/post" type="xs:dateTime" />
+        <xs:element name="/***更后一次更新日期*/postupate" type="xs:dateTime" />
+        <xs:element name="/***状态,0:已发布,1:草稿,2:回收站中*/poststatus" type="xs:anyType" />
+        <xs:element name="/***访问数量*/postviews" type="xs:long" />
+        <xs:element name="/***是否允许评论*/allowcomment" type="xs:anyType" />
+        <xs:element name="/***文章密码*/postpassword" type="xs:string" />
+        <xs:element name="/***指定模版*/customtpl" type="xs:string" />
+        <xs:element name="GeneratedName" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="categories" type="category" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="//todo:tag,commenttags" type="tag" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="comments" type="comment" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="link" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="linkname" type="xs:string" />
+        <xs:element name="linkurl" type="xs:string" />
+        <xs:element name="linkpic" type="xs:string" />
+        <xs:element name="linkdesc" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="option" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="optionname" type="xs:string" />
+        <xs:element name="optionvalue" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tag" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="tagid" type="xs:long" />
+        <xs:element name="tagname" type="xs:string" />
+        <xs:element name="tagurl" type="xs:string" />
+        <xs:element name="posts" type="post" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="logs" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="logid" type="xs:long" />
+        <xs:element name="logtitle" type="xs:string" />
+        <xs:element name="logcontent" type="xs:string" />
+        <xs:element name="logip" type="xs:string" />
+        <xs:element name="logcreated" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="//用户iduserid" type="xs:long" />
+        <xs:element name="//登录的用户名username" type="xs:string" />
+        <xs:element name="//显示的用户称呼userdisplayname" type="xs:string" />
+        <xs:element name="//密码userpass" type="xs:string" />
+        <xs:element name="//用户emailuseremail" type="xs:string" />
+        <xs:element name="//用户头像useravatar" type="xs:string" />
+        <xs:element name="//用户描述userdesc" type="xs:string" />
+        <xs:element name="//是否禁用登录loginenable" type="xs:string" />
+        <xs:element name="//上次登录时间loginlast" type="xs:dateTime" />
+        <xs:element name="//登录错误次数loginerror" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="comment" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="commentid" type="xs:long" />
+        <xs:element name="/***评论者名称*/commentauthor" type="xs:string" />
+        <xs:element name="/***评论者email*/commentauthoremail" type="xs:string" />
+        <xs:element name="commentauthorurl" type="xs:string" />
+        <xs:element name="commentauthorip" type="xs:string" />
+        <xs:element name="commentauthoravatarmd5" type="xs:string" />
+        <xs:element name="comment" type="xs:dateTime" />
+        <xs:element name="commentcontent" type="xs:string" />
+        <xs:element name="commentagent" type="xs:string" />
+        <xs:element name="/***上一级评论*/commentparent" type="xs:long" />
+        <xs:element name="/***评论状态,0:正常,1:待审核,2:回收站*/commentstatus" type="xs:anyType" />
+        <xs:element name="/***是否为博主评论*/isadmin" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="post" nillable="true" minOccurs="0" />
+        <xs:element name="childcomments" type="comment" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="gallery" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="galleryname" type="xs:string" />
+        <xs:element name="gallerydesc" type="xs:string" />
+        <xs:element name="gallerydate" type="xs:string" />
+        <xs:element name="gallerylocation" type="xs:string" />
+        <xs:element name="gallerythumbnailurl" type="xs:string" />
+        <xs:element name="galleryurl" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="category" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="cateid" type="xs:long" />
+        <xs:element name="//名称catename" type="xs:string" />
+        <xs:element name="cateurl" type="xs:string" />
+        <xs:element name="//分类描述catedesc" type="xs:string" />
+        <xs:element name="posts" type="post" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

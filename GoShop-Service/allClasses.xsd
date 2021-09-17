@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="searchshopsreq" >
+      <xs:sequence>
+        <xs:element name="categorylist" type="xs:anyType" />
+        <xs:element name="typelist" type="xs:anyType" />
+        <xs:element name="location" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="productfilterreq" >
+      <xs:sequence>
+        <xs:element name="minprice" type="xs:double" />
+        <xs:element name="maxprice" type="xs:double" />
+        <xs:element name="sizeslist" type="xs:anyType" />
+        <xs:element name="clothcategorylist" type="xs:anyType" />
+        <xs:element name="clothtypelist" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="registeruserreq" >
+      <xs:sequence>
+        <xs:element name="emailid" type="xs:string" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+        <xs:element name="phonenumber" type="xs:string" />
+        <xs:element name="country" type="xs:string" />
+        <xs:element name="city" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="updateshoprequest" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="offertitle" type="xs:string" />
+        <xs:element name="offerdesc" type="xs:string" />
+        <xs:element name="state" type="xs:string" />
+        <xs:element name="city" type="xs:string" />
+        <xs:element name="location" type="xs:string" />
+        <xs:element name="address" type="xs:string" />
+        <xs:element name="photourl" type="xs:string" />
+        <xs:element name="type" type="xs:anyType" />
+        <xs:element name="categories" type="xs:anyType" />
+        <xs:element name="openingtime" type="xs:string" />
+        <xs:element name="closingtime" type="xs:string" />
+        <xs:element name="phone" type="xs:string" />
+        <xs:element name="parkingavail" type="xs:anyType" />
+        <xs:element name="changingroomavail" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="registershopreq" >
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="offertitle" type="xs:string" />
+        <xs:element name="offerdesc" type="xs:string" />
+        <xs:element name="state" type="xs:string" />
+        <xs:element name="city" type="xs:string" />
+        <xs:element name="location" type="xs:string" />
+        <xs:element name="address" type="xs:string" />
+        <xs:element name="photourl" type="xs:string" />
+        <xs:element name="type" type="xs:anyType" />
+        <xs:element name="categories" type="xs:anyType" />
+        <xs:element name="openingtime" type="xs:string" />
+        <xs:element name="closingtime" type="xs:string" />
+        <xs:element name="phone" type="xs:string" />
+        <xs:element name="parkingavail" type="xs:anyType" />
+        <xs:element name="changingroomavail" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="loginreq" >
+      <xs:sequence>
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="shopdetailresp" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="offertitle" type="xs:string" />
+        <xs:element name="offerdesc" type="xs:string" />
+        <xs:element name="state" type="xs:string" />
+        <xs:element name="city" type="xs:string" />
+        <xs:element name="location" type="xs:string" />
+        <xs:element name="ownername" type="xs:string" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="photourl" type="xs:string" />
+        <xs:element name="type" type="xs:anyType" />
+        <xs:element name="categories" type="xs:anyType" />
+        <xs:element name="openingtime" type="xs:string" />
+        <xs:element name="closingtime" type="xs:string" />
+        <xs:element name="owneremail" type="xs:string" />
+        <xs:element name="ownerphone" type="xs:string" />
+        <xs:element name="rating" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="uploadfileresponse" >
+      <xs:sequence>
+        <xs:element name="filename" type="xs:string" />
+        <xs:element name="imageurl" type="xs:string" />
+        <xs:element name="contenttype" type="xs:string" />
+        <xs:element name="size" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="categoryresponse" >
+      <xs:sequence>
+        <xs:element name="type" type="xs:string" />
+        <xs:element name="itemlist" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pagedetails" >
+      <xs:sequence>
+        <xs:element name="default_page_size" type="xs:long" />
+        <xs:element name="//pagenumberrequestedforpage" type="xs:long" />
+        <xs:element name="//maxresultsperpagesize" type="xs:long" />
+        <xs:element name="//totalpagesbasedonthedataavailabletotalpages" type="xs:long" />
+        <xs:element name="//totaldatacount.totalcount" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="responsewrapper" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="pagedetails" nillable="true" minOccurs="0" />
+        <xs:element name="daa" type="xs:anyType" />
+        <xs:element name="message" type="xs:string" />
+        <xs:element name="success" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userrole" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="clothtype" >
+      <xs:sequence>
+        <xs:element name="clothtype" type="xs:string" />
+        <xs:element name="lookup" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="clothcategory" >
+      <xs:sequence>
+        <xs:element name="clothcategory" type="xs:string" />
+        <xs:element name="GeneratedName" type="clothtype" nillable="true" minOccurs="0" />
+        <xs:element name="mensclothes" type="xs:anyType" />
+        <xs:element name="womensclothes" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="shopservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="shoprepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="userrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="productservice" >
+      <xs:sequence>
+        <xs:element name="productrepo" type="productrepository" nillable="true" minOccurs="0" />
+        <xs:element name="shoprepo" type="shoprepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dbfilestorageservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="dbfilerepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="commentsservice" >
+      <xs:sequence>
+        <xs:element name="commentrepo" type="commentrepository" nillable="true" minOccurs="0" />
+        <xs:element name="shoprepo" type="shoprepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userdetailsservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="productcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="productservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="shopcontroller" >
+      <xs:sequence>
+        <xs:element name="shopregistrationservice" type="shopservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="commentscontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="commentsservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="imagecontroller" >
+      <xs:sequence>
+        <xs:element name="filestorageservice" type="dbfilestorageservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pingcontroller" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userregistrationcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userdetailsservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="restexceptionhandler" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="badrequestexception" >
+      <xs:complexContent>
+       <xs:extension base="runtimeexception">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="datanotfoundexception" >
+      <xs:complexContent>
+       <xs:extension base="runtimeexception">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="dataconflictexception" >
+      <xs:complexContent>
+       <xs:extension base="runtimeexception">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="shoprepository" >
+      <xs:complexContent>
+       <xs:extension base="">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="productspecs" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dbfilerepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<dbfile,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="shopspecs" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<user,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="productrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<product,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="commentrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<comments,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="product" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="type" type="xs:string" />
+        <xs:element name="category" type="xs:string" />
+        <xs:element name="sizes" type="xs:string" />
+        <xs:element name="photourl" type="xs:string" />
+        <xs:element name="originalprice" type="xs:double" />
+        <xs:element name="discount" type="xs:double" />
+        <xs:element name="inwish" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="shop" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="shop" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="offertitle" type="xs:string" />
+        <xs:element name="offerdesc" type="xs:string" />
+        <xs:element name="state" type="xs:string" />
+        <xs:element name="city" type="xs:string" />
+        <xs:element name="location" type="xs:string" />
+        <xs:element name="address" type="xs:string" />
+        <xs:element name="photourl" type="xs:string" />
+        <xs:element name="type" type="xs:string" />
+        <xs:element name="categories" type="xs:string" />
+        <xs:element name="openingtime" type="xs:string" />
+        <xs:element name="closingtime" type="xs:string" />
+        <xs:element name="rating" type="xs:double" />
+        <xs:element name="ratingcount" type="xs:double" />
+        <xs:element name="phone" type="xs:string" />
+        <xs:element name="parkingavail" type="xs:anyType" />
+        <xs:element name="changingroomavail" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="user" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="phonenumber" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dbfile" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="filename" type="xs:string" />
+        <xs:element name="filetype" type="xs:string" />
+        <xs:element name="data" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="comments" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="ratings" type="xs:double" />
+        <xs:element name="commenttext" type="xs:string" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="GeneratedName" type="shop" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="shopitserviceapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="productsdao" >
+      <xs:sequence>
+        <xs:element name="template" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="shopdetailsdao" >
+      <xs:sequence>
+        <xs:element name="template" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="swaggerconfig" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="corsfilter" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="shopitserviceapplicationtests" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

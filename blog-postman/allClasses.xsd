@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="blogpostmanapplicationtests" >
+      <xs:sequence>
+        <xs:element name="githubrepourl" type="xs:string" />
+        <xs:element name="blogpath" type="xs:string" />
+        <xs:element name="blogreponame" type="xs:string" />
+        <xs:element name="fileignore" type="xs:string" />
+        <xs:element name="blogcodelength" type="xs:long" />
+        <xs:element name="blogdefaultauthor" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="githubwebhookcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="githubservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="blogcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="blogservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usercontroller" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="osutil" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="gitutil" >
+      <xs:sequence>
+        <xs:element name="repository_path" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="codegeneratorutil" >
+      <xs:sequence>
+        <xs:element name="alphanumeric" type="xs:string" />
+        <xs:element name="alpha" type="xs:string" />
+        <xs:element name="numeric" type="xs:string" />
+        <xs:element name="rand" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="blogutil" >
+      <xs:sequence>
+        <xs:element name="blogdtocollection" type="blogdto" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="blogservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="blogserviceimpl" >
+      <xs:sequence>
+        <xs:element name="blogpath" type="xs:string" />
+        <xs:element name="blogreponame" type="xs:string" />
+        <xs:element name="fileignore" type="xs:string" />
+        <xs:element name="blogcodelength" type="xs:long" />
+        <xs:element name="blogdefaultauthor" type="xs:string" />
+        <xs:element name="GeneratedName" type="blogrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="githubserviceimpl" >
+      <xs:sequence>
+        <xs:element name="blogpath" type="xs:string" />
+        <xs:element name="blogreponame" type="xs:string" />
+        <xs:element name="GeneratedName" type="blogservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="githubservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="comment" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="code" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="blog" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="code" type="xs:string" />
+        <xs:element name="created" type="xs:dateTime" />
+        <xs:element name="lastmodified" type="xs:dateTime" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="author" type="xs:string" />
+        <xs:element name="relativepath" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="blogpostmanapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="blogrepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<blog,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="commentrepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<comment,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="blogdto" >
+      <xs:sequence>
+        <xs:element name="code" type="xs:string" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="content" type="xs:string" />
+        <xs:element name="author" type="xs:string" />
+        <xs:element name="relativepath" type="xs:string" />
+        <xs:element name="created" type="xs:dateTime" />
+        <xs:element name="lastmodified" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="corsfilter" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="webconfig" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="securityconfiguration" >
+      <xs:complexContent>
+       <xs:extension base="websecurityconfigureradapter">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema> 

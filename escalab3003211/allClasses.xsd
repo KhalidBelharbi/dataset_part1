@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="eventconsumerconfiguration" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="eventproducerconfiguration" >
+      <xs:sequence>
+        <xs:element name="exchange" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="eventconsumer" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="cardrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="comprarepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="eventsendermessage" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pagosagaapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pagocontroller" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="txcompra" >
+      <xs:sequence>
+        <xs:element name="codprod" type="xs:string" />
+        <xs:element name="coduser" type="xs:string" />
+        <xs:element name="codcard" type="xs:string" />
+        <xs:element name="unidades" type="xs:anyType" />
+        <xs:element name="preciounitario" type="xs:double" />
+        <xs:element name="GeneratedName" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="compra" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="card" nillable="true" minOccurs="0" />
+        <xs:element name="gasto" type="xs:double" />
+        <xs:element name="fecha" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="card" >
+      <xs:sequence>
+        <xs:element name="codigo" type="xs:string" />
+        <xs:element name="saldooriginal" type="xs:double" />
+        <xs:element name="compras" type="compra" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cardrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<card,string>{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="comprarepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<compra,integer>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="eventsendermessage" >
+      <xs:sequence>
+        <xs:element name="rabbittemp" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pagosagaapplicationtests" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

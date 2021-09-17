@@ -1,0 +1,99 @@
+
+requestfield(id:Long [PK], name:String, GeneratedName:InputType, disabledon:Date);
+
+regionphonenumber(id:Long [PK], code:Short, dfrom:Integer, dto:Integer, region:Long);
+
+integrationconfig(code:String [PK], server:String, port:String, username:String, key:String, servicename:String, passwordhash:String);
+
+requestfieldvalue(id:Long [PK], field:Long, value:String, disabledon:Date);
+
+name(id:Long [PK], name:String, namecount:Long);
+
+managersubject(manager:Long [PK], subject:Long [PK]);
+
+requestfieldsubsubject(subsubject:Long [PK], requestfield:Long [PK], required:boolean, disabledon:Date);
+
+surname(id:Long [PK], name:String, namecount:Long);
+
+managerroleroute(key:ManagerRoleRouteKey, GeneratedName:ManagerRole #FK to(managerrole), GeneratedName:Route #FK to(route));
+
+letter(id:Long [PK], subject:String, body:String, signature:String, type:Long, sender:Long, request:Long, sent:Date);
+
+departmentaddressbook(id:Long [PK], name:String, city:String, region:String, address:String, phone:String, email:String, contact:String);
+
+service(code:String [PK], name:String, description:String, disabledon:Date);
+
+messagesignature(id:Long [PK], body:String);
+
+routetype(code:String [PK], name:String, description:String);
+
+subject(id:Long [PK], name:String, description:String, section:Long, maxexecutiontime:Long, complaint:boolean, disabledon:Date);
+
+region(id:Long [PK], name:String, disabledon:Date);
+
+admissioneventtype(code:String [PK], name:String, template:String);
+
+managerrole(code:String [PK], name:String, description:String, disabled:Date);
+
+route(id:Long [PK], name:String, method:String, path:String, open:Boolean, system:Boolean, disabled:Date);
+
+section(id:Long [PK], name:String, description:String, disabledon:Date);
+
+managerstatus(code:String [PK], name:String, workmode:String, reasoncode:String, description:String, disabled:Date);
+
+clienttype(code:String [PK], name:String, description:String, disabledon:Date);
+
+requestfieldsubject(subject:Long [PK], requestfield:Long [PK], required:boolean, disabled:Date);
+
+messegetmpl(id:Long [PK], subject:String, body:String, signature:MessageSignature #FK to(Message));
+
+requestcomment(id:Long [PK], comment:String, author:Long, request:Long);
+
+eventtype(code:String [PK], name:String, description:String, template:String, disabledon:Date);
+
+subsubject(id:Long [PK], name:String, description:String, maxexecutiontime:Long, subject:Long, disabledon:Date);
+
+status(code:String [PK], name:String, description:String, GeneratedName:State, routetype:String, color:String, expireddaysnum:Long, expiredstatus:String, lifespan:Long, lifespanstatus:String, disabledon:Date);
+
+request(id:Long [PK], assignee:Long, requester:Long, status:String, created:Date, routetype:String, GeneratedName:Channel, GeneratedName:Platform, link:Long, body:List<MField>, subject:Long, subsubject:Long, admission:Long, applicantcontacts:Map<String,Object>, text:String, disabled:Date, expires:Date, lifespan:Date, closed:Date, assigned:Date);
+
+requestsearchentity(id:Long [PK], assignee:Manager #FK to(manager), requester:Client #FK to(client), GeneratedName:Status #FK to(status), created:Date, GeneratedName:RouteType #FK to(routetype), GeneratedName:Channel, GeneratedName:Platform, link:Long, body:List<MField>, GeneratedName:Subject #FK to(subject), subsubject:Long, admission:Long, applicantcontacts:Map<String,Object>, text:String, disabled:Date, expires:Date, lifespan:Date);
+
+manageraddressbook(id:Long [PK], firstname:String, lastname:String, middlename:String, position:String, phone:String, email:String);
+
+managernotification(id:Long [PK], role:String, created:Date, notification:Date, disabled:Date, body:String, title:String);
+
+managerschedule(id:Long [PK], manager:Long, GeneratedName:Date, type:String);
+
+generalschedule(id:Long [PK], GeneratedName:Date, type:String);
+
+event(id:Long [PK], created:Date, initiator:Long, type:String, body:Map<String,Object>, commentary:String, request:Long, disabled:Date, checked:Date);
+
+managerstatusinfo(id:Long [PK], manager:Long, GeneratedName:Date, modified:Date, currentstatus:String, info:Map<String,Object>);
+
+managerstatuschange(id:Long [PK], manager:Long, status:String, GeneratedName:Date, start:Date, end:Date);
+
+admission(id:Long [PK], clientemail:String, clientphone:String, clientname:String, client:Long, subject:Long, call:Long, result:String, comment:String, created:Date, disabled:Date);
+
+admissionsearchentity(id:Long [PK], GeneratedName:Client #FK to(client), created:Date, GeneratedName:Subject #FK to(subject), GeneratedName:CallSearchEntity #FK to(callsearchentity), disabled:Date);
+
+callsearchentity(id:Long [PK], GeneratedName:Manager #FK to(manager));
+
+config(key:String [PK], value:String);
+
+requestreminder(id:Long [PK], created:Date, signal:Date, disabled:Date, checked:Boolean, body:String, request:Long, title:String);
+
+uploadedfile(name:String [PK], uploaded:Date, size:String, content:String);
+
+manager(id:Long [PK], firstname:String, lastname:String, middlename:String, email:String, role:String, registered:Date, platform:String, username:String, disabled:Date, agentid:String, agentpasswordhash:String, stationid:String, workdaystatus:String, ofdismissal:Date);
+
+session(id:Long [PK], manager:Long, created:Date, upd:Date, expired:Date, disabled:Date, station:Long, user:UUID);
+
+call(id:Long [PK], identifier:String, stationid:String, agentid:String, phone:String, manager:Long, started:Date, ended:Date, onhold:Date, incoming:boolean);
+
+admissionevent(id:Long [PK], initiator:Long, type:AdmissionEventTypes, body:Map<String,Object>, admission:Long, created:Date);
+
+client(id:Long [PK], firstname:String, middlename:String, lastname:String, email:String, phone:String, communicationtype:CommunicationMethod, company:String, commentary:String, region:Long, contact:String, clienttype:String, disabledon:Date);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

@@ -1,0 +1,467 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="edlcontroller" >
+      <xs:sequence>
+        <xs:element name="log" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="edocliteassociation" nillable="true" minOccurs="0" />
+        <xs:element name="style" type="xs:anyType" />
+        <xs:element name="configprocessors" type="xs:anyType" />
+        <xs:element name="preprocessors" type="xs:anyType" />
+        <xs:element name="postprocessors" type="xs:anyType" />
+        <xs:element name="statecomponents" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="edlglobalconfig" nillable="true" minOccurs="0" />
+        <xs:element name="defaultdom" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="edlcontext" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="edoclitelookupablehelperserviceimpl" >
+      <xs:complexContent>
+       <xs:extension base="kualilookupablehelperserviceimpl">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="edlxmlutils" >
+      <xs:sequence>
+        <xs:element name="log" type="xs:anyType" />
+        <xs:element name="edl_e" type="xs:string" />
+        <xs:element name="edlcontent_e" type="xs:string" />
+        <xs:element name="data_e" type="xs:string" />
+        <xs:element name="type_e" type="xs:string" />
+        <xs:element name="validation_e" type="xs:string" />
+        <xs:element name="version_e" type="xs:string" />
+        <xs:element name="docid_e" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="edoclitedaojpaimpl" >
+      <xs:sequence>
+        <xs:element name="log" type="xs:anyType" />
+        <xs:element name="active_ind_criteria" type="xs:string" />
+        <xs:element name="name_criteria" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="edoclitedaoojbimpl" >
+      <xs:complexContent>
+       <xs:extension base="persistencebrokerdaosupport">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="edoclitedao" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="edlcontrollerfactory" >
+      <xs:sequence>
+        <xs:element name="log" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="requestparser" >
+      <xs:sequence>
+        <xs:element name="parsed_multi_request_key" type="xs:string" />
+        <xs:element name="uploaded_files_key" type="xs:string" />
+        <xs:element name="workflow_document_session_key" type="xs:string" />
+        <xs:element name="global_errors_key" type="xs:string" />
+        <xs:element name="global_messages_key" type="xs:string" />
+        <xs:element name="global_field_errors_key" type="xs:string" />
+        <xs:element name="request" type="xs:anyType" />
+        <xs:element name="additionalparameters" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="edlmodelcomponent" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="workflowdocumentstate" >
+      <xs:sequence>
+        <xs:element name="log" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="refreshfromlookupcomponent" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="browserhandler" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="browser_el" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="workgroupworkflowedlconfigcomponent" >
+      <xs:complexContent>
+       <xs:extension base="simpleworkflowedlconfigcomponent">
+         <xs:sequence>
+          <xs:element name="required" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="validationcomponent" >
+      <xs:complexContent>
+       <xs:extension base="simpleworkflowedlconfigcomponent">
+         <xs:sequence>
+          <xs:element name="xpath_type" type="xs:string" />
+          <xs:element name="" type="edlcontext" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="globalattributecomponent" >
+      <xs:complexContent>
+       <xs:extension base="simpleworkflowedlconfigcomponent">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="networkidworkflowedlconfigcomponent" >
+      <xs:complexContent>
+       <xs:extension base="simpleworkflowedlconfigcomponent">
+         <xs:sequence>
+          <xs:element name="required" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="workflowdocumentactions" >
+      <xs:sequence>
+        <xs:element name="log" type="xs:anyType" />
+        <xs:element name="action_taken" type="xs:string" />
+        <xs:element name="ispreprocessor" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="annotationcomponent" >
+      <xs:sequence>
+        <xs:element name="log" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="establishuseraction" >
+      <xs:sequence>
+        <xs:element name="user_action_param" type="xs:string" />
+        <xs:element name="command_param" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="noteconfigcomponent" >
+      <xs:sequence>
+        <xs:element name="log" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="stylename" type="xs:string" />
+        <xs:element name="from" type="xs:string" />
+        <xs:element name="to" type="xs:anyType" />
+        <xs:element name="cc" type="xs:anyType" />
+        <xs:element name="bc" type="xs:anyType" />
+        <xs:element name="default_email_from_address" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="universityidworkflowedlconfigcomponent" >
+      <xs:complexContent>
+       <xs:extension base="simpleworkflowedlconfigcomponent">
+         <xs:sequence>
+          <xs:element name="required" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="performlookupcomponent" >
+      <xs:sequence>
+        <xs:element name="log" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="versioningpreprocessor" >
+      <xs:sequence>
+        <xs:element name="log" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pagehandler" >
+      <xs:sequence>
+        <xs:element name="current_page" type="xs:string" />
+        <xs:element name="previous_page" type="xs:string" />
+        <xs:element name="goto_page" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="javascriptedlcomponent" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="selectcontroledlcomponent" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="edlvalidation" >
+      <xs:sequence>
+        <xs:element name="type" type="xs:string" />
+        <xs:element name="expression" type="xs:string" />
+        <xs:element name="message" type="xs:string" />
+        <xs:element name="key" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="instructionsedlcomponent" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="attributeedlconfigcomponent" >
+      <xs:complexContent>
+       <xs:extension base="simpleworkflowedlconfigcomponent">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="simpleworkflowedlconfigcomponent" >
+      <xs:sequence>
+        <xs:element name="definition" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="edlcontext" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="matchingparam" >
+      <xs:sequence>
+        <xs:element name="paramname" type="xs:string" />
+        <xs:element name="paramvalue" type="xs:string" />
+        <xs:element name="error" type="xs:anyType" />
+        <xs:element name="errormessage" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="fields" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="fieldid" type="xs:long" />
+        <xs:element name="docid" type="xs:string" />
+        <xs:element name="fieldname" type="xs:string" />
+        <xs:element name="fieldvalue" type="xs:string" />
+        <xs:element name="lockvernbr" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="dump" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="extractdao" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="extractdaoojbimpl" >
+      <xs:complexContent>
+       <xs:extension base="persistencebrokerdaosupport">
+         <xs:sequence>
+          <xs:element name="log" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="extractdaojpaimpl" >
+      <xs:sequence>
+        <xs:element name="log" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dump" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="docid" type="xs:string" />
+        <xs:element name="doctypename" type="xs:string" />
+        <xs:element name="docroutestatuscode" type="xs:string" />
+        <xs:element name="docmodificationdate" type="xs:anyType" />
+        <xs:element name="doccreationdate" type="xs:anyType" />
+        <xs:element name="docdescription" type="xs:string" />
+        <xs:element name="docinitiatorid" type="xs:string" />
+        <xs:element name="doccurrentnodename" type="xs:string" />
+        <xs:element name="lockvernbr" type="xs:anyType" />
+        <xs:element name="fields" type="fields" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="extractserviceimpl" >
+      <xs:sequence>
+        <xs:element name="log" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="extractdao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="useraction" >
+      <xs:sequence>
+        <xs:element name="action_create" type="xs:string" />
+        <xs:element name="action_load" type="xs:string" />
+        <xs:element name="action_undefined" type="xs:string" />
+        <xs:element name="action_route" type="xs:string" />
+        <xs:element name="action_approve" type="xs:string" />
+        <xs:element name="action_disapprove" type="xs:string" />
+        <xs:element name="action_cancel" type="xs:string" />
+        <xs:element name="action_blanketapprove" type="xs:string" />
+        <xs:element name="action_fyi" type="xs:string" />
+        <xs:element name="action_acknowledge" type="xs:string" />
+        <xs:element name="action_save" type="xs:string" />
+        <xs:element name="action_complete" type="xs:string" />
+        <xs:element name="action_delete" type="xs:string" />
+        <xs:element name="action_return_to_previous" type="xs:string" />
+        <xs:element name="action_refresh_from_lookup" type="xs:string" />
+        <xs:element name="action_create_label" type="xs:string" />
+        <xs:element name="action_load_label" type="xs:string" />
+        <xs:element name="action_route_label" type="xs:string" />
+        <xs:element name="action_approve_label" type="xs:string" />
+        <xs:element name="action_disapprove_label" type="xs:string" />
+        <xs:element name="action_cancel_label" type="xs:string" />
+        <xs:element name="action_blanketapprove_label" type="xs:string" />
+        <xs:element name="action_fyi_label" type="xs:string" />
+        <xs:element name="action_acknowledge_label" type="xs:string" />
+        <xs:element name="action_save_label" type="xs:string" />
+        <xs:element name="action_complete_label" type="xs:string" />
+        <xs:element name="action_delete_label" type="xs:string" />
+        <xs:element name="action_return_to_previous_label" type="xs:string" />
+        <xs:element name="action_refresh_from_lookup_label" type="xs:string" />
+        <xs:element name="load_actions" type="xs:string" />
+        <xs:element name="replace_version_actions" type="xs:string" />
+        <xs:element name="validatable_actions" type="xs:string" />
+        <xs:element name="annotatable_actions" type="xs:string" />
+        <xs:element name="editable_actions" type="xs:string" />
+        <xs:element name="action" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="edlglobalconfig" >
+      <xs:sequence>
+        <xs:element name="preprocessors" type="xs:anyType" />
+        <xs:element name="postprocessors" type="xs:anyType" />
+        <xs:element name="statecomponents" type="xs:anyType" />
+        <xs:element name="configprocessors" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="edlcontext" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="edocliteassociation" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="edlcontrollerchain" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="requestparser" nillable="true" minOccurs="0" />
+        <xs:element name="inerror" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="useraction" nillable="true" minOccurs="0" />
+        <xs:element name="redirecturl" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="edocliteassociation" >
+      <xs:complexContent>
+       <xs:extension base="persistablebusinessobjectbase">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="/***edoclt_assoc_id*/edocliteassocid" type="xs:long" />
+          <xs:element name="/***edoclt_assoc_doctype_nm*/edlname" type="xs:string" />
+          <xs:element name="/***edoclt_assoc_def_nm*/definition" type="xs:string" />
+          <xs:element name="/***edoclt_assoc_style_nm*/style" type="xs:string" />
+          <xs:element name="/***edoclt_assoc_actv_ind*/activeind" type="xs:anyType" />
+          <xs:element name="//forquickfinderactionsurl" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="edoclitedefinition" >
+      <xs:complexContent>
+       <xs:extension base="persistablebusinessobjectbase">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="/***edoclt_def_id*/edoclitedefid" type="xs:long" />
+          <xs:element name="/***edoclt_def_nm*/name" type="xs:string" />
+          <xs:element name="/***edoclt_def_xml*/xmlcontent" type="xs:string" />
+          <xs:element name="/***edoclt_def_actv_ind*/activeind" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="edlservlet" >
+      <xs:complexContent>
+       <xs:extension base="httpservlet">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="log" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="edocliteservice" >
+      <xs:complexContent>
+       <xs:extension base="xmlloader,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="edocliteserviceimpl" >
+      <xs:sequence>
+        <xs:element name="log" type="xs:anyType" />
+        <xs:element name="edlglobalconfig" type="edlglobalconfig" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="/***thespring-wireddaobean*/dao" type="edoclitedao" nillable="true" minOccurs="0" />
+        <xs:element name="/***springwiredbean*/" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="edlservicelocator" >
+      <xs:sequence>
+        <xs:element name="log" type="xs:anyType" />
+        <xs:element name="edoclite_service" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="edlcontrollerchain" >
+      <xs:sequence>
+        <xs:element name="log" type="xs:anyType" />
+        <xs:element name="edlcontrollers" type="edlcontroller" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="edlconfigurer" >
+      <xs:complexContent>
+       <xs:extension base="moduleconfigurer">
+         <xs:sequence>
+          <xs:element name="//edl_datasource_obj" type="xs:string" />
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="edlglobalconfigfactory" >
+      <xs:sequence>
+        <xs:element name="config_processor_xpath_xprsn" type="xs:string" />
+        <xs:element name="config_processor_class_name" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="edoclitexmlparser" >
+      <xs:sequence>
+        <xs:element name="log" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="edldataexporter" >
+      <xs:complexContent>
+       <xs:extension base="object>">
+         <xs:sequence>
+          <xs:element name="supportedformats" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="edlexportdataset" >
+      <xs:sequence>
+        <xs:element name="edoclites" type="xs:anyType" />
+        <xs:element name="edoclites" type="edocliteassociation" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="edoclitexmlexporter" >
+      <xs:sequence>
+        <xs:element name="log" type="xs:anyType" />
+        <xs:element name="renderer" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="edl-orm" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="edl-persistence" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ojb-repository-edl" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="edoclitedefinition" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="edocliteassociation" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

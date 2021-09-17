@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="springsecurityapplicationtests" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="api" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="admin" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="home" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usuariorepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<usuario,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="rolerepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<role,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="springsecurityapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="role" >
+      <xs:sequence>
+        <xs:element name="nome" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="roles" >
+      <xs:sequence>
+        <xs:element name="pre_user" type="xs:string" />
+        <xs:element name="pre_api" type="xs:string" />
+        <xs:element name="pre_admin" type="xs:string" />
+        <xs:element name="pre_user_admin" type="xs:string" />
+        <xs:element name="pre_api_admin" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usuario" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="login" type="xs:string" />
+        <xs:element name="senha" type="xs:string" />
+        <xs:element name="roles" type="role" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usuarioservice" >
+      <xs:sequence>
+        <xs:element name="userrepository" type="usuariorepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="rolerepository" nillable="true" minOccurs="0" />
+        <xs:element name="encoder" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="mycontroller" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usuariosecurityservice" >
+      <xs:sequence>
+        <xs:element name="repository" type="usuariorepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="websecurity" >
+      <xs:complexContent>
+       <xs:extension base="websecurityconfigureradapter">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="inicializacao" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="rolerepository" nillable="true" minOccurs="0" />
+        <xs:element name="service" type="usuarioservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="usertype" >
+      <xs:complexContent>
+       <xs:extension base="data_info">
+         <xs:sequence>
+          <xs:element name="//<editor-folddefaultstate" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="usertype1" >
+      <xs:complexContent>
+       <xs:extension base="data_info">
+         <xs:sequence>
+          <xs:element name="//<editor-folddefaultstate" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:complexContent>
+       <xs:extension base="data_info">
+         <xs:sequence>
+          <xs:element name="//<editor-folddefaultstate" type="xs:string" />
+          <xs:element name="surname" type="xs:string" />
+          <xs:element name="patronomicname" type="xs:string" />
+          <xs:element name="phonenumber" type="xs:string" />
+          <xs:element name="" type="department" nillable="true" minOccurs="0" />
+          <xs:element name="login" type="xs:string" />
+          <xs:element name="password" type="xs:string" />
+          <xs:element name="//boolean/*@manytoone@joincolumn(name" type="form" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="" type="usertype" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="rigtstosection" >
+      <xs:complexContent>
+       <xs:extension base="data_info">
+         <xs:sequence>
+          <xs:element name="//<editor-folddefaultstate" type="xs:anyType" />
+          <xs:element name="enabled" type="xs:anyType" />
+          <xs:element name="" type="section" nillable="true" minOccurs="0" />
+          <xs:element name="" type="usertype" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="section" >
+      <xs:complexContent>
+       <xs:extension base="data_info">
+         <xs:sequence>
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="nameformenu" type="xs:string" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="rights" type="rigtstosection" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="department" >
+      <xs:complexContent>
+       <xs:extension base="data_info">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="idvp" type="xs:long" />
+          <xs:element name="namevp" type="xs:string" />
+          <xs:element name="idgroupvp" type="xs:long" />
+          <xs:element name="idactionvp" type="xs:long" />
+          <xs:element name="idnp" type="xs:long" />
+          <xs:element name="namenp" type="xs:string" />
+          <xs:element name="idgroupnp" type="xs:long" />
+          <xs:element name="idactionnp" type="xs:long" />
+          <xs:element name="num" type="xs:long" />
+          <xs:element name="viewsubmission" type="xs:string" />
+          <xs:element name="idviewsubmission" type="xs:long" />
+          <xs:element name="typecommunication" type="xs:string" />
+          <xs:element name="idtypecommunication" type="xs:long" />
+          <xs:element name="dteditnsi" type="xs:dateTime" />
+          <xs:element name="dtbeginnsi" type="xs:dateTime" />
+          <xs:element name="_id" type="departmentgroup" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="counter" >
+      <xs:sequence>
+        <xs:element name="//<editor-folddefaultstate" type="xs:long" />
+        <xs:element name="type" type="xs:string" />
+        <xs:element name="askue" type="xs:anyType" />
+        <xs:element name="сounterinputaskyeinfo" type="inputaskyeinfo" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="inputaskye" type="inputaskye" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="dt_end" type="xs:dateTime" />
+        <xs:element name="dt_create" type="xs:dateTime" />
+        <xs:element name="deleted" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="resource" >
+      <xs:complexContent>
+       <xs:extension base="data_info{">
+         <xs:sequence>
+          <xs:element name="//<editor-folddefaultstate" type="xs:string" />
+          <xs:element name="" type="typeter" nillable="true" minOccurs="0" />
+          <xs:element name="" type="measure" nillable="true" minOccurs="0" />
+          <xs:element name="cost" type="costdetails" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="koef" type="xs:double" />
+          <xs:element name="koef_polution" type="xs:double" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="reportform2_del" >
+      <xs:complexContent>
+       <xs:extension base="data_info">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="reportdetailsform2" >
+      <xs:complexContent>
+       <xs:extension base="data_info">
+         <xs:sequence>
+          <xs:element name="id" type="report" nillable="true" minOccurs="0" />
+          <xs:element name="form2" type="report" nillable="true" minOccurs="0" />
+          <xs:element name="/*@joincolumn(name" type="xs:string" />
+          <xs:element name="" type="department" nillable="true" minOccurs="0" />
+          <xs:element name="repid" type="xs:long" />
+          <xs:element name="inputactivityplan" type="xs:string" />
+          <xs:element name="inputactivityfact" type="xs:string" />
+          <xs:element name="form2coll7" type="xs:double" />
+          <xs:element name="form2coll8" type="xs:double" />
+          <xs:element name="form2coll9" type="xs:double" />
+          <xs:element name="form2coll10" type="xs:double" />
+          <xs:element name="fiochief" type="xs:string" />
+          <xs:element name="phonechief" type="xs:string" />
+          <xs:element name="rorschief" type="xs:string" />
+          <xs:element name="askye" type="xs:double" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="report" >
+      <xs:complexContent>
+       <xs:extension base="data_info">
+         <xs:sequence>
+          <xs:element name="/***1форма*/costs" type="costdetails" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="costsshort" type="shortinforesource" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="dt_inputplan" type="xs:dateTime" />
+          <xs:element name="dt_inputfact" type="xs:dateTime" />
+          <xs:element name="dt_begin" type="xs:dateTime" />
+          <xs:element name="time_begin" type="xs:dateTime" />
+          <xs:element name="time_finish" type="xs:dateTime" />
+          <xs:element name="" type="form" nillable="true" minOccurs="0" />
+          <xs:element name="usr" type="user" nillable="true" minOccurs="0" />
+          <xs:element name="" type="department" nillable="true" minOccurs="0" />
+          <xs:element name="details" type="reportdetails" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="detailsform2" type="reportdetailsform2" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="" type="reportdetailsform2" nillable="true" minOccurs="0" />
+          <xs:element name="dt_solveinputplan" type="xs:dateTime" />
+          <xs:element name="solveinputplan" type="xs:anyType" />
+          <xs:element name="usrsolveplaninput" type="user" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="reportdetails" >
+      <xs:complexContent>
+       <xs:extension base="data_info">
+         <xs:sequence>
+          <xs:element name="" type="report" nillable="true" minOccurs="0" />
+          <xs:element name="" type="resource" nillable="true" minOccurs="0" />
+          <xs:element name="dt_inputfact" type="xs:dateTime" />
+          <xs:element name="/*проверкавведенилинетфакт*/dt_inputfact_test" type="xs:anyType" />
+          <xs:element name="/***1форма*/activity" type="xs:string" />
+          <xs:element name="plan_col" type="xs:double" />
+          <xs:element name="plan_tut" type="xs:double" />
+          <xs:element name="plan_money" type="xs:double" />
+          <xs:element name="fact_col" type="xs:double" />
+          <xs:element name="fact_tut" type="xs:double" />
+          <xs:element name="fact_money" type="xs:double" />
+          <xs:element name="//<editor-folddefaultstate" type="xs:string" />
+          <xs:element name="addressofobject" type="xs:string" />
+          <xs:element name="powersource" type="xs:string" />
+          <xs:element name="type" type="xs:string" />
+          <xs:element name="num" type="xs:long" />
+          <xs:element name="askue" type="xs:anyType" />
+          <xs:element name="addres" type="xs:string" />
+          <xs:element name="usedbefore" type="xs:double" />
+          <xs:element name="usedtoday" type="xs:double" />
+          <xs:element name="shortres" type="shortinforesource" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="inputaskyeinfo" >
+      <xs:sequence>
+        <xs:element name="/*manytoone@joincolumn(name" type="xs:double" />
+        <xs:element name="hhtoday" type="xs:double" />
+        <xs:element name="input" type="counter" nillable="true" minOccurs="0" />
+        <xs:element name="inf" type="inputaskye" nillable="true" minOccurs="0" />
+        <xs:element name="hh" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="costs" >
+      <xs:complexContent>
+       <xs:extension base="data_info{">
+         <xs:sequence>
+          <xs:element name="//<editor-folddefaultstate" type="costdetails" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="usr" type="user" nillable="true" minOccurs="0" />
+          <xs:element name="railway" type="xs:long" />
+          <xs:element name="year" type="xs:anyType" />
+          <xs:element name="month" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="measure" >
+      <xs:complexContent>
+       <xs:extension base="data_info">
+         <xs:sequence>
+          <xs:element name="//<editor-folddefaultstate" type="xs:string" />
+          <xs:element name="valuehtml" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="typeter" >
+      <xs:complexContent>
+       <xs:extension base="data_info">
+         <xs:sequence>
+          <xs:element name="//<editor-folddefaultstate" type="xs:string" />
+          <xs:element name="resources" type="resource" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="inputaskye" >
+      <xs:sequence>
+        <xs:element name="/*@manytoone@joincolumn(name" type="xs:dateTime" />
+        <xs:element name="dttoday" type="xs:dateTime" />
+        <xs:element name="inputcounter" type="counter" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="dt_end" type="xs:dateTime" />
+        <xs:element name="dt_create" type="xs:dateTime" />
+        <xs:element name="deleted" type="xs:anyType" />
+        <xs:element name="inputaskyeinputaskyeinf" type="inputaskyeinfo" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="form" >
+      <xs:complexContent>
+       <xs:extension base="data_info">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="serialnumform" type="xs:long" />
+          <xs:element name="fullnameform" type="xs:string" />
+          <xs:element name="shortnameform" type="xs:string" />
+          <xs:element name="pageaddress" type="xs:string" />
+          <xs:element name="/*@onetomany(fetch" type="report" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="/*@onetomany(mappedby" type="user" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="departmentgroup" >
+      <xs:complexContent>
+       <xs:extension base="data_info">
+         <xs:sequence>
+          <xs:element name="namenp" type="xs:string" />
+          <xs:element name="dteditnsi" type="xs:dateTime" />
+          <xs:element name="dtbeginnsi" type="xs:dateTime" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="costdetails" >
+      <xs:sequence>
+        <xs:element name="//<editor-folddefaultstate" type="xs:long" />
+        <xs:element name="common" type="costs" nillable="true" minOccurs="0" />
+        <xs:element name="cost" type="xs:double" />
+        <xs:element name="GeneratedName" type="resource" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

@@ -1,0 +1,25 @@
+
+transactions();
+
+user(/***/serialversionuid:long, userid:String [PK], username:String, GeneratedName:UserInfo, email:String, password:String);
+
+beneficiary(/***/serialversionuid:long, id:String [PK], acchldrname:String, acchldrmobnum:String, acchldrmail:String, GeneratedName:User #FK to(user));
+
+logindetails(/***/serialversionuid:long, id:String [PK], logintime:Timestamp, GeneratedName:User #FK to(user));
+
+address(/***/serialversionuid:long, id:String [PK], buildingnum:String, street:String, city:String, state:String, country:String, //todorestrictto5digitszipcode:String, GeneratedName:AddressType, GeneratedName:User #FK to(user));
+
+schedualtransactions(serialversionuid:long, scheduletime:Date);
+
+securityquestions(/***/serialversionuid:long, id:String [PK], squestion:String, sanswer:String, userid:String);
+
+account(serialversionuid:long, accnumber:String [PK], balance:String, GeneratedName:User #FK to(user));
+
+customer(/***/serialversionuid:long, customerid:String [PK], GeneratedName:User #FK to(user), firstname:String, lastname:String, ssn:long, mobnum:long);
+
+role(roleid:String [PK], rolename:String);
+
+employee(/***/serialversionuid:long, employeeid:String [PK], firstname:String, lastname:String, ssn:long, mobnum:long, GeneratedName:User #FK to(user));
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

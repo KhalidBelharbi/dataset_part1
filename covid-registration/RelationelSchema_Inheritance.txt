@@ -1,0 +1,29 @@
+
+attribute(id:long [PK], name:String, GeneratedName:AttributeType #FK to(attributetype));
+
+specialisation(id:long [PK], name:String, description:String);
+
+task(id:Long [PK], name:String, schedule:String, description:String);
+
+task_attributes(task_id:Task [PK] #FK to Task,attribute_id:list<attribute> [PK] #FK to list<attribute>);
+
+userrequest(requestid:Long [PK], start:Date, end:Date, GeneratedName:TreatmentState, doctorrecommendations:String, GeneratedName:User #FK to(user));
+
+request_symptoms(request_id:UserRequest [PK] #FK to UserRequest,symptom_id:list<symptom> [PK] #FK to list<symptom>);
+
+role(roleid:long [PK], name:String, description:String);
+
+attributetype(id:long [PK], name:String, checkmask:String);
+
+symptom(symptomid:Long [PK], name:String, description:String);
+
+user(id:long [PK], firstname:String, middlename:String, lastname:String, ofbirth:Date, insurancenumber:String, phonenumber:String, email:String, password:String, username:String);
+
+user_list<specialisation>(userID:user [PK] #FK to user,list<specialisation>ID:list<specialisation> [PK] #FK to list<specialisation>);user_list<role>(userID:user [PK] #FK to user,list<role>ID:list<role> [PK] #FK to list<role>);
+
+taskinstance(id:Long [PK], GeneratedName:Task #FK to(task), request:UserRequest #FK to(userrequest), createdtime:Date, finishedtime:Date, isactive:boolean);
+
+taskinstancedata(id:Long [PK], GeneratedName:TaskInstance #FK to(taskinstance), GeneratedName:Attribute #FK to(attribute), value:String, imagevalue:String, value:Date, numericvalue:Integer);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

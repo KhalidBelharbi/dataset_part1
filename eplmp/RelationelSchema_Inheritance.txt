@@ -1,0 +1,177 @@
+taskmodel(id:ActivityModel [PK] #FK to(ActivityModel), num:int [PK], instructions:String, title:String, duration:int, name:Role #FK to(Role));
+
+sequentialactivity();
+
+task(step:Activity [PK] #FK to(Activity), num:int [PK], title:String, instructions:String, duration:int, start:Date, login:User #FK to(user), targetiteration:int, closurecomment:String, closure:Date, signature:String, GeneratedName:Status);
+
+task_user(user_login:Task [PK] #FK to Task,user_login:set<user> [PK] #FK to set<user>);task_usergroup(usergroup_id:Task [PK] #FK to Task,usergroup_id:set<usergroup> [PK] #FK to set<usergroup>);
+
+sequentialactivitymodel();
+
+activity(step:int [PK], id:Workflow [PK] #FK to(Workflow), lifecyclestate:String, step:Activity #FK to(Activity));
+
+parallelactivitymodel(taskstocomplete:int);
+
+aclusergroupentry(id:ACL [PK] #FK to(ACL), id:UserGroup [PK] #FK to(usergroup), permission:ACLPermission);
+
+acl(id:int [PK], enabled:boolean);
+
+acluserentry(id:ACL [PK] #FK to(ACL), login:User [PK] #FK to(user), permission:ACLPermission);
+
+shareddocument(documentmaster_id:DocumentRevision #FK to(DocumentRevision));
+
+sharedpart(partmaster_partnumber:PartRevision #FK to(partrevision));
+
+iterationchangesubscription();
+
+documentmaster(id:String [PK], GeneratedName:Workspace [PK] #FK to(workspace), login:User #FK to(user), creation:Date, type:String, attributeslocked:boolean);
+
+documentrevision(id:DocumentMaster [PK] #FK to(DocumentMaster), version:String [PK], login:User #FK to(user), creation:Date, title:String, description:String, login:User #FK to(user), checkout:Date, GeneratedName:Workflow #FK to(Workflow), location:Folder #FK to(folder), documentmasterid:String, documentmasterworkspaceid:String, GeneratedName:ACL #FK to(ACL), publicshared:boolean, status:RevisionStatus, release:StatusChange, obsolete:StatusChange);
+
+documentrevision_tag(tag_label:DocumentRevision [PK] #FK to DocumentRevision,tag_label:set<tag> [PK] #FK to set<tag>);
+
+statechangesubscription();
+
+tagusersubscription(login:User [PK] #FK to(user), label:Tag [PK] #FK to(tag), oniterationchange:boolean, onstatechange:boolean);
+
+tagusergroupsubscription(id:UserGroup [PK] #FK to(usergroup), label:Tag [PK] #FK to(tag), oniterationchange:boolean, onstatechange:boolean);
+
+import(id:String [PK], login:User #FK to(user), warnings:List<String>, errors:List<String>, filename:String, start:Date, end:Date, pending:boolean, succeed:boolean);
+
+conversion(GeneratedName:PartIteration [PK] #FK to(partiteration), start:Date, end:Date, pending:boolean, succeed:boolean);
+
+partiteration(native_cad_subtype:String, attached_files_subtype:String, partmaster_partnumber:PartRevision [PK] #FK to(partrevision), iteration:int [PK], nativecadfile:BinaryResource #FK to(binaryresource), iterationnote:String, login:User #FK to(user), creation:Date, modification:Date, checkin:Date, /*typetypepublicenumtype{component,inseparable_assembly,separable_assembly}*/:Source);
+
+partiteration_partusagelink(component_id:PartIteration [PK] #FK to PartIteration,component_id:list<partusagelink> [PK] #FK to list<partusagelink>);
+
+geometry(/***startsat0,smallerisgreater.*/quality:int, //boundingboxxmin:double, ymin:double, zmin:double, xmax:double, ymax:double, zmax:double);
+
+partmaster(number:String [PK], GeneratedName:Workspace [PK] #FK to(workspace), login:User #FK to(user), alternates:List<PartAlternateLink>, creationdate:java.util.Date, name:String, type:String, standardpart:boolean, attributeslocked:boolean);
+
+cadinstance(serialversionuid:long, id:int [PK], /***translationonxaxis.*/tx:double, /***translationonyaxis.*/ty:double, /***translationonzaxis.*/tz:double, /***radianorientationonxaxis.*/rx:double, /***radianorientationonyaxis.*/ry:double, /***radianorientationonzaxis.*/rz:double, /***rotationmatrix*/:RotationMatrix, GeneratedName:RotationType);
+
+pathtopathlink(id:int [PK], type:String, sourcepath:String, targetpath:String, description:String);
+
+partnumberattributetemplate();
+
+partmastertemplate(id:String [PK], workspaceid:String [PK], idgenerated:boolean, parttype:String, mask:String, GeneratedName:ACL #FK to(ACL), attachedfile:BinaryResource #FK to(binaryresource), attributeslocked:boolean, login:User #FK to(user), creation:Date, modification:Date, GeneratedName:Workspace #FK to(workspace), id:WorkflowModel #FK to(WorkflowModel), workflowmodelid:String);
+
+layer(id:int [PK], login:User #FK to(user), creationdate:java.util.Date, name:String, id:ConfigurationItem #FK to(configurationitem), color:String);
+
+layer_marker(marker_id:Layer [PK] #FK to Layer,marker_id:set<marker> [PK] #FK to set<marker>);
+
+configurationitem(id:String [PK], GeneratedName:Workspace [PK] #FK to(workspace), description:String, partnumber:PartMaster #FK to(partmaster), login:User #FK to(user));
+
+partsubstitutelink(id:int [PK], amount:double, unit:String, referencedescription:String, comment:String, workspace_id:PartMaster #FK to(partmaster));
+
+partusagelink(id:int [PK], amount:double, unit:String, referencedescription:String, comment:String, workspace_id:PartMaster #FK to(partmaster), optional:boolean);
+
+marker(id:int [PK], login:User #FK to(user), creationdate:java.util.Date, title:String, description:String, /***positiononxaxis.*/x:double, /***positiononyaxis.*/y:double, /***positiononzaxis.*/z:double);
+
+marker_partmaster(relatedpart_workspace_id:Marker [PK] #FK to Marker,relatedpart_workspace_id:set<partmaster> [PK] #FK to set<partmaster>);
+
+datebasedeffectivity(/***theand/ortimewhentheeffectivitystarts.*/start:Date, /***theand/ortimewhentheeffectivityends.*ifavalueforthisattributeisnotset,*thentheeffectivityhasnodefinedend.*/end:Date);
+
+serialnumberbasedeffectivity(/***theserialnumberofthefirstitemthattheeffectivityappliesto.*/startnumber:String, /***theserialnumberofthelastitemthattheeffectivityappliesto.*thisvalueisoptional.*/endnumber:String);
+
+effectivity(id:int [PK], name:String, description:String, id:ConfigurationItem #FK to(configurationitem));
+
+partrevision(partnumber:PartMaster [PK] #FK to(partmaster), version:String [PK], login:User #FK to(user), creation:Date, description:String, login:User #FK to(user), checkout:Date, GeneratedName:Workflow #FK to(Workflow), partmasternumber:String, partmasterworkspaceid:String, GeneratedName:ACL #FK to(ACL), publicshared:boolean, status:RevisionStatus, release:StatusChange, obsolete:StatusChange);
+
+partrevision_tag(tag_label:PartRevision [PK] #FK to PartRevision,tag_label:set<tag> [PK] #FK to set<tag>);
+
+instancepartnumberattribute(partnumber:PartMaster #FK to(partmaster));
+
+providedaccount(provider:OAuthProvider [PK] #FK to(oauthprovider), sub:String [PK], GeneratedName:Account [PK] #FK to(account));
+
+webhookapp(id:int [PK]);
+
+simplewebhookapp(app_name:String, method:String, uri:String, authorization:String);
+
+webhook(id:int [PK], name:String, active:boolean, GeneratedName:Workspace #FK to(workspace), GeneratedName:WebhookApp #FK to(webhookapp));
+
+folder(completepath:String, parent:Folder #FK to(folder));
+
+defaultattributetemplate(GeneratedName:AttributeType);
+
+instanceurlattribute(urlvalue:String);
+
+instancedateattribute(value:Date);
+
+instancelistofvaluesattribute(indexvalue:int, items:List<NameValuePair>);
+
+instancebooleanattribute(value:boolean);
+
+listofvaluesattributetemplate(name:ListOfValues #FK to(listofvalues));
+
+instancetextattribute(textvalue:String);
+
+instancelongtextattribute(longtextvalue:String);
+
+instancenumberattribute(numbervalue:float);
+
+pathdatamaster(id:int [PK], path:String);
+
+productbaseline(id:int [PK], id:ConfigurationItem #FK to(configurationitem), name:String, type:ProductBaselineType, description:String, creationdate:java.util.Date, GeneratedName:PartCollection #FK to(partcollection), GeneratedName:DocumentCollection #FK to(documentcollection), login:User #FK to(user), *pathsarestringsmadeoforderedlistsofusagelinkidsjoinedby"-".*/substitutelinks:Set<String>, *pathsarestringsmadeoforderedlistsofusagelinkidsjoinedby"-".*/optionalusagelinks:Set<String>);
+
+productinstancemaster(serialnumber:String [PK], id:ConfigurationItem [PK] #FK to(configurationitem), GeneratedName:ACL #FK to(ACL));
+
+baselineddocument(GeneratedName:BaselinedDocumentKey, id:DocumentCollection #FK to(documentcollection), workspace_id:DocumentIteration #FK to(DocumentIteration), targetdocumentiteration:int);
+
+pathdataiteration(id:PathDataMaster [PK] #FK to(pathdatamaster), iteration:int [PK], iterationnote:String, dateiteration:java.util.Date);
+
+documentcollection(id:int [PK], login:User #FK to(user), creation:Date);
+
+documentbaseline(id:int [PK], name:String, type:DocumentBaselineType, description:String, creation:Date, GeneratedName:DocumentCollection #FK to(documentcollection), login:User #FK to(user));
+
+productinstanceiteration(serialnumber:ProductInstanceMaster [PK] #FK to(productinstancemaster), iteration:int [PK], iterationnote:String, GeneratedName:PartCollection #FK to(partcollection), GeneratedName:DocumentCollection #FK to(documentcollection), id:ProductBaseline #FK to(productbaseline), *pathsarestringsmadeoforderedlistsofusagelinkidsjoinedby"-".*/substitutelinks:Set<String>, *pathsarestringsmadeoforderedlistsofusagelinkidsjoinedby"-".*/optionalusagelinks:Set<String>, login:User #FK to(user), creation:Date, modification:Date);
+
+baselinedpart(GeneratedName:BaselinedPartKey, id:PartCollection #FK to(partcollection), iteration:PartIteration #FK to(partiteration), targetpartiteration:int, targetpartversion:String);
+
+partcollection(id:int [PK], login:User #FK to(user), creationdate:java.util.Date);
+
+productconfiguration(id:int [PK], id:ConfigurationItem #FK to(configurationitem), name:String, description:String, creation:Date, GeneratedName:ACL #FK to(ACL), /***setofsubstitutelinks(actuallytheirpathfromtherootnode)*thathavebeenincludedintothebaseline.*onlyselectedsubstitutelinksarestoredaspartusagelinksareconsideredasthedefault*choicesforbaselines.**pathsarestringsmadeoforderedlistsofusagelinkidsjoinedby"-".*/substitutelinks:Set<String>, /***setofoptionalusagelinks(actuallytheirpathfromtherootnode)*thathavebeenincludedintothebaseline.**pathsarestringsmadeoforderedlistsofusagelinkidsjoinedby"-".*/optionalusagelinks:Set<String>, login:User #FK to(user));
+
+changeissue(/***identifiesthepersonororganizationattheoriginofthechange,maybenull*ifitistheuserwhocreatedtheobject.*/initiator:String);
+
+changeorder(GeneratedName:Milestone #FK to(milestone));
+
+changeorder_changerequest(changerequest_id:ChangeOrder [PK] #FK to ChangeOrder,changerequest_id:set<changerequest> [PK] #FK to set<changerequest>);
+
+modificationnotification(id:int [PK], iteration:PartIteration #FK to(partiteration), iteration:PartIteration #FK to(partiteration), acknowledged:boolean, login:User #FK to(user), acknowledgement:Date, acknowledgementcomment:String);
+
+changerequest(GeneratedName:Milestone #FK to(milestone));
+
+changerequest_changeissue(changeissue_id:ChangeRequest [PK] #FK to ChangeRequest,changeissue_id:set<changeissue> [PK] #FK to set<changeissue>);
+
+workspacebackoptions(send_emails_default:boolean, GeneratedName:Workspace [PK] #FK to(workspace), /***indicatesthatthesystemmustnotsendemailnotifications.*usuallyusedwhenusingathirdnotificationsystemconnectedthrough*webhooks.*/sendemails:boolean);
+
+workspacefrontoptions(GeneratedName:Workspace [PK] #FK to(workspace), parttablecolumns:List<String>, documenttablecolumns:List<String>);
+
+platformoptions(unique_id:int, id:int [PK], registrationstrategy:OperationSecurityStrategy, workspacecreationstrategy:OperationSecurityStrategy);
+
+queryrule(qid:int [PK], condition:String, id:String, field:String, type:String, operator:String, values:List<String>, parent:QueryRule #FK to(queryrule));
+
+query(id:int [PK], login:User #FK to(user), name:String, creation:Date, GeneratedName:QueryRule #FK to(queryrule), pathdata:QueryRule #FK to(queryrule), selects:List<String>, orderbylist:List<String>, groupedbylist:List<String>);
+
+querycontext(id:int [PK], workspaceid:String, serialnumber:String, configurationitemid:String, id:Query #FK to(query));
+
+activitymodel(id:int, id:WorkflowModel #FK to(WorkflowModel), step:int, id:ActivityModel #FK to(ActivityModel), lifecyclestate:String);
+
+activity(taskstocomplete:int);
+
+sharedentity(uuid:String [PK], GeneratedName:Workspace [PK] #FK to(workspace), login:User #FK to(user), creation:Date, expire:Date, password:String);
+
+effectivity(/***theidentificationofthefirstbatchofitems*thattheeffectivityappliesto.*/startlotid:String, /***theidentificationofthelastbatchofitems*thattheeffectivityappliesto.*thisvalueisoptional.*/endlotid:String);
+
+binaryresource(fullname:String [PK], contentlength:long, lastmodified:Date);
+
+webhookapp(app_name:String, topicarn:String, region:String, awsaccount:String, awssecret:String);
+
+instanceattribute(id:int [PK], name:String, mandatory:boolean, locked:boolean);
+
+instanceattributetemplate(id:int [PK], name:String, mandatory:boolean, locked:boolean);
+
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

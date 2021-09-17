@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="jboss-ds" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persistence" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="floriculturaservlet" >
+      <xs:complexContent>
+       <xs:extension base="httpservlet">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="abstractcrudws" >
+      <xs:complexContent>
+       <xs:extension base="abstractdao<">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="vendaws" >
+      <xs:complexContent>
+       <xs:extension base="abstractcrudws">
+         <xs:sequence>
+          <xs:element name="" type="vendadao" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="produtows" >
+      <xs:complexContent>
+       <xs:extension base="abstractcrudws">
+         <xs:sequence>
+          <xs:element name="" type="produtodao" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="clientews" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="vendadao" >
+      <xs:complexContent>
+       <xs:extension base="abstractdao<venda>">
+         <xs:sequence>
+          <xs:element name="em" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="abstractdao" >
+      <xs:sequence>
+        <xs:element name="entityclass" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="clientedao" >
+      <xs:complexContent>
+       <xs:extension base="abstractdao<cliente>">
+         <xs:sequence>
+          <xs:element name="em" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="produtodao" >
+      <xs:complexContent>
+       <xs:extension base="abstractdao<produto>">
+         <xs:sequence>
+          <xs:element name="em" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="cliente" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="//@max(value" type="xs:long" />
+        <xs:element name="nome" type="xs:string" />
+        <xs:element name="telefone" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="produto" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="//@max(value" type="xs:long" />
+        <xs:element name="descricao" type="xs:string" />
+        <xs:element name="unidademedida" type="xs:string" />
+        <xs:element name="valor" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="venda" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="//@max(value" type="xs:long" />
+        <xs:element name="desconto" type="xs:anyType" />
+        <xs:element name="id" type="cliente" nillable="true" minOccurs="0" />
+        <xs:element name="id" type="produto" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="abstractcrudrest" >
+      <xs:complexContent>
+       <xs:extension base="abstractdao<t>>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="produtofacaderest" >
+      <xs:complexContent>
+       <xs:extension base="abstractcrudrest<produto,produtodao>">
+         <xs:sequence>
+          <xs:element name="" type="produtodao" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="applicationconfig" >
+      <xs:complexContent>
+       <xs:extension base="application">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="vendafacaderest" >
+      <xs:complexContent>
+       <xs:extension base="abstractcrudrest<venda,vendadao>">
+         <xs:sequence>
+          <xs:element name="" type="vendadao" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="clientefacaderest" >
+      <xs:complexContent>
+       <xs:extension base="abstractcrudrest<cliente,clientedao>">
+         <xs:sequence>
+          <xs:element name="" type="clientedao" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="beans" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jboss-web" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="index" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

@@ -1,0 +1,35 @@
+
+salesorderstatusentity(statuscode:String [PK]);
+
+importsalesforceentity(importsalesforceid:long [PK], importprocesseddate:Timestamp, importstatus:String);
+
+importsharepointentity(importsharepointid:long [PK], importprocesseddate:Timestamp, importstatus:String);
+
+importmasterentity(importmasterid:long [PK], salesordernumber:String, classregsent:String, reportedrevrec:String, credits:Integer, name:String, status:String, book:Date, ship:Date, planningmeeting:Date, kickoffmeeting:Date, onsitestart:Date, onsiteend:Date, releaseforrevenuerec:Date, waittime:String, bookedtokickoff:Integer, daystoclose:Integer, amount:BigDecimal, notes:String, location:String, region:String, modelgroup:String, service:String, accountteam:String, remote:String, onsite:String, equipmentlist:String, shawdow:String, importprocessed:Date, importstatus:String);
+
+salesorderentity(salesorderid:long [PK], importcontrolid:long, project:ProjectEntity #FK to(projectentity), salesordernumber:String, amount:BigDecimal, region:String, modelgroup:String, stsalesagentname:String, activityyear:Integer, activitymonthnumber:Integer, activity:Date, customer:CustomerEntity #FK to(customerentity), /*@column(name:String, stchannelname:String, productfamilycode:String, forecastgroupcode:String, orderedquantity:Double, contractstatuscode:String, endusername:String);
+
+projectactivityentity(activityid:long [PK], project:ProjectEntity #FK to(projectentity), name:String, GeneratedName:Date, status:String);
+
+importoracleobistage(importoracleobistageid:long [PK], importcontrolid:long, importstatus:String, ordernumber:String, fnetregion1:String, salesagentname:String, stagentname:String, activityyear:String, activitymonth:String, activitydate:String, stcustomername:String, stchannelname:String, btcustomername:String, productfamilycode:String, modelgroupcode:String, forecastgroupcode:String, orderedquantity:String, netusd:String, contractstatuscode:String, endusername:String);
+
+projectnotesentity(noteid:long [PK], project:ProjectEntity #FK to(projectentity), notes:String);
+
+importcontrolentity(importcontrolid:long [PK], numberofrecords:int, filename:String, importfileencoding:String, status:ImportControlStatus);
+
+projectresourceentity(projectresourceid:long [PK], project:ProjectEntity #FK to(projectentity), resource:ResourceEntity #FK to(resourceentity), role:String);
+
+umprojectsearchresults(projectid:long [PK], salesordernumber:String, salesorderid:long, modelgroup:String, customerid:long, customername:String, status:String, health:String, book:Date);
+
+importoracleobientity(importoracleobiid:long [PK], importcontrolid:long, fnetregion1:String, salesagentname:String, stagentname:String, activityyear:Integer, activitymonth:Integer, activity:Date, ship:Date, planningmeeting:Date, kickoffmeeting:Date, stcustomername:String, stchannelname:String, btcustomername:String, ordernumber:String, productfamilycode:String, modelgroupcode:String, forecastgroupcode:String, orderedquantity:Integer, netusd:BigDecimal, contractstatuscode:String, endusername:String, importprocessed:Date, importstatus:String);
+
+customerentity(customerid:long [PK], name:String, notes:String, /*movedrelationtosalesorder@onetomany(mappedby:String);
+
+projectexportentity(projectid:Long [PK], credits:Long, bookedtokickoff:Long, daystoclose:Long, location:String, salesorderid:long, customerid:long, name:String, modelgroup:String, booked:Date, health:String, classregsent:String, reportedrevrec:String, service:String, status:String, waittime:String, activity:Date, activitymonthnumber:Long, activityyear:Long, amount:BigDecimal, btcustomername:String, contractstatuscode:String, endusername:String, forecastgroupcode:String, orderedquantity:Double, productfamilycode:String, region:String, salesordernumber:String, stchannelname:String, stsalesagentname:String);
+
+resourceentity(resourceid:long [PK], firstname:String, lastname:String, type:String);
+
+projectentity(projectid:long [PK], name:String, /*thisrelationisstoredatthesolevel@onetoone@joincolumn(name:SalesOrderEntity #FK to(salesorderentity), contact:String, credits:long, location:String, classregsent:String, reportedrevrec:String, status:String, health:String, waittime:String, service:String, accountteam:String, remote:String, onsite:String);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

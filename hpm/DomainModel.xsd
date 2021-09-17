@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="consignmentcompanyapplication" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="consignmentcompany" nillable="true" minOccurs="0" />
+        <xs:element name="startdt" type="xs:anyType" />
+        <xs:element name="enddt" type="xs:anyType" />
+        <xs:element name="/***접수자*/reg" type="member" nillable="true" minOccurs="0" />
+        <xs:element name="applicationloglist" type="applicationlog" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="consignmentcompany" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="tel" type="xs:string" />
+        <xs:element name="fax" type="xs:string" />
+        <xs:element name="postnumber" type="xs:anyType" />
+        <xs:element name="adress" type="xs:string" />
+        <xs:element name="adressdetail" type="xs:string" />
+        <xs:element name="etc" type="xs:string" />
+        <xs:element name="del" type="yn" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="customer" >
+      <xs:sequence>
+        <xs:element name="/***serialversionuid*/serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="/***거래처명*/name" type="xs:string" />
+        <xs:element name="/***대표자명*/repname" type="xs:string" />
+        <xs:element name="/***사업자번호*/companyregnumber" type="xs:string" />
+        <xs:element name="/***업태*/bizcondition" type="xs:string" />
+        <xs:element name="/***종목*/item" type="xs:string" />
+        <xs:element name="/***전화번호*/tel" type="xs:string" />
+        <xs:element name="/***연락처*/mobile" type="xs:string" />
+        <xs:element name="/***이메일*/email" type="xs:string" />
+        <xs:element name="/***팩스번호*/fax" type="xs:string" />
+        <xs:element name="/***담당자*/picname" type="xs:string" />
+        <xs:element name="/***우편번호*/postnumber" type="xs:anyType" />
+        <xs:element name="/***주소*/adress" type="xs:string" />
+        <xs:element name="/***상세주소*/adressdetail" type="xs:string" />
+        <xs:element name="/***/etc" type="xs:string" />
+        <xs:element name="del" type="yn" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="applicationlog" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="application" nillable="true" minOccurs="0" />
+        <xs:element name="/***위탁기관*/" type="consignmentcompany" nillable="true" minOccurs="0" />
+        <xs:element name="/***검수타입*/" type="inspectiontype" nillable="true" minOccurs="0" />
+        <xs:element name="/***접수번호*/regnumber" type="xs:string" />
+        <xs:element name="/***장비명*/devicename" type="xs:string" />
+        <xs:element name="/***기기번호*/devicenumber" type="xs:string" />
+        <xs:element name="/***제조사*/productioncompany" type="xs:string" />
+        <xs:element name="/***모델*/model" type="xs:string" />
+        <xs:element name="/***규격*/standard" type="xs:string" />
+        <xs:element name="/***분해능*/resolution" type="xs:string" />
+        <xs:element name="/***수량*/quantity" type="xs:long" />
+        <xs:element name="/***성적서번호*/reportnumber" type="xs:string" />
+        <xs:element name="/***단위*/unit" type="xs:string" />
+        <xs:element name="/***비고*/etc" type="xs:string" />
+        <xs:element name="/***입출타입*/" type="carrytype" nillable="true" minOccurs="0" />
+        <xs:element name="/***교정료*/correctionfee" type="xs:long" />
+        <xs:element name="/***교정일자*/correctiondate" type="xs:anyType" />
+        <xs:element name="/***장소*/place" type="xs:string" />
+        <xs:element name="/***실무자*/practitioner" type="xs:string" />
+        <xs:element name="/***중분류*/middlecategory" type="xs:string" />
+        <xs:element name="/***소분류*/smallcategory" type="xs:string" />
+        <xs:element name="/***발행일*/publisheddate" type="xs:anyType" />
+        <xs:element name="/***기술챔임자*/technicalmanager" type="xs:string" />
+        <xs:element name="/***성적서영어*/" type="reportlanguage" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="application" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="/***업체*/" type="customer" nillable="true" minOccurs="0" />
+        <xs:element name="requestcustomername" type="xs:string" />
+        <xs:element name="requestcustomeraddress" type="xs:string" />
+        <xs:element name="/***발행업체동일여부*/customersame" type="yn" nillable="true" minOccurs="0" />
+        <xs:element name="/***현장교정필요*/fieldcorrectionneed" type="yn" nillable="true" minOccurs="0" />
+        <xs:element name="/***권장교정일주기기입여부*/reccalibrationday" type="yn" nillable="true" minOccurs="0" />
+        <xs:element name="/***교정신청날짜타입*/" type="appliregdatetype" nillable="true" minOccurs="0" />
+        <xs:element name="/***교정신청일*/appliregdate" type="xs:anyType" />
+        <xs:element name="/***신청인*/applicant" type="xs:string" />
+        <xs:element name="/***신청인이메일*/applicantemail" type="xs:string" />
+        <xs:element name="/***인수자*/consignee" type="xs:string" />
+        <xs:element name="/***인수일*/takeoverdate" type="xs:anyType" />
+        <xs:element name="/***전달방법*/" type="takeovertype" nillable="true" minOccurs="0" />
+        <xs:element name="/***접수자*/reg" type="member" nillable="true" minOccurs="0" />
+        <xs:element name="/***접수일*/regdate" type="xs:anyType" />
+        <xs:element name="applicationloglist" type="applicationlog" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="customersignimg" type="attachfile" nillable="true" minOccurs="0" />
+        <xs:element name="del" type="yn" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="commoncode" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="/***분류코드*/code" type="xs:string" />
+        <xs:element name="/***분류코드이름*/codename" type="xs:string" />
+        <xs:element name="/***분류코드설명*/codedesc" type="xs:string" />
+        <xs:element name="pid" type="commoncode" nillable="true" minOccurs="0" />
+        <xs:element name="codelist" type="commoncode" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="/***수정유무*/edite" type="xs:anyType" />
+        <xs:element name="/***삭제구분*/del" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="menurole" >
+      <xs:sequence>
+        <xs:element name="rolemenu" type="xs:anyType" />
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="//@joincolumn(name" type="menu" nillable="true" minOccurs="0" />
+        <xs:element name="//@joincolumn(name" type="role" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="menu" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="url" type="xs:string" />
+        <xs:element name="menuname" type="xs:string" />
+        <xs:element name="level" type="xs:long" />
+        <xs:element name="naviuseyn" type="xs:string" />
+        <xs:element name="useyn" type="xs:string" />
+        <xs:element name="menulist" type="menu" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="pid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="attachfile" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="fullpath" type="xs:string" />
+        <xs:element name="savedpath" type="xs:string" />
+        <xs:element name="//@transientresourcepath" type="xs:string" />
+        <xs:element name="realname" type="xs:string" />
+        <xs:element name="virtualname" type="xs:string" />
+        <xs:element name="extension" type="xs:string" />
+        <xs:element name="thumbnailyn" type="xs:string" />
+        <xs:element name="regid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="role" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="rolename" type="xs:string" />
+        <xs:element name="roledesc" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="memberrole" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="GeneratedName" type="member" nillable="true" minOccurs="0" />
+        <xs:element name="//@jsonignore" type="role" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="member" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="memberid" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="memberpassword" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="mobile" type="xs:string" />
+        <xs:element name="del" type="yn" nillable="true" minOccurs="0" />
+        <xs:element name="//@onetomany(fetch" type="role" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

@@ -1,0 +1,61 @@
+
+playerdivisioninfo(id:int [PK], season:int, GeneratedName:Player #FK to(Player), league:int, score:float, games:int);
+
+player(GeneratedName:Ladder1v1Rating #FK to(ladder1v1rating), GeneratedName:GlobalRating #FK to(globalrating), GeneratedName:MatchMakerBanDetails #FK to(MatchMakerBanDetails), GeneratedName:User #FK to(user), id:Avatar #FK to(Avatar), id:Clan #FK to(clan));
+
+socialrelation(playerid:Integer [PK], GeneratedName:Player #FK to(Player), subjectid:Integer [PK], status:SocialRelationStatus);
+
+matchmakerbandetails(id:Integer [PK], GeneratedName:Player #FK to(Player));
+
+avatarassociation(id:Integer [PK], selected:boolean, id:Player #FK to(Player), id:Avatar #FK to(Avatar));
+
+avatar(id:Integer [PK], url:String, description:String);
+
+clanmembership(id:Integer [PK], GeneratedName:Clan #FK to(clan), GeneratedName:Player #FK to(Player), createtime:OffsetDateTime, updatetime:OffsetDateTime);
+
+clan(id:int [PK], createtime:OffsetDateTime, updatetime:OffsetDateTime, name:String, tag:String, founder:Player #FK to(Player), leader:Player #FK to(Player), description:String, tagcolor:String);
+
+coopmap(id:Integer [PK], type:CoopMissionType, name:String, description:String, version:Integer, filename:String);
+
+coopleaderboardentry(id:Integer [PK], mission:CoopMap #FK to(coopmap), gameid:long, secondary:boolean, GeneratedName:Time, playercount:int);
+
+globalrating();
+
+user(GeneratedName:Player #FK to(Player), GeneratedName:GroupAssociation #FK to(groupassociation));
+
+oauthclient(id:String [PK], name:String, secret:String, redirecturis:String, defaultredirecturi:String, defaultscope:String);
+
+groupassociation(id:Integer [PK], GeneratedName:User #FK to(user), GeneratedName:Group);
+
+uniqueidexempt(id:Integer [PK], GeneratedName:Player #FK to(Player), reason:String);
+
+bandetails(id:Integer [PK], GeneratedName:User #FK to(user), author:User #FK to(user), reason:String, expiresat:Timestamp, scope:BanScope, revoked:boolean);
+
+mapstats(id:Integer [PK], timesplayed:int, draws:int, downloads:int, rating:double);
+
+mapversion(id:Integer [PK], /***uglyasitis,thefilenameisstoredas{@codemaps/something.zip}inthedatabase.*/filename:String, ranked:boolean, GeneratedName:Map #FK to(map));
+
+map(id:int [PK]);
+
+teamkill(id:Integer [PK], teamkiller:int, victim:int, gameid:int, gametime:int, reportedat:Timestamp);
+
+game(to*onewhogameupwiththis.*/id:Integer [PK], starttime:Instant, endtime:Instant, GeneratedName:VictoryCondition, /***foreignkeyto"featuredmod",butsincethere'snoconstraintinthedatabaseyet,hopeforthebest.*/:FeaturedMod #FK to(featuredmod), host:Player #FK to(Player), /***{@codenull}ifthemapisnotknownbytheserver.**@see#getmapfoldername()*/:MapVersion #FK to(mapversion), title:String, GeneratedName:Validity);
+
+gameplayerstats(id:long [PK], GeneratedName:Player #FK to(Player), playerid:int, ai:boolean, faction:int, color:int, team:int, startspot:int, mean:double, deviation:double, aftermean:Double, afterdeviation:Double, score:Integer, scoretime:Instant, GeneratedName:Game #FK to(game));
+
+schemaversion(installedrank:Integer [PK], version:String, description:String, type:String, script:String, checksum:Integer, installedby:String, installedon:Timestamp, executiontime:Integer, success:boolean);
+
+ladder1v1rating(wingames:short);
+
+division(id:int [PK], name:String, league:int, threshold:int);
+
+featuredmodfile(fileid:short [PK], version:int);
+
+featuredmod(id:Integer [PK], technicalname:String, description:String, displayname:String, publish:boolean, displayorder:int, giturl:String, gitbranch:String);
+
+modversion(id:Integer [PK], uid:String, type:ModType, description:String, version:short, filename:String, icon:String, ranked:boolean, hidden:boolean, createtime:Timestamp, updatetime:Timestamp, GeneratedName:Mod #FK to(mod));
+
+mod(id:Integer [PK], displayname:String, author:String, uploader:int, createtime:Timestamp, updatetime:Timestamp);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

@@ -1,0 +1,43 @@
+
+salesorderitem(serialversionuid:long, orderitemid:Integer [PK], orderid:Integer, productid:Integer, //@max(value:Double, productprice:Double, productdescount:Double, producttotal:Double, orderitemstatus:String);
+
+product(serialversionuid:long, productid:Integer [PK], name:String, price:String, description:String, metatagtitle:String, metatagdescription:String, metatagkeywords:String, pic1:String, pic2:String, pic3:String, pic4:String, pic5:String, categoryid:Integer, varietal:String, alcohool:String, region:String, year:String, mevushal:String, brand:String, //@max(value:Double, buyprice:Double, GeneratedName:ProductCarousel #FK to(productcarousel));
+
+logupload(serialversionuid:long, loguploadid:Integer [PK], filename:String, path:String, description:byte, status:String, GeneratedName:Date);
+
+address(serialversionuid:long, addressid:Integer [PK], addressline1:String, addressline2:String, city:String, suburb:String, state:String, country:String, postalcode:String, modifieddate:String);
+
+salesorder(serialversionuid:long, orderid:Integer [PK], clientid:String, order:Date, description:String, orderstatus:String, session:String, ip:String, shipping:float, subtotal:float, gst:float, total:float);
+
+member1(serialversionuid:long, memberid:Integer [PK], name:String, //@pattern(regexp:String, pass:String, reg:Date, terms:String, permission:String, GeneratedName:Date);
+
+client(serialversionuid:long, clientid:Integer [PK], name:String, firstname:String, lastname:String, //@pattern(regexp:String, telephone:String, datebirth:String, companyname1:String, contactperson1:String, streetaddress11:String, streetaddress12:String, suburb1:String, postal1:String, state1:String, sameasdelivery:Integer, companyname2:String, streetaddress21:String, streetaddress22:String, suburb2:String, postal2:String, state2:String, address_id:Address #FK to(address), address_id:Address #FK to(address));
+
+emailmktproduct(serialversionuid:long, emailmktproductid:Integer [PK], emailmktid:Integer, productid:Integer);
+
+productcarousel(serialversionuid:long, productid:Integer [PK], productorder:Integer, GeneratedName:Product #FK to(product));
+
+emailmkt(serialversionuid:long, emailmktid:Integer [PK], name:String, description:String, metatagtitle:String, metatagdescription:String, metatagkeywords:String, metatagurl:String);
+
+emailmktcart(serialversionuid:long, GeneratedName:EmailMktCartPK, //@max(value:Float, price:Float, total:Float, GeneratedName:Date, status:String);
+
+log(serialversionuid:long, logid:Integer [PK], log:byte, name:String, description:String, GeneratedName:Date);
+
+category(serialversionuid:long, categoryid:Integer [PK], categorytag:String, category:String, description:String, image1:String);
+
+transaction(serialversionuid:long, transactionid:Integer [PK], accesscode:String, transactionauthorisationcode:String, transactionresponsecode:String, transactionresponsemessage:String, transactioninvoicenumber:String, transactioninvoicereference:String, transactiontotalamount:String, transactiontransactionid:String, transactionstatus:String, transactiontokencustomerid:String, transactionbeaglescore:String, transactionoptions:String, verificationcvn:String, verificationaddress:String, verificationemail:String, verificationmobile:String, verificationphone:String, beagleverificationemail:String, beagleverificationphone:String, customertokencustomerid:String, customerreference:String, customertitle:String, customerfirstname:String, customerlastname:String, customercompanyname:String, customerjobdescription:String, customerstreet1:String, customerstreet2:String, customercity:String, customerstate:String, customerpostalcode:String, customercountry:String, customeremail:String, customerphone:String, customermobile:String, customercomments:String, customerfax:String, customerurl:String, customernote:String, shippingaddressshippingmethod:String, shippingaddressfirstname:String, shippingaddresslastname:String, shippingaddressstreet1:String, shippingaddressstreet2:String, shippingaddresscity:String, shippingaddressstate:String, shippingaddresscountry:String, shippingaddresspostalcode:String, shippingaddressemail:String, shippingaddressphone:String, shippingaddressfax:String, transactionorder:Integer, transactionorderstatus:Integer);
+
+wineries(serialversionuid:long, wineriesid:Integer [PK], name:String, description:String, photo:String);
+
+areaoper(serialversionuid:long, areaoperacional:Integer [PK], descricao:String);
+
+member_areaoper(area_operacional:Areaoper [PK] #FK to Areaoper,member_id:collection<member1> [PK] #FK to collection<member1>);
+
+productimage(serialversionuid:long, productid:Integer [PK], pic:byte);
+
+brand(serialversionuid:long, brandid:Integer [PK], brand:String);
+
+profile(serialversionuid:long, profileid:Integer [PK], profile:String, permission:String);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

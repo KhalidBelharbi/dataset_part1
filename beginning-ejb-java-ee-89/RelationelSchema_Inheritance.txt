@@ -1,0 +1,13 @@
+person(serialversionuid:long, id:Integer [PK], firstname:String, lastname:String, home:Address #FK to(address), version:Integer);
+
+employee( id:Integer [PK] #FK to Person, serialversionuid:long, department:String, email:String, manager:FullTimeEmployee #FK to( id:Integer [PK] #FK to Person, Employee));
+
+fulltimeemployee( id:Integer [PK] #FK to Person, serialversionuid:long, annualsalary:double);
+
+parttimeemployee( id:Integer [PK] #FK to Person, serialversionuid:long, hourlywage:double);
+
+address(serialversionuid:long, id:Integer [PK], city:String, state:String, street1:String, street2:String, version:Integer, zipcode:String);
+
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

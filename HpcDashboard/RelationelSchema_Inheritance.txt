@@ -1,0 +1,37 @@
+
+uprofreference(processor:String [PK], cpu_utilization:double, cpu_eff_freq:double, ipc:double, retired_sse_avx_flops:double, l3_hit:double, total_mem_bw:double, total_mem_rdbw:double, total_mem_wrbw:double, total_xgmi0_bw:double);
+
+passwordresettoken(expiration:int, id:Long [PK], token:String, GeneratedName:User #FK to(User), expiry:Date);
+
+role(id:Long [PK], name:String);
+
+appmap(appname:String [PK], metric:String, status:String);
+
+runtype(runtype:String [PK], cpu:String [PK], app_name:String [PK], freq:String, mem_freq:String, nps:int, smt:String, os:String, ctdp:String, boost:String, apbdis:String, soc_pstate:String, x2apic:String, determinism:String, preferred_io:String, iommu:String, edc:String, other:String);
+
+benchmark(bmname:String [PK], bmfullname:String, appname:String, bmsize:String, bmsizeunits:String, bmdur:long, bmdurunits:String, bmmetric:String, bmunits:String, estruntime:long);
+
+cpu(id:int [PK], cpumanufacturer:String, cpugeneration:String, cpusku:String, tdp:String, cores:int, basefreq:String, allcorefreq:String, peakfreq:String, l3cache:String, ddrchannels:int, maxddrfreq:String);
+
+uprofraw(id:int [PK], counter:int, procappbm:String, runtype:String, core_0_utilization:double, core_0_eff_freq:double, core_0_ipc:double, core_0_cpi:double, core_0_branch_misprediction_ratio:double, core_0_retired_sse_avx_flops:double, core_0_mixed_sse_avx_stalls:double, ccx_0_l3_access:double, ccx_0_l3_miss:double, ccx_0_l3_miss_percent:double, ccx_0_ave_l3_miss_latency:double, ccx_1_l3_access:double, ccx_1_l3_miss:double, ccx_1_l3_miss_percent:double, ccx_1_ave_l3_miss_latency:double, package_0_total_mem_bw:double, package_0_total_mem_rdbw:double, package_0_total_mem_wrbw:double, package_0_mem_ch_a_rdbw:double, package_0_mem_ch_a_wrbw:double, package_0_mem_ch_b_rdbw:double, package_0_mem_ch_b_wrbw:double, package_0_mem_ch_c_rdbw:double, package_0_mem_ch_c_wrbw:double, package_0_mem_ch_d_rdbw:double, package_0_mem_ch_d_wrbw:double, package_0_mem_ch_e_rdbw:double, package_0_mem_ch_e_wrbw:double, package_0_mem_ch_f_rdbw:double, package_0_mem_ch_f_wrbw:double, package_0_mem_ch_g_rdbw:double, package_0_mem_ch_g_wrbw:double, package_0_mem_ch_h_rdbw:double, package_0_mem_ch_h_wrbw:double, package_0_approximate_xgmi_outbound_data_bytes:double, package_0_xgmi0_bw:double, package_0_xgmi1_bw:double, package_0_xgmi2_bw:double, package_0_xgmi3_bw:double);
+
+result(jobid:String [PK], appname:String, bmname:String, nodes:int, cores:int, nodename:String, result:double, cpu:String, os:String, biosver:String, cluster:String, user:String, platform:String, cpugen:String, runtype:String, timestamp:Date, category:String);
+
+processor(cpugeneration:String, cpusku:String [PK], cores:int, price:double, tdp:int);
+
+heatmap(segment:String, isv:String, appname:String, nodes:int [PK], bmname:String [PK], cpusku:String [PK], cores:int, percoreperf:double, avgresult:double, perfperdollar:double, perfperwatt:double, runtype:String [PK], runcount:int, category:String);
+
+averageresult(cpusku:String [PK], nodes:int [PK], bmname:String [PK], cores:int, segment:String, appname:String, avgresult:double, percoreperf:double, perfperdollar:double, perfperwatt:double, perfpercorehib:double, averageperfhib:double, coefficientofvariation:double, runcount:int, runtype:String [PK], category:String);
+
+uprofcalculated(procappbm:String [PK], runtype:String [PK], processor:String, cpu_utilization:double, cpu_eff_freq:double, ipc:double, retired_sse_avx_flops:double, l3_hit:double, total_mem_bw:double, total_mem_rdbw:double, total_mem_wrbw:double, total_xgmi0_bw:double);
+
+appcategory(segment:String, isv:String, appname:String, bmname:String [PK], category:String);
+
+user(id:Long [PK], username:String, firstname:String, lastname:String, email:String, password:String);
+
+users_roles(user_id:User [PK] #FK to User,role_id:Role [PK] #FK to Role);
+
+application(appid:String [PK], appname:String, appcategory:String, appverion:String, precisioninfo:String, binaryinfo:String, compname:String, compver:String, compflags:String, libname:String, libver:String, libflags:String, avx2accel:Boolean, avx512accel:Boolean, licexp:LocalDate, libfftw:Boolean, libdgemm:Boolean, libblas:Boolean, appbound:String);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

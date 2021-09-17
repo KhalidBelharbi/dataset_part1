@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="countryservicetest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="countryservice" nillable="true" minOccurs="0" />
+        <xs:element name="repo" type="countryrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="myspringbootapplicationtests" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="countryservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="countryrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="stateservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="staterepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="countryrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<country,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="staterepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<state,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="country" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="states" type="state" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="created_by" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="//validationtest//@max(100)//@min(50)//integerrangetestupdated_by" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="created_datetime" type="xs:anyType" />
+        <xs:element name="updated_datetime" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="district" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="GeneratedName" type="state" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="state" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="GeneratedName" type="country" nillable="true" minOccurs="0" />
+        <xs:element name="districts" type="district" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="username" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="accountkey" >
+      <xs:sequence>
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="accountnumber" type="xs:string" />
+        <xs:element name="accounttype" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="account" >
+      <xs:sequence>
+        <xs:element name="accountnumber" type="xs:string" />
+        <xs:element name="accounttype" type="xs:string" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="address" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="errormessage" >
+      <xs:sequence>
+        <xs:element name="statuscode" type="xs:long" />
+        <xs:element name="GeneratedName" type="xs:dateTime" />
+        <xs:element name="message" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="controllerexceptionhandler" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="resourcenotfoundexception" >
+      <xs:complexContent>
+       <xs:extension base="exception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="myspringbootapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="statecontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="stateservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="countrycontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="countryservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="application" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

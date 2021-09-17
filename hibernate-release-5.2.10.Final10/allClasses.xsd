@@ -1,0 +1,1538 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="strategyregistrationproviderimpl" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="evictallcommand" >
+      <xs:complexContent>
+       <xs:extension base="baserpccommand">
+         <xs:sequence>
+          <xs:element name="region" type="baseregion" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="begininvalidationcommand" >
+      <xs:complexContent>
+       <xs:extension base="invalidatecommand">
+         <xs:sequence>
+          <xs:element name="lockowner" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="infinispanmessagelogger" >
+      <xs:complexContent>
+       <xs:extension base="basiclogger">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="cachecommandinitializer" >
+      <xs:sequence>
+        <xs:element name="putfromloadvalidators" type="xs:anyType" />
+        <xs:element name="notifier" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="lifecyclecallbacks" >
+      <xs:complexContent>
+       <xs:extension base="abstractmodulelifecycle">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="cachecommandids" >
+      <xs:sequence>
+        <xs:element name="/***{@linkevictallcommand}id*/evict_all" type="xs:anyType" />
+        <xs:element name="/***{@linkendinvalidationcommand}id*/end_invalidation" type="xs:anyType" />
+        <xs:element name="/***{@linkbegininvalidationcommand}id*/begin_invalidation" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="package-info" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cachecommandextensions" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="cachecommandfactory" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="cachecommandinitializer" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="externalizers" >
+      <xs:complexContent>
+       <xs:extension base="uuid>>">
+         <xs:sequence>
+          <xs:element name="uuid" type="xs:long" />
+          <xs:element name="tombstone" type="xs:long" />
+          <xs:element name="exclude_tombstones_filter" type="xs:long" />
+          <xs:element name="tombstone_update" type="xs:long" />
+          <xs:element name="future_update" type="xs:long" />
+          <xs:element name="value_extractor" type="xs:long" />
+          <xs:element name="versioned_entry" type="xs:long" />
+          <xs:element name="exclude_empty_extract_value" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="endinvalidationcommand" >
+      <xs:complexContent>
+       <xs:extension base="baserpccommand">
+         <xs:sequence>
+          <xs:element name="keys" type="xs:anyType" />
+          <xs:element name="lockowner" type="xs:anyType" />
+          <xs:element name="" type="putfromloadvalidator" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="caches" >
+      <xs:complexContent>
+       <xs:extension base="closeableiterable<t>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="cachecommandfactory" >
+      <xs:complexContent>
+       <xs:extension base="replicablecommand>>">
+         <xs:sequence>
+          <xs:element name="allregions" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tombstoneupdate" >
+      <xs:complexContent>
+       <xs:extension base="tombstoneupdate>>">
+         <xs:sequence>
+          <xs:element name="timestamp" type="xs:long" />
+          <xs:element name="value" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="versionedentry" >
+      <xs:complexContent>
+       <xs:extension base="versionedentry>>">
+         <xs:sequence>
+          <xs:element name="exclude_empty_extract_value" type="xs:anyType" />
+          <xs:element name="value" type="xs:anyType" />
+          <xs:element name="version" type="xs:anyType" />
+          <xs:element name="timestamp" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="futureupdate" >
+      <xs:complexContent>
+       <xs:extension base="futureupdate>>">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="timestamp" type="xs:long" />
+          <xs:element name="value" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="secondlevelcachemetadatamodulefinder" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tombstone" >
+      <xs:complexContent>
+       <xs:extension base="tombstone>>">
+         <xs:sequence>
+          <xs:element name="exclude_tombstones" type="xs:anyType" />
+          <xs:element name="data" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="invocationaftercompletion" >
+      <xs:sequence>
+        <xs:element name="log" type="infinispanmessagelogger" nillable="true" minOccurs="0" />
+        <xs:element name="tc" type="xs:anyType" />
+        <xs:element name="requirestransaction" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="txputfromloadinterceptor" >
+      <xs:complexContent>
+       <xs:extension base="baserpcinterceptor">
+         <xs:sequence>
+          <xs:element name="log" type="infinispanmessagelogger" nillable="true" minOccurs="0" />
+          <xs:element name="" type="putfromloadvalidator" nillable="true" minOccurs="0" />
+          <xs:element name="cachename" type="xs:string" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="cachecommandinitializer" nillable="true" minOccurs="0" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="asyncunordered" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="baseinvalidationinterceptor" >
+      <xs:complexContent>
+       <xs:extension base="baserpcinterceptor">
+         <xs:sequence>
+          <xs:element name="invalidations" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="cachename" type="xs:string" />
+          <xs:element name="statisticsenabled" type="xs:anyType" />
+          <xs:element name="sync" type="xs:anyType" />
+          <xs:element name="async" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="nontxinvalidationinterceptor" >
+      <xs:complexContent>
+       <xs:extension base="baseinvalidationinterceptor">
+         <xs:sequence>
+          <xs:element name="" type="putfromloadvalidator" nillable="true" minOccurs="0" />
+          <xs:element name="commandinitializer" type="cachecommandinitializer" nillable="true" minOccurs="0" />
+          <xs:element name="log" type="infinispanmessagelogger" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="txinvalidationcacheaccessdelegate" >
+      <xs:complexContent>
+       <xs:extension base="invalidationcacheaccessdelegate">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="txinvalidationinterceptor" >
+      <xs:complexContent>
+       <xs:extension base="baseinvalidationinterceptor">
+         <xs:sequence>
+          <xs:element name="log" type="infinispanmessagelogger" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tombstonecallinterceptor" >
+      <xs:complexContent>
+       <xs:extension base="callinterceptor">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="zero" type="xs:anyType" />
+          <xs:element name="region" type="basetransactionaldataregion" nillable="true" minOccurs="0" />
+          <xs:element name="expiring" type="xs:anyType" />
+          <xs:element name="default" type="xs:anyType" />
+          <xs:element name="cache" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="lockinginterceptor" >
+      <xs:complexContent>
+       <xs:extension base="nontransactionallockinginterceptor">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="trace" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="putfromloadvalidator" >
+      <xs:complexContent>
+       <xs:extension base="lock">
+         <xs:sequence>
+          <xs:element name="log" type="infinispanmessagelogger" nillable="true" minOccurs="0" />
+          <xs:element name="trace" type="xs:anyType" />
+          <xs:element name="/***periodafterwhichongoinginvalidationisremoved.valueisretrievedfromcacheconfiguration.*/expirationperiod" type="xs:long" />
+          <xs:element name="pendingputs" type="xs:anyType" />
+          <xs:element name="/***maincachewheretheentities/collectionsarestored.thisisnotmodifiedfromwithinthisclass.*/cache" type="xs:anyType" />
+          <xs:element name="regionfactory" type="infinispanregionfactory" nillable="true" minOccurs="0" />
+          <xs:element name="/***injectedinterceptor*/" type="nontxputfromloadinterceptor" nillable="true" minOccurs="0" />
+          <xs:element name="/***thetimeofthelastcallto{@link#endinvalidatingregion()}.putsfromtransactionsstartedafter*thistimestamparedenied.*/volatileregioninvalidationtimestamp" type="xs:long" />
+          <xs:element name="/***numberofongoingconcurrentinvalidations.*/regioninvalidations" type="xs:long" />
+          <xs:element name="/***allowspropagationofcurrentsessiontocallbacksinvokedfrominterceptors*/currentsession" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="removalsynchronization" >
+      <xs:complexContent>
+       <xs:extension base="invocationaftercompletion">
+         <xs:sequence>
+          <xs:element name="region" type="basetransactionaldataregion" nillable="true" minOccurs="0" />
+          <xs:element name="key" type="xs:anyType" />
+          <xs:element name="cache" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tombstoneaccessdelegate" >
+      <xs:sequence>
+        <xs:element name="log" type="infinispanmessagelogger" nillable="true" minOccurs="0" />
+        <xs:element name="region" type="basetransactionaldataregion" nillable="true" minOccurs="0" />
+        <xs:element name="cache" type="xs:anyType" />
+        <xs:element name="writecache" type="xs:anyType" />
+        <xs:element name="asyncwritecache" type="xs:anyType" />
+        <xs:element name="putfromloadcache" type="xs:anyType" />
+        <xs:element name="requirestransaction" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="versionedcallinterceptor" >
+      <xs:complexContent>
+       <xs:extension base="callinterceptor">
+         <xs:sequence>
+          <xs:element name="versioncomparator" type="xs:anyType" />
+          <xs:element name="expiring" type="xs:anyType" />
+          <xs:element name="cache" type="xs:anyType" />
+          <xs:element name="default" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="invalidationcacheaccessdelegate" >
+      <xs:sequence>
+        <xs:element name="log" type="infinispanmessagelogger" nillable="true" minOccurs="0" />
+        <xs:element name="trace_enabled" type="xs:anyType" />
+        <xs:element name="cache" type="xs:anyType" />
+        <xs:element name="region" type="baseregion" nillable="true" minOccurs="0" />
+        <xs:element name="putvalidator" type="putfromloadvalidator" nillable="true" minOccurs="0" />
+        <xs:element name="writecache" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="nonstrictaccessdelegate" >
+      <xs:sequence>
+        <xs:element name="log" type="infinispanmessagelogger" nillable="true" minOccurs="0" />
+        <xs:element name="trace" type="xs:anyType" />
+        <xs:element name="region" type="basetransactionaldataregion" nillable="true" minOccurs="0" />
+        <xs:element name="cache" type="xs:anyType" />
+        <xs:element name="writecache" type="xs:anyType" />
+        <xs:element name="putfromloadcache" type="xs:anyType" />
+        <xs:element name="version" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="package-info" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="nontxinvalidationcacheaccessdelegate" >
+      <xs:complexContent>
+       <xs:extension base="invalidationcacheaccessdelegate">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="nontxputfromloadinterceptor" >
+      <xs:complexContent>
+       <xs:extension base="basecustominterceptor">
+         <xs:sequence>
+          <xs:element name="log" type="infinispanmessagelogger" nillable="true" minOccurs="0" />
+          <xs:element name="cachename" type="xs:string" />
+          <xs:element name="" type="putfromloadvalidator" nillable="true" minOccurs="0" />
+          <xs:element name="commandinitializer" type="cachecommandinitializer" nillable="true" minOccurs="0" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="asyncunordered" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="unordereddistributioninterceptor" >
+      <xs:complexContent>
+       <xs:extension base="nontxdistributioninterceptor">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="trace" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="sync,async" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="invalidationsynchronization" >
+      <xs:sequence>
+        <xs:element name="lockowner" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="nontxputfromloadinterceptor" nillable="true" minOccurs="0" />
+        <xs:element name="key" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="accessdelegate" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="futureupdatesynchronization" >
+      <xs:complexContent>
+       <xs:extension base="invocationaftercompletion">
+         <xs:sequence>
+          <xs:element name="log" type="infinispanmessagelogger" nillable="true" minOccurs="0" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="key" type="xs:anyType" />
+          <xs:element name="value" type="xs:anyType" />
+          <xs:element name="region" type="basetransactionaldataregion" nillable="true" minOccurs="0" />
+          <xs:element name="sessiontimestamp" type="xs:long" />
+          <xs:element name="cache" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="package-info" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="baseregion" >
+      <xs:sequence>
+        <xs:element name="log" type="infinispanmessagelogger" nillable="true" minOccurs="0" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="cache" type="xs:anyType" />
+        <xs:element name="localandskiploadcache" type="xs:anyType" />
+        <xs:element name="tm" type="xs:anyType" />
+        <xs:element name="factory" type="infinispanregionfactory" nillable="true" minOccurs="0" />
+        <xs:element name="volatilelastregioninvalidation" type="xs:long" />
+        <xs:element name="invalidations" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="basegeneraldataregion" >
+      <xs:complexContent>
+       <xs:extension base="baseregion">
+         <xs:sequence>
+          <xs:element name="putcache" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="basetransactionaldataregion" >
+      <xs:complexContent>
+       <xs:extension base="">
+         <xs:sequence>
+          <xs:element name="log" type="infinispanmessagelogger" nillable="true" minOccurs="0" />
+          <xs:element name="metadata" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="requirestransaction" type="xs:anyType" />
+          <xs:element name="tombstoneexpiration" type="xs:long" />
+          <xs:element name="validator" type="putfromloadvalidator" nillable="true" minOccurs="0" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="package-info" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="queryresultsregionimpl" >
+      <xs:complexContent>
+       <xs:extension base="basetransactionaldataregion">
+         <xs:sequence>
+          <xs:element name="log" type="infinispanmessagelogger" nillable="true" minOccurs="0" />
+          <xs:element name="evictcache" type="xs:anyType" />
+          <xs:element name="putcache" type="xs:anyType" />
+          <xs:element name="getcache" type="xs:anyType" />
+          <xs:element name="transactioncontext" type="xs:anyType" />
+          <xs:element name="putcacherequirestransaction" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jndiinfinispanregionfactory" >
+      <xs:complexContent>
+       <xs:extension base="infinispanregionfactory">
+         <xs:sequence>
+          <xs:element name="log" type="infinispanmessagelogger" nillable="true" minOccurs="0" />
+          <xs:element name="/***specifiesthejndinameunderwhichthe{@linkembeddedcachemanager}touseisbound.*thereisnodefaultvalue--theusermustspecifytheproperty.*/cache_manager_resource_prop" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="entityregionimpl" >
+      <xs:complexContent>
+       <xs:extension base="basetransactionaldataregion">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="readonlyaccess" >
+      <xs:sequence>
+        <xs:element name="region" type="entityregionimpl" nillable="true" minOccurs="0" />
+        <xs:element name="delegate" type="accessdelegate" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="readwriteaccess" >
+      <xs:complexContent>
+       <xs:extension base="readonlyaccess">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="package-info" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="package-info" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="readwriteaccess" >
+      <xs:complexContent>
+       <xs:extension base="readonlyaccess">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="readonlyaccess" >
+      <xs:sequence>
+        <xs:element name="region" type="naturalidregionimpl" nillable="true" minOccurs="0" />
+        <xs:element name="delegate" type="accessdelegate" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="naturalidregionimpl" >
+      <xs:complexContent>
+       <xs:extension base="basetransactionaldataregion">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="package-info" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="collectionregionimpl" >
+      <xs:complexContent>
+       <xs:extension base="basetransactionaldataregion">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="collectionaccess" >
+      <xs:sequence>
+        <xs:element name="region" type="collectionregionimpl" nillable="true" minOccurs="0" />
+        <xs:element name="delegate" type="accessdelegate" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hibernatetransactionmanagerlookup" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="package-info" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="clusteredtimestampsregionimpl" >
+      <xs:complexContent>
+       <xs:extension base="timestampsregionimpl">
+         <xs:sequence>
+          <xs:element name="/***maintainsalocal(authoritative)cacheoftimestampsalongwiththe*replicatedcacheheldininfinispan.itlistensforchangesinthe*cacheandupdatesthelocalcacheaccordingly.thisapproachallows*timestampchangestobereplicatedasynchronously.*/localcache" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="package-info" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="timestampsregionimpl" >
+      <xs:complexContent>
+       <xs:extension base="basegeneraldataregion">
+         <xs:sequence>
+          <xs:element name="removecache" type="xs:anyType" />
+          <xs:element name="timestampsputcache" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="typeoverrides" >
+      <xs:sequence>
+        <xs:element name="overridden" type="xs:anyType" />
+        <xs:element name="cachename" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="evictionwakeupinterval" type="xs:long" />
+        <xs:element name="evictionmaxentries" type="xs:long" />
+        <xs:element name="expirationlifespan" type="xs:long" />
+        <xs:element name="expirationmaxidle" type="xs:long" />
+        <xs:element name="isexposestatistics" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="typeequivalance" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="package-info" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="infinispanregionfactory" >
+      <xs:sequence>
+        <xs:element name="log" type="infinispanmessagelogger" nillable="true" minOccurs="0" />
+        <xs:element name="prefix" type="xs:string" />
+        <xs:element name="config_suffix" type="xs:string" />
+        <xs:element name="strategy_suffix" type="xs:string" />
+        <xs:element name="//theattributewasincorrectlynamedinfactthissetsexpirationcheckinterval//(evictionistriggeredbywrites,expirationistime-based)deprecated_wake_up_interval_suffix" type="xs:string" />
+        <xs:element name="max_entries_suffix" type="xs:string" />
+        <xs:element name="wake_up_interval_suffix" type="xs:string" />
+        <xs:element name="lifespan_suffix" type="xs:string" />
+        <xs:element name="max_idle_suffix" type="xs:string" />
+        <xs:element name="/***classpathorfilesystemresourcecontaininginfinispanconfigurationsthefactoryshoulduse.**@see#def_infinispan_config_resource*/infinispan_config_resource_prop" type="xs:string" />
+        <xs:element name="/***propertynamethatcontrolswhetherinfinispanstatisticsareenabled.*thepropertyvalueisexpectedtobeabooleantrueorfalse,andit*overridesstatisticconfigurationinbaseinfinispanconfiguration,*ifprovided.*/infinispan_global_statistics_prop" type="xs:string" />
+        <xs:element name="/***propertythatcontrolswhetherinfinispanshouldinteractwiththe*transactionmanagerasa{@linkjavax.transaction.synchronization}oras*anxaresource.*infinispansecondlevelcacheisdesignedtoalwaysregisterassynchronization*ontransactionalcaches,orusenon-transactionalcaches.**@see#def_use_synchronization*/infinispan_use_synchronization_prop" type="xs:string" />
+        <xs:element name="no_validation" type="xs:anyType" />
+        <xs:element name="/***nameoftheconfigurationthatshouldbeusedfornaturalidcaches.**@see#def_entity_resource*/natural_id_cache_resource_prop" type="xs:string" />
+        <xs:element name="/***nameoftheconfigurationthatshouldbeusedforentitycaches.**@see#def_entity_resource*/entity_cache_resource_prop" type="xs:string" />
+        <xs:element name="/***nameoftheconfigurationthatshouldbeusedforimmutableentitycaches.*defaultstothesameconfigurationas{@link#entity_cache_resource_prop}-{@link#def_entity_resource}*/immutable_entity_cache_resource_prop" type="xs:string" />
+        <xs:element name="/***nameoftheconfigurationthatshouldbeusedforcollectioncaches.*nodefaultvalue,asbydefaultwetrytousethesameinfinispancache*instanceweuseforentitycaching.**@see#entity_cache_resource_prop*@see#def_entity_resource*/collection_cache_resource_prop" type="xs:string" />
+        <xs:element name="/***nameoftheconfigurationthatshouldbeusedfortimestampcaches.**@see#def_timestamps_resource*/timestamps_cache_resource_prop" type="xs:string" />
+        <xs:element name="/***nameoftheconfigurationthatshouldbeusedforquerycaches.**@see#def_query_resource*/query_cache_resource_prop" type="xs:string" />
+        <xs:element name="/***nameoftheconfigurationthatshouldbeusedforpending-putscaches.**@see#def_pending_puts_resource*/pending_puts_cache_resource_prop" type="xs:string" />
+        <xs:element name="/***defaultvaluefor{@link#infinispan_config_resource_prop}.specifiesthe"infinispan-configs.xml"fileinthispackage.*/def_infinispan_config_resource" type="xs:string" />
+        <xs:element name="/***defaultconfigurationforcaseswherenon-clusteredcachemanagerisprovided.*/infinispan_config_local_resource" type="xs:string" />
+        <xs:element name="/***defaultvaluefor{@link#entity_cache_resource_prop}.*/def_entity_resource" type="xs:string" />
+        <xs:element name="/***defaultvaluefor{@link#timestamps_cache_resource_prop}.*/def_timestamps_resource" type="xs:string" />
+        <xs:element name="/***defaultvaluefor{@link#query_cache_resource_prop}.*/def_query_resource" type="xs:string" />
+        <xs:element name="/***defaultvaluefor{@link#pending_puts_cache_resource_prop}*/def_pending_puts_resource" type="xs:string" />
+        <xs:element name="/***use{@link#def_pending_puts_resource}instead.*/pending_puts_cache_name" type="xs:string" />
+        <xs:element name="/***defaultvaluefor{@link#infinispan_use_synchronization_prop}.*/def_use_synchronization" type="xs:anyType" />
+        <xs:element name="baseconfigurations" type="xs:anyType" />
+        <xs:element name="configoverrides" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="defaultconfiguration" type="xs:anyType" />
+        <xs:element name="datatypeconfigurations" type="xs:anyType" />
+        <xs:element name="manager" type="xs:anyType" />
+        <xs:element name="transactionmanagerlookup" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="regions" type="baseregion" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="settings" type="xs:anyType" />
+        <xs:element name="globalstats" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="org.infinispan.factories.components" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="org.infinispan.lifecycle" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="blueprint" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jndiinfinispanregionfactorytestcase" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="abstractextraapitest" >
+      <xs:complexContent>
+       <xs:extension base="regionaccessstrategy>">
+         <xs:sequence>
+          <xs:element name="region_name" type="xs:string" />
+          <xs:element name="key" type="xs:anyType" />
+          <xs:element name="cache_data_description" type="xs:anyType" />
+          <xs:element name="session" type="xs:anyType" />
+          <xs:element name="accetrategy" type="xs:anyType" />
+          <xs:element name="environment" type="nodeenvironment" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="xatransactionimpl" >
+      <xs:sequence>
+        <xs:element name="log" type="infinispanmessagelogger" nillable="true" minOccurs="0" />
+        <xs:element name="status" type="xs:long" />
+        <xs:element name="synchronizations" type="xs:anyType" />
+        <xs:element name="//theonlyresourcewecareaboutisjdbc" type="xs:anyType" />
+        <xs:element name="jtatransactionmanager" type="xatransactionmanagerimpl" nillable="true" minOccurs="0" />
+        <xs:element name="enlistedresources" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jtaplatformimpl" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jbossstandalonejtaexampletest" >
+      <xs:complexContent>
+       <xs:extension base="jnditransactionmanagerlookup">
+         <xs:sequence>
+          <xs:element name="log" type="infinispanmessagelogger" nillable="true" minOccurs="0" />
+          <xs:element name="lookup" type="xs:anyType" />
+          <xs:element name="ctx" type="xs:anyType" />
+          <xs:element name="jndiserver" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="infinispantestidentifier" type="infinispantestingsetup" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="xatransactionmanagerimpl" >
+      <xs:sequence>
+        <xs:element name="instance" type="xatransactionmanagerimpl" nillable="true" minOccurs="0" />
+        <xs:element name="currenttransaction" type="xatransactionimpl" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="xaconnectionprovider" >
+      <xs:sequence>
+        <xs:element name="default_connection_provider" type="xs:anyType" />
+        <xs:element name="actual" type="xs:anyType" />
+        <xs:element name="istransactional" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cachekeysfactorytest" >
+      <xs:complexContent>
+       <xs:extension base="baseunittestcase">
+         <xs:sequence>
+          <xs:element name="infinispantestidentifier" type="infinispantestingsetup" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="putfromloadvalidatorunittest" >
+      <xs:sequence>
+        <xs:element name="log" type="infinispanmessagelogger" nillable="true" minOccurs="0" />
+        <xs:element name="time_service" type="testtimeservice" nillable="true" minOccurs="0" />
+        <xs:element name="key1" type="xs:anyType" />
+        <xs:element name="tm" type="xs:anyType" />
+        <xs:element name="cm" type="xs:anyType" />
+        <xs:element name="cache" type="xs:anyType" />
+        <xs:element name="cleanup" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="collectionregionaccessstrategytest" >
+      <xs:complexContent>
+       <xs:extension base="		abstractregionaccessstrategytest<collectionregionimpl,">
+         <xs:sequence>
+          <xs:element name="testcount" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="collectionregionimpltest" >
+      <xs:complexContent>
+       <xs:extension base="abstractentitycollectionregiontest">
+         <xs:sequence>
+          <xs:element name="cache_name" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="collectionregionaccessextraapitest" >
+      <xs:complexContent>
+       <xs:extension base="abstractextraapitest<collectionregionaccessstrategy>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="abstractentitycollectionregiontest" >
+      <xs:complexContent>
+       <xs:extension base="abstractregionimpltest">
+         <xs:sequence>
+          <xs:element name="mutable_non_versioned" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="correctnesstestcase" >
+      <xs:complexContent>
+       <xs:extension base="correctnesstestcase">
+         <xs:sequence>
+          <xs:element name="log" type="infinispanmessagelogger" nillable="true" minOccurs="0" />
+          <xs:element name="execution_time" type="xs:long" />
+          <xs:element name="num_nodes" type="xs:long" />
+          <xs:element name="num_threads_per_node" type="xs:long" />
+          <xs:element name="num_threads" type="xs:long" />
+          <xs:element name="num_families" type="xs:long" />
+          <xs:element name="num_access_after_removal" type="xs:long" />
+          <xs:element name="max_members" type="xs:long" />
+          <xs:element name="wall_clock_time_comparator" type="xs:anyType" />
+          <xs:element name="invalidate_region" type="xs:anyType" />
+          <xs:element name="inject_failures" type="xs:anyType" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="threadnode" type="xs:anyType" />
+          <xs:element name="timestampgenerator" type="xs:anyType" />
+          <xs:element name="familyids" type="xs:anyType" />
+          <xs:element name="sessionfactories" type="xs:anyType" />
+          <xs:element name="volatilerunning" type="xs:anyType" />
+          <xs:element name="familynames" type="xs:anyType" />
+          <xs:element name="familymembers" type="xs:anyType" />
+          <xs:element name="exceptions" type="xs:anyType" />
+          <xs:element name="expected" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="secondlevelcachestresstestcase" >
+      <xs:sequence>
+        <xs:element name="num_threads" type="xs:long" />
+        <xs:element name="warmup_time" type="xs:long" />
+        <xs:element name="running_time" type="xs:long" />
+        <xs:element name="profile" type="xs:anyType" />
+        <xs:element name="allocation" type="xs:anyType" />
+        <xs:element name="//maxnumberofrunsperoperationrun_count_limit" type="xs:long" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="provider" type="xs:string" />
+        <xs:element name="updatedids" type="xs:anyType" />
+        <xs:element name="removeids" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="tm" type="xs:anyType" />
+        <xs:element name="volatilenumentities" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="address" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="streetnumber" type="xs:long" />
+        <xs:element name="streetname" type="xs:string" />
+        <xs:element name="cityname" type="xs:string" />
+        <xs:element name="countryname" type="xs:string" />
+        <xs:element name="zipcode" type="xs:string" />
+        <xs:element name="inhabitants" type="person" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="version" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="person" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="GeneratedName" type="family" nillable="true" minOccurs="0" />
+        <xs:element name="birth" type="xs:dateTime" />
+        <xs:element name="GeneratedName" type="address" nillable="true" minOccurs="0" />
+        <xs:element name="checked" type="xs:anyType" />
+        <xs:element name="version" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="family" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="secondname" type="xs:string" />
+        <xs:element name="members" type="person" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="version" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="putfromloadstresstestcase" >
+      <xs:sequence>
+        <xs:element name="log" type="infinispanmessagelogger" nillable="true" minOccurs="0" />
+        <xs:element name="istrace" type="xs:anyType" />
+        <xs:element name="num_threads" type="xs:long" />
+        <xs:element name="warmup_time_secs" type="xs:long" />
+        <xs:element name="running_time_secs" type="xs:long" />
+        <xs:element name="launch_interval_millis" type="xs:long" />
+        <xs:element name="num_instances" type="xs:long" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="tm" type="xs:anyType" />
+        <xs:element name="run" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tombstonetest" >
+      <xs:complexContent>
+       <xs:extension base="abstractnoninvalidationtest">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="invalidationtest" >
+      <xs:complexContent>
+       <xs:extension base="singlenodetest">
+         <xs:sequence>
+          <xs:element name="log" type="infinispanmessagelogger" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="clusterawareregionfactory" >
+      <xs:complexContent>
+       <xs:extension base="infinispanregionfactory>">
+         <xs:sequence>
+          <xs:element name="log" type="infinispanmessagelogger" nillable="true" minOccurs="0" />
+          <xs:element name="cachemanagers" type="xs:anyType" />
+          <xs:element name="delegate" type="infinispanregionfactory" nillable="true" minOccurs="0" />
+          <xs:element name="cachemanagername" type="xs:string" />
+          <xs:element name="locallyadded" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="dualnodeconnectionproviderimpl" >
+      <xs:sequence>
+        <xs:element name="actual" type="xs:anyType" />
+        <xs:element name="nodeid" type="xs:string" />
+        <xs:element name="istransactional" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entitycollectioninvalidationtest" >
+      <xs:complexContent>
+       <xs:extension base="dualnodetest">
+         <xs:sequence>
+          <xs:element name="log" type="infinispanmessagelogger" nillable="true" minOccurs="0" />
+          <xs:element name="customer_id" type="xs:anyType" />
+          <xs:element name="localmanager,remotemanager" type="xs:anyType" />
+          <xs:element name="localcustomercache,remotecustomercache" type="xs:anyType" />
+          <xs:element name="localcontactcache,remotecontactcache" type="xs:anyType" />
+          <xs:element name="localcollectioncache,remotecollectioncache" type="xs:anyType" />
+          <xs:element name="locallistener,remotelistener" type="xs:anyType" />
+          <xs:element name="localfactory,remotefactory" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="accountdao" >
+      <xs:sequence>
+        <xs:element name="log" type="infinispanmessagelogger" nillable="true" minOccurs="0" />
+        <xs:element name="usejta" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="smith" type="accountholder" nillable="true" minOccurs="0" />
+        <xs:element name="jones" type="accountholder" nillable="true" minOccurs="0" />
+        <xs:element name="barney" type="accountholder" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dualnodejtatransactionmanagerimpl" >
+      <xs:sequence>
+        <xs:element name="log" type="infinispanmessagelogger" nillable="true" minOccurs="0" />
+        <xs:element name="instances" type="xs:anyType" />
+        <xs:element name="currenttransaction" type="xs:anyType" />
+        <xs:element name="nodeid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dualnodetest" >
+      <xs:complexContent>
+       <xs:extension base="abstractfunctionaltest">
+         <xs:sequence>
+          <xs:element name="log" type="infinispanmessagelogger" nillable="true" minOccurs="0" />
+          <xs:element name="infinispantestidentifier" type="infinispantestingsetup" nillable="true" minOccurs="0" />
+          <xs:element name="region_factory_delegate" type="xs:string" />
+          <xs:element name="node_id_prop" type="xs:string" />
+          <xs:element name="node_id_field" type="xs:string" />
+          <xs:element name="local" type="xs:string" />
+          <xs:element name="remote" type="xs:string" />
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="dualnodejtaplatformimpl" >
+      <xs:sequence>
+        <xs:element name="nodeid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sessionrefreshtest" >
+      <xs:complexContent>
+       <xs:extension base="dualnodetest">
+         <xs:sequence>
+          <xs:element name="log" type="xs:anyType" />
+          <xs:element name="local" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="dualnodejtatransactionimpl" >
+      <xs:sequence>
+        <xs:element name="log" type="infinispanmessagelogger" nillable="true" minOccurs="0" />
+        <xs:element name="status" type="xs:long" />
+        <xs:element name="synchronizations" type="xs:anyType" />
+        <xs:element name="//theonlyresourcewecareaboutisjdbc" type="xs:anyType" />
+        <xs:element name="jtatransactionmanager" type="dualnodejtatransactionmanagerimpl" nillable="true" minOccurs="0" />
+        <xs:element name="enlistedresources" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="naturalidinvalidationtest" >
+      <xs:complexContent>
+       <xs:extension base="dualnodetest">
+         <xs:sequence>
+          <xs:element name="log" type="infinispanmessagelogger" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jndiregionfactorytest" >
+      <xs:complexContent>
+       <xs:extension base="singlenodetest">
+         <xs:sequence>
+          <xs:element name="log" type="infinispanmessagelogger" nillable="true" minOccurs="0" />
+          <xs:element name="jndi_name" type="xs:string" />
+          <xs:element name="naming" type="xs:anyType" />
+          <xs:element name="namingserver" type="xs:anyType" />
+          <xs:element name="props" type="xs:anyType" />
+          <xs:element name="bindtojndi" type="xs:anyType" />
+          <xs:element name="manager" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="bulkoperationstest" >
+      <xs:complexContent>
+       <xs:extension base="singlenodetest">
+         <xs:sequence>
+          <xs:element name="infinispantestidentifier" type="infinispantestingsetup" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="readwritetest" >
+      <xs:complexContent>
+       <xs:extension base="readonlytest">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="concurrentwritetest" >
+      <xs:complexContent>
+       <xs:extension base="singlenodetest">
+         <xs:sequence>
+          <xs:element name="log" type="infinispanmessagelogger" nillable="true" minOccurs="0" />
+          <xs:element name="trace" type="xs:anyType" />
+          <xs:element name="/***whenuser_count" type="xs:long" />
+          <xs:element name="iteration_count" type="xs:long" />
+          <xs:element name="think_time_millis" type="xs:long" />
+          <xs:element name="launch_interval_millis" type="xs:long" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="time_service" type="testtimeservice" nillable="true" minOccurs="0" />
+          <xs:element name="/***killswitchusedtostopalluserswhenonefails*/volatileterminate_all_users" type="xs:anyType" />
+          <xs:element name="/***collectionofidsofallcustomersparticipatinginthistest*/customerids" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="abstractfunctionaltest" >
+      <xs:complexContent>
+       <xs:extension base="basenonconfigcorefunctionaltestcase">
+         <xs:sequence>
+          <xs:element name="transactional" type="xs:anyType" />
+          <xs:element name="read_write_invalidation" type="xs:anyType" />
+          <xs:element name="read_only_invalidation" type="xs:anyType" />
+          <xs:element name="read_write_replicated" type="xs:anyType" />
+          <xs:element name="read_only_replicated" type="xs:anyType" />
+          <xs:element name="read_write_distributed" type="xs:anyType" />
+          <xs:element name="read_only_distributed" type="xs:anyType" />
+          <xs:element name="nonstrict_replicated" type="xs:anyType" />
+          <xs:element name="nonstrict_distributed" type="xs:anyType" />
+          <xs:element name="//weneedtouseheresincein@beforeclassoncestartupwe'repreparingthesessionfactory,//constructingcachemanageralong-andtherewecheckthatthetesthasthenamealreadysetinfinispantestidentifier" type="infinispantestingsetup" nillable="true" minOccurs="0" />
+          <xs:element name="mode" type="xs:string" />
+          <xs:element name="jtaplatformclass" type="xs:anyType" />
+          <xs:element name="transactioncoordinatorbuilderclass" type="xs:anyType" />
+          <xs:element name="connectionproviderclass" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="usetransactionalcache" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="addversions" type="xs:anyType" />
+          <xs:element name="usejta" type="xs:anyType" />
+          <xs:element name="cleanup" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="selectedclassnameclassloader" >
+      <xs:complexContent>
+       <xs:extension base="classloader">
+         <xs:sequence>
+          <xs:element name="log" type="xs:anyType" />
+          <xs:element name="includedclasses" type="xs:string" />
+          <xs:element name="excludedclasses" type="xs:string" />
+          <xs:element name="notfoundclasses" type="xs:string" />
+          <xs:element name="classes" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="notenancytest" >
+      <xs:complexContent>
+       <xs:extension base="singlenodetest">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="readonlytest" >
+      <xs:complexContent>
+       <xs:extension base="singlenodetest">
+         <xs:sequence>
+          <xs:element name="log" type="infinispanmessagelogger" nillable="true" minOccurs="0" />
+          <xs:element name="time_service" type="testtimeservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="account" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="version" type="xs:long" />
+        <xs:element name="GeneratedName" type="accountholder" nillable="true" minOccurs="0" />
+        <xs:element name="balance" type="xs:anyType" />
+        <xs:element name="branch" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="name" >
+      <xs:sequence>
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pk" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="item" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="//mappingforversionisaddedprogrammaticallyversion" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="owner" type="item" nillable="true" minOccurs="0" />
+        <xs:element name="items" type="item" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="bagowner" type="item" nillable="true" minOccurs="0" />
+        <xs:element name="bagofitems" type="item" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="otheritems" type="otheritem" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="withembeddedid" >
+      <xs:sequence>
+        <xs:element name="embeddedid" type="pk" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="versioneditem" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="version" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="age" >
+      <xs:sequence>
+        <xs:element name="query" type="xs:string" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="age" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="otheritem" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="//mappingaddedprogrammaticallyversion" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="favorite" type="item" nillable="true" minOccurs="0" />
+        <xs:element name="bagofitems" type="item" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="naturalidonmanytoone" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="version" type="xs:long" />
+        <xs:element name="GeneratedName" type="citizen" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="accountholder" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="lastname" type="xs:string" />
+        <xs:element name="ssn" type="xs:string" />
+        <xs:element name="transientdeserialized" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="state" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="version" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="withsimpleid" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="citizen" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="version" type="xs:long" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+        <xs:element name="GeneratedName" type="state" nillable="true" minOccurs="0" />
+        <xs:element name="ssn" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="customer" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="//mappingaddedprogrammaticallyversion" type="xs:long" />
+        <xs:element name="transientcontacts" type="contact" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="person" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="name" nillable="true" minOccurs="0" />
+        <xs:element name="age" type="xs:long" />
+        <xs:element name="version" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="contact" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="tlf" type="xs:string" />
+        <xs:element name="GeneratedName" type="customer" nillable="true" minOccurs="0" />
+        <xs:element name="//mappingaddedprogrammaticallyversion" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="abstractnoninvalidationtest" >
+      <xs:complexContent>
+       <xs:extension base="singlenodetest">
+         <xs:sequence>
+          <xs:element name="wait_timeout" type="xs:long" />
+          <xs:element name="time_service" type="testtimeservice" nillable="true" minOccurs="0" />
+          <xs:element name="timeout" type="xs:long" />
+          <xs:element name="executor" type="xs:anyType" />
+          <xs:element name="log" type="infinispanmessagelogger" nillable="true" minOccurs="0" />
+          <xs:element name="entitycache" type="xs:anyType" />
+          <xs:element name="itemid" type="xs:long" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="timeout" type="xs:long" />
+          <xs:element name="cleanup" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="multitenancytest" >
+      <xs:complexContent>
+       <xs:extension base="singlenodetest">
+         <xs:sequence>
+          <xs:element name="db1" type="xs:string" />
+          <xs:element name="db2" type="xs:string" />
+          <xs:element name="db1" type="xs:anyType" />
+          <xs:element name="db2" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="singlenodetest" >
+      <xs:complexContent>
+       <xs:extension base="abstractfunctionaltest">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="versionedtest" >
+      <xs:complexContent>
+       <xs:extension base="abstractnoninvalidationtest">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="equalitytest" >
+      <xs:complexContent>
+       <xs:extension base="singlenodetest">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="entityregionimpltest" >
+      <xs:complexContent>
+       <xs:extension base="abstractentitycollectionregiontest">
+         <xs:sequence>
+          <xs:element name="cache_name" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="entityregionaccessstrategytest" >
+      <xs:complexContent>
+       <xs:extension base="		abstractregionaccessstrategytest<entityregionimpl,">
+         <xs:sequence>
+          <xs:element name="testcount" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="entityregionextraapitest" >
+      <xs:complexContent>
+       <xs:extension base="abstractextraapitest<entityregionaccessstrategy>">
+         <xs:sequence>
+          <xs:element name="value1" type="xs:string" />
+          <xs:element name="value2" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="nodeenvironment" >
+      <xs:sequence>
+        <xs:element name="ssrb" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="serviceregistry" type="xs:anyType" />
+        <xs:element name="regionfactory" type="infinispanregionfactory" nillable="true" minOccurs="0" />
+        <xs:element name="entityregionmap" type="xs:anyType" />
+        <xs:element name="collectionregionmap" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="timestampsregionimpltest" >
+      <xs:complexContent>
+       <xs:extension base="abstractgeneraldataregiontest">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="abstractgeneraldataregiontest" >
+      <xs:complexContent>
+       <xs:extension base="abstractregionimpltest">
+         <xs:sequence>
+          <xs:element name="key" type="xs:string" />
+          <xs:element name="value1" type="xs:string" />
+          <xs:element name="value2" type="xs:string" />
+          <xs:element name="value3" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="abstractregionimpltest" >
+      <xs:complexContent>
+       <xs:extension base="abstractnonfunctionaltest">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="infinispanregionfactorytestcase" >
+      <xs:complexContent>
+       <xs:extension base="org.hibernate.test.cache.infinispan.util.testinfinispanregionfactory">
+         <xs:sequence>
+          <xs:element name="mutable_non_versioned" type="xs:anyType" />
+          <xs:element name="immutable_non_versioned" type="xs:anyType" />
+          <xs:element name="infinispantestidentifier" type="infinispantestingsetup" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="abstractnonfunctionaltest" >
+      <xs:complexContent>
+       <xs:extension base="org.hibernate.testing.junit4.baseunittestcase">
+         <xs:sequence>
+          <xs:element name="log" type="xs:anyType" />
+          <xs:element name="infinispantestidentifier" type="infinispantestingsetup" nillable="true" minOccurs="0" />
+          <xs:element name="mode" type="xs:string" />
+          <xs:element name="jtaplatform" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="region_prefix" type="xs:string" />
+          <xs:element name="prefer_ipv4stack" type="xs:string" />
+          <xs:element name="preferipv4stack" type="xs:string" />
+          <xs:element name="jgroups_cfg_file" type="xs:string" />
+          <xs:element name="jgroupscfgfile" type="xs:string" />
+          <xs:element name="testsupport" type="cachetestsupport" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="classloaderawarecache" >
+      <xs:complexContent>
+       <xs:extension base="abstractdelegatingadvancedcache<k,">
+         <xs:sequence>
+          <xs:element name="classloaderref" type="xs:anyType" />
+          <xs:element name="events" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="cachetestutil" >
+      <xs:complexContent>
+       <xs:extension base="jtaplatform>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="testdisconnecthandler" >
+      <xs:complexContent>
+       <xs:extension base="protocol">
+         <xs:sequence>
+          <xs:element name="connected" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="local" type="address" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="cachetestsupport" >
+      <xs:sequence>
+        <xs:element name="log" type="xs:anyType" />
+        <xs:element name="prefer_ipv4stack" type="xs:string" />
+        <xs:element name="caches" type="xs:anyType" />
+        <xs:element name="factories" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="preferipv4stack" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="batchmodejtaplatform" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="testsynchronization" >
+      <xs:complexContent>
+       <xs:extension base="testsynchronization">
+         <xs:sequence>
+          <xs:element name="session" type="xs:anyType" />
+          <xs:element name="key" type="xs:anyType" />
+          <xs:element name="value" type="xs:anyType" />
+          <xs:element name="version" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="testtimeservice" >
+      <xs:complexContent>
+       <xs:extension base="defaulttimeservice">
+         <xs:sequence>
+          <xs:element name="time" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="expectinginterceptor" >
+      <xs:complexContent>
+       <xs:extension base="basecustominterceptor">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="conditions" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="infinispantestingsetup" >
+      <xs:sequence>
+        <xs:element name="volatilerunningtest" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="txutil" >
+      <xs:complexContent>
+       <xs:extension base="throwable>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="testinfinispanregionfactory" >
+      <xs:complexContent>
+       <xs:extension base="infinispanregionfactory">
+         <xs:sequence>
+          <xs:element name="prefix" type="xs:string" />
+          <xs:element name="transactional" type="xs:string" />
+          <xs:element name="cache_mode" type="xs:string" />
+          <xs:element name="time_service" type="xs:string" />
+          <xs:element name="pending_puts_simple" type="xs:string" />
+          <xs:element name="transactional" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="pendingputssimple" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jdbcresourcetransactionmock" >
+      <xs:sequence>
+        <xs:element name="status" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="batchmodetransactioncoordinator" >
+      <xs:sequence>
+        <xs:element name="tm" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="testingkeyfactory" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="queryregionimpltest" >
+      <xs:complexContent>
+       <xs:extension base="abstractgeneraldataregiontest">
+         <xs:sequence>
+          <xs:element name="log" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="cachekeyserializationtest" >
+      <xs:complexContent>
+       <xs:extension base="baseunittestcase">
+         <xs:sequence>
+          <xs:element name="infinispantestidentifier" type="infinispantestingsetup" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="abstractregionaccessstrategytest" >
+      <xs:complexContent>
+       <xs:extension base="baseregion,">
+         <xs:sequence>
+          <xs:element name="log" type="xs:anyType" />
+          <xs:element name="region_name" type="xs:string" />
+          <xs:element name="key_base" type="xs:string" />
+          <xs:element name="value1" type="xs:string" />
+          <xs:element name="value2" type="xs:string" />
+          <xs:element name="cache_data_description" type="xs:anyType" />
+          <xs:element name="time_service" type="testtimeservice" nillable="true" minOccurs="0" />
+          <xs:element name="localenvironment" type="nodeenvironment" nillable="true" minOccurs="0" />
+          <xs:element name="localegion" type="xs:anyType" />
+          <xs:element name="localaccetrategy" type="xs:anyType" />
+          <xs:element name="remoteenvironment" type="nodeenvironment" nillable="true" minOccurs="0" />
+          <xs:element name="emoteegion" type="xs:anyType" />
+          <xs:element name="remoteaccetrategy" type="xs:anyType" />
+          <xs:element name="transactional" type="xs:anyType" />
+          <xs:element name="invalidation" type="xs:anyType" />
+          <xs:element name="synchronous" type="xs:anyType" />
+          <xs:element name="node1" type="xs:anyType" />
+          <xs:element name="node2" type="xs:anyType" />
+          <xs:element name="node1failure" type="xs:anyType" />
+          <xs:element name="node2failure" type="xs:anyType" />
+          <xs:element name="cleanup" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="stress-local-infinispan" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="2lc-test-tcp" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="account.hbm" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="item.hbm" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="customer.hbm" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="contact.hbm" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

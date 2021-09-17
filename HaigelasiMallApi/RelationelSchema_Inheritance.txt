@@ -1,0 +1,71 @@
+
+address(iduser:Long, name:String, tel:String, province:String, city:String, district:String, areacode:String, addressdetail:String, postcode:String, isdefault:Boolean, isdelete:Boolean);
+
+category(name:String, url:String, icon:String);
+
+attrkey(attrname:String, idcategory:Long);
+
+goodssku(code:String, codename:String, idgoods:Long, price:BigDecimal, marketingprice:BigDecimal, stock:Integer);
+
+attrval(idattrkey:Long, attrval:String);
+
+shopuser(id:Long [PK], createtime:Date, mobile:String, salt:String, password:String, nickname:String, avatar:String, gender:String, lastlogintime:Date);
+
+orderitem(idorder:Long, idgoods:Long, GeneratedName:Goods #FK to(goods), idsku:Long, sku:GoodsSku #FK to(goodssku), price:BigDecimal, count:BigDecimal, totalprice:BigDecimal);
+
+order(iduser:Long, user:ShopUser #FK to(shopuser), ordersn:String, status:Integer, idaddress:Long, GeneratedName:Address #FK to(address), message:String, totalprice:BigDecimal, couponprice:BigDecimal, realprice:BigDecimal);
+
+cart(iduser:Long, user:ShopUser #FK to(shopuser), idgoods:Long, GeneratedName:Goods #FK to(goods), idsku:Long, sku:GoodsSku #FK to(goodssku), count:BigDecimal);
+
+categorybannerrel(idcategory:Long, idbanner:Long, GeneratedName:Category #FK to(category), GeneratedName:Banner #FK to(banner));
+
+favorite(iduser:Long, user:ShopUser #FK to(shopuser), idgoods:Long, GeneratedName:Goods #FK to(goods));
+
+goods(name:String, pic:String, gallery:String, idcategory:Long, GeneratedName:Category #FK to(category), descript:String, detail:String, /***如果商品是多规格，则存所有库存之和*/stock:Integer, /***如果商品是多规格，则存最低价*/price:BigDecimal, isdelete:Boolean, isonsale:Boolean, isnew:Boolean, ishot:Boolean, likenum:Integer);
+
+topic(title:String, idarticle:Long, GeneratedName:Article #FK to(article), idgoodslist:String, pv:Long, disabled:boolean);
+
+tasklog(exe_failure_result:int, exe_success_result:int, id:Long [PK], idtask:Long, name:String, execat:Date, execsuccess:int, jobexception:String);
+
+notice(title:String, type:Integer, content:String);
+
+dept(num:Integer, pid:Long, pids:String, simplename:String, fullname:String, tips:String, version:Integer);
+
+dict(num:String, pid:Long, name:String, tips:String);
+
+user(avatar:String, account:String, password:String, salt:String, name:String, birthday:Date, sex:Integer, email:String, phone:String, roleid:String, deptid:Long, status:Integer, version:Integer);
+
+cfg(cfgname:String, cfgvalue:String, cfgdesc:String);
+
+fileinfo(originalfilename:String, realfilename:String);
+
+loginlog(id:Integer [PK], logname:String, userid:Integer, succeed:String, message:String, ip:String, createtime:Date);
+
+role(num:Integer, pid:Long, name:String, deptid:Long, tips:String, version:Integer);
+
+menu(code:String, pcode:String, pcodes:String, name:String, icon:String, url:String, num:Integer, levels:Integer, ismenu:Integer, tips:String, status:Integer, isopen:Integer, component:String, hidden:Boolean);
+
+wxuser(id:Long [PK], unionid:String, openid:String, nickname:String, sex:String, province:String, city:String, country:String, headimgurl:String, privilege:String);
+
+operationlog(id:Long [PK], logtype:String, logname:String, userid:Integer, classname:String, method:String, createtime:Date, succeed:String, message:String);
+
+task(name:String, jobgroup:String, jobclass:String, note:String, cron:String, concurrent:boolean, data:String, execat:Date, execresult:String, disabled:boolean);
+
+relation(id:Long [PK], menuid:Long, roleid:Long);
+
+messagesender(name:String, classname:String, tplcode:String);
+
+messagetemplate(code:String, title:String, content:String, cond:String, idmessagesender:Long, type:Integer, GeneratedName:MessageSender #FK to(messagesender));
+
+message(tplcode:String, content:String, receiver:String, type:Integer, state:Integer);
+
+article(idchannel:Long, title:String, content:String, author:String, img:String);
+
+channel(name:String, code:String);
+
+banner(url:String, title:String, type:String, idfile:String, page:String, param:String);
+
+contacts(username:String, mobile:String, email:String, remark:String);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

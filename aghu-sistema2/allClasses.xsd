@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="beans" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="booleanusertype" >
+      <xs:sequence>
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="funcoesoracle" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="oracle9iextendeddialect" >
+      <xs:complexContent>
+       <xs:extension base="oracle9idialect">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="orderbysql" >
+      <xs:complexContent>
+       <xs:extension base="order">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="sql" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="hsqlextendeddialect" >
+      <xs:complexContent>
+       <xs:extension base="hsqldialect">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="oracle10gextendeddialect" >
+      <xs:complexContent>
+       <xs:extension base="oracle10gdialect">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="postgresqlextendeddialect" >
+      <xs:complexContent>
+       <xs:extension base="postgresqldialect">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="entityintrospector" >
+      <xs:complexContent>
+       <xs:extension base="baseentity>">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="dataaccessservice" >
+      <xs:complexContent>
+       <xs:extension base="baseentity>">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="em" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="dataunit" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="basedao" >
+      <xs:complexContent>
+       <xs:extension base="baseentity>">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="suggestion_max_result" type="xs:long" />
+          <xs:element name="dataacess" type="dataaccessservice" nillable="true" minOccurs="0" />
+          <xs:element name="" type="previousentitysearcher" nillable="true" minOccurs="0" />
+          <xs:element name="/***campoaserinicializadosobdemandaparapermitirtestesunitarios.**@authorgandriotti*/clazz" type="xs:anyType" />
+          <xs:element name="fieldnameid" type="xs:string" />
+          <xs:element name="ishcpa" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="querybuilder" >
+      <xs:complexContent>
+       <xs:extension base="baseentity>">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="dataacess" type="dataaccessservice" nillable="true" minOccurs="0" />
+          <xs:element name="produc" type="xs:anyType" />
+          <xs:element name="builded" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="basecdibusiness" >
+      <xs:complexContent>
+       <xs:extension base="baselightbusiness">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="baselightbusiness" >
+      <xs:sequence>
+        <xs:element name="/***classequeofereceosserviçosdeacessoabasededados.*/ctx" type="xs:anyType" />
+        <xs:element name="ishcpa" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="appschedulingconstants" >
+      <xs:sequence>
+        <xs:element name="cron" type="xs:string" />
+        <xs:element name="nomeprocessoquartz" type="xs:string" />
+        <xs:element name="servidoragendador" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="appschedulingbuilder" >
+      <xs:complexContent>
+       <xs:extension base="appjob>">
+         <xs:sequence>
+          <xs:element name="scheduler" type="xs:anyType" />
+          <xs:element name="cron" type="xs:string" />
+          <xs:element name="nomeprocessoquartz" type="xs:string" />
+          <xs:element name="jobclass" type="xs:anyType" />
+          <xs:element name="jobdatamap" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="appscheduler" >
+      <xs:complexContent>
+       <xs:extension base="appjob>">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="basefacade" >
+      <xs:complexContent>
+       <xs:extension base="baseentity>">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="dataacess" type="dataaccessservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="fonetizadorutil" >
+      <xs:sequence>
+        <xs:element name="maxtamtexto" type="xs:long" />
+        <xs:element name="/*tamanhomáximodotexto*/maxtamfonema" type="xs:long" />
+        <xs:element name="tabtr" type="xs:anyType" />
+        <xs:element name="taba" type="xs:anyType" />
+        <xs:element name="tabb" type="xs:anyType" />
+        <xs:element name="tabc" type="xs:anyType" />
+        <xs:element name="fonet" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="systempropertiesproducer" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="dataacess" type="dataaccessservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="basebusiness" >
+      <xs:complexContent>
+       <xs:extension base="baseentity>">
+         <xs:sequence>
+          <xs:element name="/***/" type="xs:anyType" />
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="/***classequeofereceosserviçosdeacessoabasededados.*/dataacessservice" type="dataaccessservice" nillable="true" minOccurs="0" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="ctx" type="xs:anyType" />
+          <xs:element name="ishcpa" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="aghusecureinterceptor" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="secure" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pesquisasecureinterceptor" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="modulosativosqualifier" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="modulo" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="inactivemoduleexception" >
+      <xs:complexContent>
+       <xs:extension base="runtimeexception">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="hospitalqualifier" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="moduloenum" >
+      <xs:sequence>
+        <xs:element name="descricao" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bypassinactivemodule" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="moduleintegrationinterceptor" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="modulosativos" type="moduloenum" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="modulechecked" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="appjob" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="basebmtbusiness" >
+      <xs:complexContent>
+       <xs:extension base="baselightbusiness">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="basejournalfactory" >
+      <xs:complexContent>
+       <xs:extension base="basejournal>">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="previousentitysearcher" >
+      <xs:complexContent>
+       <xs:extension base="baseentity>">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ipreviousentity" >
+      <xs:complexContent>
+       <xs:extension base="baseentity>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sequence" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cachemap" >
+      <xs:complexContent>
+       <xs:extension base="linkedhashmap<t,">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="maxsize" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="modelutil" >
+      <xs:complexContent>
+       <xs:extension base="baseentity>">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="fileutil" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sqlutils" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="lucene" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="/***versaodoluceneutilizada.*/search_engine_" type="xs:anyType" />
+        <xs:element name="/***campoutilizadopelolucenepararepresentarquaisquercaracter.*/wildcard" type="xs:string" />
+        <xs:element name="dataacess" type="dataaccessservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="aghsistemas" >
+      <xs:sequence>
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="sigla" type="xs:string" />
+        <xs:element name="nome" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="aghparametros" >
+      <xs:complexContent>
+       <xs:extension base="baseentityseq<integer>">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="seq" type="xs:anyType" />
+          <xs:element name="sissigla" type="xs:string" />
+          <xs:element name="sistema" type="aghsistemas" nillable="true" minOccurs="0" />
+          <xs:element name="nome" type="xs:string" />
+          <xs:element name="criadoem" type="xs:dateTime" />
+          <xs:element name="criadopor" type="xs:string" />
+          <xs:element name="alteradoem" type="xs:dateTime" />
+          <xs:element name="alteradopor" type="xs:string" />
+          <xs:element name="vlrdata" type="xs:dateTime" />
+          <xs:element name="vlrnumerico" type="xs:anyType" />
+          <xs:element name="vlrtexto" type="xs:string" />
+          <xs:element name="descricao" type="xs:string" />
+          <xs:element name="rotinaconsistencia" type="xs:string" />
+          <xs:element name="exemplouso" type="xs:string" />
+          <xs:element name="vlrdatapadrao" type="xs:dateTime" />
+          <xs:element name="vlrnumericopadrao" type="xs:anyType" />
+          <xs:element name="vlrtextopadrao" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="previousentitysearchertest" >
+      <xs:sequence>
+        <xs:element name="systemundertest" type="previousentitysearcher" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

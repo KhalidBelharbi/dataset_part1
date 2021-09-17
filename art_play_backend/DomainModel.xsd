@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="showauth" >
+      <xs:sequence>
+        <xs:element name="uid" type="xs:long" />
+        <xs:element name="showid" type="xs:long" />
+        <xs:element name="uptime" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:complexContent>
+       <xs:extension base="grantedauthority>">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="uid" type="xs:long" />
+          <xs:element name="phone" type="xs:string" />
+          <xs:element name="thirdpartname" type="xs:string" />
+          <xs:element name="nickname" type="xs:string" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="headiconurl" type="xs:string" />
+          <xs:element name="password" type="xs:string" />
+          <xs:element name="lastloginip" type="xs:string" />
+          <xs:element name="lastlogintime" type="xs:dateTime" />
+          <xs:element name="memberstatus" type="xs:anyType" />
+          <xs:element name="roles" type="userauthrole" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tokenpersistent" >
+      <xs:sequence>
+        <xs:element name="series" type="xs:string" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="token" type="xs:string" />
+        <xs:element name="lastused" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userauthrole" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="showmap" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="showid" type="xs:long" />
+        <xs:element name="//-2-99floor" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="showhallname" type="xs:string" />
+        <xs:element name="//单位：cmwidth" type="xs:anyType" />
+        <xs:element name="//单位：cmheight" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="image" nillable="true" minOccurs="0" />
+        <xs:element name="uptime" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="installbeacon" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="uuid" type="xs:string" />
+        <xs:element name="majorvalue" type="xs:string" />
+        <xs:element name="minorvalue" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="wxsyncmedia" >
+      <xs:sequence>
+        <xs:element name="//最大长度255arturl" type="xs:string" />
+        <xs:element name="mediaid" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="wxurl" type="xs:string" />
+        <xs:element name="createtime" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="audio" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="folderid" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="//bytessize" type="xs:long" />
+        <xs:element name="//secondslength" type="xs:anyType" />
+        <xs:element name="url" type="xs:string" />
+        <xs:element name="createtime" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="folder" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="showid" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="createtime" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="image" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="folderid" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="height" type="xs:anyType" />
+        <xs:element name="width" type="xs:anyType" />
+        <xs:element name="url" type="xs:string" />
+        <xs:element name="//缩略图thumburl" type="xs:string" />
+        <xs:element name="createtime" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="webpage" >
+      <xs:sequence>
+        <xs:element name="//resourceitem必须是web类型resourceitemid" type="xs:long" />
+        <xs:element name="//微信字段wechatasync" type="xs:anyType" />
+        <xs:element name="//微信字段mediaid" type="xs:string" />
+        <xs:element name="arturl" type="xs:string" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="author" type="xs:string" />
+        <xs:element name="link" type="xs:string" />
+        <xs:element name="introduce" type="xs:string" />
+        <xs:element name="coverimageurl" type="xs:string" />
+        <xs:element name="contenthtml" type="xs:string" />
+        <xs:element name="uptime" type="xs:dateTime" />
+        <xs:element name="createtime" type="xs:dateTime" />
+        <xs:element name="viewtimes" type="xs:long" />
+        <xs:element name="liketimes" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="video" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="folderid" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="//bytessize" type="xs:long" />
+        <xs:element name="//secondslength" type="xs:anyType" />
+        <xs:element name="coverurl" type="xs:string" />
+        <xs:element name="srcurl" type="xs:string" />
+        <xs:element name="width" type="xs:anyType" />
+        <xs:element name="height" type="xs:anyType" />
+        <xs:element name="createtime" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="globalconfigurer" >
+      <xs:sequence>
+        <xs:element name="attrkey" type="xs:string" />
+        <xs:element name="attrvalue" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userrecord" >
+      <xs:sequence>
+        <xs:element name="//20180101day" type="xs:anyType" />
+        <xs:element name="times" type="xs:long" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="beaconrecord" >
+      <xs:sequence>
+        <xs:element name="//20180101day" type="xs:anyType" />
+        <xs:element name="times" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="showrecord" >
+      <xs:sequence>
+        <xs:element name="showid" type="xs:long" />
+        <xs:element name="//20180101day" type="xs:anyType" />
+        <xs:element name="times" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userrecordcache" >
+      <xs:sequence>
+        <xs:element name="sessionid" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="qrcoderecord" >
+      <xs:sequence>
+        <xs:element name="//20180101day" type="xs:anyType" />
+        <xs:element name="times" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="resourcegrouprecord" >
+      <xs:sequence>
+        <xs:element name="groupid" type="xs:long" />
+        <xs:element name="//20180101day" type="xs:anyType" />
+        <xs:element name="times" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="resourcerecord" >
+      <xs:sequence>
+        <xs:element name="resourceid" type="xs:long" />
+        <xs:element name="//20180101day" type="xs:anyType" />
+        <xs:element name="times" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="arrecord" >
+      <xs:sequence>
+        <xs:element name="//20180101day" type="xs:anyType" />
+        <xs:element name="times" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="mycollection" >
+      <xs:sequence>
+        <xs:element name="uid" type="xs:long" />
+        <xs:element name="resourcegroupid" type="xs:long" />
+        <xs:element name="//@onetoone(targetentity" type="resourcegroup" nillable="true" minOccurs="0" />
+        <xs:element name="createtime" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="resourceitem" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="resourcesgroupid" type="xs:long" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="url" type="xs:string" />
+        <xs:element name="uptime" type="xs:dateTime" />
+        <xs:element name="viewtimes" type="xs:long" />
+        <xs:element name="liketimes" type="xs:long" />
+        <xs:element name="GeneratedName" type="webpage" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="show" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="//stringshowhallnameshowhallnames" type="xs:anyType" />
+        <xs:element name="//开展时间starttime" type="xs:dateTime" />
+        <xs:element name="//闭幕时间endtime" type="xs:dateTime" />
+        <xs:element name="//海报poster" type="image" nillable="true" minOccurs="0" />
+        <xs:element name="//文字介绍introducetext" type="xs:string" />
+        <xs:element name="//编辑更新时间uptime" type="xs:dateTime" />
+        <xs:element name="//浏览次数viewtimes" type="xs:long" />
+        <xs:element name="//点赞次数liketimes" type="xs:long" />
+        <xs:element name="//音频数量audionum" type="xs:anyType" />
+        <xs:element name="maps" type="showmap" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="mapshow" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="resourcegroup" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="showid" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="//@apiparam(name" type="xs:dateTime" />
+        <xs:element name="viewtimes" type="xs:long" />
+        <xs:element name="liketimes" type="xs:long" />
+        <xs:element name="//绑定信息beacons" type="beacon" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="beaconsbindtime" type="xs:dateTime" />
+        <xs:element name="ar" type="image" nillable="true" minOccurs="0" />
+        <xs:element name="arbindtime" type="xs:dateTime" />
+        <xs:element name="//包含信息resourceitems" type="resourceitem" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="beacon" >
+      <xs:sequence>
+        <xs:element name="//外界请不要使用该id操作数据id" type="xs:long" />
+        <xs:element name="showid" type="xs:long" />
+        <xs:element name="basicinfo" type="installbeacon" nillable="true" minOccurs="0" />
+        <xs:element name="available" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="//@notnullname" type="xs:string" />
+        <xs:element name="GeneratedName" type="showmap" nillable="true" minOccurs="0" />
+        <xs:element name="positionwidth" type="xs:anyType" />
+        <xs:element name="positionheight" type="xs:anyType" />
+        <xs:element name="//绑定信息//@onetoone(targetentity" type="xs:long" />
+        <xs:element name="//建议：获取到beacon信息后需要将此数据清空" type="resourcegroup" nillable="true" minOccurs="0" />
+        <xs:element name="//全部为0iconstatus" type="xs:anyType" />
+        <xs:element name="uptime" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="footprintshow" >
+      <xs:sequence>
+        <xs:element name="uid" type="xs:long" />
+        <xs:element name="showid" type="xs:long" />
+        <xs:element name="GeneratedName" type="show" nillable="true" minOccurs="0" />
+        <xs:element name="uptime" type="xs:dateTime" />
+        <xs:element name="//该用户浏览过多少次viewtimes" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

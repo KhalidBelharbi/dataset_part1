@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="payments" >
+      <xs:complexContent>
+       <xs:extension base="abstractentity">
+         <xs:sequence>
+          <xs:element name="userid" type="xs:string" />
+          <xs:element name="amount" type="xs:anyType" />
+          <xs:element name="pgprovider" type="xs:string" />
+          <xs:element name="platform" type="xs:string" />
+          <xs:element name="pgtransactionid" type="xs:string" />
+          <xs:element name="status" type="xs:string" />
+          <xs:element name="createddate" type="xs:anyType" />
+          <xs:element name="updateddate" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="orderreport" >
+      <xs:complexContent>
+       <xs:extension base="abstractentity">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="reportid" type="xs:long" />
+          <xs:element name="orderid" type="xs:long" />
+          <xs:element name="status" type="xs:anyType" />
+          <xs:element name="note" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="orderaddress" >
+      <xs:complexContent>
+       <xs:extension base="abstractentity">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="address" type="xs:string" />
+          <xs:element name="pincode" type="xs:string" />
+          <xs:element name="landmark" type="xs:string" />
+          <xs:element name="customername" type="xs:string" />
+          <xs:element name="phone" type="xs:string" />
+          <xs:element name="city" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="theme" >
+      <xs:complexContent>
+       <xs:extension base="abstractentity">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="version" type="xs:string" />
+          <xs:element name="thumbnail" type="xs:string" />
+          <xs:element name="sourcepath" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="refunds" >
+      <xs:complexContent>
+       <xs:extension base="abstractentity{">
+         <xs:sequence>
+          <xs:element name="paymentid" type="xs:long" />
+          <xs:element name="amount" type="xs:anyType" />
+          <xs:element name="refundid" type="xs:string" />
+          <xs:element name="status" type="xs:string" />
+          <xs:element name="gatewayrefundresponse" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="image" >
+      <xs:complexContent>
+       <xs:extension base="abstractentity">
+         <xs:sequence>
+          <xs:element name="productid" type="xs:long" />
+          <xs:element name="imagetype" type="xs:string" />
+          <xs:element name="image" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="orderdetail" >
+      <xs:complexContent>
+       <xs:extension base="abstractentity">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="orderid" type="xs:long" />
+          <xs:element name="productid" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="quantity" type="xs:long" />
+          <xs:element name="saleprice" type="xs:double" />
+          <xs:element name="listprice" type="xs:double" />
+          <xs:element name="producttype" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="orders" >
+      <xs:complexContent>
+       <xs:extension base="abstractentity">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="userid" type="xs:long" />
+          <xs:element name="orderaddressid" type="xs:long" />
+          <xs:element name="paymentid" type="xs:long" />
+          <xs:element name="companyid" type="xs:long" />
+          <xs:element name="status" type="xs:string" />
+          <xs:element name="itemscount" type="xs:anyType" />
+          <xs:element name="itemsquantity" type="xs:anyType" />
+          <xs:element name="deliveryid" type="xs:string" />
+          <xs:element name="couponid" type="xs:string" />
+          <xs:element name="totalitemscost" type="xs:anyType" />
+          <xs:element name="deliverycharge" type="xs:anyType" />
+          <xs:element name="coupondiscount" type="xs:anyType" />
+          <xs:element name="amount" type="xs:anyType" />
+          <xs:element name="customeremail" type="xs:string" />
+          <xs:element name="paymentpartnerorderid" type="xs:string" />
+          <xs:element name="previous_status" type="xs:string" />
+          <xs:element name="platform" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="usertoken" >
+      <xs:complexContent>
+       <xs:extension base="abstractentity">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="token" type="xs:string" />
+          <xs:element name="companyid" type="xs:long" />
+          <xs:element name="userid" type="xs:long" />
+          <xs:element name="login" type="xs:dateTime" />
+          <xs:element name="expiration" type="xs:dateTime" />
+          <xs:element name="sessiondata" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:complexContent>
+       <xs:extension base="abstractentity">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="companyid" type="xs:long" />
+          <xs:element name="roleid" type="xs:long" />
+          <xs:element name="email" type="xs:string" />
+          <xs:element name="firstname" type="xs:string" />
+          <xs:element name="middlename" type="xs:string" />
+          <xs:element name="lastname" type="xs:string" />
+          <xs:element name="status" type="xs:long" />
+          <xs:element name="phone" type="xs:string" />
+          <xs:element name="encryptedpassword" type="xs:string" />
+          <xs:element name="salt" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="orderpayment" >
+      <xs:complexContent>
+       <xs:extension base="abstractentity">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="orderid" type="xs:long" />
+          <xs:element name="paymentid" type="xs:long" />
+          <xs:element name="transactionid" type="xs:long" />
+          <xs:element name="status" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="category" >
+      <xs:complexContent>
+       <xs:extension base="abstractentity">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="companyid" type="xs:long" />
+          <xs:element name="parentid" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="status" type="xs:long" />
+          <xs:element name="position" type="xs:anyType" />
+          <xs:element name="description" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="product" >
+      <xs:complexContent>
+       <xs:extension base="abstractentity">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="companyid" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="saleprice" type="xs:double" />
+          <xs:element name="listprice" type="xs:double" />
+          <xs:element name="defaultimage" type="xs:string" />
+          <xs:element name="overview" type="xs:string" />
+          <xs:element name="quantity" type="xs:long" />
+          <xs:element name="isstockcontrolled" type="xs:anyType" />
+          <xs:element name="status" type="xs:long" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="rank" type="xs:long" />
+          <xs:element name="sku" type="xs:string" />
+          <xs:element name="browsingname" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="wishlist" >
+      <xs:complexContent>
+       <xs:extension base="abstractentity{">
+         <xs:sequence>
+          <xs:element name="userid" type="xs:long" />
+          <xs:element name="data" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="orderitems" >
+      <xs:complexContent>
+       <xs:extension base="abstractentity">
+         <xs:sequence>
+          <xs:element name="orderid" type="xs:long" />
+          <xs:element name="productid" type="xs:long" />
+          <xs:element name="displayamount" type="xs:anyType" />
+          <xs:element name="amount" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="useraddress" >
+      <xs:complexContent>
+       <xs:extension base="abstractentity">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="userid" type="xs:long" />
+          <xs:element name="address" type="xs:string" />
+          <xs:element name="pincode" type="xs:string" />
+          <xs:element name="landmark" type="xs:string" />
+          <xs:element name="username" type="xs:string" />
+          <xs:element name="phone" type="xs:string" />
+          <xs:element name="city" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="review" >
+      <xs:complexContent>
+       <xs:extension base="abstractentity">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="reviewid" type="xs:anyType" />
+          <xs:element name="userid" type="xs:long" />
+          <xs:element name="productid" type="xs:long" />
+          <xs:element name="companyid" type="xs:long" />
+          <xs:element name="rank" type="xs:long" />
+          <xs:element name="comment" type="xs:string" />
+          <xs:element name="create" type="xs:dateTime" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="role" >
+      <xs:complexContent>
+       <xs:extension base="abstractentity">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="description" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="company" >
+      <xs:complexContent>
+       <xs:extension base="abstractentity">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="status" type="xs:long" />
+          <xs:element name="create" type="xs:dateTime" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="productcategoryid" >
+      <xs:complexContent>
+       <xs:extension base="abstractentity">
+         <xs:sequence>
+          <xs:element name="productid" type="xs:long" />
+          <xs:element name="categoryid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="productcategory" >
+      <xs:complexContent>
+       <xs:extension base="abstractentity">
+         <xs:sequence>
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="type" type="categorytype" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userchoices" >
+      <xs:complexContent>
+       <xs:extension base="abstractentity{">
+         <xs:sequence>
+          <xs:element name="userid" type="xs:long" />
+          <xs:element name="data" type="xs:string" />
+          <xs:element name="type" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="productattribute" >
+      <xs:complexContent>
+       <xs:extension base="abstractentity">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="attributeid" type="xs:long" />
+          <xs:element name="companyid" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="productattributedetail" >
+      <xs:complexContent>
+       <xs:extension base="abstractentity">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="productid" type="xs:long" />
+          <xs:element name="attributeid" type="xs:long" />
+          <xs:element name="value" type="xs:string" />
+          <xs:element name="valuenumberic" type="xs:double" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema> 

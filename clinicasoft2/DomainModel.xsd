@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="personasproductos" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="personaid" type="xs:long" />
+        <xs:element name="productoid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="producto" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="idproducto" type="xs:long" />
+        <xs:element name="nombreproducto" type="xs:string" />
+        <xs:element name="precioproducto" type="xs:double" />
+        <xs:element name="listapersonas" type="persona" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="nacimiento" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="idnacimiento" type="xs:long" />
+        <xs:element name="fechanacimiento" type="xs:anyType" />
+        <xs:element name="ciudadnacimiento" type="xs:string" />
+        <xs:element name="departamentonacimiento" type="xs:string" />
+        <xs:element name="paisnacimiento" type="xs:string" />
+        <xs:element name="//paracrearunarelaciónbidireccional" type="persona" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persona" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="idpersona" type="xs:long" />
+        <xs:element name="nombre" type="xs:string" />
+        <xs:element name="telefono" type="xs:string" />
+        <xs:element name="profesion" type="xs:string" />
+        <xs:element name="tipo" type="xs:long" />
+        <xs:element name="GeneratedName" type="nacimiento" nillable="true" minOccurs="0" />
+        <xs:element name="listamascotas" type="mascota" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="listaproductos" type="producto" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="mascota" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="idmascota" type="xs:long" />
+        <xs:element name="nombre" type="xs:string" />
+        <xs:element name="raza" type="xs:string" />
+        <xs:element name="colormascota" type="xs:string" />
+        <xs:element name="sexo" type="xs:string" />
+        <xs:element name="duenio" type="persona" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

@@ -1,0 +1,658 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="courseauthor" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="courseauthorid" type="xs:long" />
+        <xs:element name="upd" type="xs:dateTime" />
+        <xs:element name="GeneratedName" type="course" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="author" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="instructorrating" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="instructorratingid" type="xs:long" />
+        <xs:element name="upd" type="xs:dateTime" />
+        <xs:element name="comment" type="xs:string" />
+        <xs:element name="completedflag" type="xs:long" />
+        <xs:element name="GeneratedName" type="rating" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="coursetraineeactivity" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="instructor" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="teammember" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="teammemberid" type="xs:long" />
+        <xs:element name="registered" type="xs:dateTime" />
+        <xs:element name="activeflag" type="xs:long" />
+        <xs:element name="GeneratedName" type="team" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="trainee" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="lessonschedule" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="lessonscheduleid" type="xs:long" />
+        <xs:element name="schedule" type="xs:dateTime" />
+        <xs:element name="end" type="xs:dateTime" />
+        <xs:element name="GeneratedName" type="activity" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="trainingclass" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="instructor" >
+      <xs:sequence>
+        <xs:element name="activeflag" type="xs:long" />
+        <xs:element name="traineeskilllist" type="traineeskill" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="traineeskillhistorylist" type="traineeskillhistory" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="instructorid" type="xs:long" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="cellphone" type="xs:string" />
+        <xs:element name="registered" type="xs:dateTime" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="gcmregistrationid" type="xs:string" />
+        <xs:element name="GeneratedName" type="administrator" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="company" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="city" nillable="true" minOccurs="0" />
+        <xs:element name="instructorratinglist" type="instructorrating" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="helpresponselist" type="helpresponse" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="lessonresourcelist" type="lessonresource" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="instructorclasslist" type="instructorclass" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="gcmdevicelist" type="gcmdevice" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="guardiantrainee" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="guardiantraineeid" type="xs:long" />
+        <xs:element name="activeflag" type="xs:long" />
+        <xs:element name="GeneratedName" type="trainee" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="guardian" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="gcmdevice" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="gcmdeviceid" type="xs:long" />
+        <xs:element name="registrationid" type="xs:string" />
+        <xs:element name="manufacturer" type="xs:string" />
+        <xs:element name="model" type="xs:string" />
+        <xs:element name="product" type="xs:string" />
+        <xs:element name="messagecount" type="xs:long" />
+        <xs:element name="registered" type="xs:dateTime" />
+        <xs:element name="serialnumber" type="xs:string" />
+        <xs:element name="GeneratedName" type="reportuser" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="trainee" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="instructor" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="author" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="administrator" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="administrator" >
+      <xs:sequence>
+        <xs:element name="activeflag" type="xs:anyType" />
+        <xs:element name="superuserflag" type="xs:anyType" />
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="administratorid" type="xs:long" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="cellphone" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="registered" type="xs:dateTime" />
+        <xs:element name="gcmregistrationid" type="xs:string" />
+        <xs:element name="instructorlist" type="instructor" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="equipmentlist" type="equipment" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="traineelist" type="trainee" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="trainingclasslist" type="trainingclass" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="inventorylist" type="inventory" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="company" nillable="true" minOccurs="0" />
+        <xs:element name="traineeequipmentlist" type="traineeequipment" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="gcmdevicelist" type="gcmdevice" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="province" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="provinceid" type="xs:long" />
+        <xs:element name="provincename" type="xs:string" />
+        <xs:element name="citylist" type="city" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="country" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="coursetraineeactivity" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="coursetraineeactivityid" type="xs:long" />
+        <xs:element name="completedflag" type="xs:long" />
+        <xs:element name="comment" type="xs:string" />
+        <xs:element name="upd" type="xs:dateTime" />
+        <xs:element name="completion" type="xs:dateTime" />
+        <xs:element name="refreshrequested" type="xs:long" />
+        <xs:element name="completionpercentage" type="xs:long" />
+        <xs:element name="traineeratinglist" type="traineerating" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="rating" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="activity" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="coursetrainee" nillable="true" minOccurs="0" />
+        <xs:element name="instructorratinglist" type="instructorrating" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="helprequestlist" type="helprequest" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="course" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="courseid" type="xs:long" />
+        <xs:element name="upd" type="xs:dateTime" />
+        <xs:element name="activeflag" type="xs:long" />
+        <xs:element name="coursename" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="shareflag" type="xs:long" />
+        <xs:element name="priorityflag" type="xs:long" />
+        <xs:element name="localid" type="xs:long" />
+        <xs:element name="sync" type="xs:dateTime" />
+        <xs:element name="courseauthorlist" type="courseauthor" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="trainingclasscourselist" type="trainingclasscourse" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="category" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="company" nillable="true" minOccurs="0" />
+        <xs:element name="activitylist" type="activity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="objectivelist" type="objective" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="lessonresourcelist" type="lessonresource" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="traineestatus" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="traineestatusid" type="xs:long" />
+        <xs:element name="upd" type="xs:dateTime" />
+        <xs:element name="remarks" type="xs:string" />
+        <xs:element name="GeneratedName" type="traineestatustype" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="trainee" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="trainingclasscourse" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="trainingclasscourseid" type="xs:long" />
+        <xs:element name="upd" type="xs:dateTime" />
+        <xs:element name="priorityflag" type="xs:long" />
+        <xs:element name="start" type="xs:dateTime" />
+        <xs:element name="end" type="xs:dateTime" />
+        <xs:element name="trainingclasseventlist" type="trainingclassevent" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="trainingclass" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="course" nillable="true" minOccurs="0" />
+        <xs:element name="coursetraineelist" type="coursetrainee" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rating" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="ratingid" type="xs:long" />
+        <xs:element name="ratingname" type="xs:string" />
+        <xs:element name="ratingnumber" type="xs:long" />
+        <xs:element name="traineeratinglist" type="traineerating" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="coursetraineeactivitylist" type="coursetraineeactivity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="coursetraineelist" type="coursetrainee" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="instructorratinglist" type="instructorrating" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="company" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="skilllevel" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="company" nillable="true" minOccurs="0" />
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="skilllevelid" type="xs:anyType" />
+        <xs:element name="skilllevelname" type="xs:string" />
+        <xs:element name="level" type="xs:long" />
+        <xs:element name="traineeskilllist" type="traineeskill" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="traineeskillhistorylist" type="traineeskillhistory" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="helptype" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="helptypeid" type="xs:long" />
+        <xs:element name="helptypename" type="xs:string" />
+        <xs:element name="traineeshoutlist" type="traineeshout" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="company" nillable="true" minOccurs="0" />
+        <xs:element name="helprequestlist" type="helprequest" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="helprequest" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="helprequestid" type="xs:long" />
+        <xs:element name="requested" type="xs:dateTime" />
+        <xs:element name="comment" type="xs:string" />
+        <xs:element name="helpresponselist" type="helpresponse" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="trainingclass" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="coursetraineeactivity" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="helptype" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="traineerating" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="traineeratingid" type="xs:long" />
+        <xs:element name="upd" type="xs:dateTime" />
+        <xs:element name="comment" type="xs:string" />
+        <xs:element name="GeneratedName" type="trainee" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="rating" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="coursetraineeactivity" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="skill" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="company" nillable="true" minOccurs="0" />
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="skillid" type="xs:long" />
+        <xs:element name="skillname" type="xs:string" />
+        <xs:element name="traineeskilllist" type="traineeskill" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="traineeskillhistorylist" type="traineeskillhistory" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="traineeshout" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="traineeshoutid" type="xs:long" />
+        <xs:element name="registered" type="xs:dateTime" />
+        <xs:element name="remarks" type="xs:string" />
+        <xs:element name="GeneratedName" type="trainee" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="helptype" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="author" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="authorid" type="xs:long" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+        <xs:element name="//@pattern(regexp" type="xs:string" />
+        <xs:element name="cellphone" type="xs:string" />
+        <xs:element name="registered" type="xs:dateTime" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="activeflag" type="xs:long" />
+        <xs:element name="gcmregistrationid" type="xs:string" />
+        <xs:element name="courseauthorlist" type="courseauthor" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="company" nillable="true" minOccurs="0" />
+        <xs:element name="lessonresourcelist" type="lessonresource" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="gcmdevicelist" type="gcmdevice" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="attendance" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="attendanceid" type="xs:long" />
+        <xs:element name="checkin" type="xs:dateTime" />
+        <xs:element name="checkout" type="xs:dateTime" />
+        <xs:element name="//@max(value" type="xs:double" />
+        <xs:element name="checkinlongitude" type="xs:double" />
+        <xs:element name="checkoutlatitude" type="xs:double" />
+        <xs:element name="checkoutlongitude" type="xs:double" />
+        <xs:element name="GeneratedName" type="trainee" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="trainingclass" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="objective" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="objectiveid" type="xs:long" />
+        <xs:element name="objectivename" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="GeneratedName" type="course" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="coursetrainee" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="coursetraineeid" type="xs:long" />
+        <xs:element name="enrolled" type="xs:dateTime" />
+        <xs:element name="rating" type="xs:dateTime" />
+        <xs:element name="comment" type="xs:string" />
+        <xs:element name="coursetraineeactivitylist" type="coursetraineeactivity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="rating" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="trainee" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="trainingclasscourse" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="activity" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="activityid" type="xs:long" />
+        <xs:element name="activityname" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="priorityflag" type="xs:long" />
+        <xs:element name="localid" type="xs:long" />
+        <xs:element name="sync" type="xs:dateTime" />
+        <xs:element name="//@max(value" type="xs:double" />
+        <xs:element name="coursetraineeactivitylist" type="coursetraineeactivity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="lessonschedulelist" type="lessonschedule" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="course" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="traineestatustype" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="traineestatustypeid" type="xs:long" />
+        <xs:element name="traineestatustypename" type="xs:string" />
+        <xs:element name="traineestatuslist" type="traineestatus" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="demoannouncement" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="demoannouncementid" type="xs:long" />
+        <xs:element name="demo" type="xs:dateTime" />
+        <xs:element name="requested" type="xs:dateTime" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="cancellation" type="xs:dateTime" />
+        <xs:element name="GeneratedName" type="team" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="trainee" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="trainingclass" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="inventory" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="inventoryid" type="xs:long" />
+        <xs:element name="serialnumber" type="xs:string" />
+        <xs:element name="registered" type="xs:dateTime" />
+        <xs:element name="conditionflag" type="xs:long" />
+        <xs:element name="upd" type="xs:dateTime" />
+        <xs:element name="model" type="xs:string" />
+        <xs:element name="yearpurchased" type="xs:long" />
+        <xs:element name="GeneratedName" type="administrator" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="equipment" nillable="true" minOccurs="0" />
+        <xs:element name="traineeequipmentlist" type="traineeequipment" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="traineeequipment" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="traineeequipmentid" type="xs:long" />
+        <xs:element name="registered" type="xs:dateTime" />
+        <xs:element name="returned" type="xs:dateTime" />
+        <xs:element name="conditionflag" type="xs:long" />
+        <xs:element name="GeneratedName" type="administrator" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="inventory" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="trainee" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="guardian" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="guardianid" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+        <xs:element name="//@pattern(regexp" type="xs:string" />
+        <xs:element name="cellphone" type="xs:string" />
+        <xs:element name="registered" type="xs:dateTime" />
+        <xs:element name="guardiantraineelist" type="guardiantrainee" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="city" >
+      <xs:sequence>
+        <xs:element name="//@max(value" type="xs:double" />
+        <xs:element name="longitude" type="xs:double" />
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="cityid" type="xs:long" />
+        <xs:element name="cityname" type="xs:string" />
+        <xs:element name="instructorlist" type="instructor" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="province" nillable="true" minOccurs="0" />
+        <xs:element name="traineelist" type="trainee" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="institutionlist" type="institution" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="companylist" type="company" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="team" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="teamid" type="xs:long" />
+        <xs:element name="teamname" type="xs:string" />
+        <xs:element name="registered" type="xs:dateTime" />
+        <xs:element name="demoannouncementlist" type="demoannouncement" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="trainingclass" nillable="true" minOccurs="0" />
+        <xs:element name="teammemberlist" type="teammember" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="traineeskillhistory" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="traineeskillhistoryid" type="xs:long" />
+        <xs:element name="assessed" type="xs:dateTime" />
+        <xs:element name="GeneratedName" type="skill" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="skilllevel" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="trainee" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="instructor" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="trainee" >
+      <xs:sequence>
+        <xs:element name="gender" type="xs:long" />
+        <xs:element name="activeflag" type="xs:long" />
+        <xs:element name="traineeskilllist" type="traineeskill" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="traineeskillhistorylist" type="traineeskillhistory" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="traineeid" type="xs:long" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="middlename" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="cellphone" type="xs:string" />
+        <xs:element name="registered" type="xs:dateTime" />
+        <xs:element name="idnumber" type="xs:string" />
+        <xs:element name="address" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="gcmregistrationid" type="xs:string" />
+        <xs:element name="upd" type="xs:dateTime" />
+        <xs:element name="traineeshoutlist" type="traineeshout" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="traineeratinglist" type="traineerating" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="demoannouncementlist" type="demoannouncement" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="traineestatuslist" type="traineestatus" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="administrator" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="trainingclass" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="city" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="company" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="institution" nillable="true" minOccurs="0" />
+        <xs:element name="guardiantraineelist" type="guardiantrainee" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="coursetraineelist" type="coursetrainee" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="attendancelist" type="attendance" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="teammemberlist" type="teammember" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="lessonresourcelist" type="lessonresource" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="traineeequipmentlist" type="traineeequipment" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="gcmdevicelist" type="gcmdevice" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="lessonresource" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="lessonresourceid" type="xs:long" />
+        <xs:element name="url" type="xs:string" />
+        <xs:element name="upd" type="xs:dateTime" />
+        <xs:element name="resourcename" type="xs:string" />
+        <xs:element name="localid" type="xs:long" />
+        <xs:element name="sync" type="xs:dateTime" />
+        <xs:element name="GeneratedName" type="course" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="instructor" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="trainee" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="author" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="equipment" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="equipmentid" type="xs:long" />
+        <xs:element name="equipmentname" type="xs:string" />
+        <xs:element name="GeneratedName" type="administrator" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="company" nillable="true" minOccurs="0" />
+        <xs:element name="inventorylist" type="inventory" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="errorstoreandroid" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="errorstoreandroidid" type="xs:anyType" />
+        <xs:element name="error" type="xs:dateTime" />
+        <xs:element name="packagename" type="xs:string" />
+        <xs:element name="appversionname" type="xs:string" />
+        <xs:element name="appversioncode" type="xs:string" />
+        <xs:element name="brand" type="xs:string" />
+        <xs:element name="phonemodel" type="xs:string" />
+        <xs:element name="androidversion" type="xs:string" />
+        <xs:element name="stacktrace" type="xs:string" />
+        <xs:element name="logcat" type="xs:string" />
+        <xs:element name="GeneratedName" type="company" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="country" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="countryid" type="xs:long" />
+        <xs:element name="countryname" type="xs:string" />
+        <xs:element name="//@max(value" type="xs:double" />
+        <xs:element name="longitude" type="xs:double" />
+        <xs:element name="countrycode" type="xs:string" />
+        <xs:element name="provincelist" type="province" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="errorstore" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="errorstoreid" type="xs:long" />
+        <xs:element name="statuscode" type="xs:long" />
+        <xs:element name="message" type="xs:string" />
+        <xs:element name="occured" type="xs:dateTime" />
+        <xs:element name="origin" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="trainingclassevent" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="trainingclasseventid" type="xs:long" />
+        <xs:element name="eventname" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="registered" type="xs:dateTime" />
+        <xs:element name="location" type="xs:string" />
+        <xs:element name="start" type="xs:dateTime" />
+        <xs:element name="end" type="xs:dateTime" />
+        <xs:element name="GeneratedName" type="trainingclass" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="trainingclasscourse" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="institution" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="institutionid" type="xs:long" />
+        <xs:element name="institutionname" type="xs:string" />
+        <xs:element name="traineelist" type="trainee" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="city" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="helpresponse" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="helpresponseid" type="xs:long" />
+        <xs:element name="message" type="xs:string" />
+        <xs:element name="response" type="xs:dateTime" />
+        <xs:element name="schedulemeeting" type="xs:long" />
+        <xs:element name="problemsorted" type="xs:long" />
+        <xs:element name="meeting" type="xs:dateTime" />
+        <xs:element name="GeneratedName" type="instructor" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="helprequest" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="company" >
+      <xs:sequence>
+        <xs:element name="skilllevellist" type="skilllevel" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="skilllist" type="skill" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="errorstoreandroidlist" type="errorstoreandroid" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="companyid" type="xs:long" />
+        <xs:element name="companyname" type="xs:string" />
+        <xs:element name="//@pattern(regexp" type="xs:string" />
+        <xs:element name="registered" type="xs:dateTime" />
+        <xs:element name="instructorlist" type="instructor" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="equipmentlist" type="equipment" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="helptypelist" type="helptype" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="courselist" type="course" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="authorlist" type="author" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="traineelist" type="trainee" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="trainingclasslist" type="trainingclass" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="categorylist" type="category" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="administratorlist" type="administrator" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="city" nillable="true" minOccurs="0" />
+        <xs:element name="ratinglist" type="rating" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="instructorclass" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="instructorclassid" type="xs:long" />
+        <xs:element name="registered" type="xs:dateTime" />
+        <xs:element name="GeneratedName" type="trainingclass" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="instructor" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="trainingclass" >
+      <xs:sequence>
+        <xs:element name="isopen" type="xs:anyType" />
+        <xs:element name="calendarid" type="xs:anyType" />
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="trainingclassid" type="xs:long" />
+        <xs:element name="trainingclassname" type="xs:string" />
+        <xs:element name="start" type="xs:dateTime" />
+        <xs:element name="end" type="xs:dateTime" />
+        <xs:element name="trainingclasseventlist" type="trainingclassevent" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="demoannouncementlist" type="demoannouncement" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="trainingclasscourselist" type="trainingclasscourse" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="traineelist" type="trainee" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="lessonschedulelist" type="lessonschedule" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="administrator" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="company" nillable="true" minOccurs="0" />
+        <xs:element name="attendancelist" type="attendance" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="teamlist" type="team" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="helprequestlist" type="helprequest" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="instructorclasslist" type="instructorclass" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="traineeskill" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="traineeskillid" type="xs:long" />
+        <xs:element name="assessed" type="xs:dateTime" />
+        <xs:element name="GeneratedName" type="skill" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="skilllevel" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="trainee" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="instructor" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="reportuser" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="reportuserid" type="xs:long" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+        <xs:element name="//@pattern(regexp" type="xs:string" />
+        <xs:element name="cellphone" type="xs:string" />
+        <xs:element name="registered" type="xs:dateTime" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="gcmregistrationid" type="xs:string" />
+        <xs:element name="gcmdevicelist" type="gcmdevice" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="category" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="categoryid" type="xs:long" />
+        <xs:element name="categoryname" type="xs:string" />
+        <xs:element name="localid" type="xs:long" />
+        <xs:element name="sync" type="xs:dateTime" />
+        <xs:element name="priorityflag" type="xs:long" />
+        <xs:element name="courselist" type="course" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="company" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

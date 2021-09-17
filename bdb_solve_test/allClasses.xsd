@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="apirestapplicationtests" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ipersonservicetest" >
+      <xs:sequence>
+        <xs:element name="service" type="ipersonservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="application" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persistence" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="personcontroller" >
+      <xs:sequence>
+        <xs:element name="service" type="ipersonservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="modelhelper" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persondto" >
+      <xs:sequence>
+        <xs:element name="documentid" type="xs:long" />
+        <xs:element name="fullname" type="xs:string" />
+        <xs:element name="birth" type="xs:dateTime" />
+        <xs:element name="fatherdocumentid" type="xs:long" />
+        <xs:element name="motherdocumentid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="responsebase" >
+      <xs:sequence>
+        <xs:element name="state" type="xs:anyType" />
+        <xs:element name="message" type="xs:string" />
+        <xs:element name="data" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="personservice" >
+      <xs:sequence>
+        <xs:element name="repository" type="ipersonrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ipersonservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="apirestapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="person" >
+      <xs:sequence>
+        <xs:element name="documentid" type="xs:long" />
+        <xs:element name="fullname" type="xs:string" />
+        <xs:element name="birth" type="xs:dateTime" />
+        <xs:element name="fatherdocumentid" type="person" nillable="true" minOccurs="0" />
+        <xs:element name="motherdocumentid" type="person" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ipersonrepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<person,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema> 

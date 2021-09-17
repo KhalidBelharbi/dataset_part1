@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dockerfile" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="log4j2" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="messagehandler" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="messagesender" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="userservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="likeservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="suggestedservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="photoutils" nillable="true" minOccurs="0" />
+        <xs:element name="next_line" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="defaultcommands" >
+      <xs:sequence>
+        <xs:element name="command" type="xs:string" />
+        <xs:element name="help_message" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="draftuserprocessingstage" >
+      <xs:sequence>
+        <xs:element name="next_line" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="messagesender" >
+      <xs:sequence>
+        <xs:element name="actor" type="xs:anyType" />
+        <xs:element name="apiclient" type="vkapiclientwrapper" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="like" >
+      <xs:sequence>
+        <xs:element name="userfrom" type="xs:anyType" />
+        <xs:element name="userto" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="likeid" >
+      <xs:sequence>
+        <xs:element name="userfrom" type="xs:anyType" />
+        <xs:element name="userto" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="lastsuggesteduser" >
+      <xs:sequence>
+        <xs:element name="userid" type="xs:anyType" />
+        <xs:element name="suggestedid" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="userid" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="/***'m'-male*'f'-female*/gender" type="xs:anyType" />
+        <xs:element name="age" type="xs:anyType" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="photopath" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usercontroller" >
+      <xs:sequence>
+        <xs:element name="ok_body" type="xs:string" />
+        <xs:element name="GeneratedName" type="userservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="usertransformer" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="vkcontroller" >
+      <xs:sequence>
+        <xs:element name="confirmationcode" type="xs:string" />
+        <xs:element name="GeneratedName" type="messagehandler" nillable="true" minOccurs="0" />
+        <xs:element name="confirmation_type" type="xs:string" />
+        <xs:element name="message_type" type="xs:string" />
+        <xs:element name="ok_body" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="phototransformer" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usertransformer" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="photoutils" >
+      <xs:sequence>
+        <xs:element name="actor" type="xs:anyType" />
+        <xs:element name="apiclient" type="vkapiclientwrapper" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="phototransformer" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="drychanbotapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="messagenew" >
+      <xs:sequence>
+        <xs:element name="type" type="xs:string" />
+        <xs:element name="object" type="messagenewobject" nillable="true" minOccurs="0" />
+        <xs:element name="groupid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="objectmessage" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="date" type="xs:long" />
+        <xs:element name="userid" type="xs:long" />
+        <xs:element name="text" type="xs:string" />
+        <xs:element name="attachments" type="messagenewattachments" nillable="true" minOccurs="0" />
+        <xs:element name="photo_type" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="keyboard" >
+      <xs:sequence>
+        <xs:element name="onetime" type="xs:anyType" />
+        <xs:element name="inline" type="xs:anyType" />
+        <xs:element name="s" type="button" nillable="true" minOccurs="0" />
+        <xs:element name="text_button_type" type="xs:string" />
+        <xs:element name="like" type="xs:string" />
+        <xs:element name="dislike" type="xs:string" />
+        <xs:element name="male" type="xs:string" />
+        <xs:element name="female" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="photoattachmentsizetype" >
+      <xs:sequence>
+        <xs:element name="value" type="xs:string" />
+        <xs:element name="priority" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="buttonaction" >
+      <xs:sequence>
+        <xs:element name="type" type="xs:string" />
+        <xs:element name="label" type="xs:string" />
+        <xs:element name="payload" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="button" >
+      <xs:sequence>
+        <xs:element name="color" type="xs:string" />
+        <xs:element name="action" type="buttonaction" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="messagenewattachments" >
+      <xs:sequence>
+        <xs:element name="type" type="xs:string" />
+        <xs:element name="photo" type="messagephotoattachment" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="messagephotoattachment" >
+      <xs:sequence>
+        <xs:element name="albumid" type="xs:long" />
+        <xs:element name="date" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="ownerid" type="xs:long" />
+        <xs:element name="accesskey" type="xs:string" />
+        <xs:element name="sizes" type="photoattachmentsize" nillable="true" minOccurs="0" />
+        <xs:element name="photo_2560" type="xs:string" />
+        <xs:element name="photo_1280" type="xs:string" />
+        <xs:element name="photo_807" type="xs:string" />
+        <xs:element name="photo_604" type="xs:string" />
+        <xs:element name="photo_130" type="xs:string" />
+        <xs:element name="photo_75" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="photoattachmentsize" >
+      <xs:sequence>
+        <xs:element name="height" type="xs:long" />
+        <xs:element name="url" type="xs:string" />
+        <xs:element name="type" type="photoattachmentsizetype" nillable="true" minOccurs="0" />
+        <xs:element name="width" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="buttoncolor" >
+      <xs:sequence>
+        <xs:element name="color" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="messagenewobject" >
+      <xs:sequence>
+        <xs:element name="message" type="objectmessage" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<user,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="likerepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<like,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="suggestedrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<lastsuggesteduser,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="uploadedphototo" >
+      <xs:sequence>
+        <xs:element name="photo" type="xs:string" />
+        <xs:element name="server" type="xs:long" />
+        <xs:element name="hash" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userto" >
+      <xs:sequence>
+        <xs:element name="userid" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="gender" type="xs:anyType" />
+        <xs:element name="age" type="xs:anyType" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="photopath" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="springfoxconfig" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="migrationconfiguration" >
+      <xs:sequence>
+        <xs:element name="ds" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="vkapiclientwrapper" >
+      <xs:sequence>
+        <xs:element name="keyboard_param" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="likeservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="likerepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="likerepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="suggestedservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="suggestedrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

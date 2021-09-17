@@ -1,0 +1,21 @@
+
+role(id:long [PK], type:String);
+
+product(id:Long [PK], name:String, brand:String, inventory:int, price:float, image:Blob, description:String);
+
+product_category(product_id:Product [PK] #FK to Product,category_id:list<category> [PK] #FK to list<category>);
+
+order(id:long [PK], GeneratedName:User #FK to(user), shippingaddrid:Address #FK to(address), timeoforder:Date, GeneratedName:OrderStatus, total:double);
+
+address(id:long [PK], /*thewaythisclassiscurrentlysetup,eachaddressisassociatedwithone,whomayhavemanyaddresses.	thenameintheaddressentityneednotbethesameasthe'sname,incasetheshipssomething	toanotherperson,orifabillingaddresshasadifferentnameassociatedwithit*/:User #FK to(user), firstname:String, lastname:String, //addressline1streetaddr:String, city:String, state:String, zipcode:int);
+
+user(id:long [PK], username:String, password:String, firstname:String, lastname:String, phonenumber:String, email:String, enabled:boolean);
+
+user_role(user_id:User [PK] #FK to User,role_id:list<role> [PK] #FK to list<role>);
+
+orderitem(orderid:long [PK], id:Product #FK to(product), quantity:int);
+
+category(id:long [PK], name:String);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

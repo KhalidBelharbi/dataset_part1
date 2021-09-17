@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="websecurityconfig" >
+      <xs:complexContent>
+       <xs:extension base="websecurityconfigureradapter">
+         <xs:sequence>
+          <xs:element name="userdetailsservice" type="myuserdetailsservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="authorizationserverconfig" >
+      <xs:complexContent>
+       <xs:extension base="authorizationserverconfigureradapter">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sysuserrepository" >
+      <xs:complexContent>
+       <xs:extension base="jpaspecificationexecutor<sysuser>,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sysrolepermissionrepository" >
+      <xs:complexContent>
+       <xs:extension base="jpaspecificationexecutor<sysrolepermission>,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="syspermissionrepository" >
+      <xs:complexContent>
+       <xs:extension base="jpaspecificationexecutor<syspermission>,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sysuserrolerepository" >
+      <xs:complexContent>
+       <xs:extension base="jpaspecificationexecutor<sysuserrole>,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sysrole" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="rolename" type="xs:string" />
+        <xs:element name="rolecode" type="xs:string" />
+        <xs:element name="roledescription" type="xs:string" />
+        <xs:element name="createuser" type="xs:string" />
+        <xs:element name="createtime" type="xs:dateTime" />
+        <xs:element name="updateuser" type="xs:string" />
+        <xs:element name="uptime" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="syspermission" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="pid" type="xs:anyType" />
+        <xs:element name="type" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="code" type="xs:string" />
+        <xs:element name="uri" type="xs:string" />
+        <xs:element name="seq" type="xs:anyType" />
+        <xs:element name="createuser" type="xs:string" />
+        <xs:element name="createtime" type="xs:dateTime" />
+        <xs:element name="updateuser" type="xs:string" />
+        <xs:element name="uptime" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sysuser" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="nickname" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="status" type="xs:anyType" />
+        <xs:element name="createuser" type="xs:string" />
+        <xs:element name="createtime" type="xs:dateTime" />
+        <xs:element name="updateuser" type="xs:string" />
+        <xs:element name="uptime" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sysrolepermission" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="roleid" type="xs:anyType" />
+        <xs:element name="permissionid" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sysuserrole" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="userid" type="xs:anyType" />
+        <xs:element name="roleid" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="myuser" >
+      <xs:complexContent>
+       <xs:extension base="user">
+         <xs:sequence>
+          <xs:element name="//举个例子，部门iddepartmentid" type="xs:anyType" />
+          <xs:element name="//举个例子，假设我们想增加一个字段，这里我们增加一个mobile表示手机号mobile" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="oauth2ssoauthserverapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sysuservo" >
+      <xs:complexContent>
+       <xs:extension base="sysuser">
+         <xs:sequence>
+          <xs:element name="/***权限列表*/authoritylist" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="myuserdetailsservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="userservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="permissionservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="permissionserviceimpl" >
+      <xs:sequence>
+        <xs:element name="/***偷懒少写两个service*/" type="sysuserrolerepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="sysrolepermissionrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="syspermissionrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="sysuserrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="permissionservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="logincontroller" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="application" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="themify" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="icomoon" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="index" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bootstrap-grid.min" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bootstrap.min.css" >
+      <xs:complexContent>
+       <xs:extension base="the">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="bootstrap-reboot.css" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bootstrap-reboot.min.css" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bootstrap-grid.min.css" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bootstrap-grid.css" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bootstrap-grid" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bootstrap.css" >
+      <xs:complexContent>
+       <xs:extension base="the">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="bootstrap.min.js" >
+      <xs:complexContent>
+       <xs:extension base="tooltip">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="bootstrap.bundle.min.js" >
+      <xs:complexContent>
+       <xs:extension base="keeptogether">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="bootstrap.js" >
+      <xs:complexContent>
+       <xs:extension base="tooltip">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="bootstrap.bundle.js" >
+      <xs:complexContent>
+       <xs:extension base="keeptogether">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="style.css" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="normalize" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="logback" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="login" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="index" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="oauth2ssoauthserverapplicationtests" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

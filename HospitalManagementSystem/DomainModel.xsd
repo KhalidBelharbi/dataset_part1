@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="message" >
+      <xs:sequence>
+        <xs:element name="messageid" type="xs:anyType" />
+        <xs:element name="messagebody" type="xs:string" />
+        <xs:element name="subject" type="xs:string" />
+        <xs:element name="messagestatus" type="xs:anyType" />
+        <xs:element name="message" type="xs:dateTime" />
+        <xs:element name="from" type="employee" nillable="true" minOccurs="0" />
+        <xs:element name="to" type="employee" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="patient" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="roomtype" >
+      <xs:sequence>
+        <xs:element name="roomtypeid" type="xs:anyType" />
+        <xs:element name="typeofroom" type="xs:string" />
+        <xs:element name="roomcost" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="lab" >
+      <xs:complexContent>
+       <xs:extension base="employee">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="employee" >
+      <xs:sequence>
+        <xs:element name="employeeid" type="xs:anyType" />
+        <xs:element name="type" type="xs:string" />
+        <xs:element name="address" type="xs:string" />
+        <xs:element name="dob" type="xs:dateTime" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="fathername" type="xs:string" />
+        <xs:element name="familyname" type="xs:string" />
+        <xs:element name="gender" type="xs:string" />
+        <xs:element name="join" type="xs:dateTime" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="photo" type="xs:string" />
+        <xs:element name="phone" type="xs:string" />
+        <xs:element name="GeneratedName" type="category" nillable="true" minOccurs="0" />
+        <xs:element name="workexperinces" type="workexperince" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="qualifications" type="qualification" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="receptioniest" >
+      <xs:complexContent>
+       <xs:extension base="employee">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="patient" >
+      <xs:sequence>
+        <xs:element name="patientid" type="xs:anyType" />
+        <xs:element name="address" type="xs:string" />
+        <xs:element name="dob" type="xs:dateTime" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="familyname" type="xs:string" />
+        <xs:element name="fathername" type="xs:string" />
+        <xs:element name="gender" type="xs:string" />
+        <xs:element name="joining" type="xs:dateTime" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="phone" type="xs:long" />
+        <xs:element name="GeneratedName" type="bloodgroup" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="nextofkin" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="qualification" >
+      <xs:sequence>
+        <xs:element name="qualid" type="xs:anyType" />
+        <xs:element name="institutename" type="xs:string" />
+        <xs:element name="qualificationdate" type="xs:string" />
+        <xs:element name="qualificationname" type="xs:string" />
+        <xs:element name="degree" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bloodgroup" >
+      <xs:sequence>
+        <xs:element name="bloodgroupid" type="xs:anyType" />
+        <xs:element name="bloodgroupname" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bookbed" >
+      <xs:sequence>
+        <xs:element name="bedid" type="xs:anyType" />
+        <xs:element name="placed" type="xs:dateTime" />
+        <xs:element name="departement" type="xs:string" />
+        <xs:element name="status" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="patient" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="room" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="nurse" >
+      <xs:complexContent>
+       <xs:extension base="employee">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="accountant" >
+      <xs:complexContent>
+       <xs:extension base="employee">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="drug" >
+      <xs:sequence>
+        <xs:element name="drugid" type="xs:anyType" />
+        <xs:element name="cost" type="xs:double" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="quantity" type="xs:long" />
+        <xs:element name="drug_expired" type="xs:dateTime" />
+        <xs:element name="start" type="xs:dateTime" />
+        <xs:element name="GeneratedName" type="employee" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="workexperince" >
+      <xs:sequence>
+        <xs:element name="workexperienceid" type="xs:anyType" />
+        <xs:element name="nameoforganization" type="xs:string" />
+        <xs:element name="position" type="xs:string" />
+        <xs:element name="enddate" type="xs:string" />
+        <xs:element name="startdate" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pharmatiest" >
+      <xs:complexContent>
+       <xs:extension base="employee">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="doctor" >
+      <xs:complexContent>
+       <xs:extension base="employee">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="room" >
+      <xs:sequence>
+        <xs:element name="roomid" type="xs:anyType" />
+        <xs:element name="roomnumber" type="xs:long" />
+        <xs:element name="numberofbeds" type="xs:long" />
+        <xs:element name="numberofavailablebeds" type="xs:long" />
+        <xs:element name="GeneratedName" type="roomtype" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="shifttime" >
+      <xs:sequence>
+        <xs:element name="shifttimeid" type="xs:long" />
+        <xs:element name="fromtime" type="xs:string" />
+        <xs:element name="totime" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="category" >
+      <xs:sequence>
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="categoryid" type="xs:anyType" />
+        <xs:element name="categoryname" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="xray" >
+      <xs:complexContent>
+       <xs:extension base="employee">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="disease" >
+      <xs:sequence>
+        <xs:element name="diseaseid" type="xs:anyType" />
+        <xs:element name="disease" type="xs:string" />
+        <xs:element name="note" type="xs:string" />
+        <xs:element name="GeneratedName" type="employee" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="patient" nillable="true" minOccurs="0" />
+        <xs:element name="disease" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="selleddrug" >
+      <xs:sequence>
+        <xs:element name="selleddrugid" type="xs:long" />
+        <xs:element name="start" type="xs:dateTime" />
+        <xs:element name="end" type="xs:dateTime" />
+        <xs:element name="unitperday" type="xs:string" />
+        <xs:element name="GeneratedName" type="drug" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="pharmatiest" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="patient" nillable="true" minOccurs="0" />
+        <xs:element name="quantity" type="xs:long" />
+        <xs:element name="selled" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="nextofkin" >
+      <xs:sequence>
+        <xs:element name="nextofkinid" type="xs:anyType" />
+        <xs:element name="address" type="xs:string" />
+        <xs:element name="fullname" type="xs:string" />
+        <xs:element name="phone" type="xs:string" />
+        <xs:element name="relationship" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="nurseservicetime" >
+      <xs:sequence>
+        <xs:element name="nurseservicetimeid" type="xs:long" />
+        <xs:element name="service" type="xs:dateTime" />
+        <xs:element name="GeneratedName" type="shifttime" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="nurse" nillable="true" minOccurs="0" />
+        <xs:element name="department" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

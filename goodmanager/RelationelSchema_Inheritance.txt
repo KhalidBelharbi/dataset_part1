@@ -1,0 +1,157 @@
+entitycontact(description:String, id:Integer [PK], create:Date, repeat:Date, style:EntityStyle #FK to(entitystyle), user:EntityUser #FK to(entityuser), pipol:EntityPipol #FK to(entitypipol), status:EntityStatus #FK to(entitystatus), delete:Date);
+
+entitysearchrulefirmuser();
+
+entitysearchsourcepipolwithdelete();
+
+entitysearchrulefirmdelete(start:Date, finish:Date);
+
+entitysearchrulepipol(parent:EntitySearchRulePipolComposite #FK to(entitysearchrulepipolcomposite));
+
+entitysearchsourcepipol();
+
+entitysearchrulepipolcreate(start:Date, finish:Date);
+
+entitysearchrulecontactdescription(description:String);
+
+entitysearchrulecontactrepeat(start:Date, finish:Date);
+
+entitysearchsourcefirm();
+
+entitysearchrulefirmcreate(start:Date, finish:Date);
+
+entitysearchrulepipoluseritem(id:EntitySearchRulePipolUserItemId);
+
+entitysearchrulecontact(parent:EntitySearchRuleContactComposite #FK to(entitysearchrulecontactcomposite));
+
+entitysearchrulepipoldelete(start:Date, finish:Date);
+
+entitysearchrulefirm(parent:EntitySearchRuleFirmComposite #FK to(entitysearchrulefirmcomposite));
+
+entitysearchrulefirmname(name:String);
+
+entitysearchrulefirmsection();
+
+entitysearchrulecontactuseritem(id:EntitySearchRuleContactUserItemId);
+
+entitysearchrule(id:Integer [PK], source:EntitySearchSource #FK to(entitysearchsource));
+
+entitysearchsourcecontactwithdelete();
+
+entitysearchsourcecontact();
+
+
+
+entitysearchrulecontactstatus();
+
+entitysearchrulefirmother(text:String);
+
+entitysearchrulecontactstatusitem(id:EntitySearchRuleContactStatusItemId);
+
+entitysearchrulecontactdelete(start:Date, finish:Date);
+
+entitysearchrulepipolfio(fio:String);
+
+entitysearchrulecontactcomposite(GeneratedName:Type);
+
+entitysearchsourcefirmwithdelete();
+
+entitysearch(id:Integer [PK], create:Date, use:Date, park:boolean, user:EntityUser #FK to(entityuser));
+
+entitysearchrulepipoluser();
+
+entitysearchrulefirmcomposite(GeneratedName:Type);
+
+entitysearchrulefirmuseritem(id:EntitySearchRuleFirmUserItemId);
+
+entitysearchrulefirmsectionitem(id:EntitySearchRuleFirmSectionItemId);
+
+entitysearchrulepipolcomposite(GeneratedName:Type);
+
+entitysearchrulepipolother(text:String);
+
+entitysearchrulecontactcreate(start:Date, finish:Date);
+
+entitysearchrulecontactuser();
+
+entitycontract(id:Integer [PK], name:String, user:EntityUser #FK to(entityuser), description:String);
+
+entitypipol(fio:String, id:Integer [PK], description:String, telephon:String, rang:String, email:String, create:Date, firm:EntityFirm #FK to(entityfirm), publicstyle:EntityStyle #FK to(entitystyle), user:EntityUser #FK to(entityuser), delete:Date);
+
+entitystatus(description:String, name:String, id:Integer [PK], order:int);
+
+entitycategory(name:String, id:Integer [PK], parent:EntityCategory #FK to(entitycategory));
+
+entityproduct(name:String, description:String, id:Integer [PK], category:EntityCategory #FK to(entitycategory));
+
+entityproductprice(create:Date, value:float, id:Integer [PK], product:EntityProduct #FK to(entityproduct), currency:EntityCurrency #FK to(entitycurrency));
+
+entitycurrency(name:String, label:String, id:Integer [PK]);
+
+entityrule(id:EntityRuleKey, statistic:boolean, content:EntityRuleContent, contract:EntityRuleContract, tiding:EntityRuleTiding, task:EntityRuleTask);
+
+entitysection(name:String, id:Integer [PK], description:String, parent:EntitySection #FK to(entitysection), owner:EntityUser #FK to(entityuser), style:EntityStyle #FK to(entitystyle));
+
+entityfirmhistory(name:String, id:EntityFirmHistoryId, description:String, address:String, telephon:String, fax:String, email:String, site:String, user:EntityUser #FK to(entityuser));
+
+entityversionresolution(id:Integer [PK], create:Date, ok:boolean, version:EntityContractVersion #FK to(entitycontractversion), user:EntityUser #FK to(entityuser), description:String);
+
+entitycontacttype(id:Integer [PK], name:String);
+
+entitypartfile(data:byte, name:String);
+
+entityserverrule(ruleid:Integer [PK], server:EntityServer #FK to(entityserver), user:EntityUser #FK to(entityuser));
+
+entityserverruleall();
+
+entityserver(serverid:Integer [PK], url:String, login:String, password:String, type:EntityServerType);
+
+entitymail(created:Date, sended:Date, received:Date, theme:String, to:String, from:String, mailid:Integer [PK], user:EntityUser #FK to(entityuser), server:EntityServer #FK to(entityserver));
+
+entityparttext(text:String);
+
+entitypart(partid:Integer [PK], mail:EntityMail #FK to(entitymail));
+
+entitycontractversion(id:Integer [PK], contract:EntityContract #FK to(entitycontract), resolution:EntityVersionResolution #FK to(entityversionresolution), create:Date, user:EntityUser #FK to(entityuser));
+
+entityrank(name:String, id:Integer [PK], description:String);
+
+entitygroup(id:Integer [PK], name:String);
+
+entitytaskexecutor(id:Integer [PK], task:EntityTask #FK to(entitytask), user:EntityUser #FK to(entityuser), accept:Date, must:Date, description:String);
+
+entitytask(id:Integer [PK], name:String, description:String, create:Date, owner:EntityUser #FK to(entityuser), previous:EntityTask #FK to(entitytask));
+
+entityfirmsort(id:Integer [PK], view:EntityView #FK to(entityview), order:int, GeneratedName:Field, inverse:boolean);
+
+entityview(id:Integer [PK], sort:EntityViewSort, history:EntityViewHistory, mail:EntityViewMail, delete:EntityViewDelete, locale:String, byme:boolean, bymetotal:boolean, bymerepeat:boolean, bymeold:boolean, showrate:boolean, flatehead:boolean, showtelephon:boolean, showfax:boolean, showweb:boolean, showowner:boolean, showlastcontact:boolean, showaddress:boolean, showemail:boolean);
+
+entityviewuser(id:EntityViewUserId);
+
+entityimage(data:byte, alt:String, extend:String, id:Integer [PK]);
+
+entitytext(description:String, name:String, id:Integer [PK]);
+
+entityuser(fio:String, id:Integer [PK], description:String, password:String, login:String, email:String, group:EntityGroup #FK to(entitygroup), disable:Date, block:Date, defaultview:EntityView #FK to(entityview), activex1c:EntityUser1c);
+
+entityusersession(id:Integer [PK], start:Date, user:EntityUser #FK to(entityuser));
+
+entityfirm(name:String, id:Integer [PK], description:String, address:String, telephon:String, fax:String, email:String, site:String, create:Date, publicstyle:EntityStyle #FK to(entitystyle), user:EntityUser #FK to(entityuser), section:EntitySection #FK to(entitysection), delete:Date);
+
+entitypipolhistory(fio:String, id:EntityPipolHistoryId, description:String, telephon:String, rang:String, email:String, user:EntityUser #FK to(entityuser));
+
+entitytidingcategory(name:String, id:Integer [PK]);
+
+entitytiding(name:String, description:String, create:Date, start:Date, finish:Date, id:Integer [PK], category:EntityTidingCategory #FK to(entitytidingcategory));
+
+entityversionfile(id:Integer [PK], name:String, path:String, data:byte, version:EntityContractVersion #FK to(entitycontractversion));
+
+entitycontacthistory(description:String, id:EntityContactHistoryId, repeat:Date, status:EntityStatus #FK to(entitystatus), user:EntityUser #FK to(entityuser));
+
+entitystyle(name:String, id:Integer [PK], description:String, bold:boolean, italic:boolean, strikeout:boolean, underline:boolean, color:int, create:Date, owner:EntityUser #FK to(entityuser));
+
+entitysearchsource(id:Integer [PK], search:EntitySearch #FK to(entitysearch), rule:EntitySearchRule #FK to(entitysearchrule), source_type: String);
+
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

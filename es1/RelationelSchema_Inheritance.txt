@@ -1,0 +1,73 @@
+
+show(/***标题*/name:String, status:ShowStatus);
+
+audit(/***标题*/name:String, status:AuditStatus, comment:String);
+
+exceldata(content:String);
+
+deletedsample(name:String, //@range(min:Integer, birthday:Date, GeneratedName:Sex, show:Boolean, deleted:Boolean);
+
+tree(/***标题*/name:String, /***父路径*/parentid:Long, parentids:String, weight:Integer, /***图标*/icon:String, /***是否有叶子节点*/haschildren:boolean, /***是否显示*/show:Boolean);
+
+child(GeneratedName:Parent #FK to(parent), name:String, type:ParentChildType, begintime:Date, endtime:Date, show:Boolean);
+
+parent(name:String, type:ParentChildType, begin:Date, end:Date, show:Boolean);
+
+sample(name:String, //@range(min:Integer, birthday:Date, GeneratedName:Sex, show:Boolean);
+
+move(name:String, weight:Integer, show:Boolean);
+
+editor(title:String, content:String);
+
+upload(name:String, src:String);
+
+category(name:String, weight:Integer, show:Boolean);
+
+product(GeneratedName:Category #FK to(category), name:String, /***价格以“角”为单位*/price:Long, /***数量*/number:Long, begin:Date, end:Date, show:Boolean);
+
+role(/***前端显示名称*/name:String, /***系统中验证时使用的角色标识*/role:String, /***详细描述*/description:String, /***是否显示也表示是否可用为了统一都使用这个*/show:Boolean);
+
+permission(/***前端显示名称*/name:String, /***系统中验证时使用的权限标识*/permission:String, /***详细描述*/description:String, /***是否显示也表示是否可用为了统一都使用这个*/show:Boolean);
+
+roleresourcepermission(/***角色id*//***角色id*/:Role #FK to(role), /***资源id*/resourceid:Long, /***权限id列表*数据库通过字符串存储逗号分隔*/permissionids:Set<Long>);
+
+job(/***标题*/name:String, /***父路径*/parentid:Long, parentids:String, weight:Integer, /***图标*/icon:String, /***是否有叶子节点*/haschildren:boolean, /***是否显示*/show:Boolean);
+
+organization(/***标题*/name:String, /***组织机构类型默认分公司*/type:OrganizationType, /***父路径*/parentid:Long, parentids:String, weight:Integer, /***图标*/icon:String, /***是否有叶子节点*/haschildren:boolean, /***是否显示*/show:Boolean);
+
+auth(/***组织机构*/organizationid:Long, /***工作职务*/jobid:Long, /***用户*/userid:Long, /***组*/groupid:Long, roleids:Set<Long>, type:AuthType);
+
+grouprelation(groupid:Long, organizationid:Long, /***关联的单个用户*/userid:Long, 闭区间*/startuserid:Long, enduserid:Long);
+
+group(/***分组名称*/name:String, /***分组类型如用户分组/组织机构分组*/type:GroupType, /***是否是默认分组*/defaultgroup:Boolean, /***是否显示/可用*/show:Boolean);
+
+user(username_pattern:String, email_pattern:String, mobile_phone_number_pattern:String, username_min_length:int, username_max_length:int, password_min_length:int, password_max_length:int, username:String, email:String, mobilephonenumber:String, /***使用md5(username+originalpassword+salt)加密存储*/password:String, /***加密密码时使用的种子*/salt:String, /***创建时间*/create:Date, /***系统用户的状态*/status:UserStatus, /***是否是管理员*/admin:Boolean, /***逻辑删除flag*/deleted:Boolean, organizationjobsmap:Map<Long,List<UserOrganizationJob>>);
+
+userorganizationjob(GeneratedName:User #FK to(user), organizationid:Long, jobid:Long);
+
+useronline(/***用户会话id:String [PK], //当前登录的用户iduserid:Long, username:String, /***用户主机地址*/host:String, /***用户登录时系统ip*/systemhost:String, /***用户浏览器类型*/useragent:String, /***在线状态*/status:OnlineSession.OnlineStatus, /***session创建时间*/starttimestamp:Date, /***session最后访问时间*/lastaccesstime:Date, /***超时时间*/timeout:Long, /***备份的当前用户会话*/session:OnlineSession);
+
+userstatushistory(/***锁定的用户*/:User #FK to(user), /***备注信息*/reason:String, /***操作的状态*/status:UserStatus, /***操作的管理员*/op:User #FK to(user), /***操作时间*/op:Date);
+
+userlastonline(/***在线的用户*/userid:Long, username:String, /***最后退出时的uid*/uid:String, /***用户主机地址*/host:String, /***用户浏览器类型*/useragent:String, /***用户登录时系统ip*/systemhost:String, /***最后登录时间*/lastlogintimestamp:Date, /***最后退出时间*/laststoptimestamp:Date, /***登录次数*/logincount:Integer, /***总的在线时长（秒为单位）*/totalonlinetime:Long);
+
+resource(/***标题*/name:String, /***资源标识符用于权限匹配的如sys:resource*/identity:String, /***点击后前往的地址*菜单才有*/url:String, /***父路径*/parentid:Long, parentids:String, weight:Integer, /***图标*/icon:String, /***是否有叶子节点*/haschildren:boolean, /***是否显示*/show:Boolean);
+
+notificationdata(/***接收通知的用户*/userid:Long, /***通知所属系统*/system:NotificationSystem, title:String, /***通知内容*/content:String, /***通知时间*/:Date, /***是否已读*/read:Boolean);
+
+notificationtemplate(/***模板名称必须唯一发送时使用*/name:String, /***所属系统*/system:NotificationSystem, /***模板标题*/title:String, /***模板内容*/template:String, /***是否已逻辑删除*/deleted:Boolean);
+
+icon(/***标识前台使用时的名称*/identity:String, /***类名称*/cssclass:String, //////和class、csssprite三者选一/***图片地址*/imgsrc:String, //////和class、csssprite三者选一/***css背景图位置*绝对地址如http://a.com/a.png*相对于上下文地址如/a/a.png不加上下文*/spritesrc:String, /***距离sprite图片左边多少*/left:Integer, /***距离sprite图片上边多少*/top:Integer, /***宽度*/width:Integer, /***高度*/height:Integer, /***额外添加的css样式*/style:String, type:IconType, /***描述*/description:String);
+
+keyvalue(key:String, value:String);
+
+taskdefinition(name:String, /***cron表达式*/cron:String, /***要执行的class类名*/beanclass:String, /***要执行的bean名字*/beanname:String, /***要执行的bean的方法名*/methodname:String, /***是否已启动*/start:Boolean, /***描述*/description:String);
+
+messagecontent(GeneratedName:Message #FK to(message), /***消息内容*/content:String);
+
+message(/***消息发送者id*/senderid:Long, /***消息接收者id*/receiverid:Long, /***消息发送时间*/send:Date, /***标题*/title:String, /***发件人状态*/senderstate:MessageState, /***发件人状态改变时间默认发送时间*/senderstatechange:Date, //收件人状态receiverstate:MessageState, /***收件人状态改变时间默认发送时间*/receiverstatechange:Date, /***消息类型,默认普通消息*/type:MessageType, /***是否已读*/read:Boolean, /***是否已回复*/replied:Boolean, /***父编号*/parentid:Long, /***父消息编号列表如1/2/3/4*/parentids:String);
+
+calendar(/***所属人*/userid:Long, /***标题*/title:String, /***详细信息*/details:String, /***开始日期*/start:Date, /***持续时间*/length:Integer, /***开始时间*/starttime:Date, /***结束时间*/endtime:Date, backgroundcolor:String, textcolor:String);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

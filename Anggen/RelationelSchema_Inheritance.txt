@@ -1,0 +1,25 @@
+
+enumvalue(entityid:java.lang.Long, name:String, value:Integer, enumvalueid:java.lang.Long [PK], enumentity:it.anggen.model.entity.EnumEntity #FK to(it.anggen.model.entity.enumentity));
+
+annotation(entityid:java.lang.Long, annotationid:java.lang.Long [PK], field:it.anggen.model.field.Field, enumfield:it.anggen.model.field.EnumField, relationship:it.anggen.model.relationship.Relationship, GeneratedName:AnnotationType);
+
+annotationattribute(entityid:java.lang.Long, property:java.lang.String, value:java.lang.String, annotationattributeid:java.lang.Long [PK], annotation:it.anggen.model.field.Annotation #FK to(it.anggen.model.field.annotation));
+
+project(entityid:Long, projectid:Integer [PK], name:String);
+
+enumentity(entityid:java.lang.Long, name:String, enumentityid:java.lang.Long [PK], project:it.anggen.model.entity.Project #FK to(it.anggen.model.entity.project));
+
+logentry(entityid:java.lang.Long, info:java.lang.String, hostname:java.lang.String, userid:java.lang.Long, log:Date, logentryid:java.lang.Long [PK], entityid:java.lang.Long, ipaddress:java.lang.String, GeneratedName:LogType, GeneratedName:OperationType);
+
+restrictionentitygroup(entityid:java.lang.Long, canupdate:java.lang.Boolean, cancreate:java.lang.Boolean, candelete:java.lang.Boolean, restrictionentitygroupid:java.lang.Long [PK], cansearch:java.lang.Boolean, role:it.anggen.model.security.Role, entitygroup:it.anggen.model.entity.EntityGroup);
+
+user(entityid:java.lang.Long, userid:java.lang.Long [PK], password:java.lang.String, username:java.lang.String, enabled:Boolean);
+
+user_role(user_id:User [PK] #FK to User,role_id:list<role> [PK] #FK to list<role>);
+
+restrictionfield(entityid:java.lang.Long, restrictionfieldid:java.lang.Long [PK], role:it.anggen.model.security.Role, field:it.anggen.model.field.Field);
+
+role(entityid:Long, roleid:Integer [PK], role:String);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

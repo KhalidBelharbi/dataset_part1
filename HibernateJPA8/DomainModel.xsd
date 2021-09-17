@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="box" >
+      <xs:complexContent>
+       <xs:extension base="container">
+         <xs:sequence>
+          <xs:element name="muffinset" type="muffin" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="doughnutset" type="doughnut" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="snert" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="birthday" type="xs:dateTime" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="nickname" type="xs:string" />
+        <xs:element name="cool" type="xs:anyType" />
+        <xs:element name="age" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="doughnut" >
+      <xs:sequence>
+        <xs:element name="doughnutid" type="xs:long" />
+        <xs:element name="GeneratedName" type="box" nillable="true" minOccurs="0" />
+        <xs:element name="kind" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="muffin" >
+      <xs:sequence>
+        <xs:element name="muffinid" type="xs:long" />
+        <xs:element name="GeneratedName" type="box" nillable="true" minOccurs="0" />
+        <xs:element name="kind" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="container" >
+      <xs:complexContent>
+       <xs:extension base="abstractentity">
+         <xs:sequence>
+          <xs:element name="containerid" type="xs:long" />
+          <xs:element name="color" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="entitywithspringawarebridges" >
+      <xs:sequence>
+        <xs:element name="class_bridge_field_name" type="xs:string" />
+        <xs:element name="non_spring_bridge_field_name" type="xs:string" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="internationalizedvalue" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

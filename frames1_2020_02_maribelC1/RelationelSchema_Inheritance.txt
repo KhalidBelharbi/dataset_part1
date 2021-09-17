@@ -1,0 +1,17 @@
+campusmodel(idcampus:long [PK], campusnome:String, campuscidadeid:int, campusestadoid:int);
+
+alunomodel(idaluno:int);
+
+estadomodel(idestado:long [PK], estadonome:String, estadosigla:String);
+
+areamodel(idarea:int [PK], nome:String);
+
+cidademodel(idcidade:long [PK], cidadenome:String, estado:estadoModel #FK to(estadomodel));
+
+palestrantemodel(siape:long, area:AreaModel #FK to(areamodel));
+
+pessoamodel(idpessoa:long [PK], nome:String, email:String, idade:int, cpf:long, rg:String);
+
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

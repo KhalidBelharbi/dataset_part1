@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="errorsresource" >
+      <xs:complexContent>
+       <xs:extension base="entitymodel<errors>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="appproperties" >
+      <xs:sequence>
+        <xs:element name="adminusername" type="xs:string" />
+        <xs:element name="adminpassword" type="xs:string" />
+        <xs:element name="userusername" type="xs:string" />
+        <xs:element name="userpassword" type="xs:string" />
+        <xs:element name="clientid" type="xs:string" />
+        <xs:element name="clientsecret" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="testdescription" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="errorsserializer" >
+      <xs:complexContent>
+       <xs:extension base="jsonserializer<errors>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="accountrespository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<account,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="account" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="roles" type="accountrole" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="accountservice" >
+      <xs:complexContent>
+       <xs:extension base="grantedauthority>">
+         <xs:sequence>
+          <xs:element name="" type="accountrespository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="currentuser" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="accountadapter" >
+      <xs:complexContent>
+       <xs:extension base="user">
+         <xs:sequence>
+          <xs:element name="" type="account" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="accountserializer" >
+      <xs:complexContent>
+       <xs:extension base="jsonserializer<account>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="accountrole" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="authserverconfig" >
+      <xs:complexContent>
+       <xs:extension base="authorizationserverconfigureradapter">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="accountservice" nillable="true" minOccurs="0" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="appproperties" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="securityconfig" >
+      <xs:complexContent>
+       <xs:extension base="websecurityconfigureradapter">
+         <xs:sequence>
+          <xs:element name="" type="accountservice" nillable="true" minOccurs="0" />
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="resourceserverconfig" >
+      <xs:complexContent>
+       <xs:extension base="resourceserverconfigureradapter">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="appconfig" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="eventrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<event,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="event" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="//이름name" type="xs:string" />
+        <xs:element name="//설명description" type="xs:string" />
+        <xs:element name="//등록시작일시beginenrollmentdatetime" type="xs:anyType" />
+        <xs:element name="//등록마감일시closeenrollmentdatetime" type="xs:anyType" />
+        <xs:element name="//이벤트시작일시begineventdatetime" type="xs:anyType" />
+        <xs:element name="//이벤트종료일시endeventdatetime" type="xs:anyType" />
+        <xs:element name="//(optional)이게없으면온라인모임location" type="xs:string" />
+        <xs:element name="//(optional)//참가비baseprice" type="xs:long" />
+        <xs:element name="//(optional)//경매비0이면무료or무제한maxprice" type="xs:long" />
+        <xs:element name="//등록제한limitofenrollment" type="xs:long" />
+        <xs:element name="offline" type="xs:anyType" />
+        <xs:element name="free" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="eventstatus" nillable="true" minOccurs="0" />
+        <xs:element name="manager" type="account" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="eventresource" >
+      <xs:complexContent>
+       <xs:extension base="entitymodel<event>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="eventcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="eventrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="eventvalidator" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="eventdto" >
+      <xs:sequence>
+        <xs:element name="//이름name" type="xs:string" />
+        <xs:element name="//설명description" type="xs:string" />
+        <xs:element name="//등록시작일시beginenrollmentdatetime" type="xs:anyType" />
+        <xs:element name="//등록마감일시closeenrollmentdatetime" type="xs:anyType" />
+        <xs:element name="//이벤트시작일시begineventdatetime" type="xs:anyType" />
+        <xs:element name="//이벤트종료일시endeventdatetime" type="xs:anyType" />
+        <xs:element name="//(optional)이게없으면온라인모임location" type="xs:string" />
+        <xs:element name="//(optional)참가비baseprice" type="xs:long" />
+        <xs:element name="//(optional)경매비0이면무료or무제한maxprice" type="xs:long" />
+        <xs:element name="//등록제한limitofenrollment" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="eventstatus" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="eventvalidator" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="indexcontroller" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="demoinflearnrestapiapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="annotations" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="basetest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="restdocconfiguration" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="accountservicetest" >
+      <xs:complexContent>
+       <xs:extension base="basetest">
+         <xs:sequence>
+          <xs:element name="" type="accountservice" nillable="true" minOccurs="0" />
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="eventtest" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="eventcontrollertest" >
+      <xs:complexContent>
+       <xs:extension base="basetest">
+         <xs:sequence>
+          <xs:element name="" type="eventrepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="accountservice" nillable="true" minOccurs="0" />
+          <xs:element name="" type="accountrespository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="appproperties" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="authserverconfigtest" >
+      <xs:complexContent>
+       <xs:extension base="basetest">
+         <xs:sequence>
+          <xs:element name="" type="accountservice" nillable="true" minOccurs="0" />
+          <xs:element name="" type="appproperties" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="indexcontrollertest" >
+      <xs:complexContent>
+       <xs:extension base="basetest">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="accountrespository" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema> 

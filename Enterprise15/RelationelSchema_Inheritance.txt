@@ -1,0 +1,45 @@
+
+tributacao(id_tributacao:int [PK], descricao:String, uf:String, aliquota:Double, redutor:Double, entradasaida:String, usuariocadastro:int, dtcadastro:Date, usuarioalteracao:int, dtalteracao:Date, cancelado:String);
+
+frete(id_frete:int [PK], descricao:String, usuariocadastro:int, dtcadastro:Date, usuarioalteracao:int, dtalteracao:Date, cancelado:String);
+
+tipovenda(id_tipovenda:int [PK], descricao:String, usuariocadastro:int, dtcadastro:Date, usuarioalteracao:int, dtalteracao:Date, cancelado:String);
+
+estadocivil(id_estadocivil:int [PK], descricao:String, usuariocadastro:int, dtcadastro:Date, usuarioalteracao:int, dtalteracao:Date, cancelado:String);
+
+cliente(id_cliente:int [PK], nome:String, razaosocial:String, cpf:String, cnpj:String, inscricaoestadual:String, inscricaomunicipal:String, dtnascimentofundacao:Date, genero:String, estadocivil:String, nomeconjuge:String, nomepai:String, nomemae:String, endereco:String, bairro:String, complemento:String, cidade:String, uf:String, cep:String, telefone1:String, telefone2:String, telefone3:String, email:String, atividadeprofissional:String, limitecredito:Double, saldo:Double, ativo:String, codigomigracao:int, usuariocadastro:int, dtcadastro:Date, usuarioalteracao:int, dtalteracao:Date, cancelado:String);
+
+tamanho(id_tamanho:int [PK], codigo:String, descricao:String, usuariocadastro:int, dtcadastro:Date, usuarioalteracao:int, dtalteracao:Date, cancelado:String);
+
+cfop(id_cfop:int [PK], codigocfop:String, descricao:String, usuariocadastro:int, dtcadastro:Date, usuarioalteracao:int, dtalteracao:Date, cancelado:String);
+
+filial(id_filial:int [PK], descricao:String, usuariocadastro:int, dtcadastro:Date, usuarioalteracao:int, dtalteracao:Date, cancelado:String);
+
+grupo(id_grupo:int [PK], descricao:String, usuariocadastro:int, dtcadastro:Date, usuarioalteracao:int, dtalteracao:Date, cancelado:String);
+
+senha(id_senha:int [PK], GeneratedName:Colaborador #FK to(Colaborador), senha:String, usuariocadastro:int, dtcadastro:Date, usuarioalteracao:int, dtalteracao:Date, cancelado:String);
+
+formapagamento(id_formapagamento:int [PK], //intid_pagamentodescricao:String, descontopercentual:double, acrescimopercentual:double, prazo:int, usuariocadastro:int, dtcadastro:Date, usuarioalteracao:int, dtalteracao:Date, cancelado:String);
+
+unidade(id_unidade:int [PK], sigla:String, descricao:String, usuariocadastro:int, dtcadastro:Date, usuarioalteracao:int, dtalteracao:Date, cancelado:String);
+
+colaborador(id_colaborador:int [PK], nome:String, nomereduzido:String, cpf:String, rg:String, dtnascimento:Date, genero:String, estadocivil:String, nomeconjuge:String, nomepai:String, nomemae:String, endereco:String, bairro:String, complemento:String, cidade:String, uf:String, cep:String, telefone1:String, telefone2:String, email:String, dtadmissao:Date, dtdemissao:Date, GeneratedName:Funcao #FK to(funcao), fiscal:String, ativo:String, usuariocadastro:int, dtcadastro:Date, usuarioalteracao:int, dtalteracao:Date, cancelado:String);
+
+subgrupo(id_subgrupo:int [PK], GeneratedName:Grupo #FK to(Grupo), descricao:String, usuariocadastro:int, dtcadastro:Date, usuarioalteracao:int, dtalteracao:Date, cancelado:String);
+
+ncm(id_ncm:int [PK], ncm:String, descricao:String, usuariocadastro:int, dtcadastro:Date, usuarioalteracao:int, dtalteracao:Date, cancelado:String);
+
+importarcidadesibge(id_ibgecidades:int [PK], nomecidade:String, codigocidade:String, uf:String, usuarioalteracao:int, dtalteracao:Date, arquivo:String);
+
+transportadora(id_transportadora:int [PK], nomefantasia:String, razaosocial:String, cpf:String, cnpj:String, inscricaoestadual:String, inscricaomunicipal:String, endereco:String, bairro:String, complemento:String, cidade:String, uf:String, cep:String, telefone1:String, telefone2:String, telefone3:String, email:String, contato:String, ativo:String, usuariocadastro:int, dtcadastro:Date, usuarioalteracao:int, dtalteracao:Date, cancelado:String);
+
+pdv(id_pdv:int [PK], descricao:String, codigopdv:String, GeneratedName:Filial #FK to(Filial), dtultcarga:Date, aberto:String, usuariocadastro:int, dtcadastro:Date, usuarioalteracao:int, dtalteracao:Date, cancelado:String);
+
+naturezaope(id_naturezaope:int [PK], descricao:String, classificacao:String, saidaentrada:String, planocontas:String, usuariocadastro:int, dtcadastro:Date, usuarioalteracao:int, dtalteracao:Date, cancelado:String);
+
+parametros(id_parametros:int [PK], razaosocial:String, nomefantasia:String, qtdfiliais:int, cpf:String, cnpj:String, inscricaoestadual:String, inscricaomunicipal:String, socioresponsavel:String, cpfsocioresponsavel:String, endereco:String, bairro:String, complemento:String, cidade:String, uf:String, cep:String, telefone1:String, telefone2:String, email:String, pathbancodedados:String, pathsistema:String, pathimagens:String, qtdpdvs:int, dtinstalacao:Date, ativacaopdv:String, dtativacaopdv:Date, ativacaoenterprise:String, dtativacaoenterprise:Date, usuariocadastro:int, dtcadastro:Date, usuarioalteracao:int, dtalteracao:Date);
+
+funcao(id_funcao:int [PK], descricao:String, comissaoperc:Double, usuariocadastro:int, dtcadastro:Date, usuarioalteracao:int, dtalteracao:Date, cancelado:String);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

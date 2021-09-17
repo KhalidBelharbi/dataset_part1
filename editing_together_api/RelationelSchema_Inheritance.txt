@@ -1,0 +1,15 @@
+
+userentity(id:Long [PK], username:String, email:String, password:String);
+
+user_roles(user_id:UserEntity [PK] #FK to UserEntity,role_id:set<role> [PK] #FK to set<role>);
+
+role(id:Integer [PK], name:RoleName);
+
+snippetentity(id:Integer [PK], name:String, content:String, projectid:Integer, created:Date, createuserid:Long, up:Date, updateuserid:Long);
+
+projectentity(id:Integer [PK], name:String, language:LanguageType, created:Date, createuserid:Long, lastcompilation:Date, token:String);
+
+projectuserentity(projectid:Integer [PK], userid:Long [PK]);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

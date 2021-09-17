@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="icommon" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="commonexception" >
+      <xs:complexContent>
+       <xs:extension base="exception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="common" >
+      <xs:complexContent>
+       <xs:extension base="hibernatedaosupport">
+         <xs:sequence>
+          <xs:element name="ger" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="commentdao" >
+      <xs:complexContent>
+       <xs:extension base="abstractdao<commententity>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="accountdao" >
+      <xs:complexContent>
+       <xs:extension base="abstractdao<accountentity>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="abstractdao" >
+      <xs:sequence>
+        <xs:element name="ger" type="xs:anyType" />
+        <xs:element name="common" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="desencrypterutils" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="defualt_salt" type="xs:anyType" />
+        <xs:element name="peb_with_md5_and_des" type="xs:string" />
+        <xs:element name="iteration_count" type="xs:long" />
+        <xs:element name="secret" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cookieutils" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="expired_time_hour" type="xs:long" />
+        <xs:element name="expired_time_day" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hostargumentresolver" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="requesttypeutils" >
+      <xs:sequence>
+        <xs:element name="json_request_param" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="authorizeinterceptor" >
+      <xs:complexContent>
+       <xs:extension base="handlerinterceptoradapter">
+         <xs:sequence>
+          <xs:element name="" type="authservice" nillable="true" minOccurs="0" />
+          <xs:element name="" type="accountservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="urlencodeutils" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="md5utils" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="account" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="nickname" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="comment" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="userid" type="xs:long" />
+        <xs:element name="topicid" type="xs:long" />
+        <xs:element name="comment" type="xs:string" />
+        <xs:element name="addtime" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="account" >
+      <xs:sequence>
+        <xs:element name="/***用户id*/id" type="xs:long" />
+        <xs:element name="/***账号名*/account" type="xs:string" />
+        <xs:element name="/***密码*/password" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usercomment" >
+      <xs:sequence>
+        <xs:element name="userid" type="xs:long" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="topicid" type="xs:long" />
+        <xs:element name="comment" type="xs:string" />
+        <xs:element name="addtime" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="authtoken" >
+      <xs:sequence>
+        <xs:element name="/***用户cookie*/cookie" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="principal" >
+      <xs:sequence>
+        <xs:element name="userid" type="xs:long" />
+        <xs:element name="account" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="errorenum" >
+      <xs:sequence>
+        <xs:element name="index" type="xs:long" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="indexes" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tokenconstants" >
+      <xs:sequence>
+        <xs:element name="split_char" type="xs:string" />
+        <xs:element name="ticket" type="xs:string" />
+        <xs:element name="ara_domain" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="commentdef" >
+      <xs:sequence>
+        <xs:element name="default_topic_id" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="argumentnamedef" >
+      <xs:sequence>
+        <xs:element name="host" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="commententity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="userid" type="xs:long" />
+        <xs:element name="topicid" type="xs:long" />
+        <xs:element name="comment" type="xs:string" />
+        <xs:element name="addtime" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="accountentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="account" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="withoutauthorize" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="logincontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="accountservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="authservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="homecontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="commentservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="accountservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="accountservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="accountdao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="commentservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="commentdao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tokenprovider" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="authservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="tokenprovider" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="accountservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="header" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="empty" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="detail" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="home" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="info" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="404" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="index" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="500" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rest-servlet" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="log4j" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="conf" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="applicationcontext-db" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

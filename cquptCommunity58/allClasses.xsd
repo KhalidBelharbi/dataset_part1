@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="replycontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="replyservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="problemcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="problemservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="baseexceptionhandler" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="qaapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="problemservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="problemdao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="replyservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="replydao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="problem" >
+      <xs:sequence>
+        <xs:element name="//idid" type="xs:string" />
+        <xs:element name="//标题title" type="xs:string" />
+        <xs:element name="//内容content" type="xs:string" />
+        <xs:element name="//创建日期createtime" type="xs:anyType" />
+        <xs:element name="//修改日期updatetime" type="xs:anyType" />
+        <xs:element name="//用户iduserid" type="xs:string" />
+        <xs:element name="//昵称nickname" type="xs:string" />
+        <xs:element name="//浏览量visits" type="xs:long" />
+        <xs:element name="//点赞数thumbup" type="xs:long" />
+        <xs:element name="//回复数reply" type="xs:long" />
+        <xs:element name="//是否解决solve" type="xs:string" />
+        <xs:element name="//回复人昵称replyname" type="xs:string" />
+        <xs:element name="//回复日期replytime" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="reply" >
+      <xs:sequence>
+        <xs:element name="//编号id" type="xs:string" />
+        <xs:element name="//问题idproblemid" type="xs:string" />
+        <xs:element name="//回答内容content" type="xs:string" />
+        <xs:element name="//创建日期createtime" type="xs:anyType" />
+        <xs:element name="//更新日期updatetime" type="xs:anyType" />
+        <xs:element name="//回答人iduserid" type="xs:string" />
+        <xs:element name="//回答人昵称nickname" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="problemdao" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<problem,string>,jpaspecificationexecutor<problem>{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="replydao" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<reply,string>,jpaspecificationexecutor<reply>{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema> 

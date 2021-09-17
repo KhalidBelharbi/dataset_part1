@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="voyageur" >
+      <xs:complexContent>
+       <xs:extension base="personne">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="hote" >
+      <xs:complexContent>
+       <xs:extension base="personne">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="delaireponse" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="appartement" >
+      <xs:complexContent>
+       <xs:extension base="logement{">
+         <xs:sequence>
+          <xs:element name="superficiebalcon" type="xs:long" />
+          <xs:element name="numeroetage" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="logement" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="hote" nillable="true" minOccurs="0" />
+        <xs:element name="tarifparnuit" type="xs:long" />
+        <xs:element name="adresse" type="xs:string" />
+        <xs:element name="superficie" type="xs:long" />
+        <xs:element name="nbvoyageursmax" type="xs:long" />
+        <xs:element name="index" type="xs:long" />
+        <xs:element name="cpt" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="maison" >
+      <xs:complexContent>
+       <xs:extension base="logement">
+         <xs:sequence>
+          <xs:element name="superficiejardin" type="xs:long" />
+          <xs:element name="possedepiscine" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sejourlong" >
+      <xs:complexContent>
+       <xs:extension base="sejour">
+         <xs:sequence>
+          <xs:element name="promotion_en_pourcentage" type="xs:long" />
+          <xs:element name="promotion" type="xs:long" />
+          <xs:element name="tarif" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sejourcourt" >
+      <xs:complexContent>
+       <xs:extension base="sejour">
+         <xs:sequence>
+          <xs:element name="tarif" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sejour" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="logement" nillable="true" minOccurs="0" />
+        <xs:element name="arrivee" type="xs:dateTime" />
+        <xs:element name="nbnuits" type="xs:long" />
+        <xs:element name="nbvoyageurs" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="reservation" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="sejour" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="voyageur" nillable="true" minOccurs="0" />
+        <xs:element name="dereservation" type="xs:dateTime" />
+        <xs:element name="estvalidee" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

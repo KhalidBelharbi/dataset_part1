@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="playerdivisioninfo" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="season" type="xs:long" />
+        <xs:element name="GeneratedName" type="player" nillable="true" minOccurs="0" />
+        <xs:element name="league" type="xs:long" />
+        <xs:element name="score" type="xs:double" />
+        <xs:element name="games" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="player" >
+      <xs:complexContent>
+       <xs:extension base="login">
+         <xs:sequence>
+          <xs:element name="" type="ladder1v1rating" nillable="true" minOccurs="0" />
+          <xs:element name="" type="globalrating" nillable="true" minOccurs="0" />
+          <xs:element name="" type="matchmakerbandetails" nillable="true" minOccurs="0" />
+          <xs:element name="" type="user" nillable="true" minOccurs="0" />
+          <xs:element name="" type="avatar" nillable="true" minOccurs="0" />
+          <xs:element name="current" type="game" nillable="true" minOccurs="0" />
+          <xs:element name="gamestate" type="playergamestate" nillable="true" minOccurs="0" />
+          <xs:element name="" type="clientconnection" nillable="true" minOccurs="0" />
+          <xs:element name="/***idofplayerswhoreportedthatthisplayerspoofedtheirdata.*/fraudreporterids" type="xs:anyType" />
+          <xs:element name="/***thefuturethatwillbecompletedassoonastheplayer'sgameentered{@linkgamestate#open}.aplayer'sgamemay*neverstartifitcrashesortheplayerdisconnects.*/gamefuture" type="game" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="/***theplayer'sforthegamehejoined,atthetimehejoined.*/withincurrentgame" type="rating" nillable="true" minOccurs="0" />
+          <xs:element name="" type="clan" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="socialrelation" >
+      <xs:sequence>
+        <xs:element name="playerid" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="player" nillable="true" minOccurs="0" />
+        <xs:element name="subjectid" type="xs:anyType" />
+        <xs:element name="status" type="socialrelationstatus" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="matchmakerbandetails" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="player" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="avatarassociation" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="selected" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="player" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="avatar" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="avatar" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="url" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="owners" type="avatarassociation" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="clanmembership" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="clan" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="player" nillable="true" minOccurs="0" />
+        <xs:element name="createtime" type="xs:anyType" />
+        <xs:element name="updatetime" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="clan" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="createtime" type="xs:anyType" />
+        <xs:element name="updatetime" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="tag" type="xs:string" />
+        <xs:element name="founder" type="player" nillable="true" minOccurs="0" />
+        <xs:element name="leader" type="player" nillable="true" minOccurs="0" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="tagcolor" type="xs:string" />
+        <xs:element name="memberships" type="clanmembership" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="coopmap" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="type" type="coopmissiontype" nillable="true" minOccurs="0" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="version" type="xs:anyType" />
+        <xs:element name="filename" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="coopleaderboardentry" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="mission" type="coopmap" nillable="true" minOccurs="0" />
+        <xs:element name="gameid" type="xs:long" />
+        <xs:element name="secondary" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:dateTime" />
+        <xs:element name="playercount" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="globalrating" >
+      <xs:complexContent>
+       <xs:extension base="rating">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:complexContent>
+       <xs:extension base="login">
+         <xs:sequence>
+          <xs:element name="" type="player" nillable="true" minOccurs="0" />
+          <xs:element name="" type="groupassociation" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="oauthclient" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="secret" type="xs:string" />
+        <xs:element name="redirecturis" type="xs:string" />
+        <xs:element name="defaultredirecturi" type="xs:string" />
+        <xs:element name="defaultscope" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="groupassociation" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="uniqueidexempt" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="player" nillable="true" minOccurs="0" />
+        <xs:element name="reason" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bandetails" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="author" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="reason" type="xs:string" />
+        <xs:element name="expiresat" type="xs:anyType" />
+        <xs:element name="scope" type="xs:anyType" />
+        <xs:element name="revoked" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="mapstats" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="timesplayed" type="xs:long" />
+        <xs:element name="draws" type="xs:long" />
+        <xs:element name="downloads" type="xs:long" />
+        <xs:element name="rating" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="mapversion" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="/***uglyasitis,thefilenameisstoredas{@codemaps/something.zip}inthedatabase.*/filename" type="xs:string" />
+        <xs:element name="ranked" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="map" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="map" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="teamkill" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="teamkiller" type="xs:long" />
+        <xs:element name="victim" type="xs:long" />
+        <xs:element name="gameid" type="xs:long" />
+        <xs:element name="gametime" type="xs:long" />
+        <xs:element name="reportedat" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="game" >
+      <xs:sequence>
+        <xs:element name="presetparticipants" type="xs:anyType" />
+        <xs:element name="options" type="xs:anyType" />
+        <xs:element name="desynccounter" type="xs:anyType" />
+        <xs:element name="reportedarmyresults" type="xs:anyType" />
+        <xs:element name="armystatistics" type="armystatistics" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="connectedplayers" type="xs:anyType" />
+        <xs:element name="playeroptions" type="xs:anyType" />
+        <xs:element name="/***setofplayeridswhoacceptedmutualdraw*/mutuallyaccepteddrawplayerids" type="xs:anyType" />
+        <xs:element name="aioptions" type="xs:anyType" />
+        <xs:element name="simmods" type="modversion" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="minrating" type="xs:anyType" />
+        <xs:element name="maxrating" type="xs:anyType" />
+        <xs:element name="to*onewhogameupwiththis.*/id" type="xs:anyType" />
+        <xs:element name="starttime" type="xs:anyType" />
+        <xs:element name="endtime" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="victorycondition" nillable="true" minOccurs="0" />
+        <xs:element name="/***foreignkeyto"featuredmod",butsincethere'snoconstraintinthedatabaseyet,hopeforthebest.*/" type="featuredmod" nillable="true" minOccurs="0" />
+        <xs:element name="host" type="player" nillable="true" minOccurs="0" />
+        <xs:element name="/***{@codenull}ifthemapisnotknownbytheserver.**@see#getmapfoldername()*/" type="mapversion" nillable="true" minOccurs="0" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="GeneratedName" type="validity" nillable="true" minOccurs="0" />
+        <xs:element name="playerstats" type="xs:anyType" />
+        <xs:element name="state" type="gamestate" nillable="true" minOccurs="0" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="/***sincesomemapsareunknownbytheserver(e.g.in-developversionsfrommapcreators),theliteralmapfoldername*(assentbythegame,e.g.{@codescmp_001})iskept.thisisalsotheonethatneedstobesenttoparticipants.*/mapfoldername" type="xs:string" />
+        <xs:element name="maxplayers" type="xs:long" />
+        <xs:element name="ratingenforced" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="gamevisibility" nillable="true" minOccurs="0" />
+        <xs:element name="mutuallyagreeddraw" type="xs:anyType" />
+        <xs:element name="/***futurethatiscompletedassoonasthegameisreadytobejoined.agamemaynevercompletethisfuture,for*instanceifthehost'sgamecrashesbeforeenteringlobbymode,soneverwaitwithoutatimeout.*/joinablefuture" type="game" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="playeridswhoreportedgameend" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="lobbymode" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="gameplayerstats" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="player" nillable="true" minOccurs="0" />
+        <xs:element name="playerid" type="xs:long" />
+        <xs:element name="ai" type="xs:anyType" />
+        <xs:element name="faction" type="xs:long" />
+        <xs:element name="color" type="xs:long" />
+        <xs:element name="team" type="xs:long" />
+        <xs:element name="startspot" type="xs:long" />
+        <xs:element name="mean" type="xs:double" />
+        <xs:element name="deviation" type="xs:double" />
+        <xs:element name="aftermean" type="xs:double" />
+        <xs:element name="afterdeviation" type="xs:double" />
+        <xs:element name="score" type="xs:anyType" />
+        <xs:element name="scoretime" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="game" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="schemaversion" >
+      <xs:sequence>
+        <xs:element name="installedrank" type="xs:anyType" />
+        <xs:element name="version" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="type" type="xs:string" />
+        <xs:element name="script" type="xs:string" />
+        <xs:element name="checksum" type="xs:anyType" />
+        <xs:element name="installedby" type="xs:string" />
+        <xs:element name="installedon" type="xs:anyType" />
+        <xs:element name="executiontime" type="xs:anyType" />
+        <xs:element name="success" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ladder1v1rating" >
+      <xs:complexContent>
+       <xs:extension base="rating">
+         <xs:sequence>
+          <xs:element name="wingames" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="division" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="league" type="xs:long" />
+        <xs:element name="threshold" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="featuredmodfile" >
+      <xs:sequence>
+        <xs:element name="fileid" type="xs:long" />
+        <xs:element name="version" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="featuredmod" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="technicalname" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="displayname" type="xs:string" />
+        <xs:element name="publish" type="xs:anyType" />
+        <xs:element name="displayorder" type="xs:long" />
+        <xs:element name="giturl" type="xs:string" />
+        <xs:element name="gitbranch" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="modversion" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="uid" type="xs:string" />
+        <xs:element name="type" type="modtype" nillable="true" minOccurs="0" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="version" type="xs:long" />
+        <xs:element name="filename" type="xs:string" />
+        <xs:element name="icon" type="xs:string" />
+        <xs:element name="ranked" type="xs:anyType" />
+        <xs:element name="hidden" type="xs:anyType" />
+        <xs:element name="createtime" type="xs:anyType" />
+        <xs:element name="updatetime" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="mod" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="mod" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="displayname" type="xs:string" />
+        <xs:element name="author" type="xs:string" />
+        <xs:element name="uploader" type="xs:long" />
+        <xs:element name="createtime" type="xs:anyType" />
+        <xs:element name="updatetime" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

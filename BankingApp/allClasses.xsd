@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="apptest" >
+      <xs:complexContent>
+       <xs:extension base="testcase">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="customerserviceimp" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="customerrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="employeeserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="employeerepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="iemployeeservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="package-info" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="icustomerservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userservice" >
+      <xs:complexContent>
+       <xs:extension base="userdetailsservice">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="securityconfiguration" >
+      <xs:complexContent>
+       <xs:extension base="">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="webmvcconfig" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="resources" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="customuserdetails" >
+      <xs:complexContent>
+       <xs:extension base="user">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="" type="user" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="securityconfiguration" >
+      <xs:complexContent>
+       <xs:extension base="websecurityconfigureradapter">
+         <xs:sequence>
+          <xs:element name="" type="userservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="package-info" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="transactions" >
+      <xs:complexContent>
+       <xs:extension base="transaction">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:complexContent>
+       <xs:extension base="auditable">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="userid" type="xs:string" />
+          <xs:element name="username" type="xs:string" />
+          <xs:element name="" type="userinfo" nillable="true" minOccurs="0" />
+          <xs:element name="email" type="xs:string" />
+          <xs:element name="password" type="xs:string" />
+          <xs:element name="roles" type="role" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="securityquestions" type="securityquestions" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="beneficiary" >
+      <xs:complexContent>
+       <xs:extension base="auditable">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:string" />
+          <xs:element name="acchldrname" type="xs:string" />
+          <xs:element name="acchldrmobnum" type="xs:string" />
+          <xs:element name="acchldrmail" type="xs:string" />
+          <xs:element name="" type="user" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="transaction" >
+      <xs:complexContent>
+       <xs:extension base="auditable">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:string" />
+          <xs:element name="frmaccount" type="xs:string" />
+          <xs:element name="toaccount" type="xs:string" />
+          <xs:element name="//todorestrictto2decimalpointsamount" type="xs:double" />
+          <xs:element name="" type="transactiontype" nillable="true" minOccurs="0" />
+          <xs:element name="" type="user" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="logindetails" >
+      <xs:complexContent>
+       <xs:extension base="auditable">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:string" />
+          <xs:element name="logintime" type="xs:anyType" />
+          <xs:element name="" type="user" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userinfo" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="fname" type="xs:string" />
+        <xs:element name="lname" type="xs:string" />
+        <xs:element name="user" type="address" nillable="true" minOccurs="0" />
+        <xs:element name="mobilenum" type="xs:string" />
+        <xs:element name="mail" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="auditable" >
+      <xs:complexContent>
+       <xs:extension base="basemodel">
+         <xs:sequence>
+          <xs:element name="createdby" type="xs:string" />
+          <xs:element name="created" type="xs:dateTime" />
+          <xs:element name="lastmodifiedby" type="xs:string" />
+          <xs:element name="lastmodified" type="xs:dateTime" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="address" >
+      <xs:complexContent>
+       <xs:extension base="auditable">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:string" />
+          <xs:element name="buildingnum" type="xs:string" />
+          <xs:element name="street" type="xs:string" />
+          <xs:element name="city" type="xs:string" />
+          <xs:element name="state" type="xs:string" />
+          <xs:element name="country" type="xs:string" />
+          <xs:element name="//todorestrictto5digitszipcode" type="xs:string" />
+          <xs:element name="" type="addresstype" nillable="true" minOccurs="0" />
+          <xs:element name="" type="user" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="schedualtransactions" >
+      <xs:complexContent>
+       <xs:extension base="transaction">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="scheduletime" type="xs:dateTime" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="securityquestions" >
+      <xs:complexContent>
+       <xs:extension base="auditable">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:string" />
+          <xs:element name="squestion" type="xs:string" />
+          <xs:element name="sanswer" type="xs:string" />
+          <xs:element name="userid" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="transactiontype" >
+      <xs:sequence>
+        <xs:element name="value" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="addresstype" >
+      <xs:sequence>
+        <xs:element name="value" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="role" >
+      <xs:sequence>
+        <xs:element name="value" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="typeenum" >
+      <xs:complexContent>
+       <xs:extension base="typeenum>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="account" >
+      <xs:complexContent>
+       <xs:extension base="auditable">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="accnumber" type="xs:string" />
+          <xs:element name="balance" type="xs:string" />
+          <xs:element name="" type="user" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="customer" >
+      <xs:complexContent>
+       <xs:extension base="auditable">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="customerid" type="xs:string" />
+          <xs:element name="" type="user" nillable="true" minOccurs="0" />
+          <xs:element name="firstname" type="xs:string" />
+          <xs:element name="lastname" type="xs:string" />
+          <xs:element name="ssn" type="xs:long" />
+          <xs:element name="mobnum" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="role" >
+      <xs:sequence>
+        <xs:element name="roleid" type="xs:string" />
+        <xs:element name="rolename" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="basemodel" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="employee" >
+      <xs:complexContent>
+       <xs:extension base="auditable">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="employeeid" type="xs:string" />
+          <xs:element name="firstname" type="xs:string" />
+          <xs:element name="lastname" type="xs:string" />
+          <xs:element name="ssn" type="xs:long" />
+          <xs:element name="mobnum" type="xs:long" />
+          <xs:element name="" type="user" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="transactionsrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<transactions,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="addressrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<address,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="logindetailsrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<logindetails,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="scheduletransactionsrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<schedualtransactions,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="securityquestionrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<securityquestions,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="beneficiaryrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<beneficiary,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userrepository" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="accountrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<account,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="employeerepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<employee,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="customerrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<customer,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema> 

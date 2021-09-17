@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="employee.hbm" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hibernate.cfg" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="company.hbm" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userdao" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="permanentemployee" >
+      <xs:complexContent>
+       <xs:extension base="employee">
+         <xs:sequence>
+          <xs:element name="salary" type="xs:double" />
+          <xs:element name="bonus" type="xs:double" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="movie" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="//@onetomany(mappedby" type="movie" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="phone" type="xs:long" />
+        <xs:element name="enabled" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="company" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="sector" type="xs:string" />
+        <xs:element name="ceoname" type="xs:string" />
+        <xs:element name="turnover" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="contractualemployee" >
+      <xs:complexContent>
+       <xs:extension base="employee">
+         <xs:sequence>
+          <xs:element name="payperhour" type="xs:double" />
+          <xs:element name="contractperiod" type="xs:double" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="person" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="//thisismappingoneojecttootherorwecandothesameoperationsinpassportonetooneforpersonpassport" type="passportdetails" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="employee" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="stockexchange" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="address" type="xs:string" />
+        <xs:element name="remarks" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="technology" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="language" type="xs:string" />
+        <xs:element name="expertise" type="xs:string" />
+        <xs:element name="developer" type="developer" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="developer" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="technology" type="technology" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="actor" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="actorname" type="xs:string" />
+        <xs:element name="//@manytoone//@joincolumn(name" type="movie" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="importcsv" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="passportdetails" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="passportnumber" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="mappingcontroller" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="companycontroler" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="employeecontroller" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usercontroller" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userdaoimpl" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user.hbm" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

@@ -1,0 +1,105 @@
+
+roadtype(type_id:Integer [PK], description:String);
+
+employmentsituation(situation_id:Integer [PK], description:String, alias:String);
+
+authority(authority_id:Integer [PK], description:String);
+
+operationtype();
+
+fee();
+
+quota(quota_id:Integer [PK], due_:Date, capital:Double, compensatory:Double, arrears:Double, postages:Double, total_fee:Double, insurance:Double, o_insurances:Double, total_pay:Double, schedule_id:Integer);
+
+payment();
+
+civilstatus(status_id:Integer [PK], description:String, alias:String);
+
+addressgrouptype(group_type_id:Integer [PK], description:String);
+
+currency(currency_id:Integer [PK], description:String, alias:String);
+
+subproduct(sub_product_id:Integer [PK], description:String, short_description:String, GeneratedName:Product #FK to(product), validity_start:Date, validity_end:Date);
+
+clientaddress(address_id:Integer [PK], GeneratedName:Client #FK to(client), GeneratedName:AddressType #FK to(addresstype), GeneratedName:HousingType #FK to(housingtype), GeneratedName:ZoneType #FK to(zonetype), zone_name:String, block:String, lot:String, GeneratedName:RoadType #FK to(roadtype), road_name:String, road_number:String, grouptype:AddressGroupType #FK to(addressgrouptype), group_name:String, group_number:String, GeneratedName:SectorType #FK to(sectortype), sector_name:String, reference:String, GeneratedName:Ubigeo #FK to(ubigeo));
+
+product(product_id:Integer [PK], description:String, short_description:String, GeneratedName:ProductType #FK to(producttype), principal:Currency #FK to(currency), secundary:Currency #FK to(currency), validity_start:Date, validity_end:Date);
+
+product_plan(product_id:Product [PK] #FK to Product,plan_id:set<plan> [PK] #FK to set<plan>);
+
+filetype();
+
+documenttype(type_id:Integer [PK], description:String, short_description:String);
+
+client(client_id:Integer [PK], GeneratedName:PersonType #FK to(persontype), GeneratedName:DocumentType #FK to(documenttype), document_number:String, GeneratedName:Magnitude #FK to(magnitude), taxpayer_id_number:String, GeneratedName:EconomicActivity #FK to(economicactivity), business_name:String, firstname:String, secondname:String, lastname_a:String, lastname_b:String, married_surname:String, GeneratedName:Gender #FK to(gender), birth:Date, nationality:Country #FK to(country), residence_:Country #FK to(country), GeneratedName:CivilStatus #FK to(civilstatus), GeneratedName:EmploymentSituation #FK to(employmentsituation), data_protection_act:Integer);
+
+gender(gender_id:Integer [PK], description:String, alias:String);
+
+plan(plan_id:Integer [PK], description:String);
+
+user(user_id:Integer [PK], username:String, password:String, enabled:Integer, enabled_commentary:String, user_expired_:Date, credentials_expired_:Date, end_lock_:Date, email:String, email_confirmed:Integer, firstname:String, lastname:String, days_enabled:Integer, failed_attempts:Integer, user_image:byte);
+
+user_role(user_id:User [PK] #FK to User,role_id:set<role> [PK] #FK to set<role>);
+
+usertrail(user_trail_id:Integer [PK], user_id:String, d:Date, changes:String, trigger_username:String);
+
+housingtype(type_id:Integer [PK], description:String);
+
+paymenttemp();
+
+zonetype(type_id:Integer [PK], description:String);
+
+option(option_id:Integer [PK], parent_id:Integer, description:String, alias:String, url:String, sequence:Integer, icon:String, parameter:String, visible:Integer, GeneratedName:OptionType #FK to(optiontype));
+
+role_option(option_id:Option [PK] #FK to Option,role_id:set<role> [PK] #FK to set<role>);
+
+sectortype(type_id:Integer [PK], description:String);
+
+ubigeo(ubigeo_id:Integer [PK], ubigeo_code:String, department:String, province:String, district:String, full_description:String);
+
+clientcontactinformation(contact_information_id:Integer [PK], GeneratedName:Client #FK to(client), email:String, home_phone:String, cellphone:String);
+
+magnitude(magnitude_id:Integer [PK], description:String, alias:String);
+
+accountstatus(account_status_id:Integer [PK], operation_:Date, description:String, office:String, canal:String, operation:String, pay:Double, itf:Double, accountant:Double, _id:Account #FK to(account));
+
+optiontype(type_id:Integer [PK], description:String, alias:String);
+
+persontype(type_id:Integer [PK], description:String, alias:String);
+
+producttype(type_id:Integer [PK], description:String, alias:String);
+
+spending();
+
+account(account_id:Integer [PK], aaccount:String, //@column(name:Product #FK to(product), //@column(name:SubProduct #FK to(subproduct), disbur_:Date, amount_requested:Double, payment_priority:String, number_quotas:Integer, payday:Integer, total_length:String, interest_rate_mora:Integer, an_effe_compe_inte_rate:Integer, comm_for_oper_expen:Integer, insurance:String, total_debt:Double, outstanding_fees:Integer, tota_inte_mora:Integer, tota_compe_inte:Integer, tota_insu:Integer, _id:Client #FK to(client), person_type_id:PersonType #FK to(persontype), amount_disbursed:Double, amount:Double, //@column(name:Currency #FK to(currency));
+
+schedule(schedule_id:Integer [PK], schedule_number:Integer, GeneratedName:Account #FK to(account), registration_:Date);
+
+spendinggrouptype();
+
+warrantytype(warranty_type_id:Integer [PK], ddescription:String);
+
+addresstype(type_id:Integer [PK], description:String);
+
+movementtype();
+
+movement();
+
+country(country_id:Integer [PK], country_code:String, description:String);
+
+warranty(warranty_id:Integer [PK], //@notempty//@column(name:WarrantyType #FK to(warrantytype), //@notempty//@column(name:AssestType #FK to(assesttype), ddescription:String, aaddress:String, public_record_number:String, amount_assessed:String, _id:Client #FK to(client));
+
+feestatus();
+
+economicactivity(activity_id:Integer [PK], description:String);
+
+role(role_id:Integer [PK], description:String, alias:String);
+
+role_authority(role_id:Role [PK] #FK to Role,authority_id:set<authority> [PK] #FK to set<authority>);role_option(role_id:Role [PK] #FK to Role,option_id:set<option> [PK] #FK to set<option>);
+
+assesttype(assest_type_id:Integer [PK], ddescription:String);
+
+spendingtype();
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

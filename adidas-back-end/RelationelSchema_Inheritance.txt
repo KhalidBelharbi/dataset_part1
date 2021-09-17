@@ -1,0 +1,39 @@
+
+size(id:Long [PK], value:String, GeneratedName:Gender, createdat:Date, updat:Date);
+
+review(id:Long [PK], title:String, review:String, isrecommended:Boolean, GeneratedName:User #FK to(user), createdat:Date, updat:Date);
+
+detail(id:Long [PK], value:String, createdat:Date, updat:Date);
+
+file(id:Long [PK], name:String, filepath:String, fileurl:String, filesize:Long, filetype:String, createdat:Date, updat:Date);
+
+rgb(id:Long [PK], r:Double, g:Double, b:Double, createdat:Date, updat:Date);
+
+role(id:Long [PK], role:String, createdat:Date, updat:Date);
+
+product(id:Long [PK], name:String, code:String, price:Double, quantity:Integer, description:String, isnew:Boolean, gender:String, production:Date, createdat:Date, updat:Date);
+
+product_list<color>(productID:product [PK] #FK to product,list<color>ID:list<color> [PK] #FK to list<color>);product_Size(productID:product [PK] #FK to product,SizeID:Size [PK] #FK to Size);product_list<category>(productID:product [PK] #FK to product,list<category>ID:list<category> [PK] #FK to list<category>);
+
+contact(id:Long [PK], type:String, value:String, createdat:Date, updat:Date);
+
+address(id:Long [PK], country:String, city:String, provaince:String, avenue:String, building:String, house:String, createdat:Date, updat:Date);
+
+order(id:Long [PK], GeneratedName:User #FK to(user), createdat:Date, updat:Date);
+
+order_list<product>(orderID:order [PK] #FK to order,list<product>ID:list<product> [PK] #FK to list<product>);
+
+category(id:Long [PK], name:String, createdat:Date, updat:Date);
+
+color(id:Long [PK], name:String, hex:String, GeneratedName:HSL #FK to(hsl), GeneratedName:RGB #FK to(rgb), createdat:Date, updat:Date);
+
+rating(id:Long [PK], value:String, createdat:Date, updat:Date);
+
+user(id:Long [PK], firstname:String, lastname:String, email:String, password:String, createdat:Date, updat:Date);
+
+user_list<role>(userID:user [PK] #FK to user,list<role>ID:list<role> [PK] #FK to list<role>);
+
+hsl(id:Long [PK], h:Double, l:Double, s:Double, createdat:Date, updat:Date);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

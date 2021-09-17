@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="tokenuse" >
+      <xs:sequence>
+        <xs:element name="//过期时间24小时overdeutime" type="xs:long" />
+        <xs:element name="//私钥uuid生成，确定唯一性tokensecret" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="result" >
+      <xs:sequence>
+        <xs:element name="success" type="xs:anyType" />
+        <xs:element name="code" type="xs:anyType" />
+        <xs:element name="message" type="xs:string" />
+        <xs:element name="data" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="resultlist" >
+      <xs:sequence>
+        <xs:element name="success" type="xs:anyType" />
+        <xs:element name="code" type="xs:anyType" />
+        <xs:element name="message" type="xs:string" />
+        <xs:element name="data" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bookcategoryparam" >
+      <xs:sequence>
+        <xs:element name="isbn" type="xs:string" />
+        <xs:element name="type" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bookorder" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="bookid" type="xs:anyType" />
+        <xs:element name="orderid" type="xs:anyType" />
+        <xs:element name="booknum" type="xs:anyType" />
+        <xs:element name="note" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bookcategory" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="bookid" type="xs:anyType" />
+        <xs:element name="categoryid" type="xs:anyType" />
+        <xs:element name="note" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="book" >
+      <xs:sequence>
+        <xs:element name="//属性与表中字段名一致id" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="author" type="xs:string" />
+        <xs:element name="price" type="xs:double" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="isbn" type="xs:string" />
+        <xs:element name="time" type="xs:dateTime" />
+        <xs:element name="press" type="xs:string" />
+        <xs:element name="note" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="phone" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="pwd" type="xs:string" />
+        <xs:element name="wallet" type="xs:double" />
+        <xs:element name="manager" type="xs:long" />
+        <xs:element name="note" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="booklist" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="userid" type="xs:anyType" />
+        <xs:element name="note" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="indent" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="userid" type="xs:anyType" />
+        <xs:element name="time" type="xs:dateTime" />
+        <xs:element name="price" type="xs:double" />
+        <xs:element name="note" type="xs:string" />
+        <xs:element name="delivertime" type="xs:dateTime" />
+        <xs:element name="acquiretime" type="xs:dateTime" />
+        <xs:element name="deliverpos" type="xs:string" />
+        <xs:element name="acquirepos" type="xs:string" />
+        <xs:element name="curpos" type="xs:string" />
+        <xs:element name="delivermethod" type="xs:string" />
+        <xs:element name="state" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cart" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="userid" type="xs:anyType" />
+        <xs:element name="bookid" type="xs:anyType" />
+        <xs:element name="note" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="notices" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="notice" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="discussion" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="userid" type="xs:anyType" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="content" type="xs:string" />
+        <xs:element name="date" type="xs:anyType" />
+        <xs:element name="note" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="categoryparam" >
+      <xs:sequence>
+        <xs:element name="type" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="category" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="note" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bookbooklist" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="bookid" type="xs:anyType" />
+        <xs:element name="booklistid" type="xs:anyType" />
+        <xs:element name="note" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bookstoreapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="booklistcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="booklistmapper" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="indentcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="indentmapper" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="categorycontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="categorymapper" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="bookcategorymapper" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="bookmapper" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cartcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="cartmapper" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="noticescontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="noticesmapper" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bookbooklistcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="bookbooklistmapper" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bookcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="bookmapper" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="osscontroller" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bookcategorycontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="bookcategorymapper" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="categorymapper" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="bookmapper" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usercontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="usermapper" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="discussioncontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="discussionmapper" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="osscontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="ossservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bookordercontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="bookordermapper" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="crosconfig" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="swagger2config" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ossconfiguration" >
+      <xs:sequence>
+        <xs:element name="volatileclient" type="xs:anyType" />
+        <xs:element name="volatile" type="xs:anyType" />
+        <xs:element name="endpoint" type="xs:string" />
+        <xs:element name="accesskeyid" type="xs:string" />
+        <xs:element name="accesskeysecret" type="xs:string" />
+        <xs:element name="bucketname" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bookordermapper" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<bookorder,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="usermapper" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<user,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="booklistmapper" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<booklist,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="discussionmapper" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<discussion,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="bookcategorymapper" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<bookcategory,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="bookmapper" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<book,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="cartmapper" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<cart,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="categorymapper" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<category,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="noticesmapper" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<notices,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="bookbooklistmapper" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<bookbooklist,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="indentmapper" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<indent,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ossservice" >
+      <xs:sequence>
+        <xs:element name="log" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="ossconfiguration" nillable="true" minOccurs="0" />
+        <xs:element name="client" type="xs:anyType" />
+        <xs:element name="endpoint" type="xs:string" />
+        <xs:element name="accesskeyid" type="xs:string" />
+        <xs:element name="accesskeysecret" type="xs:string" />
+        <xs:element name="oss_bookstore_url" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="websecurityconfig" >
+      <xs:complexContent>
+       <xs:extension base="webmvcconfigureradapter">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sessioninterceptor" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="resultcode" >
+      <xs:sequence>
+        <xs:element name="success" type="xs:anyType" />
+        <xs:element name="code" type="xs:anyType" />
+        <xs:element name="message" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bookcontrollertest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="bookcontroller" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bookstoreapplicationtests" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

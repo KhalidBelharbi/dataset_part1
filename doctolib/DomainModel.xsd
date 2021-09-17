@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="langue_professionnel" >
+      <xs:sequence>
+        <xs:element name="id_langue" type="xs:long" />
+        <xs:element name="id_professionnel" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="tel" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="active" type="xs:anyType" />
+        <xs:element name="roles" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="patient" >
+      <xs:complexContent>
+       <xs:extension base="user{">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="specialite" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="description" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="langue" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="description" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="formation" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="titre" type="xs:string" />
+        <xs:element name="annee" type="xs:long" />
+        <xs:element name="idprofessionnel" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="experiance" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="idprofessionnel" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="contact" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="nom" type="xs:string" />
+        <xs:element name="prenom" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="tel" type="xs:string" />
+        <xs:element name="message" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="professionnel" >
+      <xs:complexContent>
+       <xs:extension base="user">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="idspecialite" type="xs:long" />
+          <xs:element name="isvisible" type="xs:anyType" />
+          <xs:element name="adresse" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema> 

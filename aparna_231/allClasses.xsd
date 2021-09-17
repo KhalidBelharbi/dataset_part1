@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="studentrestcontroller" >
+      <xs:sequence>
+        <xs:element name="//dependencyproductservice" type="iproductservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="productcontroller" >
+      <xs:sequence>
+        <xs:element name="//dependency/*	istudentdaostudentdao*/productservice" type="iproductservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="homecontroller" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="iproductservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="productserviceimpl" >
+      <xs:sequence>
+        <xs:element name="//@qualifier("studentdaojdbctemplateimpl")productdao" type="istudentdao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="istudentdao" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="studentdaohibernateimpl" >
+      <xs:sequence>
+        <xs:element name="//dependency" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="studentdaojdbctemplateimpl" >
+      <xs:sequence>
+        <xs:element name="//hasthedependencyondatasource//worksonrawsqlqueries(templated)" type="xs:anyType" />
+        <xs:element name="//sqltemplatessql_fetch_all" type="xs:string" />
+        <xs:element name="sql_fetch_by_id" type="xs:string" />
+        <xs:element name="sql_insert" type="xs:string" />
+        <xs:element name="sql_update" type="xs:string" />
+        <xs:element name="sql_delete" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="servletconfig" >
+      <xs:sequence>
+        <xs:element name="/*@value("${jdbc.driver}")	stringjdbcdriver		@value("${jdbc.url}")	stringjdbcurl		@value("${jdbc.user}")	stringusername		@value("${jdbc.password}")	stringpassword	*///everyspringcomponentclassisautoinjectedwithenviromentobject//itcanreadkeysfrompropertiesfileanddeliveritsvaluesenv" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="webxmlalternate" >
+      <xs:complexContent>
+       <xs:extension base="abstractannotationconfigdispatcherservletinitializer">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="studentnotfoundexception" >
+      <xs:complexContent>
+       <xs:extension base="runtimeexception{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="studenterrorresponse" >
+      <xs:sequence>
+        <xs:element name="message" type="xs:string" />
+        <xs:element name="errorcode" type="xs:anyType" />
+        <xs:element name="timestamp" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="globalhandler" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="product" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="category" type="xs:string" />
+        <xs:element name="cost" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="main-menu" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="student-update" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="student-list" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="student-entry" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

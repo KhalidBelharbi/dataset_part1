@@ -1,0 +1,1221 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="blueprint" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="package" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="spatialrelation" >
+      <xs:sequence>
+        <xs:element name="/***thegeometriesarespatiallyequaltoeachother.*/equals" type="xs:long" />
+        <xs:element name="/***thegeometriesarespatiallydijo*/disjo" type="xs:long" />
+        <xs:element name="/***thegeometriestouch*/touches" type="xs:long" />
+        <xs:element name="/***thegeometriescross*/crosses" type="xs:long" />
+        <xs:element name="/***thefirstgeometryisspatiallywithinthesecond*/within" type="xs:long" />
+        <xs:element name="/***thegeometriesspatiallyoverlap*/overlaps" type="xs:long" />
+        <xs:element name="/***thefirstgeometryspatiallycontainsthesecond*/contains" type="xs:long" />
+        <xs:element name="/***thefirstgeometryersectsthesecond*/ersects" type="xs:long" />
+        <xs:element name="*/filter" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="package" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="mysql5spatialdialect" >
+      <xs:complexContent>
+       <xs:extension base="mysql5dialect">
+         <xs:sequence>
+          <xs:element name="dialectdelegate" type="mysqlspatialdialect" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="mysql5innodbspatialdialect" >
+      <xs:complexContent>
+       <xs:extension base="mysql5spatialdialect">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="mysqlspatialdialect" >
+      <xs:complexContent>
+       <xs:extension base="mysqldialect">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="mysql56spatialdialect" >
+      <xs:complexContent>
+       <xs:extension base="the">
+         <xs:sequence>
+          <xs:element name="dialectdelegate" type="mysqlspatialdialect" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="mysql8spatialdialect" >
+      <xs:complexContent>
+       <xs:extension base="mysql8dialect">
+         <xs:sequence>
+          <xs:element name="dialectdelegate" type="mysqlspatialdialect" nillable="true" minOccurs="0" />
+          <xs:element name="spatialfunctions" type="mysql8spatialfunctions" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="mysql8spatialfunctions" >
+      <xs:complexContent>
+       <xs:extension base="spatialfunctionsregistry">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="package" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="mysqlgeometrytypedescriptor" >
+      <xs:sequence>
+        <xs:element name="/***aninstanceofthisdescriptor*/instance" type="mysqlgeometrytypedescriptor" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="mysql56innodbspatialdialect" >
+      <xs:complexContent>
+       <xs:extension base="mysql56spatialdialect">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="mysql5spatialfunctions" >
+      <xs:complexContent>
+       <xs:extension base="spatialfunctionsregistry">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="hanaspatialdialect" >
+      <xs:complexContent>
+       <xs:extension base="hanacolumnstoredialect">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="determine_crs_id_from_database_parameter_name" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="hanaspatialutils" >
+      <xs:sequence>
+        <xs:element name="postgis_srid_flag" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hanaspatialfunction" >
+      <xs:complexContent>
+       <xs:extension base="standardsqlfunction">
+         <xs:sequence>
+          <xs:element name="as_ewkb_suffix" type="xs:string" />
+          <xs:element name="argumentisgeometrytypemask" type="xs:anyType" />
+          <xs:element name="function" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="hanaspatialaggregate" >
+      <xs:complexContent>
+       <xs:extension base="standardsqlfunction">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="hanageometrytypedescriptor" >
+      <xs:sequence>
+        <xs:element name="crs_loading_instance" type="hanageometrytypedescriptor" nillable="true" minOccurs="0" />
+        <xs:element name="instance" type="hanageometrytypedescriptor" nillable="true" minOccurs="0" />
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="determinecrsidfromdatabase" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hanaspatialfunctions" >
+      <xs:sequence>
+        <xs:element name="functionname" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hanapointtypedescriptor" >
+      <xs:sequence>
+        <xs:element name="/***aninstanceofthedescrtiptor*/instance" type="hanapointtypedescriptor" nillable="true" minOccurs="0" />
+        <xs:element name="serialversionuid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="oraclespatial10gdialect" >
+      <xs:complexContent>
+       <xs:extension base="oracle10gdialect">
+         <xs:sequence>
+          <xs:element name="log" type="hsmessagelogger" nillable="true" minOccurs="0" />
+          <xs:element name="transientsdosupport" type="oraclesdosupport" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sdoobjectmethod" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="getgeometrytypefunction" >
+      <xs:complexContent>
+       <xs:extension base="sdoobjectmethod">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="oraclespatialsdo10gdialect" >
+      <xs:complexContent>
+       <xs:extension base="oracle10gdialect">
+         <xs:sequence>
+          <xs:element name="log" type="hsmessagelogger" nillable="true" minOccurs="0" />
+          <xs:element name="transientsdosupport" type="oraclesdosupport" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sdogeometryvalueextractor" >
+      <xs:complexContent>
+       <xs:extension base="basicextractor<x>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="oraclespatialfunctions" >
+      <xs:complexContent>
+       <xs:extension base="spatialfunctionsregistry">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="oraclespatialprojection" >
+      <xs:complexContent>
+       <xs:extension base="simpleprojection">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="propertyname" type="xs:string" />
+          <xs:element name="aggregate" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="relationshipmask" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="oraclespatialaggregate" >
+      <xs:complexContent>
+       <xs:extension base="spatialaggregate">
+         <xs:sequence>
+          <xs:element name="/***lrs_concataggregatefunction*/lrs_concat" type="xs:long" />
+          <xs:element name="/***centroidaggregatefunction*/centroid" type="xs:long" />
+          <xs:element name="/***concat_linesaggregatefunction*/concat_lines" type="xs:long" />
+          <xs:element name="/***unionaggregatefunction*/union" type="xs:long" />
+          <xs:element name="/***convexhullaggregatefunction*/convexhull" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="oraclespatialprojections" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="oraclespatialrestrictions" >
+      <xs:sequence>
+        <xs:element name="propertyname" type="xs:string" />
+        <xs:element name="value" type="xs:anyType" />
+        <xs:element name="param" type="sdoparametermap" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sdoparametermap" >
+      <xs:sequence>
+        <xs:element name="/***thedistanceparameter*/distance" type="xs:string" />
+        <xs:element name="/***thesdo_batch_sizeparameter*/sdo_batch_size" type="xs:string" />
+        <xs:element name="/***thesdo_num_resparameter*/sdo_num_res" type="xs:string" />
+        <xs:element name="/***theunitparameter*/unit" type="xs:string" />
+        <xs:element name="/***themin_resolutionparameter*/min_resolution" type="xs:string" />
+        <xs:element name="/***themax_resolutionparameter*/max_resolution" type="xs:string" />
+        <xs:element name="/***themaskparameter*/mask" type="xs:string" />
+        <xs:element name="/***thequerytypeparameter*/querytype" type="xs:string" />
+        <xs:element name="params" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="package" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="getdimensionfunction" >
+      <xs:complexContent>
+       <xs:extension base="sdoobjectmethod">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sdogeometrytypedescriptor" >
+      <xs:sequence>
+        <xs:element name="typefactory" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="oraclesdosupport" >
+      <xs:sequence>
+        <xs:element name="log" type="hsmessagelogger" nillable="true" minOccurs="0" />
+        <xs:element name="isogcstrict" type="xs:anyType" />
+        <xs:element name="sdofunctions" type="spatialfunctionsregistry" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="wrappedogcfunction" >
+      <xs:complexContent>
+       <xs:extension base="standardsqlfunction">
+         <xs:sequence>
+          <xs:element name="geomarrays" type="xs:anyType" />
+          <xs:element name="isgeometrytyped" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sdobooleantype" >
+      <xs:complexContent>
+       <xs:extension base="booleantype">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sdoobjectproperty" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="package" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="spatialaggregate" >
+      <xs:sequence>
+        <xs:element name="sdo_aggr" type="xs:string" />
+        <xs:element name="aggregatetype" type="xs:anyType" />
+        <xs:element name="aggregatesyntax" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sdogeometryvaluebinder" >
+      <xs:sequence>
+        <xs:element name="sql_type_name" type="xs:string" />
+        <xs:element name="typefactory" type="xs:anyType" />
+        <xs:element name="javatypedescriptor" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="package" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="geodbgeometrytypedescriptor" >
+      <xs:sequence>
+        <xs:element name="/***aninstanceofthisdescriptor*/instance" type="geodbgeometrytypedescriptor" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="geodbwkb" >
+      <xs:sequence>
+        <xs:element name="logger" type="hsmessagelogger" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="geodbdialect" >
+      <xs:complexContent>
+       <xs:extension base="the">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="spatialfunctionsregistry" >
+      <xs:sequence>
+        <xs:element name="functionmap" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="postgisdialect" >
+      <xs:complexContent>
+       <xs:extension base="the">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="postgisnosqlmm" >
+      <xs:complexContent>
+       <xs:extension base="postgisdialect">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="postgispg9dialect" >
+      <xs:complexContent>
+       <xs:extension base="the">
+         <xs:sequence>
+          <xs:element name="transientsupport" type="postgissupport" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="postgissupport" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="postgisfunctions" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="postgispg94dialect" >
+      <xs:complexContent>
+       <xs:extension base="the">
+         <xs:sequence>
+          <xs:element name="transientsupport" type="postgissupport" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="postgispg92dialect" >
+      <xs:complexContent>
+       <xs:extension base="the">
+         <xs:sequence>
+          <xs:element name="transientsupport" type="postgissupport" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="postgispg82dialect" >
+      <xs:complexContent>
+       <xs:extension base="the">
+         <xs:sequence>
+          <xs:element name="transientsupport" type="postgissupport" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="pggeometrytypedescriptor" >
+      <xs:sequence>
+        <xs:element name="/***aninstanceofthisclass*/instance" type="pggeometrytypedescriptor" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="postgispg93dialect" >
+      <xs:complexContent>
+       <xs:extension base="the">
+         <xs:sequence>
+          <xs:element name="transientsupport" type="postgissupport" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="postgispg91dialect" >
+      <xs:complexContent>
+       <xs:extension base="the">
+         <xs:sequence>
+          <xs:element name="transientsupport" type="postgissupport" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="postgisfunctions" >
+      <xs:complexContent>
+       <xs:extension base="spatialfunctionsregistry">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="postgispg95dialect" >
+      <xs:complexContent>
+       <xs:extension base="the">
+         <xs:sequence>
+          <xs:element name="transientsupport" type="postgissupport" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="db2geometrytypedescriptor" >
+      <xs:sequence>
+        <xs:element name="srid" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="db2spatialdialect" >
+      <xs:complexContent>
+       <xs:extension base="db2dialect">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="spatialrelationnames" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sqlserver2008geometrytypedescriptor" >
+      <xs:sequence>
+        <xs:element name="/***aninstanceofthedescrtiptor*/instance" type="sqlserver2008geometrytypedescriptor" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sqlserversupport" >
+      <xs:complexContent>
+       <xs:extension base="map.entry<string,">
+         <xs:sequence>
+          <xs:element name="functions" type="sqlserverfunctions" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="package" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sqlservermethod" >
+      <xs:complexContent>
+       <xs:extension base="standardsqlfunction">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sqlserverfunctions" >
+      <xs:complexContent>
+       <xs:extension base="spatialfunctionsregistry">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sqlserver2012spatialdialect" >
+      <xs:complexContent>
+       <xs:extension base="sqlserver2012dialect">
+         <xs:sequence>
+          <xs:element name="support" type="sqlserversupport" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sqlserver2008spatialdialect" >
+      <xs:complexContent>
+       <xs:extension base="sqlserver2008dialect">
+         <xs:sequence>
+          <xs:element name="support" type="sqlserversupport" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="spatialfilter" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="propertyname" type="xs:string" />
+        <xs:element name="filter" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="spatialprojections" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="spatialrestrictions" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="expressionutil" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="package" >
+      <xs:complexContent>
+       <xs:extension base="the">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="isemptyexpression" >
+      <xs:sequence>
+        <xs:element name="no_values" type="xs:anyType" />
+        <xs:element name="propertyname" type="xs:string" />
+        <xs:element name="isempty" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="spatialrelateexpression" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="/***thegeometryproperty*/propertyname" type="xs:string" />
+        <xs:element name="/***thetest*/value" type="xs:anyType" />
+        <xs:element name="/***thespatialrelationthatisqueriedfor.*/spatialrelation" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dwithinexpression" >
+      <xs:sequence>
+        <xs:element name="propertyname" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="distance" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="havingsridexpression" >
+      <xs:sequence>
+        <xs:element name="propertyname" type="xs:string" />
+        <xs:element name="srid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="spatialdialect" >
+      <xs:complexContent>
+       <xs:extension base="serializable">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="spatialinitializer" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="spatialservice" >
+      <xs:sequence>
+        <xs:element name="/***thenameoftheconfigurationsettingusedtocontrolwhetherthespatialintegration*isenabled.defaultistrue*/integration_enabled" type="xs:string" />
+        <xs:element name="log" type="hsmessagelogger" nillable="true" minOccurs="0" />
+        <xs:element name="integrationenabled" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="package" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="spatialanalysis" >
+      <xs:sequence>
+        <xs:element name="/***thedistancefunction*/distance" type="xs:long" />
+        <xs:element name="/***thebufferfunction*/buffer" type="xs:long" />
+        <xs:element name="/***theconvexhullfunction*/convexhull" type="xs:long" />
+        <xs:element name="/***theersectionfunction*/ersection" type="xs:long" />
+        <xs:element name="/***theunionfunction*/union" type="xs:long" />
+        <xs:element name="/***thedifferencefunction*/difference" type="xs:long" />
+        <xs:element name="/***thesymmetricdifferencefunction*/symdifference" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="spatialaggregate" >
+      <xs:sequence>
+        <xs:element name="/***enumvalueforextentaggregation.*/extent" type="xs:long" />
+        <xs:element name="/***enumvalueforunionaggregate(onlysupportedindb2)*/union" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jtsgeometrytype" >
+      <xs:complexContent>
+       <xs:extension base="abstractsinglecolumnstandardbasictype<geometry>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="geolattegeometrytype" >
+      <xs:complexContent>
+       <xs:extension base="abstractsinglecolumnstandardbasictype<geometry>">
+         <xs:sequence>
+          <xs:element name="reg_keys" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="spatial" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="geolattegeometryjavatypedescriptor" >
+      <xs:complexContent>
+       <xs:extension base="abstracttypedescriptor<geometry>">
+         <xs:sequence>
+          <xs:element name="/***aninstanceofthisdescriptor*/instance" type="geolattegeometryjavatypedescriptor" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="hsmessagelogger" >
+      <xs:complexContent>
+       <xs:extension base="basiclogger">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jtsgeometryjavatypedescriptor" >
+      <xs:complexContent>
+       <xs:extension base="abstracttypedescriptor<geometry>">
+         <xs:sequence>
+          <xs:element name="/***aninstanceofthisdescriptor*/instance" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="envelopeadapter" >
+      <xs:sequence>
+        <xs:element name="geomfactory" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="package" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="spatialfunction" >
+      <xs:sequence>
+        <xs:element name="description" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hibernatespatialconfigurationsettings" >
+      <xs:sequence>
+        <xs:element name="/***thecanonicalclassnameoftheoracleconnectionfinderimplementationthatwillbeusedbythe*oraclespatialdialects*/connection_finder" type="xs:string" />
+        <xs:element name="/***sridtouseforthedb2spatialdialects.*/db2_default_srid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jtsgeomentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="type" type="xs:string" />
+        <xs:element name="geom" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="teststoreretrieveusingjts" >
+      <xs:complexContent>
+       <xs:extension base="abstractteststoreretrieve<geometry,">
+         <xs:sequence>
+          <xs:element name="log" type="hsmessagelogger" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="geomentitylike" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="decodeutil" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="testspatialfunctions" >
+      <xs:complexContent>
+       <xs:extension base="spatialfunctionaltestcase">
+         <xs:sequence>
+          <xs:element name="log" type="hsmessagelogger" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="abstractteststoreretrieve" >
+      <xs:complexContent>
+       <xs:extension base="geomentitylike<g>>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="testspatialrestrictions" >
+      <xs:complexContent>
+       <xs:extension base="spatialfunctionaltestcase">
+         <xs:sequence>
+          <xs:element name="log" type="hsmessagelogger" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="geomentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="type" type="xs:string" />
+        <xs:element name="geom" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="teststoreretrieveusinggeolatte" >
+      <xs:complexContent>
+       <xs:extension base="abstractteststoreretrieve<geometry,">
+         <xs:sequence>
+          <xs:element name="log" type="hsmessagelogger" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="postgistest" >
+      <xs:complexContent>
+       <xs:extension base="basecorefunctionaltestcase">
+         <xs:sequence>
+          <xs:element name="crs" type="xs:anyType" />
+          <xs:element name="window" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="wktutility" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="testsupportfactories" >
+      <xs:complexContent>
+       <xs:extension base="testsupport>">
+         <xs:sequence>
+          <xs:element name="instance" type="testsupportfactories" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="testdata" >
+      <xs:complexContent>
+       <xs:extension base="testdataelement>">
+         <xs:sequence>
+          <xs:element name="testdataelements" type="testdataelement" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="nativesqlstatement" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="geometryequality" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="geolattegeometryequality" >
+      <xs:complexContent>
+       <xs:extension base="position>">
+         <xs:sequence>
+          <xs:element name="delegate" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="abstractexpectationsfactory" >
+      <xs:sequence>
+        <xs:element name="test_polygon_wkt" type="xs:string" />
+        <xs:element name="test_point_wkt" type="xs:string" />
+        <xs:element name="eger" type="xs:long" />
+        <xs:element name="double" type="xs:long" />
+        <xs:element name="geometry" type="xs:long" />
+        <xs:element name="string" type="xs:long" />
+        <xs:element name="boolean" type="xs:long" />
+        <xs:element name="object" type="xs:long" />
+        <xs:element name="log" type="hsmessagelogger" nillable="true" minOccurs="0" />
+        <xs:element name="test_srid" type="xs:long" />
+        <xs:element name="max_byte_len" type="xs:long" />
+        <xs:element name="GeneratedName" type="datasourceutils" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jtsgeometryequality" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="myentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="geometryconvertertest" >
+      <xs:complexContent>
+       <xs:extension base="baseunittestcase">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="package-info" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="geometryconverter" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sdogeometryexpressiontemplate" >
+      <xs:sequence>
+        <xs:element name="sql_template" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sdotestdatareader" >
+      <xs:complexContent>
+       <xs:extension base="testdatareader">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="oraclesdotestsupport" >
+      <xs:complexContent>
+       <xs:extension base="testsupport">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sdodatasourceutils" >
+      <xs:complexContent>
+       <xs:extension base="datasourceutils">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sdotestdataelement" >
+      <xs:complexContent>
+       <xs:extension base="testdataelement">
+         <xs:sequence>
+          <xs:element name="sdo" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sdogeometryexpectationsfactory" >
+      <xs:complexContent>
+       <xs:extension base="abstractexpectationsfactory">
+         <xs:sequence>
+          <xs:element name="decoder" type="sdogeometryvalueextractor" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="geodbgeometryequality" >
+      <xs:complexContent>
+       <xs:extension base="the">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="geodbexpressiontemplate" >
+      <xs:sequence>
+        <xs:element name="sql_template" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="geodbexpectationsfactory" >
+      <xs:complexContent>
+       <xs:extension base="abstractexpectationsfactory">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="geodbnosridexpectationsfactory" >
+      <xs:complexContent>
+       <xs:extension base="abstractexpectationsfactory">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="geodbtestsupport" >
+      <xs:complexContent>
+       <xs:extension base="testsupport">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="geodbdatasourceutils" >
+      <xs:complexContent>
+       <xs:extension base="datasourceutils">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="mysql8expressiontemplate" >
+      <xs:complexContent>
+       <xs:extension base="mysqlexpressiontemplate">
+         <xs:sequence>
+          <xs:element name="sql_template" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="mysql56expectationsfactory" >
+      <xs:complexContent>
+       <xs:extension base="mysqlexpectationsfactory">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="mysqlgeometryequality" >
+      <xs:complexContent>
+       <xs:extension base="the">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="mysqlexpectationsfactory" >
+      <xs:complexContent>
+       <xs:extension base="abstractexpectationsfactory">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="mysqlexpressiontemplate" >
+      <xs:sequence>
+        <xs:element name="sql_template" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="mysqltestsupport" >
+      <xs:complexContent>
+       <xs:extension base="testsupport">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="mysql8expectationsfactory" >
+      <xs:complexContent>
+       <xs:extension base="abstractexpectationsfactory">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="mysql8testsupport" >
+      <xs:complexContent>
+       <xs:extension base="mysqltestsupport">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="mysql56testsupport" >
+      <xs:complexContent>
+       <xs:extension base="mysqltestsupport">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="hanaexpressiontemplate" >
+      <xs:sequence>
+        <xs:element name="sql_template" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hanaexpectationsfactory" >
+      <xs:complexContent>
+       <xs:extension base="abstractexpectationsfactory">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="hanatestsupport" >
+      <xs:complexContent>
+       <xs:extension base="testsupport">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sqlserverexpectationsfactory" >
+      <xs:complexContent>
+       <xs:extension base="abstractexpectationsfactory">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sqlservertestsupport" >
+      <xs:complexContent>
+       <xs:extension base="testsupport">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sqlserverexpressiontemplate" >
+      <xs:sequence>
+        <xs:element name="sql_template" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="db2datasourceutils" >
+      <xs:complexContent>
+       <xs:extension base="datasourceutils">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="db2testsupport" >
+      <xs:complexContent>
+       <xs:extension base="testsupport">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="db2expressiontemplate" >
+      <xs:sequence>
+        <xs:element name="sql_template" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="db2expectationsfactory" >
+      <xs:complexContent>
+       <xs:extension base="abstractexpectationsfactory">
+         <xs:sequence>
+          <xs:element name="desc" type="db2geometrytypedescriptor" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="postgisexpectationsfactory" >
+      <xs:complexContent>
+       <xs:extension base="abstractexpectationsfactory">
+         <xs:sequence>
+          <xs:element name="log" type="hsmessagelogger" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="postgistestsupport" >
+      <xs:complexContent>
+       <xs:extension base="testsupport">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="postgisexpressiontemplate" >
+      <xs:sequence>
+        <xs:element name="sql_template" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="datasourceutils" >
+      <xs:sequence>
+        <xs:element name="log" type="hsmessagelogger" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="sqlexpressiontemplate" nillable="true" minOccurs="0" />
+        <xs:element name="jdbcdriver" type="xs:string" />
+        <xs:element name="jdbcurl" type="xs:string" />
+        <xs:element name="jdbcuser" type="xs:string" />
+        <xs:element name="jdbcpass" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="testdataelement" >
+      <xs:sequence>
+        <xs:element name="wkt" type="xs:string" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="type" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="testsupport" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="spatialfunctionaltestcase" >
+      <xs:complexContent>
+       <xs:extension base="basecorefunctionaltestcase">
+         <xs:sequence>
+          <xs:element name="jts" type="xs:string" />
+          <xs:element name="geolatte" type="xs:string" />
+          <xs:element name="" type="testdata" nillable="true" minOccurs="0" />
+          <xs:element name="" type="datasourceutils" nillable="true" minOccurs="0" />
+          <xs:element name="geometryequality" type="jtsgeometryequality" nillable="true" minOccurs="0" />
+          <xs:element name="expectationsfactory" type="abstractexpectationsfactory" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="spatialdialectmatcher" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="testdatareader" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sqlexpressiontemplate" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="testconnectionfinder" >
+      <xs:sequence>
+        <xs:element name="internal" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="postgisunmarshaltest" >
+      <xs:sequence>
+        <xs:element name="crs" type="xs:anyType" />
+        <xs:element name="geom" type="xs:anyType" />
+        <xs:element name="geomnosrid" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="postgisdialecttest" >
+      <xs:complexContent>
+       <xs:extension base="testcase">
+         <xs:sequence>
+          <xs:element name="dialect" type="spatialdialect" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="testhanaspatialfunctions" >
+      <xs:complexContent>
+       <xs:extension base="testspatialfunctions">
+         <xs:sequence>
+          <xs:element name="log" type="hsmessagelogger" nillable="true" minOccurs="0" />
+          <xs:element name="" type="hanaexpectationsfactory" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="test-sdo-geometry-data-set" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="test-hana-data-set" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="test-db2nozm-only-polygon" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="test-db2-data-set" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="test-db2nozm-data-set" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="test-mysql8-functions-data-set" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="test-mysql-functions-data-set" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="drop-sqlserver-test-schema" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="create-sqlserver-test-schema" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="postgis-functions-test" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="test-data-set" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="test-geodb-data-set" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

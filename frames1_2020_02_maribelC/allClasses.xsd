@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="manifest" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="servidorrepository" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="arearepository" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="estadorepository" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="campusrepository" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="alunorepository" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cidaderepository" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hibernateconector" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="areacontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="areamodel" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="arearepository" nillable="true" minOccurs="0" />
+        <xs:element name="listadeareas" type="areamodel" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="servidorcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="servidormodel" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="servidorrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="arearepository" nillable="true" minOccurs="0" />
+        <xs:element name="listadeservidor" type="servidormodel" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="campuscontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="campusmodel" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="campusrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="estadorepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="cidaderepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="servidorrepository" nillable="true" minOccurs="0" />
+        <xs:element name="listadecidades" type="xs:anyType" />
+        <xs:element name="listadecampus" type="campusmodel" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="professorcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="listadeprofessores" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="alunocontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="alunomodel" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="alunorepository" nillable="true" minOccurs="0" />
+        <xs:element name="listadealunos" type="alunomodel" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="alunomodel" >
+      <xs:complexContent>
+       <xs:extension base="pessoamodel">
+         <xs:sequence>
+          <xs:element name="idaluno" type="xs:long" />
+          <xs:element name="listadeeventos" type="eventomodel" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="areamodel" >
+      <xs:sequence>
+        <xs:element name="idarea" type="xs:long" />
+        <xs:element name="areanome" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pessoaexternamodel" >
+      <xs:complexContent>
+       <xs:extension base="pessoamodel">
+         <xs:sequence>
+          <xs:element name="cidade" type="cidademodel" nillable="true" minOccurs="0" />
+          <xs:element name="estado" type="estadomodel" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="pessoamodel" >
+      <xs:sequence>
+        <xs:element name="idpessoa" type="xs:long" />
+        <xs:element name="pessoanome" type="xs:string" />
+        <xs:element name="cpf" type="xs:long" />
+        <xs:element name="telefone" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cidademodel" >
+      <xs:sequence>
+        <xs:element name="idcidade" type="xs:long" />
+        <xs:element name="cidadenome" type="xs:string" />
+        <xs:element name="estado" type="estadomodel" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="estadomodel" >
+      <xs:sequence>
+        <xs:element name="idestado" type="xs:long" />
+        <xs:element name="estadonome" type="xs:string" />
+        <xs:element name="estadosigla" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cursomodel" >
+      <xs:sequence>
+        <xs:element name="idcurso" type="xs:long" />
+        <xs:element name="nome" type="xs:string" />
+        <xs:element name="cargahoraria" type="xs:string" />
+        <xs:element name="listadealunos" type="alunomodel" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="servidor" type="servidormodel" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="servidormodel" >
+      <xs:complexContent>
+       <xs:extension base="pessoainternamodel">
+         <xs:sequence>
+          <xs:element name="area" type="areamodel" nillable="true" minOccurs="0" />
+          <xs:element name="siape" type="xs:long" />
+          <xs:element name="cargo" type="xs:string" />
+          <xs:element name="campusaoqualpertence" type="campusmodel" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="campusmodel" >
+      <xs:sequence>
+        <xs:element name="idcampus" type="xs:long" />
+        <xs:element name="campusnome" type="xs:string" />
+        <xs:element name="cidade" type="cidademodel" nillable="true" minOccurs="0" />
+        <xs:element name="estado" type="estadomodel" nillable="true" minOccurs="0" />
+        <xs:element name="servidores" type="servidormodel" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pessoainternamodel" >
+      <xs:complexContent>
+       <xs:extension base="pessoamodel">
+         <xs:sequence>
+          <xs:element name="dataingresso" type="xs:dateTime" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="eventomodel" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

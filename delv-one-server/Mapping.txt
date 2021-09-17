@@ -1,0 +1,16 @@
+ClassDiagram.Class>> UserInfo =>=>=> RelationalSchema.Table>> userinfo;
+ClassDiagram.Class>> Policy =>=>=> RelationalSchema.Table>> policy;
+ClassDiagram.Class>> Role =>=>=> RelationalSchema.Table>> role;
+ClassDiagram.Attribut>> UserInfo.encryptedpassword,bytesalt,active){//this.username:Integer =>=>=> RelationalSchema.Column>> userinfo.encryptedpassword,bytesalt,active){//this.username PRIMARY KEY;
+ClassDiagram.Attribut>> UserInfo.username:String =>=>=> RelationalSchema.Column>> userinfo.username;
+ClassDiagram.Attribut>> UserInfo.email:String =>=>=> RelationalSchema.Column>> userinfo.email;
+ClassDiagram.Attribut>> UserInfo.encryptedpassword:byte =>=>=> RelationalSchema.Column>> userinfo.encryptedpassword;
+ClassDiagram.Attribut>> UserInfo.password:String =>=>=> NOT MAPPED -Explanation: Transient Field ;
+ClassDiagram.Attribut>> UserInfo.salt:byte =>=>=> RelationalSchema.Column>> userinfo.salt;
+ClassDiagram.Attribut>> UserInfo.active:Integer =>=>=> RelationalSchema.Column>> userinfo.active;
+ClassDiagram.Attribut>> Policy.id:Integer =>=>=> RelationalSchema.Column>> policy.id PRIMARY KEY;
+ClassDiagram.Attribut>> Policy.name:String =>=>=> RelationalSchema.Column>> policy.name;
+ClassDiagram.Attribut>> Role.id:Integer =>=>=> RelationalSchema.Column>> role.id PRIMARY KEY;
+ClassDiagram.Attribut>> Role.name:String =>=>=> RelationalSchema.Column>> role.name;
+Many-To-Many relationship between ClassDiagram.Class>>UserInfo  and ClassDiagram.Class>>set<role>: user_role(user_info_id:UserInfo [PK] #FK to UserInfo,role_id:set<role> [PK] #FK to set<role>);
+Many-To-Many relationship between ClassDiagram.Class>>Role  and ClassDiagram.Class>>set<policy>: role_policy(role_id:Role [PK] #FK to Role,policy_id:set<policy> [PK] #FK to set<policy>);

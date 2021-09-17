@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="summoner" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="accountid" type="xs:string" />
+        <xs:element name="puuid" type="xs:string" />
+        <xs:element name="profileiconurl" type="xs:string" />
+        <xs:element name="summonerlevel" type="xs:anyType" />
+        <xs:element name="lastupdated" type="xs:long" />
+        <xs:element name="division" type="xs:string" />
+        <xs:element name="tier" type="xs:string" />
+        <xs:element name="leaguepoints" type="xs:anyType" />
+        <xs:element name="wins" type="xs:anyType" />
+        <xs:element name="losses" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="participant" >
+      <xs:sequence>
+        <xs:element name="accountid" type="xs:string" />
+        <xs:element name="matchid" type="xs:long" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="profileiconurl" type="xs:string" />
+        <xs:element name="champion" type="xs:string" />
+        <xs:element name="championiconurl" type="xs:string" />
+        <xs:element name="win" type="xs:anyType" />
+        <xs:element name="kills" type="xs:long" />
+        <xs:element name="deaths" type="xs:long" />
+        <xs:element name="assists" type="xs:long" />
+        <xs:element name="largestmultikill" type="xs:long" />
+        <xs:element name="teamid" type="xs:long" />
+        <xs:element name="GeneratedName" type="match" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="match" >
+      <xs:sequence>
+        <xs:element name="gameid" type="xs:long" />
+        <xs:element name="platformid" type="xs:string" />
+        <xs:element name="champion" type="xs:anyType" />
+        <xs:element name="queue" type="xs:anyType" />
+        <xs:element name="season" type="xs:anyType" />
+        <xs:element name="timestamp" type="xs:long" />
+        <xs:element name="role" type="xs:string" />
+        <xs:element name="lane" type="xs:string" />
+        <xs:element name="duration" type="xs:long" />
+        <xs:element name="participants" type="participant" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

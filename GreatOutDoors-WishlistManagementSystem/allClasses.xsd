@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="nullparameterexception" >
+      <xs:complexContent>
+       <xs:extension base="runtimeexception{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="crudexception" >
+      <xs:complexContent>
+       <xs:extension base="runtimeexception{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="customexceptionhandler" >
+      <xs:complexContent>
+       <xs:extension base="responseentityexceptionhandler">
+         <xs:sequence>
+          <xs:element name="currenttimemillis" type="xs:long" />
+          <xs:element name="errormsg" type="xs:string" />
+          <xs:element name="message" type="xs:string" />
+          <xs:element name="details" type="xs:string" />
+          <xs:element name="timestamp" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="wishlistdto" >
+      <xs:sequence>
+        <xs:element name="userid" type="xs:string" />
+        <xs:element name="productid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="errormessage" >
+      <xs:sequence>
+        <xs:element name="code" type="xs:string" />
+        <xs:element name="message" type="xs:string" />
+        <xs:element name="timestamp" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="productdto" >
+      <xs:sequence>
+        <xs:element name="productid" type="xs:string" />
+        <xs:element name="price" type="xs:double" />
+        <xs:element name="colour" type="xs:string" />
+        <xs:element name="dimension" type="xs:string" />
+        <xs:element name="specification" type="xs:string" />
+        <xs:element name="manufacture" type="xs:string" />
+        <xs:element name="quantity" type="xs:long" />
+        <xs:element name="productcategory" type="xs:long" />
+        <xs:element name="productname" type="xs:string" />
+        <xs:element name="producturl" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="wishlistmsapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="wishlistcontrolleradvice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="wishlistms" >
+      <xs:sequence>
+        <xs:element name="//------------initializedhere------------log" type="xs:anyType" />
+        <xs:element name="service" type="wishlistservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="wishlistserviceimpl" >
+      <xs:sequence>
+        <xs:element name="repository" type="wishlistrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="wishlistservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="productrepository" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="wishlistrepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<wishlistdto,string>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="wishlistmsapplicationtests" >
+      <xs:sequence>
+        <xs:element name="service" type="wishlistservice" nillable="true" minOccurs="0" />
+        <xs:element name="wishlist1" type="wishlistdto" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

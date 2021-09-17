@@ -1,0 +1,29 @@
+
+compatibility(id:int [PK], fooda:String, foodb:String, description:String, searchcnt:int, reviewcnt:String, avgstar:String);
+
+userdiet(id:String [PK], diettype:int, food:String, dish:int, create:Date, userid:String, missionid:String, carbo:double, protein:double, fat:double, energy:double);
+
+mission(mid:String [PK], create:Date, progress:boolean, result:boolean, //stringmissiontype//+-기능이따로필요없을거같아서string타입targetenergy:double, targetcarbohidrate:double, targetprotein:double, targetfat:double, //언더바있는컬럼profileuid:String);
+
+incompatibility(serialversionuid:long, id:int [PK], fooda:String, foodb:String, description:String, searchcnt:int, reviewcnt:String, avgstar:String);
+
+disease(name:String [PK]);
+
+store(//id,name,area,tel,address,latitude,longitude,category,menuid:int [PK], name:String, area:String, tel:String, address:String, latitude:double, longitude:double, category:String, menu:String);
+
+nutrient(//food,energy,protein,fat,carbohydrate,calcium,sodium,iron,p,k,vitamin_b1,vitamin_b2,vitamin_c//id,food,energy,carbohydrate,protein,fat,cholesterol,fiber,sodiumid:int [PK], food:String, energy:double, protein:double, fat:double, carbohidrate:double, //@column(name:double, //@column(name:double, fiber:double);
+
+storereview(id:int [PK], store:String, user:String, score:String, content:String, reg_time:String);
+
+review(id:int [PK], //@manytoone//@joincolumn(name:double, compatibilityid:int, userid:String, compatibilitytype:int);
+
+userprofile(uid:String [PK], nickname:String, targetweight:int, targettype:String, height:int, gendertype:int, imgurl:String, accounttype:int, //권장영양섭취량을위한칼럼들age:int, targetenergy:double, targetcarbohidrate:double, targetprotein:double, targetfat:double, tagname:String);
+
+profiledietrequest(uid:String, date:String);
+
+missiondetail(uid:String, GeneratedName:Date);
+
+user(uid:String [PK], pw:String, email:String, nickname:String, accounttype:int);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

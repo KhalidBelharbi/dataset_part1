@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="facesutils" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cadastrobean" >
+      <xs:sequence>
+        <xs:element name="repository" type="oficialrepositoryjpa" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="oficial" nillable="true" minOccurs="0" />
+        <xs:element name="lista" type="oficial" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="oficialrepositoryjpa" >
+      <xs:sequence>
+        <xs:element name="//@persistencecontext(unitname" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="oficialrepository" >
+      <xs:sequence>
+        <xs:element name="oficials" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="moeda" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="oficial" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="nome" type="xs:string" />
+        <xs:element name="posto" type="xs:string" />
+        <xs:element name="nextid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cliente" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="nome" type="xs:string" />
+        <xs:element name="lancamentos" type="lancamento" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="faturas" type="fatura" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="lancamento" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="descricao" type="xs:string" />
+        <xs:element name="valor" type="xs:double" />
+        <xs:element name="GeneratedName" type="moeda" nillable="true" minOccurs="0" />
+        <xs:element name="data" type="xs:dateTime" />
+        <xs:element name="GeneratedName" type="cliente" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="fatura" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="fatura" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="datafechamento" type="xs:dateTime" />
+        <xs:element name="GeneratedName" type="cliente" nillable="true" minOccurs="0" />
+        <xs:element name="lancamentos" type="lancamento" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="faces-config" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="topmenu" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cadastro" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="style" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="consulta-prime" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cadastro-prime" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cadastro-boot" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persistence" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

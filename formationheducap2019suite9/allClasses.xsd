@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="interventioncontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="interventionrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="intervenantrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="springplanificationfromapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="intervenant" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="nom" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="interventions" type="intervention" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="intervention" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="dateintervention" type="xs:anyType" />
+        <xs:element name="heuredebut" type="xs:long" />
+        <xs:element name="heurefin" type="xs:long" />
+        <xs:element name="lieu" type="xs:string" />
+        <xs:element name="GeneratedName" type="intervenant" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="interventionrepository" >
+      <xs:complexContent>
+       <xs:extension base="pagingandsortingrepository<intervention,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="intervenantrepository" >
+      <xs:complexContent>
+       <xs:extension base="pagingandsortingrepository<intervenant,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="interventioncontrollertest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="interventionrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="intervenantrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="currentdate" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="springplanificationfromapplicationtests" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="testplanifmario" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

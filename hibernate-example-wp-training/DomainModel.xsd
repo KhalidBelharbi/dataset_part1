@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="customer" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="name" nillable="true" minOccurs="0" />
+        <xs:element name="father" type="name" nillable="true" minOccurs="0" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="mobile" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="laptop" >
+      <xs:sequence>
+        <xs:element name="laptopid" type="xs:long" />
+        <xs:element name="brand" type="xs:string" />
+        <xs:element name="price" type="xs:long" />
+        <xs:element name="//@onetoone(mappedby" type="employee" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="importedfourwheelers" >
+      <xs:complexContent>
+       <xs:extension base="fourwheelers">
+         <xs:sequence>
+          <xs:element name="duty" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="vehicles" >
+      <xs:sequence>
+        <xs:element name="regno" type="xs:string" />
+        <xs:element name="vtype" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="empinfo" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="name" nillable="true" minOccurs="0" />
+        <xs:element name="address" type="xs:string" />
+        <xs:element name="city" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="employee" >
+      <xs:sequence>
+        <xs:element name="code" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="//@jointable(name" type="laptop" nillable="true" minOccurs="0" />
+        <xs:element name="vehicles" type="vehicle" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="vehicle" >
+      <xs:sequence>
+        <xs:element name="regno" type="xs:string" />
+        <xs:element name="vtype" type="xs:string" />
+        <xs:element name="vdesc" type="xs:string" />
+        <xs:element name="emp" type="employee" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="twowheelers" >
+      <xs:complexContent>
+       <xs:extension base="vehicles">
+         <xs:sequence>
+          <xs:element name="handletype" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="emp" >
+      <xs:sequence>
+        <xs:element name="empno" type="xs:long" />
+        <xs:element name="ename" type="xs:string" />
+        <xs:element name="sal" type="xs:long" />
+        <xs:element name="desg" type="xs:string" />
+        <xs:element name="GeneratedName" type="address" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="fourwheelers" >
+      <xs:complexContent>
+       <xs:extension base="vehicles">
+         <xs:sequence>
+          <xs:element name="wheeltype" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="project" >
+      <xs:sequence>
+        <xs:element name="code" type="xs:long" />
+        <xs:element name="ptitle" type="xs:string" />
+        <xs:element name="employees" type="employee" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

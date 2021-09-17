@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="fields" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="fieldid" type="xs:long" />
+        <xs:element name="docid" type="xs:string" />
+        <xs:element name="fieldname" type="xs:string" />
+        <xs:element name="fieldvalue" type="xs:string" />
+        <xs:element name="lockvernbr" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="dump" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dump" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="docid" type="xs:string" />
+        <xs:element name="doctypename" type="xs:string" />
+        <xs:element name="docroutestatuscode" type="xs:string" />
+        <xs:element name="docmodificationdate" type="xs:anyType" />
+        <xs:element name="doccreationdate" type="xs:anyType" />
+        <xs:element name="docdescription" type="xs:string" />
+        <xs:element name="docinitiatorid" type="xs:string" />
+        <xs:element name="doccurrentnodename" type="xs:string" />
+        <xs:element name="lockvernbr" type="xs:anyType" />
+        <xs:element name="fields" type="fields" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="edocliteassociation" >
+      <xs:complexContent>
+       <xs:extension base="persistablebusinessobjectbase">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="/***edoclt_assoc_id*/edocliteassocid" type="xs:long" />
+          <xs:element name="/***edoclt_assoc_doctype_nm*/edlname" type="xs:string" />
+          <xs:element name="/***edoclt_assoc_def_nm*/definition" type="xs:string" />
+          <xs:element name="/***edoclt_assoc_style_nm*/style" type="xs:string" />
+          <xs:element name="/***edoclt_assoc_actv_ind*/activeind" type="xs:anyType" />
+          <xs:element name="//forquickfinderactionsurl" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="edoclitedefinition" >
+      <xs:complexContent>
+       <xs:extension base="persistablebusinessobjectbase">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="/***edoclt_def_id*/edoclitedefid" type="xs:long" />
+          <xs:element name="/***edoclt_def_nm*/name" type="xs:string" />
+          <xs:element name="/***edoclt_def_xml*/xmlcontent" type="xs:string" />
+          <xs:element name="/***edoclt_def_actv_ind*/activeind" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema> 

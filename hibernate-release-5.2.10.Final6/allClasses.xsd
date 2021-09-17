@@ -1,0 +1,668 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="cacheregionutils" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="beanutils" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ehcachehibernatembeanregistration" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="querystats" >
+      <xs:sequence>
+        <xs:element name="composite_type_name" type="xs:string" />
+        <xs:element name="composite_type_description" type="xs:string" />
+        <xs:element name="item_names" type="xs:string" />
+        <xs:element name="item_descriptions" type="xs:string" />
+        <xs:element name="item_types" type="xs:anyType" />
+        <xs:element name="composite_type" type="xs:anyType" />
+        <xs:element name="tabular_type_name" type="xs:string" />
+        <xs:element name="tabular_type_description" type="xs:string" />
+        <xs:element name="index_names" type="xs:string" />
+        <xs:element name="tabular_type" type="xs:anyType" />
+        <xs:element name="/***query*/query" type="xs:string" />
+        <xs:element name="/***cachehitcount*/cachehitcount" type="xs:long" />
+        <xs:element name="/***cachemisscount*/cachemisscount" type="xs:long" />
+        <xs:element name="/***cacheputcount*/cacheputcount" type="xs:long" />
+        <xs:element name="/***executioncount*/executioncount" type="xs:long" />
+        <xs:element name="/***executionrowcount*/executionrowcount" type="xs:long" />
+        <xs:element name="/***executionavgtime*/executionavgtime" type="xs:long" />
+        <xs:element name="/***executionmaxtime*/executionmaxtime" type="xs:long" />
+        <xs:element name="/***executionmintime*/executionmintime" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="collectionstats" >
+      <xs:sequence>
+        <xs:element name="composite_type_name" type="xs:string" />
+        <xs:element name="composite_type_description" type="xs:string" />
+        <xs:element name="item_names" type="xs:string" />
+        <xs:element name="item_descriptions" type="xs:string" />
+        <xs:element name="item_types" type="xs:anyType" />
+        <xs:element name="composite_type" type="xs:anyType" />
+        <xs:element name="tabular_type_name" type="xs:string" />
+        <xs:element name="tabular_type_description" type="xs:string" />
+        <xs:element name="index_names" type="xs:string" />
+        <xs:element name="tabular_type" type="xs:anyType" />
+        <xs:element name="/***rolename*/rolename" type="xs:string" />
+        <xs:element name="/***shortname*/shortname" type="xs:string" />
+        <xs:element name="/***loadcount*/loadcount" type="xs:long" />
+        <xs:element name="/***fetchcount*/fetchcount" type="xs:long" />
+        <xs:element name="/***updatecount*/updatecount" type="xs:long" />
+        <xs:element name="/***removecount*/removecount" type="xs:long" />
+        <xs:element name="/***recreatecount*/recreatecount" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ehcachehibernatembeanregistrationimpl" >
+      <xs:sequence>
+        <xs:element name="log" type="ehcachemessagelogger" nillable="true" minOccurs="0" />
+        <xs:element name="max_mbean_registration_retries" type="xs:long" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="volatile" type="ehcachehibernate" nillable="true" minOccurs="0" />
+        <xs:element name="volatilecachemanager" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="abstractemitterbean" >
+      <xs:complexContent>
+       <xs:extension base="standardmbean">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="sequencenumber" type="xs:anyType" />
+          <xs:element name="notificationlisteners" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ehcachestatsimpl" >
+      <xs:complexContent>
+       <xs:extension base="abstractemitterbean">
+         <xs:sequence>
+          <xs:element name="millis_per_second" type="xs:long" />
+          <xs:element name="notification_info" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="statssince" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="nullhibernatestats" >
+      <xs:sequence>
+        <xs:element name="/***singletoninstance.*/instance" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ehcachehibernatembeannames" >
+      <xs:sequence>
+        <xs:element name="/***groupidforallsampledmbeansregistered*/group_id" type="xs:string" />
+        <xs:element name="/***typefortheehcachebackedhibernatesecondlevelcachestatisticsmbean*/ehcache_hibernate_type" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hibernatestatsimpl" >
+      <xs:complexContent>
+       <xs:extension base="abstractemitterbean">
+         <xs:sequence>
+          <xs:element name="millis_per_second" type="xs:double" />
+          <xs:element name="notification_info" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="cacheregionstats" >
+      <xs:sequence>
+        <xs:element name="composite_type_name" type="xs:string" />
+        <xs:element name="composite_type_description" type="xs:string" />
+        <xs:element name="item_names" type="xs:string" />
+        <xs:element name="item_descriptions" type="xs:string" />
+        <xs:element name="item_types" type="xs:anyType" />
+        <xs:element name="composite_type" type="xs:anyType" />
+        <xs:element name="tabular_type_name" type="xs:string" />
+        <xs:element name="tabular_type_description" type="xs:string" />
+        <xs:element name="index_names" type="xs:string" />
+        <xs:element name="tabular_type" type="xs:anyType" />
+        <xs:element name="/***regionname*/region" type="xs:string" />
+        <xs:element name="/***regionshortname*/shortname" type="xs:string" />
+        <xs:element name="/***hitcount*/hitcount" type="xs:long" />
+        <xs:element name="/***misscount*/misscount" type="xs:long" />
+        <xs:element name="/***putcount*/putcount" type="xs:long" />
+        <xs:element name="/***hitratio*/hitratio" type="xs:double" />
+        <xs:element name="/***in-memoryelementcount*/elementcountinmemory" type="xs:long" />
+        <xs:element name="/***on-diskelementcount*/elementcountondisk" type="xs:long" />
+        <xs:element name="/***totalelementcount*/elementcounttotal" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entitystats" >
+      <xs:sequence>
+        <xs:element name="composite_type_name" type="xs:string" />
+        <xs:element name="composite_type_description" type="xs:string" />
+        <xs:element name="item_names" type="xs:string" />
+        <xs:element name="item_descriptions" type="xs:string" />
+        <xs:element name="item_types" type="xs:anyType" />
+        <xs:element name="composite_type" type="xs:anyType" />
+        <xs:element name="tabular_type_name" type="xs:string" />
+        <xs:element name="tabular_type_description" type="xs:string" />
+        <xs:element name="index_names" type="xs:string" />
+        <xs:element name="tabular_type" type="xs:anyType" />
+        <xs:element name="/***name*/name" type="xs:string" />
+        <xs:element name="/***shortname*/shortname" type="xs:string" />
+        <xs:element name="/***loadcount*/loadcount" type="xs:long" />
+        <xs:element name="/***updatecount*/updatecount" type="xs:long" />
+        <xs:element name="/***insertcount*/insertcount" type="xs:long" />
+        <xs:element name="/***deletecount*/deletecount" type="xs:long" />
+        <xs:element name="/***fetchcount*/fetchcount" type="xs:long" />
+        <xs:element name="/***optimisticfailurecount*/optimisticfailurecount" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ehcachehibernate" >
+      <xs:complexContent>
+       <xs:extension base="abstractemitterbean">
+         <xs:sequence>
+          <xs:element name="notification_info" type="xs:anyType" />
+          <xs:element name="statsenabled" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="volatile" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="providermbeanregistrationhelper" >
+      <xs:complexContent>
+       <xs:extension base="timertask">
+         <xs:sequence>
+          <xs:element name="log" type="ehcachemessagelogger" nillable="true" minOccurs="0" />
+          <xs:element name="millis_per_second" type="xs:long" />
+          <xs:element name="sleep_millis" type="xs:long" />
+          <xs:element name="volatileehcachehibernatembeanregistration" type="ehcachehibernatembeanregistrationimpl" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="package-info" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="readonlyehcacheentityregionaccessstrategy" >
+      <xs:complexContent>
+       <xs:extension base="abstractehcacheaccessstrategy<ehcacheentityregion>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="readwriteehcachecollectionregionaccessstrategy" >
+      <xs:complexContent>
+       <xs:extension base="">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ehcacheaccessstrategyfactory" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="readwriteehcachenaturalidregionaccessstrategy" >
+      <xs:complexContent>
+       <xs:extension base="">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="nonstrictreadwriteehcachenaturalidregionaccessstrategy" >
+      <xs:complexContent>
+       <xs:extension base="">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="nonstrictreadwriteehcachecollectionregionaccessstrategy" >
+      <xs:complexContent>
+       <xs:extension base="">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="abstractehcacheaccessstrategy" >
+      <xs:complexContent>
+       <xs:extension base="ehcachetransactionaldataregion>">
+         <xs:sequence>
+          <xs:element name="region" type="xs:anyType" />
+          <xs:element name="settings" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ehcacheaccessstrategyfactoryimpl" >
+      <xs:sequence>
+        <xs:element name="log" type="ehcachemessagelogger" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="readonlyehcachecollectionregionaccessstrategy" >
+      <xs:complexContent>
+       <xs:extension base="">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="readonlyehcachenaturalidregionaccessstrategy" >
+      <xs:complexContent>
+       <xs:extension base="">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="transactionalehcachecollectionregionaccessstrategy" >
+      <xs:complexContent>
+       <xs:extension base="">
+         <xs:sequence>
+          <xs:element name="" type="ehcache" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="abstractreadwriteehcacheaccessstrategy" >
+      <xs:complexContent>
+       <xs:extension base="ehcachetransactionaldataregion>">
+         <xs:sequence>
+          <xs:element name="log" type="ehcachemessagelogger" nillable="true" minOccurs="0" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="nextlockid" type="xs:anyType" />
+          <xs:element name="version" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="nonstrictreadwriteehcacheentityregionaccessstrategy" >
+      <xs:complexContent>
+       <xs:extension base="">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="package-info" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="transactionalehcachenaturalidregionaccessstrategy" >
+      <xs:complexContent>
+       <xs:extension base="">
+         <xs:sequence>
+          <xs:element name="" type="ehcache" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="readwriteehcacheentityregionaccessstrategy" >
+      <xs:complexContent>
+       <xs:extension base="">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="transactionalehcacheentityregionaccessstrategy" >
+      <xs:complexContent>
+       <xs:extension base="abstractehcacheaccessstrategy<ehcacheentityregion>">
+         <xs:sequence>
+          <xs:element name="" type="ehcache" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="hibernateehcacheutils" >
+      <xs:sequence>
+        <xs:element name="log" type="ehcachemessagelogger" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="package-info" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hibernatenonstopcacheexceptionhandler" >
+      <xs:sequence>
+        <xs:element name="/***propertynamewhichsetas"true"willthrowexceptionsontimeoutwithhibernate*/hibernate_throw_exception_on_timeout_property" type="xs:string" />
+        <xs:element name="/***propertynameforloggingthestacktraceofthenonstopcacheexceptiontoo.falsebydefault*/hibernate_log_exception_stack_trace_property" type="xs:string" />
+        <xs:element name="log" type="ehcachemessagelogger" nillable="true" minOccurs="0" />
+        <xs:element name="instance" type="hibernatenonstopcacheexceptionhandler" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="nonstopaccessstrategyfactory" >
+      <xs:sequence>
+        <xs:element name="actualfactory" type="ehcacheaccessstrategyfactory" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="nonstopawareentityregionaccessstrategy" >
+      <xs:sequence>
+        <xs:element name="actualstrategy" type="xs:anyType" />
+        <xs:element name="hibernatenonstopexceptionhandler" type="hibernatenonstopcacheexceptionhandler" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="package-info" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="nonstopawarecollectionregionaccessstrategy" >
+      <xs:sequence>
+        <xs:element name="actualstrategy" type="xs:anyType" />
+        <xs:element name="hibernatenonstopexceptionhandler" type="hibernatenonstopcacheexceptionhandler" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="nonstopawarenaturalidregionaccessstrategy" >
+      <xs:sequence>
+        <xs:element name="actualstrategy" type="xs:anyType" />
+        <xs:element name="hibernatenonstopexceptionhandler" type="hibernatenonstopcacheexceptionhandler" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ehcacheentityregion" >
+      <xs:complexContent>
+       <xs:extension base="ehcachetransactionaldataregion">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="package-info" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ehcachenaturalidregion" >
+      <xs:complexContent>
+       <xs:extension base="ehcachetransactionaldataregion">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ehcachecollectionregion" >
+      <xs:complexContent>
+       <xs:extension base="ehcachetransactionaldataregion">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ehcachequeryresultsregion" >
+      <xs:complexContent>
+       <xs:extension base="ehcachegeneraldataregion">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ehcachedataregion" >
+      <xs:sequence>
+        <xs:element name="log" type="ehcachemessagelogger" nillable="true" minOccurs="0" />
+        <xs:element name="cache_lock_timeout_property" type="xs:string" />
+        <xs:element name="default_cache_lock_timeout" type="xs:long" />
+        <xs:element name="cache" type="ehcache" nillable="true" minOccurs="0" />
+        <xs:element name="accessstrategyfactory" type="ehcacheaccessstrategyfactory" nillable="true" minOccurs="0" />
+        <xs:element name="cachelocktimeout" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ehcachegeneraldataregion" >
+      <xs:complexContent>
+       <xs:extension base="ehcachedataregion">
+         <xs:sequence>
+          <xs:element name="log" type="ehcachemessagelogger" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ehcachetimestampsregion" >
+      <xs:complexContent>
+       <xs:extension base="ehcachegeneraldataregion">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ehcachetransactionaldataregion" >
+      <xs:complexContent>
+       <xs:extension base="ehcachedataregion">
+         <xs:sequence>
+          <xs:element name="local_lock_provider_concurrency" type="xs:long" />
+          <xs:element name="settings" type="xs:anyType" />
+          <xs:element name="/***metadataassociatedwiththeobjectsstoredintheregion.*/metadata" type="xs:anyType" />
+          <xs:element name="lockprovider" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="singletonehcacheregionfactory" >
+      <xs:complexContent>
+       <xs:extension base="abstractehcacheregionfactory">
+         <xs:sequence>
+          <xs:element name="log" type="ehcachemessagelogger" nillable="true" minOccurs="0" />
+          <xs:element name="reference_count" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ehcacheregionfactory" >
+      <xs:complexContent>
+       <xs:extension base="abstractehcacheregionfactory">
+         <xs:sequence>
+          <xs:element name="log" type="ehcachemessagelogger" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="package-info" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ehcachemessagelogger" >
+      <xs:complexContent>
+       <xs:extension base="coremessagelogger">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="abstractehcacheregionfactory" >
+      <xs:sequence>
+        <xs:element name="*ifsettosayehcache-1.xml,ehcache-1.xmlwillbelookedforintherootoftheclasspath.*/net_sf_ehcache_configuration_resource_name" type="xs:string" />
+        <xs:element name="log" type="ehcachemessagelogger" nillable="true" minOccurs="0" />
+        <xs:element name="/***mbeanregistrationhelperclassinstanceforehcachehibernatembeans.*/mbeanregistrationhelper" type="providermbeanregistrationhelper" nillable="true" minOccurs="0" />
+        <xs:element name="/***ehcachethatsuppliedehcacheinstancesforthishibernateregionfactory.*/volatilemanager" type="xs:anyType" />
+        <xs:element name="/***settingsobjectforthehibernatepersistenceunit.*/settings" type="xs:anyType" />
+        <xs:element name="/***{@link}forcreatingvariousaccessstrategies*/accessstrategyfactory" type="ehcacheaccessstrategyfactory" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="strategyregistrationproviderimpl" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="blueprint" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="person.hbm" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="event.hbm" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="phonenumber.hbm" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="holidaycalendar.hbm" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="account.hbm" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="item.hbm" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ehcache" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="itemvalueextractor" >
+      <xs:complexContent>
+       <xs:extension base="abstractreadwriteehcacheaccessstrategy">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="phonenumber" >
+      <xs:sequence>
+        <xs:element name="personid" type="xs:long" />
+        <xs:element name="numbertype" type="xs:string" />
+        <xs:element name="phone" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="holidaycalendar" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="stringholidays" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="versioneditem" >
+      <xs:complexContent>
+       <xs:extension base="item">
+         <xs:sequence>
+          <xs:element name="version" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="eventmanager" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="item" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="person" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="age" type="xs:long" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+        <xs:element name="//semantics,e.g.,indexedevents" type="xs:anyType" />
+        <xs:element name="emailaddresses" type="xs:anyType" />
+        <xs:element name="phonenumbers" type="xs:anyType" />
+        <xs:element name="//abagofgood-luckcharms.talismans" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="uuiditem" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="account" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="person" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="event" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:dateTime" />
+        <xs:element name="participants" type="xs:anyType" />
+        <xs:element name="organizer" type="person" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ehcachestatsimpltest" >
+      <xs:sequence>
+        <xs:element name="stats" type="ehcachestatsimpl" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="versioneditem" >
+      <xs:complexContent>
+       <xs:extension base="item">
+         <xs:sequence>
+          <xs:element name="version" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ehcacheregionfactoryimpl" >
+      <xs:complexContent>
+       <xs:extension base="ehcachetest">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="refreshupdateddatatest" >
+      <xs:complexContent>
+       <xs:extension base="basenonconfigcorefunctionaltestcase">
+         <xs:sequence>
+          <xs:element name="connectionprovider" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="inserteddatatest" >
+      <xs:complexContent>
+       <xs:extension base="basenonconfigcorefunctionaltestcase">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="item.hbm" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ehcachetest" >
+      <xs:complexContent>
+       <xs:extension base="basenonconfigcorefunctionaltestcase">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="item" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ehcacheregiontest" >
+      <xs:complexContent>
+       <xs:extension base="ehcachetest">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="hibernatecachetest" >
+      <xs:complexContent>
+       <xs:extension base="basenonconfigcorefunctionaltestcase">
+         <xs:sequence>
+          <xs:element name="region_prefix" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema> 

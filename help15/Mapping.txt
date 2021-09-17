@@ -1,0 +1,18 @@
+ClassDiagram.Class>> Item =>=>=> RelationalSchema.Table>> item;
+ClassDiagram.Class>> BusinessPartner =>=>=> RelationalSchema.Table>> businesspartner;
+ClassDiagram.Class>> SalesOrderDetail =>=>=> RelationalSchema.Table>> salesorderdetail;
+ClassDiagram.Class>> SalesOrder =>=>=> RelationalSchema.Table>> salesorder;
+ClassDiagram.Attribut>> Item.id:Integer =>=>=> RelationalSchema.Column>> item.id PRIMARY KEY;
+ClassDiagram.Attribut>> Item.itemcode:String =>=>=> RelationalSchema.Column>> item.itemcode;
+ClassDiagram.Attribut>> Item.itemname:String =>=>=> RelationalSchema.Column>> item.itemname;
+ClassDiagram.Attribut>> BusinessPartner.id:Integer =>=>=> RelationalSchema.Column>> businesspartner.id PRIMARY KEY;
+ClassDiagram.Attribut>> BusinessPartner.name:String =>=>=> RelationalSchema.Column>> businesspartner.name;
+ClassDiagram.Attribut>> SalesOrderDetail.docid:SalesOrder =>=>=> RelationalSchema.Column>> salesorderdetail.docid PRIMARY KEY;
+ClassDiagram.Attribut>> SalesOrderDetail.linenum:Integer =>=>=> RelationalSchema.Column>> salesorderdetail.linenum PRIMARY KEY;
+ClassDiagram.Attribut>> SalesOrderDetail.price:BigDecimal =>=>=> RelationalSchema.Column>> salesorderdetail.price;
+ClassDiagram.Attribut>> SalesOrder.id:Integer =>=>=> RelationalSchema.Column>> salesorder.id PRIMARY KEY;
+ClassDiagram.Attribut>> SalesOrder.////integerbusinesspartneriddoctotal:BigDecimal =>=>=> RelationalSchema.Column>> salesorder.////integerbusinesspartneriddoctotal;
+Many-To-One relationship from ClassDiagram.Class>>SalesOrderDetail  to ClassDiagram.Class>>salesorder represented by ClassDiagram.Atrribute>>id;
+Many-To-One relationship from ClassDiagram.Class>>SalesOrderDetail  to ClassDiagram.Class>>item represented by ClassDiagram.Atrribute>>id;
+Many-To-One relationship from ClassDiagram.Class>>SalesOrder  to ClassDiagram.Class>>businesspartner represented by ClassDiagram.Atrribute>>//@transient;
+One-To-Many relationship from ClassDiagram.Class>>SalesOrder  to ClassDiagram.Class>>Collection<SalesOrderDetail>;

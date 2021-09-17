@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="appnewsapplicationtests" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="application" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="commentrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<comment,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<user,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="postrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<post,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="rolerepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<role,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="dataloader" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="rolerepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="userrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="initmode" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="auditingconfig" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="securityconfig" >
+      <xs:complexContent>
+       <xs:extension base="websecurityconfigureradapter">
+         <xs:sequence>
+          <xs:element name="" type="authservice" nillable="true" minOccurs="0" />
+          <xs:element name="" type="jwtfilter" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="securityaudit" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="roletype" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="permission" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="comment" >
+      <xs:complexContent>
+       <xs:extension base="absentity">
+         <xs:sequence>
+          <xs:element name="text" type="xs:string" />
+          <xs:element name="" type="post" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:complexContent>
+       <xs:extension base="absentity">
+         <xs:sequence>
+          <xs:element name="firstname" type="xs:string" />
+          <xs:element name="lastname" type="xs:string" />
+          <xs:element name="username" type="xs:string" />
+          <xs:element name="password" type="xs:string" />
+          <xs:element name="" type="role" nillable="true" minOccurs="0" />
+          <xs:element name="emailcode" type="xs:string" />
+          <xs:element name="enabled" type="xs:anyType" />
+          <xs:element name="accountnonexpired" type="xs:anyType" />
+          <xs:element name="accountnonlocked" type="xs:anyType" />
+          <xs:element name="credentialsnonexpired" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="absentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="createdat" type="xs:anyType" />
+        <xs:element name="updatedat" type="xs:anyType" />
+        <xs:element name="createdby" type="xs:long" />
+        <xs:element name="updatedby" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="post" >
+      <xs:complexContent>
+       <xs:extension base="absentity">
+         <xs:sequence>
+          <xs:element name="title" type="xs:string" />
+          <xs:element name="text" type="xs:string" />
+          <xs:element name="url" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="role" >
+      <xs:complexContent>
+       <xs:extension base="absentity">
+         <xs:sequence>
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="" type="roletype" nillable="true" minOccurs="0" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="permissions" type="permission" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="checkpermissionexecutor" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="checkpermission" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="commentservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="commentrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="postrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="roleservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="rolerepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="rolerepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="postservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="postrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="authservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="rolerepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="jwtprovider" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="commentcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="commentservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rolecontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="roleservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="postcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="postservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="authcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="authservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usercontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="registerdto" >
+      <xs:sequence>
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="prepassword" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="apiresponse" >
+      <xs:sequence>
+        <xs:element name="message" type="xs:string" />
+        <xs:element name="success" type="xs:anyType" />
+        <xs:element name="token" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userdto" >
+      <xs:sequence>
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="roleid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="roledto" >
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="permissions" type="permission" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="commentdto" >
+      <xs:sequence>
+        <xs:element name="text" type="xs:string" />
+        <xs:element name="postid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="postdto" >
+      <xs:sequence>
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="text" type="xs:string" />
+        <xs:element name="url" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="logindto" >
+      <xs:sequence>
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="appnewsapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jwtprovider" >
+      <xs:sequence>
+        <xs:element name="expiredtime" type="xs:long" />
+        <xs:element name="secret" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jwtfilter" >
+      <xs:complexContent>
+       <xs:extension base="onceperrequestfilter">
+         <xs:sequence>
+          <xs:element name="" type="jwtprovider" nillable="true" minOccurs="0" />
+          <xs:element name="" type="authservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="controlleradvisor" >
+      <xs:complexContent>
+       <xs:extension base="responseentityexceptionhandler">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="forbiddenexception" >
+      <xs:complexContent>
+       <xs:extension base="runtimeexception{">
+         <xs:sequence>
+          <xs:element name="type" type="xs:string" />
+          <xs:element name="message" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="resourcenotfoundexception" >
+      <xs:complexContent>
+       <xs:extension base="runtimeexception">
+         <xs:sequence>
+          <xs:element name="resourcename" type="xs:string" />
+          <xs:element name="resourcefield" type="xs:string" />
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema> 

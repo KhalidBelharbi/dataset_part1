@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="votes" >
+      <xs:sequence>
+        <xs:element name="//@manytoone//@joincolumn(name" type="xs:anyType" />
+        <xs:element name="////@column(name" type="electiontype" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="district" >
+      <xs:sequence>
+        <xs:element name="//{@column(name" type="xs:string" />
+        <xs:element name="//@id//@column(name" type="xs:string" />
+        <xs:element name="demographics" type="xs:anyType" />
+        <xs:element name="electiondata" type="state" nillable="true" minOccurs="0" />
+        <xs:element name="maxx" type="xs:long" />
+        <xs:element name="maxy" type="xs:long" />
+        <xs:element name="minx" type="xs:long" />
+        <xs:element name="miny" type="xs:long" />
+        <xs:element name="population" type="xs:long" />
+        <xs:element name="gop_vote" type="xs:long" />
+        <xs:element name="dem_vote" type="xs:long" />
+        <xs:element name="ernaledges" type="xs:long" />
+        <xs:element name="externaledges" type="xs:long" />
+        <xs:element name="precincts" type="xs:anyType" />
+        <xs:element name="borderprecincts" type="precinct" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="boundingcircle" type="xs:anyType" />
+        <xs:element name="convexhull" type="xs:anyType" />
+        <xs:element name="boundingcircleupdated" type="xs:anyType" />
+        <xs:element name="multipolygonupdated" type="xs:anyType" />
+        <xs:element name="convexhullupdated" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="precinct" >
+      <xs:sequence>
+        <xs:element name="//@id//@column(name" type="xs:string" />
+        <xs:element name="//@transient" type="xs:anyType" />
+        <xs:element name="//@transientgeometryjson" type="xs:string" />
+        <xs:element name="//@transientoriginaldistrictid" type="xs:string" />
+        <xs:element name="newdistrictid" type="xs:string" />
+        <xs:element name="//@transientpopulation" type="xs:long" />
+        <xs:element name="//@transientgop_vote" type="xs:long" />
+        <xs:element name="//@transientdem_vote" type="xs:long" />
+        <xs:element name="//@transientismajorityminority" type="xs:anyType" />
+        <xs:element name="precinctdemographics" type="xs:anyType" />
+        <xs:element name="//@transientdemographicgroups" type="demographicgroup" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="//@transientvotes" type="votes" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="elections" type="xs:anyType" />
+        <xs:element name="//@transientneighborids" type="xs:anyType" />
+        <xs:element name="votesperparty" type="xs:anyType" />
+        <xs:element name="//@transientuserselected" type="electiontype" nillable="true" minOccurs="0" />
+        <xs:element name="//@transientcnty" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="demographicgroup" >
+      <xs:sequence>
+        <xs:element name="//@column(name" type="demographic" nillable="true" minOccurs="0" />
+        <xs:element name="//@column(name" type="xs:long" />
+        <xs:element name="//@manytoone" type="precinct" nillable="true" minOccurs="0" />
+        <xs:element name="//@id//@column(name" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

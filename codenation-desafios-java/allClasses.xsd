@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="springhttpapplicationtests" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="springhttpapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="localdatetimejsonconverter" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="submissionid" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="challenge" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="user" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="submission" >
+      <xs:sequence>
+        <xs:element name="id" type="submissionid" nillable="true" minOccurs="0" />
+        <xs:element name="score" type="xs:double" />
+        <xs:element name="createdat" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="company" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="slug" type="xs:string" />
+        <xs:element name="candidates" type="candidate" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="createdat" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="challenge" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="slug" type="xs:string" />
+        <xs:element name="accelerations" type="acceleration" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="submissions" type="submission" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="createdat" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="acceleration" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="slug" type="xs:string" />
+        <xs:element name="GeneratedName" type="challenge" nillable="true" minOccurs="0" />
+        <xs:element name="candidates" type="candidate" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="createdat" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="fullname" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="nickname" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="createdat" type="xs:anyType" />
+        <xs:element name="candidates" type="candidate" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="submissions" type="submission" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="candidate" >
+      <xs:sequence>
+        <xs:element name="id" type="candidateid" nillable="true" minOccurs="0" />
+        <xs:element name="status" type="xs:anyType" />
+        <xs:element name="createdat" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="candidateid" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="acceleration" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="company" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="serviceinterface" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="accelerationserviceinterface" >
+      <xs:complexContent>
+       <xs:extension base="serviceinterface<acceleration>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="candidateserviceinterface" >
+      <xs:complexContent>
+       <xs:extension base="serviceinterface<candidate>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="companyserviceinterface" >
+      <xs:complexContent>
+       <xs:extension base="serviceinterface<company>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userserviceinterface" >
+      <xs:complexContent>
+       <xs:extension base="serviceinterface<user>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="submissionserviceinterface" >
+      <xs:complexContent>
+       <xs:extension base="serviceinterface<submission>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="challengeserviceinterface" >
+      <xs:complexContent>
+       <xs:extension base="serviceinterface<challenge>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="challengeservice" >
+      <xs:sequence>
+        <xs:element name="repository" type="challengerepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="submissionservice" >
+      <xs:sequence>
+        <xs:element name="repository" type="submissionrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="candidateservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="candidaterepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="accelerationservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="accelerationrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="companyservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="companyrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="submissionmapper" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="candidatemapper" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<user,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="accelerationrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<acceleration,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="candidaterepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<candidate,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="submissionrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<submission,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="challengerepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<challenge,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="companyrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<company,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="candidatedto" >
+      <xs:sequence>
+        <xs:element name="userid" type="xs:long" />
+        <xs:element name="accelerationid" type="xs:long" />
+        <xs:element name="companyid" type="xs:long" />
+        <xs:element name="status" type="xs:anyType" />
+        <xs:element name="createdat" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="submissiondto" >
+      <xs:sequence>
+        <xs:element name="challengeid" type="xs:long" />
+        <xs:element name="userid" type="xs:string" />
+        <xs:element name="score" type="xs:anyType" />
+        <xs:element name="createdat" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="application" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="permissionattributebo" >
+      <xs:complexContent>
+       <xs:extension base="kimattributedatabo">
+         <xs:sequence>
+          <xs:element name="assignedtoid" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="genericpermissionbo" >
+      <xs:complexContent>
+       <xs:extension base="persistablebusinessobjectbase">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:string" />
+          <xs:element name="namespacecode" type="xs:string" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="active" type="xs:anyType" />
+          <xs:element name="templateid" type="xs:string" />
+          <xs:element name="detailvalues" type="xs:string" />
+          <xs:element name="details" type="xs:anyType" />
+          <xs:element name="template" type="permissiontemplatebo" nillable="true" minOccurs="0" />
+          <xs:element name="attributedetails" type="permissionattributebo" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="permissionbo" >
+      <xs:complexContent>
+       <xs:extension base="persistablebusinessobjectbase">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:string" />
+          <xs:element name="namespacecode" type="xs:string" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="templateid" type="xs:string" />
+          <xs:element name="active" type="xs:anyType" />
+          <xs:element name="template" type="permissiontemplatebo" nillable="true" minOccurs="0" />
+          <xs:element name="attributedetails" type="permissionattributebo" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="attributes" type="xs:anyType" />
+          <xs:element name="rolepermissions" type="rolepermissionbo" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="permissiontemplatebo" >
+      <xs:complexContent>
+       <xs:extension base="templatebo">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema> 

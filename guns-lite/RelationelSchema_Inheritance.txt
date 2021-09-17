@@ -1,0 +1,41 @@
+
+notice(title:String, type:Integer, content:String);
+
+dept(num:Integer, pid:Long, pids:String, simplename:String, fullname:String, tips:String, version:Integer);
+
+operationlog(id:Long [PK], logtype:String, logname:String, userid:Integer, classname:String, method:String, createtime:Date, succeed:String, message:String);
+
+dict(pid:Long, value:String, name:String);
+
+user(avatar:String, account:String, password:String, salt:String, name:String, birthday:Date, sex:Integer, email:String, phone:String, roleid:String, deptid:Long, status:Integer, version:Integer);
+
+relation(id:Long [PK], menuid:Long, roleid:Long);
+
+role(num:Integer, pid:Long, name:String, deptid:Long, tips:String, version:Integer);
+
+loginlog(id:Integer [PK], logname:String, userid:Integer, succeed:String, message:String, ip:String, createtime:Date);
+
+menu(code:String, pcode:String, pcodes:String, name:String, icon:String, url:String, num:Integer, levels:Integer, ismenu:Integer, tips:String, status:Integer, isopen:Integer);
+
+fileinfo(originalfilename:String, realfilename:String);
+
+tasklog(exe_failure_result:int, exe_success_result:int, id:Long [PK], idtask:Long, name:String, execat:Date, execsuccess:int, jobexception:String);
+
+cfg(cfgname:String, cfgvalue:String, cfgdesc:String);
+
+task(name:String, jobgroup:String, jobclass:String, note:String, cron:String, concurrent:boolean, data:String, execat:Date, execresult:String, disabled:boolean);
+
+smstemplate(id:int [PK], code:String, content:String);
+
+girl(name:String, age:Integer, birthday:Date, hasboyfriend:Boolean);
+
+boy(name:String, age:Integer, birthday:String, hasgirfriend:Boolean);
+
+messagetemplate(code:String, title:String, content:String, cond:String, idmessagesender:Long, type:Integer, id:MessageSender #FK to(Message));
+
+message(tplcode:String, content:String, receiver:String, type:Integer, state:Integer);
+
+messagesender(name:String, classname:String, tplcode:String);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

@@ -1,0 +1,41 @@
+
+producer(id:Integer [PK], name:String, password:String, contactname:String, contactphone:String, contactidentitynumber:String, region:String, licensenumber:String, state:String, jointime:Date, registercapital:Integer, registertime:Date, credibility:String, content:String);
+
+logistic(logisticid:Integer [PK], orderid:Integer, name:String, logisticnumber:String, state:String, delivery:Date, price:Double);
+
+buyer(id:Integer [PK], name:String, phone:String, address:String);
+
+category(id:Integer [PK], parentid:Integer, name:String, rank:Integer, createtime:Date, uptime:Date);
+
+shoppingcart(agentid:Integer [PK], goodsspecids:String, amount:Integer, createtime:Date);
+
+specification(specid:Integer [PK], name:String, value:String);
+
+goodsspecitem(goodsspecid:Integer [PK], goodsid:Integer, specid:Integer, pricedifference:Double);
+
+warehouse(id:Integer [PK], producerid:Integer, country:String);
+
+orderitem(orderid:Integer [PK], goodsid:Integer, goodsspecids:String, amount:Integer);
+
+agent(id:Integer [PK], name:String, phone:String, password:String, identitynumber:String, region:String, state:String, jointime:Date, externalshop:String);
+
+refundstatus(orderid:Integer [PK], refundstatus:String, uptime:Date);
+
+evaluation(orderid:Integer [PK], producerid:Integer, agentid:Integer, direction:Integer, level:Integer, content:String, createtime:Date);
+
+agreement(producerid:Integer [PK], agentid:Integer [PK], time:Date, state:String);
+
+order(orderid:Integer [PK], agentid:Integer, buyerid:Integer, producerid:Integer, state:String, remark:String, createtime:Date, uptime:Date);
+
+exchangerate(name:String [PK], rate:Double, uptime:Date);
+
+warehouseitem(warehouseid:Integer [PK], goodsid:Integer, amount:Integer);
+
+goods(goodsid:Integer [PK], producerid:Integer, categoryid:Integer, name:String, price:Double, stock:Integer, state:String, createtime:Date, uptime:Date, content:String);
+
+countrycurrency(country:String [PK], currency:String);
+
+goodsevaluation(orderid:Integer [PK], goodsid:Integer, agentid:Integer, level:Integer, content:String, createtime:Date);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

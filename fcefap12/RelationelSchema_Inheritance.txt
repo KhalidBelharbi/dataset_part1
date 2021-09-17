@@ -1,0 +1,111 @@
+
+ecfrelatoriogerencialvo(serialversionuid:long, id:Integer [PK], x:Integer, meiospagamento:Integer, davemitidos:Integer, identificacaopaf:Integer, parametrosconfiguracao:Integer, outros:Integer, ecfconfiguracao:EcfConfiguracaoVO #FK to(ecfconfiguracaovo));
+
+viewtotalpagamentodatavo(serialversionuid:long, id:Integer [PK], datavenda:Date, idtipopagamento:Integer, descricao:String, valorapurado:BigDecimal);
+
+davcabecalhovo(serialversionuid:long, id:Integer [PK], numerodav:String, numeroecf:String, ccf:Integer, coo:Integer, nomedestinatario:String, cpfcnpjdestinatario:String, dataemissao:Date, horaemissao:String, situacao:String, taxaacrescimo:BigDecimal, acrescimo:BigDecimal, taxadesconto:BigDecimal, desconto:BigDecimal, subtotal:BigDecimal, valor:BigDecimal, impresso:String, logss:String);
+
+ecfconfiguracaobalancavo(serialversionuid:long, id:Integer [PK], modelo:Integer, identificador:String, handshake:Integer, parity:Integer, stopbits:Integer, databits:Integer, baudrate:Integer, porta:String, timeout:Integer, tipoconfiguracao:String, id:EcfConfiguracaoVO #FK to(ecfconfiguracaovo));
+
+bancovo(serialversionuid:long, id:Integer [PK], codigo:String, nome:String, url:String);
+
+r06vo(serialversionuid:long, id:Integer [PK], idoperador:Integer, idimpressora:Integer, idecfcaixa:Integer, serieecf:String, coo:Integer, gnf:Integer, grg:Integer, cdc:Integer, denominacao:String, dataemissao:Date, horaemissao:String, logss:String);
+
+logssvo(serialversionuid:long, id:Integer [PK], ttp:Integer, produto:Integer, r01:Integer, r02:Integer, r03:Integer, r04:Integer, r05:Integer, r06:Integer, r07:Integer);
+
+ecfmovimentovo(serialversionuid:long, id:Integer [PK], idgerentesupervisor:Integer, dataabertura:Date, horaabertura:String, datafechamento:Date, horafechamento:String, totalsuprimento:BigDecimal, totalsangria:BigDecimal, totalnaofiscal:BigDecimal, totalvenda:BigDecimal, totaldesconto:BigDecimal, totalacrescimo:BigDecimal, total:BigDecimal, totalrecebido:BigDecimal, totaltroco:BigDecimal, totalcancelado:BigDecimal, statusmovimento:String, id:EcfCaixaVO #FK to(ecfcaixavo), id:EcfOperadorVO #FK to(ecfoperadorvo), id:EcfTurnoVO #FK to(ecfturnovo), id:EcfImpressoraVO #FK to(ecfimpressoravo), id:EcfEmpresaVO #FK to(ecfempresavo));
+
+ecfsuprimentovo(serialversionuid:long, id:Integer [PK], datasuprimento:Date, valor:BigDecimal, id:EcfMovimentoVO #FK to(ecfmovimentovo));
+
+ecfresolucaovo(serialversionuid:long, id:Integer [PK], resolucaotela:String, largura:Integer, altura:Integer, imagemtela:String, imagemmenu:String, imagemsubmenu:String, hottrackcolor:String, itemstylefontname:String, itemstylefontcolor:String, itemselstylecolor:String, labeltotalgeralfontcolor:String, itemstylefontstyle:String, editscolor:String, editsfontcolor:String, editsdisabledcolor:String, editsfontname:String, editsfontstyle:String);
+
+prevendacabecalhovo(serialversionuid:long, id:Integer [PK], dataemissao:Date, horaemissao:String, situacao:String, ccf:Integer, valor:BigDecimal, nomedestinatario:String, cpfcnpjdestinatario:String, subtotal:BigDecimal, desconto:BigDecimal, acrescimo:BigDecimal, taxaacrescimo:BigDecimal, taxadesconto:BigDecimal);
+
+ecfsangriavo(serialversionuid:long, id:Integer [PK], datasangria:Date, valor:BigDecimal, id:EcfMovimentoVO #FK to(ecfmovimentovo));
+
+cfopvo(serialversionuid:long, id:Integer [PK], cfop:Integer, descricao:String, aplicacao:String);
+
+situacaoclientevo(serialversionuid:long, id:Integer [PK], nome:String, descricao:String);
+
+sintegra60mvo(serialversionuid:long, id:Integer [PK], dataemissao:Date, numeroserieecf:String, numeroequipamento:Integer, modelodocumentofiscal:String, cooinicial:Integer, coo:Integer, crz:Integer, cro:Integer, valorvendabruta:BigDecimal, valorgrandetotal:BigDecimal);
+
+ecfcontadorvo(serialversionuid:long, id:Integer [PK], cpf:String, cnpj:String, nome:String, inscricaocrc:String, fone:String, fax:String, logradouro:String, numero:Integer, complemento:String, bairro:String, cep:String, codigomunicipio:Integer, uf:String, email:String, id:EcfEmpresaVO #FK to(ecfempresavo));
+
+contaspagarrecebervo(serialversionuid:long, id:Integer [PK], idplanocontas:Integer, idtipodocumento:Integer, idpessoa:Integer, tipo:String, numerodocumento:String, valor:BigDecimal, datalancamento:Date, primeirovencimento:Date, naturezalancamento:String, quantidadeparcela:Integer, codigotipopagamento:String, id:EcfVendaCabecalhoVO #FK to(ecfvendacabecalhovo));
+
+ecfcaixavo(serialversionuid:long, id:Integer [PK], nome:String, datacadastro:Date);
+
+prevendadetalhevo(serialversionuid:long, id:Integer [PK], item:Integer, quantidade:BigDecimal, valorunitario:BigDecimal, valortotal:BigDecimal, cancelado:String, gtinproduto:String, nomeproduto:String, unidadeproduto:String, ecficmsst:String, id:PreVendaCabecalhoVO #FK to(prevendacabecalhovo));
+
+ecfvendadetalhevo(serialversionuid:long, id:Integer [PK], cfop:Integer, gtin:String, ccf:Integer, coo:Integer, serieecf:String, item:Integer, quantidade:BigDecimal, valorunitario:BigDecimal, valortotal:BigDecimal, totalitem:BigDecimal, baseicms:BigDecimal, taxaicms:BigDecimal, icms:BigDecimal, taxadesconto:BigDecimal, desconto:BigDecimal, taxaissqn:BigDecimal, issqn:BigDecimal, taxapis:BigDecimal, pis:BigDecimal, taxacofins:BigDecimal, cofins:BigDecimal, taxaacrescimo:BigDecimal, acrescimo:BigDecimal, acrescimorateio:BigDecimal, descontorateio:BigDecimal, totalizadorparcial:String, cst:String, cancelado:String, movimentaestoque:String, ecficmsst:String, logss:String, id:EcfVendaCabecalhoVO #FK to(ecfvendacabecalhovo), id:ProdutoVO #FK to(produtovo));
+
+davdetalhevo(serialversionuid:long, id:Integer [PK], numerodav:String, dataemissao:Date, item:Integer, quantidade:BigDecimal, valorunitario:BigDecimal, valortotal:BigDecimal, cancelado:String, mesclaproduto:String, gtinproduto:String, nomeproduto:String, unidadeproduto:String, totalizadorparcial:String, logss:String, id:DavCabecalhoVO #FK to(davcabecalhovo));
+
+unidadeprodutovo(serialversionuid:long, id:Integer [PK], sigla:String, descricao:String, podefracionar:String);
+
+ecfvendacabecalhovo(serialversionuid:long, id:Integer [PK], idecfdav:Integer, idecfprevendacabecalho:Integer, serieecf:String, cfop:Integer, coo:Integer, ccf:Integer, datavenda:Date, horavenda:String, valorvenda:BigDecimal, taxadesconto:BigDecimal, desconto:BigDecimal, taxaacrescimo:BigDecimal, acrescimo:BigDecimal, valor:BigDecimal, valorrecebido:BigDecimal, troco:BigDecimal, valorcancelado:BigDecimal, totalprodutos:BigDecimal, totaldocumento:BigDecimal, baseicms:BigDecimal, icms:BigDecimal, icmsoutras:BigDecimal, issqn:BigDecimal, pis:BigDecimal, cofins:BigDecimal, acrescimoitens:BigDecimal, descontoitens:BigDecimal, statusvenda:String, nomecliente:String, cpfcnpjcliente:String, cupomcancelado:String, logss:String, id:EcfMovimentoVO #FK to(ecfmovimentovo), id:EcfFuncionarioVO #FK to(ecffuncionariovo), id:ClienteVO #FK to(clientevo));
+
+ecfdocumentosemitidosvo(serialversionuid:long, id:Integer [PK], dataemissao:Date, horaemissao:String, tipo:String, coo:Integer, id:EcfMovimentoVO #FK to(ecfmovimentovo));
+
+r02vo(serialversionuid:long, id:Integer [PK], idoperador:Integer, idimpressora:Integer, idecfcaixa:Integer, serieecf:String, crz:Integer, coo:Integer, cro:Integer, datamovimento:Date, dataemissao:Date, horaemissao:String, vendabruta:BigDecimal, grandetotal:BigDecimal, logss:String);
+
+ecfconfiguracaoleitorservo(serialversionuid:long, id:Integer [PK], usa:String, porta:String, baud:Integer, handshake:Integer, parity:Integer, stopbits:Integer, databits:Integer, intervalo:Integer, usarfila:String, hardflow:String, softflow:String, sufixo:String, excluirsufixo:String, id:EcfConfiguracaoVO #FK to(ecfconfiguracaovo));
+
+ecfrecebimentonaofiscalvo(serialversionuid:long, id:Integer [PK], datarecebimento:Date, descricao:String, valor:BigDecimal, id:EcfMovimentoVO #FK to(ecfmovimentovo));
+
+logimportacaovo(serialversionuid:long, id:Integer [PK], dataimportacao:Date, horaimportacao:String, erro:String, registro:String);
+
+viewtotalpagamentomovimentovo(serialversionuid:long, id:Integer [PK], idecfmovimento:Integer, descricao:String, valorapurado:BigDecimal);
+
+ecftipopagamentovo(serialversionuid:long, id:Integer [PK], codigo:String, descricao:String, tef:String, imprimevinculado:String, permitetroco:String, teftipogp:String, geraparcelas:String);
+
+r03vo(serialversionuid:long, id:Integer [PK], serieecf:String, totalizadorparcial:String, valoracumulado:BigDecimal, crz:Integer, logss:String, id:R02VO #FK to(r02vo));
+
+notafiscalcabecalhovo(serialversionuid:long, id:Integer [PK], cpfcnpjcliente:String, cfop:Integer, numero:String, dataemissao:Date, horaemissao:String, serie:String, subserie:String, totalprodutos:BigDecimal, totalnf:BigDecimal, baseicms:BigDecimal, icms:BigDecimal, icmsoutras:BigDecimal, issqn:BigDecimal, pis:BigDecimal, cofins:BigDecimal, ipi:BigDecimal, taxaacrescimo:BigDecimal, acrescimo:BigDecimal, acrescimoitens:BigDecimal, taxadesconto:BigDecimal, desconto:BigDecimal, descontoitens:BigDecimal, cancelada:String, tiponota:String, id:ClienteVO #FK to(clientevo), id:EcfFuncionarioVO #FK to(ecffuncionariovo));
+
+ecfturnovo(serialversionuid:long, id:Integer [PK], descricao:String, horainicio:String, horafim:String);
+
+fichatecnicavo(serialversionuid:long, id:Integer [PK], descricao:String, idprodutofilho:Integer, quantidade:BigDecimal, id:ProdutoVO #FK to(produtovo));
+
+ecfoperadorvo(serialversionuid:long, id:Integer [PK], login:String, senha:String, id:EcfFuncionarioVO #FK to(ecffuncionariovo));
+
+ecfimpressoravo(serialversionuid:long, id:Integer [PK], numero:Integer, codigo:String, serie:String, identificacao:String, mc:String, md:String, vr:String, tipo:String, marca:String, modelo:String, modeloacbr:String, modelodocumentofiscal:String, versao:String, le:String, lef:String, mfd:String, lacrenamfd:String, docto:String, datainstalacaosb:Date, horainstalacaosb:String);
+
+ecfe3vo(serialversionuid:long, id:Integer [PK], serieecf:String, mfadicional:String, tipoecf:String, marcaecf:String, modeloecf:String, dataestoque:Date, horaestoque:String, logss:String);
+
+r01vo(serialversionuid:long, id:Integer [PK], serieecf:String, cnpjempresa:String, cnpjsh:String, inscricaoestadualsh:String, inscricaomunicipalsh:String, denominacaosh:String, nomepafecf:String, versaopafecf:String, md5pafecf:String, datainicial:Date, data:Date, versaoer:String, numerolaudopaf:String, razaosocialsh:String, enderecosh:String, numerosh:String, complementosh:String, bairrosh:String, cidadesh:String, cepsh:String, ufsh:String, telefonesh:String, contatosh:String, principalexecutavel:String, logss:String);
+
+ecfempresavo(serialversionuid:long, id:Integer [PK], idempresa:Integer, razaosocial:String, nomefantasia:String, cnpj:String, inscricaoestadual:String, inscricaoestadualst:String, inscricaomunicipal:String, inscricaojuntacomercial:String, datainscjuntacomercial:Date, matrizfilial:String, datacadastro:Date, datainicioatividades:Date, suframa:String, email:String, imagemlogotipo:String, crt:String, tiporegime:String, aliquotapis:BigDecimal, aliquotacofins:BigDecimal, logradouro:String, numero:String, complemento:String, cep:String, bairro:String, cidade:String, uf:String, fone:String, fax:String, contato:String, codigoibgecidade:Integer, codigoibgeuf:Integer);
+
+ecfchequeclientevo(serialversionuid:long, id:Integer [PK], idecfmovimento:Integer, numerocheque:Integer, datacheque:Date, valorcheque:BigDecimal, observacoes:String, agencia:String, conta:String, tipocheque:String, id:ClienteVO #FK to(clientevo), id:BancoVO #FK to(bancovo));
+
+ecfaliquotasvo(serialversionuid:long, id:Integer [PK], totalizadorparcial:String, ecficmsst:String, pafpst:String);
+
+ecffuncionariovo(serialversionuid:long, id:Integer [PK], nome:String, telefone:String, celular:String, email:String, comissaovista:BigDecimal, comissaoprazo:BigDecimal, nivelautorizacao:String);
+
+r07vo(serialversionuid:long, id:Integer [PK], ccf:Integer, meiopagamento:String, valorpagamento:BigDecimal, estorno:String, valorestorno:BigDecimal, logss:String, id:R06VO #FK to(r06vo));
+
+clientevo(serialversionuid:long, id:Integer [PK], nome:String, fantasia:String, email:String, cpfcnpj:String, rg:String, orgaorg:String, dataemissaorg:Date, sexo:String, inscricaoestadual:String, inscricaomunicipal:String, tipopessoa:String, datacadastro:Date, logradouro:String, numero:String, complemento:String, cep:String, bairro:String, cidade:String, uf:String, fone1:String, fone2:String, celular:String, contato:String, codigoibgecidade:Integer, codigoibgeuf:Integer, id:SituacaoClienteVO #FK to(situacaoclientevo));
+
+notafiscaldetalhevo(serialversionuid:long, id:Integer [PK], cfop:Integer, item:Integer, quantidade:BigDecimal, valorunitario:BigDecimal, valortotal:BigDecimal, baseicms:BigDecimal, taxaicms:BigDecimal, icms:BigDecimal, icmsoutras:BigDecimal, icmsisento:BigDecimal, taxadesconto:BigDecimal, desconto:BigDecimal, taxaissqn:BigDecimal, issqn:BigDecimal, taxapis:BigDecimal, pis:BigDecimal, taxacofins:BigDecimal, cofins:BigDecimal, taxaacrescimo:BigDecimal, acrescimo:BigDecimal, taxaipi:BigDecimal, ipi:BigDecimal, cancelado:String, cst:String, movimentaestoque:String, ecficmsst:String, id:NotaFiscalCabecalhoVO #FK to(notafiscalcabecalhovo), id:ProdutoVO #FK to(produtovo));
+
+davdetalhealteracaovo(serialversionuid:long, id:Integer [PK], dataalteracao:Date, horaalteracao:String, tipoalteracao:String, objeto:String, id:DavDetalheVO #FK to(davdetalhevo));
+
+produtopromocaovo(serialversionuid:long, id:Integer [PK], datainicio:Date, datafim:Date, quantidadeempromocao:BigDecimal, quantidademaximacliente:BigDecimal, valor:BigDecimal, id:ProdutoVO #FK to(produtovo));
+
+ecfconfiguracaovo(serialversionuid:long, id:Integer [PK], mensagemcupom:String, portaecf:String, ipservidor:String, ipsitef:String, tipotef:String, titulotelacaixa:String, caminhoimagensprodutos:String, caminhoimagensmarketing:String, caminhoimagenslayout:String, corjanelasinternas:String, marketingativo:String, cfopecf:Integer, cfopnf2:Integer, timeoutecf:Integer, intervaloecf:Integer, descricaosuprimento:String, descricaosangria:String, teftipogp:Integer, teftempoespera:Integer, tefesperasts:Integer, tefnumerovias:Integer, decimaisquantidade:Integer, decimaisvalor:Integer, bitsporsegundo:Integer, quantidademaximacartoes:Integer, pesquisaparte:String, ultimaexclusao:Integer, laudo:String, dataatualizacaoestoque:Date, pedecpfcupom:String, tipointegracao:Integer, timerintegracao:Integer, gavetasinalinvertido:String, gavetautilizacao:Integer, quantidademaximaparcela:Integer, imprimeparcela:String, usatecladoreduzido:String, permitelancarnfmanual:String, id:EcfEmpresaVO #FK to(ecfempresavo), id:EcfCaixaVO #FK to(ecfcaixavo), id:EcfResolucaoVO #FK to(ecfresolucaovo), id:EcfImpressoraVO #FK to(ecfimpressoravo), ecfrelatoriogerencial:EcfRelatorioGerencialVO #FK to(ecfrelatoriogerencialvo));
+
+produtovo(serialversionuid:long, id:Integer [PK], gtin:String, codigointerno:String, nome:String, descricao:String, descricaopdv:String, valorvenda:BigDecimal, quantidadeestoque:BigDecimal, estoqueminimo:BigDecimal, estoquemaximo:BigDecimal, iat:String, ippt:String, ncm:String, tipoitemsped:String, taxaipi:BigDecimal, taxaissqn:BigDecimal, taxapis:BigDecimal, taxacofins:BigDecimal, taxaicms:BigDecimal, cst:String, csosn:String, totalizadorparcial:String, ecficmsst:String, codigobalanca:Integer, pafpst:String, logss:String, id:UnidadeProdutoVO #FK to(unidadeprodutovo));
+
+sintegra60avo(serialversionuid:long, id:Integer [PK], situacaotributaria:String, valor:BigDecimal, id:Sintegra60mVO #FK to(sintegra60mvo));
+
+ecftotaltipopagamentovo(serialversionuid:long, id:Integer [PK], datavenda:Date, serieecf:String, coo:Integer, ccf:Integer, gnf:Integer, nsu:String, estorno:String, rede:String, cartaodc:String, logss:String, id:EcfTipoPagamentoVO #FK to(ecftipopagamentovo), id:EcfVendaCabecalhoVO #FK to(ecfvendacabecalhovo), valor:BigDecimal);
+
+ecffechamentovo(serialversionuid:long, id:Integer [PK], tipopagamento:String, valor:BigDecimal, id:EcfMovimentoVO #FK to(ecfmovimentovo));
+
+contasparcelasvo(serialversionuid:long, id:Integer [PK], idmeiospagamento:Integer, idchequeemitido:Integer, idcontacaixa:Integer, dataemissao:Date, datavencimento:Date, datapagamento:Date, numeroparcela:Integer, valor:BigDecimal, taxajuros:BigDecimal, taxamulta:BigDecimal, taxadesconto:BigDecimal, valorjuros:BigDecimal, valormulta:BigDecimal, valordesconto:BigDecimal, totalparcela:BigDecimal, historico:String, situacao:String, id:ContasPagarReceberVO #FK to(contaspagarrecebervo));
+
+ecfposicaocomponentesvo(serialversionuid:long, id:Integer [PK], nome:String, altura:Integer, largura:Integer, topo:Integer, esquerda:Integer, tamanhofonte:Integer, texto:String, id:EcfResolucaoVO #FK to(ecfresolucaovo));
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

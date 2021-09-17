@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="compatibility" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="fooda" type="xs:string" />
+        <xs:element name="foodb" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="searchcnt" type="xs:long" />
+        <xs:element name="reviewcnt" type="xs:string" />
+        <xs:element name="avgstar" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userdiet" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="diettype" type="xs:long" />
+        <xs:element name="food" type="xs:string" />
+        <xs:element name="dish" type="xs:long" />
+        <xs:element name="create" type="xs:dateTime" />
+        <xs:element name="userid" type="xs:string" />
+        <xs:element name="missionid" type="xs:string" />
+        <xs:element name="carbo" type="xs:double" />
+        <xs:element name="protein" type="xs:double" />
+        <xs:element name="fat" type="xs:double" />
+        <xs:element name="energy" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="mission" >
+      <xs:sequence>
+        <xs:element name="mid" type="xs:string" />
+        <xs:element name="create" type="xs:dateTime" />
+        <xs:element name="progress" type="xs:anyType" />
+        <xs:element name="result" type="xs:anyType" />
+        <xs:element name="//stringmissiontype//+-기능이따로필요없을거같아서string타입targetenergy" type="xs:double" />
+        <xs:element name="targetcarbohidrate" type="xs:double" />
+        <xs:element name="targetprotein" type="xs:double" />
+        <xs:element name="targetfat" type="xs:double" />
+        <xs:element name="//언더바있는컬럼profileuid" type="xs:string" />
+        <xs:element name="members" type="userdiet" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="incompatibility" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="fooda" type="xs:string" />
+        <xs:element name="foodb" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="searchcnt" type="xs:long" />
+        <xs:element name="reviewcnt" type="xs:string" />
+        <xs:element name="avgstar" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="disease" >
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="store" >
+      <xs:sequence>
+        <xs:element name="//id,name,area,tel,address,latitude,longitude,category,menuid" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="area" type="xs:string" />
+        <xs:element name="tel" type="xs:string" />
+        <xs:element name="address" type="xs:string" />
+        <xs:element name="latitude" type="xs:double" />
+        <xs:element name="longitude" type="xs:double" />
+        <xs:element name="category" type="xs:string" />
+        <xs:element name="menu" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="nutrient" >
+      <xs:sequence>
+        <xs:element name="//food,energy,protein,fat,carbohydrate,calcium,sodium,iron,p,k,vitamin_b1,vitamin_b2,vitamin_c//id,food,energy,carbohydrate,protein,fat,cholesterol,fiber,sodiumid" type="xs:long" />
+        <xs:element name="food" type="xs:string" />
+        <xs:element name="energy" type="xs:double" />
+        <xs:element name="protein" type="xs:double" />
+        <xs:element name="fat" type="xs:double" />
+        <xs:element name="carbohidrate" type="xs:double" />
+        <xs:element name="//@column(name" type="xs:double" />
+        <xs:element name="//@column(name" type="xs:double" />
+        <xs:element name="fiber" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="storereview" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="store" type="xs:string" />
+        <xs:element name="user" type="xs:string" />
+        <xs:element name="score" type="xs:string" />
+        <xs:element name="content" type="xs:string" />
+        <xs:element name="reg_time" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="review" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="//@manytoone//@joincolumn(name" type="xs:double" />
+        <xs:element name="compatibilityid" type="xs:long" />
+        <xs:element name="userid" type="xs:string" />
+        <xs:element name="compatibilitytype" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userprofile" >
+      <xs:sequence>
+        <xs:element name="uid" type="xs:string" />
+        <xs:element name="nickname" type="xs:string" />
+        <xs:element name="targetweight" type="xs:long" />
+        <xs:element name="targettype" type="xs:string" />
+        <xs:element name="height" type="xs:long" />
+        <xs:element name="gendertype" type="xs:long" />
+        <xs:element name="imgurl" type="xs:string" />
+        <xs:element name="accounttype" type="xs:long" />
+        <xs:element name="//권장영양섭취량을위한칼럼들age" type="xs:long" />
+        <xs:element name="targetenergy" type="xs:double" />
+        <xs:element name="targetcarbohidrate" type="xs:double" />
+        <xs:element name="targetprotein" type="xs:double" />
+        <xs:element name="targetfat" type="xs:double" />
+        <xs:element name="tagname" type="xs:string" />
+        <xs:element name="//해당회원에대한프로필상의식단을가져온다.members" type="userdiet" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="profiledietrequest" >
+      <xs:sequence>
+        <xs:element name="uid" type="xs:string" />
+        <xs:element name="date" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="missiondetail" >
+      <xs:sequence>
+        <xs:element name="uid" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="uid" type="xs:string" />
+        <xs:element name="pw" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="nickname" type="xs:string" />
+        <xs:element name="accounttype" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

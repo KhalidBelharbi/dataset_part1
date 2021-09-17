@@ -1,0 +1,640 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="testcontroller" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="systemusercontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="systemuserservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="jwtutil" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="opinioncontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="opinionservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="basecontroller" >
+      <xs:sequence>
+        <xs:element name="expiration_time" type="xs:long" />
+        <xs:element name="token_prefix" type="xs:string" />
+        <xs:element name="GeneratedName" type="jwtutil" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="baseservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="osshandler" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usercontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="normaluserservice" nillable="true" minOccurs="0" />
+        <xs:element name="util" type="jwtutil" nillable="true" minOccurs="0" />
+        <xs:element name="header" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="duplicateuserexception" >
+      <xs:complexContent>
+       <xs:extension base="runtimeexception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="authorityexception" >
+      <xs:complexContent>
+       <xs:extension base="runtimeexception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tokenexception" >
+      <xs:complexContent>
+       <xs:extension base="runtimeexception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="httpcfg" >
+      <xs:sequence>
+        <xs:element name="httpsport" type="xs:long" />
+        <xs:element name="httpport" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cachecfg" >
+      <xs:complexContent>
+       <xs:extension base="cachingconfigurersupport">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sentiment" >
+      <xs:sequence>
+        <xs:element name="_id" type="xs:anyType" />
+        <xs:element name="text" type="xs:string" />
+        <xs:element name="senti" type="xs:double" />
+        <xs:element name="date" type="xs:string" />
+        <xs:element name="good" type="xs:long" />
+        <xs:element name="mid" type="xs:long" />
+        <xs:element name="bad" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="goodsentiment" >
+      <xs:complexContent>
+       <xs:extension base="sentiment">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="badsentiment" >
+      <xs:complexContent>
+       <xs:extension base="sentiment">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="word_tf" >
+      <xs:sequence>
+        <xs:element name="_id" type="xs:anyType" />
+        <xs:element name="word" type="xs:string" />
+        <xs:element name="created_date" type="xs:string" />
+        <xs:element name="tf" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="posting" >
+      <xs:sequence>
+        <xs:element name="_id" type="xs:anyType" />
+        <xs:element name="//发布者user" type="xs:string" />
+        <xs:element name="attitudes_count" type="xs:long" />
+        <xs:element name="comments_count" type="xs:long" />
+        <xs:element name="reposts_count" type="xs:long" />
+        <xs:element name="text" type="xs:string" />
+        <xs:element name="//2018-8-2322:38time" type="xs:string" />
+        <xs:element name="text_id" type="xs:string" />
+        <xs:element name="crawled_at" type="xs:string" />
+        <xs:element name="source" type="xs:string" />
+        <xs:element name="created_date" type="xs:string" />
+        <xs:element name="senti" type="xs:double" />
+        <xs:element name="level" type="xs:long" />
+        <xs:element name="full_text" type="xs:string" />
+        <xs:element name="words" type="xs:anyType" />
+        <xs:element name="avatar" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="clean_text" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="word_tfidf" >
+      <xs:sequence>
+        <xs:element name="_id" type="xs:anyType" />
+        <xs:element name="word" type="xs:string" />
+        <xs:element name="tfidf" type="xs:double" />
+        <xs:element name="created_date" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="commentsinsenti" >
+      <xs:sequence>
+        <xs:element name="good" type="xs:long" />
+        <xs:element name="mid" type="xs:long" />
+        <xs:element name="bad" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="newszcfb" >
+      <xs:sequence>
+        <xs:element name="link" type="xs:string" />
+        <xs:element name="pos,title,date,origin" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="summary" >
+      <xs:sequence>
+        <xs:element name="link" type="xs:string" />
+        <xs:element name="pos,title,date,origin,type" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="newstzgg" >
+      <xs:sequence>
+        <xs:element name="link" type="xs:string" />
+        <xs:element name="pos,title,date,origin" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="newszfsj" >
+      <xs:sequence>
+        <xs:element name="link" type="xs:string" />
+        <xs:element name="pos,title,date,origin" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="word_tf_pk" >
+      <xs:sequence>
+        <xs:element name="word" type="xs:string" />
+        <xs:element name="month" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="newsywdd" >
+      <xs:sequence>
+        <xs:element name="link" type="xs:string" />
+        <xs:element name="pos,title,date,origin" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="newszcjd" >
+      <xs:sequence>
+        <xs:element name="link" type="xs:string" />
+        <xs:element name="pos,title,date,origin" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hypx" >
+      <xs:sequence>
+        <xs:element name="link" type="xs:string" />
+        <xs:element name="pos,title,date,origin" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="word_tf" >
+      <xs:sequence>
+        <xs:element name="word" type="xs:string" />
+        <xs:element name="month" type="xs:string" />
+        <xs:element name="tf" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="//用户名username" type="xs:string" />
+        <xs:element name="//密码password" type="xs:string" />
+        <xs:element name="//昵称nickname" type="xs:string" />
+        <xs:element name="//头像urlavatar" type="xs:string" />
+        <xs:element name="//电话phone" type="xs:string" />
+        <xs:element name="//邮箱email" type="xs:string" />
+        <xs:element name="//性别gender" type="xs:string" />
+        <xs:element name="//生日birthday" type="xs:string" />
+        <xs:element name="//……moneylevel" type="xs:string" />
+        <xs:element name="//自我介绍bio" type="xs:string" />
+        <xs:element name="//+通过做问卷得出的结果level" type="xs:string" />
+        <xs:element name="//权限role" type="xs:string" />
+        <xs:element name="//注册时间registertime" type="xs:string" />
+        <xs:element name="//预期收益expectedprofit" type="xs:double" />
+        <xs:element name="//风险承受能力riskability" type="xs:double" />
+        <xs:element name="coins" type="xs:long" />
+        <xs:element name="exp" type="xs:long" />
+        <xs:element name="//今天是否签到hassignedtoday" type="xs:anyType" />
+        <xs:element name="//可以查看的教程级别tutorialtype" type="xs:string" />
+        <xs:element name="ratiotrend" type="xs:anyType" />
+        <xs:element name="trend" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tutorial" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="userid" type="xs:long" />
+        <xs:element name="nickname,title,description,time" type="xs:string" />
+        <xs:element name="content" type="xs:string" />
+        <xs:element name="keywords" type="xs:anyType" />
+        <xs:element name="type" type="xs:string" />
+        <xs:element name="//封面cover" type="xs:string" />
+        <xs:element name="alreadyliked" type="xs:anyType" />
+        <xs:element name="comments" type="comment" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="likedlist" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="strategyitem" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="stockid" type="xs:string" />
+        <xs:element name="buyrate" type="xs:double" />
+        <xs:element name="GeneratedName" type="strategy" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="stock" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="//股票代码stockid" type="xs:string" />
+        <xs:element name="//股票名字stockname" type="xs:string" />
+        <xs:element name="//股价currentprice" type="xs:double" />
+        <xs:element name="//跌涨幅%trend" type="xs:double" />
+        <xs:element name="//累计换手率%turnoverrate" type="xs:double" />
+        <xs:element name="//股市盈利率%marketprofitability" type="xs:double" />
+        <xs:element name="//今日成交量todayvolume" type="xs:long" />
+        <xs:element name="//推荐购买比例buyrate" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="comment" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="//这个也准备换成对象writer" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="content,time,nickname" type="xs:string" />
+        <xs:element name="alreadyliked" type="xs:anyType" />
+        <xs:element name="alreadyread" type="xs:long" />
+        <xs:element name="GeneratedName" type="tutorial" nillable="true" minOccurs="0" />
+        <xs:element name="replytarget" type="comment" nillable="true" minOccurs="0" />
+        <xs:element name="replytargetuserid" type="xs:long" />
+        <xs:element name="comments" type="comment" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="likedusers" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="strategy" >
+      <xs:sequence>
+        <xs:element name="recordid" type="xs:long" />
+        <xs:element name="userid" type="xs:long" />
+        <xs:element name="recordname" type="xs:string" />
+        <xs:element name="recordtime" type="xs:string" />
+        <xs:element name="stocks" type="strategyitem" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="realstock" >
+      <xs:sequence>
+        <xs:element name="//股票代码stockid" type="xs:string" />
+        <xs:element name="//名字stockname" type="xs:string" />
+        <xs:element name="//跌涨幅trend" type="xs:double" />
+        <xs:element name="//现价currentprice" type="xs:double" />
+        <xs:element name="//开盘价open" type="xs:double" />
+        <xs:element name="//最高价high" type="xs:double" />
+        <xs:element name="//最低价low" type="xs:double" />
+        <xs:element name="//昨日收盘价settlement" type="xs:double" />
+        <xs:element name="//成交量todayvolume" type="xs:double" />
+        <xs:element name="//换手率turnoverrate" type="xs:double" />
+        <xs:element name="//成交额amount" type="xs:double" />
+        <xs:element name="//市盈率marketprofitability" type="xs:double" />
+        <xs:element name="//市净率pb" type="xs:double" />
+        <xs:element name="//总市值mktcap" type="xs:double" />
+        <xs:element name="//流通市值nmc" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="strategyvo" >
+      <xs:complexContent>
+       <xs:extension base="strategyitem">
+         <xs:sequence>
+          <xs:element name="stockid" type="xs:string" />
+          <xs:element name="stockname" type="xs:string" />
+          <xs:element name="buyrate" type="xs:double" />
+          <xs:element name="currentprice" type="xs:double" />
+          <xs:element name="trend" type="xs:double" />
+          <xs:element name="turnoverrate" type="xs:double" />
+          <xs:element name="marketprofitability" type="xs:double" />
+          <xs:element name="todayvolume" type="xs:double" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="mongoconfig" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jwtutil" >
+      <xs:sequence>
+        <xs:element name="expiration_time" type="xs:long" />
+        <xs:element name="token_prefix" type="xs:string" />
+        <xs:element name="secret" type="xs:string" />
+        <xs:element name="key_prefix" type="xs:string" />
+        <xs:element name="template" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="osshandler" >
+      <xs:sequence>
+        <xs:element name="endpoint" type="xs:string" />
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="key" type="xs:string" />
+        <xs:element name="prefix" type="xs:string" />
+        <xs:element name="dir" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="logininfo" >
+      <xs:sequence>
+        <xs:element name="token" type="xs:string" />
+        <xs:element name="vericode" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tutorialtype" >
+      <xs:sequence>
+        <xs:element name="beginner" type="xs:string" />
+        <xs:element name="intermediate" type="xs:string" />
+        <xs:element name="advanced" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="datehandler" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="message" >
+      <xs:sequence>
+        <xs:element name="msg_success" type="xs:long" />
+        <xs:element name="//发送验证码失败msg_email_failed" type="xs:long" />
+        <xs:element name="//验证码错误msg_wrong_vericode" type="xs:long" />
+        <xs:element name="//用户名重复msg_duplicate_email" type="xs:long" />
+        <xs:element name="//密码错误msg_wrong_password" type="xs:long" />
+        <xs:element name="//用户不存在msg_user_notexist" type="xs:long" />
+        <xs:element name="//token相关的错误msg_token_mistake" type="xs:long" />
+        <xs:element name="//权限相关的错误msg_authority_mistake" type="xs:long" />
+        <xs:element name="//出错就可以用这个msg_failed" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="role" >
+      <xs:sequence>
+        <xs:element name="normal" type="xs:string" />
+        <xs:element name="system" type="xs:string" />
+        <xs:element name="advanced" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="httphandler" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="normaluserservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="baseservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="systemuserservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="opinionservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="postingrepository" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sentirepository" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sentirepositoryimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="text_in_db" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="postingrepositoryimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="stockrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<stock,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="realstockrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<realstock,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="strategyrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<strategy,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<user,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tutorialrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<tutorial,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="commentrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<comment,long>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="word_tfrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<word_tf,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="hypxrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<hypx,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="summaryrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<summary,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="bequankapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="tutorialrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="commentrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="userrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="baseserviceimpl" >
+      <xs:sequence>
+        <xs:element name="repository" type="userrepository" nillable="true" minOccurs="0" />
+        <xs:element name="template" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="jwtutil" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="opinionserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="summaryrepository" nillable="true" minOccurs="0" />
+        <xs:element name="wordsrepository" type="word_tfrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="sentirepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="postingrepository" nillable="true" minOccurs="0" />
+        <xs:element name="multi" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="systemuserserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="tutorialrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="userrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="userservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="message" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="normaluserserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="jwtutil" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="strategyrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="httphandler" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="realstockrepository" nillable="true" minOccurs="0" />
+        <xs:element name="header" type="xs:string" />
+        <xs:element name="GeneratedName" type="userrepository" nillable="true" minOccurs="0" />
+        <xs:element name="dateformat" type="xs:anyType" />
+        <xs:element name="pos" type="xs:long" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="datasourceconfig" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="authoritymanager" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="jwtutil" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="requestfilter" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="matcher" type="xs:anyType" />
+        <xs:element name="template" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="jwtutil" nillable="true" minOccurs="0" />
+        <xs:element name="header" type="xs:string" />
+        <xs:element name="token_prefix" type="xs:string" />
+        <xs:element name="secret" type="xs:string" />
+        <xs:element name="key_prefix" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="secondaryconfig" >
+      <xs:sequence>
+        <xs:element name="secondary" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="primaryconfig" >
+      <xs:sequence>
+        <xs:element name="primary" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="authoritymanagertest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="jwtutil" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="opinionserviceimpltest" >
+      <xs:sequence>
+        <xs:element name="service" type="opinionserviceimpl" nillable="true" minOccurs="0" />
+        <xs:element name="wordsrepository" type="word_tfrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="summaryrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="baseserviceimpltest" >
+      <xs:sequence>
+        <xs:element name="baseservice" type="baseserviceimpl" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="userrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userserviceimpltest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="tutorialrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="userrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="commentrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="systemuserservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="userservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="testweibo" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="postingrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="sentirepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="teststocks_strategy" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="strategyrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="datatest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="summaryrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="word_tfrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="testcomment_tutorial" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="commentrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="tutorialrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="osshandlertest" >
+      <xs:sequence>
+        <xs:element name="handler" type="osshandler" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bequankapplicationtests" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

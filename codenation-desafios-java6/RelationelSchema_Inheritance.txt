@@ -1,0 +1,17 @@
+
+categoria(id:Long [PK], nome:String);
+
+livro_categoria(idcategoria:Categoria [PK] #FK to Categoria,idlivro:list<livro> [PK] #FK to list<livro>);
+
+livro(id:Long [PK], titulo:String, quantidadeestoque:Long);
+
+livro_categoria(idlivro:Livro [PK] #FK to Livro,idcategoria:list<categoria> [PK] #FK to list<categoria>);
+
+leitor(id:Long [PK], nome:String);
+
+usuario(id:Long [PK], login:String, password:String);
+
+avaliacao(GeneratedName:AvaliacaoIdentity, nota:Integer, avaliacao:String);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

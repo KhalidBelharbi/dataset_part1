@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="question" >
+      <xs:complexContent>
+       <xs:extension base="auditmodel{">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="//названиеtitle" type="xs:string" />
+          <xs:element name="description" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="auditmodel" >
+      <xs:sequence>
+        <xs:element name="created" type="xs:dateTime" />
+        <xs:element name="up" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="answer" >
+      <xs:complexContent>
+       <xs:extension base="auditmodel{">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="//названиеtext" type="xs:string" />
+          <xs:element name="" type="question" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema> 

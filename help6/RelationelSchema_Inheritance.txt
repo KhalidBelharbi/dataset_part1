@@ -1,0 +1,17 @@
+
+manufacturer(id:int [PK], name:String, founded:Calendar, GeneratedName:Address);
+
+salesorder(id:Integer [PK], ////integerbusinesspartneriddoctotal:BigDecimal, //@transient:BusinessPartner #FK to(businesspartner));
+
+driver(id:Long [PK], name:String, lastname:String, nickname:String, GeneratedName:Car #FK to(car), birthday:Calendar);
+
+salesorderdetail(id:SalesOrder [PK] #FK to(salesorder), linenum:int [PK], id:Item #FK to(item), price:BigDecimal);
+
+car(GeneratedName:Key, model:String, price:Double, modelyear:Integer, upd:Date, id:Manufacturer #FK to(manufacturer), GeneratedName:Driver #FK to(driver));
+
+businesspartner(id:Integer [PK], name:String);
+
+item(id:Integer [PK], itemcode:String, itemname:String);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

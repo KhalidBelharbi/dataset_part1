@@ -1,0 +1,97 @@
+
+tproxytransactionorder(//fieldsid:Long, orderno:String, sysuserid:Long, sysusername:String, proxyuserid:Long, proxyusername:String, balance:Double, tradetype:Integer, remark:String, created:Date);
+
+cargouser(/***/serialversionuid:long, id:Long [PK], mobile:String);
+
+businessrules(serialversionuid:long, id:Long [PK], //urlactionurl:String, //����descript:String, //ԭ��price:Double, //�ۿ���discount:Double, //����type:Integer, //�ɱ�cost:Double, //�ۺ�۸�discountprice:Double, //�ۺ���discountpoints:Long, //proxyuserid:Long, proxyprice:Double, //价格比例truckprice:Double, //价格比例consignorprice:Double, //价格比例truckdiscountpoint:Double, //价格比例consignordiscountpoint:Double);
+
+tregion(//fieldsregionid:Short, parentid:Short, regionname:String, regiontype:Boolean, agencyid:Short);
+
+feedback(id:Long [PK], type:Integer, mobile:String, content:String, addtime:Date);
+
+sysrole(//fieldsid:Long, rolename:String, created:Date, status:String, buttons:List<SysPermission>);
+
+sys_role_permission(role_id:SysRole [PK] #FK to SysRole,permission_id:set<syspermission> [PK] #FK to set<syspermission>);
+
+commdata(//fieldsid:Long, parentid:Long, name:String, status:String, root:String, isleaf:int, typedesc:String);
+
+tinsurancetransactionstatements(//fieldsid:Long, accountid:Long, pay:Double, deposit:Double, balance:Double, tradetype:Integer, remark:String, created:Date);
+
+tdrivertransactionstatements(//fieldsid:Long, accountid:Long, pay:Double, deposit:Double, balance:Double, tradetype:Integer, remark:String, created:Date, /***���**/paypoints:Long, /***ssʣ�»��**/restpoints:Long, orderno:String, isturnout:Boolean, proxyprice:Double, proxyuserid:Long, //专款specialbalance:Double, paytype:Integer);
+
+ttransactionllzflog(//fieldsid:Long, oidpartner:String, signtype:String, sign:String, dtorder:String, noorder:String, oidpaybill:String, moneyorder:String, resultpay:String, settle:Date, infoorder:String, paytype:String, bankcode:String, noagree:String, idtype:String, idno:String, acctname:String, created:Date);
+
+tcompanytransactionstatements(//fieldsid:Long, accountid:Long, pay:Double, deposit:Double, tradetype:Integer, remark:String, created:Date, /***���**/paypoints:Long, /***ssʣ�»��**/restpoints:Long, orderno:String, usertype:Short, isturnout:Boolean, //�ɱ�cost:Double, //����profit:Double, proxyprice:Double, proxyuserid:Long, issuccess:boolean, paytype:Integer);
+
+ddcxwyinsurance(//fieldsid:Long, orderno:String, count:Integer, balance:Double, created:Date, proxyid:Long, proxyname:String, saleuserid:Long, saleusername:String, xczpath:String, bdpath:String, status:int, name:String, mobile:String, idcard:String, starttime:Date, type:Integer);
+
+thirdmallteller(serialversionuid:long, id:Long [PK], //柜员idtellerid:String, //商户idstoreid:Long, //柜员姓名tellername:String, //登录密码password:String, //登录手机的极光推送idjpushid:String, //登录手机的设备iddeviceid:String, //最后一次登录时间lastlogin:Date, //登录时的iplastip:String, //锁定标志islock:Boolean, created:Date);
+
+waybillinfo(serialversionuid:long, id:Long [PK], //货主idconsignorid:Long, //货主姓名consignorname:String, //货主手机号consignormobile:String, //出发地origin:String, //目的地destination:String, //备注memo:String, //运货所需车型trucktype:String, //车长trucklength:Double, //货物类型goodstype:String, //货主极光idjpushid:String, //运费fee:Double, //货主保证金bond:Double, //重量weight:Integer, //体积bulk:Integer, sendtruckid		//已发送司机id列表//longfiredtruckid		//已报价司机id列表//运单生成时间addtime:Date, //geometrylocation			//货主位置//货主位置geohash值geohash:String, //删除标志isdelete:Integer, //是否最终生成了订单isordered:Integer, //生成的订单号orderno:String, //已发送货主id列表sendconsignorid:String, //已报价货主id列表firedconsignorid:String, //支付方式（1-余额,2-微信,3-支付宝,4-连连）paytype:Integer, //是否支付成功ispaysuccess:Boolean);
+
+syspermission(//fieldsid:Long, permissionname:String, permissionurl:String, parentid:Long, status:String, isleaf:String);
+
+sysuseroperation(//fieldsid:Long, userid:String, actionname:String, created:Date, actiontranslation:String, dataid:String);
+
+truck(/***/serialversionuid:long, id:Long [PK], /***锟斤拷锟斤拷司锟斤拷锟斤拷锟斤拷*/drivername:String, /***锟街伙拷锟�*/mobile:String, /***锟斤拷锟狡猴拷*/platenumber:String, /***锟斤拷锟斤拷*/password:String, /***锟斤拷锟街わ拷锟�*/idcardnumber:String, /***锟斤拷锟街わ拷锟狡瑄rl*/idcardpic:String, /***锟斤拷驶证锟斤拷*/drivinglicensenumber:String, /***锟斤拷驶证锟斤拷片url*/drivinglicensepic:String, /***锟斤拷驶证锟斤拷*/registrationnumber:String, /***行驶证照片url*/registrationpic:String, /***司机照片*/driverpic:String, /***车辆照片*/truckpic:String, /***出厂年份*/factoryyear:String, /***车长*/trucklength:Double, proxyuserid:SysUser #FK to(sysuser), /***手机硬件id*/deviceid:String, /***推广柜员id*/tellerid:String, isfirstcheck:Boolean, addexptime:Boolean, roleid:Long, /***注册时间**/registertime:Date, gscard:String, jycard:String, czcard:String, /***手机类型0－android,1-苹果*/mobiletype:Integer, specialbalance:Double, /***锟斤拷锟斤拷锟铰际э拷艽锟斤拷锟�*/loginfailurecount:Integer, /***锟斤拷锟斤拷锟斤拷*/locked:Date, /***锟斤拷锟斤拷录锟斤拷锟斤拷*/login:Date, /***锟斤拷锟斤拷录ip*/loginip:String, /***锟角凤拷通锟斤拷锟斤拷锟�*/ischeck:Boolean, islocked:Boolean, managertype:String, brandtype:String, truckidcode:String, motorcode:String, registerdate:String, dispcarddate:String, /***积分**/points:Long, /***服务到期时间*/expiretime:Date, tcd:TCommData #FK to(tcommdata), /***锟斤拷锟斤拷锟斤拷*/deadweight:Integer, /***锟截伙拷状态状态锟斤拷0锟斤拷锟斤拷锟截★拷1锟斤拷锟斤拷铡锟�锟斤拷锟斤拷锟截ｏ拷*/loadstatus:Integer, /***锟斤拷锟斤拷锟斤拷锟斤拷id**/jpushid:String, balance:Double, /***身份认证步骤*/authstep:Integer);
+
+ttransactionlog(//fieldsid:Long, userid:String, created:Date, content:String, tradetype:String);
+
+consignor(/***/serialversionuid:long, id:Long [PK], mobile:String, password:String, realname:String, idcard:String, avartar:String, islocked:Boolean, /***车主类型*/:ConsignorType, /***连续登录失败次数*/loginfailurecount:Integer, /***锁定日期*/locked:Date, /***最后登录日期*/login:Date, /***最后登录ip*/loginip:String, /***设备id*/deviceid:String, /***极光推送id**/jpushid:String, /***业务城市**/cities:String, /***业务货物类型**/cargotype:String, /***所在地址**/address:String, /***余额**/balance:Double, /***传真**/fax:String, /***是否认证**/isauth:Boolean, /***资粮是否完善**/isperfect:Boolean, /***锁定日期*/registertime:Date, //身份证照片idcardpic:String, //营业执照照片businesslicensepic:String, //税务登记证照片taxregistrationpic:String, //办公场所照片officepic:String, /***身份认证步骤*/authstep:Integer, /***积分**/points:Long, /***服务到期时间*/expiretime:Date, proxyuserid:SysUser #FK to(sysuser), /***推广柜员id*/tellerid:String, addexptime:Boolean, isfirstcheck:Boolean, roleid:Long, /***手机类型0－android,1-苹果*/mobiletype:Integer, //公司名companyname:String, //用户类型，0-个人货主,1-运输公司usertype:Integer, /***支付密码*/paymentpassword:String, descript:String, //业务描述bussdescript:String);
+
+sysconfig(id:Long [PK], //是不是生产环境isproduction:boolean, //中国人寿emailchinalifeemail:String, //大地email\ddemail:String);
+
+apkupdate(/***/serialversionuid:long, id:Long [PK], update:boolean, newversion:String, apkurl:String, updatelog:String, targetsize:double, newmd5:String, created:Date, forceupdate:boolean, apptype:int, appkey:String, packages:String, versoinname:String);
+
+sysuser(//fieldsid:Long, username:String, password:String, realname:String, empnumber:String, department:String, position:String, created:Date, status:String, parentid:Long, departmentid:Long, proxyadmin:Boolean, balance:Double, mobile:String, mobileuser:Boolean);
+
+sys_user_role(user_id:SysUser [PK] #FK to SysUser,role_id:set<sysrole> [PK] #FK to set<sysrole>);
+
+tcommdata(//fieldsid:Long, dataname:String, desc:String, parentid:Long, root:String, isleaf:Long);
+
+apkjarupdate(/***/serialversionuid:long, id:Long [PK], update:boolean, newversion:String, apkurl:String, updatelog:String, targetsize:double, newmd5:String, created:Date, forceupdate:boolean, apptype:int, appkey:String, versoinname:String, packages:String);
+
+thirdmall(serialversionuid:long, id:Long [PK], //商户名称storename:String, //商户类型storetype:Integer, //商户地址address:String, //上级代理idagencyid:Long, //经纬度location:Geometry, //geohash值geohash:String, //分成比例ratio:Double, //商户介绍description:String, created:Date, longitude:Double, latitude:Double, //优惠信息discountinfo:String, //删除标志isdelete:Boolean, phone:String, //是否真实商家isreal:Boolean, //手机型号，0-android,1-苹果mobiletype:Integer, //店铺评分rank:Double, //是否首单返isfirstret:Boolean, //首单返的比例retradio:Double, addminid:Long);
+
+thirdmallorder(serialversionuid:long, id:Long [PK], //订单号（流水号）orderno:String, //商户idstoreid:Long, //柜员号tellerid:String, //代理idagencyid:Long, //消费者idcustomid:Long, //消费者姓名customname:String, //消费商品idgoodsid:Long, //消费数量goodsnumber:Double, //总价格amount:Double, //成本价cost:Double, //折扣价（消费者实付金额）discount:Double, //补贴额（补贴的驿道币）points:Integer, //本笔订单分给代理的利润((总价－成本价－抵扣的驿道币)*代理利润率)agentprofit:Double, //下单时间addtime:Date, //订单状态（待付款、成交、取消，...）orderstatus:Integer, //支付时间paytime:Date, //服务态度评分rank1:Double, //油品质量评分rank2:Double, //油站环境评分rank3:Double, //评论comment:String, //支付方式（1-余额,2-微信,3-支付宝,4-连连）paytype:Integer, //是否支付成功ispaysuccess:Boolean, //是否支付成功returnpoints:Integer, //返的专项费special:Double, //是否要发票isbill:Boolean, //发票类//收件人名称receivename:String, //收件人电话receivemobile:String, //收件人地址receiveadress:String, //收件人地址详情receiveadressdtl:String, //发票类型1：普通2：增值billtype:String, //抬头billname:String, //纳税人识别号billrecognition:String, //公司地址billaddress:String, //公司地址详情billaddressdtl:String, //公司电话billphone:String, //开户银行bank:String, //银行账号bankacc:String, mailcharge:Double, taxcharge:Double, //是否要发票billstatus:Integer);
+
+trucklocation(serialversionuid:long, id:Long [PK], //司机idtruckid:Long, //车牌号platenumber:String, //司机名drivername:String, //司机手机号drivermobile:String, //出发地origin:String, //目的地destination:String, //货车类型trucktype:String, //车长trucklength:Double, //货车负载情况loadstatus:String, //最近更新位置信息时间sendloctime:Date, //司机极光idjpushid:String, //司机位置location:Geometry, /***目前司机所在位置的详细地址**/address:String, //司机位置的geohash值geohash:String, //备注memo:String, //剩余载重量remainload:Double);
+
+truckcardrhorder(serialversionuid:long, id:Long [PK], orderno:String, goodsid:long, price:double, discount:double, pos:int, cardid:long, cardnumber:String, //1：山东速度加油卡，2：山东高速加油卡，3：中石化加油卡cardtype:int, cardtypename:String, //加油卡1，etc:2parenttype:int, truckid:long, truckmoblie:String, truckname:String, //支付方式（1-余额,2-微信,3-支付宝,4-连连）paytype:Integer, create:Date, pay:Date, //处理时间handletime:Date, //处理人登录名handlesysuser:String, //处理失败原因handleerrmsg:String, //1,用户提交，2，支付成功。3处理成功，4,处理失败status:int);
+
+proxystatements(//fieldsid:Long, sysuserid:long, sysusername:String, proxyuserid:Long, proxyusername:String, memberid:long, membername:String, usertype:short, years:int, created:Date, issuccess:boolean, type:int, balance:double, orderno:String);
+
+goodscategory(serialversionuid:long, id:Long [PK], //类目名称catename:String);
+
+truckcard(serialversionuid:long, id:Long [PK], cardnumber:String, //1：山东速度加油卡，2：山东高速加油卡，3：中石化加油卡cardtype:int, //加油卡1，etc:2parenttype:int, cardtypename:String, truckid:long);
+
+tinsurancetransactionaccount(//fieldsid:Long, userid:Long, account:String, balance:Double, created:Date, status:String, usertype:int);
+
+thirdmallorderdetail(serialversionuid:long, id:Long [PK], //订单号（流水号）orderno:String, //消费商品idgoodsid:Long, //商品名称goodsname:String, //消费数量goodsnumber:Double, //购买时的单价price:Double, //总价格amount:Double, //成本价cost:Double, //折扣价（消费者实付金额）discount:Double, //补贴额（补贴的驿道币）canusepoints:Integer, maxcanusepoints:Integer);
+
+idcardqueryorder(/***/serialversionuid:long, id:Long [PK], userid:Long, price:Double, points:Long, usertype:Short, orderno:String, status:Integer, cost:Double, created_:Date);
+
+tuserorder(//fieldsid:Long, userid:Long, usertype:Short, noorder:String, status:Short, createdtime:Date, rechargetype:Integer);
+
+region(/***/serialversionuid:long, parentid:Integer, regionid:Integer [PK], regionname:String, regiontype:EnumRegionType, agencyid:Integer, /***�ϼ�����*/parent:Region, /***�¼�����*/children:Set<Region>);
+
+truckcardrhprice(serialversionuid:long, id:Long [PK], cardtype:int, cardparenttype:int, cardtypename:String, returnpoint1:double, condition:double, returnpoint2:double, returnspecial:double, returnpoint:double, special:double, radio:double);
+
+tproxytransactionstatements(//fieldsid:Long, accountid:Long, balance:Double, tradetype:Integer, remark:String, created:Date, orderno:String, isturnout:Boolean, pay:Double, //用户id\userid:Long, //用户类型usertype:Short, //操作用户的名称username:String, //电话号码moblie:String);
+
+tinsurance(/***/serialversionuid:long, id:Long [PK], userid:Long, policy:String, policyno:String, primaryno:String, insurance:String, mainglauses:String, mainglausescode:String, additive:String, additiveno:String, holdername:String, holderaddr:String, recognizeename:String, recognizeeaddr:String, invrefno:String, packqty:String, goodsname:String, goodstypeno:String, transporttype:String, transport:String, transportno:String, fromloc:String, vialoc:String, toloc:String, deductible:String, departuredate:String, effdate:String, currencyid:String, insuredamount:String, ratio:String, specialannounce:String, endcurrencyid:String, price:Double, recognizeephone:String, usertype:String, orderno:String, policypath:String, retinfo:String, cost:Double, points:Long, isdiscount:Boolean, weight:Double, cardno:String, weigthorcount:String, srcprice:Double, proxyuserid:Long, proxyprice:Double, trucktype:String, truckweight:String, cargono:String, policynolong:String, days:Integer, enddate:String, personscount:Integer, registerno:String, parentid:Long, parentorderno:String, lisencepath:String, company:Integer, status:Integer, created_:Date);
+
+warehouse(serialversionuid:long, id:Long [PK], //用户iduserid:Long, //落货地点place:String, //联系人contact:String, //联系电话phone:String, //详细地址address:String, picpath:String);
+
+userrechargerequest(//fieldsid:Long, orderno:String, userid:Long, usertype:int, rechargemuch:Double, tradetype:Integer, remark:String, created:Date, paypoint:Long, returnpoint:Long, specialbalance:Double, rechargetotal:Double, issuccess:Boolean);
+
+tcargotransactionstatements(//fieldsid:Long, accountid:Long, pay:Double, deposit:Double, balance:Double, tradetype:Integer, remark:String, created:Date, proxyprice:Double, proxyuserid:Long, paytype:Integer, /***���**/paypoints:Long, /***ssʣ�»��**/restpoints:Long, orderno:String, //constructorsisturnout:Boolean);
+
+tdrivercomment(//fieldsid:Long, score:Short, comment:String, driveruserid:Long, createdtime:Timestamp, reason:String);
+
+freightline(serialversionuid:long, id:Long [PK], userid:Long, origin:String, destination:String, //联系电话phone:String);
+
+thirdmallgoods(serialversionuid:long, id:Long [PK], //商户idstoreid:Long, //商品名称goodsname:String, //单价price:Double, //成本价costprice:Double, //计量单位units:String, //库存数量storednumber:Integer, //补贴率（每笔交易补贴给用户的驿道币比率）ratio:Double, //返现比率（每成功完成一笔交易，按成交额返用户驿道币的比率）(满足条件condition的返点比率)returnratio:Double, //每笔交易最多可使用的驿道币数量usepointratio:Double, //每笔交易代理的分成比率（用利润减去补贴的驿道币后计算）agentratio:Double, //删除标志isdelete:Boolean, defaultratio:Double, //满多少条件condition:Double, //返现比率（每成功完成一笔交易，按成交额返用户驿道币的比率）(不满足条件condition的返点比率)litteratio:Double, //折扣率discountoff:Double, //是否在我公司增加返点率之类的参数isperfect:Boolean, specialbalanceratio:Double, //是否需要输入商品数量标志，0-不需要,1-需要priceflag:Integer, created:Date);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

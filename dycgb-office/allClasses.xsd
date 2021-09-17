@@ -1,0 +1,541 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="officeapiapplicationtests" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="paymenttyperepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<paymenttype,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="materialtyperepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<materialtype,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="totalgoodsrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<totalgoods,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="categoryrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<category,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="accountdetailsrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<accountdetails,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="materialdetailsrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<materialdetails,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="materialoverviewrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<materialoverview,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="productrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<product,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="companyrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<company,long>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<user,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="invoicerepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<invoice,long>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="paymenttype" >
+      <xs:complexContent>
+       <xs:extension base="abstractbaseentity">
+         <xs:sequence>
+          <xs:element name="/***类别名称*/name" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="materialdetails" >
+      <xs:complexContent>
+       <xs:extension base="abstractbaseentity">
+         <xs:sequence>
+          <xs:element name="/***材料明细对应的材料单*/" type="materialoverview" nillable="true" minOccurs="0" />
+          <xs:element name="/***材料明细该条目内容*/content" type="xs:string" />
+          <xs:element name="/***规格*/specification" type="xs:string" />
+          <xs:element name="/***单位*/unit" type="xs:string" />
+          <xs:element name="/***数量*/count" type="xs:anyType" />
+          <xs:element name="/***单价*/price" type="xs:anyType" />
+          <xs:element name="/***金额*/money" type="xs:anyType" />
+          <xs:element name="/***备注*/remark" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="category" >
+      <xs:complexContent>
+       <xs:extension base="abstractbaseentity">
+         <xs:sequence>
+          <xs:element name="/***类别名称*/name" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="materialoverview" >
+      <xs:complexContent>
+       <xs:extension base="abstractbaseentity">
+         <xs:sequence>
+          <xs:element name="/***材料所属用户（材料商）*/" type="user" nillable="true" minOccurs="0" />
+          <xs:element name="/***材料所属类别*/" type="materialtype" nillable="true" minOccurs="0" />
+          <xs:element name="materialdetailslist" type="materialdetails" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="/***票据日期*/documentdate" type="xs:string" />
+          <xs:element name="/***票据序号*/documentno" type="xs:string" />
+          <xs:element name="/***票据内容*/content" type="xs:string" />
+          <xs:element name="/***票据合计金额*/money" type="xs:anyType" />
+          <xs:element name="/***备注*/remark" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="totalgoods" >
+      <xs:complexContent>
+       <xs:extension base="abstractbaseentity">
+         <xs:sequence>
+          <xs:element name="/***凭证所在本数序号*/documentseq" type="xs:string" />
+          <xs:element name="/***录入凭证编号*/documentno" type="xs:string" />
+          <xs:element name="/***录入凭证日期*/documentdate" type="xs:string" />
+          <xs:element name="/***发货客户*/" type="user" nillable="true" minOccurs="0" />
+          <xs:element name="/***凭证内容*/content" type="xs:string" />
+          <xs:element name="/***产品*/" type="product" nillable="true" minOccurs="0" />
+          <xs:element name="/***产品数量*/count" type="xs:anyType" />
+          <xs:element name="/***发货目的地*/address" type="xs:string" />
+          <xs:element name="/***凭证金额*/money" type="xs:anyType" />
+          <xs:element name="/***备注*/remark" type="xs:string" />
+          <xs:element name="/***凭证文件路径*/filepath" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="accountdetails" >
+      <xs:complexContent>
+       <xs:extension base="abstractbaseentity">
+         <xs:sequence>
+          <xs:element name="/***凭证所在本数序号*/documentseq" type="xs:string" />
+          <xs:element name="/***录入凭证编号*/documentno" type="xs:string" />
+          <xs:element name="/***交易日期*/documentdate" type="xs:string" />
+          <xs:element name="/***分类*/" type="category" nillable="true" minOccurs="0" />
+          <xs:element name="/***凭证为何人id*/" type="user" nillable="true" minOccurs="0" />
+          <xs:element name="/***凭证内容*/content" type="xs:string" />
+          <xs:element name="/***收入*/income" type="xs:anyType" />
+          <xs:element name="/***支出*/expense" type="xs:anyType" />
+          <xs:element name="/***对方账户名称*/counterpartyinformation" type="xs:string" />
+          <xs:element name="/***付款方式*/" type="paymenttype" nillable="true" minOccurs="0" />
+          <xs:element name="/***备注*/remark" type="xs:string" />
+          <xs:element name="/***凭证文件名称*/filename" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="product" >
+      <xs:complexContent>
+       <xs:extension base="abstractbaseentity">
+         <xs:sequence>
+          <xs:element name="/***产品名称*/name" type="xs:string" />
+          <xs:element name="/***单位*/unit" type="xs:string" />
+          <xs:element name="/***规格*/specification" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="abstractbaseentity" >
+      <xs:sequence>
+        <xs:element name="/***主键id*/id" type="xs:long" />
+        <xs:element name="/***创建时间*/createtime" type="xs:dateTime" />
+        <xs:element name="/***更新时间*/uptime" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="materialtype" >
+      <xs:complexContent>
+       <xs:extension base="abstractbaseentity">
+         <xs:sequence>
+          <xs:element name="name" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="invoice" >
+      <xs:complexContent>
+       <xs:extension base="abstractbaseentity">
+         <xs:sequence>
+          <xs:element name="/***开票日期*/date" type="xs:string" />
+          <xs:element name="/***发票号码*/number" type="xs:string" />
+          <xs:element name="/***购买方信息*/buyer" type="company" nillable="true" minOccurs="0" />
+          <xs:element name="/***销售方信息*/seller" type="company" nillable="true" minOccurs="0" />
+          <xs:element name="/***发票报送状态*/status" type="xs:string" />
+          <xs:element name="/***发票所述年月*/yearandmonth" type="xs:string" />
+          <xs:element name="/***除税金额*/moneywithouttax" type="xs:string" />
+          <xs:element name="/***税率*/taxrate" type="xs:string" />
+          <xs:element name="/***税额*/taxmoney" type="xs:string" />
+          <xs:element name="/***产品名称*/productname" type="xs:string" />
+          <xs:element name="/***工程名称*/projectname" type="xs:string" />
+          <xs:element name="/***工程地址*/projectaddress" type="xs:string" />
+          <xs:element name="/***发票所有人*/" type="user" nillable="true" minOccurs="0" />
+          <xs:element name="/***发票类别1开出2开出*/type" type="xs:anyType" />
+          <xs:element name="/***含税金额*/moneywithrate" type="xs:anyType" />
+          <xs:element name="/***收取税点*/mtaxrate" type="xs:anyType" />
+          <xs:element name="/***收取税金计算方式为收取税点*发票含税金额*/mtaxmoney" type="xs:anyType" />
+          <xs:element name="/***备注*/remark" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="excelaccountdetails" >
+      <xs:sequence>
+        <xs:element name="/***交易日期*/documentdate" type="xs:string" />
+        <xs:element name="/***票号所在本数*/documentseq" type="xs:string" />
+        <xs:element name="/***票据编号*/documentno" type="xs:string" />
+        <xs:element name="/***类别*/category" type="xs:string" />
+        <xs:element name="/***票据收付款人*/user" type="xs:string" />
+        <xs:element name="/***事由*/content" type="xs:string" />
+        <xs:element name="/***收入*/income" type="xs:string" />
+        <xs:element name="/***支出*/expense" type="xs:string" />
+        <xs:element name="/***付款方式*/paymenttype" type="xs:string" />
+        <xs:element name="/***对方信息*/counterpartyinformation" type="xs:string" />
+        <xs:element name="/***备注*/remark" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="excelinvoice" >
+      <xs:sequence>
+        <xs:element name="//发票持有人username" type="xs:string" />
+        <xs:element name="//发票号码number" type="xs:string" />
+        <xs:element name="//购方名称buyername" type="xs:string" />
+        <xs:element name="//购方税号buyertaxcode" type="xs:string" />
+        <xs:element name="//购方地址buyeraddress" type="xs:string" />
+        <xs:element name="//购方电话buyertel" type="xs:string" />
+        <xs:element name="//购方银行名称buyerbankname" type="xs:string" />
+        <xs:element name="//购方银行账户buyerbankaccount" type="xs:string" />
+        <xs:element name="//发票日期date" type="xs:string" />
+        <xs:element name="//发票状态status" type="xs:string" />
+        <xs:element name="//发票所属年月yearandmonth" type="xs:string" />
+        <xs:element name="//除税金额moneywithouttax" type="xs:string" />
+        <xs:element name="//税率taxrate" type="xs:string" />
+        <xs:element name="//税额taxmoney" type="xs:string" />
+        <xs:element name="//产品名称product" type="xs:string" />
+        <xs:element name="//工程项目名称projectname" type="xs:string" />
+        <xs:element name="//工程项目地址projectaddress" type="xs:string" />
+        <xs:element name="//备注remark" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="exceltotalgoods" >
+      <xs:sequence>
+        <xs:element name="date" type="xs:string" />
+        <xs:element name="seq" type="xs:string" />
+        <xs:element name="number" type="xs:string" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="content" type="xs:string" />
+        <xs:element name="productname" type="xs:string" />
+        <xs:element name="unit" type="xs:string" />
+        <xs:element name="count" type="xs:string" />
+        <xs:element name="money" type="xs:string" />
+        <xs:element name="address" type="xs:string" />
+        <xs:element name="remark" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="company" >
+      <xs:complexContent>
+       <xs:extension base="abstractbaseentity">
+         <xs:sequence>
+          <xs:element name="/***购方或销售方名称*/name" type="xs:string" />
+          <xs:element name="/***购方或销售方税号*/taxcode" type="xs:string" />
+          <xs:element name="/***购方或销售方地址*/address" type="xs:string" />
+          <xs:element name="/***购方或销售方电话*/tel" type="xs:string" />
+          <xs:element name="/***购方或销售方银行名称*/bankname" type="xs:string" />
+          <xs:element name="/***购方或销售方银行账户*/bankaccount" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:complexContent>
+       <xs:extension base="abstractbaseentity">
+         <xs:sequence>
+          <xs:element name="/***姓名*/name" type="xs:string" />
+          <xs:element name="/***用户所属类别*/" type="category" nillable="true" minOccurs="0" />
+          <xs:element name="/***年龄*/age" type="xs:anyType" />
+          <xs:element name="/***性别*/sex" type="xs:string" />
+          <xs:element name="/***用户所在区域*/region" type="xs:string" />
+          <xs:element name="/***手机号*/phone" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="resourcealreadyexistexception" >
+      <xs:complexContent>
+       <xs:extension base="baseexception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="baseexception" >
+      <xs:complexContent>
+       <xs:extension base="runtimeexception">
+         <xs:sequence>
+          <xs:element name="code" type="xs:long" />
+          <xs:element name="message" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="resourcenotfoundexception" >
+      <xs:complexContent>
+       <xs:extension base="baseexception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="pager" >
+      <xs:sequence>
+        <xs:element name="page" type="xs:anyType" />
+        <xs:element name="pagesize" type="xs:anyType" />
+        <xs:element name="offset" type="xs:long" />
+        <xs:element name="totalpages" type="xs:anyType" />
+        <xs:element name="hasnext" type="xs:anyType" />
+        <xs:element name="content" type="xs:anyType" />
+        <xs:element name="total" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="excelutils" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="invoiceoutexcellistener" >
+      <xs:complexContent>
+       <xs:extension base="analysiseventlistener<excelinvoice>">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="invoiceservice" nillable="true" minOccurs="0" />
+          <xs:element name="excelinvoicelist" type="excelinvoice" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="batch_count" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="totalgoodsexcellistener" >
+      <xs:complexContent>
+       <xs:extension base="analysiseventlistener<exceltotalgoods>">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="totalgoodsservice" nillable="true" minOccurs="0" />
+          <xs:element name="exceltotalgoodslist" type="exceltotalgoods" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="batch_count" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="accountdetailsexcellistener" >
+      <xs:complexContent>
+       <xs:extension base="analysiseventlistener<excelaccountdetails>">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="accountdetailsservice" nillable="true" minOccurs="0" />
+          <xs:element name="excelaccountdetailslist" type="excelaccountdetails" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="batch_count" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="customresponse" >
+      <xs:sequence>
+        <xs:element name="code" type="xs:long" />
+        <xs:element name="message" type="xs:string" />
+        <xs:element name="data" type="xs:anyType" />
+        <xs:element name="ok" type="customresponse" nillable="true" minOccurs="0" />
+        <xs:element name="failed" type="customresponse" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="fileconstants" >
+      <xs:sequence>
+        <xs:element name="basepath" type="xs:string" />
+        <xs:element name="accountdetailspath" type="xs:string" />
+        <xs:element name="goodspath" type="xs:string" />
+        <xs:element name="invoicespath" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="errorcodeenum" >
+      <xs:sequence>
+        <xs:element name="code" type="xs:long" />
+        <xs:element name="message" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pageconstants" >
+      <xs:sequence>
+        <xs:element name="pagesize" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="categoryservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="totalgoodsservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="materialtypeservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="paymenttypeserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="paymenttyperepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="companyserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="companyrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="accountdetailsserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="accountdetailsrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="categoryservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="paymenttypeservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="userservice" nillable="true" minOccurs="0" />
+        <xs:element name="categoriesmap" type="xs:anyType" />
+        <xs:element name="paymenttypesmap" type="xs:anyType" />
+        <xs:element name="usersmap" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="invoiceserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="invoicerepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="userservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="companyservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="categoryservice" nillable="true" minOccurs="0" />
+        <xs:element name="usersmap" type="xs:anyType" />
+        <xs:element name="categoriesmap" type="xs:anyType" />
+        <xs:element name="companiesmap" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="materialdetailsserviceimpl" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="productserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="productrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="totalgoodsserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="totalgoodsrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="userservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="productservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="categoryservice" nillable="true" minOccurs="0" />
+        <xs:element name="usersmap" type="xs:anyType" />
+        <xs:element name="productsmap" type="xs:anyType" />
+        <xs:element name="categoriesmap" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="materialoverviewserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="materialoverviewrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="materialdetailsservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="materialtypeservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="userservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="categoryserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="categoryrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="materialtypeserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="materialtyperepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="companyservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="materialoverviewservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="productservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="paymenttypeservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="materialdetailsservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="invoiceservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="accountdetailsservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

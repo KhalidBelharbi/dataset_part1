@@ -1,0 +1,456 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="adminscaffoldutils" >
+      <xs:complexContent>
+       <xs:extension base="scaffoldutil">
+         <xs:sequence>
+          <xs:element name="log" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="dependencyutil" >
+      <xs:sequence>
+        <xs:element name="admin_faces_group_id" type="xs:string" />
+        <xs:element name="admin_theme_" type="xs:anyType" />
+        <xs:element name="admin_template_" type="xs:anyType" />
+        <xs:element name="admin_persistence_" type="xs:anyType" />
+        <xs:element name="hsqlsdb_" type="xs:anyType" />
+        <xs:element name="junit4_" type="xs:anyType" />
+        <xs:element name="assertj_" type="xs:anyType" />
+        <xs:element name="dbrider_" type="xs:anyType" />
+        <xs:element name="primefaces_extensions_" type="xs:anyType" />
+        <xs:element name="omnifaces_" type="xs:anyType" />
+        <xs:element name="deltaspike_core_api_" type="xs:anyType" />
+        <xs:element name="deltaspike_testcontrol_" type="xs:anyType" />
+        <xs:element name="deltaspike_cdicontrol_" type="xs:anyType" />
+        <xs:element name="openwebbeans_" type="xs:anyType" />
+        <xs:element name="hibernate_core_" type="xs:anyType" />
+        <xs:element name="hibernate_entitymanager_" type="xs:anyType" />
+        <xs:element name="resolver" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="constants" >
+      <xs:sequence>
+        <xs:element name="new_line" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="package-info" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="adminnewservicetestcommand" >
+      <xs:complexContent>
+       <xs:extension base="abstractprojectcommand">
+         <xs:sequence>
+          <xs:element name="log" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="templates" type="templatefactory" nillable="true" minOccurs="0" />
+          <xs:element name="targetservices" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="adminsetupcommand" >
+      <xs:complexContent>
+       <xs:extension base="abstractprojectcommand">
+         <xs:sequence>
+          <xs:element name="log" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="templates" type="templatefactory" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="adminscaffoldconfigstep" >
+      <xs:complexContent>
+       <xs:extension base="abstractprojectcommand">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="globalconfig" nillable="true" minOccurs="0" />
+          <xs:element name="" type="entityconfig" nillable="true" minOccurs="0" />
+          <xs:element name="" type="fieldconfig" nillable="true" minOccurs="0" />
+          <xs:element name="hidden" type="xs:anyType" />
+          <xs:element name="length" type="xs:anyType" />
+          <xs:element name="required" type="xs:anyType" />
+          <xs:element name="type" type="componenttypeenum" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="adminscaffoldconfigwizard" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="admintestsetupcommand" >
+      <xs:complexContent>
+       <xs:extension base="abstractprojectcommand">
+         <xs:sequence>
+          <xs:element name="banned_artifactids" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="dependencyutil" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="freemarkertemplateprocessor" >
+      <xs:sequence>
+        <xs:element name="freemarkerconfig" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="generatedatasetvaluefromfield" >
+      <xs:sequence>
+        <xs:element name="sdf" type="xs:anyType" />
+        <xs:element name="formatter" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="templatefactory" >
+      <xs:sequence>
+        <xs:element name="index_template" type="xs:string" />
+        <xs:element name="login_template" type="xs:string" />
+        <xs:element name="template_top_template" type="xs:string" />
+        <xs:element name="template_default_template" type="xs:string" />
+        <xs:element name="service_template" type="xs:string" />
+        <xs:element name="repository_template" type="xs:string" />
+        <xs:element name="list_mb_template" type="xs:string" />
+        <xs:element name="form_mb_template" type="xs:string" />
+        <xs:element name="list_page_template" type="xs:string" />
+        <xs:element name="form_page_template" type="xs:string" />
+        <xs:element name="dataset_template" type="xs:string" />
+        <xs:element name="service_test_template" type="xs:string" />
+        <xs:element name="index" type="template" nillable="true" minOccurs="0" />
+        <xs:element name="login" type="template" nillable="true" minOccurs="0" />
+        <xs:element name="top" type="template" nillable="true" minOccurs="0" />
+        <xs:element name="default" type="template" nillable="true" minOccurs="0" />
+        <xs:element name="service" type="template" nillable="true" minOccurs="0" />
+        <xs:element name="repository" type="template" nillable="true" minOccurs="0" />
+        <xs:element name="listmb" type="template" nillable="true" minOccurs="0" />
+        <xs:element name="formmb" type="template" nillable="true" minOccurs="0" />
+        <xs:element name="listpage" type="template" nillable="true" minOccurs="0" />
+        <xs:element name="formpage" type="template" nillable="true" minOccurs="0" />
+        <xs:element name="dataset" type="template" nillable="true" minOccurs="0" />
+        <xs:element name="servicetest" type="template" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="scaffoldconfigloader" >
+      <xs:sequence>
+        <xs:element name="yml_dump_options" type="xs:anyType" />
+        <xs:element name="isprimefaces7" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="globalconfig" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="adminfacesentityselectionwizard" >
+      <xs:complexContent>
+       <xs:extension base="abstractprojectcommand">
+         <xs:sequence>
+          <xs:element name="entities" type="xs:anyType" />
+          <xs:element name="generateequalsandhashcode" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="adminfacesscaffoldprovider" >
+      <xs:complexContent>
+       <xs:extension base="projectfacet>>">
+         <xs:sequence>
+          <xs:element name="log" type="xs:anyType" />
+          <xs:element name="outputsettings" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="templates" type="templatefactory" nillable="true" minOccurs="0" />
+          <xs:element name="" type="dependencyutil" nillable="true" minOccurs="0" />
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="fieldconfig" >
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="required" type="xs:anyType" />
+        <xs:element name="hidden" type="xs:anyType" />
+        <xs:element name="length" type="xs:anyType" />
+        <xs:element name="type" type="componenttypeenum" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="globalconfig" >
+      <xs:sequence>
+        <xs:element name="toonecomponenttype" type="componenttypeenum" nillable="true" minOccurs="0" />
+        <xs:element name="tomanycomponenttype" type="componenttypeenum" nillable="true" minOccurs="0" />
+        <xs:element name="datatableeditable" type="xs:anyType" />
+        <xs:element name="datatablereflow" type="xs:anyType" />
+        <xs:element name="inputsize" type="xs:anyType" />
+        <xs:element name="menuicon" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="componenttypeenum" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entityconfig" >
+      <xs:sequence>
+        <xs:element name="fields" type="fieldconfig" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="//fieldusedinpageswherethisentityneedstobeprinteddisplayfield" type="xs:string" />
+        <xs:element name="//fontawesomeicontobeusedonthemenuentryforthisentitymenuicon" type="xs:string" />
+        <xs:element name="//listpagedatatableshouldbeeditabledirectlyontherow?datatableeditable" type="xs:anyType" />
+        <xs:element name="//listpagedatatableshouldreflow?datatablereflow" type="xs:anyType" />
+        <xs:element name="fieldconfigmap" type="xs:anyType" />
+        <xs:element name="associationdisplayfieldmap" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="scaffoldentity" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="entity" type="xs:anyType" />
+        <xs:element name="entityfields" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="entityconfig" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="embeddedfields" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="adminfacesmetamodelprovider" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="adminfacesfacetimpl" >
+      <xs:complexContent>
+       <xs:extension base="abstractfacet<project>">
+         <xs:sequence>
+          <xs:element name="" type="dependencyutil" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="adminfacestestharnessfacet" >
+      <xs:complexContent>
+       <xs:extension base="projectfacet">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="adminfacestestharnessfacetimpl" >
+      <xs:complexContent>
+       <xs:extension base="abstractfacet<project>">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="adminfacesfacet" >
+      <xs:complexContent>
+       <xs:extension base="projectfacet">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="test-persistence" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="test-beans" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="test-apache-deltaspike" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="beans" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="admin-config" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="logonmb" >
+      <xs:complexContent>
+       <xs:extension base="adminsession">
+         <xs:sequence>
+          <xs:element name="currentuser" type="xs:string" />
+          <xs:element name="email" type="xs:string" />
+          <xs:element name="password" type="xs:string" />
+          <xs:element name="remember" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="testentitymanagerproducer" >
+      <xs:complexContent>
+       <xs:extension base="entitymanagerproducer">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="entitymanagerproducer" >
+      <xs:sequence>
+        <xs:element name="em" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="apache-deltaspike" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="menubar" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="menu" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dockerfile" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="global-config" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="web" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="faces-config" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="beans" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jboss-web" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="repository" >
+      <xs:complexContent>
+       <xs:extension base="entityrepository<${entity.getname()},${nullableprimarykeytype}>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="index" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="applists" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="testutils" >
+      <xs:sequence>
+        <xs:element name="log" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="freemarkertemplatestest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="templatefactory" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="adminfacesforgetests" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="scaffoldentitytest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="scaffoldconfigloadertest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="logging" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="simpleservice" >
+      <xs:complexContent>
+       <xs:extension base="crudservice<simpeentity,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="address" >
+      <xs:sequence>
+        <xs:element name="street" type="xs:string" />
+        <xs:element name="city" type="xs:string" />
+        <xs:element name="zipcode" type="xs:anyType" />
+        <xs:element name="state" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="speaker" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="version" type="xs:long" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="surname" type="xs:string" />
+        <xs:element name="bio" type="xs:string" />
+        <xs:element name="twitter" type="xs:string" />
+        <xs:element name="talks" type="talk" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="address" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="talk" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="version" type="xs:long" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="room" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:dateTime" />
+        <xs:element name="GeneratedName" type="speaker" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="simpleentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="age" type="xs:anyType" />
+        <xs:element name="version" type="xs:long" />
+        <xs:element name="GeneratedName" type="address" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="speaker" nillable="true" minOccurs="0" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="surname" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="initdb" >
+      <xs:sequence>
+        <xs:element name="roomservice" type="xs:anyType" />
+        <xs:element name="rooms" type="xs:anyType" />
+        <xs:element name="speakerservice" type="xs:anyType" />
+        <xs:element name="speakers" type="speaker" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="talkservice" type="xs:anyType" />
+        <xs:element name="talks" type="talk" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="talk" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="speaker" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="custom-global-config" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

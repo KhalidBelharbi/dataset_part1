@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="root" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="scheme" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="application" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="webapp" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bookinput" >
+      <xs:sequence>
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="isbn" type="xs:string" />
+        <xs:element name="pagecount" type="xs:long" />
+        <xs:element name="authorid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bookrepository" >
+      <xs:complexContent>
+       <xs:extension base="pagingandsortingrepository<book,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="authorrepository" >
+      <xs:complexContent>
+       <xs:extension base="pagingandsortingrepository<author,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="query" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="authorrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="bookrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="mutation" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="authorrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="bookrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="authorresolver" >
+      <xs:sequence>
+        <xs:element name="sdf" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="bookrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bookresolver" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="authorrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="book" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="title" type="xs:string" />
+          <xs:element name="isbn" type="xs:string" />
+          <xs:element name="pagecount" type="xs:long" />
+          <xs:element name="authorid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="baseentity" >
+      <xs:sequence>
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="/*id*/id" type="xs:long" />
+        <xs:element name="/*创建时间戳(单位:秒)*/createdtime" type="xs:dateTime" />
+        <xs:element name="/*更新时间戳(单位:秒)*/updtime" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="author" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="firstname" type="xs:string" />
+          <xs:element name="lastname" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="testcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="authorrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

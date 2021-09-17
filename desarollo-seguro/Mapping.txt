@@ -1,0 +1,12 @@
+ClassDiagram.Class>> BankAccountEntity =>=>=> RelationalSchema.Table>> bankaccountentity;
+ClassDiagram.Class>> UserEntity =>=>=> RelationalSchema.Table>> userentity;
+ClassDiagram.Attribut>> BankAccountEntity.bankaccountid:Long =>=>=> RelationalSchema.Column>> bankaccountentity.bankaccountid PRIMARY KEY;
+ClassDiagram.Attribut>> BankAccountEntity.iban:String =>=>=> RelationalSchema.Column>> bankaccountentity.iban;
+ClassDiagram.Attribut>> BankAccountEntity.balance:Double =>=>=> RelationalSchema.Column>> bankaccountentity.balance;
+ClassDiagram.Attribut>> UserEntity.userid:Long =>=>=> RelationalSchema.Column>> userentity.userid PRIMARY KEY;
+ClassDiagram.Attribut>> UserEntity.username:String =>=>=> RelationalSchema.Column>> userentity.username;
+ClassDiagram.Attribut>> UserEntity.password:String =>=>=> RelationalSchema.Column>> userentity.password;
+ClassDiagram.Attribut>> UserEntity.role:String =>=>=> RelationalSchema.Column>> userentity.role;
+Many-To-One relationship from ClassDiagram.Class>>BankAccountEntity  to ClassDiagram.Class>>userentity represented by ClassDiagram.Atrribute>>owner;
+One-To-Many relationship from ClassDiagram.Class>>UserEntity  to ClassDiagram.Class>>List<BankAccountEntity>;
+Many-To-Many relationship between ClassDiagram.Class>>UserEntity  and ClassDiagram.Class>>list<bankaccountentity>: allowed_bank_accounts(id_user:UserEntity [PK] #FK to UserEntity,id_bank_account:list<bankaccountentity> [PK] #FK to list<bankaccountentity>);

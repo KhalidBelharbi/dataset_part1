@@ -1,0 +1,21 @@
+
+permiso(id:Long [PK], nombre:String);
+
+user(folio:Long [PK], nombre:String, apellidopaterno:String, apellidomaterno:String, correo:String, direccion:String, telefono:String, edad:int, sexo:String);
+
+user_list<rol>(userID:user [PK] #FK to user,list<rol>ID:list<rol> [PK] #FK to list<rol>);
+
+rol(id:Long [PK], nombre:String);
+
+rol_list<permiso>(rolID:rol [PK] #FK to rol,list<permiso>ID:list<permiso> [PK] #FK to list<permiso>);
+
+centro(id:Long [PK], nombre:String);
+
+centro_list<actividad>(centroID:centro [PK] #FK to centro,list<actividad>ID:list<actividad> [PK] #FK to list<actividad>);centro_list<user>(centroID:centro [PK] #FK to centro,list<user>ID:list<user> [PK] #FK to list<user>);
+
+actividad(id:Long [PK], nombre:String);
+
+asistencia(GeneratedName:Centro [PK] #FK to(centro), usuario:User [PK] #FK to(user), GeneratedName:Actividad [PK] #FK to(actividad), fecha:Date);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

@@ -1,0 +1,1803 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="tt" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="activity" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="404" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="manifest" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="config" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="qrcodeformat" >
+      <xs:sequence>
+        <xs:element name="/***图片大小*/size" type="xs:long" />
+        <xs:element name="/***内容编码格式*/encode" type="xs:string" />
+        <xs:element name="/***错误修正等级(errorcollectionlevel)*/" type="xs:anyType" />
+        <xs:element name="/***错误修正等级的具体值*/errorcorrectionlevelvalue" type="xs:double" />
+        <xs:element name="/***前景色*/foreground" type="xs:anyType" />
+        <xs:element name="/***背景色*/background" type="xs:anyType" />
+        <xs:element name="/***图片的文件格式*/imageformat" type="xs:string" />
+        <xs:element name="/***图片的外边距大小(quietzone)*/margin" type="xs:long" />
+        <xs:element name="hints" type="xs:anyType" />
+        <xs:element name="/***需要添加的图片*/icon" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="qrcode" >
+      <xs:sequence>
+        <xs:element name="/***qrcode生成器格式*/format" type="qrcodeformat" nillable="true" minOccurs="0" />
+        <xs:element name="/***生成的qrcode图像对象*/qrcodeimage" type="xs:anyType" />
+        <xs:element name="/***生成的qrcode图片文件*/qrcode" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="smssendfailureexception" >
+      <xs:complexContent>
+       <xs:extension base="exception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="imtokengetexception" >
+      <xs:complexContent>
+       <xs:extension base="exception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="pushexception" >
+      <xs:complexContent>
+       <xs:extension base="exception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="fileuploadservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="qiniuuploadserviceimpl" >
+      <xs:sequence>
+        <xs:element name="accesskey" type="xs:string" />
+        <xs:element name="secretkey" type="xs:string" />
+        <xs:element name="bucket" type="xs:string" />
+        <xs:element name="protocol_host" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="smsserviceimpl" >
+      <xs:sequence>
+        <xs:element name="app_id" type="xs:anyType" />
+        <xs:element name="app_key" type="xs:string" />
+        <xs:element name="templateid" type="xs:anyType" />
+        <xs:element name="sign" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="smsservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="gaussianfilter" >
+      <xs:complexContent>
+       <xs:extension base="convolvefilter">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="radius" type="xs:double" />
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="pixelutils" >
+      <xs:sequence>
+        <xs:element name="replace" type="xs:long" />
+        <xs:element name="normal" type="xs:long" />
+        <xs:element name="min" type="xs:long" />
+        <xs:element name="max" type="xs:long" />
+        <xs:element name="add" type="xs:long" />
+        <xs:element name="subtract" type="xs:long" />
+        <xs:element name="difference" type="xs:long" />
+        <xs:element name="multiply" type="xs:long" />
+        <xs:element name="hue" type="xs:long" />
+        <xs:element name="saturation" type="xs:long" />
+        <xs:element name="value" type="xs:long" />
+        <xs:element name="color" type="xs:long" />
+        <xs:element name="screen" type="xs:long" />
+        <xs:element name="average" type="xs:long" />
+        <xs:element name="overlay" type="xs:long" />
+        <xs:element name="clear" type="xs:long" />
+        <xs:element name="exchange" type="xs:long" />
+        <xs:element name="dissolve" type="xs:long" />
+        <xs:element name="dst_in" type="xs:long" />
+        <xs:element name="alpha" type="xs:long" />
+        <xs:element name="alpha_to_gray" type="xs:long" />
+        <xs:element name="generator" type="xs:anyType" />
+        <xs:element name="hsb1" type="xs:double" />
+        <xs:element name="hsb2" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="abstractbufferedimageop" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="convolvefilter" >
+      <xs:complexContent>
+       <xs:extension base="abstractbufferedimageop">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="zero_edges" type="xs:long" />
+          <xs:element name="clamp_edges" type="xs:long" />
+          <xs:element name="wrap_edges" type="xs:long" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="alpha" type="xs:anyType" />
+          <xs:element name="edgeaction" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="imagemath" >
+      <xs:sequence>
+        <xs:element name="pi" type="xs:double" />
+        <xs:element name="half_pi" type="xs:double" />
+        <xs:element name="quarter_pi" type="xs:double" />
+        <xs:element name="two_pi" type="xs:double" />
+        <xs:element name="//catmull-romsplinesm00" type="xs:double" />
+        <xs:element name="m01" type="xs:double" />
+        <xs:element name="m02" type="xs:double" />
+        <xs:element name="m03" type="xs:double" />
+        <xs:element name="m10" type="xs:double" />
+        <xs:element name="m11" type="xs:double" />
+        <xs:element name="m12" type="xs:double" />
+        <xs:element name="m13" type="xs:double" />
+        <xs:element name="m20" type="xs:double" />
+        <xs:element name="m21" type="xs:double" />
+        <xs:element name="m22" type="xs:double" />
+        <xs:element name="m23" type="xs:double" />
+        <xs:element name="m30" type="xs:double" />
+        <xs:element name="m31" type="xs:double" />
+        <xs:element name="m32" type="xs:double" />
+        <xs:element name="m33" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="smssinglesenderresult" >
+      <xs:complexContent>
+       <xs:extension base="smsresultbase">
+         <xs:sequence>
+          <xs:element name="result" type="xs:long" />
+          <xs:element name="errmsg" type="xs:string" />
+          <xs:element name="ext" type="xs:string" />
+          <xs:element name="sid" type="xs:string" />
+          <xs:element name="fee" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="smsvoicepromptsender" >
+      <xs:complexContent>
+       <xs:extension base="smsbase">
+         <xs:sequence>
+          <xs:element name="url" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="smsstatuspullcallbackresult" >
+      <xs:complexContent>
+       <xs:extension base="smsresultbase">
+         <xs:sequence>
+          <xs:element name="result" type="xs:long" />
+          <xs:element name="errmsg" type="xs:string" />
+          <xs:element name="count" type="xs:long" />
+          <xs:element name="callbacks" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="smsresultbase" >
+      <xs:sequence>
+        <xs:element name="response" type="httpresponse" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="smssinglesender" >
+      <xs:complexContent>
+       <xs:extension base="smsbase">
+         <xs:sequence>
+          <xs:element name="url" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="smsmultisenderresult" >
+      <xs:complexContent>
+       <xs:extension base="smsresultbase">
+         <xs:sequence>
+          <xs:element name="result" type="xs:long" />
+          <xs:element name="errmsg" type="xs:string" />
+          <xs:element name="ext" type="xs:string" />
+          <xs:element name="details" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="smsvoiceverifycodesenderresult" >
+      <xs:complexContent>
+       <xs:extension base="smsresultbase">
+         <xs:sequence>
+          <xs:element name="result" type="xs:long" />
+          <xs:element name="errmsg" type="xs:string" />
+          <xs:element name="ext" type="xs:string" />
+          <xs:element name="callid" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="smsvoiceverifycodesender" >
+      <xs:complexContent>
+       <xs:extension base="smsbase">
+         <xs:sequence>
+          <xs:element name="url" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="smssenderutil" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="smsstatuspullreplyresult" >
+      <xs:complexContent>
+       <xs:extension base="smsresultbase">
+         <xs:sequence>
+          <xs:element name="result" type="xs:long" />
+          <xs:element name="errmsg" type="xs:string" />
+          <xs:element name="count" type="xs:long" />
+          <xs:element name="replys" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="smsvoicepromptsenderresult" >
+      <xs:complexContent>
+       <xs:extension base="smsresultbase">
+         <xs:sequence>
+          <xs:element name="result" type="xs:long" />
+          <xs:element name="errmsg" type="xs:string" />
+          <xs:element name="ext" type="xs:string" />
+          <xs:element name="callid" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="smsbase" >
+      <xs:sequence>
+        <xs:element name="appid" type="xs:long" />
+        <xs:element name="appkey" type="xs:string" />
+        <xs:element name="GeneratedName" type="httpclient" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="smsmobilestatuspuller" >
+      <xs:complexContent>
+       <xs:extension base="smsbase">
+         <xs:sequence>
+          <xs:element name="url" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="smsmultisender" >
+      <xs:complexContent>
+       <xs:extension base="smsbase">
+         <xs:sequence>
+          <xs:element name="url" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="httpresponse" >
+      <xs:sequence>
+        <xs:element name="request" type="httprequest" nillable="true" minOccurs="0" />
+        <xs:element name="statuscode" type="xs:long" />
+        <xs:element name="reason" type="xs:string" />
+        <xs:element name="body" type="xs:string" />
+        <xs:element name="headers" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="httpclient" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="httpmethod" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="httpexception" >
+      <xs:complexContent>
+       <xs:extension base="exception">
+         <xs:sequence>
+          <xs:element name="statuscode" type="xs:long" />
+          <xs:element name="reason" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="poolinghttpclient" >
+      <xs:sequence>
+        <xs:element name="connmgr" type="xs:anyType" />
+        <xs:element name="client" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="httprequest" >
+      <xs:sequence>
+        <xs:element name="url" type="xs:string" />
+        <xs:element name="method" type="httpmethod" nillable="true" minOccurs="0" />
+        <xs:element name="body" type="xs:string" />
+        <xs:element name="headers" type="xs:anyType" />
+        <xs:element name="parameters" type="xs:anyType" />
+        <xs:element name="connecttimeout" type="xs:long" />
+        <xs:element name="requesttimeout" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="defaulthttpclient" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="smsstatuspuller" >
+      <xs:complexContent>
+       <xs:extension base="smsbase">
+         <xs:sequence>
+          <xs:element name="url" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="util4pageindex" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="r" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="wxsyncapi" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="wxsyncmediaservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="wxsyncshowservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="signutil" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="exportapi" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="materialimageapi" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="folderservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="imageservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="materialvideoapi" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="folderservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="videoservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="materialaudioapi" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="folderservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="audioservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="folderapi" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="folderservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="webpageapi" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="webpageservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="fileuploadapi" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="fileuploadservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="readme" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="beaconapi" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="beaconservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="showmapservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="showapi" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="showservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="resourcegroupapi" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="resourcegroupservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="resourceitemservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="arservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="resourceitemapi" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="resourceitemservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="qrcodeapi" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="qrcodeservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userinfoapi" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="useradminapi" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="usersigninupservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="showauthservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="recordsupapi" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="showservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="resourcegroupservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="resourceitemservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="recordapi" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="recordservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="dateformatterservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="showservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="resourcegroupservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="resourceitemservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="installbeaconapi" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="installbeaconservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="showmapapi" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="showmapservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="imageservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="readme" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="webpageapi" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="webpageservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="collectionapi" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="mycollectionservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="resourcegroupservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="resourceapi" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="resourcegroupservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="resourceitemservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="recordservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="footprintshowservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="showservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="showapi" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="showservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="resourcegroupservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="footprintshowservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="recordservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="webpageservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="arapi" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="arservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="footprintapi" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="footprintshowservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userinfoapi" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="fileuploadservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="loginapi" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="tokenpersistentrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="jwtutil" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="jwtconstant" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="appauthflushservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="usersigninupservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="userservice" nillable="true" minOccurs="0" />
+        <xs:element name="//////////////////////////////////////////////////////////////////////////////////////////////////////////////////" type="thirdparttokenservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="signupapi" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="signinapi" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="readme" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="readme" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="application" >
+      <xs:complexContent>
+       <xs:extension base="springbootservletinitializer">
+         <xs:sequence>
+          <xs:element name="app_id" type="xs:string" />
+          <xs:element name="app_secret" type="xs:string" />
+          <xs:element name="token" type="xs:string" />
+          <xs:element name="aes_key" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="filecontroller" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="storageexception" >
+      <xs:complexContent>
+       <xs:extension base="runtimeexception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="filesystemstorageservice" >
+      <xs:sequence>
+        <xs:element name="rootlocation" type="xs:anyType" />
+        <xs:element name="filerootpath" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="storageproperties" >
+      <xs:sequence>
+        <xs:element name="/***folderlocationforstoringfiles*/location" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="storagefilenotfoundexception" >
+      <xs:complexContent>
+       <xs:extension base="storageexception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="storageservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="resourcealreadyexistedexception" >
+      <xs:complexContent>
+       <xs:extension base="exception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="actionnotsupportexception" >
+      <xs:complexContent>
+       <xs:extension base="exception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="resourcedeleteexception" >
+      <xs:complexContent>
+       <xs:extension base="exception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="resourceaddexception" >
+      <xs:complexContent>
+       <xs:extension base="exception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="resourcenotfoundexception" >
+      <xs:complexContent>
+       <xs:extension base="exception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="actionparameterexception" >
+      <xs:complexContent>
+       <xs:extension base="exception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="md5service" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jwtutil" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="jwtconstant" nillable="true" minOccurs="0" />
+        <xs:element name="jwt_secret" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="phonecodetoken" >
+      <xs:sequence>
+        <xs:element name="phone" type="xs:string" />
+        <xs:element name="code" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jwtconstant" >
+      <xs:sequence>
+        <xs:element name="jwt_secret" type="xs:string" />
+        <xs:element name="jwt_id" type="xs:string" />
+        <xs:element name="jwt_erval" type="xs:long" />
+        <xs:element name="jwt_token_interval" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pictureyellowservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="qrcodeservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="appvoutilsimpl" >
+      <xs:sequence>
+        <xs:element name="formatter" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="appauthflushserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="qrcodeserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="resourcegroupservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="resourceitemservice" nillable="true" minOccurs="0" />
+        <xs:element name="host" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dateformatterservice" >
+      <xs:sequence>
+        <xs:element name="yyyymmddhhmmsss" type="xs:anyType" />
+        <xs:element name="yyyymmddhhmmss" type="xs:anyType" />
+        <xs:element name="yyyymmdd_x" type="xs:anyType" />
+        <xs:element name="yyyymmdd" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="appvoutils" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="appauthflushservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="util4ip" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="showauth" >
+      <xs:sequence>
+        <xs:element name="uid" type="xs:long" />
+        <xs:element name="showid" type="xs:long" />
+        <xs:element name="uptime" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="showauthpkeys" >
+      <xs:sequence>
+        <xs:element name="uid" type="xs:long" />
+        <xs:element name="showid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="showauthservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="showauthserviceimpl" >
+      <xs:sequence>
+        <xs:element name="repository" type="showauthrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="showservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="userservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="showauthrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<showauth,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="uservo" >
+      <xs:sequence>
+        <xs:element name="uid" type="xs:long" />
+        <xs:element name="phone" type="xs:string" />
+        <xs:element name="nickname" type="xs:string" />
+        <xs:element name="gender" type="xs:anyType" />
+        <xs:element name="headiconurl" type="xs:string" />
+        <xs:element name="lastloginip" type="xs:string" />
+        <xs:element name="lastlogintime" type="xs:dateTime" />
+        <xs:element name="memberstatus" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="thirdpartuservo" >
+      <xs:sequence>
+        <xs:element name="//oruidinweiboopenid" type="xs:string" />
+        <xs:element name="nickname" type="xs:string" />
+        <xs:element name="headiconurl" type="xs:string" />
+        <xs:element name="isvalidated" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="thirdparttokenservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usersigninupserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="userauthrolerepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="appauthflushservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="jwtutil" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="jwtconstant" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="md5service" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="smsservice" nillable="true" minOccurs="0" />
+        <xs:element name="headicon" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userdetailsserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tokenpersistentserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="tokenpersistentrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userserviceimpl" >
+      <xs:sequence>
+        <xs:element name="repository" type="userrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userloginlogserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="thirdparttokenserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usersigninupservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userloginlogservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:complexContent>
+       <xs:extension base="grantedauthority>">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="uid" type="xs:long" />
+          <xs:element name="phone" type="xs:string" />
+          <xs:element name="thirdpartname" type="xs:string" />
+          <xs:element name="nickname" type="xs:string" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="headiconurl" type="xs:string" />
+          <xs:element name="password" type="xs:string" />
+          <xs:element name="lastloginip" type="xs:string" />
+          <xs:element name="lastlogintime" type="xs:dateTime" />
+          <xs:element name="memberstatus" type="xs:anyType" />
+          <xs:element name="roles" type="userauthrole" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tokenpersistent" >
+      <xs:sequence>
+        <xs:element name="series" type="xs:string" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="token" type="xs:string" />
+        <xs:element name="lastused" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userauthrole" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="wechatnotsetexception" >
+      <xs:complexContent>
+       <xs:extension base="exception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="nicknamesetexception" >
+      <xs:complexContent>
+       <xs:extension base="exception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="accountnamealreadyexistedexception" >
+      <xs:complexContent>
+       <xs:extension base="exception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="phonenumberhasusedexception" >
+      <xs:complexContent>
+       <xs:extension base="exception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="thirdparttokenexception" >
+      <xs:complexContent>
+       <xs:extension base="exception{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="phonenumbernetsetexception" >
+      <xs:complexContent>
+       <xs:extension base="exception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="passwordsetexception" >
+      <xs:complexContent>
+       <xs:extension base="exception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jwtcodeexception" >
+      <xs:complexContent>
+       <xs:extension base="exception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="nosuchuserexception" >
+      <xs:complexContent>
+       <xs:extension base="exception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userauthrolerepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<userauthrole,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<user,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tokenpersistentrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<tokenpersistent,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="showmaprepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<showmap,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="installbeaconrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<installbeacon,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="showmap" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="showid" type="xs:long" />
+        <xs:element name="//-2-99floor" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="showhallname" type="xs:string" />
+        <xs:element name="//单位：cmwidth" type="xs:anyType" />
+        <xs:element name="//单位：cmheight" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="image" nillable="true" minOccurs="0" />
+        <xs:element name="uptime" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="installbeacon" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="uuid" type="xs:string" />
+        <xs:element name="majorvalue" type="xs:string" />
+        <xs:element name="minorvalue" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="installbeaconservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="showmapservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="installbeaconserviceimpl" >
+      <xs:sequence>
+        <xs:element name="repository" type="installbeaconrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="beaconservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="showmapserviceimpl" >
+      <xs:sequence>
+        <xs:element name="repository" type="showmaprepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="imageservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="folderrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<folder,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="videorepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<video,long>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="imagerepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<image,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="webpagerepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<webpage,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="wxsyncmediarepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<wxsyncmedia,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="audiorepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<audio,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="wxsyncmediaservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="videoservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="videoserviceimpl" >
+      <xs:sequence>
+        <xs:element name="repository" type="videorepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="wxsyncmediaserviceimpl" >
+      <xs:sequence>
+        <xs:element name="repository" type="wxsyncmediarepository" nillable="true" minOccurs="0" />
+        <xs:element name="wxservice" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="wxsyncmediaserviceimplback2" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="webpageserviceimpl" >
+      <xs:sequence>
+        <xs:element name="repository" type="webpagerepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="resourceitemservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="wxsyncshowserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="showservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="resourcegroupservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="resourceitemservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="webpageservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="wxsyncmediaservice" nillable="true" minOccurs="0" />
+        <xs:element name="asyncresults" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="audioserviceimpl" >
+      <xs:sequence>
+        <xs:element name="repository" type="audiorepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="imageserviceimpl" >
+      <xs:sequence>
+        <xs:element name="repository" type="imagerepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="wxsyncmediaserviceimplback" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="folderserviceimpl" >
+      <xs:sequence>
+        <xs:element name="repository" type="folderrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="imageservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="wxsyncshowservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="folderservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="audioservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="webpageservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="imagepagevo" >
+      <xs:sequence>
+        <xs:element name="current" type="folder" nillable="true" minOccurs="0" />
+        <xs:element name="page" type="image" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="audiopagevo" >
+      <xs:sequence>
+        <xs:element name="current" type="folder" nillable="true" minOccurs="0" />
+        <xs:element name="page" type="audio" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="wxsyncitem" >
+      <xs:sequence>
+        <xs:element name="itemid" type="xs:long" />
+        <xs:element name="itemname" type="xs:string" />
+        <xs:element name="//机制1使用" type="xs:anyType" />
+        <xs:element name="//机制2使用" type="xs:anyType" />
+        <xs:element name="//正确／错误信息都在这里面，message" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="webpagevo" >
+      <xs:sequence>
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="author" type="xs:string" />
+        <xs:element name="coverimageurl" type="xs:string" />
+        <xs:element name="contenthtml" type="xs:string" />
+        <xs:element name="introduce" type="xs:string" />
+        <xs:element name="link" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="videopagevo" >
+      <xs:sequence>
+        <xs:element name="current" type="folder" nillable="true" minOccurs="0" />
+        <xs:element name="page" type="video" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="wxsyncmedia" >
+      <xs:sequence>
+        <xs:element name="//最大长度255arturl" type="xs:string" />
+        <xs:element name="mediaid" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="wxurl" type="xs:string" />
+        <xs:element name="createtime" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="audio" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="folderid" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="//bytessize" type="xs:long" />
+        <xs:element name="//secondslength" type="xs:anyType" />
+        <xs:element name="url" type="xs:string" />
+        <xs:element name="createtime" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="folder" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="showid" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="createtime" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="image" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="folderid" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="height" type="xs:anyType" />
+        <xs:element name="width" type="xs:anyType" />
+        <xs:element name="url" type="xs:string" />
+        <xs:element name="//缩略图thumburl" type="xs:string" />
+        <xs:element name="createtime" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="webpage" >
+      <xs:sequence>
+        <xs:element name="//resourceitem必须是web类型resourceitemid" type="xs:long" />
+        <xs:element name="//微信字段wechatasync" type="xs:anyType" />
+        <xs:element name="//微信字段mediaid" type="xs:string" />
+        <xs:element name="arturl" type="xs:string" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="author" type="xs:string" />
+        <xs:element name="link" type="xs:string" />
+        <xs:element name="introduce" type="xs:string" />
+        <xs:element name="coverimageurl" type="xs:string" />
+        <xs:element name="contenthtml" type="xs:string" />
+        <xs:element name="uptime" type="xs:dateTime" />
+        <xs:element name="createtime" type="xs:dateTime" />
+        <xs:element name="viewtimes" type="xs:long" />
+        <xs:element name="liketimes" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="video" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="folderid" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="//bytessize" type="xs:long" />
+        <xs:element name="//secondslength" type="xs:anyType" />
+        <xs:element name="coverurl" type="xs:string" />
+        <xs:element name="srcurl" type="xs:string" />
+        <xs:element name="width" type="xs:anyType" />
+        <xs:element name="height" type="xs:anyType" />
+        <xs:element name="createtime" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="taskconfigurerserviceimpl" >
+      <xs:sequence>
+        <xs:element name="key_task_clicklike" type="xs:string" />
+        <xs:element name="key_task_comment" type="xs:string" />
+        <xs:element name="key_task_share" type="xs:string" />
+        <xs:element name="key_task_sign" type="xs:string" />
+        <xs:element name="key_task_newhere_package_number" type="xs:string" />
+        <xs:element name="taskclicklikeprogress" type="xs:anyType" />
+        <xs:element name="taskcommentprogress" type="xs:anyType" />
+        <xs:element name="taskshareprogress" type="xs:anyType" />
+        <xs:element name="tasksigninprogress" type="xs:anyType" />
+        <xs:element name="tasknewherepackagenumber" type="xs:anyType" />
+        <xs:element name="repository" type="globalconfigurerrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="globalconfigurerserviceimpl" >
+      <xs:sequence>
+        <xs:element name="//解锁微信消耗钻石数key_unlock_wechat" type="xs:string" />
+        <xs:element name="//解锁手机号码消耗钻石数key_unlock_phone" type="xs:string" />
+        <xs:element name="//用户上家分钱比例key_bind_user_diamond_percent" type="xs:string" />
+        <xs:element name="//用户分钱比例key_user_diamond_percent" type="xs:string" />
+        <xs:element name="//钻石/金币汇率（'1:20'由'20'表示）key_diamond_2_coin_ratio" type="xs:string" />
+        <xs:element name="//rmb/金币汇率（'1:20'由'20'表示）key_rmb_2_diamond_ratio" type="xs:string" />
+        <xs:element name="unlockwechat" type="xs:long" />
+        <xs:element name="unlockphone" type="xs:long" />
+        <xs:element name="bindusersharediamondspercent" type="xs:double" />
+        <xs:element name="userdiamondspercent" type="xs:double" />
+        <xs:element name="diamondtocoinsratio" type="xs:anyType" />
+        <xs:element name="rmbtodiamondsratio" type="xs:anyType" />
+        <xs:element name="repository" type="globalconfigurerrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="taskconfigurerservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="globalconfigurerservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="globalconfigurerrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<globalconfigurer,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="globalconfigsettingexception" >
+      <xs:complexContent>
+       <xs:extension base="exception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="globalconfigurer" >
+      <xs:sequence>
+        <xs:element name="attrkey" type="xs:string" />
+        <xs:element name="attrvalue" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="readme" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userrecordcacherepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<userrecordcache,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="qrcoderecordrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<qrcoderecord,integer>{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="resourcerecordrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<resourcerecord,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="resourcegrouprecordrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<resourcegrouprecord,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="beaconrecordrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<beaconrecord,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="showrecordrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<showrecord,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="arrecordrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<arrecord,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userrecordrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<userrecord,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="recordresourceitem" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="title" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="recordarrayitem" >
+      <xs:sequence>
+        <xs:element name="day" type="xs:string" />
+        <xs:element name="times" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="resourcegrouprecordpkeys" >
+      <xs:sequence>
+        <xs:element name="day" type="xs:anyType" />
+        <xs:element name="groupid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userrecord" >
+      <xs:sequence>
+        <xs:element name="//20180101day" type="xs:anyType" />
+        <xs:element name="times" type="xs:long" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="beaconrecord" >
+      <xs:sequence>
+        <xs:element name="//20180101day" type="xs:anyType" />
+        <xs:element name="times" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="showrecordpkeys" >
+      <xs:sequence>
+        <xs:element name="day" type="xs:anyType" />
+        <xs:element name="showid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="showrecord" >
+      <xs:sequence>
+        <xs:element name="showid" type="xs:long" />
+        <xs:element name="//20180101day" type="xs:anyType" />
+        <xs:element name="times" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userrecordpkeys" >
+      <xs:sequence>
+        <xs:element name="day" type="xs:anyType" />
+        <xs:element name="type" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="resourcerecordpkeys" >
+      <xs:sequence>
+        <xs:element name="day" type="xs:anyType" />
+        <xs:element name="resourceid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userrecordcache" >
+      <xs:sequence>
+        <xs:element name="sessionid" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="qrcoderecord" >
+      <xs:sequence>
+        <xs:element name="//20180101day" type="xs:anyType" />
+        <xs:element name="times" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="resourcegrouprecord" >
+      <xs:sequence>
+        <xs:element name="groupid" type="xs:long" />
+        <xs:element name="//20180101day" type="xs:anyType" />
+        <xs:element name="times" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="resourcerecord" >
+      <xs:sequence>
+        <xs:element name="resourceid" type="xs:long" />
+        <xs:element name="//20180101day" type="xs:anyType" />
+        <xs:element name="times" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="arrecord" >
+      <xs:sequence>
+        <xs:element name="//20180101day" type="xs:anyType" />
+        <xs:element name="times" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="recordserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="arrecordrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="beaconrecordrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="qrcoderecordrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="resourcegrouprecordrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="resourcerecordrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="showrecordrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="userrecordcacherepository" nillable="true" minOccurs="0" />
+        <xs:element name="//每天更新一次时调用" type="userrecordrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="dateformatterservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="recordservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="arserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="resourcegroupservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="showservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="storageservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="arservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="mycollectionrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<mycollection,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="mycollectionservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="mycollectionserviceimpl" >
+      <xs:sequence>
+        <xs:element name="repository" type="mycollectionrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="resourcegroupservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="readme" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="mycollection" >
+      <xs:sequence>
+        <xs:element name="uid" type="xs:long" />
+        <xs:element name="resourcegroupid" type="xs:long" />
+        <xs:element name="//@onetoone(targetentity" type="resourcegroup" nillable="true" minOccurs="0" />
+        <xs:element name="createtime" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="mycollectionpkeys" >
+      <xs:sequence>
+        <xs:element name="resourcegroupid" type="xs:long" />
+        <xs:element name="uid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="showservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="resourcegroupservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="resourceitemservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="beaconservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="showserviceimpl" >
+      <xs:sequence>
+        <xs:element name="repository" type="showrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="imageservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="folderservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="showauthservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="userservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="beaconservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="showmapservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="resourcegroupservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="resourceitemservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="beaconserviceimplback" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="resourceitemserviceimpl" >
+      <xs:sequence>
+        <xs:element name="repository" type="resourceitemrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="imageservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="videoservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="audioservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="webpageservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="resourcegroupservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="showservice" nillable="true" minOccurs="0" />
+        <xs:element name="host" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="beaconserviceimpl" >
+      <xs:sequence>
+        <xs:element name="repository" type="beaconrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="resourcegroupservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="resourcegroupserviceimpl" >
+      <xs:sequence>
+        <xs:element name="repository" type="resourcegrouprepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="beaconservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="imageservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="webpageservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="resourceitem" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="resourcesgroupid" type="xs:long" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="url" type="xs:string" />
+        <xs:element name="uptime" type="xs:dateTime" />
+        <xs:element name="viewtimes" type="xs:long" />
+        <xs:element name="liketimes" type="xs:long" />
+        <xs:element name="GeneratedName" type="webpage" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="show" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="//stringshowhallnameshowhallnames" type="xs:anyType" />
+        <xs:element name="//开展时间starttime" type="xs:dateTime" />
+        <xs:element name="//闭幕时间endtime" type="xs:dateTime" />
+        <xs:element name="//海报poster" type="image" nillable="true" minOccurs="0" />
+        <xs:element name="//文字介绍introducetext" type="xs:string" />
+        <xs:element name="//编辑更新时间uptime" type="xs:dateTime" />
+        <xs:element name="//浏览次数viewtimes" type="xs:long" />
+        <xs:element name="//点赞次数liketimes" type="xs:long" />
+        <xs:element name="//音频数量audionum" type="xs:anyType" />
+        <xs:element name="maps" type="showmap" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="mapshow" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="resourcegroup" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="showid" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="//@apiparam(name" type="xs:dateTime" />
+        <xs:element name="viewtimes" type="xs:long" />
+        <xs:element name="liketimes" type="xs:long" />
+        <xs:element name="//绑定信息beacons" type="beacon" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="beaconsbindtime" type="xs:dateTime" />
+        <xs:element name="ar" type="image" nillable="true" minOccurs="0" />
+        <xs:element name="arbindtime" type="xs:dateTime" />
+        <xs:element name="//包含信息resourceitems" type="resourceitem" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="beacon" >
+      <xs:sequence>
+        <xs:element name="//外界请不要使用该id操作数据id" type="xs:long" />
+        <xs:element name="showid" type="xs:long" />
+        <xs:element name="basicinfo" type="installbeacon" nillable="true" minOccurs="0" />
+        <xs:element name="available" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="//@notnullname" type="xs:string" />
+        <xs:element name="GeneratedName" type="showmap" nillable="true" minOccurs="0" />
+        <xs:element name="positionwidth" type="xs:anyType" />
+        <xs:element name="positionheight" type="xs:anyType" />
+        <xs:element name="//绑定信息//@onetoone(targetentity" type="xs:long" />
+        <xs:element name="//建议：获取到beacon信息后需要将此数据清空" type="resourcegroup" nillable="true" minOccurs="0" />
+        <xs:element name="//全部为0iconstatus" type="xs:anyType" />
+        <xs:element name="uptime" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="beaconrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<beacon,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="showrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<show,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="resourcegrouprepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<resourcegroup,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="resourceitemrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<resourceitem,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="footprintshowserviceimpl" >
+      <xs:sequence>
+        <xs:element name="repository" type="footprintshowrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="showservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="footprintshowservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="footprintshowrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<footprintshow,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="footprintshow" >
+      <xs:sequence>
+        <xs:element name="uid" type="xs:long" />
+        <xs:element name="showid" type="xs:long" />
+        <xs:element name="GeneratedName" type="show" nillable="true" minOccurs="0" />
+        <xs:element name="uptime" type="xs:dateTime" />
+        <xs:element name="//该用户浏览过多少次viewtimes" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="footprintshowpkeys" >
+      <xs:sequence>
+        <xs:element name="uid" type="xs:long" />
+        <xs:element name="showid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ueditorconfig" >
+      <xs:sequence>
+        <xs:element name="rootpath" type="xs:string" />
+        <xs:element name="//upload" type="fileuploadservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="artshowresponsebodyadvice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="druidconfigurer" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="httpunauthorizedcontroller" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="globalexceptionhandler" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="httperrorcontroller" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="corsfilter" >
+      <xs:sequence>
+        <xs:element name="allowedorigins" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="webmvcconfigurer" >
+      <xs:complexContent>
+       <xs:extension base="webmvcconfigureradapter">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="jwtutil" nillable="true" minOccurs="0" />
+          <xs:element name="" type="appauthflushservice" nillable="true" minOccurs="0" />
+          <xs:element name="" type="recordservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="websecurityconfigurer" >
+      <xs:complexContent>
+       <xs:extension base="websecurityconfigureradapter">
+         <xs:sequence>
+          <xs:element name="tokeninterval" type="xs:anyType" />
+          <xs:element name="" type="artauthenticationprovider" nillable="true" minOccurs="0" />
+          <xs:element name="" type="loginsuccesshandle" nillable="true" minOccurs="0" />
+          <xs:element name="tokenpersistentservice" type="tokenpersistentserviceimpl" nillable="true" minOccurs="0" />
+          <xs:element name="userdetailsservice" type="userdetailsserviceimpl" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="loginsuccesshandle" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userloginlogservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="util4ip" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="artaccessdeniedhandler" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="artauthenticationprovider" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="swagger2" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

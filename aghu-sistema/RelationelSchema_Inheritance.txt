@@ -1,0 +1,33 @@
+
+permissao(serialversionuid:long, id:Integer [PK], descricao:String, datacriacao:Date, ativo:DominioSituacao, nome:String);
+
+perfispermissoes(serialversionuid:long, id:Integer [PK], GeneratedName:Permissao, GeneratedName:Perfil);
+
+modulo(serialversionuid:long, id:Integer [PK], nome:String, descricao:String, GeneratedName:Aplicacao, ativo:Boolean);
+
+metodo(serialversionuid:long, id:Integer [PK], GeneratedName:Componente, nome:String, descriao:String, //fixmetrocarporenum(dominiosituacao)ativo:DominioSimNao);
+
+dashboard(/***/serialversionuid:long, id:Integer [PK], GeneratedName:Usuario, GeneratedName:Favorito, modal:String, datacriacao:Date, dataatualizacao:Date, ordem:Integer);
+
+permissoescomponentes(serialversionuid:long, id:Integer [PK], GeneratedName:Permissao, GeneratedName:Metodo, GeneratedName:Componente);
+
+menu(serialversionuid:long, id:Integer [PK], pai:Menu, nome:String, classeicone:String, datacriacao:Date, ordem:Integer, url:String, GeneratedName:Aplicacao, ativo:DominioSimNao);
+
+favorito(serialversionuid:long, id:Integer [PK], GeneratedName:Usuario, GeneratedName:Menu, datacriacao:Date, dataatualizacao:Date, ordem:Integer, //campotransientusadosomentenainterfacevisualnovo:Boolean);
+
+permissaomodulo(serialversionuid:long, id:Integer [PK], GeneratedName:Permissao, GeneratedName:Modulo);
+
+usuario(serialversionuid:long, id:Integer [PK], GeneratedName:Usuario, nome:String, login:String, datacriacao:Date, email:String, dataultimoacesso:Date, ativo:boolean, delegarperfil:boolean, //valorpadrão30minutostemposessaominutos:Integer);
+
+componente(serialversionuid:long, id:Integer [PK], nome:String, GeneratedName:Aplicacao);
+
+aplicacao(serialversionuid:long, id:Integer [PK], servidor:String, porta:Integer, GeneratedName:Protocolo, contexto:String, nome:String, descricao:String, externo:Boolean, urlinicial:String);
+
+perfil(serialversionuid:long, id:Integer [PK], nome:String, descricao:String, descricaoresumida:String, datacriacao:Date, situacao:DominioSituacao, delegavel:boolean);
+
+palavrachavemenu(/***/serialversionuid:long, id:Integer [PK], GeneratedName:Menu, palavra:String, ativo:DominioSimNao);
+
+perfisusuarios(serialversionuid:long, id:Integer [PK], GeneratedName:Usuario, GeneratedName:Perfil, datacriacao:Date, dataexpiracao:Date);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="index" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="myspringmvcdispatcherservletinitializer" >
+      <xs:complexContent>
+       <xs:extension base="abstractannotationconfigdispatcherservletinitializer">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="demoappconfig" >
+      <xs:sequence>
+        <xs:element name="env" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="customerrestcontroller" >
+      <xs:sequence>
+        <xs:element name="service" type="customerservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="customererrorresponse" >
+      <xs:sequence>
+        <xs:element name="status" type="xs:long" />
+        <xs:element name="message" type="xs:string" />
+        <xs:element name="timestamp" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="customerrestexceptionhandler" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="customernotfoundexception" >
+      <xs:complexContent>
+       <xs:extension base="runtimeexception">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="customer" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="customerdao" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="customerdaoimpl" >
+      <xs:sequence>
+        <xs:element name="//needtoinjectthesessionfactory" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="customerserviceimpl" >
+      <xs:sequence>
+        <xs:element name="//needtoinjectcustomerdao" type="customerdao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="customerservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="springconfig" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persistence" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="index" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bootstrap" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="apphealth" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="applogalarm" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="applogconfig" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="manifest" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="app" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="batchconnection" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jobdetailsrepositoryimpl" >
+      <xs:sequence>
+        <xs:element name="emfresource" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jobdetailsrepository" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jobinitiator" >
+      <xs:sequence>
+        <xs:element name="context" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="jobdetailsrepository" nillable="true" minOccurs="0" />
+        <xs:element name="joblistener" type="joblisteners" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="startbatchbizservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="startbatchbizserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="jobinitiator" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="jobdetailsrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="joblisteners" >
+      <xs:sequence>
+        <xs:element name="jobrepository" type="jobdetailsrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rulebatchconfig" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="serviceaspect" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="entityvalidator" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="code" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="methodcallstack" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="autorequestid" type="xs:anyType" />
+        <xs:element name="repository" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="initiatebatchservice" >
+      <xs:sequence>
+        <xs:element name="startbatchservice" type="startbatchbizservice" nillable="true" minOccurs="0" />
+        <xs:element name="initiated" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="systeminfo" >
+      <xs:sequence>
+        <xs:element name="activestatus" type="xs:anyType" />
+        <xs:element name="txnaccesscode" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jobdetails" >
+      <xs:sequence>
+        <xs:element name="jobid" type="xs:string" />
+        <xs:element name="jobname" type="xs:string" />
+        <xs:element name="beanname" type="xs:string" />
+        <xs:element name="currentstatus" type="xs:string" />
+        <xs:element name="GeneratedName" type="scheduler" nillable="true" minOccurs="0" />
+        <xs:element name="statustime" type="xs:anyType" />
+        <xs:element name="jobparams" type="xs:anyType" />
+        <xs:element name="job_started" type="xs:string" />
+        <xs:element name="job_finished" type="xs:string" />
+        <xs:element name="job_failed" type="xs:string" />
+        <xs:element name="job_already_running" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="scheduler" >
+      <xs:sequence>
+        <xs:element name="schedulerid" type="xs:string" />
+        <xs:element name="schedulerexpression" type="xs:string" />
+        <xs:element name="GeneratedName" type="jobdetails" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entityaudit" >
+      <xs:sequence>
+        <xs:element name="createdby" type="xs:string" />
+        <xs:element name="createddate" type="xs:anyType" />
+        <xs:element name="updatedby" type="xs:string" />
+        <xs:element name="updateddate" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="webinitializer" >
+      <xs:sequence>
+        <xs:element name="app_pkg" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="webconfigextended" >
+      <xs:complexContent>
+       <xs:extension base="webconfig">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema> 

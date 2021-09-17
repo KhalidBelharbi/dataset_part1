@@ -1,0 +1,19 @@
+
+commentaire(id:int [PK], commentaire:String, GeneratedName:Annonce #FK to(annonce), membreemetteur:Personne #FK to(Personne), membrerecepteur:Personne #FK to(Personne));
+
+follower(/***/serialversionuid:long, id:int [PK], GeneratedName:Annonce #FK to(annonce), membresuiveur:Personne #FK to(Personne));
+
+matiere(nom:String, id:int [PK]);
+
+personne(/***/serialversionuid:long, id:int [PK], nom:String, prenom:String, tel:String, email:String, identifiant:String, mdp:String, session_id:String);
+
+vote(id:int [PK], GeneratedName:Annonce #FK to(annonce), membrevote:Personne #FK to(Personne), membrerecepteur:Personne #FK to(Personne));
+
+annonce(/***/serialversionuid:long, id:int [PK], titre:String, message:String, prix:int, estoffre:boolean, note:float, nbpersnotee:int, proprio:Personne #FK to(Personne), GeneratedName:Ville #FK to(ville), GeneratedName:Matiere #FK to(Matiere));
+
+ville(nom:String, pays:String, id:int [PK]);
+
+pays(nom:String [PK], code:String);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

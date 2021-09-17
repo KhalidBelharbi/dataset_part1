@@ -1,0 +1,652 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="demoapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="productcontoller" >
+      <xs:sequence>
+        <xs:element name="productmapper" type="productrepositoy" nillable="true" minOccurs="0" />
+        <xs:element name="productservice" type="productserviceimpl" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="productdto" >
+      <xs:sequence>
+        <xs:element name="prdno" type="xs:long" />
+        <xs:element name="prdname" type="xs:string" />
+        <xs:element name="prdprice" type="xs:string" />
+        <xs:element name="prdinv" type="xs:string" />
+        <xs:element name="prdimg" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="product" >
+      <xs:sequence>
+        <xs:element name="prdno" type="xs:long" />
+        <xs:element name="prdname" type="xs:string" />
+        <xs:element name="prdimg" type="xs:string" />
+        <xs:element name="prdprice" type="xs:string" />
+        <xs:element name="prdinv" type="xs:string" />
+        <xs:element name="ctgname" type="xs:string" />
+        <xs:element name="GeneratedName" type="category" nillable="true" minOccurs="0" />
+        <xs:element name="paymentlist" type="payment" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="productrepositoyimpl" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="productrepositoy" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="productserviceimpl" >
+      <xs:sequence>
+        <xs:element name="productmapper" type="productrepositoy" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="replydto" >
+      <xs:sequence>
+        <xs:element name="rplno" type="xs:long" />
+        <xs:element name="rplcontent" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="reply" >
+      <xs:sequence>
+        <xs:element name="rplno" type="xs:long" />
+        <xs:element name="rplcontent" type="xs:string" />
+        <xs:element name="GeneratedName" type="board" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="user" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="replyrepository" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="replyrepositoryimpl" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="replyserviceimpl" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="replyservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="replycontroller" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="levelcontroller" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="levelservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="levelserviceimpl" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="level" >
+      <xs:sequence>
+        <xs:element name="level" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="leveldto" >
+      <xs:sequence>
+        <xs:element name="level" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="levelrepositoryimpl" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="levelrepository" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<user,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userrepositoryimpl" >
+      <xs:complexContent>
+       <xs:extension base="querydslrepositorysupport">
+         <xs:sequence>
+          <xs:element name="queryfactory" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userdto" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="usrno" type="xs:long" />
+        <xs:element name="usrname" type="xs:string" />
+        <xs:element name="usremail" type="xs:string" />
+        <xs:element name="usrpwd" type="xs:string" />
+        <xs:element name="usrages" type="xs:string" />
+        <xs:element name="usrcity" type="xs:string" />
+        <xs:element name="usrgender" type="xs:string" />
+        <xs:element name="usrphone" type="xs:string" />
+        <xs:element name="usraddr" type="xs:string" />
+        <xs:element name="usrnickname" type="xs:string" />
+        <xs:element name="usrid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="usrno" type="xs:long" />
+        <xs:element name="usrname" type="xs:string" />
+        <xs:element name="usrnickname" type="xs:string" />
+        <xs:element name="usremail" type="xs:string" />
+        <xs:element name="usrpwd" type="xs:string" />
+        <xs:element name="usrages" type="xs:string" />
+        <xs:element name="usrcity" type="xs:string" />
+        <xs:element name="usrgender" type="xs:string" />
+        <xs:element name="usrphone" type="xs:string" />
+        <xs:element name="usrid" type="xs:string" />
+        <xs:element name="usraddr" type="xs:string" />
+        <xs:element name="GeneratedName" type="level" nillable="true" minOccurs="0" />
+        <xs:element name="paymentlist" type="payment" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usercontroller" >
+      <xs:complexContent>
+       <xs:extension base="abstractcontroller<user>">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="userrepository" nillable="true" minOccurs="0" />
+          <xs:element name="userservice" type="userserviceimpl" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userserviceimpl" >
+      <xs:complexContent>
+       <xs:extension base="abstractservice<user>">
+         <xs:sequence>
+          <xs:element name="" type="userrepository" nillable="true" minOccurs="0" />
+          <xs:element name="mailsender" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="paymentrepositoryimpl" >
+      <xs:complexContent>
+       <xs:extension base="querydslrepositorysupport">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="paymentrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<payment,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="paymentservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="paymentserviceimpl" >
+      <xs:complexContent>
+       <xs:extension base="abstractservice<payment>">
+         <xs:sequence>
+          <xs:element name="repo" type="paymentrepository" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="paymentdto" >
+      <xs:sequence>
+        <xs:element name="payno" type="xs:long" />
+        <xs:element name="payprice" type="xs:string" />
+        <xs:element name="payamount" type="xs:long" />
+        <xs:element name="dvrfee" type="xs:string" />
+        <xs:element name="paydate" type="xs:string" />
+        <xs:element name="paystate" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="payment" >
+      <xs:sequence>
+        <xs:element name="payno" type="xs:long" />
+        <xs:element name="payprice" type="xs:string" />
+        <xs:element name="payamount" type="xs:long" />
+        <xs:element name="dvrfee" type="xs:string" />
+        <xs:element name="paydate" type="xs:string" />
+        <xs:element name="paystate" type="xs:string" />
+        <xs:element name="GeneratedName" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="product" nillable="true" minOccurs="0" />
+        <xs:element name="receiverlist" type="receiver" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="boardlist" type="board" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="cart" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="paymentcontroller" >
+      <xs:complexContent>
+       <xs:extension base="abstractcontroller<payment>">
+         <xs:sequence>
+          <xs:element name="" type="paymentserviceimpl" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="receiverdto" >
+      <xs:sequence>
+        <xs:element name="rcvno" type="xs:long" />
+        <xs:element name="rcvname" type="xs:string" />
+        <xs:element name="rcvphone" type="xs:string" />
+        <xs:element name="rcvaddr" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="receiver" >
+      <xs:sequence>
+        <xs:element name="rcvno" type="xs:long" />
+        <xs:element name="rcvname" type="xs:string" />
+        <xs:element name="rcvphone" type="xs:string" />
+        <xs:element name="rcvaddr" type="xs:string" />
+        <xs:element name="GeneratedName" type="payment" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="receivercontroller" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="receiverrepository" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="receiverrepositoryimpl" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="receiverservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="receiverserviceimpl" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cartrepository" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cartrepositoryimpl" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cartservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cartserviceimpl" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cart" >
+      <xs:sequence>
+        <xs:element name="cartno" type="xs:long" />
+        <xs:element name="cartamount" type="xs:long" />
+        <xs:element name="GeneratedName" type="payment" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cartdto" >
+      <xs:sequence>
+        <xs:element name="cartno" type="xs:long" />
+        <xs:element name="cartamount" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cartcontroller" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="categorydto" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="category" >
+      <xs:sequence>
+        <xs:element name="ctgno" type="xs:long" />
+        <xs:element name="ctgname" type="xs:string" />
+        <xs:element name="productlist" type="product" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="caterepository" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="caterepositoryimpl" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="categorycontroller" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="categoryservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="categoryserviceimpl" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="querydslconfiguration" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="boardrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<board,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="boardrepositoryimpl" >
+      <xs:complexContent>
+       <xs:extension base="querydslrepositorysupport">
+         <xs:sequence>
+          <xs:element name="queryfactory" type="xs:anyType" />
+          <xs:element name="em" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="boardservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="boardserviceimpl" >
+      <xs:complexContent>
+       <xs:extension base="abstractservice<board>">
+         <xs:sequence>
+          <xs:element name="" type="boardrepository" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="boardvo" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="board" >
+      <xs:sequence>
+        <xs:element name="brdno" type="xs:long" />
+        <xs:element name="brdtitle" type="xs:string" />
+        <xs:element name="brdcontent" type="xs:string" />
+        <xs:element name="brdwrtdate" type="xs:string" />
+        <xs:element name="brdrank" type="xs:string" />
+        <xs:element name="brdimg" type="xs:string" />
+        <xs:element name="usrnickname" type="xs:string" />
+        <xs:element name="brdkind" type="xs:long" />
+        <xs:element name="count" type="xs:long" />
+        <xs:element name="brdlike" type="xs:string" />
+        <xs:element name="brdpwd" type="xs:string" />
+        <xs:element name="replylist" type="reply" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="payment" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="product" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="boardrepositoryimpl" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="boarddto" >
+      <xs:sequence>
+        <xs:element name="brdno" type="xs:long" />
+        <xs:element name="brdtitle" type="xs:string" />
+        <xs:element name="brdcontent" type="xs:string" />
+        <xs:element name="brdwrtdate" type="xs:string" />
+        <xs:element name="brdrank" type="xs:string" />
+        <xs:element name="brdimg" type="xs:string" />
+        <xs:element name="brdkind" type="xs:long" />
+        <xs:element name="brdmoddate" type="xs:string" />
+        <xs:element name="count" type="xs:long" />
+        <xs:element name="brdlike" type="xs:string" />
+        <xs:element name="brdpwd" type="xs:string" />
+        <xs:element name="usrnickname" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="boardcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="boardrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="boardservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="message" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="swear" >
+      <xs:sequence>
+        <xs:element name="swear" type="xs:string" />
+        <xs:element name="swearlist" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="messenger" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="commonoauth2provider" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="role" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userpageset" >
+      <xs:sequence>
+        <xs:element name="number" type="xs:long" />
+        <xs:element name="selectsize" type="xs:string" />
+        <xs:element name="sizes" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="utils" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="stringnullcheck" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="abstractcontroller" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="abstractservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="swearfilter" >
+      <xs:sequence>
+        <xs:element name="swears" type="xs:anyType" />
+        <xs:element name="exceptions" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="homecontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="qpayment" >
+      <xs:complexContent>
+       <xs:extension base="entitypathbase<payment>">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="inits" type="xs:anyType" />
+          <xs:element name="payment" type="qpayment" nillable="true" minOccurs="0" />
+          <xs:element name="boardlist" type="xs:anyType" />
+          <xs:element name="cart" type="xs:anyType" />
+          <xs:element name="dvrfee" type="xs:anyType" />
+          <xs:element name="payamount" type="xs:anyType" />
+          <xs:element name="paydate" type="xs:anyType" />
+          <xs:element name="payno" type="xs:anyType" />
+          <xs:element name="payprice" type="xs:anyType" />
+          <xs:element name="paystate" type="xs:anyType" />
+          <xs:element name="product" type="xs:anyType" />
+          <xs:element name="receiverlist" type="xs:anyType" />
+          <xs:element name="user" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="qreceiver" >
+      <xs:complexContent>
+       <xs:extension base="entitypathbase<receiver>">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="inits" type="xs:anyType" />
+          <xs:element name="receiver" type="qreceiver" nillable="true" minOccurs="0" />
+          <xs:element name="payment" type="xs:anyType" />
+          <xs:element name="rcvaddr" type="xs:anyType" />
+          <xs:element name="rcvname" type="xs:anyType" />
+          <xs:element name="rcvno" type="xs:anyType" />
+          <xs:element name="rcvphone" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="qcategory" >
+      <xs:complexContent>
+       <xs:extension base="entitypathbase<category>">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="category" type="qcategory" nillable="true" minOccurs="0" />
+          <xs:element name="ctgname" type="xs:anyType" />
+          <xs:element name="ctgno" type="xs:anyType" />
+          <xs:element name="productlist" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="qboard" >
+      <xs:complexContent>
+       <xs:extension base="entitypathbase<board>">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="inits" type="xs:anyType" />
+          <xs:element name="board" type="qboard" nillable="true" minOccurs="0" />
+          <xs:element name="brdcontent" type="xs:anyType" />
+          <xs:element name="brdimg" type="xs:anyType" />
+          <xs:element name="brdkind" type="xs:anyType" />
+          <xs:element name="brdlike" type="xs:anyType" />
+          <xs:element name="brdno" type="xs:anyType" />
+          <xs:element name="brdpwd" type="xs:anyType" />
+          <xs:element name="brdrank" type="xs:anyType" />
+          <xs:element name="brdtitle" type="xs:anyType" />
+          <xs:element name="brdwrtdate" type="xs:anyType" />
+          <xs:element name="count" type="xs:anyType" />
+          <xs:element name="payment" type="xs:anyType" />
+          <xs:element name="product" type="xs:anyType" />
+          <xs:element name="replylist" type="xs:anyType" />
+          <xs:element name="user" type="xs:anyType" />
+          <xs:element name="usrnickname" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="qcart" >
+      <xs:complexContent>
+       <xs:extension base="entitypathbase<cart>">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="inits" type="xs:anyType" />
+          <xs:element name="cart" type="qcart" nillable="true" minOccurs="0" />
+          <xs:element name="cartamount" type="xs:anyType" />
+          <xs:element name="cartno" type="xs:anyType" />
+          <xs:element name="payment" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="qlevel" >
+      <xs:complexContent>
+       <xs:extension base="entitypathbase<level>">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="level1" type="qlevel" nillable="true" minOccurs="0" />
+          <xs:element name="level" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="quser" >
+      <xs:complexContent>
+       <xs:extension base="entitypathbase<user>">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="inits" type="xs:anyType" />
+          <xs:element name="user" type="quser" nillable="true" minOccurs="0" />
+          <xs:element name="level" type="xs:anyType" />
+          <xs:element name="userlist" type="xs:anyType" />
+          <xs:element name="usraddr" type="xs:anyType" />
+          <xs:element name="usrages" type="xs:anyType" />
+          <xs:element name="usrcity" type="xs:anyType" />
+          <xs:element name="usremail" type="xs:anyType" />
+          <xs:element name="usrgender" type="xs:anyType" />
+          <xs:element name="usrid" type="xs:anyType" />
+          <xs:element name="usrname" type="xs:anyType" />
+          <xs:element name="usrnickname" type="xs:anyType" />
+          <xs:element name="usrno" type="xs:anyType" />
+          <xs:element name="usrphone" type="xs:anyType" />
+          <xs:element name="usrpwd" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="qproduct" >
+      <xs:complexContent>
+       <xs:extension base="entitypathbase<product>">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="inits" type="xs:anyType" />
+          <xs:element name="product" type="qproduct" nillable="true" minOccurs="0" />
+          <xs:element name="category" type="xs:anyType" />
+          <xs:element name="ctgname" type="xs:anyType" />
+          <xs:element name="paymentlist" type="xs:anyType" />
+          <xs:element name="prdimg" type="xs:anyType" />
+          <xs:element name="prdinv" type="xs:anyType" />
+          <xs:element name="prdname" type="xs:anyType" />
+          <xs:element name="prdno" type="xs:anyType" />
+          <xs:element name="prdprice" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="qreply" >
+      <xs:complexContent>
+       <xs:extension base="entitypathbase<reply>">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="inits" type="xs:anyType" />
+          <xs:element name="reply" type="qreply" nillable="true" minOccurs="0" />
+          <xs:element name="board" type="xs:anyType" />
+          <xs:element name="rplcontent" type="xs:anyType" />
+          <xs:element name="rplno" type="xs:anyType" />
+          <xs:element name="user" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema> 

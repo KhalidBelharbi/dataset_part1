@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="order" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="amount" type="xs:long" />
+        <xs:element name="GeneratedName" type="book" nillable="true" minOccurs="0" />
+        <xs:element name="processed" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bookrepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<book,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="book" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="item" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="application" >
+      <xs:complexContent>
+       <xs:extension base="springbootservletinitializer">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="orderservice" >
+      <xs:sequence>
+        <xs:element name="books" type="bookrepository" nillable="true" minOccurs="0" />
+        <xs:element name="amount" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="database" >
+      <xs:sequence>
+        <xs:element name="books" type="bookrepository" nillable="true" minOccurs="0" />
+        <xs:element name="orders" type="orderrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="orderrepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<order,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="applicationtest" >
+      <xs:sequence>
+        <xs:element name="resttemplate" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="demoapplicationtests" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="message" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="recipient" type="xs:string" />
+        <xs:element name="body" type="xs:string" />
+        <xs:element name="status" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="role" type="xs:string" />
+        <xs:element name="approved" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="application" >
+      <xs:sequence>
+        <xs:element name="applicant" type="xs:string" />
+        <xs:element name="listingid" type="xs:string" />
+        <xs:element name="type" type="xs:string" />
+        <xs:element name="//rentcreditscore" type="xs:anyType" />
+        <xs:element name="employer" type="xs:string" />
+        <xs:element name="income" type="xs:anyType" />
+        <xs:element name="//buyoffer" type="xs:anyType" />
+        <xs:element name="approved" type="xs:anyType" />
+        <xs:element name="address" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="favorite" >
+      <xs:sequence>
+        <xs:element name="user" type="xs:string" />
+        <xs:element name="listing" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="listingsearch" >
+      <xs:sequence>
+        <xs:element name="zip" type="xs:string" />
+        <xs:element name="address" type="xs:string" />
+        <xs:element name="pricelow" type="xs:anyType" />
+        <xs:element name="pricehigh" type="xs:anyType" />
+        <xs:element name="sqftlow" type="xs:anyType" />
+        <xs:element name="sqfthigh" type="xs:anyType" />
+        <xs:element name="bedroom" type="xs:anyType" />
+        <xs:element name="bathroom" type="xs:anyType" />
+        <xs:element name="flooring" type="xs:string" />
+        <xs:element name="listingtype" type="xs:string" />
+        <xs:element name="hometype" type="xs:string" />
+        <xs:element name="year" type="xs:anyType" />
+        <xs:element name="parking" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="listing" >
+      <xs:sequence>
+        <xs:element name="uuid" type="xs:string" />
+        <xs:element name="//notnullablepublisher" type="xs:string" />
+        <xs:element name="price" type="xs:long" />
+        <xs:element name="sqft" type="xs:long" />
+        <xs:element name="numberofbedroom" type="xs:long" />
+        <xs:element name="numberofbathroom" type="xs:long" />
+        <xs:element name="flooring" type="xs:string" />
+        <xs:element name="type" type="xs:string" />
+        <xs:element name="zip" type="xs:string" />
+        <xs:element name="address" type="xs:string" />
+        <xs:element name="year" type="xs:anyType" />
+        <xs:element name="parking" type="xs:string" />
+        <xs:element name="listingtype" type="xs:string" />
+        <xs:element name="//rentspecific(notnullable)leaseterm" type="xs:string" />
+        <xs:element name="availabledate" type="xs:string" />
+        <xs:element name="deposit" type="xs:long" />
+        <xs:element name="status" type="xs:string" />
+        <xs:element name="other" type="xs:string" />
+        <xs:element name="openhouse" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="applicationid" >
+      <xs:sequence>
+        <xs:element name="applicant" type="xs:string" />
+        <xs:element name="listingid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="favoriteid" >
+      <xs:sequence>
+        <xs:element name="user" type="xs:string" />
+        <xs:element name="listing" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="demoapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="databaseconfig" >
+      <xs:sequence>
+        <xs:element name="dburl" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="applicationdao" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="applicationdatasource" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="listingdao" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="listingdatasource" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userdao" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userdatasource" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="messagedao" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="messagedatasource" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="favoritedao" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="favoritedatasource" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="applicationapi" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="applicationdao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="messagedao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="listingdao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userapi" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userdao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="listingapi" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="listingdao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="userdao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="favoriteapi" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="favoritedao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="listingdao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="messageapi" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="messagedao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="listingdatasource" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<listing,string>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="favoritedatasource" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<favorite,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userdatasource" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<user,string>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="applicationdatasource" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<application,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="messagedatasource" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<message,string>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="debug" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="fontawesome-webfont" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="breakpoints.min" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="index" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="search" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="data" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

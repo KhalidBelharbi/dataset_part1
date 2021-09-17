@@ -1,0 +1,1271 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="address" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="streetname" type="xs:string" />
+        <xs:element name="housenumber" type="xs:anyType" />
+        <xs:element name="flatnumber" type="xs:anyType" />
+        <xs:element name="persons" type="person" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="person" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="surname" type="xs:string" />
+        <xs:element name="GeneratedName" type="address" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="person" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="surname" type="xs:string" />
+        <xs:element name="GeneratedName" type="address" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="address" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="streetname" type="xs:string" />
+        <xs:element name="housenumber" type="xs:anyType" />
+        <xs:element name="flatnumber" type="xs:anyType" />
+        <xs:element name="persons" type="person" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="notinsertabletestentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="data" type="xs:string" />
+        <xs:element name="datacopy" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="notinsertableentitytype" >
+      <xs:sequence>
+        <xs:element name="typeid" type="xs:anyType" />
+        <xs:element name="type" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="manytoonenotinsertableentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="number" type="xs:anyType" />
+        <xs:element name="type" type="notinsertableentitytype" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="unversionedoptimisticlockingfieldentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="str" type="xs:string" />
+        <xs:element name="optlocking" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="propertiestestentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="str" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ternarymapentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="map" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="subclassentity" >
+      <xs:complexContent>
+       <xs:extension base="superclassofentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="basictestentity3" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="str1" type="xs:string" />
+        <xs:element name="str2" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="basictestentity2" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="str1" type="xs:string" />
+        <xs:element name="str2" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="basictestentity4" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="str1" type="xs:string" />
+        <xs:element name="str2" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="basictestentity1" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="str1" type="xs:string" />
+        <xs:element name="1" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="serializabletestentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="obj" type="serobject" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="enumtestentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="enum1" type="xs:anyType" />
+        <xs:element name="enum2" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="datetestentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="lobtestentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="lob" type="xs:string" />
+        <xs:element name="lob" type="xs:anyType" />
+        <xs:element name="lob" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="componenttestentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="comp1" type="icomponent" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="setrefedentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="data" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="setrefingentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="data" type="xs:string" />
+        <xs:element name="reference" type="isetrefedentity" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="inheritedreventity" >
+      <xs:complexContent>
+       <xs:extension base="defaultrevisionentity">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="customboxedreventity" >
+      <xs:sequence>
+        <xs:element name="customid" type="xs:anyType" />
+        <xs:element name="customtimestamp" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="listenerreventity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="timestamp" type="xs:long" />
+        <xs:element name="data" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="longrevnumberreventity" >
+      <xs:sequence>
+        <xs:element name="customid" type="xs:long" />
+        <xs:element name="customtimestamp" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="exceptionlistenerreventity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="timestamp" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="auditedtestentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="str1" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="notauditedtestentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="str1" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="idmapkeyentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="idmap" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="componentmapkeyentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="idmap" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="secondarytestentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="s1" type="xs:string" />
+        <xs:element name="s2" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="secondarymulidtestentity" >
+      <xs:sequence>
+        <xs:element name="id1" type="xs:anyType" />
+        <xs:element name="id2" type="xs:anyType" />
+        <xs:element name="s1" type="xs:string" />
+        <xs:element name="s2" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="secondaryembidtestentity" >
+      <xs:sequence>
+        <xs:element name="id" type="embid" nillable="true" minOccurs="0" />
+        <xs:element name="s1" type="xs:string" />
+        <xs:element name="s2" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="secondarynamingtestentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="s1" type="xs:string" />
+        <xs:element name="s2" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="versionsjointablerangetestentity" >
+      <xs:complexContent>
+       <xs:extension base="		versionsjointablerangetestentitysuperclass">
+         <xs:sequence>
+          <xs:element name="value" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="versionsjointabletestentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="data" type="xs:string" />
+        <xs:element name="collection" type="strtestentity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="versionsjointablerangetestalternateentity" >
+      <xs:complexContent>
+       <xs:extension base="		versionsjointablerangetestentitysuperclass">
+         <xs:sequence>
+          <xs:element name="alternatevalue" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="joinembidnamingrefedentity" >
+      <xs:sequence>
+        <xs:element name="id" type="embidnaming" nillable="true" minOccurs="0" />
+        <xs:element name="data" type="xs:string" />
+        <xs:element name="reffering" type="joinembidnamingrefingentity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="joinembidnamingrefingentity" >
+      <xs:sequence>
+        <xs:element name="id" type="embidnaming" nillable="true" minOccurs="0" />
+        <xs:element name="data" type="xs:string" />
+        <xs:element name="reference" type="joinembidnamingrefedentity" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="joinmulidnamingrefingentity" >
+      <xs:sequence>
+        <xs:element name="id1" type="xs:anyType" />
+        <xs:element name="id2" type="xs:anyType" />
+        <xs:element name="data" type="xs:string" />
+        <xs:element name="reference" type="joinmulidnamingrefedentity" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="joinmulidnamingrefedentity" >
+      <xs:sequence>
+        <xs:element name="id1" type="xs:anyType" />
+        <xs:element name="id2" type="xs:anyType" />
+        <xs:element name="data" type="xs:string" />
+        <xs:element name="reffering" type="joinmulidnamingrefingentity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="namingtestentity1" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="data" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="versionsjointablerangecomponenttestentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="/***anembeddedcomponent,containingalistof*{@linkversionsjointablerangetestentity}-instances.*/component1" type="versionsjointablerangetestentity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="/***anembeddedcomponent,containingalistof*{@linkversionsjointablerangetestalternateentity}-instances.*/component2" type="versionsjointablerangetestalternateentity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="/***anembeddedcomponent,containingalistofnotaudited*{@linkversionsjointablerangetestalternateentity}-instances.*/component3" type="component1" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="detachednamingtestentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="data" type="xs:string" />
+        <xs:element name="collection" type="strtestentity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="joinnamingrefedentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="data" type="xs:string" />
+        <xs:element name="reffering" type="joinnamingrefingentity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="joinnamingrefingentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="data" type="xs:string" />
+        <xs:element name="reference" type="joinnamingrefedentity" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sameidtestentity2" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="str1" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sameidtestentity1" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="str1" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="refingmapkeyentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="reference" type="refedmapkeyentity" nillable="true" minOccurs="0" />
+        <xs:element name="data" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="refedmapkeyentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="idmap" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="wikiimage" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="wikipage" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="content" type="xs:string" />
+        <xs:element name="links" type="xs:anyType" />
+        <xs:element name="images" type="wikiimage" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="birefedentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="data" type="xs:string" />
+        <xs:element name="referencing" type="birefingentity" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="birefingentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="data" type="xs:string" />
+        <xs:element name="reference" type="birefedentity" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="biembidrefingentity" >
+      <xs:sequence>
+        <xs:element name="id" type="embid" nillable="true" minOccurs="0" />
+        <xs:element name="data" type="xs:string" />
+        <xs:element name="reference" type="biembidrefedentity" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="biembidrefedentity" >
+      <xs:sequence>
+        <xs:element name="id" type="embid" nillable="true" minOccurs="0" />
+        <xs:element name="data" type="xs:string" />
+        <xs:element name="referencing" type="biembidrefingentity" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bimulidrefingentity" >
+      <xs:sequence>
+        <xs:element name="id1" type="xs:anyType" />
+        <xs:element name="id2" type="xs:anyType" />
+        <xs:element name="data" type="xs:string" />
+        <xs:element name="reference" type="bimulidrefedentity" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bimulidrefedentity" >
+      <xs:sequence>
+        <xs:element name="id1" type="xs:anyType" />
+        <xs:element name="id2" type="xs:anyType" />
+        <xs:element name="data" type="xs:string" />
+        <xs:element name="referencing" type="bimulidrefingentity" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="unirefedentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="data" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="unirefingentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="data" type="xs:string" />
+        <xs:element name="reference" type="unirefedentity" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="fieldaccesstypeentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="data" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="country" >
+      <xs:sequence>
+        <xs:element name="code" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="mixedaccesstypeentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="data" type="xs:string" />
+        <xs:element name="dataset" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="propertyaccesstypeentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="data" type="xs:string" />
+        <xs:element name="idset" type="xs:anyType" />
+        <xs:element name="dataset" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="childprimarykeyjoinentity" >
+      <xs:complexContent>
+       <xs:extension base="parententity">
+         <xs:sequence>
+          <xs:element name="number" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="parententity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="data" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="childentity" >
+      <xs:complexContent>
+       <xs:extension base="parententity">
+         <xs:sequence>
+          <xs:element name="number" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="parentingentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="data" type="xs:string" />
+        <xs:element name="referenced" type="referencedentity" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="setentity" >
+      <xs:complexContent>
+       <xs:extension base="abstractsetentity">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="abstractsetentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="entities" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="containedentity" >
+      <xs:complexContent>
+       <xs:extension base="abstractcontainedentity">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="referencedentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="referencing" type="parentingentity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="childingentity" >
+      <xs:complexContent>
+       <xs:extension base="parentingentity">
+         <xs:sequence>
+          <xs:element name="number" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="parententity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="data" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="emptychildentity" >
+      <xs:complexContent>
+       <xs:extension base="parententity">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="childingentity" >
+      <xs:complexContent>
+       <xs:extension base="parentnotingentity">
+         <xs:sequence>
+          <xs:element name="number" type="xs:long" />
+          <xs:element name="referenced" type="referencedentity" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="referencedentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="referencing" type="childingentity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="parentnotingentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="data" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="personalcontact" >
+      <xs:complexContent>
+       <xs:extension base="contact">
+         <xs:sequence>
+          <xs:element name="firstname" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="contact" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="addresses" type="address" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="address" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="address1" type="xs:string" />
+        <xs:element name="GeneratedName" type="contact" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="parententity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="data" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="childentity" >
+      <xs:complexContent>
+       <xs:extension base="parententity">
+         <xs:sequence>
+          <xs:element name="number" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="childingentity" >
+      <xs:complexContent>
+       <xs:extension base="parentingentity">
+         <xs:sequence>
+          <xs:element name="number" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="parentingentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="data" type="xs:string" />
+        <xs:element name="referenced" type="referencedentity" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="referencedentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="referencing" type="parentingentity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="address" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="address1" type="xs:string" />
+        <xs:element name="GeneratedName" type="contact" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="contact" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="addresses" type="address" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="personalcontact" >
+      <xs:complexContent>
+       <xs:extension base="contact">
+         <xs:sequence>
+          <xs:element name="firstname" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="parentnotingentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="data" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="referencedentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="referencing" type="childingentity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="childingentity" >
+      <xs:complexContent>
+       <xs:extension base="parentnotingentity">
+         <xs:sequence>
+          <xs:element name="number" type="xs:long" />
+          <xs:element name="referenced" type="referencedentity" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="childingentity" >
+      <xs:complexContent>
+       <xs:extension base="parentingentity">
+         <xs:sequence>
+          <xs:element name="number" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="parentingentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="data" type="xs:string" />
+        <xs:element name="referenced" type="referencedentity" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="referencedentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="referencing" type="parentingentity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="childingentity" >
+      <xs:complexContent>
+       <xs:extension base="parentnotingentity">
+         <xs:sequence>
+          <xs:element name="number" type="xs:long" />
+          <xs:element name="referenced" type="referencedentity" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="parentnotingentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="data" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="referencedentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="referencing" type="childingentity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="childentity" >
+      <xs:complexContent>
+       <xs:extension base="parententity">
+         <xs:sequence>
+          <xs:element name="number" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="parententity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="data" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="address" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="address1" type="xs:string" />
+        <xs:element name="GeneratedName" type="contact" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="contact" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="addresses" type="address" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="personalcontact" >
+      <xs:complexContent>
+       <xs:extension base="contact">
+         <xs:sequence>
+          <xs:element name="firstname" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="greetingsetpo" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="greetings" type="greetingpo" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="greetingpo" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="thegreeting" type="xs:string" />
+        <xs:element name="greetingset" type="greetingsetpo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="manytooneidnotauditedtestentity" >
+      <xs:sequence>
+        <xs:element name="id" type="manytoonenotauditedembid" nillable="true" minOccurs="0" />
+        <xs:element name="data" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="compositedateidtestentity" >
+      <xs:sequence>
+        <xs:element name="id" type="dateembid" nillable="true" minOccurs="0" />
+        <xs:element name="str1" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="embidtestentity" >
+      <xs:sequence>
+        <xs:element name="id" type="embid" nillable="true" minOccurs="0" />
+        <xs:element name="str1" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dateidtestentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:dateTime" />
+        <xs:element name="str1" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="embidwithcustomtypetestentity" >
+      <xs:sequence>
+        <xs:element name="id" type="embidwithcustomtype" nillable="true" minOccurs="0" />
+        <xs:element name="str1" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="mulidtestentity" >
+      <xs:sequence>
+        <xs:element name="id1" type="xs:anyType" />
+        <xs:element name="id2" type="xs:anyType" />
+        <xs:element name="str1" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="primitivetestentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="number" type="xs:long" />
+        <xs:element name="number2" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="enumsetentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="enums1" type="xs:anyType" />
+        <xs:element name="enums2" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="stringlistentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="strings" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="stringsetentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="strings" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="stringmapentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="strings" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="intnoautoidtestentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="number" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="inttestentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="number" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="componentsettestentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="comps" type="component1" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="defaultvaluecomponenttestentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="comp1" type="defaultvaluecomponent1" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="componenttestentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="comp1" type="component1" nillable="true" minOccurs="0" />
+        <xs:element name="comp2" type="component2" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="manytoonecomponenttestentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="comp1" type="manytoonecomponent" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="notauditedmanytoonecomponenttestentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="comp1" type="notauditedmanytoonecomponent" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="onetomanycomponenttestentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="comp1" type="onetomanycomponent" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="customdatereventity" >
+      <xs:sequence>
+        <xs:element name="customid" type="xs:long" />
+        <xs:element name="timestamp" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="customreventity" >
+      <xs:sequence>
+        <xs:element name="customid" type="xs:long" />
+        <xs:element name="customtimestamp" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="customreventitycolumnmapping" >
+      <xs:sequence>
+        <xs:element name="customid" type="xs:long" />
+        <xs:element name="customtimestamp" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="customdatareventity" >
+      <xs:sequence>
+        <xs:element name="customid" type="xs:long" />
+        <xs:element name="customtimestamp" type="xs:long" />
+        <xs:element name="data" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="custompropertyaccessreventity" >
+      <xs:sequence>
+        <xs:element name="customid" type="xs:long" />
+        <xs:element name="customtimestamp" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="strtestentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="str" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="targetnotauditedentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="data" type="xs:string" />
+        <xs:element name="reference" type="unversionedstrtestentity" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="strinttestentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="str1" type="xs:string" />
+        <xs:element name="number" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="wherejointableentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="data" type="xs:string" />
+        <xs:element name="references1" type="intnoautoidtestentity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="references2" type="intnoautoidtestentity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="listowningentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="data" type="xs:string" />
+        <xs:element name="references" type="listownedentity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="listbiowning1entity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="data" type="xs:string" />
+        <xs:element name="references" type="listbiowning2entity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="listbiowning2entity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="data" type="xs:string" />
+        <xs:element name="references" type="listbiowning1entity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="setownedentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="data" type="xs:string" />
+        <xs:element name="referencing" type="setowningentity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="mapownedentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="data" type="xs:string" />
+        <xs:element name="referencing" type="mapowningentity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="setunientity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="data" type="xs:string" />
+        <xs:element name="references" type="strtestentity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="mapunientity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="data" type="xs:string" />
+        <xs:element name="map" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="listunientity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="data" type="xs:string" />
+        <xs:element name="references" type="strtestentity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="m2mtargetnotauditedentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="data" type="xs:string" />
+        <xs:element name="references" type="unversionedstrtestentity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="listownedentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="data" type="xs:string" />
+        <xs:element name="referencing" type="listowningentity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="child1entity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="child1data" type="xs:string" />
+        <xs:element name="parents" type="parententity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="parententity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="parentdata" type="xs:string" />
+        <xs:element name="children1" type="child1entity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="children2" type="child2entity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="child2entity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="child2data" type="xs:string" />
+        <xs:element name="parents" type="parententity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="mapowningentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="data" type="xs:string" />
+        <xs:element name="references" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="setowningentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="data" type="xs:string" />
+        <xs:element name="references" type="setownedentity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="unversionedstrtestentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="str" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="unversionedentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="data1" type="xs:string" />
+        <xs:element name="data2" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="compositecustomtypeentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="component" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="parametrizedcustomtypeentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="str" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="setrefingentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="data" type="xs:string" />
+        <xs:element name="reference" type="setrefedentity" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="setrefedmulidentity" >
+      <xs:sequence>
+        <xs:element name="id1" type="xs:anyType" />
+        <xs:element name="id2" type="xs:anyType" />
+        <xs:element name="data" type="xs:string" />
+        <xs:element name="reffering" type="setrefingmulidentity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="setrefedembidentity" >
+      <xs:sequence>
+        <xs:element name="id" type="embid" nillable="true" minOccurs="0" />
+        <xs:element name="data" type="xs:string" />
+        <xs:element name="reffering" type="setrefingembidentity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="setrefingembidentity" >
+      <xs:sequence>
+        <xs:element name="id" type="embid" nillable="true" minOccurs="0" />
+        <xs:element name="data" type="xs:string" />
+        <xs:element name="reference" type="setrefedembidentity" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="setrefingmulidentity" >
+      <xs:sequence>
+        <xs:element name="id1" type="xs:anyType" />
+        <xs:element name="id2" type="xs:anyType" />
+        <xs:element name="data" type="xs:string" />
+        <xs:element name="reference" type="setrefedmulidentity" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="collectionrefingentity" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="data" type="xs:string" />
+        <xs:element name="reference" type="collectionrefedentity" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="listrefingentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="data" type="xs:string" />
+        <xs:element name="reference" type="listrefedentity" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="listrefedentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="data" type="xs:string" />
+        <xs:element name="reffering" type="listrefingentity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="doublesetrefcollentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="data" type="xs:string" />
+        <xs:element name="collection" type="strtestentity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="collection2" type="strtestentity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="listjoincolumnbidirectionalrefedentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="data" type="xs:string" />
+        <xs:element name="owner" type="listjoincolumnbidirectionalrefingentity" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="setrefcollentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="data" type="xs:string" />
+        <xs:element name="collection" type="strtestentity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="doublelistjoincolumnbidirectionalrefingentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="data" type="xs:string" />
+        <xs:element name="references1" type="doublelistjoincolumnbidirectionalrefedentity1" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="references2" type="doublelistjoincolumnbidirectionalrefedentity2" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="setjoincolumnrefcollentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="data" type="xs:string" />
+        <xs:element name="collection" type="strtestentity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="indexedlistjoincolumnbidirectionalrefingentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="data" type="xs:string" />
+        <xs:element name="references" type="indexedlistjoincolumnbidirectionalrefedentity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="indexedlistjoincolumnbidirectionalrefedentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="data" type="xs:string" />
+        <xs:element name="position" type="xs:anyType" />
+        <xs:element name="owner" type="indexedlistjoincolumnbidirectionalrefingentity" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="listjoincolumnbidirectionalrefingentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="data" type="xs:string" />
+        <xs:element name="references" type="listjoincolumnbidirectionalrefedentity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="doublelistjoincolumnbidirectionalrefedentity2" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="data" type="xs:string" />
+        <xs:element name="owner" type="doublelistjoincolumnbidirectionalrefingentity" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="listrefcollentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="data" type="xs:string" />
+        <xs:element name="collection" type="strtestentity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="setrefcollentityembid" >
+      <xs:sequence>
+        <xs:element name="id" type="embid" nillable="true" minOccurs="0" />
+        <xs:element name="data" type="xs:string" />
+        <xs:element name="collection" type="embidtestentity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="setrefcollentitymulid" >
+      <xs:sequence>
+        <xs:element name="id1" type="xs:anyType" />
+        <xs:element name="id2" type="xs:anyType" />
+        <xs:element name="data" type="xs:string" />
+        <xs:element name="collection" type="mulidtestentity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="doublelistjoincolumnbidirectionalrefedentity1" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="data" type="xs:string" />
+        <xs:element name="owner" type="doublelistjoincolumnbidirectionalrefingentity" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="setrefedentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="data" type="xs:string" />
+        <xs:element name="reffering" type="setrefingentity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="collectionrefedentity" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="data" type="xs:string" />
+        <xs:element name="reffering" type="collectionrefingentity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="childentity2" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="data" type="xs:string" />
+        <xs:element name="number" type="xs:anyType" />
+        <xs:element name="strings" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rootentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="data1" type="xs:string" />
+        <xs:element name="data2" type="xs:string" />
+        <xs:element name="number1" type="xs:anyType" />
+        <xs:element name="number2" type="xs:anyType" />
+        <xs:element name="1" type="xs:dateTime" />
+        <xs:element name="child1" type="childentity1" nillable="true" minOccurs="0" />
+        <xs:element name="child2" type="childentity1" nillable="true" minOccurs="0" />
+        <xs:element name="child3" type="childentity1" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="childentity1" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="child1" type="childentity2" nillable="true" minOccurs="0" />
+        <xs:element name="child2" type="childentity2" nillable="true" minOccurs="0" />
+        <xs:element name="data1" type="xs:string" />
+        <xs:element name="data2" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

@@ -1,0 +1,69 @@
+
+reviewrank(mid:long [PK], mrank:long, mpageview:long, m:Review #FK to(), //commonfieldmcreatetimestamp:Date);
+
+review(mid:long [PK], msummary:String, m:Customer #FK to(), //关系维护方m:ReviewRank #FK to(), //commonfieldmcreatetimestamp:Date);
+
+dishingredient(mid:long [PK], mname:String, mstatus:String, m:Dish #FK to(), //commonfieldmcreatetimestamp:Date);
+
+dishrank(mid:long [PK], mrank:long, mpageview:long, mpurchasevolume:long, m:Dish #FK to(), //commonfieldmcreatetimestamp:Date);
+
+dishimage(mid:long [PK], mname:String, murl:String, mwidth:Integer, mheight:Integer, mdescription:String, m:Dish #FK to(), //commonfieldmcreatetimestamp:Date);
+
+useranalysis(//主键id:int [PK], deviceid:String, appversion:String, viewname:String, intime:Timestamp, outtime:Timestamp, keeptime:int, equipment:byte);
+
+dish(mid:long [PK], mcode:String, mname:String, /***对name去除空格**/toptagsname:String, mothername:String, mdescription:String, mprice:BigDecimal, mimagename:String, mdiscountability:String, mstatus:String, /***json字符串，dish的标签****/mtags:String, /***用户自选配料，保存了json字符串**/mcustomization:String, m:DishCategory #FK to(), //关系维护方m:DishRank #FK to(), //commonfieldmcreatetimestamp:Date);
+
+logintoken(//tokenidtokenid:String [PK], //token内容content:String);
+
+config(key:String [PK], value:String);
+
+orderitem(mid:long [PK], mdishid:String, mdishname:String, mdishprice:String, mdishimageurl:String, mdishamount:String, mprice:BigDecimal, m:OrderForm #FK to(), //commonfieldmcreatetimestamp:Date);
+
+tagrank(mid:long [PK], mtag:String, mpageview:long, //commonfieldmcreatetimestamp:Date);
+
+orderform(mid:long [PK], mcode:String, mremark:String, mcouponid:String, mcoupondesc:String, mstatus:String, mprice:BigDecimal, mtipsfee:BigDecimal, tipstype:String, driverbillprice:BigDecimal, mdeliveryfee:BigDecimal, mdiscountfee:BigDecimal, mtaxfee:BigDecimal, msubtotalfee:BigDecimal, mtotalfee:BigDecimal, m:Trade #FK to(), m:Restaurant #FK to(), misonemenu:Integer, mrestconfirmedtimestamp:Date, mcanceltimestamp:Date, mcalldeliverytimestamp:Date, mdriverconfirmedtimestamp:Date, marrivedtimestamp:Date, m:Driver #FK to(), //commonfieldmcreatetimestamp:Date);
+
+dishcategory(mid:long [PK], mname:String, msequence:Integer, m:Restaurant #FK to(), //commonfieldmcreatetimestamp:Date);
+
+account(mid:long [PK], memail:String, mpassword:String, mstatus:String, //关系维护方m:Customer #FK to(), //关系维护方m:Merchant #FK to(), m:Driver #FK to(), //commonfieldmcreatetimestamp:Date, lastlogintime:Date);
+
+driver(mid:long [PK], mname:String, mavatar:String, mavatarurl:String, mavatarwidth:Integer, mavatarheight:Integer, mphone:String, maddress:String, memail:String, mstatus:Integer, devicetoken:String, /***纬度*/latitude:Double, /***经度*/longitude:Double, m:Account #FK to(), //commonfieldmcreatetimestamp:Date);
+
+driver_delivery_time_sheet(driver_id:Driver [PK] #FK to Driver,delivery_time_sheet_id: [PK] #FK to );
+
+coupon(mid:long [PK], mname:String, mtype:String, mtypeamount:BigDecimal, mtargettype:String, mextracritype:String, mextracriamount:BigDecimal, mdescription:String, mquantity:Integer, mtotalquantity:Integer, mavailablestarttime:String, mavailableendtime:String, meffectivedate:String, mmaturitydate:String, mweeks:String, mimageurl:String, mstatus:String, m:Restaurant #FK to(), //commonfieldmcreatetimestamp:Date);
+
+coupon_target_dish(coupon_id:Coupon [PK] #FK to Coupon,dish_id: [PK] #FK to );coupon_extra_cri_dish(coupon_id:Coupon [PK] #FK to Coupon,dish_id: [PK] #FK to );
+
+reviewitem(mid:long [PK], mcomment:String, mimageurl:String, mdishid:String, mdishname:String, m:Review #FK to(), //commonfieldmcreatetimestamp:Date);
+
+restaurantrank(mid:long [PK], mrank:long, mpageview:long, m:Restaurant #FK to(), //commonfieldmcreatetimestamp:Date);
+
+dishoptionitem(mid:long [PK], mname:String, mprice:BigDecimal, m:DishOptionType #FK to(), //commonfieldmcreatetimestamp:Date);
+
+trade(mid:long [PK], mcode:String, mgettype:String, mpaymenttype:String, mcustomername:String, mcustomerphone:String, mcouponid:String, mcoupondesc:String, mcustomeraddress:String, mcustomerapt:String, mcustomerstreet:String, mcustomercity:String, mcustomerzipcode:String, mprice:BigDecimal, m:Customer #FK to(), //commonfieldmcreatetimestamp:Date);
+
+customerfeedback(mid:long [PK], mcustomerid:long, mcustomername:String, mcustomerphone:String, mcustomeremail:String, mcontent:String, //commonfieldmcreatetimestamp:Date);
+
+restauranttoptags(id:long [PK], tag:String, count:long, /***纬度**/latitude:double, /***经度**/longitude:double);
+
+thirdpartyaccount(mid:long [PK], mthirdpartyid:String, mlogintype:String, m:Account #FK to(), //commonfieldmcreatetimestamp:Date);
+
+deliverytimesheet(mid:long [PK], mavailabledate:String, mavailablestarttime:String, mavailableendtime:String, mavailablequantity:Integer, mquantity:Integer, //commonfieldmcreatetimestamp:Date);
+
+merchant(mid:long [PK], mfirstname:String, mlastname:String, mphone:String, m:Account #FK to(), //@onetoone(mappedby:Restaurant #FK to(), //commonfieldmcreatetimestamp:Date);
+
+customer(mid:long [PK], mname:String, mavatar:String, mavatarurl:String, mavatarwidth:Integer, mavatarheight:Integer, mcompany:String, mprofession:String, mphone:String, maddress:String, mfoldername:String, m:Account #FK to(), //commonfieldmcreatetimestamp:Date);
+
+customer_coupon(customer_id:Customer [PK] #FK to Customer,coupon_id: [PK] #FK to );
+
+dishoptiontype(mid:long [PK], mname:String, mismandatory:String, missingle:String, m:Dish #FK to(), //commonfieldmcreatetimestamp:Date);
+
+orderitemingredient(mid:long [PK], mname:String, mprice:BigDecimal, m:OrderItem #FK to(), //commonfieldmcreatetimestamp:Date);
+
+menutoptags(id:long [PK], tag:String, count:long, /***纬度**/latitude:double, /***经度**/longitude:double);
+
+restaurant(mid:long [PK], mname:String, /***对name去除空格**/toptagsname:String, mlogo:String, mlogourl:String, mlogowidth:Integer, mlogoheight:Integer, /***纬度*/mlatitude:Double, /***经度*/mlongitude:Double, maddress:String, mstreet:String, mcity:String, mstate:String, mzipcode:String, /***usedforalertingorder*/mfaxnum:String, /***usedforalertingorder*/memail:String, /***usedforalertingorder*/mphone:String, mdescription:String, mstatus:Integer, /***controlrestaurantsupportdeliveryornot*/misdelivery:Boolean, /***controlrestaurantsupportpickoutornot*/mispickout:Boolean, /***controlrestaurantsupportpre-orderornot*/mispreorder:Boolean, /***资源目录名称*/mfoldername:String, mfreedeliverylimit:BigDecimal, mdeliveryfee:BigDecimal, mdeliverydistance:Double, mmindeliverytotal:BigDecimal, mmondeliverystarttime:String, mmondeliveryendtime:String, mtuedeliverystarttime:String, mtuedeliveryendtime:String, mweddeliverystarttime:String, mweddeliveryendtime:String, mthudeliverystarttime:String, mthudeliveryendtime:String, mfrideliverystarttime:String, mfrideliveryendtime:String, msatdeliverystarttime:String, msatdeliveryendtime:String, msundeliverystarttime:String, msundeliveryendtime:String, mmonopenstarttime:String, mmonopenendtime:String, mtueopenstarttime:String, mtueopenendtime:String, mwedopenstarttime:String, mwedopenendtime:String, mthuopenstarttime:String, mthuopenendtime:String, mfriopenstarttime:String, mfriopenendtime:String, msatopenstarttime:String, msatopenendtime:String, msunopenstarttime:String, msunopenendtime:String, m:Merchant #FK to(), //关系维护方m:RestaurantRank #FK to(), //commonfieldmcreatetimestamp:Date);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

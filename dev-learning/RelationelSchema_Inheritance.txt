@@ -1,0 +1,27 @@
+
+attachment(serialversionuid:long, attachid:Long [PK], /***附件文件名*/attachname:String, /***附件路径*/attachpath:String, /***附件缩略图路径*/attachsmallpath:String, /***附件类型*/attachtype:String, /***附件后缀*/attachsuffix:String, /***上传时间*/attachcreated:Date, /***附件大小*/attachsize:String, /***附件长宽*/attachwh:String, /***附件存储地址*/attachlocation:String, /***附件来源:0:上传,1:外部链接*/attachorigin:Integer);
+
+menu(serialversionuid:long, menuid:Long [PK], /***菜单名称*/menuname:String, /***菜单链接路径*/menuurl:String, /***排序编号*/menusort:Integer, /***图标*/menuicon:String, /***打开方式*/menutarget:String);
+
+post(serialversionuid:long, postid:Long [PK], posttitle:String, /***文章类型*/posttype:String, /***markdown格式*/postcontentmd:String, /***html格式*/postcontent:String, /***文章路径*/posturl:String, /***摘要*/postsummary:String, /***缩略图*/postthumbnail:String, /***发表日期*/post:Date, /***更后一次更新日期*/postupate:Date, /***状态,0:已发布,1:草稿,2:回收站中*/poststatus:Integer, /***访问数量*/postviews:Long, /***是否允许评论*/allowcomment:Integer, /***文章密码*/postpassword:String, /***指定模版*/customtpl:String, GeneratedName:User #FK to(user));
+
+halo_posts_categories(post_id:Post [PK] #FK to Post,cate_id:list<category> [PK] #FK to list<category>);halo_posts_tags(post_id:Post [PK] #FK to Post,tag_id:set<tag> [PK] #FK to set<tag>);
+
+link(serialversionuid:long, id:Long [PK], linkname:String, linkurl:String, linkpic:String, linkdesc:String);
+
+option(serialversionuid:long, optionname:String [PK], optionvalue:String);
+
+tag(serialversionuid:long, tagid:Long [PK], tagname:String, tagurl:String);
+
+logs(serialversionuid:long, logid:Long [PK], logtitle:String, logcontent:String, logip:String, logcreated:Date);
+
+user(serialversionuid:long, //用户iduserid:Long [PK], //登录的用户名username:String, //显示的用户称呼userdisplayname:String, //密码userpass:String, //用户emailuseremail:String, //用户头像useravatar:String, //用户描述userdesc:String, //是否禁用登录loginenable:String, //上次登录时间loginlast:Date, //登录错误次数loginerror:Integer);
+
+comment(serialversionuid:long, commentid:Long [PK], /***评论者名称*/commentauthor:String, /***评论者email*/commentauthoremail:String, commentauthorurl:String, commentauthorip:String, commentauthoravatarmd5:String, comment:Date, commentcontent:String, commentagent:String, /***上一级评论*/commentparent:Long, /***评论状态,0:正常,1:待审核,2:回收站*/commentstatus:Integer, /***是否为博主评论*/isadmin:Integer, GeneratedName:Post #FK to(post));
+
+gallery(serialversionuid:long, id:Long [PK], galleryname:String, gallerydesc:String, gallerydate:String, gallerylocation:String, gallerythumbnailurl:String, galleryurl:String);
+
+category(serialversionuid:long, cateid:Long [PK], //名称catename:String, cateurl:String, //分类描述catedesc:String);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

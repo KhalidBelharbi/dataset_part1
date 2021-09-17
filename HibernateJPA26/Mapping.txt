@@ -1,0 +1,10 @@
+ClassDiagram.Class>> Servico =>=>=> RelationalSchema.Table>> servico;
+ClassDiagram.Class>> Pessoa =>=>=> RelationalSchema.Table>> pessoa;
+ClassDiagram.Attribut>> Servico.serialversionuid:long =>=>=> RelationalSchema.Column>> servico.serialversionuid;
+ClassDiagram.Attribut>> Servico.idservico:Long =>=>=> RelationalSchema.Column>> servico.idservico PRIMARY KEY;
+ClassDiagram.Attribut>> Servico.datahoradoservico:Date =>=>=> RelationalSchema.Column>> servico.datahoradoservico;
+ClassDiagram.Attribut>> Pessoa.idpessoa:long =>=>=> RelationalSchema.Column>> pessoa.idpessoa PRIMARY KEY;
+ClassDiagram.Attribut>> Pessoa.nome:String =>=>=> RelationalSchema.Column>> pessoa.nome;
+ClassDiagram.Attribut>> Pessoa.email:String =>=>=> RelationalSchema.Column>> pessoa.email;
+Many-To-Many relationship between ClassDiagram.Class>>Servico  and ClassDiagram.Class>>Pessoa: pessoas_servicos(idservico:Servico [PK] #FK to Servico,idpessoa:Pessoa [PK] #FK to Pessoa);
+One-To-Many relationship from ClassDiagram.Class>>Pessoa  to ClassDiagram.Class>>Collection<Servico>;

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="diagnosticcenter" >
+      <xs:sequence>
+        <xs:element name="centerid" type="xs:string" />
+        <xs:element name="centername" type="xs:string" />
+        <xs:element name="listoftests" type="test" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="listofapps" type="appointment" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="users" >
+      <xs:sequence>
+        <xs:element name="userid" type="xs:string" />
+        <xs:element name="userpassword" type="xs:string" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="contactno" type="xs:long" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="userrole" type="xs:string" />
+        <xs:element name="appointmentlist" type="appointment" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="appointment" >
+      <xs:sequence>
+        <xs:element name="appid" type="xs:long" />
+        <xs:element name="appdate" type="xs:string" />
+        <xs:element name="isapproved" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="test" nillable="true" minOccurs="0" />
+        <xs:element name="user" type="users" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="test" >
+      <xs:sequence>
+        <xs:element name="testid" type="xs:string" />
+        <xs:element name="testname" type="xs:string" />
+        <xs:element name="center" type="diagnosticcenter" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="queryutils" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="processdefinition" >
+      <xs:complexContent>
+       <xs:extension base="entitysupport">
+         <xs:sequence>
+          <xs:element name="log" type="xs:anyType" />
+          <xs:element name="name" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="activitystate" >
+      <xs:complexContent>
+       <xs:extension base="temporalentity">
+         <xs:sequence>
+          <xs:element name="log" type="xs:anyType" />
+          <xs:element name="" type="processinstance" nillable="true" minOccurs="0" />
+          <xs:element name="receivedmessagecount" type="xs:anyType" />
+          <xs:element name="" type="activitydefinition" nillable="true" minOccurs="0" />
+          <xs:element name="timeexpected" type="xs:dateTime" />
+          <xs:element name="timeoverdue" type="xs:dateTime" />
+          <xs:element name="escalationlevel" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="activitydefinition" >
+      <xs:complexContent>
+       <xs:extension base="entitysupport">
+         <xs:sequence>
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="" type="processdefinition" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="processinstance" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="processdefinition" nillable="true" minOccurs="0" />
+        <xs:element name="activitystates" type="activitystate" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="correlationkey" type="xs:string" />
+        <xs:element name="timestarted" type="xs:dateTime" />
+        <xs:element name="timecompleted" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

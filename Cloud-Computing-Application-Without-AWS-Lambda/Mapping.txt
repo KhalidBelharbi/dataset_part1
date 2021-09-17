@@ -1,0 +1,17 @@
+ClassDiagram.Class>> Attachment =>=>=> RelationalSchema.Table>> attachment;
+ClassDiagram.Class>> User =>=>=> RelationalSchema.Table>> user;
+ClassDiagram.Class>> Transaction =>=>=> RelationalSchema.Table>> transaction;
+ClassDiagram.Attribut>> Attachment.id:UUID =>=>=> RelationalSchema.Column>> attachment.id PRIMARY KEY;
+ClassDiagram.Attribut>> Attachment.url:String =>=>=> RelationalSchema.Column>> attachment.url;
+ClassDiagram.Attribut>> User.id:UUID =>=>=> RelationalSchema.Column>> user.id PRIMARY KEY;
+ClassDiagram.Attribut>> User.username:String =>=>=> RelationalSchema.Column>> user.username;
+ClassDiagram.Attribut>> User.password:String =>=>=> RelationalSchema.Column>> user.password;
+ClassDiagram.Attribut>> Transaction.id:UUID =>=>=> RelationalSchema.Column>> transaction.id PRIMARY KEY;
+ClassDiagram.Attribut>> Transaction.description:String =>=>=> RelationalSchema.Column>> transaction.description;
+ClassDiagram.Attribut>> Transaction.merchant:String =>=>=> RelationalSchema.Column>> transaction.merchant;
+ClassDiagram.Attribut>> Transaction.amount:double =>=>=> RelationalSchema.Column>> transaction.amount;
+ClassDiagram.Attribut>> Transaction.date:String =>=>=> RelationalSchema.Column>> transaction.date;
+ClassDiagram.Attribut>> Transaction.category:String =>=>=> RelationalSchema.Column>> transaction.category;
+Many-To-One relationship from ClassDiagram.Class>>Attachment  to ClassDiagram.Class>>transaction represented by ClassDiagram.Atrribute>>GeneratedName;
+Many-To-One relationship from ClassDiagram.Class>>Transaction  to ClassDiagram.Class>>user represented by ClassDiagram.Atrribute>>GeneratedName;
+One-To-Many relationship from ClassDiagram.Class>>Transaction  to ClassDiagram.Class>>List<Attachment>;

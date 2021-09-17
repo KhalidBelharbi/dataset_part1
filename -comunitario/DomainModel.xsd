@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="permiso" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="nombre" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="folio" type="xs:long" />
+        <xs:element name="nombre" type="xs:string" />
+        <xs:element name="apellidopaterno" type="xs:string" />
+        <xs:element name="apellidomaterno" type="xs:string" />
+        <xs:element name="correo" type="xs:string" />
+        <xs:element name="direccion" type="xs:string" />
+        <xs:element name="telefono" type="xs:string" />
+        <xs:element name="edad" type="xs:long" />
+        <xs:element name="sexo" type="xs:string" />
+        <xs:element name="roles" type="rol" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="centros" type="asistencia" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="acyividades" type="asistencia" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rol" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="nombre" type="xs:string" />
+        <xs:element name="permisos" type="permiso" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="centro" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="nombre" type="xs:string" />
+        <xs:element name="actividades2" type="actividad" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="usuarios2" type="user" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="usuarios" type="asistencia" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="actividades" type="asistencia" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="actividad" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="nombre" type="xs:string" />
+        <xs:element name="usuarios" type="asistencia" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="centros" type="asistencia" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="asistencia" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="centro" nillable="true" minOccurs="0" />
+        <xs:element name="usuario" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="actividad" nillable="true" minOccurs="0" />
+        <xs:element name="fecha" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

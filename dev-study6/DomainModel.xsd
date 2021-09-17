@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="zone" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="city" type="xs:string" />
+        <xs:element name="localnameofcity" type="xs:string" />
+        <xs:element name="province" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="notification" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="link" type="xs:string" />
+        <xs:element name="message" type="xs:string" />
+        <xs:element name="checked" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="account" nillable="true" minOccurs="0" />
+        <xs:element name="createddatetime" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="notificationtype" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="study" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="managers" type="account" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="members" type="account" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="path" type="xs:string" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="shortdescription" type="xs:string" />
+        <xs:element name="fulldescription" type="xs:string" />
+        <xs:element name="image" type="xs:string" />
+        <xs:element name="tags" type="tag" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="zones" type="zone" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="publisheddatetime" type="xs:anyType" />
+        <xs:element name="closeddatetime" type="xs:anyType" />
+        <xs:element name="recruitingupdateddatetime" type="xs:anyType" />
+        <xs:element name="recruiting" type="xs:anyType" />
+        <xs:element name="published" type="xs:anyType" />
+        <xs:element name="closed" type="xs:anyType" />
+        <xs:element name="usebanner" type="xs:anyType" />
+        <xs:element name="membercount" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persistentlogins" >
+      <xs:sequence>
+        <xs:element name="series" type="xs:string" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="token" type="xs:string" />
+        <xs:element name="lastused" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="account" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="nickname" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="emailverified" type="xs:anyType" />
+        <xs:element name="emailchecktoken" type="xs:string" />
+        <xs:element name="emailchecktokengeneratedat" type="xs:anyType" />
+        <xs:element name="joinedat" type="xs:anyType" />
+        <xs:element name="bio" type="xs:string" />
+        <xs:element name="url" type="xs:string" />
+        <xs:element name="occupation" type="xs:string" />
+        <xs:element name="location" type="xs:string" />
+        <xs:element name="profileimage" type="xs:string" />
+        <xs:element name="studycreatedbyemail" type="xs:anyType" />
+        <xs:element name="studycreatedbyweb" type="xs:anyType" />
+        <xs:element name="studyenrollmentresultbyemail" type="xs:anyType" />
+        <xs:element name="studyenrollmentresultbyweb" type="xs:anyType" />
+        <xs:element name="studyupdatedbyemail" type="xs:anyType" />
+        <xs:element name="studyupdatedbyweb" type="xs:anyType" />
+        <xs:element name="tags" type="tag" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="zones" type="zone" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tag" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="title" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="enrollment" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="event" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="account" nillable="true" minOccurs="0" />
+        <xs:element name="enrolledat" type="xs:anyType" />
+        <xs:element name="accepted" type="xs:anyType" />
+        <xs:element name="attended" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="event" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="study" nillable="true" minOccurs="0" />
+        <xs:element name="createdby" type="account" nillable="true" minOccurs="0" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="createddatetime" type="xs:anyType" />
+        <xs:element name="endenrollmentdatetime" type="xs:anyType" />
+        <xs:element name="startdatetime" type="xs:anyType" />
+        <xs:element name="enddatetime" type="xs:anyType" />
+        <xs:element name="limitofenrollments" type="xs:anyType" />
+        <xs:element name="enrollments" type="enrollment" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="eventtype" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

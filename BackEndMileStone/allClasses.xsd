@@ -1,0 +1,2528 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="additional-spring-configuration-metadata" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="application-sys" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="glyphicons-halflings-regular" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="build.js" >
+      <xs:complexContent>
+       <xs:extension base="object">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="eclipselinkjpaconfiguration" >
+      <xs:complexContent>
+       <xs:extension base="jpabaseconfiguration">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="vragentcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="service" type="vragentservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="authzservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="vragentlistcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="service" type="vragentlistservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jcsagentcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="service" type="jcsagentservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="authzservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="vragentlistservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="dao" type="vragentlistjdbcdao" nillable="true" minOccurs="0" />
+        <xs:element name="agentservice" type="jcsagentservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="vragentservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jcsagentservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="xmlutil" type="xmldatautility" nillable="true" minOccurs="0" />
+        <xs:element name="dao" type="jcsagentjpadao" nillable="true" minOccurs="0" />
+        <xs:element name="userservice" type="trinityuserservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="jobservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="objectaliasservice" nillable="true" minOccurs="0" />
+        <xs:element name="vagentlistservice" type="vragentlistservice" nillable="true" minOccurs="0" />
+        <xs:element name="monitorservice" type="monitorconfigservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="authzservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="disconfigservice" nillable="true" minOccurs="0" />
+        <xs:element name="datasource" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="vragentservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="dao" type="vragentjpadao" nillable="true" minOccurs="0" />
+        <xs:element name="listservice" type="vragentlistservice" nillable="true" minOccurs="0" />
+        <xs:element name="userservice" type="trinityuserservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="jobservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="objectaliasservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="authzservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jcsagentjpadao" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<jcsagent,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="vragentjpadao" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<vragent,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="vragentlistjdbcdao" >
+      <xs:sequence>
+        <xs:element name="insert_sql" type="xs:string" />
+        <xs:element name="jtm" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="vragent" >
+      <xs:sequence>
+        <xs:element name="virtualagentuid" type="xs:string" />
+        <xs:element name="virtualagentname" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="maximumjob" type="xs:anyType" />
+        <xs:element name="activate" type="xs:string" />
+        <xs:element name="mode" type="xs:string" />
+        <xs:element name="xmldata" type="xs:string" />
+        <xs:element name="lastuptime" type="xs:dateTime" />
+        <xs:element name="agentlist" type="vragentlist" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="vragentlist" >
+      <xs:sequence>
+        <xs:element name="virtualagentuid" type="xs:string" />
+        <xs:element name="agentuid" type="xs:string" />
+        <xs:element name="activate" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="seq" type="xs:anyType" />
+        <xs:element name="agentname" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jcsagent" >
+      <xs:sequence>
+        <xs:element name="agentuid" type="xs:string" />
+        <xs:element name="agentname" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="host" type="xs:string" />
+        <xs:element name="port" type="xs:anyType" />
+        <xs:element name="maximumjob" type="xs:anyType" />
+        <xs:element name="activate" type="xs:string" />
+        <xs:element name="ostype" type="xs:string" />
+        <xs:element name="osname" type="xs:string" />
+        <xs:element name="agentstatus" type="xs:string" />
+        <xs:element name="xmldata" type="xs:string" />
+        <xs:element name="lostcontact" type="xs:dateTime" />
+        <xs:element name="lastuptime" type="xs:dateTime" />
+        <xs:element name="deadperiod" type="xs:string" />
+        <xs:element name="monitortime" type="xs:string" />
+        <xs:element name="cpuweight" type="xs:string" />
+        <xs:element name="memweight" type="xs:string" />
+        <xs:element name="encoding" type="xs:string" />
+        <xs:element name="compresstransfer" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="frequencyrelationservice" >
+      <xs:sequence>
+        <xs:element name="dao" type="frequencyrelationjdbcdao" nillable="true" minOccurs="0" />
+        <xs:element name="categoryservice" type="frequencycategoryservice" nillable="true" minOccurs="0" />
+        <xs:element name="freqservice" type="frequencyservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="workingcalendarlistservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="dao" type="workingcalendarlistjdbcdao" nillable="true" minOccurs="0" />
+        <xs:element name="wcservice" type="workingcalendarservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="workingcalendarservice" >
+      <xs:sequence>
+        <xs:element name="wc_field_values" type="xs:string" />
+        <xs:element name="wc_field_set" type="xs:anyType" />
+        <xs:element name="dao" type="workingcalendarjpadao" nillable="true" minOccurs="0" />
+        <xs:element name="listdao" type="workingcalendarlistjdbcdao" nillable="true" minOccurs="0" />
+        <xs:element name="listservice" type="workingcalendarlistservice" nillable="true" minOccurs="0" />
+        <xs:element name="freqservice" type="frequencyservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="frequencyservice" >
+      <xs:sequence>
+        <xs:element name="freq_field_values" type="xs:string" />
+        <xs:element name="freq_field_set" type="xs:anyType" />
+        <xs:element name="dao" type="frequencyjpadao" nillable="true" minOccurs="0" />
+        <xs:element name="listservice" type="frequencylistservice" nillable="true" minOccurs="0" />
+        <xs:element name="relservice" type="frequencyrelationservice" nillable="true" minOccurs="0" />
+        <xs:element name="feservice" type="freqexcludeservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="jobservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="objectaliasservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="exclfrequencylistservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="dao" type="exclfrequencylistjdbcdao" nillable="true" minOccurs="0" />
+        <xs:element name="exclservice" type="exclfrequencyservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="freqexcludeservice" >
+      <xs:sequence>
+        <xs:element name="dao" type="freqexcludejdbcdao" nillable="true" minOccurs="0" />
+        <xs:element name="efservice" type="exclfrequencyservice" nillable="true" minOccurs="0" />
+        <xs:element name="freqservice" type="frequencyservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="frequencycategoryservice" >
+      <xs:sequence>
+        <xs:element name="freq_category_field_values" type="xs:string" />
+        <xs:element name="freq_category_field_set" type="xs:anyType" />
+        <xs:element name="dao" type="frequencycategoryjpadao" nillable="true" minOccurs="0" />
+        <xs:element name="relservice" type="frequencyrelationservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="exclfrequencyservice" >
+      <xs:sequence>
+        <xs:element name="excl_field_values" type="xs:string" />
+        <xs:element name="excl_field_set" type="xs:anyType" />
+        <xs:element name="dao" type="exclfrequencyjpadao" nillable="true" minOccurs="0" />
+        <xs:element name="listservice" type="exclfrequencylistservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="freqexcludeservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="jobexcludeservice" nillable="true" minOccurs="0" />
+        <xs:element name="flowexcludeservice" type="jobflowexcludeservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="frequencylistservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="dao" type="frequencylistjdbcdao" nillable="true" minOccurs="0" />
+        <xs:element name="freqservice" type="frequencyservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="frequencycategorycontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="service" type="frequencycategoryservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="authzservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="frequencyrelationcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="service" type="frequencyrelationservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="frequencycontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="service" type="frequencyservice" nillable="true" minOccurs="0" />
+        <xs:element name="fcservice" type="frequencycategoryservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="authzservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="freqexcludecontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="service" type="freqexcludeservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="frequencylistcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="service" type="frequencylistservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="exclfrequencycontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="service" type="exclfrequencyservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="authzservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="workingcalendarlistcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="service" type="workingcalendarlistservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="workingcalendarcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="service" type="workingcalendarservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="exclfrequencylistcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="service" type="exclfrequencylistservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dailyeveryweekdayhandler" >
+      <xs:complexContent>
+       <xs:extension base="handler{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="weekdayofmonthhandler" >
+      <xs:complexContent>
+       <xs:extension base="dateutil">
+         <xs:sequence>
+          <xs:element name="seq" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="monthlythemonthhandler" >
+      <xs:complexContent>
+       <xs:extension base="handler{">
+         <xs:sequence>
+          <xs:element name="seq,daytype,recur,increaseday" type="xs:anyType" />
+          <xs:element name="haspassmonth" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ipatternhandler" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dayofmonthhandler" >
+      <xs:sequence>
+        <xs:element name="seq" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="yearlytheyearhandler" >
+      <xs:complexContent>
+       <xs:extension base="handler{">
+         <xs:sequence>
+          <xs:element name="seq,daytype,month" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="weeklyhandler" >
+      <xs:complexContent>
+       <xs:extension base="handler{">
+         <xs:sequence>
+          <xs:element name="recur" type="xs:long" />
+          <xs:element name="dailylist" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="irecurrencehandler" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="weekenddayofmonthhandler" >
+      <xs:complexContent>
+       <xs:extension base="dateutil">
+         <xs:sequence>
+          <xs:element name="seq" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="irecurrenceenddatehandler" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dayofweekhandler" >
+      <xs:complexContent>
+       <xs:extension base="dateutil">
+         <xs:sequence>
+          <xs:element name="seq,dayofweek" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="handler" >
+      <xs:complexContent>
+       <xs:extension base="dateutil">
+         <xs:sequence>
+          <xs:element name="day" type="xs:long" />
+          <xs:element name="weekday" type="xs:long" />
+          <xs:element name="weekendday" type="xs:long" />
+          <xs:element name="sdf" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="isfirst" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="yearlyeveryyearhandler" >
+      <xs:complexContent>
+       <xs:extension base="handler{">
+         <xs:sequence>
+          <xs:element name="month,day" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="occurencesenddatehandler" >
+      <xs:sequence>
+        <xs:element name="count" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dailyeverydayshandler" >
+      <xs:complexContent>
+       <xs:extension base="handler{">
+         <xs:sequence>
+          <xs:element name="days" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="monthlyeverymonthhandler" >
+      <xs:complexContent>
+       <xs:extension base="handler{">
+         <xs:sequence>
+          <xs:element name="day" type="xs:anyType" />
+          <xs:element name="recur" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="recurrence" >
+      <xs:sequence>
+        <xs:element name="enddatehandler" type="irecurrenceenddatehandler" nillable="true" minOccurs="0" />
+        <xs:element name="handler" type="irecurrencehandler" nillable="true" minOccurs="0" />
+        <xs:element name="datelist" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dateutil" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="enddatehandler" >
+      <xs:sequence>
+        <xs:element name="sdf" type="xs:anyType" />
+        <xs:element name="start,end" type="xs:dateTime" />
+        <xs:element name="sl,el" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="frequencyjpadao" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<frequency,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="frequencylistjdbcdao" >
+      <xs:sequence>
+        <xs:element name="insert_sql" type="xs:string" />
+        <xs:element name="jtm" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="frequencyrelationjdbcdao" >
+      <xs:sequence>
+        <xs:element name="insert_sql" type="xs:string" />
+        <xs:element name="jtm" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="workingcalendarjpadao" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<workingcalendar,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="exclfrequencyjpadao" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<exclfrequency,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="workingcalendarlistjdbcdao" >
+      <xs:sequence>
+        <xs:element name="insert_sql" type="xs:string" />
+        <xs:element name="jtm" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="freqexcludejdbcdao" >
+      <xs:sequence>
+        <xs:element name="insert_sql" type="xs:string" />
+        <xs:element name="jtm" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="frequencycategoryjpadao" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<frequencycategory,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="exclfrequencylistjdbcdao" >
+      <xs:sequence>
+        <xs:element name="insert_sql" type="xs:string" />
+        <xs:element name="jtm" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="frequencylist" >
+      <xs:sequence>
+        <xs:element name="frequencyuid" type="xs:string" />
+        <xs:element name="seq" type="xs:anyType" />
+        <xs:element name="yearnum" type="xs:anyType" />
+        <xs:element name="monthnum" type="xs:anyType" />
+        <xs:element name="daynum" type="xs:anyType" />
+        <xs:element name="weekdaynum" type="xs:anyType" />
+        <xs:element name="hour" type="xs:anyType" />
+        <xs:element name="minute" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="workingcalendar" >
+      <xs:sequence>
+        <xs:element name="wcalendaruid" type="xs:string" />
+        <xs:element name="wcalendarname" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="activate" type="xs:string" />
+        <xs:element name="wcalendarlist" type="workingcalendarlist" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="freqexclude" >
+      <xs:sequence>
+        <xs:element name="frequencyuid" type="xs:string" />
+        <xs:element name="excludefrequencyuid" type="xs:string" />
+        <xs:element name="frequencyname" type="xs:string" />
+        <xs:element name="freqcategoryname" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="exclfrequency" >
+      <xs:sequence>
+        <xs:element name="excludefrequencyuid" type="xs:string" />
+        <xs:element name="excludefrequencyname" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="activate" type="xs:string" />
+        <xs:element name="lastuptime" type="xs:dateTime" />
+        <xs:element name="excludefrequencylist" type="exclfrequencylist" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="exclfrequencylist" >
+      <xs:sequence>
+        <xs:element name="excludefrequencyuid" type="xs:string" />
+        <xs:element name="seq" type="xs:anyType" />
+        <xs:element name="starttime" type="xs:long" />
+        <xs:element name="endtime" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="workingcalendarlist" >
+      <xs:sequence>
+        <xs:element name="wcalendaruid" type="xs:string" />
+        <xs:element name="yearnum" type="xs:anyType" />
+        <xs:element name="monthnum" type="xs:anyType" />
+        <xs:element name="daynum" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="frequency" >
+      <xs:sequence>
+        <xs:element name="frequencyuid" type="xs:string" />
+        <xs:element name="frequencyname" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="activate" type="xs:string" />
+        <xs:element name="lastcheckdatetime" type="xs:string" />
+        <xs:element name="manuallyedit" type="xs:string" />
+        <xs:element name="bywcalendar" type="xs:string" />
+        <xs:element name="wcalendaruid" type="xs:string" />
+        <xs:element name="xmldata" type="xs:string" />
+        <xs:element name="lastuptime" type="xs:dateTime" />
+        <xs:element name="freqlist" type="frequencylist" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="categoryname" type="xs:string" />
+        <xs:element name="categoryuid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="workingcalendarpattern" >
+      <xs:sequence>
+        <xs:element name="//validformatex:2018-03-15startdate" type="xs:string" />
+        <xs:element name="//validformatex:2018-11-03,若enddatetype為'endafter'時,此值無用enddate" type="xs:string" />
+        <xs:element name="//validvalueisgreatthanzero,若enddatetype為'endby'時,此值無用occurences" type="xs:anyType" />
+        <xs:element name="//validvalueis'daily'or'weekly'or'monthly'or'yearly',不用區分大小寫patterntype" type="xs:string" />
+        <xs:element name="//validvalueis'endby'or'endafter',不用區分大小寫enddatetype" type="xs:string" />
+        <xs:element name="//validvalueis'days'or'weekday',不用區分大小寫,此值在patterntype" type="xs:string" />
+        <xs:element name="/*	*validvalueisgreatthanzero	*此值在patterntype" type="xs:anyType" />
+        <xs:element name="//validvalueis1~7(星期日~星期六),此值在patterntype" type="xs:anyType" />
+        <xs:element name="//validvalueisgreatthanzero,此值在patterntype" type="xs:anyType" />
+        <xs:element name="//validvalueis'dayofeverymonth'or'thedayofeverymonth',此值在patterntype" type="xs:string" />
+        <xs:element name="/*	*validvalueisgreatthanzero	*此值在patterntype" type="xs:anyType" />
+        <xs:element name="/*	*validvalueis-1(lastday),1(firstday),2(secondday),3(thirdday),4(fourthday)	*此值在patterntype" type="xs:anyType" />
+        <xs:element name="/*	*validvalueis1(sunday),2(monday),3(tuesday),4(wednesday),5(thursday),6(friday),7(saturday),8(day),9(weekday),10(secondday)	*此值在patterntype" type="xs:anyType" />
+        <xs:element name="/*	*validvalueisgreatthanzero	*此值可以為null,表示沒有plusday或minusday,注意!若非null值,則一定要合法	*此值在patterntype" type="xs:anyType" />
+        <xs:element name="//validvalueis'dayofeveryyear'or'thedayofeveryyear',此值在patterntype" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="frequencycategory" >
+      <xs:sequence>
+        <xs:element name="freqcategoryuid" type="xs:string" />
+        <xs:element name="freqcategoryname" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="lastuptime" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="frequencyrelation" >
+      <xs:sequence>
+        <xs:element name="freqcategoryuid" type="xs:string" />
+        <xs:element name="frequencyuid" type="xs:string" />
+        <xs:element name="freqcategoryname" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pluginlicenseservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="dao" type="pluginlicensejpadao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pluginlicensejpadao" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<plugin,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="pluginlicense" >
+      <xs:sequence>
+        <xs:element name="pluginid" type="xs:string" />
+        <xs:element name="licensekey" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pluginlicensestatus" >
+      <xs:sequence>
+        <xs:element name="pluginid" type="xs:string" />
+        <xs:element name="pluginname" type="xs:string" />
+        <xs:element name="licensekey" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="plugin" >
+      <xs:sequence>
+        <xs:element name="pluginid" type="xs:string" />
+        <xs:element name="plugintype" type="xs:string" />
+        <xs:element name="pluginname" type="xs:string" />
+        <xs:element name="classname" type="xs:string" />
+        <xs:element name="jarname" type="xs:string" />
+        <xs:element name="options" type="xs:string" />
+        <xs:element name="licensegroup" type="xs:string" />
+        <xs:element name="GeneratedName" type="pluginlicense" nillable="true" minOccurs="0" />
+        <xs:element name="expireddate" type="xs:string" />
+        <xs:element name="status" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pluginlicensecontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="service" type="pluginlicenseservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dmextjarjdbcdao" >
+      <xs:sequence>
+        <xs:element name="insert_sql" type="xs:string" />
+        <xs:element name="update_sql" type="xs:string" />
+        <xs:element name="update_description_only_sql" type="xs:string" />
+        <xs:element name="update_filename_only_sql" type="xs:string" />
+        <xs:element name="jtm" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dmextrulejdbcdao" >
+      <xs:sequence>
+        <xs:element name="insert_sql" type="xs:string" />
+        <xs:element name="update_sql" type="xs:string" />
+        <xs:element name="jtm" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dmextpackagejpadao" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<dmextpackage,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="resdocjpadao" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<resdoc,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="transformrulejpadao" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<transformrule,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="exernalruleutil" >
+      <xs:complexContent>
+       <xs:extension base="zipentry>">
+         <xs:sequence>
+          <xs:element name="trinitysys" type="trinitysyssetting" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="resdocservice" >
+      <xs:sequence>
+        <xs:element name="dao" type="resdocjpadao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dmextjarservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="sdf" type="xs:anyType" />
+        <xs:element name="dao" type="dmextjarjdbcdao" nillable="true" minOccurs="0" />
+        <xs:element name="trinitysys" type="trinitysyssetting" nillable="true" minOccurs="0" />
+        <xs:element name="packageservice" type="dmextpackageservice" nillable="true" minOccurs="0" />
+        <xs:element name="ruleservice" type="dmextruleservice" nillable="true" minOccurs="0" />
+        <xs:element name="jcscmdutil" type="jcsservercommandutil" nillable="true" minOccurs="0" />
+        <xs:element name="rulefileutil" type="exernalruleutil" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dmextpackageservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="package_field_values" type="xs:string" />
+        <xs:element name="package_field_set" type="xs:anyType" />
+        <xs:element name="dao" type="dmextpackagejpadao" nillable="true" minOccurs="0" />
+        <xs:element name="trinitysys" type="trinitysyssetting" nillable="true" minOccurs="0" />
+        <xs:element name="jarservice" type="dmextjarservice" nillable="true" minOccurs="0" />
+        <xs:element name="ruleservice" type="dmextruleservice" nillable="true" minOccurs="0" />
+        <xs:element name="agentservice" type="jcsagentservice" nillable="true" minOccurs="0" />
+        <xs:element name="rulefileutil" type="exernalruleutil" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="transformruleservice" >
+      <xs:sequence>
+        <xs:element name="dao" type="transformrulejpadao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dmextruleservice" >
+      <xs:sequence>
+        <xs:element name="dao" type="dmextrulejdbcdao" nillable="true" minOccurs="0" />
+        <xs:element name="trinitysys" type="trinitysyssetting" nillable="true" minOccurs="0" />
+        <xs:element name="packageservice" type="dmextpackageservice" nillable="true" minOccurs="0" />
+        <xs:element name="jarservice" type="dmextjarservice" nillable="true" minOccurs="0" />
+        <xs:element name="transservice" type="transformruleservice" nillable="true" minOccurs="0" />
+        <xs:element name="docservice" type="resdocservice" nillable="true" minOccurs="0" />
+        <xs:element name="ruleutil" type="exernalruleutil" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="publication" >
+      <xs:sequence>
+        <xs:element name="agentuid" type="xs:string" />
+        <xs:element name="agentname" type="xs:string" />
+        <xs:element name="publishrule" type="publishrule" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="publishrule" >
+      <xs:sequence>
+        <xs:element name="rulename" type="xs:string" />
+        <xs:element name="fullclasspath" type="xs:string" />
+        <xs:element name="active" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="extjaruid" type="xs:string" />
+        <xs:element name="packageuid" type="xs:string" />
+        <xs:element name="packagename" type="xs:string" />
+        <xs:element name="filename" type="xs:string" />
+        <xs:element name="md5" type="xs:string" />
+        <xs:element name="//forpublishonlypublished" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dmextjarcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="service" type="dmextjarservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dmextrulecontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="service" type="dmextruleservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dmextpackagecontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="service" type="dmextpackageservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="authzservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="transformrulecontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="service" type="transformruleservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="resdoccontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="service" type="resdocservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dmextrule" >
+      <xs:sequence>
+        <xs:element name="extjaruid" type="xs:string" />
+        <xs:element name="rulename" type="xs:string" />
+        <xs:element name="fullclasspath" type="xs:string" />
+        <xs:element name="active" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="transformrule" >
+      <xs:sequence>
+        <xs:element name="rule" type="xs:string" />
+        <xs:element name="needargument" type="xs:string" />
+        <xs:element name="argtemplate" type="xs:string" />
+        <xs:element name="ruledescription" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dmextpackage" >
+      <xs:sequence>
+        <xs:element name="packageuid" type="xs:string" />
+        <xs:element name="packagename" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="lastuptime" type="xs:dateTime" />
+        <xs:element name="files" type="dmextjar" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dmextjar" >
+      <xs:sequence>
+        <xs:element name="extjaruid" type="xs:string" />
+        <xs:element name="packageuid" type="xs:string" />
+        <xs:element name="filename" type="xs:string" />
+        <xs:element name="md5" type="xs:string" />
+        <xs:element name="uploadtime" type="xs:string" />
+        <xs:element name="filetype" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="data" type="xs:anyType" />
+        <xs:element name="rules" type="dmextrule" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="resdocpks" >
+      <xs:sequence>
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="module" type="xs:string" />
+        <xs:element name="resname" type="xs:string" />
+        <xs:element name="langcode" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="resdoc" >
+      <xs:sequence>
+        <xs:element name="module" type="xs:string" />
+        <xs:element name="resname" type="xs:string" />
+        <xs:element name="langcode" type="xs:string" />
+        <xs:element name="document" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="authenticationfilter" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rolemember" >
+      <xs:sequence>
+        <xs:element name="roleuid" type="xs:string" />
+        <xs:element name="useruid" type="xs:string" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="userid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="groupmember" >
+      <xs:sequence>
+        <xs:element name="groupuid" type="xs:string" />
+        <xs:element name="useruid" type="xs:string" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="userid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="trinityuser" >
+      <xs:sequence>
+        <xs:element name="useruid" type="xs:string" />
+        <xs:element name="userid" type="xs:string" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="usertype" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="activate" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="mobile" type="xs:string" />
+        <xs:element name="defaultlang" type="xs:string" />
+        <xs:element name="createduseruid" type="xs:string" />
+        <xs:element name="ssoid" type="xs:string" />
+        <xs:element name="localaccount" type="xs:string" />
+        <xs:element name="onlyforexecution" type="xs:string" />
+        <xs:element name="homedir" type="xs:string" />
+        <xs:element name="pwdchangetime" type="xs:string" />
+        <xs:element name="xmldata" type="xs:string" />
+        <xs:element name="lastuptime" type="xs:dateTime" />
+        <xs:element name="lock" type="xs:string" />
+        <xs:element name="resetcred" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usergroup" >
+      <xs:sequence>
+        <xs:element name="groupuid" type="xs:string" />
+        <xs:element name="groupname" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="lastuptime" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="role" >
+      <xs:sequence>
+        <xs:element name="roleuid" type="xs:string" />
+        <xs:element name="rolename" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="homedir" type="xs:string" />
+        <xs:element name="lastuptime" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usergroupservice" >
+      <xs:sequence>
+        <xs:element name="dao" type="usergroupjpadao" nillable="true" minOccurs="0" />
+        <xs:element name="memberservice" type="groupmemberservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rolememberservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="dao" type="rolememberjdbcdao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="roleservice" nillable="true" minOccurs="0" />
+        <xs:element name="userservice" type="trinityuserservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="roleservice" >
+      <xs:sequence>
+        <xs:element name="dao" type="rolejpadao" nillable="true" minOccurs="0" />
+        <xs:element name="memberservice" type="rolememberservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="trinityuserservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="dao" type="trinityuserjpadao" nillable="true" minOccurs="0" />
+        <xs:element name="g_memberservice" type="groupmemberservice" nillable="true" minOccurs="0" />
+        <xs:element name="r_memberservice" type="rolememberservice" nillable="true" minOccurs="0" />
+        <xs:element name="n_listservice" type="notificationlistservice" nillable="true" minOccurs="0" />
+        <xs:element name="////accessrightserviceaccessserviceconfigservice" type="trinityconfigservice" nillable="true" minOccurs="0" />
+        <xs:element name="datasource" type="xs:anyType" />
+        <xs:element name="xmlutil" type="xmldatautility" nillable="true" minOccurs="0" />
+        <xs:element name="encryptkey" type="xs:string" />
+        <xs:element name="credentialsservice" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="groupmemberservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="dao" type="groupmemberjdbcdao" nillable="true" minOccurs="0" />
+        <xs:element name="groupservice" type="usergroupservice" nillable="true" minOccurs="0" />
+        <xs:element name="userservice" type="trinityuserservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rolememberjdbcdao" >
+      <xs:sequence>
+        <xs:element name="insert_sql" type="xs:string" />
+        <xs:element name="jtm" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="trinityuserjpadao" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<trinityuser,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="rolejpadao" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<role,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="groupmemberjdbcdao" >
+      <xs:sequence>
+        <xs:element name="insert_sql" type="xs:string" />
+        <xs:element name="jtm" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usergroupjpadao" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<usergroup,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="usergroupcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="service" type="usergroupservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="authzservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rolecontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="service" type="roleservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="authzservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rolemembercontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="service" type="rolememberservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="groupmembercontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="service" type="groupmemberservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="trinityusercontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="service" type="trinityuserservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="authzservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="driverinfo" >
+      <xs:sequence>
+        <xs:element name="jar" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="driver" type="xs:string" />
+        <xs:element name="url" type="xs:string" />
+        <xs:element name="owner" type="xs:string" />
+        <xs:element name="jarfiles" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jarfileinfo" >
+      <xs:sequence>
+        <xs:element name="filenamelist" type="xs:anyType" />
+        <xs:element name="driverclasslist" type="xs:anyType" />
+        <xs:element name="nameclasslist" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="drivermanagerservice" >
+      <xs:complexContent>
+       <xs:extension base="zipentry>">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="//暫時寫死,以後再來整合jdbc_driver_yml_path" type="xs:string" />
+          <xs:element name="jdbcinfo" type="trinitydatajdbc" nillable="true" minOccurs="0" />
+          <xs:element name="trinitysys" type="trinitysyssetting" nillable="true" minOccurs="0" />
+          <xs:element name="maintain" type="metadatadrivermaintain" nillable="true" minOccurs="0" />
+          <xs:element name="fileutil" type="zipfileutil" nillable="true" minOccurs="0" />
+          <xs:element name="publishutil" type="publishfileutil" nillable="true" minOccurs="0" />
+          <xs:element name="jcscmdutil" type="jcsservercommandutil" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="drivermanagercontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="service" type="drivermanagerservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="authzservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="metadatadrivermaintain" >
+      <xs:sequence>
+        <xs:element name="manager" type="metadatadrivermanager" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="publishfileutil" >
+      <xs:sequence>
+        <xs:element name="trinitysys" type="trinitysyssetting" nillable="true" minOccurs="0" />
+        <xs:element name="cfgfilename" type="xs:string" />
+        <xs:element name="type_folder" type="xs:string" />
+        <xs:element name="type_file" type="xs:string" />
+        <xs:element name="prop_publish" type="xs:string" />
+        <xs:element name="prop_md5" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jcsservercommandutil" >
+      <xs:sequence>
+        <xs:element name="configservice" type="trinityconfigservice" nillable="true" minOccurs="0" />
+        <xs:element name="serverip" type="xs:string" />
+        <xs:element name="serverport" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="metadatadrivermanager" >
+      <xs:sequence>
+        <xs:element name="msaccess" type="xs:string" />
+        <xs:element name="drivermp" type="xs:anyType" />
+        <xs:element name="namemp" type="xs:anyType" />
+        <xs:element name="jdbcinfo" type="trinitydatajdbc" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="driverloader" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="drivershim" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="driver" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="driverloader" >
+      <xs:sequence>
+        <xs:element name="/***dynamicloadingjdbcdriver.**@paramdobj*@returndriver*/filepath" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="trinitysys" type="trinitysyssetting" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="filedetailutil" >
+      <xs:sequence>
+        <xs:element name="digest" type="xs:anyType" />
+        <xs:element name="hex" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="drivervo" >
+      <xs:sequence>
+        <xs:element name="target" type="xs:string" />
+        <xs:element name="jarname" type="xs:string" />
+        <xs:element name="driver" type="xs:string" />
+        <xs:element name="url" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jnlpcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="configservice" type="disconfigservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="jnlpservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jnlpservice" >
+      <xs:sequence>
+        <xs:element name="trinitysys" type="trinitysyssetting" nillable="true" minOccurs="0" />
+        <xs:element name="trinityprop" type="trinitypropsetting" nillable="true" minOccurs="0" />
+        <xs:element name="repo" type="trinityreposetting" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="paging" >
+      <xs:sequence>
+        <xs:element name="number" type="xs:anyType" />
+        <xs:element name="size" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="filterinfo" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="paging" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="ordering" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="querying" nillable="true" minOccurs="0" />
+        <xs:element name="param" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ordering" >
+      <xs:sequence>
+        <xs:element name="ordertype" type="xs:string" />
+        <xs:element name="orderfield" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="querying" >
+      <xs:sequence>
+        <xs:element name="querytype" type="xs:string" />
+        <xs:element name="queryfield" type="xs:string" />
+        <xs:element name="query" type="xs:string" />
+        <xs:element name="ignorecase" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="domainresource" >
+      <xs:sequence>
+        <xs:element name="domainuid" type="xs:string" />
+        <xs:element name="resourcename" type="xs:string" />
+        <xs:element name="resourcevalue" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="domainvariable" >
+      <xs:sequence>
+        <xs:element name="domainuid" type="xs:string" />
+        <xs:element name="variablename" type="xs:string" />
+        <xs:element name="variablevalue" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="domain" >
+      <xs:sequence>
+        <xs:element name="domainuid" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="lastuptime" type="xs:dateTime" />
+        <xs:element name="domainvars" type="domainvariable" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="domainresources" type="domainresource" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="domainvariableservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="dao" type="domainvariablejdbcdao" nillable="true" minOccurs="0" />
+        <xs:element name="dservice" type="domainservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="domainresourceservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="dao" type="domainresourcejdbcdao" nillable="true" minOccurs="0" />
+        <xs:element name="dservice" type="domainservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="domainservice" >
+      <xs:sequence>
+        <xs:element name="domain_field_values" type="xs:string" />
+        <xs:element name="domain_field_set" type="xs:anyType" />
+        <xs:element name="dao" type="domainjpadao" nillable="true" minOccurs="0" />
+        <xs:element name="varservice" type="domainvariableservice" nillable="true" minOccurs="0" />
+        <xs:element name="resourceservice" type="domainresourceservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="jobservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="objectaliasservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="domainresourcecontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="service" type="domainresourceservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="domainvariablecontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="service" type="domainvariableservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="domaincontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="service" type="domainservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="authzservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="domainvariablejdbcdao" >
+      <xs:sequence>
+        <xs:element name="insert_sql" type="xs:string" />
+        <xs:element name="jtm" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="domainjpadao" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<domain,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="domainresourcejdbcdao" >
+      <xs:sequence>
+        <xs:element name="insert_sql" type="xs:string" />
+        <xs:element name="jtm" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="trinityconfigcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="service" type="trinityconfigservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="monitorconfigcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="service" type="monitorconfigservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="disconfigcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="service" type="disconfigservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="monitorconfigservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="dao" type="monitorconfigjpadao" nillable="true" minOccurs="0" />
+        <xs:element name="agentservice" type="jcsagentservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="disconfigservice" >
+      <xs:sequence>
+        <xs:element name="dao" type="disconfigjpadao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="trinityconfigservice" >
+      <xs:sequence>
+        <xs:element name="dao" type="trinityconfigjpadao" nillable="true" minOccurs="0" />
+        <xs:element name="encryptkey" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="disconfigjpadao" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<disconfig,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="monitorconfigjpadao" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<monitorconfig,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="trinityconfigjpadao" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<trinityconfig,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="monitordisk" >
+      <xs:sequence>
+        <xs:element name="path" type="xs:string" />
+        <xs:element name="value" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="disconfig" >
+      <xs:sequence>
+        <xs:element name="module" type="xs:string" />
+        <xs:element name="configname" type="xs:string" />
+        <xs:element name="value" type="xs:string" />
+        <xs:element name="instance" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="disconfigpks" >
+      <xs:sequence>
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="module" type="xs:string" />
+        <xs:element name="configname" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="trinityconfig" >
+      <xs:sequence>
+        <xs:element name="versionid" type="xs:string" />
+        <xs:element name="dualservermode" type="xs:string" />
+        <xs:element name="primaryhost" type="xs:string" />
+        <xs:element name="primaryport" type="xs:anyType" />
+        <xs:element name="standbyhost" type="xs:string" />
+        <xs:element name="standbyport" type="xs:anyType" />
+        <xs:element name="smtppassword" type="xs:string" />
+        <xs:element name="smtpserver" type="xs:string" />
+        <xs:element name="smtpuser" type="xs:string" />
+        <xs:element name="authmode" type="xs:string" />
+        <xs:element name="ldapserver" type="xs:string" />
+        <xs:element name="defaultdomain" type="xs:string" />
+        <xs:element name="metaautocompare" type="xs:string" />
+        <xs:element name="metacomparekeepperiod" type="xs:anyType" />
+        <xs:element name="metacomparetime" type="xs:anyType" />
+        <xs:element name="metadocumenttype" type="xs:string" />
+        <xs:element name="pwdenforce" type="xs:string" />
+        <xs:element name="pwdlevel" type="xs:string" />
+        <xs:element name="pwdminlen" type="xs:anyType" />
+        <xs:element name="pwdcycle" type="xs:anyType" />
+        <xs:element name="pwdexpireday" type="xs:anyType" />
+        <xs:element name="lastuptime" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="monitorconfig" >
+      <xs:sequence>
+        <xs:element name="uid" type="xs:string" />
+        <xs:element name="resourcemonitor" type="xs:anyType" />
+        <xs:element name="processmonitor" type="xs:anyType" />
+        <xs:element name="xml" type="xs:string" />
+        <xs:element name="lastuptime" type="xs:dateTime" />
+        <xs:element name="suspendjob" type="xs:anyType" />
+        <xs:element name="cpu" type="xs:anyType" />
+        <xs:element name="memory" type="xs:anyType" />
+        <xs:element name="disk" type="monitordisk" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="authncontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="authnservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="returnlogininfo" >
+      <xs:sequence>
+        <xs:element name="userinfo" type="xs:string" />
+        <xs:element name="status" type="xs:string" />
+        <xs:element name="msg" type="xs:string" />
+        <xs:element name="usertype" type="xs:string" />
+        <xs:element name="userlang" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="logininfo" >
+      <xs:sequence>
+        <xs:element name="account" type="xs:string" />
+        <xs:element name="psw" type="xs:string" />
+        <xs:element name="model" type="xs:string" />
+        <xs:element name="remoteip" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="authnservice" >
+      <xs:sequence>
+        <xs:element name="trinityprop" type="trinitypropsetting" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="trinityuserservice" nillable="true" minOccurs="0" />
+        <xs:element name="datasource" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="busentity" >
+      <xs:sequence>
+        <xs:element name="busentityuid" type="xs:string" />
+        <xs:element name="busentityname" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="xmldata" type="xs:string" />
+        <xs:element name="lastuptime" type="xs:dateTime" />
+        <xs:element name="alias" type="objectalias" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jobflow" >
+      <xs:sequence>
+        <xs:element name="jobflowuid" type="xs:string" />
+        <xs:element name="flowname" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="activate" type="xs:string" />
+        <xs:element name="domainuid" type="xs:string" />
+        <xs:element name="categoryuid" type="xs:string" />
+        <xs:element name="frequencyuid" type="xs:string" />
+        <xs:element name="suppressjobdomain" type="xs:string" />
+        <xs:element name="txdaterule" type="xs:string" />
+        <xs:element name="txoffsetday" type="xs:anyType" />
+        <xs:element name="bypasserror" type="xs:string" />
+        <xs:element name="status" type="xs:string" />
+        <xs:element name="createuseruid" type="xs:string" />
+        <xs:element name="xmldata" type="xs:string" />
+        <xs:element name="onlinedatetime" type="xs:string" />
+        <xs:element name="offlinedatetime" type="xs:string" />
+        <xs:element name="lastuptime" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jobstep" >
+      <xs:sequence>
+        <xs:element name="stepuid" type="xs:string" />
+        <xs:element name="stepname" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="stepseq" type="xs:anyType" />
+        <xs:element name="activate" type="xs:string" />
+        <xs:element name="jobuid" type="xs:string" />
+        <xs:element name="steptype" type="xs:string" />
+        <xs:element name="successrule" type="xs:string" />
+        <xs:element name="successvalue1" type="xs:anyType" />
+        <xs:element name="successvalue2" type="xs:anyType" />
+        <xs:element name="xmldata" type="xs:string" />
+        <xs:element name="lastuptime" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jobfullpath" >
+      <xs:sequence>
+        <xs:element name="jobuid" type="xs:string" />
+        <xs:element name="jobname" type="xs:string" />
+        <xs:element name="categoryuid" type="xs:string" />
+        <xs:element name="categoryname" type="xs:string" />
+        <xs:element name="busentityuid" type="xs:string" />
+        <xs:element name="busentityname" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jobcategory" >
+      <xs:sequence>
+        <xs:element name="categoryuid" type="xs:string" />
+        <xs:element name="categoryname" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="activate" type="xs:string" />
+        <xs:element name="xmldata" type="xs:string" />
+        <xs:element name="lastuptime" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jobflowexclude" >
+      <xs:sequence>
+        <xs:element name="jobflowuid" type="xs:string" />
+        <xs:element name="excludefrequencyuid" type="xs:string" />
+        <xs:element name="flowname" type="xs:string" />
+        <xs:element name="categoryname" type="xs:string" />
+        <xs:element name="busentityname" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="job" >
+      <xs:sequence>
+        <xs:element name="jobuid" type="xs:string" />
+        <xs:element name="jobname" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="activate" type="xs:string" />
+        <xs:element name="domainuid" type="xs:string" />
+        <xs:element name="categoryuid" type="xs:string" />
+        <xs:element name="agentuid" type="xs:string" />
+        <xs:element name="frequencyuid" type="xs:string" />
+        <xs:element name="filesourceuid" type="xs:string" />
+        <xs:element name="jobtype" type="xs:string" />
+        <xs:element name="retry" type="xs:string" />
+        <xs:element name="retryinterval" type="xs:anyType" />
+        <xs:element name="maxretrytime" type="xs:anyType" />
+        <xs:element name="retrymode" type="xs:string" />
+        <xs:element name="priority" type="xs:anyType" />
+        <xs:element name="timewindowbegin" type="xs:anyType" />
+        <xs:element name="timewindowend" type="xs:anyType" />
+        <xs:element name="txdaterule" type="xs:string" />
+        <xs:element name="txoffsetday" type="xs:anyType" />
+        <xs:element name="bypasserror" type="xs:string" />
+        <xs:element name="status" type="xs:string" />
+        <xs:element name="criticaljob" type="xs:string" />
+        <xs:element name="createuseruid" type="xs:string" />
+        <xs:element name="xmldata" type="xs:string" />
+        <xs:element name="onlinedatetime" type="xs:string" />
+        <xs:element name="offlinedatetime" type="xs:string" />
+        <xs:element name="refjobuid" type="xs:string" />
+        <xs:element name="lastuptime" type="xs:dateTime" />
+        <xs:element name="rerunfromfs" type="xs:anyType" />
+        <xs:element name="applycompletedtask" type="xs:anyType" />
+        <xs:element name="waitingtime" type="xs:string" />
+        <xs:element name="dontsavehistory" type="xs:anyType" />
+        <xs:element name="usestepcondi" type="xs:anyType" />
+        <xs:element name="skipmissingtask" type="xs:anyType" />
+        <xs:element name="categoryname" type="xs:string" />
+        <xs:element name="entityname" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jobexclude" >
+      <xs:sequence>
+        <xs:element name="jobuid" type="xs:string" />
+        <xs:element name="excludefrequencyuid" type="xs:string" />
+        <xs:element name="jobname" type="xs:string" />
+        <xs:element name="categoryname" type="xs:string" />
+        <xs:element name="busentityname" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="busentitycategory" >
+      <xs:sequence>
+        <xs:element name="busentityuid" type="xs:string" />
+        <xs:element name="categoryuid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="busentityservice" >
+      <xs:sequence>
+        <xs:element name="dao" type="busentityjpadao" nillable="true" minOccurs="0" />
+        <xs:element name="oaservice" type="objectaliasservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jobflowexcludeservice" >
+      <xs:sequence>
+        <xs:element name="dao" type="jobflowexcludejdbcdao" nillable="true" minOccurs="0" />
+        <xs:element name="efservice" type="exclfrequencyservice" nillable="true" minOccurs="0" />
+        <xs:element name="flowservice" type="jobflowservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jobstepservice" >
+      <xs:sequence>
+        <xs:element name="jobstep_field_values" type="xs:string" />
+        <xs:element name="jobstep_field_set" type="xs:anyType" />
+        <xs:element name="jobstep_type_values" type="xs:string" />
+        <xs:element name="jobstep_type_set" type="xs:anyType" />
+        <xs:element name="dao" type="jobstepjpadao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="busentitycategoryservice" >
+      <xs:sequence>
+        <xs:element name="dao" type="busentitycategoryjdbcdao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jobflowservice" >
+      <xs:sequence>
+        <xs:element name="flow_field_values" type="xs:string" />
+        <xs:element name="flow_field_set" type="xs:anyType" />
+        <xs:element name="dao" type="jobflowjpadao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jobcategoryservice" >
+      <xs:sequence>
+        <xs:element name="job_category_field_values" type="xs:string" />
+        <xs:element name="job_category_field_set" type="xs:anyType" />
+        <xs:element name="dao" type="jobcategoryjpadao" nillable="true" minOccurs="0" />
+        <xs:element name="relservice" type="busentitycategoryservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jobservice" >
+      <xs:sequence>
+        <xs:element name="job_field_values" type="xs:string" />
+        <xs:element name="job_field_set" type="xs:anyType" />
+        <xs:element name="xmlutil" type="xmldatautility" nillable="true" minOccurs="0" />
+        <xs:element name="dao" type="jobjpadao" nillable="true" minOccurs="0" />
+        <xs:element name="entitycategoryservice" type="busentitycategoryservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jobexcludeservice" >
+      <xs:sequence>
+        <xs:element name="dao" type="jobexcludejdbcdao" nillable="true" minOccurs="0" />
+        <xs:element name="efservice" type="exclfrequencyservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="jobservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jobflowcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="service" type="jobflowservice" nillable="true" minOccurs="0" />
+        <xs:element name="busservice" type="busentityservice" nillable="true" minOccurs="0" />
+        <xs:element name="cateservice" type="jobcategoryservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jobcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="service" type="jobservice" nillable="true" minOccurs="0" />
+        <xs:element name="busservice" type="busentityservice" nillable="true" minOccurs="0" />
+        <xs:element name="cateservice" type="jobcategoryservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jobflowexcludecontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="service" type="jobflowexcludeservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jobexcludecontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="service" type="jobexcludeservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jobstepcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="service" type="jobstepservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="busentitycontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="service" type="busentityservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="authzservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jobcategorycontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="service" type="jobcategoryservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="busentitycategorycontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="service" type="busentitycategoryservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jobjpadao" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<job,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="busentityjpadao" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<busentity,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="busentitycategoryjdbcdao" >
+      <xs:sequence>
+        <xs:element name="insert_sql" type="xs:string" />
+        <xs:element name="jtm" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jobstepjpadao" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<jobstep,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jobcategoryjpadao" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<jobcategory,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jobexcludejdbcdao" >
+      <xs:sequence>
+        <xs:element name="insert_sql" type="xs:string" />
+        <xs:element name="jtm" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jobflowjpadao" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<jobflow,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jobflowexcludejdbcdao" >
+      <xs:sequence>
+        <xs:element name="insert_sql" type="xs:string" />
+        <xs:element name="jtm" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="accessright" >
+      <xs:sequence>
+        <xs:element name="peopleuid" type="xs:string" />
+        <xs:element name="objectuid" type="xs:string" />
+        <xs:element name="view" type="xs:string" />
+        <xs:element name="add" type="xs:string" />
+        <xs:element name="delete" type="xs:string" />
+        <xs:element name="edit" type="xs:string" />
+        <xs:element name="run" type="xs:string" />
+        <xs:element name="rerun" type="xs:string" />
+        <xs:element name="grant" type="xs:string" />
+        <xs:element name="import_export" type="xs:string" />
+        <xs:element name="peoplename" type="xs:string" />
+        <xs:element name="//fortrinityuserpeopleid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="authzservice" >
+      <xs:sequence>
+        <xs:element name="permissionglobalmap" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="dao" type="accessrightjdbcdao" nillable="true" minOccurs="0" />
+        <xs:element name="userservice" type="trinityuserservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="rolememberservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="accessrightjdbcdao" >
+      <xs:sequence>
+        <xs:element name="insert_sql" type="xs:string" />
+        <xs:element name="update_sql" type="xs:string" />
+        <xs:element name="jtm" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="authzcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="service" type="authzservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="agentfuncpermission" >
+      <xs:sequence>
+        <xs:element name="view" type="xs:anyType" />
+        <xs:element name="add" type="xs:anyType" />
+        <xs:element name="modify" type="xs:anyType" />
+        <xs:element name="delete" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="frequencyfuncpermission" >
+      <xs:sequence>
+        <xs:element name="view" type="xs:anyType" />
+        <xs:element name="add" type="xs:anyType" />
+        <xs:element name="modify" type="xs:anyType" />
+        <xs:element name="delete" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="permissiontable" >
+      <xs:sequence>
+        <xs:element name="connection_func" type="connectionfuncpermission" nillable="true" minOccurs="0" />
+        <xs:element name="frequency_func" type="frequencyfuncpermission" nillable="true" minOccurs="0" />
+        <xs:element name="domain_func" type="domainfuncpermission" nillable="true" minOccurs="0" />
+        <xs:element name="agent_func" type="agentfuncpermission" nillable="true" minOccurs="0" />
+        <xs:element name="filesource_func" type="filesourcefuncpermission" nillable="true" minOccurs="0" />
+        <xs:element name="alias_func" type="aliasreffuncpermission" nillable="true" minOccurs="0" />
+        <xs:element name="extrule_func" type="externalrulefuncpermission" nillable="true" minOccurs="0" />
+        <xs:element name="performance_func" type="performancefuncpermission" nillable="true" minOccurs="0" />
+        <xs:element name="object_map" type="xs:anyType" />
+        <xs:element name="isroot" type="xs:anyType" />
+        <xs:element name="isadmin" type="xs:anyType" />
+        <xs:element name="isaccountmanager" type="xs:anyType" />
+        <xs:element name="isadmineditmode" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="domainfuncpermission" >
+      <xs:sequence>
+        <xs:element name="view" type="xs:anyType" />
+        <xs:element name="add" type="xs:anyType" />
+        <xs:element name="modify" type="xs:anyType" />
+        <xs:element name="delete" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="externalrulefuncpermission" >
+      <xs:sequence>
+        <xs:element name="view" type="xs:anyType" />
+        <xs:element name="add" type="xs:anyType" />
+        <xs:element name="modify" type="xs:anyType" />
+        <xs:element name="delete" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="connectionfuncpermission" >
+      <xs:sequence>
+        <xs:element name="view" type="xs:anyType" />
+        <xs:element name="add" type="xs:anyType" />
+        <xs:element name="modify" type="xs:anyType" />
+        <xs:element name="delete" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="performancefuncpermission" >
+      <xs:sequence>
+        <xs:element name="view" type="xs:anyType" />
+        <xs:element name="add" type="xs:anyType" />
+        <xs:element name="modify" type="xs:anyType" />
+        <xs:element name="delete" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ifuncpermission" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="trinityuser" >
+      <xs:sequence>
+        <xs:element name="useruid" type="xs:string" />
+        <xs:element name="userid" type="xs:string" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="usertype" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="activate" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="mobile" type="xs:string" />
+        <xs:element name="defaultlang" type="xs:string" />
+        <xs:element name="createduseruid" type="xs:string" />
+        <xs:element name="ssoid" type="xs:string" />
+        <xs:element name="localaccount" type="xs:string" />
+        <xs:element name="onlyforexecution" type="xs:string" />
+        <xs:element name="homedir" type="xs:string" />
+        <xs:element name="pwdchangetime" type="xs:string" />
+        <xs:element name="xmldata" type="xs:string" />
+        <xs:element name="lastuptime" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="filesourcefuncpermission" >
+      <xs:sequence>
+        <xs:element name="view" type="xs:anyType" />
+        <xs:element name="add" type="xs:anyType" />
+        <xs:element name="modify" type="xs:anyType" />
+        <xs:element name="delete" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="objectpermission" >
+      <xs:sequence>
+        <xs:element name="objuid" type="xs:string" />
+        <xs:element name="view" type="xs:anyType" />
+        <xs:element name="add" type="xs:anyType" />
+        <xs:element name="modify" type="xs:anyType" />
+        <xs:element name="delete" type="xs:anyType" />
+        <xs:element name="run" type="xs:anyType" />
+        <xs:element name="rerun" type="xs:anyType" />
+        <xs:element name="grant" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="aliasreffuncpermission" >
+      <xs:sequence>
+        <xs:element name="view" type="xs:anyType" />
+        <xs:element name="add" type="xs:anyType" />
+        <xs:element name="modify" type="xs:anyType" />
+        <xs:element name="delete" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="trinitypropsetting" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="apps" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="trinitydatajdbc" >
+      <xs:sequence>
+        <xs:element name="info" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="trinityreposetting" >
+      <xs:sequence>
+        <xs:element name="jpa" type="xs:anyType" />
+        <xs:element name="datasource" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="trinitysyssetting" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="trinitydatajdbccontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="trinityjdbc" type="trinitydatajdbc" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="trinityreposettingcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="trinityrepo" type="trinityreposetting" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="trinitysyssettingcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="trinitysys" type="trinitysyssetting" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="trinitypropsettingcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="trinityprop" type="trinitypropsetting" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="versioninfocontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="service" type="versioninfoservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jcsserverinfo" >
+      <xs:complexContent>
+       <xs:extension base="jarinfo">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jarinfo" >
+      <xs:sequence>
+        <xs:element name="trinityhome" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jcsagentinfo" >
+      <xs:complexContent>
+       <xs:extension base="jarinfo">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="disserverinfo" >
+      <xs:complexContent>
+       <xs:extension base="jarinfo">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="versioninfoservice" >
+      <xs:sequence>
+        <xs:element name="trinityhome" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="moduleinfo" >
+      <xs:sequence>
+        <xs:element name="path" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="version" type="xs:string" />
+        <xs:element name="buildtime" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="connectionservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="connection_type_values" type="xs:string" />
+        <xs:element name="connection_type_set" type="xs:anyType" />
+        <xs:element name="dao" type="connectionjpadao" nillable="true" minOccurs="0" />
+        <xs:element name="jdbcdao" type="connectionjdbcdao" nillable="true" minOccurs="0" />
+        <xs:element name="userservice" type="trinityuserservice" nillable="true" minOccurs="0" />
+        <xs:element name="relservice" type="connectionrelationservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="filesourceservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="jobstepservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="objectaliasservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="authzservice" nillable="true" minOccurs="0" />
+        <xs:element name="jdbcinfo" type="trinitydatajdbc" nillable="true" minOccurs="0" />
+        <xs:element name="manager" type="metadatadrivermanager" nillable="true" minOccurs="0" />
+        <xs:element name="maintain" type="metadatadrivermaintain" nillable="true" minOccurs="0" />
+        <xs:element name="xmlutil" type="xmldatautility" nillable="true" minOccurs="0" />
+        <xs:element name="encryptkey" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="connectionrelationservice" >
+      <xs:sequence>
+        <xs:element name="dao" type="connectionrelationjdbcdao" nillable="true" minOccurs="0" />
+        <xs:element name="categoryservice" type="connectioncategoryservice" nillable="true" minOccurs="0" />
+        <xs:element name="connservice" type="connectionservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="connectioncategoryservice" >
+      <xs:sequence>
+        <xs:element name="dao" type="connectioncategoryjpadao" nillable="true" minOccurs="0" />
+        <xs:element name="relservice" type="connectionrelationservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="connectioncategoryjpadao" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<connectioncategory,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="connectionjdbcdao" >
+      <xs:sequence>
+        <xs:element name="jtm" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="connectionjpadao" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<connection,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="connectionrelationjdbcdao" >
+      <xs:sequence>
+        <xs:element name="insert_sql" type="xs:string" />
+        <xs:element name="jtm" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="connectioncontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="service" type="connectionservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="authzservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="connectionrelationcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="service" type="connectionrelationservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="connectioncategorycontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="service" type="connectioncategoryservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="authzservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="mailconnection" >
+      <xs:complexContent>
+       <xs:extension base="connection{">
+         <xs:sequence>
+          <xs:element name="host" type="xs:string" />
+          <xs:element name="port" type="xs:anyType" />
+          <xs:element name="mailssl" type="xs:string" />
+          <xs:element name="mailtls" type="xs:string" />
+          <xs:element name="user" type="xs:string" />
+          <xs:element name="password" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sapconnection" >
+      <xs:complexContent>
+       <xs:extension base="connection{">
+         <xs:sequence>
+          <xs:element name="saplanguage" type="xs:string" />
+          <xs:element name="sapsystemnumber" type="xs:string" />
+          <xs:element name="sapsystemname" type="xs:string" />
+          <xs:element name="userid" type="xs:string" />
+          <xs:element name="saphostip" type="xs:string" />
+          <xs:element name="sapcodepage" type="xs:string" />
+          <xs:element name="sapclient" type="xs:string" />
+          <xs:element name="password" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="osconnection" >
+      <xs:complexContent>
+       <xs:extension base="connection{">
+         <xs:sequence>
+          <xs:element name="port" type="xs:string" />
+          <xs:element name="userid" type="xs:string" />
+          <xs:element name="password" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="connectionrelation" >
+      <xs:sequence>
+        <xs:element name="conncategoryuid" type="xs:string" />
+        <xs:element name="connectionuid" type="xs:string" />
+        <xs:element name="conncategoryname" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="connectioncategory" >
+      <xs:sequence>
+        <xs:element name="conncategoryuid" type="xs:string" />
+        <xs:element name="conncategoryname" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="lastuptime" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="connection" >
+      <xs:sequence>
+        <xs:element name="connectionuid" type="xs:string" />
+        <xs:element name="connectionname" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="connectiontype" type="xs:string" />
+        <xs:element name="xmldata" type="xs:string" />
+        <xs:element name="lastuptime" type="xs:dateTime" />
+        <xs:element name="pimendpointtype" type="xs:string" />
+        <xs:element name="pimendpointname" type="xs:string" />
+        <xs:element name="pimaccountcontainer" type="xs:string" />
+        <xs:element name="pimaccountname" type="xs:string" />
+        <xs:element name="withpim" type="xs:string" />
+        <xs:element name="categoryname" type="xs:string" />
+        <xs:element name="categoryuid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="databaseconnection" >
+      <xs:complexContent>
+       <xs:extension base="connection{">
+         <xs:sequence>
+          <xs:element name="userid" type="xs:string" />
+          <xs:element name="server" type="xs:string" />
+          <xs:element name="password" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="notesconnection" >
+      <xs:complexContent>
+       <xs:extension base="connection{">
+         <xs:sequence>
+          <xs:element name="noteshostip" type="xs:string" />
+          <xs:element name="notesior" type="xs:string" />
+          <xs:element name="userid" type="xs:string" />
+          <xs:element name="notesservername" type="xs:string" />
+          <xs:element name="password" type="xs:string" />
+          <xs:element name="notesdbname" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ftpconnection" >
+      <xs:complexContent>
+       <xs:extension base="connection{">
+         <xs:sequence>
+          <xs:element name="userid" type="xs:string" />
+          <xs:element name="targetdir" type="xs:string" />
+          <xs:element name="server" type="xs:string" />
+          <xs:element name="password" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jdbcconnection" >
+      <xs:complexContent>
+       <xs:extension base="connection{">
+         <xs:sequence>
+          <xs:element name="jdbc_url" type="xs:string" />
+          <xs:element name="jdbc_dbtype" type="xs:string" />
+          <xs:element name="jdbc_driver" type="xs:string" />
+          <xs:element name="jdbc_userid" type="xs:string" />
+          <xs:element name="jdbc_password" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="zipfileutil" >
+      <xs:complexContent>
+       <xs:extension base="zipentry>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jstreeitem" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="children" type="jstreeitem" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="icon" type="xs:string" />
+        <xs:element name="opened" type="xs:anyType" />
+        <xs:element name="disabled" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="crypto" >
+      <xs:sequence>
+        <xs:element name="iv" type="xs:anyType" />
+        <xs:element name="keyfiller" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="networkutil" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="item" >
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="type" type="xs:string" />
+        <xs:element name="value" type="xs:string" />
+        <xs:element name="props" type="prop" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="propsmap" type="xs:anyType" />
+        <xs:element name="items" type="item" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="strutil" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="xmldatautility" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="constant" >
+      <xs:sequence>
+        <xs:element name="order_type_values" type="xs:string" />
+        <xs:element name="order_type_set" type="xs:anyType" />
+        <xs:element name="query_type_values" type="xs:string" />
+        <xs:element name="query_type_set" type="xs:anyType" />
+        <xs:element name="//aboutdrivermanagerdriver_file_name" type="xs:string" />
+        <xs:element name="jdbc_jar" type="xs:string" />
+        <xs:element name="jdbc_driver" type="xs:string" />
+        <xs:element name="jdbc_url" type="xs:string" />
+        <xs:element name="jdbc_owner" type="xs:string" />
+        <xs:element name="//fileseparatorseparator" type="xs:string" />
+        <xs:element name="//aboutexternalruletag_agent" type="xs:string" />
+        <xs:element name="tag_rule" type="xs:string" />
+        <xs:element name="tag_attr_agentuid" type="xs:string" />
+        <xs:element name="tag_attr_filename" type="xs:string" />
+        <xs:element name="tag_attr_md5" type="xs:string" />
+        <xs:element name="tag_attr_active" type="xs:string" />
+        <xs:element name="tag_attr_name" type="xs:string" />
+        <xs:element name="tag_attr_classpath" type="xs:string" />
+        <xs:element name="tag_attr_jaruid" type="xs:string" />
+        <xs:element name="ext_rule_cfg" type="xs:string" />
+        <xs:element name="rule_jar" type="xs:string" />
+        <xs:element name="rule_class" type="xs:string" />
+        <xs:element name="library" type="xs:string" />
+        <xs:element name="module_extrule" type="xs:string" />
+        <xs:element name="classes" type="xs:string" />
+        <xs:element name="folder_class" type="xs:string" />
+        <xs:element name="//resdoclangcode_en" type="xs:string" />
+        <xs:element name="langcode_tw" type="xs:string" />
+        <xs:element name="langcode_cn" type="xs:string" />
+        <xs:element name="module_dphandler" type="xs:string" />
+        <xs:element name="module_dphandler_desc" type="xs:string" />
+        <xs:element name="module_dphandler_hn" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="xmlutil" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="prop" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="value" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="acutil" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="xmlconfigutil" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="driverfileutil" >
+      <xs:sequence>
+        <xs:element name="filepath" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="objectaliascontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="service" type="objectaliasservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="authzservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="objectaliasjdbcdao" >
+      <xs:sequence>
+        <xs:element name="insert_sql" type="xs:string" />
+        <xs:element name="update_sql" type="xs:string" />
+        <xs:element name="jtm" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="objectaliasservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="dao" type="objectaliasjdbcdao" nillable="true" minOccurs="0" />
+        <xs:element name="entityservice" type="busentityservice" nillable="true" minOccurs="0" />
+        <xs:element name="connservice" type="connectionservice" nillable="true" minOccurs="0" />
+        <xs:element name="freqservice" type="frequencyservice" nillable="true" minOccurs="0" />
+        <xs:element name="fsservice" type="filesourceservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="domainservice" nillable="true" minOccurs="0" />
+        <xs:element name="agentservice" type="jcsagentservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="vragentservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="authzservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="objectalias" >
+      <xs:sequence>
+        <xs:element name="parentuid" type="xs:string" />
+        <xs:element name="aliasname" type="xs:string" />
+        <xs:element name="aliastype" type="xs:string" />
+        <xs:element name="objectuid" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="objectname" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="resourceadminserviceapplication" >
+      <xs:complexContent>
+       <xs:extension base="springbootservletinitializer">
+         <xs:sequence>
+          <xs:element name="log" type="xs:anyType" />
+          <xs:element name="//disserver/cfg/trinity.propertiesdbdriverclassname" type="xs:string" />
+          <xs:element name="dburl" type="xs:string" />
+          <xs:element name="dbusername" type="xs:string" />
+          <xs:element name="dbpassword" type="xs:string" />
+          <xs:element name="encryptkey" type="xs:string" />
+          <xs:element name="//application.ymlmax_active" type="xs:anyType" />
+          <xs:element name="initial_size" type="xs:anyType" />
+          <xs:element name="max_wait" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="notificationlistcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="service" type="notificationlistservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="notificationcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="service" type="notificationservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="notificationlistjdbcdao" >
+      <xs:sequence>
+        <xs:element name="insert_sql" type="xs:string" />
+        <xs:element name="jtm" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="notificationjpadao" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<notification,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="notificationservice" >
+      <xs:sequence>
+        <xs:element name="timing_values" type="xs:string" />
+        <xs:element name="timing_set" type="xs:anyType" />
+        <xs:element name="xmlutil" type="xmldatautility" nillable="true" minOccurs="0" />
+        <xs:element name="dao" type="notificationjpadao" nillable="true" minOccurs="0" />
+        <xs:element name="listservice" type="notificationlistservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="jobservice" nillable="true" minOccurs="0" />
+        <xs:element name="flowservice" type="jobflowservice" nillable="true" minOccurs="0" />
+        <xs:element name="entityservice" type="busentityservice" nillable="true" minOccurs="0" />
+        <xs:element name="categoryservice" type="jobcategoryservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="notificationlistservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="dao" type="notificationlistjdbcdao" nillable="true" minOccurs="0" />
+        <xs:element name="notifyservice" type="notificationservice" nillable="true" minOccurs="0" />
+        <xs:element name="userservice" type="trinityuserservice" nillable="true" minOccurs="0" />
+        <xs:element name="groupservice" type="usergroupservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="notification" >
+      <xs:sequence>
+        <xs:element name="notificationuid" type="xs:string" />
+        <xs:element name="notificationname" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="targetuid" type="xs:string" />
+        <xs:element name="notificationtype" type="xs:string" />
+        <xs:element name="notificationtiming" type="xs:string" />
+        <xs:element name="targettype" type="xs:string" />
+        <xs:element name="attachlog" type="xs:string" />
+        <xs:element name="xmldata" type="xs:string" />
+        <xs:element name="lastuptime" type="xs:dateTime" />
+        <xs:element name="userlist" type="notificationlist" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="grouplist" type="notificationlist" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="content" type="xs:string" />
+        <xs:element name="subject" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="notificationlist" >
+      <xs:sequence>
+        <xs:element name="notificationuid" type="xs:string" />
+        <xs:element name="destinationuid" type="xs:string" />
+        <xs:element name="destinationtype" type="xs:string" />
+        <xs:element name="activate" type="xs:string" />
+        <xs:element name="destinationname" type="xs:string" />
+        <xs:element name="destinationid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="filesourcerelationcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="service" type="filesourcerelationservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="filesourcecategorycontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="service" type="filesourcecategoryservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="authzservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="filesourcecontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="service" type="filesourceservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="authzservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="filesourcerelation" >
+      <xs:sequence>
+        <xs:element name="fscategoryuid" type="xs:string" />
+        <xs:element name="filesourceuid" type="xs:string" />
+        <xs:element name="fscategoryname" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="filesource" >
+      <xs:sequence>
+        <xs:element name="filesourceuid" type="xs:string" />
+        <xs:element name="filesourcename" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="filetrigger" type="xs:string" />
+        <xs:element name="receivedir" type="xs:string" />
+        <xs:element name="targetdir" type="xs:string" />
+        <xs:element name="completedir" type="xs:string" />
+        <xs:element name="corruptdir" type="xs:string" />
+        <xs:element name="duplicatedir" type="xs:string" />
+        <xs:element name="errordir" type="xs:string" />
+        <xs:element name="filename" type="xs:string" />
+        <xs:element name="pattern" type="xs:string" />
+        <xs:element name="startposition" type="xs:anyType" />
+        <xs:element name="endposition" type="xs:anyType" />
+        <xs:element name="filetype" type="xs:string" />
+        <xs:element name="minfile" type="xs:anyType" />
+        <xs:element name="maxfile" type="xs:anyType" />
+        <xs:element name="timeout" type="xs:anyType" />
+        <xs:element name="checkduplicate" type="xs:string" />
+        <xs:element name="filterduplicate" type="xs:string" />
+        <xs:element name="checkrow" type="xs:string" />
+        <xs:element name="bypasszero" type="xs:string" />
+        <xs:element name="ftpget" type="xs:string" />
+        <xs:element name="xmldata" type="xs:string" />
+        <xs:element name="lastuptime" type="xs:dateTime" />
+        <xs:element name="ftppostaction" type="xs:string" />
+        <xs:element name="cfimpclass" type="xs:string" />
+        <xs:element name="txdateformat" type="xs:string" />
+        <xs:element name="rootdir" type="xs:string" />
+        <xs:element name="ftpconnectionuid" type="xs:string" />
+        <xs:element name="passive" type="xs:string" />
+        <xs:element name="triggerjobuid" type="xs:string" />
+        <xs:element name="checksumalg" type="xs:string" />
+        <xs:element name="txdateendpos" type="xs:anyType" />
+        <xs:element name="ftpmovedir" type="xs:string" />
+        <xs:element name="datafilecountmode" type="xs:string" />
+        <xs:element name="checksumfe" type="xs:string" />
+        <xs:element name="appenduid" type="xs:string" />
+        <xs:element name="ftpremotedir" type="xs:string" />
+        <xs:element name="checksum" type="xs:string" />
+        <xs:element name="sftp" type="xs:string" />
+        <xs:element name="txdatestartpos" type="xs:anyType" />
+        <xs:element name="ftpbinary" type="xs:string" />
+        <xs:element name="categoryname" type="xs:string" />
+        <xs:element name="categoryuid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="filesourcecategory" >
+      <xs:sequence>
+        <xs:element name="fscategoryuid" type="xs:string" />
+        <xs:element name="fscategoryname" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="lastuptime" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="filesourcerelationservice" >
+      <xs:sequence>
+        <xs:element name="dao" type="filesourcerelationjdbcdao" nillable="true" minOccurs="0" />
+        <xs:element name="categoryservice" type="filesourcecategoryservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="filesourceservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="filesourcecategoryservice" >
+      <xs:sequence>
+        <xs:element name="dao" type="filesourcecategoryjpadao" nillable="true" minOccurs="0" />
+        <xs:element name="relservice" type="filesourcerelationservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="filesourceservice" >
+      <xs:sequence>
+        <xs:element name="fs_field_values" type="xs:string" />
+        <xs:element name="fs_field_set" type="xs:anyType" />
+        <xs:element name="xmlutil" type="xmldatautility" nillable="true" minOccurs="0" />
+        <xs:element name="dao" type="filesourcejpadao" nillable="true" minOccurs="0" />
+        <xs:element name="relservice" type="filesourcerelationservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="jobservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="objectaliasservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="filesourcejpadao" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<filesource,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="filesourcecategoryjpadao" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<filesourcecategory,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="filesourcerelationjdbcdao" >
+      <xs:sequence>
+        <xs:element name="insert_sql" type="xs:string" />
+        <xs:element name="jtm" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="resourceadminserviceapplicationtests" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

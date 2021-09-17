@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="usuario" >
+      <xs:sequence>
+        <xs:element name="nickname" type="xs:string" />
+        <xs:element name="nombre" type="xs:string" />
+        <xs:element name="apellido" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="fnac" type="xs:dateTime" />
+        <xs:element name="pass" type="xs:string" />
+        <xs:element name="foto" type="xs:string" />
+        <xs:element name="//usuariosquemesiguenamiseguidores" type="usuario" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="//usuariosqueyosigosigoa" type="usuario" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="categoria" >
+      <xs:sequence>
+        <xs:element name="nombre" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="edicion" >
+      <xs:sequence>
+        <xs:element name="nombre" type="xs:string" />
+        <xs:element name="finicio" type="xs:dateTime" />
+        <xs:element name="ffin" type="xs:dateTime" />
+        <xs:element name="cupo" type="xs:anyType" />
+        <xs:element name="fpublicacion" type="xs:dateTime" />
+        <xs:element name="foto" type="xs:string" />
+        <xs:element name="docentes" type="docente" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="/*@manytomany(cascade" type="inscripcioned" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="inscripcionprog" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="programa" nillable="true" minOccurs="0" />
+        <xs:element name="p" type="estudiante" nillable="true" minOccurs="0" />
+        <xs:element name="finscripcion" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="inscripcioned" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="edicion" nillable="true" minOccurs="0" />
+        <xs:element name="e" type="estudiante" nillable="true" minOccurs="0" />
+        <xs:element name="finscripcion" type="xs:dateTime" />
+        <xs:element name="estadoinsc" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="programa" >
+      <xs:sequence>
+        <xs:element name="nombre" type="xs:string" />
+        <xs:element name="descripcion" type="xs:string" />
+        <xs:element name="finicio" type="xs:dateTime" />
+        <xs:element name="ffin" type="xs:dateTime" />
+        <xs:element name="foto" type="xs:string" />
+        <xs:element name="cursos" type="curso" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="inscprog" type="inscripcionprog" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="estudiante" >
+      <xs:complexContent>
+       <xs:extension base="usuario">
+         <xs:sequence>
+          <xs:element name="inscripcionesed" type="inscripcioned" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="inscripcionesprog" type="inscripcionprog" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="curso" >
+      <xs:sequence>
+        <xs:element name="nombre" type="xs:string" />
+        <xs:element name="descripcion" type="xs:string" />
+        <xs:element name="url" type="xs:string" />
+        <xs:element name="duracion" type="xs:anyType" />
+        <xs:element name="canthoras" type="xs:anyType" />
+        <xs:element name="creditos" type="xs:anyType" />
+        <xs:element name="fechareg" type="xs:dateTime" />
+        <xs:element name="foto" type="xs:string" />
+        <xs:element name="ediciones" type="edicion" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="programas" type="programa" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="cursos" type="curso" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="categoria" type="categoria" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="docente" >
+      <xs:complexContent>
+       <xs:extension base="usuario">
+         <xs:sequence>
+          <xs:element name="ediciones" type="edicion" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="insti" type="instituto" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="instituto" >
+      <xs:sequence>
+        <xs:element name="nombre" type="xs:string" />
+        <xs:element name="cursos" type="curso" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

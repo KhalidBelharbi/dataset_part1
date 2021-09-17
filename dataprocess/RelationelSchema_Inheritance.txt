@@ -1,0 +1,15 @@
+
+user(id:long [PK], name:String, password:String, email:String, role:Integer);
+
+template(id:long [PK], name:String, description:String, path:String, developer:User #FK to(user), uploadtime:Date, content:String);
+
+history(id:long [PK], name:String, path:String, GeneratedName:User, usedtime:Date);
+
+modelrelation(id:long [PK], GeneratedName:Job, modelid:long);
+
+job(id:long [PK], name:String, path:String, mapper:String, reducer:String, inputformat:String, mapinputvalue:String, mapinputkey:String, mapoutputkey:String, mapoutputvalue:String, outputkey:String, outputvalue:String, isiterative:boolean, ismaptype:boolean, parameters:String, description:String, developer:User #FK to(user), uploadtime:Date);
+
+jobrelation(id:long [PK], templateid:long, jobidonhadoop:String, ownerid:long);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

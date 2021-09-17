@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="bookmarcapplicationtests" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bookmarkcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="impl" type="fileservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="bookmarkrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="executionsummaryrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="websitecategory" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="baseentity" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="createdon" type="xs:dateTime" />
+        <xs:element name="updon" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bookmark" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="text" type="xs:string" />
+          <xs:element name="add" type="xs:dateTime" />
+          <xs:element name="url" type="xs:string" />
+          <xs:element name="protocol" type="xs:string" />
+          <xs:element name="authority" type="xs:string" />
+          <xs:element name="host" type="xs:string" />
+          <xs:element name="port" type="xs:long" />
+          <xs:element name="path" type="xs:string" />
+          <xs:element name="query" type="xs:string" />
+          <xs:element name="filename" type="xs:string" />
+          <xs:element name="ref" type="xs:string" />
+          <xs:element name="epochtime" type="xs:long" />
+          <xs:element name="source" type="xs:string" />
+          <xs:element name="" type="websitecategory" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="executionsummary" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="filename" type="xs:string" />
+          <xs:element name="filesize" type="xs:string" />
+          <xs:element name="urlcount" type="xs:long" />
+          <xs:element name="executionid" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="formcommand" >
+      <xs:sequence>
+        <xs:element name="textfield" type="xs:string" />
+        <xs:element name="textareafield" type="xs:string" />
+        <xs:element name="datetimefield" type="xs:string" />
+        <xs:element name="colorfield" type="xs:string" />
+        <xs:element name="singlecheckboxfield" type="xs:anyType" />
+        <xs:element name="multicheckboxselectedvalues" type="xs:string" />
+        <xs:element name="radiobuttonselectedvalue" type="xs:string" />
+        <xs:element name="dropdownselectedvalue" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bookmarklivechrome" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="date_added" type="xs:string" />
+          <xs:element name="guid" type="xs:string" />
+          <xs:element name="bookmarkbarid" type="xs:string" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="type" type="xs:string" />
+          <xs:element name="url" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="applicationsettings" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="settingskey" type="xs:string" />
+          <xs:element name="settingsvalue" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="hostclassification" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="host" type="xs:string" />
+          <xs:element name="" type="websitecategory" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="bookmarcapplication" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="appserviceimpl" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="otherservicesimpl" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="fileserviceimpl" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="i18nconfiguration" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="viewconfiguration" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="otherservices" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="otherservicesimpl" >
+      <xs:sequence>
+        <xs:element name="validhtmlfilescount" type="xs:long" />
+        <xs:element name="urlcount" type="xs:long" />
+        <xs:element name="//applicationsettingsapplicationname" type="xs:string" />
+        <xs:element name="applicationversion" type="xs:string" />
+        <xs:element name="GeneratedName" type="applicationsettingsrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="appserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="otherservicesimpl" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="urlserviceimpl" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="bookmarkrepository" nillable="true" minOccurs="0" />
+        <xs:element name="chromebookmarksfilewindows" type="xs:string" />
+        <xs:element name="filecount" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="urlserviceimpl" >
+      <xs:sequence>
+        <xs:element name="urlcounter" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="fileserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="otherservicesimpl" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="bookmarkrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="executionsummaryrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="appserviceimpl" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="appservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="urlservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="fileservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="oscheck" >
+      <xs:sequence>
+        <xs:element name="//cachedresultofosdetectiondetectedos" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bookmarkrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<bookmark,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="applicationsettingsrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<applicationsettings,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="bookmarklivechromerepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<bookmarklivechrome,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="executionsummaryrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<executionsummary,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="fooresult" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="home" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="executionsummary" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="close" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="settings" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pagetitle" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="navigation" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="footer" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="htmlhead" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="social_buttons" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="layout" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="error" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="map" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="datatables" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ionicons.min" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dark-mode-switch.min" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jquery.base64" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jquery.resizablecolumns.min" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

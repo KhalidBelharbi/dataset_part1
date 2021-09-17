@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="index" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jetty-web" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tomcat-users" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="context" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="client-handlers" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="server-handlers" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persistence" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="webserviceclient" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="clienthandler" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="secureejblocal" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="serverhandler" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hellopojoservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="webserviceservlet" >
+      <xs:complexContent>
+       <xs:extension base="httpservlet">
+         <xs:sequence>
+          <xs:element name="" type="hellopojo" nillable="true" minOccurs="0" />
+          <xs:element name="" type="helloejb" nillable="true" minOccurs="0" />
+          <xs:element name="out" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="annotatedejb" >
+      <xs:sequence>
+        <xs:element name="ds" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="annotatedservlet" >
+      <xs:complexContent>
+       <xs:extension base="httpservlet">
+         <xs:sequence>
+          <xs:element name="localejb" type="annotatedejblocal" nillable="true" minOccurs="0" />
+          <xs:element name="remoteejb" type="annotatedejbremote" nillable="true" minOccurs="0" />
+          <xs:element name="localbeanejb" type="annotatedejb" nillable="true" minOccurs="0" />
+          <xs:element name="ds" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="runasservlet" >
+      <xs:complexContent>
+       <xs:extension base="httpservlet">
+         <xs:sequence>
+          <xs:element name="" type="secureejblocal" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jndiservlet" >
+      <xs:complexContent>
+       <xs:extension base="httpservlet">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jpabean" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hellopojo" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jpaservlet" >
+      <xs:complexContent>
+       <xs:extension base="httpservlet">
+         <xs:sequence>
+          <xs:element name="emf" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="helloejb" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="annotatedejbremote" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="annotatedejblocal" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="helloejbservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="secureejb" >
+      <xs:sequence>
+        <xs:element name="context" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="secureservlet" >
+      <xs:complexContent>
+       <xs:extension base="httpservlet">
+         <xs:sequence>
+          <xs:element name="" type="secureejblocal" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="resourcebean" >
+      <xs:sequence>
+        <xs:element name="value" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

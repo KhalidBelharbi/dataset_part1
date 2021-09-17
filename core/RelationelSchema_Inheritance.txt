@@ -1,0 +1,13 @@
+
+parameters(/***/serialversionuid:long, id:Long [PK], name:String, parametervalue:String, parametertype:Byte, remark:String);
+
+dictionary(/***(用一句话描述这个变量表示什么).**@sincejdk1.7*/serialversionuid:long, id:Long [PK], GeneratedName:Dictionary, dicttype:String, dictvalue:String, haschild:Byte, rank:Long, remark:String);
+
+organizationparameter(/***/serialversionuid:long, id:Long [PK], name:String, value:String, orgid:Long);
+
+sysmethodtimelog(/***/serialversionuid:long, /***/id:Long, /***日志创建时间*/createtime:Date, /***日志类名*/classname:String, /***方法名*/methodname:String, /***方法执行时间*/methodtime:Integer);
+
+organization(/***全局的根目录*/global:Long, /***/serialversionuid:long, id:Long [PK], parentid:Long, name:String, aliases:String, adminuserid:Long, adminroleid:Long, saferesourcecollectionid:Long, organizationlevel:Integer, leader:Integer, organizationstatus:Byte, isdelete:boolean, remark:String, ////////////////一下字段不作为数据库字段children:List<TreeNode>, /***是否存在子*/childcount:Integer, /***管理员名称*/adminusername:String);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

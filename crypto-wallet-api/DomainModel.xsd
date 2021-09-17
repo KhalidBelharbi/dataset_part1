@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="totalbalance" >
+      <xs:sequence>
+        <xs:element name="symbol" type="xs:string" />
+        <xs:element name="total" type="xs:double" />
+        <xs:element name="owners" type="xs:double" />
+        <xs:element name="users" type="xs:double" />
+        <xs:element name="avail" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cryptobalance" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="uid" type="xs:long" />
+        <xs:element name="symbol" type="xs:string" />
+        <xs:element name="balance" type="xs:double" />
+        <xs:element name="recv" type="xs:double" />
+        <xs:element name="send" type="xs:double" />
+        <xs:element name="buy" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="addressbalance" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="symbol" type="xs:string" />
+        <xs:element name="addr" type="xs:string" />
+        <xs:element name="balance" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cryptobalancebyaddr" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="symbol" type="xs:string" />
+        <xs:element name="addr" type="xs:string" />
+        <xs:element name="balance" type="xs:double" />
+        <xs:element name="recv" type="xs:double" />
+        <xs:element name="send" type="xs:double" />
+        <xs:element name="buy" type="xs:double" />
+        <xs:element name="actual" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tborphanaddress" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="upddt" type="xs:dateTime" />
+        <xs:element name="symbol" type="xs:string" />
+        <xs:element name="balance" type="xs:double" />
+        <xs:element name="account" type="xs:string" />
+        <xs:element name="addr" type="xs:string" />
+        <xs:element name="tag" type="xs:string" />
+        <xs:element name="regdt" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="vwsalesstat" >
+      <xs:sequence>
+        <xs:element name="symbol" type="xs:string" />
+        <xs:element name="yyyymmddhhmi" type="xs:long" />
+        <xs:element name="soldamt" type="xs:double" />
+        <xs:element name="krwsoldamt" type="xs:double" />
+        <xs:element name="ethsoldamt" type="xs:double" />
+        <xs:element name="krwpaidamt" type="xs:double" />
+        <xs:element name="ethpaidamt" type="xs:double" />
+        <xs:element name="krwunpaidamt" type="xs:double" />
+        <xs:element name="ethunpaidamt" type="xs:double" />
+        <xs:element name="cpuusage" type="xs:long" />
+        <xs:element name="memusage" type="xs:long" />
+        <xs:element name="diskusage" type="xs:long" />
+        <xs:element name="//0:fail,1:warn,2:successapistat" type="xs:anyType" />
+        <xs:element name="regdt" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tbcryptomaster" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="upddt" type="xs:dateTime" />
+        <xs:element name="symbol" type="xs:string" />
+        <xs:element name="decimals" type="xs:long" />
+        <xs:element name="sendmastaddr" type="xs:string" />
+        <xs:element name="currsyncheight" type="xs:long" />
+        <xs:element name="latestheight" type="xs:long" />
+        <xs:element name="totalbal" type="xs:double" />
+        <xs:element name="sendmastbal" type="xs:double" />
+        <xs:element name="theotherbal" type="xs:double" />
+        <xs:element name="prvprice" type="xs:double" />
+        <xs:element name="pre1_price" type="xs:double" />
+        <xs:element name="pre2_price" type="xs:double" />
+        <xs:element name="gasprice" type="xs:double" />
+        <xs:element name="gasused" type="xs:double" />
+        <xs:element name="actualfee" type="xs:double" />
+        <xs:element name="regdt" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tbbonusrequest" >
+      <xs:sequence>
+        <xs:element name="upddt" type="xs:dateTime" />
+        <xs:element name="symbol" type="xs:string" />
+        <xs:element name="orderid" type="xs:string" />
+        <xs:element name="uid" type="xs:long" />
+        <xs:element name="brokerid" type="xs:string" />
+        <xs:element name="toaddr" type="xs:string" />
+        <xs:element name="totag" type="xs:string" />
+        <xs:element name="amount" type="xs:double" />
+        <xs:element name="bonusbal" type="xs:double" />
+        <xs:element name="regdt" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tbsend" >
+      <xs:sequence>
+        <xs:element name="upddt" type="xs:dateTime" />
+        <xs:element name="renotify" type="xs:anyType" />
+        <xs:element name="intent" type="xs:anyType" />
+        <xs:element name="symbol" type="xs:string" />
+        <xs:element name="txid" type="xs:string" />
+        <xs:element name="txidx" type="xs:string" />
+        <xs:element name="notifiable" type="xs:anyType" />
+        <xs:element name="confirm" type="xs:long" />
+        <xs:element name="noticnt" type="xs:long" />
+        <xs:element name="toaddr" type="xs:string" />
+        <xs:element name="totag" type="xs:string" />
+        <xs:element name="amount" type="xs:double" />
+        <xs:element name="orderid" type="xs:string" />
+        <xs:element name="uid" type="xs:long" />
+        <xs:element name="brokerid" type="xs:string" />
+        <xs:element name="exptfee" type="xs:double" />
+        <xs:element name="realfee" type="xs:double" />
+        <xs:element name="fromaccount" type="xs:string" />
+        <xs:element name="fromaddr" type="xs:string" />
+        <xs:element name="fromtag" type="xs:string" />
+        <xs:element name="blockid" type="xs:string" />
+        <xs:element name="txtime" type="xs:long" />
+        <xs:element name="errmsg" type="xs:string" />
+        <xs:element name="regdt" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tbfiatdeposit" >
+      <xs:sequence>
+        <xs:element name="upddt" type="xs:dateTime" />
+        <xs:element name="orderid" type="xs:string" />
+        <xs:element name="uid" type="xs:long" />
+        <xs:element name="symbol" type="xs:string" />
+        <xs:element name="amount" type="xs:double" />
+        <xs:element name="brokerid" type="xs:string" />
+        <xs:element name="fromaddr" type="xs:string" />
+        <xs:element name="regusr" type="xs:string" />
+        <xs:element name="errmsg" type="xs:string" />
+        <xs:element name="regdt" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tbrecv" >
+      <xs:sequence>
+        <xs:element name="upddt" type="xs:dateTime" />
+        <xs:element name="renotify" type="xs:anyType" />
+        <xs:element name="intent" type="xs:anyType" />
+        <xs:element name="symbol" type="xs:string" />
+        <xs:element name="txid" type="xs:string" />
+        <xs:element name="txidx" type="xs:string" />
+        <xs:element name="orderid" type="xs:string" />
+        <xs:element name="notifiable" type="xs:anyType" />
+        <xs:element name="confirm" type="xs:long" />
+        <xs:element name="noticnt" type="xs:long" />
+        <xs:element name="toaccount" type="xs:string" />
+        <xs:element name="toaddr" type="xs:string" />
+        <xs:element name="totag" type="xs:string" />
+        <xs:element name="amount" type="xs:double" />
+        <xs:element name="uid" type="xs:long" />
+        <xs:element name="brokerid" type="xs:string" />
+        <xs:element name="fromaddr" type="xs:string" />
+        <xs:element name="fromtag" type="xs:string" />
+        <xs:element name="blockid" type="xs:string" />
+        <xs:element name="txtime" type="xs:long" />
+        <xs:element name="errmsg" type="xs:string" />
+        <xs:element name="regdt" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="vwuserkrwbalance" >
+      <xs:sequence>
+        <xs:element name="uid" type="xs:long" />
+        <xs:element name="symbol" type="xs:string" />
+        <xs:element name="recv" type="xs:double" />
+        <xs:element name="buy" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tbmarketprice" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="upddt" type="xs:dateTime" />
+        <xs:element name="symbol" type="xs:string" />
+        <xs:element name="krw" type="xs:double" />
+        <xs:element name="usd" type="xs:double" />
+        <xs:element name="regdt" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tbtokenbuyrequest" >
+      <xs:sequence>
+        <xs:element name="upddt" type="xs:dateTime" />
+        <xs:element name="orderid" type="xs:string" />
+        <xs:element name="uid" type="xs:long" />
+        <xs:element name="tokensymbol" type="xs:string" />
+        <xs:element name="paysymbol" type="xs:string" />
+        <xs:element name="payamount" type="xs:double" />
+        <xs:element name="tokenamount" type="xs:double" />
+        <xs:element name="fromaddr" type="xs:string" />
+        <xs:element name="fromtag" type="xs:string" />
+        <xs:element name="status" type="xs:anyType" />
+        <xs:element name="error" type="xs:string" />
+        <xs:element name="regdt" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tbpointexchangerequest" >
+      <xs:sequence>
+        <xs:element name="upddt" type="xs:dateTime" />
+        <xs:element name="orderid" type="xs:string" />
+        <xs:element name="uid" type="xs:long" />
+        <xs:element name="tokensymbol" type="xs:string" />
+        <xs:element name="tokenamount" type="xs:double" />
+        <xs:element name="pointamount" type="xs:double" />
+        <xs:element name="fromaddr" type="xs:string" />
+        <xs:element name="fromtag" type="xs:string" />
+        <xs:element name="status" type="xs:anyType" />
+        <xs:element name="error" type="xs:string" />
+        <xs:element name="regdt" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tbaddressbalance" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="upddt" type="xs:dateTime" />
+        <xs:element name="uid" type="xs:long" />
+        <xs:element name="symbol" type="xs:string" />
+        <xs:element name="addr" type="xs:string" />
+        <xs:element name="balance" type="xs:double" />
+        <xs:element name="actual" type="xs:double" />
+        <xs:element name="recv" type="xs:double" />
+        <xs:element name="send" type="xs:double" />
+        <xs:element name="buy" type="xs:double" />
+        <xs:element name="brokerid" type="xs:string" />
+        <xs:element name="tag" type="xs:string" />
+        <xs:element name="regdt" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tbmanualpayrequest" >
+      <xs:sequence>
+        <xs:element name="upddt" type="xs:dateTime" />
+        <xs:element name="orderid" type="xs:string" />
+        <xs:element name="uid" type="xs:long" />
+        <xs:element name="tokensymbol" type="xs:string" />
+        <xs:element name="tokenamount" type="xs:double" />
+        <xs:element name="payreason" type="xs:anyType" />
+        <xs:element name="snscode" type="xs:anyType" />
+        <xs:element name="bountyurl" type="xs:string" />
+        <xs:element name="toaddr" type="xs:string" />
+        <xs:element name="totag" type="xs:string" />
+        <xs:element name="status" type="xs:anyType" />
+        <xs:element name="error" type="xs:string" />
+        <xs:element name="regdt" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tbsendrequest" >
+      <xs:sequence>
+        <xs:element name="upddt" type="xs:dateTime" />
+        <xs:element name="symbol" type="xs:string" />
+        <xs:element name="orderid" type="xs:string" />
+        <xs:element name="uid" type="xs:long" />
+        <xs:element name="brokerid" type="xs:string" />
+        <xs:element name="exptfee" type="xs:string" />
+        <xs:element name="toaddr" type="xs:string" />
+        <xs:element name="totag" type="xs:string" />
+        <xs:element name="amount" type="xs:double" />
+        <xs:element name="fromaccount" type="xs:string" />
+        <xs:element name="fromaddr" type="xs:string" />
+        <xs:element name="fromtag" type="xs:string" />
+        <xs:element name="regdt" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

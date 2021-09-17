@@ -1,0 +1,247 @@
+user(userid:Long [PK], staffid:Long, forename:String, forename2:String, enddate:LocalDate, notes:Clob, surname:String, distinguishedname:String, externalprovideremployeeflag:String, externalproviderid:Long, flag:Long, organisationid:Long, scproviderid:Long);
+
+restriction(restrictionid:Long [PK], offenderid:Long, userid:Long, restrictionend:LocalDateTime);
+
+exclusion(exclusionid:Long [PK], offenderid:Long, userid:Long, exclusionend:LocalDateTime);
+
+probationarea(probationareaid:Long [PK], code:String, description:String);
+
+nsi(nsiid:Long [PK], offenderid:Long, GeneratedName:Event #FK to(event), referraldate:LocalDate, actualstartdate:LocalDate, nsistatusdatetime:LocalDateTime, expectedstartdate:LocalDate, expectedenddate:LocalDate, actualenddate:LocalDate, GeneratedName:NsiType #FK to(Nsi), nsisubtype:StandardReference #FK to(standardreference), rqmnt:Requirement #FK to(requirement), nsioutcome:StandardReference #FK to(standardreference), GeneratedName:NsiStatus #FK to(Nsi), length:Long, notes:String, intendedprovider:ProbationArea #FK to(probationarea), softdeleted:Long, activeflag:Long);
+
+custodyhistory(custodyhistoryid:Long [PK], custodyeventtype:StandardReference #FK to(standardreference), detail:String, GeneratedName:Offender #FK to(offender), GeneratedName:Custody #FK to(custody), when:LocalDate, rowversion:Long, partitionareaid:Long);
+
+offenderalias(aliasid:Long [PK], offenderid:Long, dateofbirth:LocalDate, firstname:String, secondname:String, softdeleted:Long, surname:String, thirdname:String, gender:StandardReference #FK to(standardreference), genderid:Long, firstnamesoundex:String, middlenamesoundex:String, surnamesoundex:String);
+
+assessmentdocument(assessment_id:Assessment #FK to(assessment));
+
+licencecondition(licenceconditionid:Long [PK], licenceconditionnotes:String, startdate:LocalDate, commencementdate:LocalDate, commencementnotes:String, terminationdate:LocalDate, terminationnotes:String, createddatetime:LocalDateTime, activeflag:Long, GeneratedName:LicenceConditionTypeMainCat #FK to(licenceconditiontypemaincat), licenceconditiontypesubcat:StandardReference #FK to(standardreference), disposal_id:Disposal #FK to(disposal));
+
+staff(staffid:Long [PK], surname:String, forename:String, forname2:String, officercode:String, GeneratedName:User #FK to(user), startdate:LocalDate, sector:Long, title:StandardReference #FK to(standardreference), GeneratedName:ProbationArea #FK to(probationarea), trainingsessionid:Long, rowversion:Long, createdbyuserid:Long, createddatetime:LocalDateTime, lastupdateduserid:Long, lastupdateddatetime:LocalDateTime);
+
+staff_team(staff_id:Staff [PK] #FK to Staff,team_id:list<team> [PK] #FK to list<team>);
+
+rreferraltype(referraltypeid:Long [PK], code:String, description:String, trainingsessionid:Long, rowversion:Long, selectable:String, createdbyuserid:Long, contacttypeid:Long, lastupdateduserid:Long, createddatetime:LocalDateTime, lastupdateddatetime:LocalDateTime, spgoverride:Long);
+
+address(addressid:Long [PK], addressnumber:String, buildingname:String, county:String, district:String, postcode:String, streetname:String, telephonenumber:String, towncity:String, createddatetime:LocalDateTime, lastupdateddatetime:LocalDateTime, softdeleted:Long);
+
+assessment(assessmentid:Long [PK], GeneratedName:Referral #FK to(referral), assessmentdate:LocalDateTime, offendersagreement:String, notes:String, teamid:Long, staffid:Long, provideremployeeid:Long, softdeleted:Long, offenderrequiredtoattend:String, offenderattended:String, partitionareaid:Long, rowversion:Long, assessmenttype:RAssessmentType #FK to(rassessmenttype), providerteamid:Long, score:String, durationminutes:Long, createdbyuserid:Long, createddatetime:LocalDateTime, lastupdateduserid:Long, lastupdateddatetime:LocalDateTime, assessmentoutcomeid:Long, trainingsessionid:Long, offenderid:Long, documentlinked:String);
+
+upwdetails(upwdetailsid:Long [PK], GeneratedName:Disposal #FK to(disposal), upwlengthminutes:Long, agreedtravelfare:Long, notes:String, softdeleted:Long, partitionareaid:Long, rowversion:Long, status:StandardReference #FK to(standardreference), workedintensively:String, trainingsessionid:Long, offenderid:Long, teamid:Long, providerteamid:Long, staffid:Long, upwstatusdate:LocalDateTime, provideremployeeid:Long, allocationdate:LocalDateTime, minutesyear1:Long, createdbyuserid:Long, createddatetime:LocalDateTime, lastupdateduserid:Long, lastupdateddatetime:LocalDateTime);
+
+release(releaseid:Long [PK], softdeleted:Long, actualreleasedate:LocalDateTime, institution:RInstitution #FK to(rinstitution), notes:String, releasetype:StandardReference #FK to(standardreference));
+
+offence(offenceid:Long [PK], code:String, description:String, abbreviation:String, maincategorycode:String, selectable:String, maincategorydescription:String, rowversion:Long, maincategoryabbreviation:String, ogrsoffencecategory:StandardReference #FK to(standardreference), subcategorycode:String, subcategorydescription:String, form20code:String, subcategoryabbreviation:String, cjitcode:String, createdbyuserid:Long, createddatetime:LocalDateTime, lastupdateduserid:Long, lastupdateddatetime:LocalDateTime);
+
+pssrequirementtypesubcategory(requirementtypemaincategoryid:Long [PK], code:String, description:String);
+
+addressassessment(addressassessmentid:Long [PK], assessmentdate:LocalDateTime, details:String, staffid:Long, teamid:Long, partitionareaid:Long, softdeleted:Long, rowversion:Long, offenderid:Long, provideremployeeid:Long, providerteamid:Long, offenderaddressid:Long, trainingsessionid:Long, createdbyuserid:Long, lastupdateduserid:Long, createddatetime:LocalDateTime, lastupdateddatetime:LocalDateTime, documentlinked:String);
+
+additionaloffence(additionaloffenceid:Long [PK], offencedate:LocalDateTime, offencecount:Long, GeneratedName:Event #FK to(event), softdeleted:Long, partitionareaid:Long, rowversion:Long, createdbyuserid:Long, createddatetime:LocalDateTime, lastupdateduserid:Long, lastupdateddatetime:LocalDateTime, GeneratedName:Offence #FK to(Offence));
+
+requirement(requirementid:Long [PK], requirementnotes:String, commencementdate:LocalDate, startdate:LocalDate, terminationdate:LocalDate, expectedstartdate:LocalDate, expectedenddate:LocalDate, createddatetime:LocalDateTime, activeflag:Boolean, requirementtypesubcategory:StandardReference #FK to(standardreference), GeneratedName:AdRequirementTypeMainCategory #FK to(adrequirementtypemaincategory), adrequirementtypesubcategory:StandardReference #FK to(standardreference), GeneratedName:RequirementTypeMainCategory #FK to(requirementtypemaincategory), disposal_id:Disposal #FK to(disposal), terminationreason:StandardReference #FK to(standardreference), length:Long, rarcount:Long, softdeleted:Boolean);
+
+eventdocument(event_id:Event #FK to(event));
+
+contactoutcometype(contactoutcometypeid:long [PK], code:String, description:String);
+
+personalcircumstance(personalcircumstanceid:Long [PK], offenderid:Long, startdate:LocalDate, enddate:LocalDate, softdeleted:Long, rowversion:Long, partitionareaid:Long, createdbyuserid:Long, lastupdateduserid:Long, trainingsessionid:Long, createddatetime:LocalDateTime, lastupdateddatetime:LocalDateTime, GeneratedName:CircumstanceType #FK to(circumstancetype), GeneratedName:CircumstanceSubType #FK to(circumstancesubtype), notes:String, evidenced:String, qualification1id:Long, qualification2id:Long, qualification3id:Long, offenderaddressid:Long, GeneratedName:ProbationArea #FK to(probationarea));
+
+partitionarea(partitionareaid:Long [PK], area:String);
+
+recall(releaseid:Long [PK], softdeleted:Long, recalldate:LocalDateTime, notes:String, reason:RecallReason #FK to(recallreason));
+
+oasysassessment(oasysassessmentid:Long [PK], offenderid:Long, assessmentdate:LocalDate, lastupdateddate:LocalDate, ogrsscore2:Integer, softdeleted:Integer);
+
+contact(contactid:Long [PK], linkedcontactid:Long, offenderid:Long, GeneratedName:ContactType #FK to(Contact), GeneratedName:Requirement #FK to(requirement), GeneratedName:Explanation #FK to(explanation), GeneratedName:LicenceCondition #FK to(licencecondition), GeneratedName:Nsi #FK to(Nsi), notes:String, contactstarttime:LocalTime, contactdate:LocalDate, contactendtime:LocalTime, softdeleted:Boolean, trustproviderflag:Long, alertactive:String, GeneratedName:ContactOutcomeType #FK to(Contact), GeneratedName:ProviderLocation #FK to(providerlocation), GeneratedName:OfficeLocation #FK to(officelocation), GeneratedName:ProviderEmployee #FK to(provideremployee), GeneratedName:ProviderTeam #FK to(providerteam), GeneratedName:Staff #FK to(staff), GeneratedName:Team #FK to(team), GeneratedName:ProbationArea #FK to(probationarea), partitionareaid:Long, staffemployeeid:Long, teamproviderid:Long, GeneratedName:PartitionArea #FK to(partitionarea), GeneratedName:Event #FK to(event), hourscredited:Double, visorcontact:String, visorexported:String, attended:String, complied:String, enforcement:String, documentlinked:String, uploadlinked:String, rowversion:Long, createdbyuserid:Long, createddatetime:LocalDateTime, lastupdateduserid:Long, user_id:User #FK to(user), lastupdateddatetime:LocalDateTime, sensitive:String, raractivity:String);
+
+upwappointmentdocument(upw_appointment_id:UpwAppointment #FK to(upwappointment));
+
+ogrsassessment(ogrsassessmentid:Long [PK], assessmentdate:LocalDate, lastupdateddate:LocalDate, ogrs3score2:Integer, softdeleted:Integer, GeneratedName:Event #FK to(event));
+
+district(districtid:Long [PK], code:String, description:String, GeneratedName:Borough #FK to(borough), selectable:String, trainingsessionid:Long, rowversion:Long, createdbyuserid:Long, createddatetime:LocalDateTime, lastupdateduserid:Long, lastupdateddatetime:LocalDateTime);
+
+businessinteraction(businessinteractionid:Long [PK], businessinteractioncode:String, description:String, enableddate:LocalDateTime, auditinteractionparameter:LocalDateTime, rowversion:Long);
+
+additionalidentifier(additionalidentifierid:Long [PK], identifier:String, GeneratedName:Offender #FK to(offender), softdeleted:Long, partitionareaid:Long, rowversion:Long, identifiername:StandardReference #FK to(standardreference), trainingsessionid:Long);
+
+user(userid:Long [PK], GeneratedName:Staff #FK to(staff), forename:String, forename2:String, enddate:LocalDate, surname:String, distinguishedname:String, externalprovideremployeeflag:String, externalproviderid:Long, flag:Long, organisationid:Long, scproviderid:Long);
+
+providerlocation(providerlocationid:Long [PK], code:String, description:String);
+
+organisation(organisationid:Long [PK], code:String, description:String, contactname:String, flag:Long, startdate:Time, enddate:Time, activeflag:Long, rowversion:Long, createdbyuserid:Long, createddate:Time, lastupdateduserid:Long, lastupdateddate:Time);
+
+personalcontactdocument(personal_contact_id:PersonalContact #FK to(Contact));
+
+officer(trustproviderflag:Long [PK], staffemployeeid:Long [PK], surname:String, forename:String, forename2:String);
+
+contacttype(contacttypeid:long [PK], code:String, description:String, shortdescription:String, attendancecontact:Boolean, nationalstandardscontact:Boolean, alertflag:String, selectable:Boolean, /***thisisusedindeliustopopulatethelistofavailablecontacttypesontheschedulefutureappointmentsfeature.*thisshouldbeusedwhencheckingifacontacttypeisappropriateforalogicalappointmentoperatione.g.bookingrecurring,cancelling.*/schedulefutureappointments:String, locationflag:String, cjaorderlevel:String, legacyorderlevel:String);
+
+r_contact_typecontact_category(contact_type_id:ContactType [PK] #FK to ContactType,standard_reference_list_id:list<standardreference> [PK] #FK to list<standardreference>);
+
+reportmanager(reportmanagerid:Long [PK], active:boolean, allocationdate:LocalDateTime, GeneratedName:CourtReport #FK to(CourtReport), createdbyuserid:Long, createddatetime:LocalDateTime, enddate:LocalDateTime, lastupdateduserid:Long, lastupdateddatetime:LocalDateTime, rowversion:Long, softdeleted:boolean, GeneratedName:Staff #FK to(staff));
+
+offender(offenderid:Long [PK], firstname:String, crn:String, secondname:String, pncnumber:String, thirdname:String, cronumber:String, surname:String, nomsnumber:String, previoussurname:String, allowsms:String, dateofbirthdate:LocalDate, ninumber:String, languageconcerns:String, deceaseddate:LocalDate, interpreterrequired:String, immigrationnumber:String, exclusionmessage:String, restrictionmessage:String, telephonenumber:String, mobilenumber:String, emailaddress:String, softdeleted:boolean, rowversion:Long, title:StandardReference #FK to(standardreference), gender:StandardReference #FK to(standardreference), preferredname:String, genderidentity:StandardReference #FK to(standardreference), selfdescribedgender:String, ethnicity:StandardReference #FK to(standardreference), nationality:StandardReference #FK to(standardreference), immigrationstatus:StandardReference #FK to(standardreference), language:StandardReference #FK to(standardreference), religion:StandardReference #FK to(standardreference), mostrecentprisonernumber:String, lastupdateddatetime:LocalDateTime, lastupdateddatetimediversity:LocalDateTime, secondnationality:StandardReference #FK to(standardreference), sexualorientation:StandardReference #FK to(standardreference), currentexclusion:Long, currentdisposal:Long, currenthighestriskcolour:String, currentrestriction:Long, institutionid:Long, establishment:Character, pendingtransfer:Long, offenderdetails:String, previousconvictiondate:LocalDate, prevconvictiondocumentname:String, previousconvictionsalfrescodocumentid:String, user_id:User #FK to(user), previousconvictionscreateddatetime:LocalDateTime, currentremandstatus:String, dynamicrsrscore:Double, GeneratedName:PartitionArea #FK to(partitionarea), currenttier:StandardReference #FK to(standardreference));
+
+pssrequirement(pssrequirementid:Long [PK], GeneratedName:Custody #FK to(custody), activeflag:Long, GeneratedName:PssRequirementTypeMainCategory #FK to(pssrequirementtypemaincategory), GeneratedName:PssRequirementTypeSubCategory #FK to(pssrequirementtypesubcategory));
+
+referencedatamaster(referencedatamasterid:Long [PK], codesetname:String, description:String);
+
+deregistration(deregistrationid:Long [PK], offenderid:Long, deregistrationdate:LocalDate, deregisteringnotes:String, softdeleted:Long, rowversion:Long, createdbyuserid:Long, createddatetime:LocalDateTime, lastupdateduserid:Long, lastupdateddatetime:LocalDateTime, GeneratedName:Registration #FK to(Registration), deregistering:Staff #FK to(staff), deregistering:Team #FK to(team));
+
+spgnotification(spgnotificationid:Long [PK], GeneratedName:BusinessInteraction #FK to(businessinteraction), offenderid:Long, uniqueid:Long, datecreated:LocalDateTime, processedflag:Long, processeddatetime:LocalDateTime, messageid:String, errorflag:Long, errormessage:String, controlreference:Long, senderidentity:ProbationArea #FK to(probationarea), receiveridentity:ProbationArea #FK to(probationarea), receivercontrolreference:Long, messagedirection:String, parententityid:Long, spgmessagecontextid:Long, spginterchangestatusid:Long, rowversion:Long, regeneratednotificationid:Long, mtcomponentid:Long, mtthreadid:Long, datesubmitted:LocalDateTime, exporttofileflag:Long, datascriptmessageid:Long);
+
+nsistatus(nsistatusid:long [PK], code:String, description:String);
+
+institutionalreportdocument(institutional_report_id:InstitutionalReport #FK to(InstitutionalReport));
+
+institutionalreport(institutionalreportid:Long [PK], GeneratedName:Custody #FK to(custody), softdeleted:Long, offenderid:Long, daterequested:LocalDateTime, institutionalreporttype:StandardReference #FK to(standardreference), institution:RInstitution #FK to(rinstitution));
+
+disposaltype(nonstatutorycustodycode:String, statutorycustodycode:String, disposaltypeid:Long [PK], description:String, sentencetype:String, failuretocomplylimit:Long);
+
+requirementtypemaincategory(rehabilitation_activity_requirement_code:String, requirementtypemaincategoryid:Long [PK], code:String, description:String, units:StandardReference #FK to(standardreference), restrictive:String);
+
+circumstancetype(circumstancetypeid:long [PK], codevalue:String, codedescription:String, selectable:String, activeduplicates:String, rowversion:long, createdbyuserid:long, createddate:Time, lastupdateduserid:long, lastupdateddate:Time, trainingsessionid:Long, enquiry:Long, spginterest:Long);
+
+custody(custodyid:Long [PK], GeneratedName:Disposal #FK to(disposal), softdeleted:Long, offenderid:Long, prisonernumber:String, institution:RInstitution #FK to(rinstitution), statuschangedate:LocalDate, locationchangedate:LocalDate, pssstartdate:LocalDate, custodialstatus:StandardReference #FK to(standardreference));
+
+auditableentity(createdbyuserid:Long, createddatetime:LocalDateTime, lastupdateduserid:Long, lastupdateddatetime:LocalDateTime);
+
+courtreportdocument(court_report_id:CourtReport #FK to(CourtReport));
+
+provideremployee(provideremployeeid:Long [PK], surname:String, forename:String, forname2:String);
+
+personalcircumstancedocument(personal_circumstance_id:PersonalCircumstance #FK to(personalcircumstance));
+
+registertype(registertypeid:Long [PK], code:String, description:String, selectable:String, rowversion:Long, alertmessagetext:String, recordtriggeroffence:String, recordcategory:String, registerreviewperiod:Long, recordlevel:String, registertypeflag:StandardReference #FK to(standardreference), alertmessage:String, dpaexclude:String, createdbyuserid:Long, colour:String, defaultheadings:String, spginterest:Long, spgoverride:Long, iomnominalindicator:Long, safeguardingindicator:Long, vulnerabilityindicator:Long);
+
+offenderprimaryidentifiers(offenderid:Long [PK], crn:String, softdeleted:Long, currentdisposal:Long);
+
+referraldocument(referral_id:Referral #FK to(referral));
+
+document(documentid:long [PK], createddate:LocalDateTime, lastsaved:LocalDateTime, offenderid:Long, partitionareaid:Long, primarykeyid:Long, rowversion:Long, softdeleted:boolean, user_id:User #FK to(user), user_id:User #FK to(user), status:String, workinprogress:String, templatename:String, documentname:String, alfrescoid:String, createdbyprobationareaid:Long, lastupdatedbyprobationareaid:Long);
+
+adrequirementtypemaincategory(adrequirementtypemaincategoryid:Long [PK], code:String, description:String, units:StandardReference #FK to(standardreference));
+
+providerteam(providerteamid:Long [PK], code:String, name:String, probationareaid:Long, GeneratedName:ExternalProvider #FK to(externalprovider));
+
+staffteam(staffid:Long [PK], teamid:Long [PK], rowversion:Long, createdbyuserid:Long, createddatetime:LocalDateTime, lastupdateduserid:Long, lastupdateddatetime:LocalDateTime, trainingsessionid:Long);
+
+approvedpremisesreferral(approvedpremisesreferralid:Long [PK], referraldate:LocalDateTime, expectedarrivaldate:LocalDateTime, expecteddeparturedate:LocalDateTime, decisiondate:LocalDateTime, referralnotes:String, nonarrivaldate:LocalDateTime, originalapadmitdate:LocalDateTime, selfharmissues:String, nonarrivalnotes:String, referringteamid:Long, decisionbyteamid:Long, referringstaffid:Long, decisionbystaffid:Long, decisionnotes:String, softdeleted:Long, partitionareaid:Long, rowversion:Long, referralcategoryid:Long, referraldecisionid:Long, pendingstatusid:Long, rejectreasonid:Long, referraloutcomeid:Long, referralgroupid:Long, nonarrivalreasonid:Long, institutionid:Long, approvedpremisesid:Long, transferreasonid:Long, referralsourceid:Long, sourcetypeid:Long, externalreferralreasonid:Long, createddatetime:LocalDateTime, lastupdateddatetime:LocalDateTime, GeneratedName:Event #FK to(event), establishment:String, referringprobationareaid:Long, referredtoprobationareaid:Long, createdbyuserid:Long, lastupdateduserid:Long, trainingsessionid:Long, offenderid:Long, originalapprovedpremisesid:Long, reservationstartdate:LocalDateTime, reservationlength:Long);
+
+scprovider(scproviderid:Long [PK], code:String, description:String, contactname:String, flag:Long, startdate:Time, enddate:Time, activeflag:Long, notes:String, rowversion:Long, createdbyuserid:Long, createddate:Time, lastupdateduserid:Long, lastupdateddate:Time);
+
+pssrequirementtypemaincategory(requirementtypemaincategoryid:Long [PK], code:String, description:String);
+
+rassessmenttype(assessmenttypeid:Long [PK], rowversion:Long, trainingsessionid:Long, code:String, description:String, selectable:String, assessmentoutcomeflag:String, durationflag:String, scoreflag:String, offendersagreementflag:String, createdbyuserid:Long, contacttypeid:Long, lastupdateduserid:Long, createddatetime:LocalDateTime, lastupdateddatetime:LocalDateTime);
+
+court(courtid:Long [PK], code:String, selectable:String, courtname:String, telephonenumber:String, fax:String, buildingname:String, street:String, locality:String, town:String, county:String, postcode:String, country:String, rowversion:Long, courttypeid:Long, courttype:StandardReference #FK to(standardreference), createddatetime:LocalDateTime, createdbyuserid:Long, lastupdateddatetime:LocalDateTime, lastupdateduserid:Long, trainingsessionid:Long, probationareaid:Long, GeneratedName:ProbationArea #FK to(probationarea), secureemailaddress:String);
+
+provision(provisionid:Long [PK], version:Long, GeneratedName:Disability #FK to(Disability), startdate:LocalDate, finishdate:LocalDate, provisiontype:StandardReference #FK to(standardreference), notes:String, offenderid:Long, softdeleted:Long, partitionareaid:Long);
+
+courtreport(courtreportid:Long [PK], court_appearance_id:CourtAppearance #FK to(CourtAppearance), daterequested:LocalDateTime, daterequired:LocalDateTime, allocationdate:LocalDateTime, completeddate:LocalDateTime, senttocourtdate:LocalDateTime, receivedbycourtdate:LocalDateTime, videolink:String, notes:String, punishment:String, reductionofcrime:String, reformandrehabilitation:String, publicprotection:String, reparation:String, recommendationsnotstated:String, softdeleted:boolean, partitionareaid:Long, rowversion:Long, levelofseriousnessid:Long, deliveredreportreasonid:Long, section178:String, createddatetime:LocalDateTime, lastupdateddatetime:LocalDateTime, courtreporttypeid:Long, courtreporttype:RCourtReportType #FK to(CourtReport), createdbyuserid:Long, deliveredcourtreporttypeid:Long, lastupdateduserid:Long, trainingsessionid:Long, offenderid:Long, requiredby:Court #FK to(court), pendingtransfer:Long);
+
+localdeliveryunit(localdeliveryunitid:Long [PK], code:String, description:String, selectable:String, rowversion:Long, createdbyuserid:Long, createddatetime:LocalDateTime, lastupdateduserid:Long, lastupdateddatetime:LocalDateTime, GeneratedName:ProbationArea #FK to(probationarea), trainingsessionid:Long);
+
+businessinteractionxmlmap(businessintxmlmapid:Long [PK], businessinteractionid:Long, rootxmlmessageid:Long, xmlmessagename:String, dataupdatemode:String, includexmlmessagelist:String, excludexmlmessagelist:String, xsdnumber:Long);
+
+registrationreview(registrationreviewid:Long [PK], registrationid:Long, reviewdate:LocalDate, reviewdatedue:LocalDate, notes:String, reviewing:Team #FK to(team), reviewing:Staff #FK to(staff), completed:boolean, createdbyuserid:Long, createddatetime:LocalDateTime, lastupdateduserid:Long, updateddatetime:LocalDateTime, contactid:Long, offenderid:Long);
+
+offendertransfer(offendertransferid:Long [PK], softdeleted:Long, requestdate:LocalDate, rowversion:Long, notes:String, createddatetime:LocalDateTime, lastupdateddatetime:LocalDateTime, createdbyuserid:Long, lastupdateduserid:Long, transferstatusdate:LocalDate, allocationreason:StandardReference #FK to(standardreference));
+
+caseallocation(caseallocationid:Long [PK], offenderid:Long, GeneratedName:Event #FK to(event), rsrscore:Long, rsrassessorproviderid:Long, rsrassessorteamid:Long, rsrassessorstaffid:Long, rsrassessordate:LocalDateTime, allocationdecision:StandardReference #FK to(standardreference), allocationdecisiondate:LocalDateTime, targetproviderid:Long, decisionproviderid:Long, decisionteamid:Long, decisionstaffid:Long, allocationdecisionnotes:String, rowversion:Long, createdbyuserid:Long, createddatetime:LocalDateTime, lastupdateduserid:Long, lastupdateddatetime:LocalDateTime, allocationoverridereasonid:Long, allocationoverride:Long, ospscore:Long);
+
+disposal(disposalid:Long [PK], GeneratedName:Event #FK to(event), softdeleted:Long, offenderid:Long, length:Long, effectivelength:Long, lengthindays:Long, entrylength:Long, entrylengthunits:StandardReference #FK to(standardreference), length2:Long, entrylength2units:StandardReference #FK to(standardreference), GeneratedName:DisposalType #FK to(disposaltype), GeneratedName:Custody #FK to(custody), terminationreason:StandardReference #FK to(standardreference), terminationdate:LocalDate, startdate:LocalDate, unpaidworkdetails:UpwDetails #FK to(upwdetails), expectedsentenceenddate:LocalDate, enteredsentenceenddate:LocalDate);
+
+mainoffence(mainoffenceid:Long [PK], offencedate:LocalDateTime, offencecount:Long, GeneratedName:Event #FK to(event), tics:Long, verdict:String, softdeleted:Long, partitionareaid:Long, rowversion:Long, GeneratedName:Offence #FK to(Offence), offenderid:Long, createdbyuserid:Long, createddatetime:LocalDateTime, lastupdateduserid:Long, lastupdateddatetime:LocalDateTime);
+
+prisonoffendermanager(prisonoffendermanagerid:Long [PK], GeneratedName:Team #FK to(team), GeneratedName:Staff #FK to(staff), offenderid:Long, softdeleted:Long, GeneratedName:ProbationArea #FK to(probationarea), activeflag:Long, allocationdate:LocalDate, enddate:LocalDate, allocationreason:StandardReference #FK to(standardreference), managed:Offender #FK to(offender), rowversion:Long, createdbyuserid:Long, createddatetime:LocalDateTime, lastupdateduserid:Long, lastupdateddatetime:LocalDateTime, emailaddress:String, telephonenumber:String);
+
+approvedpremisesreferraldocument(approved_premises_referral_id:ApprovedPremisesReferral #FK to(approvedpremisesreferral));
+
+addressassessmentdocument(address_assessment_id:AddressAssessment #FK to(Address));
+
+registration(registrationid:Long [PK], offenderid:Long, GeneratedName:RegisterType #FK to(registertype), registrationdate:LocalDate, nextreviewdate:LocalDate, registrationnotes:String, softdeleted:Long, rowversion:Long, createddatetime:LocalDateTime, lastupdateddatetime:LocalDateTime, createdbyuserid:Long, lastupdateduserid:Long, deregistered:Long, registering:Staff #FK to(staff), registering:Team #FK to(team), registerlevel:StandardReference #FK to(standardreference), registercategory:StandardReference #FK to(standardreference));
+
+responsibleofficer(responsibleofficerid:Long [PK], /*currently-theresponsibleofficercanbeeithertheomorthepom.untilthepomispopulatedwithrealisticdatabytheomicprogrammetheresponsible_officerwillnotcontainaccuratedataforprisonstaff.jpalinkstotheoffenderentityshouldbeviatheresponsible_officertablebutarecurrentlyviaoffender_managerandprison_offender_managerentiries.whenrealpomsarepresentitwillmakesensetoremoveexistinglinksandaddasinglelinkviaresponsible_officertotheoffenders@manytoone.*/offenderid:Long, offendermanagerid:Long, prisonoffendermanagerid:Long, startdatetime:LocalDateTime, enddatetime:LocalDateTime, rowversion:Long, createdbyuserid:Long, createddatetime:LocalDateTime, lastupdateduserid:Long, lastupdateddatetime:LocalDateTime);
+
+event(eventid:Long [PK], offenderid:Long, inbreach:boolean, failuretocomplycount:Long, breachend:LocalDate, notes:String, eventnumber:String, activeflag:boolean, convictiondate:LocalDate, referraldate:LocalDate, softdeleted:boolean, partitionareaid:Long, rowversion:Long, pendingtransfer:Long, postsentencesupervisionrequirementflag:Long, GeneratedName:MainOffence #FK to(Offence), GeneratedName:Disposal #FK to(disposal), GeneratedName:OGRSAssessment #FK to(ogrsassessment), createdbyuserid:Long, createddatetime:LocalDateTime, lastupdateduserid:Long, lastupdateddatetime:LocalDateTime, cpsalfrescodocumentid:String, cpsdocumentname:String, user_id:User #FK to(user), cpscreateddatetime:LocalDateTime, cpsdate:LocalDate, cpssoftdeleted:Boolean, GeneratedName:Court #FK to(court));
+
+rinstitution(institutionid:Long [PK], establishment:String [PK], code:String, description:String, selectable:String, institutionname:String, faxnumber:String, rowversion:Long, createddate:Time, createdbyuserid:Long, lastupdateddate:Time, lastupdateduserid:Long, establishmenttype:StandardReference #FK to(standardreference), immigrationremovalcentre:String, nomiscdecode:String, flag:Long);
+
+upwappointment(upwappointmentid:Long [PK], GeneratedName:UpwDetails #FK to(upwdetails), GeneratedName:UpwProject #FK to(upwproject), appointmentdate:LocalDateTime, starttime:LocalDateTime, endtime:LocalDateTime, minutesoffered:Long, minutescredited:Long, traveltime:Long, attended:String, complied:String, highvisibilityvest:String, notes:String, teamid:Long, staffid:Long, softdeleted:Long, partitionareaid:Long, rowversion:Long, workqualityid:Long, behaviourid:Long, penaltytime:Long, createddatetime:LocalDateTime, lastupdateddatetime:LocalDateTime, upwoutcomeid:Long, contactoutcometypeid:Long, contactid:Long, providerteamid:Long, createdbyuserid:Long, provideremployeeid:Long, lastupdateduserid:Long, trainingsessionid:Long, offenderid:Long, projectname:String, projecttypeid:Long, intensive:String, documentlinked:String);
+
+recallreason(recallreasonid:Long [PK], code:String, description:String, selectable:String);
+
+contactuploaddocument(contactuploaddocumentid:Long [PK], contactid:Long, documentname:String);
+
+courtappearance(courtappearanceid:Long [PK], appearancedate:LocalDateTime, crowncourtcalendarnumber:String, bailconditions:String, courtnotes:String, GeneratedName:Event #FK to(event), teamid:Long, staffid:Long, softdeleted:Long, partitionareaid:Long, GeneratedName:Court #FK to(court), rowversion:Long, appearancetypeid:Long, pleaid:Long, outcome:StandardReference #FK to(standardreference), remandstatusid:Long, createdbyuserid:Long, createddatetime:LocalDateTime, lastupdateduserid:Long, lastupdateddatetime:LocalDateTime, trainingsessionid:Long, offenderid:Long, appearancetype:StandardReference #FK to(standardreference), GeneratedName:Offender #FK to(offender));
+
+offendermanager(offendermanagerid:Long [PK], GeneratedName:Team #FK to(team), GeneratedName:Staff #FK to(staff), GeneratedName:PartitionArea #FK to(partitionarea), offenderid:Long, softdeleted:Long, GeneratedName:ProviderEmployee #FK to(provideremployee), GeneratedName:ProviderTeam #FK to(providerteam), GeneratedName:Officer #FK to(officer), GeneratedName:ProbationArea #FK to(probationarea), trustproviderteam:AllTeam #FK to(allteam), activeflag:Long, allocationdate:LocalDate, enddate:LocalDate, allocationreason:StandardReference #FK to(standardreference), managed:Offender #FK to(offender));
+
+disability(disabilityid:Long [PK], offenderid:Long, disabilitytype:StandardReference #FK to(standardreference), startdate:LocalDate, finishdate:LocalDate, notes:String, softdeleted:Long, rowversion:Long, createdbyuserid:Long, lastupdateduserid:Long, createddatetime:LocalDateTime, lastupdateddatetime:LocalDateTime);
+
+probationarea(probationareaid:Long [PK], code:String, description:String, GeneratedName:Organisation #FK to(organisation), institution:RInstitution #FK to(rinstitution), enddate:LocalDate, sector:Long, establishment:String, selectable:String);
+
+circumstancesubtype(circumstancesubtypeid:long [PK], codevalue:String, codedescription:String, selectable:String, activeduplicates:String, rowversion:long, createdbyuserid:long, createddate:Time, lastupdateduserid:long, lastupdateddate:Time, trainingsessionid:Long, qualification1id:Long, qualification2id:Long, qualification3id:Long);
+
+contactdocument(contact_id:Contact #FK to(Contact));
+
+borough(boroughid:Long [PK], code:String, description:String, selectable:String, trainingsessionid:Long, rowversion:Long, createdbyuserid:Long, createddatetime:LocalDateTime, lastupdateduserid:Long, lastupdateddatetime:LocalDateTime, GeneratedName:ProbationArea #FK to(probationarea));
+
+managementtier(id:ManagementTierId, partitionareaid:Long, softdeleted:Long, rowversion:Long, tierchangereason:StandardReference #FK to(standardreference), trainingsessionid:Long, createdbyuserid:Long, lastupdateduserid:Long, iomnominal:String, safeguardingissue:String, vulnerabilityissue:String);
+
+externalprovider(externalproviderid:Long [PK], code:String, description:String, contactname:String, faxnumber:String, rowversion:Long, startdate:Time, enddate:Time, createdbyuserid:Long, createddate:Time, lastupdateduserid:Long, lastupdateddate:Time);
+
+standardreference(standardreferencelistid:Long [PK], codevalue:String, codedescription:String, selectable:String, GeneratedName:ReferenceDataMaster #FK to(referencedatamaster));
+
+offenderdocument();
+
+allteam(trustprovideflag:Long, trustproviderteamid:Long [PK], GeneratedName:ProbationArea #FK to(probationarea), description:String, telephone:String, GeneratedName:District #FK to(district));
+
+team(teamid:Long [PK], code:String, description:String, GeneratedName:District #FK to(district), GeneratedName:LocalDeliveryUnit #FK to(LocalDeliveryUnit), GeneratedName:ProbationArea #FK to(probationarea), GeneratedName:ScProvider #FK to(scprovider), flag:Long, telephone:String, emailaddress:String, unpaidworkteam:String, startdate:LocalDate, enddate:LocalDate, trainingsessionid:Long, rowversion:Long, createdbyuserid:Long, createddatetime:LocalDateTime, lastupdateduserid:Long, lastupdateddatetime:LocalDateTime);
+
+team_office_location(team_id:Team [PK] #FK to Team,office_location_id:list<officelocation> [PK] #FK to list<officelocation>);
+
+nsitype(nsitypeid:long [PK], code:String, description:String);
+
+transferreason(transferreasonid:Long [PK], code:String, description:String, selectable:String, type:String, rowversion:Long, createdbyuserid:Long, createddatetime:LocalDateTime, lastupdateduserid:Long, lastupdateddatetime:LocalDateTime);
+
+additionalsentence(additionalsentenceid:Long [PK], additionalsentencetype:StandardReference #FK to(standardreference), amount:BigDecimal, length:Long, notes:String, softdeleted:boolean, eventid:Long, offenderid:Long);
+
+nsidocument(nsi_id:Nsi #FK to(Nsi));
+
+offenderprisoner(offenderid:Long [PK], prisonernumber:String [PK], rowversion:Long, partitionareaid:Long);
+
+offenderdelta(offenderdeltaid:Long [PK], offenderid:Long, datechanged:LocalDateTime, action:String, sourcetable:String, sourcerecordid:Long, status:String, createddatetime:LocalDateTime, lastupdateddatetime:LocalDateTime);
+
+ordermanager(ordermanagerid:Long [PK], allocationdate:LocalDateTime, GeneratedName:Team #FK to(team), GeneratedName:Staff #FK to(staff), softdeleted:Long, enddate:LocalDateTime, partitionareaid:Long, rowversion:Long, GeneratedName:Event #FK to(event), allocationreason:StandardReference #FK to(standardreference), GeneratedName:ProviderEmployee #FK to(provideremployee), createdbyuserid:Long, createddatetime:LocalDateTime, lastupdateduserid:Long, lastupdateddatetime:LocalDateTime, GeneratedName:ProviderTeam #FK to(providerteam), GeneratedName:TransferReason #FK to(transferreason), GeneratedName:Officer #FK to(officer), trustproviderteam:AllTeam #FK to(allteam), GeneratedName:ProbationArea #FK to(probationarea), activeflag:Long, ordertransferid:Long);
+
+upwproject(upwprojectid:Long [PK], code:String, name:String, beneficiary:String, highvisibilityvestrequired:String, actualstartdate:LocalDateTime, completiondate:LocalDateTime, expectedenddate:LocalDateTime, beneficiarycontactaddressid:Long, placementaddressid:Long, beneficiaryaddress:String, beneficiarycontactname:String, selectable:String, partitionareaid:Long, rowversion:Long, projecttypeid:Long, trainingsessionid:Long, teamid:Long, providerteamid:Long, probationareaid:Long, createddatetime:LocalDateTime, lastupdateddatetime:LocalDateTime, commissioningsource1:Long, commissioningsource2:Long, commissioningsource3:Long, commissioningsource4:Long, placementnotes:String, beneficiarynotes:String, placementcontactname:String, commissioningsource5:Long, upwdiversity1:Long, upwdiversity2:Long, createdbyuserid:Long, upwdiversity3:Long, lastupdateduserid:Long, upwdiversity4:Long, upwdiversity5:Long);
+
+keydate(licence_expiry_date_code:String, sentence_expiry_date_code:String, keydateid:Long [PK], GeneratedName:Custody #FK to(custody), keydatetype:StandardReference #FK to(standardreference), keydate:LocalDate, partitionareaid:Long, softdeleted:Long, rowversion:Long, trainingsessionid:Long, createdbyuserid:Long, lastupdateduserid:Long, createddatetime:LocalDateTime, lastupdateddatetime:LocalDateTime);
+
+personalcontact(personalcontactid:Long [PK], offenderid:Long, relationship:String, startdate:LocalDateTime, enddate:LocalDateTime, partitionareaid:Long, firstname:String, othernames:String, surname:String, previoussurname:String, mobilenumber:String, emailaddress:String, softdeleted:Long, rowversion:Long, gender:StandardReference #FK to(standardreference), notes:String, title:StandardReference #FK to(standardreference), relationshiptype:StandardReference #FK to(standardreference), createdbyuserid:Long, createddatetime:LocalDateTime, lastupdateduserid:Long, lastupdateddatetime:LocalDateTime, trainingsessionid:Long, GeneratedName:Address #FK to(Address));
+
+iapsevent(eventid:Long [PK], iapsflag:Long, trainingsessionid:Long);
+
+explanation(explanationid:long [PK], code:String, description:String);
+
+rcourtreporttype(pre_sentence_report_types:List<String>, courtreporttypeid:Long [PK], code:String, description:String, selectable:String, delivered:String, rowversion:Long, requested:String, form30code:String, psr:String, createdbyuserid:Long, createddatetime:LocalDateTime, lastupdateduserid:Long, lastupdateddatetime:LocalDateTime, transfer:String);
+
+caseallocationdocument(case_allocation_id:CaseAllocation #FK to(caseallocation));
+
+licenceconditiontypemaincat(licenceconditiontypemaincatid:long [PK], code:String, description:String);
+
+referral(referralid:Long [PK], referraldate:LocalDateTime, attended:String, sourcenotes:String, notes:String, GeneratedName:Event #FK to(event), reftoteamid:Long, reftostaffid:Long, partitionareaid:Long, reftoprovideremployeeid:Long, softdeleted:Long, rowversion:Long, treatmentaimid:Long, reftoproviderteamid:Long, referraltype:RReferralType #FK to(rreferraltype), referralsourceid:Long, createdbyuserid:Long, createddatetime:LocalDateTime, lastupdateduserid:Long, lastupdateddatetime:LocalDateTime, genericreferraloutcomeid:Long, trainingsessionid:Long, offenderid:Long, documentlinked:String);
+
+offenderaddress(offenderaddressid:Long [PK], offenderid:Long, startdate:LocalDate, enddate:LocalDate, softdeleted:Long, addressstatus:StandardReference #FK to(standardreference), nofixedabode:String, notes:String, addressnumber:String, buildingname:String, county:String, district:String, postcode:String, streetname:String, telephonenumber:String, towncity:String, createddatetime:LocalDateTime, lastupdateddatetime:LocalDateTime);
+
+nsimanager(nsimanagerid:Long [PK], GeneratedName:Nsi #FK to(Nsi), GeneratedName:ProbationArea #FK to(probationarea), GeneratedName:Team #FK to(team), GeneratedName:Staff #FK to(staff), startdate:LocalDate, enddate:LocalDate);
+
+officelocation(officelocationid:Long [PK], code:String, description:String, buildingname:String, buildingnumber:String, streetname:String, towncity:String, county:String, postcode:String, startdate:LocalDate, enddate:LocalDate, faxnumber:String, telephonenumber:String, rowversion:Long, notes:String, contactname:String, createddatetime:LocalDateTime, createdbyuserid:Long, lastupdateddatetime:LocalDateTime, lastupdateduserid:Long, district:String);
+
+document(documentid:long [PK], createddate:LocalDateTime, lastsaved:LocalDateTime, offenderid:Long, partitionareaid:Long, primarykeyid:Long, rowversion:Long, softdeleted:boolean, tablename:String, createdbyuserid:Long, userid:Long, status:String, workinprogress:String, templatename:String, documentname:String, alfrescoid:String, createdbyprobationareaid:Long, lastupdatedbyprobationareaid:Long, TABLE_NAME: String);
+
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

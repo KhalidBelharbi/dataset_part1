@@ -1,0 +1,563 @@
+
+task(taskid:int [PK], ownerid:Integer, title:String, description:String, recurrencerule:String, recurrenceexception:String, recurrenceid:Integer, isallday:boolean, start:Date, end:Date);
+
+costcenter(ccid:int [PK], name:String, description:String, createdby:String, lastupdatedby:String, lastupd:Date);
+
+helptopicentity(/***/serialversionuid:long, topicid:int [PK], topicname:String, topicdesc:String, createddate:Timestamp, normalsla:int, dept_id:int, deptobj:Department #FK to(department), level1user:int, obj1:Users #FK to(users), level1sla:int, level2user:int, obj2:Users #FK to(users), level2sla:int, level3user:int, obj3:Users #FK to(users), level3sla:int, level1notifiedusers:String, level2notifiedusers:String, level3notifiedusers:String, status:String, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp);
+
+medicalemergencydisability(meid:int, personid:int, mecategory:String, disabilitytype:String, description:String, mehospitalname:String, mehospitalcontact:String, mehospitaladdress:String, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp);
+
+adjustmentcomponentsentity(adjcomid:int [PK], adjustmentcontrolentity:PaymentAdjustmentControlEntity #FK to(paymentadjustmentcontrolentity), transactioncode:String, status:String, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp);
+
+photogallery(pgid:int [PK], image:Blob, peid:int, pe_id:PhotoEvent #FK to(photoevent));
+
+electricitysubledgerentity(elsubledgerid:int [PK], /*@column(name:ElectricityLedgerEntity #FK to(electricityledgerentity), /*@column(name:String, amount:double, balanceamount:double, status:String, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp);
+
+vendorcontracts(vcid:int [PK], vendorid:int, GeneratedName:Vendors #FK to(vendors), reqid:int, GeneratedName:Requisition #FK to(requisition), storeid:int, GeneratedName:StoreMaster #FK to(storemaster), camcategoryid:int, /*@column(name:String, description:String, contractno:String, contractstart:Date, contractend:Date, drgroupid:int, invoicepayabledays:Integer, vendorsla:int, status:String, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp, renewalrequired:String);
+
+ownerproperty(//fieldsownerpropertyid:int, GeneratedName:Property, GeneratedName:Owner, drgroupid:Long, visitorregreq:String, propertyaquired:Date, propertyreling:Date, status:String, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp, propertyid:int, ownerid:int, GeneratedName:Person, primaryowner:String, residential:String);
+
+userrole(uro_id:int [PK], uro_rl_id:int, uro_ur_id:int, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp, aggrerolename:String);
+
+jobcalender(serialversionuid:long, jobcalenderid:int [PK], scheduletype:int, title:String, description:String, recurrencerule:String, recurrenceexception:String, recurrenceid:int, isallday:boolean, start:Date, end:Date, jobnumber:String, jobgroup:String, expecteddays:int, jobpriority:String, jobassets:String, GeneratedName:MaintainanceTypes, name:Department, GeneratedName:AssetMaintenanceSchedule, GeneratedName:JobTypes, GeneratedName:Person);
+
+storephysicalinventory(spiid:int [PK], spidt:Timestamp, surveydt:Timestamp, surveycompletedt:Timestamp, surveyname:String, surveydescription:String, spistatus:String, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp);
+
+filerepository(//fieldsfrid:int [PK], frgroupid:int, docname:String, docdescription:String, //@notempty(message:String, frsearchtag:String, status:String, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp, drfile:Blob, GeneratedName:FileRepositoryTree #FK to(filerepositorytree));
+
+maintainancetypes(serialversionuid:long, //fieldsmtid:int, maintainancetype:String, description:String, mtdt:Timestamp, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp);
+
+designation(dn_id:int [PK], dn_name:String, dn_description:String, dr_status:String, dept_id:int, created_by:String, last_updated_by:String, lastupdateddt:Timestamp, GeneratedName:Department #FK to(department));
+
+serviceparametersentity(serviceparameterid:int [PK], /*@column(name:ServiceMastersEntity #FK to(servicemastersentity), spmid:int, GeneratedName:ServiceParameterMaster #FK to(serviceparametermaster), serviceparameterdatatype:String, serviceparametervalue:String, serviceparametersequence:int, status:String, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp);
+
+wttariffmaster(/***/serialversionuid:long, wttariffid:int [PK], tariffcode:String, tariffname:String, tariffdescription:String, parentid:Integer, treehierarchy:String, tariffnodetype:String, status:String, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp, validfrom:Date, validto:Date, parenttariff:WTTariffMaster #FK to(wttariffmaster));
+
+adjustmentmasterentity(adjmasterid:int [PK], adjname:String, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp, status:String, description:String);
+
+documentdefiner(ddid:int [PK], ddtype:String, ddname:String, ddformat:String, dddescription:String, ddoptional:String, ddstartdate:java.sql.Date, ddenddate:java.sql.Date, ddrvcomplaince:String, status:String, createdby:String, lastupdatedby:String, lastup:Date);
+
+commonservicestodrates(cstiid:int [PK], csrsid:int, fromtime:Timestamp, totime:Timestamp, incrementalrate:float, todvalidfrom:Date, todvalidto:Date, status:String, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp, GeneratedName:CommonServicesRateSlab #FK to(commonservicesrateslab), cstodratetype:String);
+
+assetownership(aoid:int [PK], assetid:int, ownership:int, maainanceowner:int, aostartdate:java.util.Date, aoenddate:java.util.Date, createdby:String, lastupdatedby:String, lastupd:Date, GeneratedName:Asset, ownership:Person, maintainanceowner:Person);
+
+personaccesscards(personacid:int [PK], acid:int, /*@column(name:String, lastupdatedby:String, lastupdateddt:Timestamp, personid:int);
+
+photoevent(peid:int [PK], eventname:String, eventdesc:String);
+
+servicepointentity(servicepoid:int [PK], propertyid:int, srid:Integer, GeneratedName:ServiceRoute #FK to(serviceroute), obj:Property #FK to(property), typeofservice:String, servicepointname:String, servicemetered:String, commission:Date, decommission:Date, servicelocation:String, status:String, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp);
+
+parkingslotsallotment(//fieldsserialversionuid:long, psaid:int [PK], GeneratedName:Blocks, GeneratedName:Property, GeneratedName:ParkingSlots, //ownerownerallotmentdatefrom:Timestamp, allotmentdateto:Timestamp, psrent:int, psrentlastrevised:Timestamp, psrentlastraised:Timestamp, status:String, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp);
+
+trendlogvalue(trendlogid:Integer [PK], logtime:Timestamp, valuetype:Integer, logvalue:Double, sequence:Integer);
+
+paymentsegmentcalclines(calclinesid:int [PK], GeneratedName:PaymentSegmentsEntity #FK to(paymentsegmentsentity), transactioncode:String, transactionsubcode:String, amount:double, status:String, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp);
+
+servicepointinstructionsentity(spinstructionid:int [PK], srid:int, GeneratedName:ServiceRoute #FK to(serviceroute), instruction:Date, alert:String, instructions:String, status:String, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp);
+
+broadteletariffmaster(/***/serialversionuid:long, broadteletariffid:int [PK], broadteletariffcode:String, broadteletariffname:String, broadteletariffdescription:String, broadteleparentid:Integer, broadteletreehierarchy:String, broadteletariffnodetype:String, status:String, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp, validfrom:Date, validto:Date, parenttariff:BroadTeleTariffMaster #FK to(broadteletariffmaster));
+
+storeoutward(//fieldsserialversionuid:long, srid:int [PK], GeneratedName:Users, userid:int, GeneratedName:Vendors, vendorid:int, GeneratedName:StoreMaster, storemasterid:int, GeneratedName:UnitOfMeasurement, uomid:int, GeneratedName:ItemMaster, itemmasterid:int, itemreturnquantity:Double, reasonforreturn:String, dateofreturn:Timestamp, createdby:String, lasupdatedby:String, status:String);
+
+storephysicalinventoryreport(spirid:int [PK], spiid:int, storeid:int, imid:int, uomid:int, GeneratedName:StoreMaster, GeneratedName:ItemMaster, GeneratedName:UnitOfMeasurement, expectedbalance:Double, availablebalance:Double, spicondition:String, spinotes:String, createdby:String, lastupdatedby:String, lastupddt:Date);
+
+billingconfiguration(/***/id:int [PK], /***/configname:String, /***/configvalue:String, /***/description:String, /***/status:String, /***/createdby:String, /***/lastupdatedby:String, /***/lastupdateddt:Timestamp);
+
+commonservicesrateslab(csrsid:int [PK], csrmid:int, csslabno:int, csslabfrom:Float, csslabto:Float, csrate:Float, status:String, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp, GeneratedName:CommonServicesRateMaster #FK to(commonservicesratemaster), csslabtype:String, csslabratetype:String);
+
+preregisteredvisitors(viid:int [PK], blockid:int, GeneratedName:Blocks #FK to(blocks), propertyid:int, GeneratedName:Property #FK to(property), visitorname:String, visitorcontactno:String, fromtime:String, totime:String, parkingrequired:String, vehicleno:String, visitorpassword:String, visitorfrom:String, preregistereduser:String, createdby:String, lastupdatedby:String, gender:String, noofvisitors:int, status:String, visiting:Date, personimages:Blob);
+
+gastariffmaster(/***/serialversionuid:long, gastariffid:int [PK], gastariffcode:String, gastariffname:String, gastariffdescription:String, gasparentid:Integer, gastreehierarchy:String, gastariffnodetype:String, gasstatus:String, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp, validfrom:Date, validto:Date, parenttariff:GasTariffMaster #FK to(gastariffmaster));
+
+customeritemsentity(ccid:int [PK], cid:int, itemname:String, itemquantity:double, itemprice:float, itemtotalprice:float, GeneratedName:CustomerEntity #FK to(customerentity), uom:String);
+
+projectlocation(projectlocationid:int [PK], stateid:int, projectlocationname:String, lastupdateddate:Timestamp);
+
+assetwarranty(awid:int [PK], assetid:int, warrantyfrom:Date, warrantyto:Date, warrantytype:String, warrantyvalid:String, createdby:String, lastupdatedby:String, lastupd:Date, GeneratedName:Asset);
+
+meterreader(mrid:int [PK], personid:int, mrno:String, mrstatus:String, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp, GeneratedName:Person);
+
+broadteleratemaster(broadtelermid:int [PK], broadteletariffid:int, broadteleratename:String, broadteleratedescription:String, broadteleratetype:String, broadtelerateuom:String, broadtelevalidfrom:Date, broadtelevalidto:Date, status:String, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp, broadteleminrate:Float, broadtelemaxrate:Float, GeneratedName:BroadTeleTariffMaster #FK to(broadteletariffmaster));
+
+camledgerentity(camledgerid:int [PK], ccid:int, camheadproperty:String, calculationbased:String, posttype:String, ledger:Date, postedtobill:String, ledgerperiod:String, postreference:String, creditamount:double, debitamount:double, balance:double, headbalance:double, postedbilldate:Timestamp, transactioncode:String, status:String, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp);
+
+domestic(domesticid:int, personid:int, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp, domestichelpstatus:String, GeneratedName:Person);
+
+elratemaster(elrmid:int [PK], eltariffid:int, ratename:String, ratenamecategory:String, ratedescription:String, rateunit:int, ratetype:String, rateuom:String, validfrom:Date, validto:Date, status:String, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp, GeneratedName:ELTariffMaster #FK to(eltariffmaster), minrate:Float, maxrate:Float, todtype:String);
+
+advancecollectionentity(advcollid:int [PK], obj:Account #FK to(account), totalamount:double, amountcleared:double, balanceamount:double, transactioncode:String, status:String, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp);
+
+requisitiondetails(rdid:int [PK], requisitionid:int, //@notnull(message:Requisition #FK to(requisition), drgroupid:int, rdslno:int, imid:int, GeneratedName:ItemMaster #FK to(itemmaster), rddescription:String, uomid:int, GeneratedName:UnitOfMeasurement #FK to(unitofmeasurement), dn_id:int, GeneratedName:Designation #FK to(designation), rdquantity:int, reqfulfilled:int, uombudget:int, /*@column(name:String, lastupdatedby:String);
+
+accesscards(acid:int [PK], /*@column(name:String, acno:String, /*@column(name:String, createdby:String, lastupdatedby:String);
+
+jcteam(serialversionuid:long, //fieldsjctid:int, GeneratedName:Department, GeneratedName:JobCards, GeneratedName:Person, jctstartdt:Timestamp, jctenddt:Timestamp, jcthours:String, jctworktime:String, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp);
+
+unitofmeasurement(uomid:int [PK], imid:int, GeneratedName:ItemMaster #FK to(itemmaster), uom:String, code:String, baseuom:String, uomconversion:Double, status:String);
+
+manpowerapproval(app_id:int [PK], userid1:int, status:String, approvedby:String, approved:Date);
+
+family(//fieldsfamilyid:int, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp, personid:int, familystatus:String, GeneratedName:Person);
+
+solidwastetariffmaster(solidwastetariffid:int [PK], solidwastetariffcode:String, solidwastetariffname:String, solidwastetariffdescription:String, solidwasteparentid:Integer, solidwastetreehierarchy:String, solidwastetariffnodetype:String, status:String, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp, validfrom:Date, validto:Date, parenttariff:SolidWasteTariffMaster #FK to(solidwastetariffmaster));
+
+tower_h_dg_kwh(//fieldsdatestr:Timestamp, s1n1kwh:Double, s1n2kwh:Double, s1n3kwh:Double, s1n4kwh:Double, s1n5kwh:Double, s1n6kwh:Double, s1n7kwh:Double, s1n8kwh:Double, s1n9kwh:Double, s1n10kwh:Double, s1n11kwh:Double, s1n12kwh:Double, s1n13kwh:Double, s1n14kwh:Double, s1n15kwh:Double, s1n16kwh:Double, s1n17kwh:Double, s1n18kwh:Double, s1n19kwh:Double, s1n20kwh:Double, s1n21kwh:Double, s1n22kwh:Double, s1n23kwh:Double, s1n24kwh:Double, s1n25kwh:Double, s1n26kwh:Double, s1n27kwh:Double, s1n28kwh:Double, s1n29kwh:Double, s1n30kwh:Double, s1n31kwh:Double, s1n32kwh:Double, s1n33kwh:Double, s1n34kwh:Double, s1n35kwh:Double, s1n36kwh:Double, s1n37kwh:Double, s1n38kwh:Double, s1n39kwh:Double, s1n40kwh:Double, s1n41kwh:Double, s1n42kwh:Double, s1n43kwh:Double, s1n44kwh:Double, s1n45kwh:Double, s1n46kwh:Double, s1n47kwh:Double, s1n48kwh:Double, s1n49kwh:Double, s1n50kwh:Double, s1n51kwh:Double, s1n52kwh:Double, s1n53kwh:Double, s1n54kwh:Double, s1n55kwh:Double, s1n56kwh:Double, s1n57kwh:Double, s1n58kwh:Double, s1n59kwh:Double, s1n60kwh:Double, s1n61kwh:Double, s1n62kwh:Double, s1n63kwh:Double, s1n64kwh:Double, s1n65kwh:Double, s1n66kwh:Double, s1n67kwh:Double, s1n68kwh:Double, s1n69kwh:Double, s1n70kwh:Double, s1n71kwh:Double, s1n72kwh:Double, s1n73kwh:Double, s1n74kwh:Double, s1n75kwh:Double, s1n76kwh:Double, s1n77kwh:Double, s1n78kwh:Double, s1n79kwh:Double, s1n80kwh:Double, s1n81kwh:Double, s1n82kwh:Double, s1n83kwh:Double, s1n84kwh:Double, s1n85kwh:Double, s1n86kwh:Double, s1n87kwh:Double, s1n88kwh:Double, s1n89kwh:Double, s1n90kwh:Double, s1n91kwh:Double, s1n92kwh:Double, s1n93kwh:Double, s1n94kwh:Double, s1n95kwh:Double, s1n96kwh:Double, s1n97kwh:Double, s1n98kwh:Double, s1n99kwh:Double, s1n100kwh:Double, s1n101kwh:Double, s1n102kwh:Double, s1n103kwh:Double, s1n104kwh:Double);
+
+ticketassignentity(assignid:int [PK], ticketid:int, GeneratedName:OpenNewTicketEntity #FK to(opennewticketentity), urid:int, obj:Users #FK to(users), escalated:String, levelofsla:int, assigncomments:String, assigndate:Timestamp, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp);
+
+tower_g_dg_kwh(//fieldsdatestr:Timestamp, s1n326kwh:Double, s1n327kwh:Double, s1n328kwh:Double, s1n329kwh:Double, s1n330kwh:Double, s1n331kwh:Double, s1n332kwh:Double, s1n333kwh:Double, s1n334kwh:Double, s1n335kwh:Double, s1n336kwh:Double, s1n337kwh:Double, s1n338kwh:Double, s1n339kwh:Double, s1n340kwh:Double, s1n341kwh:Double, s1n342kwh:Double, s1n343kwh:Double, s1n344kwh:Double, s1n345kwh:Double, s1n346kwh:Double, s1n347kwh:Double, s1n348kwh:Double, s1n349kwh:Double, s1n350kwh:Double, s1n351kwh:Double, s1n352kwh:Double, s1n353kwh:Double, s1n354kwh:Double, s1n355kwh:Double, s1n356kwh:Double, s1n357kwh:Double, s1n358kwh:Double, s1n359kwh:Double, s1n360kwh:Double, s1n361kwh:Double, s1n362kwh:Double, s1n363kwh:Double, s1n364kwh:Double, s1n365kwh:Double, s1n366kwh:Double, s1n367kwh:Double, s1n368kwh:Double, s1n369kwh:Double);
+
+vendorcontractlineitems(vclid:int [PK], vcid:int, imid:int, uomid:int, GeneratedName:UnitOfMeasurement #FK to(unitofmeasurement), GeneratedName:ItemMaster #FK to(itemmaster), vclslno:int, reqtype:String, quantity:int, rate:int, amount:int, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp);
+
+faq(//fieldsfaqid:int, faqtype:String, faqsubject:String, faqcontent:String, createdby:String, lastupdatedby:String, lastupdateddate:Timestamp, faqdocument:Blob);
+
+manpower(mnid:int [PK], fname:String, lname:String, /*@min(value:int, dnid:int, urid:int, /*@onetoone	@joincolumn(name:String, lastupdatedby:String, lastupdateddt:String, ////@joincolumn(name:Designation #FK to(designation), GeneratedName:Department #FK to(department), workshift:String, supervisor:String, empstatus:String, urloginname:String, emailid:String, mobileno:long);
+
+accessrepository(arid:int [PK], arname:String, ardescription:String, arloication:String, status:String, createdby:String, lastupdatedby:String, lastupdateddt:String);
+
+state(//fieldsstateid:int, statename:String, countryid:int);
+
+tower_b_eb_kwh(//fieldsdatestr:Timestamp, s1n105kwh:Double, s1n106kwh:Double, s1n107kwh:Double, s1n108kwh:Double, s1n109kwh:Double, s1n110kwh:Double, s1n111kwh:Double, s1n112kwh:Double, s1n113kwh:Double, s1n114kwh:Double, s1n115kwh:Double, s1n116kwh:Double, s1n117kwh:Double, s1n118kwh:Double, s1n119kwh:Double, s1n120kwh:Double, s1n121kwh:Double, s1n122kwh:Double, s1n123kwh:Double, s1n124kwh:Double, s1n125kwh:Double, s1n126kwh:Double, s1n127kwh:Double, s1n128kwh:Double, s1n129kwh:Double, s1n130kwh:Double, s1n131kwh:Double, s1n132kwh:Double, s1n133kwh:Double, s1n134kwh:Double, s1n135kwh:Double, s1n136kwh:Double, s1n137kwh:Double, s1n138kwh:Double, s1n139kwh:Double, s1n140kwh:Double, s1n141kwh:Double, s1n142kwh:Double, s1n143kwh:Double, s1n144kwh:Double, s1n145kwh:Double, s1n146kwh:Double, s1n147kwh:Double, s1n148kwh:Double, s1n149kwh:Double, s1n150kwh:Double, s1n151kwh:Double, s1n152kwh:Double, s1n153kwh:Double, s1n154kwh:Double, s1n155kwh:Double, s1n156kwh:Double, s1n157kwh:Double, s1n158kwh:Double, s1n159kwh:Double, s1n160kwh:Double, s1n161kwh:Double, s1n162kwh:Double, s1n163kwh:Double, s1n164kwh:Double, s1n165kwh:Double, s1n166kwh:Double, s1n167kwh:Double, s1n168kwh:Double, s1n169kwh:Double, s1n170kwh:Double, s1n171kwh:Double, s1n172kwh:Double, s1n173kwh:Double, s1n174kwh:Double, s1n175kwh:Double, s1n176kwh:Double, s1n177kwh:Double, s1n178kwh:Double, s1n179kwh:Double, s1n180kwh:Double, s1n181kwh:Double, s1n182kwh:Double, s1n183kwh:Double, s1n184kwh:Double, s1n185kwh:Double, s1n186kwh:Double, s1n187kwh:Double, s1n188kwh:Double, s1n189kwh:Double, s1n190kwh:Double, s1n191kwh:Double, s1n192kwh:Double, s1n193kwh:Double, s1n194kwh:Double, s1n195kwh:Double, s1n196kwh:Double, s1n197kwh:Double, s1n198kwh:Double, s1n199kwh:Double, s1n200kwh:Double, s1n201kwh:Double, s1n202kwh:Double, s1n203kwh:Double, s1n204kwh:Double, s1n205kwh:Double, s1n206kwh:Double, s1n207kwh:Double, s1n208kwh:Double, s1n209kwh:Double, s1n210kwh:Double, s1n211kwh:Double, s1n212kwh:Double, s1n213kwh:Double, s1n214kwh:Double, s1n215kwh:Double, s1n216kwh:Double, s1n217kwh:Double, s1n218kwh:Double, s1n219kwh:Double, s1n220kwh:Double, s1n221kwh:Double, s1n222kwh:Double, s1n223kwh:Double, s1n224kwh:Double, s1n225kwh:Double, s1n226kwh:Double, s1n227kwh:Double, s1n228kwh:Double, s1n229kwh:Double, s1n230kwh:Double, s1n231kwh:Double, s1n232kwh:Double, s1n233kwh:Double, s1n234kwh:Double, s1n235kwh:Double, s1n236kwh:Double, s1n237kwh:Double);
+
+country(//fieldscountryid:int, countryname:String);
+
+familyproperty(/***classfields*/familypropertyid:int, familyid:int, //intpropertyidpropertyno:String, GeneratedName:Property, propertyid:int, fprelationship:String, startdate:Timestamp, enddate:Timestamp, status:String, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp, //personidownerid:int);
+
+prepaidservicemaster(serviceid:int [PK], service_name:String, from:Date, to:Date, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp, status:String);
+
+city(//fieldscityid:int, cityname:String, stateid:int);
+
+assetcategory(assetcatid:int [PK], assetcattext:String, parentid:Integer);
+
+meterhistoryentity(meterhistoryid:int [PK], GeneratedName:ServiceMastersEntity #FK to(servicemastersentity), GeneratedName:ElectricityMetersEntity #FK to(electricitymetersentity), GeneratedName:ElectricityMeterLocationEntity #FK to(electricitymeterlocationentity), createdby:String, lastupdatedby:String, lastupdateddt:Timestamp);
+
+storemaster(storeid:int [PK], storename:String, storeinchargestaffid:int, storelocation:String, storestatus:String, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp, GeneratedName:Users);
+
+electricitybilllineitementity(elbilllineid:int [PK], GeneratedName:ElectricityBillEntity #FK to(Bill), transactioncode:String, creditamount:double, debitamount:double, balanceamount:double, status:String, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp);
+
+filerepositorytree(parent:FileRepositoryTree #FK to(filerepositorytree), frgroupid:int [PK], frgroupname:String, parentid:Integer, frgroupdescription:String, treehierarchy:String);
+
+conciergeservices(cssid:int [PK], servicegroupname:String, servicename:String, servicestart:Date, serviceend:Date, servicedescription:String, status:String, createdby:String, lastupdatedby:String, lastupddt:Date);
+
+account(accountid:int [PK], personid:int, accountno:String, accounttype:String, accountstatus:String, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp, GeneratedName:Person, propertyid:int);
+
+prepaidbilldetails(prebillid:int [PK], propertyid:int, bill_amt:long, billno:String, bill_month:Date, previousbal:double, closingbal:double, mailstatus:String);
+
+owner(//fieldsownerid:int, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp, personid:int, ownerstatus:String, GeneratedName:Person);
+
+electricitymeterparametersentity(elmeterparameterid:int [PK], /*@column(name:ElectricityMetersEntity #FK to(electricitymetersentity), mpmid:int, parametermasterobj:MeterParameterMaster #FK to(meterparametermaster), elmasterparameterdatatype:String, elmeterparametervalue:String, notes:String, elmeterparametersequence:int, status:String, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp);
+
+requisition(//fieldsreqid:int [PK], //@min(value:int, GeneratedName:Person #FK to(person), dept_id:int, GeneratedName:Department #FK to(department), req:Date, reqtype:String, reqby:Date, drgroupid:int, reqvendorquoterequisition:String, /*@column(name:int, GeneratedName:Vendors #FK to(vendors), status:String, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp, reqname:String, reqdescription:String, storeid:int, GeneratedName:StoreMaster #FK to(storemaster));
+
+storecategory(parent:StoreCategory #FK to(storecategory), storecategoryid:String [PK], storecategoryname:String, parentid:String);
+
+vendorpricelist(vpid:int [PK], vendorid:int, GeneratedName:Vendors #FK to(vendors), imid:int, GeneratedName:ItemMaster #FK to(itemmaster), uomid:int, GeneratedName:UnitOfMeasurement #FK to(unitofmeasurement), rate:Long, validfrom:Date, validto:Date, deliveryat:String, paymentterms:String, invoice_payable_days:int, itemtype:String, createdby:String, status:String, lastupdatedby:String);
+
+groups(gr_id:int [PK], gr_description:String, gr_name:String, gr_status:String, created_by:String, last_updated_by:String);
+
+interestsettingsentity(/***/serialversionuid:long, settingid:int [PK], interestbasedon:String, status:String, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp);
+
+usergroup(ug_id:int [PK], ug_gr_id:int, ug_ur_id:int, created_by:String, last_updated_by:String, last_updated_dt:Timestamp);
+
+tower_a_dg_kwh(//fieldsdatestr:Timestamp, s1n238kwh:Double, s1n239kwh:Double, s1n240kwh:Double, s1n241kwh:Double, s1n242kwh:Double, s1n243kwh:Double, s1n244kwh:Double, s1n245kwh:Double, s1n246kwh:Double, s1n247kwh:Double, s1n248kwh:Double, s1n249kwh:Double, s1n250kwh:Double, s1n251kwh:Double, s1n252kwh:Double, s1n253kwh:Double, s1n254kwh:Double, s1n255kwh:Double, s1n256kwh:Double, s1n257kwh:Double, s1n258kwh:Double, s1n259kwh:Double, s1n260kwh:Double, s1n261kwh:Double, s1n262kwh:Double, s1n263kwh:Double, s1n264kwh:Double, s1n265kwh:Double, s1n266kwh:Double, s1n267kwh:Double, s1n268kwh:Double, s1n269kwh:Double, s1n270kwh:Double, s1n271kwh:Double, s1n272kwh:Double, s1n273kwh:Double, s1n274kwh:Double, s1n275kwh:Double, s1n276kwh:Double, s1n277kwh:Double, s1n278kwh:Double, s1n279kwh:Double, s1n280kwh:Double, s1n281kwh:Double);
+
+wtrateslabs(wtrsid:int [PK], wtrmid:int, wtslabno:int, wtslabfrom:Float, wtslabto:Float, wtrate:float, wtrateslabstatus:String, wtrateslabcreatedby:String, wtrateslablastupdatedby:String, wtrateslablastupdateddt:Timestamp, wtslabtype:String, wtslabratetype:String);
+
+csvendorcommentsrating(//fieldsvcrid:int, csvid:int, ownerid:int, personid:int, csvendors:ConciergeVendors #FK to(conciergevendors), GeneratedName:Owner, comments:String, ratings:int, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp);
+
+adjustmentcalclinesentity(calclineid:int [PK], GeneratedName:PaymentAdjustmentEntity #FK to(paymentadjustmententity), transactioncode:String, amount:double, status:String, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp);
+
+storeadjustments(said:int [PK], GeneratedName:StoreMaster, GeneratedName:Users, GeneratedName:UnitOfMeasurement, GeneratedName:ItemMaster, GeneratedName:VendorContracts, sadt:Timestamp, sanumber:int, itemquantity:Double, ledgerupdatedt:Timestamp, reasonforadjustment:String, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp, storeid:int, approvedbystaffid:int, imid:int, uomid:int, vcid:int, sa:Date, itemmanufacture:Date);
+
+userlog(//fieldsulid:int [PK], ulsessionstart:Timestamp, ulsessionend:Timestamp, ulsessionid:String, urloginname:String, logoutmethod:String, previousloginrole:String, status:String, systemip:String, duration:String);
+
+frchange(frid:int [PK], accountid:int, GeneratedName:Account #FK to(account), typeofservice:String, bill:Date, presentreading:double, reading:double, description:String, status:String, createdby:String, lastupdatedby:String, lastupdateddate:Timestamp, presentreadingdg:Double, readingdg:Double);
+
+role(rlid:int [PK], rlname:String, /*@pattern(regexp:String, rlstatus:String, createdby:String, lastupdatedby:String, lastupdateddate:Timestamp);
+
+mailmaster(mailmasterid:int [PK], mailsubject:String, mailmessage:String, mailservicetype:String);
+
+tenantproperty(/***classfields*/tenantpropertyid:int, id:Tenant, GeneratedName:Property, propertyid:int, groupid:int, startdate:Timestamp, enddate:Timestamp, status:String, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp);
+
+tenant(tenantid:int, personid:int, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp, tenantstatus:String, GeneratedName:Person);
+
+storemovement(stmid:int [PK], GeneratedName:UnitOfMeasurement, GeneratedName:ItemMaster, to:StoreMaster, from:StoreMaster, GeneratedName:VendorContracts, tostoreid:int, fromstoreid:int, itemquantity:Double, itemmanufacturer:String, itemexpiry:Date, warrantyvalidtill:Date, specialinstructions:String, partno:String, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp, imid:int, uomid:int, vcid:int);
+
+commontariffmaster(cstariffid:int [PK], cstariffcode:String, cstariffname:String, cstariffdescription:String, csparentid:Integer, cstreehierarchy:String, validfrom:Date, validto:Date, cstariffnodetype:String, status:String, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp, parenttariff:CommonTariffMaster #FK to(commontariffmaster));
+
+prepaidcalculationbasisentity(cid:int [PK], cbname:String, sid:int, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp);
+
+onlinepaymenttransactions(id:int [PK], merchantid:String, payumoney_id:String, transaction_id:String, service_type:String, cbid:String, payment_status:String, created_date:Timestamp, tx_amount:String, account_id:Integer, orderid:String, failedreason:String, entity:Account #FK to(account));
+
+jobnotification(serialversionuid:long, //fieldsjnid:int, GeneratedName:Property, GeneratedName:JobCards, block:Blocks, blockid:int, notificationtype:String, notification:String, notify:String, notificationmembers:int, jndt:Timestamp, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp, status:String);
+
+eltodrates(eltiid:int [PK], elrsid:int, fromtime:Timestamp, totime:Timestamp, incrementalrate:float, todvalidfrom:Date, todvalidto:Date, status:String, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp, GeneratedName:ELRateSlabs #FK to(elrateslabs), todratetype:String);
+
+itemmaster(imid:int [PK], imgroup:String, imtype:String, impurchaseuom:String, uomclass:String, imname:String, imdescription:String, imuom_usable:String, imoptimal_stock:int, imuomissue:String, reorderlevel:String, createdby:String, lastupdatedby:String, imcreated:Date);
+
+prepaidconsumptionentity(consupid:long [PK], ca_no:String, meterno:String, GeneratedName:Date, ebunit:double, dgunit:double, eb_amt:double, dg_amt:double, fixedcharges:double, recharge_amt:long, balance:double, nooftimerech:int, cum_eb_reading:double, cum_dg_reading:double);
+
+module(md_id:int [PK], pr_id:int, md_name:String, md_description:String, GeneratedName:Product #FK to(product));
+
+advancepaymententity(advpayid:int [PK], receiptno:String, amount:double, advpayment:Date, status:String, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp, GeneratedName:AdvanceCollectionEntity #FK to(advancecollectionentity));
+
+feedback(feedbackid:int [PK], ticketid:int, name:String, feedback:String);
+
+csvendorservicecharges(//fieldsvscid:int, vendorservices:ConciergeVendorServices #FK to(conciergevendorservices), vsid:int, collectionmethod:String, serviceratetype:String, srtpaymethod:String, serviceratetypenote:String, vendorratetype:String, vrtpaymethod:String, vendorratetypenote:String, servicerate:int, vendorrate:int, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp);
+
+depositsrefundentity(/***/serialversionuid:long, refundid:int [PK], refundamount:double, loadchangeunits:double, notes:String, paymentthrough:String, instrumentno:String, instrument:Date, bankname:String, refund:Date, status:String, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp, GeneratedName:Deposits #FK to(deposits));
+
+assetphysicalsurveyreport(apid:int [PK], apsmid:int, assetid:int, assetcondition:String, assetnotes:String, createdby:String, lastupdatedby:String, lastupd:Date, GeneratedName:Asset, GeneratedName:AssetPhysicalSurvey);
+
+domesticproperty(/***classfields*/domasticpropertyid:int, domasticid:int, //intpropertyidpropertyno:String, GeneratedName:Property, propertyid:int, worknature:String, startdate:Timestamp, enddate:Timestamp, status:String, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp);
+
+jobdocuments(//fieldsserialversionuid:long, jobdocid:int [PK], GeneratedName:JobCards, documentdescription:String, jobdocument:Blob, createdby:String, updatedby:String, lastupdateddate:Timestamp, documentname:String, documenttype:String);
+
+tower_c_dg_kwh(//fieldsdatestr:Timestamp, s1n282kwh:Double, s1n283kwh:Double, s1n284kwh:Double, s1n285kwh:Double, s1n286kwh:Double, s1n287kwh:Double, s1n288kwh:Double, s1n289kwh:Double, s1n290kwh:Double, s1n291kwh:Double, s1n292kwh:Double, s1n293kwh:Double, s1n294kwh:Double, s1n295kwh:Double, s1n296kwh:Double, s1n297kwh:Double, s1n298kwh:Double, s1n299kwh:Double, s1n300kwh:Double, s1n301kwh:Double, s1n302kwh:Double, s1n303kwh:Double, s1n304kwh:Double, s1n305kwh:Double, s1n306kwh:Double, s1n307kwh:Double, s1n308kwh:Double, s1n309kwh:Double, s1n310kwh:Double, s1n311kwh:Double, s1n312kwh:Double, s1n313kwh:Double, s1n314kwh:Double, s1n315kwh:Double, s1n316kwh:Double, s1n317kwh:Double, s1n318kwh:Double, s1n319kwh:Double, s1n320kwh:Double, s1n321kwh:Double, s1n322kwh:Double, s1n323kwh:Double, s1n324kwh:Double, s1n325kwh:Double);
+
+maintainancedepartment(serialversionuid:long, //fieldsmtdpit:int, GeneratedName:Users, GeneratedName:Department, status:String, jobtype:String);
+
+storegoodsreturns(sgrid:int [PK], returnedtovendor:Vendors #FK to(vendors), returnedbystaff:Users #FK to(users), GeneratedName:JcMaterials, GeneratedName:StoreMaster, GeneratedName:UnitOfMeasurement, GeneratedName:ItemMaster, itemreturnquantity:Double, reasonforreturn:String, ofreturn:Date, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp, returnedtovendorid:int, returnedbystaffid:int, jcid:int, storeid:int, uomid:int, imid:int);
+
+stafftraining(stid:int [PK], personid:int, GeneratedName:Person #FK to(person), ptslno:int, trainingname:String, trainedby:String, from:Date, to:Date, trainingdesc:String, certificationach:String, createdby:String, lastupdatedby:String, lastupd:Date, trainingdocument:Blob, trainingdocumenttype:String);
+
+asset(assetid:int [PK], assetname:String, assetdesc:String, assetpodetail:String, assetcatid:int, assettype:String, ownership:String, assetlocid:int, assetgeotag:String, assetcondition:String, drgroupid:int, assetnotes:String, assetmanufacturer:String, assetyear:Date, assetmodelno:String, assetmanufacturerslno:String, assettag:String, assetvendorid:int, usefulllife:String, assetstatus:String, createdby:String, updatedby:String, lastupd:Date, purchase:Date, warrantytill:Date, supplier:String, assetdocument:Blob, assetdocumenttype:String, assetlifeexpiry:Date, ccid:int, GeneratedName:CostCenter, GeneratedName:MaintainanceDepartment, GeneratedName:AssetCategoryTree, GeneratedName:AssetLocationTree, vendor:Vendors #FK to(vendors));
+
+jctools(serialversionuid:long, //fieldsjctoolid:int, GeneratedName:JobCards, GeneratedName:ToolMaster, quantity:String, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp);
+
+meetingrequest(meeting_id:int [PK], blockid:String, propertyid:String, meetingmessage:String, meetingsubject:String, /*@column(name:Timestamp, endtime:Timestamp, location:String, createdby:String);
+
+camchargesentity(/***/serialversionuid:long, camid:int [PK], camchargesbasedon:String, rateforflat:int, rateforsqft:int);
+
+prepaidbilldocument(billdocid:int [PK], /*@onetoone		@joincolumn(name:int, bill_month:Date, billno:String, billdoc:Blob, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp);
+
+gasdistributionlosses(gdlid:int [PK], month:java.util.Date, mainmeterreading:float, submetersreading:float, lossunits:float, losspercentage:float, status:String, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp);
+
+feedbackchild(feedbackchild_id:int [PK], value:String, rate:int, comment:String, fmaster_d:int, GeneratedName:FeedbackMaster #FK to(feedbackmaster));
+
+csservicebooking(//fieldssbid:int, vscid:int, ownerid:int, propertyid:int, vendorservicecharges:CsVendorServiceCharges #FK to(csvendorservicecharges), vqid:int, /*vendorquotesvendorquotes*//*ownerowner*/:Property, bookingdate:Timestamp, bookedby:String, sbcomments:String, servicedelivered:String, invoiceraised:String, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp);
+
+toolmaster(serialversionuid:long, //fieldstmid:int, tmname:String, description:String, tmquantity:int, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp);
+
+assetmaintenancecost(amcid:int [PK], //intashidamc:Date, costincurred:int, mctype:String, createdby:String, updatedby:String, lastupd:Date, assetid:int, GeneratedName:AssetServiceHistory);
+
+person(//fields/***/serialversionuid:long, personid:int [PK], persontype:String, personstyle:String, /*@net.sf.oval.constraint.size(min:String, firstname:String, middlename:String, lastname:String, fathername:String, spousename:String, /*@net.sf.oval.constraint.past(message:java.util.Date, /*@net.sf.oval.constraint.size(min:String, /*@net.sf.oval.constraint.size(min:String, occupation:String, /*@net.sf.oval.constraint.size(min:String, drgroupid:int, //@net.sf.oval.constraint.size(min:String, personstatus:String, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp, personimages:Blob, /*@net.sf.oval.constraint.size(min:String, /*@net.sf.oval.constraint.size(min:String, /*@net.sf.oval.constraint.size(min:String, GeneratedName:Owner #FK to(owner), GeneratedName:Tenant #FK to(tenant), GeneratedName:Family #FK to(family), help:Domestic #FK to(domestic), GeneratedName:Users #FK to(users), GeneratedName:Vendors #FK to(vendors), GeneratedName:ConciergeVendors #FK to(conciergevendors), reqinlevel:Integer, transid:Integer, GeneratedName:TransactionMaster #FK to(transactionmaster));
+
+amrdataentity(amrdataid:int [PK], readingdate:Timestamp, propertyid:int, accountid:int, blockid:int, meterid:int, elreading:double, dgreading:double, personid:int, obj:Account #FK to(account), obj:Person #FK to(person), elentity:ElectricityMetersEntity #FK to(electricitymetersentity), propobj:Property #FK to(property), blockobj:Blocks #FK to(blocks));
+
+clearedpayments(cpid:int [PK], /*@column(name:PaymentAdjustmentEntity #FK to(paymentadjustmententity), billid:String, amount:double, cleared:Date, status:String, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp, GeneratedName:AdvanceCollectionEntity #FK to(advancecollectionentity));
+
+itemmasterentity(gid:int [PK], itemname:String, price:Float, unitofmeasure:String, discount:String, category:String, itemimage:Blob, storename:String, itemreview:String, doctype:String, description:String, lastupdateddt:Timestamp, GeneratedName:StoreMasterEntity #FK to(storemasterentity), sid:int);
+
+visitorvisits(vvid:int [PK], vmid:int, acid:Integer, //@min(value:int, vpurpose:String, vindt:Timestamp, voutdt:Timestamp, vvcreatedby:String, vvlastupdatedby:String, vvstatus:String, vvlastupdateddt:Timestamp, category:String, GeneratedName:Visitor #FK to(visitor), GeneratedName:Property #FK to(property), GeneratedName:AccessCards #FK to(accesscards), vpexpectedhours:int, vpstatus:String, psid:Integer, //@min(value:String, reason:String, GeneratedName:ParkingSlots #FK to(parkingslots));
+
+solidwasteratemaster(solidwastermid:int [PK], solidwastetariffid:int, solidwasteratename:String, solidwasteratedescription:String, solidwasteratetype:String, solidwasterateuom:String, solidwastevalidfrom:Date, solidwastevalidto:Date, status:String, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp, solidwasteminrate:Float, solidwastemaxrate:Float, GeneratedName:SolidWasteTariffMaster #FK to(solidwastetariffmaster));
+
+gasrateslab(gasrsid:int [PK], gasrmid:int, gasslabno:int, gasslabfrom:Float, gasslabto:Float, gasrate:Float, status:String, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp, GeneratedName:GasRateMaster #FK to(gasratemaster), gasslabtype:String, gasslabratetype:String);
+
+camheadsentity(camheadid:int [PK], GeneratedName:CamConsolidationEntity #FK to(camconsolidationentity), groupname:String, transactioncode:String, calculationbasis:String, amount:double, status:String, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp);
+
+visitor(//fieldsvmid:int [PK], /*	*@pattern(regexp:String, vmfrom:String, vmcontactno:String, drgroupid:int, vmcreatedby:String, preregistereduser:String, visitorpassword:String, vmlastupdatedby:String, gender:String, document:Blob, image:Blob, documentnametype:String, vmlastupdateddt:Timestamp);
+
+chequebounceentity(chequebounceid:int [PK], accountid:int, obj:Account #FK to(account), receiptno:String, chequeno:String, bankname:String, chequegiven:Date, bounced:Date, chequeamount:double, penalityamount:double, createddate:Timestamp, status:String, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp, remarks:String, bankcharges:double, amountvalid:String, previouslateamount:double);
+
+ticketdepttransferentity(depttransid:int [PK], ticketid:int, GeneratedName:OpenNewTicketEntity #FK to(opennewticketentity), dept_id:int, obj:Department #FK to(department), comments:String, prevdeptid:int, prevobj:Department #FK to(department), transferdate:Timestamp, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp);
+
+parkingslots(serialversionuid:long, //fieldspsid:int, psslotno:String, psactivedate:Timestamp, psownership:String, psparkingmethod:String, status:String, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp, allocation_status:String, blockid:Blocks #FK to(blocks));
+
+assetlocationtree(parent:AssetLocationTree #FK to(assetlocationtree), assetlocid:int [PK], assetloctext:String, parentid:Integer, treehierarchy:String, locationtype:String, locationaddress:String, contactdetails:String, geocode:String);
+
+electricitymeterlocationentity(/***/serialversionuid:long, elmeterlocationid:int [PK], GeneratedName:ElectricityMetersEntity #FK to(electricitymetersentity), GeneratedName:Account #FK to(account), /*@column(name:Date, meterrelease:Date, meterfixedby:String, intialreading:double, reading:double, dgintitalreading:double, dgreading:double, locationstatus:String, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp);
+
+serviceaccountentity(serviceaccoutid:int [PK], servicemasterid:int, GeneratedName:ServiceMastersEntity #FK to(servicemastersentity), accountid:int, GeneratedName:Account #FK to(account), typeofservice:String, serviceledger:String, ledgerstart:Date, ledgerend:Date, status:String, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp);
+
+storeitemledgerdetails(sildid:int [PK], silid:int, transactiontype:String, quantity:Double, rate:Double, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp, uomid:int, status:String, created:Date);
+
+jobcards(serialversionuid:long, //fieldsjcid:int, GeneratedName:Person, personid:int, maainancetypesid:int, GeneratedName:MaintainanceTypes, jobtypesid:int, GeneratedName:JobTypes, jobgeneratedby:String, jobno:String, jobname:String, jobgroup:String, jobdescription:String, jobdt:Timestamp, jobdepartmentid:int, job:Department, jobexpectedsla:int, jobsla:String, jobstartdt:Timestamp, jobenddt:Timestamp, jobassets:String, jobccid:int, jobbmsid:int, jobamsid:int, jobpriority:String, status:String, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp, suspendstatus:String, expecteddate:Timestamp, GeneratedName:JobCalender);
+
+bmsnotificationentity(serialversionuid:long, bmsnotifyid:int [PK], deptid:int, dnid:int, bmselements:String, notifydate:Timestamp, notifystatus:String, smsstatus:String, mailstatus:String, GeneratedName:Designation #FK to(designation), GeneratedName:Department #FK to(department), personlist:String);
+
+storeissue(striid:int [PK], GeneratedName:JcMaterials, GeneratedName:StoreMaster, GeneratedName:VendorContracts, GeneratedName:ItemMaster, GeneratedName:UnitOfMeasurement, imquantity:Double, ledgerupdatedt:Timestamp, stridt:Timestamp, reasonforissue:String, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp, jcid:int, storeid:int, vcid:int, imid:int, uomid:int, stri:Date);
+
+meterstatusentity(meterstatusid:int [PK], meterstatus:String, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp);
+
+staffexperience(seid:int [PK], personid:int, pwslno:int, company:String, designation:String, GeneratedName:Person #FK to(person), start:Date, end:Date, workdesc:String, createdby:String, lastupdatedby:String, lastup:Date);
+
+tasks(tk_id:int [PK], pr_id:int, md_id:int, fm_id:int, tk_name:String, tk_description:String, GeneratedName:Product #FK to(product), GeneratedName:Module #FK to(module), GeneratedName:Form #FK to(form));
+
+permission(ptk_id:Tasks [PK] #FK to Tasks,prl_id:set<role> [PK] #FK to set<role>);
+
+jclabourtasks(serialversionuid:long, //fieldsjclid:int, GeneratedName:JobCards, jcltype:String, jcllabourdesc:String, jclhours:String, jclbillable:String, jclrate:int, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp);
+
+storegoodsreceiptitems(sgriid:int [PK], stgrid:int, GeneratedName:ItemMaster, imid:int, drgroupid:int, itemquantity:Double, itemmanufacturer:String, itemmanufacture:Date, itemexpiry:Date, warrantyvalidtill:Date, specialinstructions:String, GeneratedName:UnitOfMeasurement, uomid:int, partno:String, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp, sgristatus:String, activationdt:Timestamp, receipttype:String, rate:Double, //doubledisplayrateimname:String);
+
+transactionmasterentity(transactionid:int [PK], grouptype:String, transactionname:String, transactioncode:String, description:String, typeofservice:String, calculationbasis:String, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp, camrate:double);
+
+clubhouse(sid:int [PK], servicename:String, servicedesc:String);
+
+storeitemledger(silid:int [PK], GeneratedName:StoreMaster, storeid:int, GeneratedName:ItemMaster, imid:int, sildt:Timestamp, imuom:int, GeneratedName:UnitOfMeasurement, imbalance:double, storeentryfrom:String, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp);
+
+drgroupid(id:int [PK], createdby:String, lastupdateddt:Timestamp);
+
+patroltrackpoints(ptpid:int [PK], ptid:int, arid:int, ptpsequence:int, ptpvisitinterval:String, status:String, createdby:String, lastupdatedby:String, lastupdateddt:String, /*	@joincolumn(name:PatrolTracks #FK to(patroltracks), GeneratedName:AccessPoints #FK to(accesspoints));
+
+electricitybillentity(elbillid:int [PK], typeofservice:String, cbid:String, accountid:int, obj:Account #FK to(account), elbilldate:Timestamp, posttype:String, from:Date, bill:Date, billdue:Date, billmonth:Date, arrearsamount:Double, billamount:Double, netamount:Double, billno:String, avgunits:double, avgcount:int, avgamount:Double, billtype:String, advanceclearedamount:double, status:String, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp, latepaymentamount:Double, to:Date, tallystatus:String, mailsent_status:String);
+
+billingpaymentsentity(paymentcollectionid:int [PK], accountid:int, typeofservice:String, disputeflag:String, partpayment:String, paymenttype:String, paymentdate:Timestamp, receipt:Date, receiptno:String, paymentmode:String, bankname:String, instrument:Date, instrumentno:String, paymentamount:double, excessamount:double, postedtogl:String, postedgldate:Timestamp, status:String, tallystatus:String, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp);
+
+staffnotices(/*@sequencegenerator(name:int [PK], personid:int, GeneratedName:Person #FK to(person), noticetype:String, description:String, /*@column(name:Date, snaction:String, snaction:Date, createdby:String, lastupdateby:String, lastupd:Date, noticedocument:Blob, noticedocumenttype:String);
+
+billingparametermaster(bpmid:int [PK], status:String, bpmsequence:double, lastupdateddt:Timestamp, bpmservicetype:String, bpmname:String, bpmdatatype:String, bpmdescription:String, createdby:String, lastupdatedby:String, serialversionuid:long);
+
+jcmaterials(//fieldsserialversionuid:long, jcmid:int [PK], GeneratedName:JobCards, GeneratedName:UnitOfMeasurement, GeneratedName:ItemMaster, jcmtype:String, imquantity:String, jcmmaterial:String, jcmpartno:String, jcquantity:String, rerunedquantity:String, rate:int, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp, GeneratedName:StoreMaster, status:String);
+
+address(//fieldsaddressid:int, personid:int, addresslocation:String, addressprimary:String, addressno:String, address1:String, address2:String, address3:String, cityid:int, pincode:int, addresscontactid:int, addressseason:String, addressseasonfrom:Timestamp, addressseasonto:Timestamp, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp);
+
+vendorinvoices(viid:int [PK], vcid:int, GeneratedName:VendorContracts #FK to(vendorcontracts), invoiceno:String, invoicedt:Date, invoicetitle:String, description:String, status:String, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp);
+
+accessevent(serialversionuid:long, objectidhi:Integer [PK], objectidlo:long [PK], loginlogout:Timestamp, description:String, eventclass:int, cardtype:int, cardnumber:String, personidhi:int, personidlo:int, areaidhi:int, areaidlo:int, dooridhi:int, dooridlo:int, departmentpohi:int, departmentpolo:int, controlleridhi:int, controlleridlo:int, sitecode:int, message:String, zonecode:int, loggingwkstaidhi:int, loggingwkstaidlo:int, timeoflog:Timestamp, nonabacardnumber:int, fipsagencycode:int, fipsorgid:int, fipshmac:int, fipssystemcode:int, fipscredentialnumber:int, fipspersonid:String, fipscredentialseries:int, fipscredentialissue:int, fipsorgcategory:int, fipspersonorgassociation:int, fipsexpirationdate:Timestamp);
+
+opennewticketentity(ticketid:int [PK], ticketnumber:String, propertyid:int, /*@onetoone		@joincolumn(name:int, /*@onetoone	@joincolumn(name:int, obj:Department #FK to(department), ipaddress:String, topicid:int, helptopicobj:HelpTopicEntity #FK to(helptopicentity), issuesubject:String, issuedetails:String, prioritylevel:String, lastresonse:Timestamp, ticketcreateddate:Timestamp, ticketcloseddate:Timestamp, ticketreopendate:Timestamp, ticketassigneddate:Timestamp, ticketupdatedate:Timestamp, ticketstatus:String, deptacceptancestatus:String, deptaccepteddate:Timestamp, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp, typeofticket:String);
+
+consolidatedbillsentity(cbid:int [PK], consolid:Date, billmonth:Date, billamount:double, billdue:Date, age:int, payments:double, status:String, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp);
+
+vehicles(//fieldsserialversionuid:long, vhid:int [PK], GeneratedName:Person, GeneratedName:Property, vhregistrationno:String, vhmake:String, vhmodel:String, vhtagno:String, vhstartdate:Timestamp, vhenddate:Timestamp, validslotsno:String, drgroupid:int, status:String, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp, slottype:String);
+
+ticketpostreplyentity(postreplyid:int [PK], ticketid:int, GeneratedName:OpenNewTicketEntity #FK to(opennewticketentity), response:String, responsedate:Timestamp, ticketstatus:String, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp);
+
+vendors(vendorid:int [PK], personid:int, GeneratedName:Person #FK to(person), panno:String, cstno:String, statetaxno:String, servicetaxno:String, status:String, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp, vendorpersonstatus:String);
+
+permission(prmid:int [PK], prl_id:int, ptk_id:int, s:Role #FK to(role));
+
+camreportsettingsentity(/***/serialversionuid:long, reportsettingid:int [PK], particularshown:String);
+
+serviceroute(srid:int [PK], personid:Integer, obj:Person #FK to(person), routename:String, readday:Date, estimationday:Integer, subroutename:String, billfrom:Integer, billto:Integer, readcycle:String, routedescription:String, lastreaddate:Timestamp, /*@column(name:String, lastupdatedby:String, lastupdateddate:Timestamp);
+
+clubhousebooking(sbid:int [PK], sid:int, GeneratedName:ClubHouse #FK to(clubhouse), servicename:String, servicedesc:String, serviceaction:String, status:String);
+
+accesspoints(apid:int [PK], aptype:String, apname:String, aplocation:String, apdescription:String, apcode:String, createdby:String, lastupdatedby:String, lastupd:Date);
+
+depositslineitems(ddid:int [PK], typeofservicedeposit:String, transactioncode:String, category:String, amount:double, loadchangeunits:double, notes:String, paymentmode:String, collectiontype:String, instrumentno:String, instrument:Date, bankname:String, status:String, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp, GeneratedName:Deposits #FK to(deposits));
+
+personnel(serialversionuid:long, objectidhi:Integer [PK], objectidlo:Integer [PK], uiname:String, owneridhi:Integer, owneridlo:Integer, deviceidhi:Integer, deviceidlo:Integer, templateflag:Boolean, templateidhi:Integer, templateidlo:Integer, controllername:String, alarmgraphicpage:Integer, activationdate:Timestamp, savedactivationdate:Timestamp, ada:Boolean, address:String, allowententegr:Boolean, blood:String, cardtype:Integer, cardtype2:Integer, sitecode:Integer, sitecode2:Integer, cardnumber:String, cardnumber2:String, savedcardtype:Integer, city:String, country:String, customcontrol1:String, customcontrol2:String, customcontrol3:String, dateofbirth:Timestamp, deletepending:Boolean, department:String, departmentcode:Float, distfailed:Boolean, duress:Boolean, emergencycontact:String, emergencyphone:String, empnumber:String, entryegress:Boolean, expirationdate:Timestamp, savedexpirationdate:Timestamp, eyecolor:String, firstname:String, haircolor:String, height:String, homephone:String, inactivedisabledays:Integer, info1:String, info2:String, info3:String, info4:String, info5:String, info6:String, jobtitle:String, lastname:String, licensenumber:String, lostcard:Boolean, middlename:String, officelocation:String, parkingsticker:String, photofile:String, pin:Integer, savedpin:Integer, savedcardnumber:String, savedsitecode:Integer, sex:Integer, signature:String, socsecno:String, startdate:Timestamp, state:Integer, savedstate:Integer, stateofresidence:String, supervisor:String, timeentered:Timestamp, valuehi:Integer, valuelo:Integer, vehicalinfo:String, visitor:Boolean, weight:Integer, workphone:String, zip:String, zone:Integer, zonepointhi:Integer, zonepointlo:Integer, nonabacardnumber:Integer, nonabacardnumber2:Integer, blobtemplate:String, executiveprivilege:Boolean, defaultclearancelevel:Integer, fipsagencycode:Integer, fipsorgid:Integer, fipshmac:Integer, fipssystemcode:Integer, fipscredentialnumber:Integer, fipspersonid:String, fipscredentialseries:Integer, fipscredentialissue:Integer, fipsorgcategory:Integer, fipspersonorgassociation:Integer, fipsexpirationdate:Timestamp, fipspivcontrolled:Boolean, fipspivstate:Integer, savedcardtype2:Integer, savedcardnumber2:String, savedsitecode2:Integer);
+
+department(dept_id:int [PK], dept_name:String, dept_desc:String, dept_status:String, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp);
+
+bankstatement(/***/serialversionuid:long, bsid:int [PK], bankname:String, accountno:Long, tx:Date, description:String, credit:Double, debit:Double, balance:Double, status:String, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp);
+
+owneraudittrail(id:int [PK], ownername:String, updated_field:String, owner_previous:String, owner_current:String, lastupdateddate:Timestamp, lastupdatedby:String, ownerid:int);
+
+pets(/***/serialversionuid:long, petid:int [PK], propertyid:int, drgroupid:int, dr_group_id:Person #FK to(person), petname:String, //@size(min:String, petsize:String, blockname:String, breedname:String, petcolor:String, petage:int, petsex:String, lastvaccination:Date, typesofvaccination:String, veterinarianname:String, veterinarianaddress:String, emergencycontact:String, petstatus:String, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp);
+
+customertemplate(ctid:int [PK], ccid:int, itemname:String, itemquantity:double, itemprice:int, itemtotalprice:double, GeneratedName:CustomerItemsEntity #FK to(customeritemsentity), uom:String);
+
+conciergevendors(//fieldscsvid:int, GeneratedName:Person, cstno:String, statetaxno:String, servicetaxno:String, status:String, //requestcountercreatedby:String, lastupdatedby:String, lastupdateddt:Timestamp, personid:int);
+
+advancebill(abbillid:int [PK], typeofservice:String, accountid:int, obj:Account #FK to(account), posttype:String, nomonth:Integer, units:Float, transactioncode:String, abbill:Date, abend:Date, abbillamount:Double, abbillno:String, status:String, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp);
+
+product(pr_id:int [PK], description:String, name:String);
+
+servicemastersentity(servicemasterid:int [PK], /*@column(name:String, obj:Account #FK to(account), eltariffid:int, gatariffid:int, wttariffid:int, swtariffid:int, otherstariffid:int, broadteletariffid:Integer, /*@onetoone		@joincolumn(name:String, servicestart:Date, serviceend:Date, status:String, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp);
+
+storemasterentity(sid:int [PK], storename:String, storestatus:String, storenum:String, username:String, password:String, storedesc:String);
+
+customerpreviousorder(cpid:int [PK], personid:int, storeid:int, storename:String, ordertype:String, orderstatus:String, cusname:String, cusnum:String, created_:Date, cid:int, itemname:String, itemquantity:double, itemprice:int, itemtotalprice:double, customerstatus:String, GeneratedName:CustomerEntity #FK to(customerentity), email:String);
+
+messages(msg_id:int [PK], usr_id:String, fromuser:String, touser:String, subject:String, message:String, msg_status:String, read_status:int, ccfield:String, lastupdateddate:Timestamp, notificationtype:String);
+
+contact(//fieldscontactid:int, personid:int, addressid:int, contactlocation:String, contacttype:String, contactprimary:String, contactcontent:String, contactpreferredtime:String, contactseason:String, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp, contactseasonfrom:Timestamp, contactseasonto:Timestamp);
+
+prepaidcalcustoreentity(pcsid:int [PK], personid:int, propertyid:int, area:int, readingdate:String, servicename:String, chargename:String, rate:String, cbname:String, daily_units_consumed:double, daily_consumption_amt:double, daily_recharge_amt:long, daily_balance:double, meterno:String);
+
+billingwizardentity(wizardid:int [PK], obj:Account #FK to(account), /*@column(name:ServiceMastersEntity #FK to(servicemastersentity), /*@column(name:ElectricityMetersEntity #FK to(electricitymetersentity), status:String, servicemetered:String);
+
+carmake(//fieldscarid:int, carname:String);
+
+carmodel(//fieldsserialversionuid:long, carmid:int [PK], GeneratedName:CarMake, modelname:String);
+
+servicepointequipmentsentity(spequipmentid:int [PK], /*@column(name:ServicePointEntity #FK to(servicepointentity), equipmenttype:String, equipmentcount:int, install:Date, removal:Date, comments:String, status:String, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp);
+
+ledgerviewentity(elledgerid:int [PK], accountid:int, ledgerperiod:String, ledger:Date, posttype:String, postreference:String, transactioncode:String, amount:double, balance:double, postedbilldate:String, transactionsequence:int, ledgertype:String, remarks:String, accountno:String, firstname:String, lastname:String, persontype:String, personid:int, property_no:String, transactionname:String, personname:String);
+
+tower_g_eb_kwh(//fieldsdatestr:Timestamp, s1n326kwh:Double, s1n327kwh:Double, s1n328kwh:Double, s1n329kwh:Double, s1n330kwh:Double, s1n331kwh:Double, s1n332kwh:Double, s1n333kwh:Double, s1n334kwh:Double, s1n335kwh:Double, s1n336kwh:Double, s1n337kwh:Double, s1n338kwh:Double, s1n339kwh:Double, s1n340kwh:Double, s1n341kwh:Double, s1n342kwh:Double, s1n343kwh:Double, s1n344kwh:Double, s1n345kwh:Double, s1n346kwh:Double, s1n347kwh:Double, s1n348kwh:Double, s1n349kwh:Double, s1n350kwh:Double, s1n351kwh:Double, s1n352kwh:Double, s1n353kwh:Double, s1n354kwh:Double, s1n355kwh:Double, s1n356kwh:Double, s1n357kwh:Double, s1n358kwh:Double, s1n359kwh:Double, s1n360kwh:Double, s1n361kwh:Double, s1n362kwh:Double, s1n363kwh:Double, s1n364kwh:Double, s1n365kwh:Double, s1n366kwh:Double, s1n367kwh:Double, s1n368kwh:Double, s1n369kwh:Double);
+
+tower_h_eb_kwh(//fieldsdatestr:Timestamp, s1n1kwh:Double, s1n2kwh:Double, s1n3kwh:Double, s1n4kwh:Double, s1n5kwh:Double, s1n6kwh:Double, s1n7kwh:Double, s1n8kwh:Double, s1n9kwh:Double, s1n10kwh:Double, s1n11kwh:Double, s1n12kwh:Double, s1n13kwh:Double, s1n14kwh:Double, s1n15kwh:Double, s1n16kwh:Double, s1n17kwh:Double, s1n18kwh:Double, s1n19kwh:Double, s1n20kwh:Double, s1n21kwh:Double, s1n22kwh:Double, s1n23kwh:Double, s1n24kwh:Double, s1n25kwh:Double, s1n26kwh:Double, s1n27kwh:Double, s1n28kwh:Double, s1n29kwh:Double, s1n30kwh:Double, s1n31kwh:Double, s1n32kwh:Double, s1n33kwh:Double, s1n34kwh:Double, s1n35kwh:Double, s1n36kwh:Double, s1n37kwh:Double, s1n38kwh:Double, s1n39kwh:Double, s1n40kwh:Double, s1n41kwh:Double, s1n42kwh:Double, s1n43kwh:Double, s1n44kwh:Double, s1n45kwh:Double, s1n46kwh:Double, s1n47kwh:Double, s1n48kwh:Double, s1n49kwh:Double, s1n50kwh:Double, s1n51kwh:Double, s1n52kwh:Double, s1n53kwh:Double, s1n54kwh:Double, s1n55kwh:Double, s1n56kwh:Double, s1n57kwh:Double, s1n58kwh:Double, s1n59kwh:Double, s1n60kwh:Double, s1n61kwh:Double, s1n62kwh:Double, s1n63kwh:Double, s1n64kwh:Double, s1n65kwh:Double, s1n66kwh:Double, s1n67kwh:Double, s1n68kwh:Double, s1n69kwh:Double, s1n70kwh:Double, s1n71kwh:Double, s1n72kwh:Double, s1n73kwh:Double, s1n74kwh:Double, s1n75kwh:Double, s1n76kwh:Double, s1n77kwh:Double, s1n78kwh:Double, s1n79kwh:Double, s1n80kwh:Double, s1n81kwh:Double, s1n82kwh:Double, s1n83kwh:Double, s1n84kwh:Double, s1n85kwh:Double, s1n86kwh:Double, s1n87kwh:Double, s1n88kwh:Double, s1n89kwh:Double, s1n90kwh:Double, s1n91kwh:Double, s1n92kwh:Double, s1n93kwh:Double, s1n94kwh:Double, s1n95kwh:Double, s1n96kwh:Double, s1n97kwh:Double, s1n98kwh:Double, s1n99kwh:Double, s1n100kwh:Double, s1n101kwh:Double, s1n102kwh:Double, s1n103kwh:Double, s1n104kwh:Double);
+
+camsubledgerentity(camsubledgerid:int [PK], GeneratedName:CamLedgerEntity #FK to(camledgerentity), amount:double, balanceamount:double, transactioncode:String, status:String, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp);
+
+prepaidtxnchargesentity(transactionid:int [PK], /*@column(name:int, charge_name:String, charge_type:String, rate:double, /*@temporal(temporaltype.date)	@column(name:String, lastupdatedby:String, lastupdateddt:Timestamp, cid:int, GeneratedName:PrepaidServiceMaster #FK to(prepaidservicemaster), cbasisentity:PrepaidCalculationBasisEntity #FK to(prepaidcalculationbasisentity));
+
+paymentadjustmentcontrolentity(pacid:int [PK], accountid:int, pac:Date, typeofservice:String, status:String, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp);
+
+camconsolidationentity(ccid:int [PK], camname:String, chargestype:String, from:Date, to:Date, noofflats:int, totalsqft:int, rateperflat:double, ratepersqft:double, fixedpersqft:double, noflatsbilled:int, rebaterate:double, billed:double, tobebilled:double, paidamount:double, blanceamount:double, status:String, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp);
+
+vendorlineitems(vilid:int [PK], viid:int, /*@manytoone(fetch:int, GeneratedName:ItemMaster #FK to(itemmaster), vilslno:int, quantity:Double, rate:Double, amount:int, reqtype:String, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp);
+
+assetlocation(assetlocid:int [PK], assetloctext:String, parentid:Integer);
+
+conciergevendorservices(//fieldsvsid:int, csservices:ConciergeServices #FK to(conciergeservices), csvendors:ConciergeVendors #FK to(conciergevendors), csvid:int, cssid:int, startdate:Timestamp, enddate:Timestamp, status:String, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp);
+
+bmssettingsentity(serialversionuid:long, bmssettingsid:int [PK], deptid:int, dnid:int, GeneratedName:Designation #FK to(designation), GeneratedName:Department #FK to(department), bmselements:String, paramvalue:int, status:String, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp);
+
+form(fm_id:int [PK], pr_id:int, md_id:int, fm_name:String, fm_description:String, GeneratedName:Product #FK to(product), GeneratedName:Module #FK to(module));
+
+storegoodsreceipt(//fieldsstgrid:int, GeneratedName:VendorContracts, GeneratedName:StoreMaster, porecdt:Timestamp, drgroupid:int, receivedbystaffid:int, checkedbystaffid:int, ledgerupdatedt:Timestamp, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp, shippingdocumentnumber:String, vcid:int, storeid:int, porec:Date, receivedbystaff:Users #FK to(users), checkedbystaff:Users #FK to(users));
+
+handbook(//fieldshandbookid:int, handbookcontent:Blob, handbooktype:String);
+
+assetmaintenance(ampid:int [PK], assetid:int, maintainencetype:String, maintenancedescription:String, periodicity:String, lastmaintained:Date, createdby:String, updatedby:String, lastupd:Date, GeneratedName:Asset);
+
+tower_b_dg_kwh(//fieldsdatestr:Timestamp, s1n105kwh:Double, s1n106kwh:Double, s1n107kwh:Double, s1n108kwh:Double, s1n109kwh:Double, s1n110kwh:Double, s1n111kwh:Double, s1n112kwh:Double, s1n113kwh:Double, s1n114kwh:Double, s1n115kwh:Double, s1n116kwh:Double, s1n117kwh:Double, s1n118kwh:Double, s1n119kwh:Double, s1n120kwh:Double, s1n121kwh:Double, s1n122kwh:Double, s1n123kwh:Double, s1n124kwh:Double, s1n125kwh:Double, s1n126kwh:Double, s1n127kwh:Double, s1n128kwh:Double, s1n129kwh:Double, s1n130kwh:Double, s1n131kwh:Double, s1n132kwh:Double, s1n133kwh:Double, s1n134kwh:Double, s1n135kwh:Double, s1n136kwh:Double, s1n137kwh:Double, s1n138kwh:Double, s1n139kwh:Double, s1n140kwh:Double, s1n141kwh:Double, s1n142kwh:Double, s1n143kwh:Double, s1n144kwh:Double, s1n145kwh:Double, s1n146kwh:Double, s1n147kwh:Double, s1n148kwh:Double, s1n149kwh:Double, s1n150kwh:Double, s1n151kwh:Double, s1n152kwh:Double, s1n153kwh:Double, s1n154kwh:Double, s1n155kwh:Double, s1n156kwh:Double, s1n157kwh:Double, s1n158kwh:Double, s1n159kwh:Double, s1n160kwh:Double, s1n161kwh:Double, s1n162kwh:Double, s1n163kwh:Double, s1n164kwh:Double, s1n165kwh:Double, s1n166kwh:Double, s1n167kwh:Double, s1n168kwh:Double, s1n169kwh:Double, s1n170kwh:Double, s1n171kwh:Double, s1n172kwh:Double, s1n173kwh:Double, s1n174kwh:Double, s1n175kwh:Double, s1n176kwh:Double, s1n177kwh:Double, s1n178kwh:Double, s1n179kwh:Double, s1n180kwh:Double, s1n181kwh:Double, s1n182kwh:Double, s1n183kwh:Double, s1n184kwh:Double, s1n185kwh:Double, s1n186kwh:Double, s1n187kwh:Double, s1n188kwh:Double, s1n189kwh:Double, s1n190kwh:Double, s1n191kwh:Double, s1n192kwh:Double, s1n193kwh:Double, s1n194kwh:Double, s1n195kwh:Double, s1n196kwh:Double, s1n197kwh:Double, s1n198kwh:Double, s1n199kwh:Double, s1n200kwh:Double, s1n201kwh:Double, s1n202kwh:Double, s1n203kwh:Double, s1n204kwh:Double, s1n205kwh:Double, s1n206kwh:Double, s1n207kwh:Double, s1n208kwh:Double, s1n209kwh:Double, s1n210kwh:Double, s1n211kwh:Double, s1n212kwh:Double, s1n213kwh:Double, s1n214kwh:Double, s1n215kwh:Double, s1n216kwh:Double, s1n217kwh:Double, s1n218kwh:Double, s1n219kwh:Double, s1n220kwh:Double, s1n221kwh:Double, s1n222kwh:Double, s1n223kwh:Double, s1n224kwh:Double, s1n225kwh:Double, s1n226kwh:Double, s1n227kwh:Double, s1n228kwh:Double, s1n229kwh:Double, s1n230kwh:Double, s1n231kwh:Double, s1n232kwh:Double, s1n233kwh:Double, s1n234kwh:Double, s1n235kwh:Double, s1n236kwh:Double, s1n237kwh:Double);
+
+vendorincidents(vcslaid:int [PK], vcid:int, /*@transient	stringvendorinvoicedetails*/:VendorContracts #FK to(vendorcontracts), incidentdt:Date, incidentdescription:String, expectedsla:int, slareached:int, slacomments:String, slastatus:String, slaalerteddt:Date);
+
+customerentity(cid:int [PK], custname:String, custnum:String, custemail:String, created:Date, lastupd:Date, personid:int, template:String, orderaddress:String, storeid:int, storename:String, customerimage:Blob, /*publicstringgetcustomerorderstatus(){	returncustomerorderstatus}publicvoidsetcustomerorderstatus(stringcustomerorderstatus){	this.customerorderstatus:float, totalprice:float, customerstatus:String, /*@column(name:String, ordertype:String);
+
+eltariffmaster(/***/serialversionuid:long, eltariffid:int [PK], tariffcode:String, tariffname:String, tariffdescription:String, parentid:Integer, treehierarchy:String, validfrom:Date, validto:Date, tariffnodetype:String, status:String, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp, statename:String, parenttariff:ELTariffMaster #FK to(eltariffmaster));
+
+servicebooking(bid:int [PK], sid:int, servicestatus:String, action:String, blocks:String, property:int, name:int, starttime:String, endtime:String, createdby:String, bookaction:String, date:String);
+
+assetmaintenanceschedule(amsid:int [PK], assetid:int, GeneratedName:Asset, taskname:String, tasklocation:String, //taskgrouptaskdescription:String, toolsrequired:String, expectedresult:String, taskbesttime:String, expectedtaskduration:int, taskfrequency:String, taskstart:Date, tasklastexecuted:Date, taskoverduebydays:int, createdby:String, lastupdatedby:String, lastupd:Date, taskend:Date, amsstatus:String, countoftaskexecution:int, mtid:int, GeneratedName:MaintainanceTypes, jtid:int, GeneratedName:JobTypes, mtdpit:int, GeneratedName:MaintainanceDepartment, timefrom:String, timeto:String);
+
+oldmeterhistoryentity(hid:int [PK], ca_no:String, propertyno:String, personname:String, meternumber:String, servicestart:Date, balance:double, serviceend:Date, initailreading:double, dgreading:double);
+
+aboutus(about_id:int [PK], about_name:String, about_designation:String, about_description:String, image:Blob);
+
+staffattendancegateoutalert(sagaid:int [PK], personid:int, message:String, sagadt:Timestamp, sagamobileno:String, sagaemail:String, GeneratedName:Person #FK to(person));
+
+trendlog(trendlogid:Integer [PK], trendlogguid:String, name:String, maxsequence:Integer, capacity:Long, intervalseconds:Long, intervalmonths:Long, intervalyears:Long);
+
+helpdesksettingsentity(settingid:int [PK], rlid:int);
+
+project(//fieldsprojectid:int [PK], projectname:String, no_of_towers:int, /*@column(name:String, project_pincode:int, projectstate:String, createdby:String, lastupdatedby:String, projectlocation:int, projectcountry:int);
+
+tower_a_eb_kwh(//fieldsdatestr:Timestamp, s1n238kwh:Double, s1n239kwh:Double, s1n240kwh:Double, s1n241kwh:Double, s1n242kwh:Double, s1n243kwh:Double, s1n244kwh:Double, s1n245kwh:Double, s1n246kwh:Double, s1n247kwh:Double, s1n248kwh:Double, s1n249kwh:Double, s1n250kwh:Double, s1n251kwh:Double, s1n252kwh:Double, s1n253kwh:Double, s1n254kwh:Double, s1n255kwh:Double, s1n256kwh:Double, s1n257kwh:Double, s1n258kwh:Double, s1n259kwh:Double, s1n260kwh:Double, s1n261kwh:Double, s1n262kwh:Double, s1n263kwh:Double, s1n264kwh:Double, s1n265kwh:Double, s1n266kwh:Double, s1n267kwh:Double, s1n268kwh:Double, s1n269kwh:Double, s1n270kwh:Double, s1n271kwh:Double, s1n272kwh:Double, s1n273kwh:Double, s1n274kwh:Double, s1n275kwh:Double, s1n276kwh:Double, s1n277kwh:Double, s1n278kwh:Double, s1n279kwh:Double, s1n280kwh:Double, s1n281kwh:Double);
+
+averagecalculation(avgid:int [PK], accountid:int, obj:Account #FK to(account), typeofservice:String, avgtype:String, avg:Date, status:String, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp);
+
+assetphysicalsurvey(apsmid:int [PK], apsm:Date, survey:Date, surveycomplete:Date, physicalsurveystatus:String, createdby:String, lastupdatedby:String, lastupd:Date, assetcatid:int, assetlocid:int, assetcatids:String, assetlocids:String, surveyname:String, surveydescription:String, GeneratedName:AssetCategoryTree, GeneratedName:AssetLocationTree);
+
+lostandfound(//fieldsid:int, personid:int, blockid:int, propertyid:int, type:String, subject:String, description:String, createdby:String, updatedby:String, date:Timestamp, lastupdateddt:Timestamp, image:Blob, status:String);
+
+commonservicesratemaster(csrmid:int [PK], cstariffid:int, csratename:String, csratedescription:String, csratetype:String, csrateuom:String, csvalidfrom:Date, csvalidto:Date, status:String, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp, csminrate:Float, csmaxrate:Float, cstodtype:String, GeneratedName:CommonTariffMaster #FK to(commontariffmaster));
+
+elrateslabs(elrsid:int [PK], elrmid:int, slabsno:int, slabfrom:Float, slabto:Float, rate:float, status:String, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp, GeneratedName:ELRateMaster #FK to(elratemaster), slabtype:String, slabratetype:String);
+
+billparametermasterentity(bvmid:int [PK], servicetype:String, bvmname:String, bvmdatatype:String, bvmdescription:String, bvmsequence:int, status:String, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp);
+
+smsemailforlowbal(lid:int [PK], ca_num:String, rechargedstatus:int, status:String, mailsend:Date, rechargeamt:String);
+
+jcnotes(//fieldsserialversionuid:long, jcnid:int [PK], GeneratedName:JobCards, notes:String, jcndt:Timestamp, drgroupid:int, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp);
+
+patroltrackalert(ptaid:int [PK], ptid:int, personid:int, message:String, ptadt:String, ptamobileno:String, ptaemail:String, GeneratedName:PatrolTracks #FK to(patroltracks), GeneratedName:Person #FK to(person));
+
+electricitybillparametersentity(elbillparameterid:int [PK], /*@column(name:ElectricityBillEntity #FK to(Bill), elbillparameterdatatype:String, elbillparametervalue:String, notes:String, status:String, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp, GeneratedName:BillParameterMasterEntity #FK to(Bill));
+
+blocks(serialversionuid:long, //fieldsblockid:int, blockname:String, numofproperties:int, numofparkingslots:int, projectid:int, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp);
+
+customerfeedback(fid:int [PK], storename:String, storeid:int, custid:int, custemail:String, feedback:String, username:String);
+
+vendorpayments(vipid:int [PK], viid:int, GeneratedName:VendorInvoices #FK to(vendorinvoices), vipdt:Date, vippaytype:String, vippayamount:Double, vippayby:String, vippaydetails:String, vipnotes:String, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp);
+
+solidwasterateslab(solidwastersid:int [PK], solidwastermid:int, solidwasteslabno:int, solidwasteslabfrom:Float, solidwasteslabto:Float, solidwasterate:Float, status:String, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp, GeneratedName:SolidWasteRateMaster #FK to(solidwasteratemaster), solidwasteslabtype:String, solidwasteslabratetype:String);
+
+deposits(depositsid:int [PK], obj:Account #FK to(account), totalamount:double, deposittype:String, refundamount:double, balance:double, status:String, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp);
+
+patrolsettings(psid:int [PK], rlid:int, status:String, GeneratedName:Role #FK to(role));
+
+staffattendancesummary(sasid:int [PK], personid:int, sasdate:String, timein:Date, timeout:Date, timeoutsuccessfull:String, deptid:int, dnid:int, GeneratedName:Designation #FK to(designation), GeneratedName:Department #FK to(department), GeneratedName:Person #FK to(person));
+
+assetservicehistory(ashid:int [PK], assetid:int, ash:Date, problemdesc:String, servicedesc:String, servicetype:String, servicedunder:String, servicedby:String, createdby:String, lastupdatedby:String, lastupd:Date, GeneratedName:Asset, servicedby:Person, GeneratedName:AssetMaintenanceCost);
+
+property(//fieldspropertyid:int [PK], blockid:int, property_no:String, propertyname:String, property_floor:int, status:String, tenancyhandover:Date, propertybillable:String, no_of_parkingslots:int, //dr_group_idprojectid:int, createdby:String, lastupdatedby:String, drgroupid:int, lastupdateddt:Timestamp, /*@column(name:String, area:int, propertydocument:Blob, propertydocumenttype:String, GeneratedName:Project #FK to(project), GeneratedName:Blocks #FK to(blocks), propertytype:String);
+
+electricitymetersentity(elmeterid:int [PK], typeofserviceformeters:String, meterserialno:String, metertype:String, meterownership:String, GeneratedName:Account #FK to(account), meterstatus:String, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp);
+
+gasratemaster(gasrmid:int [PK], gastariffid:int, gasratename:String, gasratedescription:String, gasratetype:String, gasrateuom:String, gasvalidfrom:Date, gasvalidto:Date, status:String, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp, gasminrate:Float, gasmaxrate:Float, GeneratedName:GasTariffMaster #FK to(gastariffmaster));
+
+tower_c_eb_kwh(//fieldsdatestr:Timestamp, s1n282kwh:Double, s1n283kwh:Double, s1n284kwh:Double, s1n285kwh:Double, s1n286kwh:Double, s1n287kwh:Double, s1n288kwh:Double, s1n289kwh:Double, s1n290kwh:Double, s1n291kwh:Double, s1n292kwh:Double, s1n293kwh:Double, s1n294kwh:Double, s1n295kwh:Double, s1n296kwh:Double, s1n297kwh:Double, s1n298kwh:Double, s1n299kwh:Double, s1n300kwh:Double, s1n301kwh:Double, s1n302kwh:Double, s1n303kwh:Double, s1n304kwh:Double, s1n305kwh:Double, s1n306kwh:Double, s1n307kwh:Double, s1n308kwh:Double, s1n309kwh:Double, s1n310kwh:Double, s1n311kwh:Double, s1n312kwh:Double, s1n313kwh:Double, s1n314kwh:Double, s1n315kwh:Double, s1n316kwh:Double, s1n317kwh:Double, s1n318kwh:Double, s1n319kwh:Double, s1n320kwh:Double, s1n321kwh:Double, s1n322kwh:Double, s1n323kwh:Double, s1n324kwh:Double, s1n325kwh:Double);
+
+patroltrackstaff(ptsid:int [PK], ptid:int, personid:int, acid:int, fromdate:Timestamp, todate:Timestamp, status:String, createdby:String, lastupdatedby:String, lastupdateddt:String, GeneratedName:PatrolTracks #FK to(patroltracks), /*	@joincolumn(name:Person #FK to(person), supervisorid:int);
+
+serviceparametermaster(/***/spmid:int [PK], status:String, spmsequence:int, lastupdateddt:Timestamp, servicetype:String, spmname:String, spmdatatype:String, spmdescription:String, createdby:String, lastupdatedby:String, serialversionuid:long);
+
+mailroom(mlrid:int [PK], propertyid:int, obj:Property #FK to(property), //@notnull//@size(min:String, //@min(value:String, drgroupid:int, //@notnull(message:Timestamp, mailboxdt:Timestamp, mailreturneddt:Timestamp, //@notnull(message:Timestamp, status:String, createdby:String, lastupdatedby:String, note:String, lastupdateddt:Timestamp, mailredirectedstatus:String, mailreturnedstatus:String, reasons:String, consignmentno:String, receivedby:String);
+
+wtratemaster(wtrmid:int [PK], wttariffid:int, wtratename:String, wtratedescription:String, wtratetype:String, wtrateuom:String, wtvalidfrom:Date, wtvalidto:Date, wtratemasterstatus:String, wtcreatedby:String, wtlastupdatedby:String, wtlastupdateddt:Timestamp, wtminrate:Float, wtmaxrate:Float, GeneratedName:WTTariffMaster #FK to(wttariffmaster));
+
+documentrepository(drid:int [PK], drgroupid:int, documentfile:Blob, approved:String, createdby:String, lastupdatedby:String, lastupd:Date, documentname:String, documentnumber:String, documentdescription:String, documenttype:String, documentformat:String, dr_group_id:Person #FK to(person));
+
+users(urid:int [PK], urloginname:String, deptid:int, dnid:int, personid:int, GeneratedName:Person #FK to(person), GeneratedName:Designation #FK to(designation), GeneratedName:Department #FK to(department), stafftype:String, vendorid:int, GeneratedName:Vendors #FK to(vendors), createdby:String, lastupdatedby:String, lastupdateddt:Timestamp, status:String, GeneratedName:Requisition #FK to(requisition), reqid:int);
+
+user_role(uro_ur_id:Users [PK] #FK to Users,uro_rl_id:set<role> [PK] #FK to set<role>);user_group(ug_ur_id:Users [PK] #FK to Users,ug_gr_id:set<groups> [PK] #FK to set<groups>);
+
+accesscardspermission(acpid:int [PK], //@min(value:int, arid:int, acpstart:Date, acpend:Date, /*@column(name:String, createdby:String, lastupdatedby:String, lastupdatedt:Timestamp, ar:AccessPoints #FK to(accesspoints));
+
+prepaidrechargeentity(prerechargeid:int [PK], elmeter:ElectricityMetersEntity #FK to(electricitymetersentity), rechargeamount:double, ca_no:String, recharge_request_no:String, recharge:Date, accountid:Integer, /*@onetoone	@joincolumn(name:String, merchantid:String, txn_id:String, txn_:Date, consumer_name:String, father_name:String, typeofservice:String, consumer_id:String, status:String, bankname:String, tallystatus:String);
+
+bankremittance(brid:int [PK], bankname:String, accountno:Long, tx:Date, description:String, credit:Double, status:String, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp);
+
+billdocument(billdocid:int [PK], GeneratedName:ElectricityBillEntity #FK to(Bill), billdoc:Blob, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp);
+
+feedbackmaster(fmaster_d:int [PK], GeneratedName:Date, personid:int, GeneratedName:Person #FK to(person), ticketid:int, GeneratedName:OpenNewTicketEntity #FK to(opennewticketentity), like_contacted:String, additional_comments:String);
+
+paymentadjustmententity(adjustmentid:int [PK], jvdate:Timestamp, accountid:int, adjustment:Date, adjustmentno:String, adjustmentledger:String, adjustmentamount:double, postedtogl:String, postedgldate:Timestamp, clearedstatus:String, status:String, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp, adjustmenttype:String, tallystatus:String, remarks:String);
+
+arms(armsid:int [PK], personid:int, typeofarm:String, armmake:String, licenceno:String, licencevalidity:Date, drgroupid:int, issuingauthority:String, noofrounds:int, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp);
+
+ticketpostinternalnoteentity(ernalnoteid:int [PK], ticketid:int, GeneratedName:OpenNewTicketEntity #FK to(opennewticketentity), internalnotetitle:String, internalnotedetails:String, internalnotecreateddate:Timestamp, ticketstatus:String, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp);
+
+broadtelerateslab(broadtelersid:int [PK], broadtelrmid:int, broadtelslabno:int, broadtelslabfrom:Float, broadtelslabto:Float, broadtelrate:Float, status:String, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp, GeneratedName:BroadTeleRateMaster #FK to(broadteleratemaster), broadtelslabtype:String, broadtelslabratetype:String);
+
+prepaidmeters(mid:int [PK], propertyid:int, ca_no:String, personid:int, meternumber:String, previousbalance:double, servicestart:Date, initailreading:double, dgreading:double, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp);
+
+assetspares(asid:int [PK], partmake:String, partmodelnumber:String, partyear:Date, partslnumber:String, createdby:String, lastupdatedby:String, lastupd:Date, assetid:int, imid:int, GeneratedName:Asset, GeneratedName:ItemMaster);
+
+electricityledgerentity(elledgerid:int [PK], accountid:int, ledgerperiod:String, ledger:Date, posttype:String, postreference:String, transactioncode:String, amount:double, balance:double, postedtobill:String, postedbilldate:Timestamp, postedtogl:String, postedgl:Date, transactionsequence:int, ledgertype:String, status:String, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp, remarks:String);
+
+amrproperty(/***/amrid:int [PK], /***/:Blocks #FK to(blocks), /***/blockid:int, /***/:Property #FK to(property), /***/propertyid:int, /***/columnname:String, /***/status:String, /***/createdby:String, /***/lastupdatedby:String, /***/lastupdateddt:Timestamp);
+
+otherinstallation(/***/serialversionuid:long, id:int [PK], insname:String, inslocation:String, meteredstatus:String, meteredconstant:double, status:String, createdby:String, lastupdatedby:String, lastupdateddate:Timestamp);
+
+notification(cpnotid:int [PK], user_id:String, message:String, subject:String, fromuser:String, msg_status:String, read_status:int, lastupdateddate:Timestamp);
+
+jcobjectives(serialversionuid:long, //fieldsjcoid:int, GeneratedName:JobCards, jcobjective:String, jcobjectiveach:String, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp);
+
+jobtypes(//fieldsserialversionuid:long, jtid:int [PK], jttype:String, jtdescription:String, jtsla:int, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp);
+
+patroltracks(/**************fields***************/ptid:int [PK], ptname:String, description:String, validtimefrom:String, validtimeto:String, adminalertmobileno:String, adminalertemailid:String, status:String, createdby:String, lastupdatedby:String, lastupdateddt:String);
+
+vendorrequests(vrid:int [PK], vcid:int, GeneratedName:VendorContracts #FK to(vendorcontracts), vendorid:int, GeneratedName:Vendors #FK to(vendors), requesttype:String, requestnote:String, replynote:String, status:String, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp);
+
+prepaidpaymententity(adjustmentid:int [PK], ca_no:String, consumerid:String, propertyid:int, adjustment:Date, adjustmentno:String, adjustmentamount:double, instrument:Date, instrumentno:String, bankname:String, status:String, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp, adjustmenttype:String, remarks:String);
+
+area(serialversionuid:long, objectidlo:Integer [PK], objectidhi:Integer [PK], uiname:String, owneridhi:Integer, owneridlo:Integer, deviceidhi:Integer, deviceidlo:Integer, templateflag:Boolean, templateidhi:Integer, templateidlo:Integer, controllername:String, alarmgraphicpage:Short, deletepending:Short, description:String, knownoccupcount:Integer, state:Short, forcelock:Short);
+
+otconsumptions(otid:int [PK], id:int, GeneratedName:OtherInstallation #FK to(otherinstallation), otmonth:Date, previousreading:Double, presentreading:Double, meterconstant:Double, units:int, status:String, createdby:String, lastupdatedby:String, lastupdateddate:Timestamp);
+
+manpowernotification(manpowerid:int [PK], requestid:int, desigid:int, requestedby:String, requested:Date, manpowerstatus:int);
+
+paymentsegmentsentity(paymentsegmentid:int [PK], /*@column(name:BillingPaymentsEntity #FK to(Bill), billsegment:String, billreferenceno:String, amount:double, postedtoledger:String, postedledgerdate:Timestamp, billmonth:Date, status:String, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp);
+
+wrongparking(//fieldsserialversionuid:long, wpid:int [PK], GeneratedName:Vehicles, psslotno:String, wpdt:Timestamp, vehicleno:String, actiontaken:String, vhtagno:String, createdby:String, lastupdatedby:String, lastupdateddt:Timestamp, status:String, image:Blob);
+
+assetcategorytree(parent:AssetCategoryTree #FK to(assetcategorytree), assetcatid:int [PK], assetcattext:String, parentid:Integer, treehierarchy:String);
+
+meterparametermaster(/***/serialversionuid:long, mpmid:int [PK], status:String, mpmname:String, mpmdescription:String, mpmsequence:double, mpmservicetype:String, mpmdatatype:String, lastupdatedby:String, createdby:String, lastupdateddt:Timestamp);
+
+customercarenotification(cnid:int [PK], blockid:String, propertyid:String, viewstatus:int, message:String, subject:String, createdby:String, lastupdatedby:String, lastupddt:Date);
+
+pinstatus(userid:String [PK], pinstatus:int, theme:String);
+
+transactiondetail(id:int [PK], tid:int, transactiomaster:TransactionMaster #FK to(transactionmaster), dnid:int, dn_name:String, dept_id:int, dept_name:String, GeneratedName:Designation #FK to(designation), GeneratedName:Department #FK to(department), lnum:Integer);
+
+requestapprovalmaster();
+
+transactionmaster(serialversionuid:long, tid:int [PK], name:String, code:String, description:String, level:int, transactionstatus:String, processname:String);
+
+processmaster(serialversionuid:long, processid:int [PK], processname:String, processtype:String, processdescription:String);
+
+pettytransactionmanager(transmanageid:int [PK], tid:int, GeneratedName:TransactionMaster #FK to(transactionmaster), processname:String);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

@@ -1,0 +1,720 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="entitycontact" >
+      <xs:sequence>
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="create" type="xs:dateTime" />
+        <xs:element name="repeat" type="xs:dateTime" />
+        <xs:element name="style" type="entitystyle" nillable="true" minOccurs="0" />
+        <xs:element name="user" type="entityuser" nillable="true" minOccurs="0" />
+        <xs:element name="pipol" type="entitypipol" nillable="true" minOccurs="0" />
+        <xs:element name="status" type="entitystatus" nillable="true" minOccurs="0" />
+        <xs:element name="delete" type="xs:dateTime" />
+        <xs:element name="historys" type="entitycontacthistory" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entitysearchrulefirmuser" >
+      <xs:complexContent>
+       <xs:extension base="entitysearchrulefirm">
+         <xs:sequence>
+          <xs:element name="items" type="entitysearchrulefirmuseritem" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="entitysearchsourcepipolwithdelete" >
+      <xs:complexContent>
+       <xs:extension base="entitysearchsource">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="entitysearchrulefirmdelete" >
+      <xs:complexContent>
+       <xs:extension base="entitysearchrulefirm">
+         <xs:sequence>
+          <xs:element name="start" type="xs:dateTime" />
+          <xs:element name="finish" type="xs:dateTime" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="entitysearchrulepipol" >
+      <xs:complexContent>
+       <xs:extension base="entitysearchrule">
+         <xs:sequence>
+          <xs:element name="parent" type="entitysearchrulepipolcomposite" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="entitysearchsourcepipol" >
+      <xs:complexContent>
+       <xs:extension base="entitysearchsource">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="entitysearchrulepipolcreate" >
+      <xs:complexContent>
+       <xs:extension base="entitysearchrulepipol">
+         <xs:sequence>
+          <xs:element name="start" type="xs:dateTime" />
+          <xs:element name="finish" type="xs:dateTime" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="entitysearchrulecontactdescription" >
+      <xs:complexContent>
+       <xs:extension base="entitysearchrulecontact">
+         <xs:sequence>
+          <xs:element name="description" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="entitysearchrulecontactrepeat" >
+      <xs:complexContent>
+       <xs:extension base="entitysearchrulecontact">
+         <xs:sequence>
+          <xs:element name="start" type="xs:dateTime" />
+          <xs:element name="finish" type="xs:dateTime" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="entitysearchsourcefirm" >
+      <xs:complexContent>
+       <xs:extension base="entitysearchsource">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="entitysearchrulefirmcreate" >
+      <xs:complexContent>
+       <xs:extension base="entitysearchrulefirm">
+         <xs:sequence>
+          <xs:element name="start" type="xs:dateTime" />
+          <xs:element name="finish" type="xs:dateTime" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="entitysearchrulepipoluseritem" >
+      <xs:sequence>
+        <xs:element name="id" type="entitysearchrulepipoluseritemid" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entitysearchrulecontact" >
+      <xs:complexContent>
+       <xs:extension base="entitysearchrule">
+         <xs:sequence>
+          <xs:element name="parent" type="entitysearchrulecontactcomposite" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="entitysearchrulepipoldelete" >
+      <xs:complexContent>
+       <xs:extension base="entitysearchrulepipol">
+         <xs:sequence>
+          <xs:element name="start" type="xs:dateTime" />
+          <xs:element name="finish" type="xs:dateTime" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="entitysearchrulefirm" >
+      <xs:complexContent>
+       <xs:extension base="entitysearchrule">
+         <xs:sequence>
+          <xs:element name="parent" type="entitysearchrulefirmcomposite" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="entitysearchrulefirmname" >
+      <xs:complexContent>
+       <xs:extension base="entitysearchrulefirm">
+         <xs:sequence>
+          <xs:element name="name" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="entitysearchrulefirmsection" >
+      <xs:complexContent>
+       <xs:extension base="entitysearchrulefirm">
+         <xs:sequence>
+          <xs:element name="items" type="entitysearchrulefirmsectionitem" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="entitysearchrulecontactuseritem" >
+      <xs:sequence>
+        <xs:element name="id" type="entitysearchrulecontactuseritemid" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entitysearchrule" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="source" type="entitysearchsource" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entitysearchsourcecontactwithdelete" >
+      <xs:complexContent>
+       <xs:extension base="entitysearchsource">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="entitysearchsourcecontact" >
+      <xs:complexContent>
+       <xs:extension base="entitysearchsource">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="entitysearchsource" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="search" type="entitysearch" nillable="true" minOccurs="0" />
+        <xs:element name="rule" type="entitysearchrule" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entitysearchrulecontactstatus" >
+      <xs:complexContent>
+       <xs:extension base="entitysearchrulecontact">
+         <xs:sequence>
+          <xs:element name="items" type="entitysearchrulecontactstatusitem" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="entitysearchrulefirmother" >
+      <xs:complexContent>
+       <xs:extension base="entitysearchrulefirm">
+         <xs:sequence>
+          <xs:element name="text" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="entitysearchrulecontactstatusitem" >
+      <xs:sequence>
+        <xs:element name="id" type="entitysearchrulecontactstatusitemid" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entitysearchrulecontactdelete" >
+      <xs:complexContent>
+       <xs:extension base="entitysearchrulecontact">
+         <xs:sequence>
+          <xs:element name="start" type="xs:dateTime" />
+          <xs:element name="finish" type="xs:dateTime" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="entitysearchrulepipolfio" >
+      <xs:complexContent>
+       <xs:extension base="entitysearchrulepipol">
+         <xs:sequence>
+          <xs:element name="fio" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="entitysearchrulecontactcomposite" >
+      <xs:complexContent>
+       <xs:extension base="entitysearchrulepipol">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="rules" type="entitysearchrulecontact" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="entitysearchsourcefirmwithdelete" >
+      <xs:complexContent>
+       <xs:extension base="entitysearchsource">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="entitysearch" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="create" type="xs:dateTime" />
+        <xs:element name="use" type="xs:dateTime" />
+        <xs:element name="park" type="xs:anyType" />
+        <xs:element name="user" type="entityuser" nillable="true" minOccurs="0" />
+        <xs:element name="sources" type="entitysearchsource" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entitysearchrulepipoluser" >
+      <xs:complexContent>
+       <xs:extension base="entitysearchrulepipol">
+         <xs:sequence>
+          <xs:element name="items" type="entitysearchrulepipoluseritem" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="entitysearchrulefirmcomposite" >
+      <xs:complexContent>
+       <xs:extension base="entitysearchrulefirm">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="rules" type="entitysearchrulefirm" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="entitysearchrulefirmuseritem" >
+      <xs:sequence>
+        <xs:element name="id" type="entitysearchrulefirmuseritemid" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entitysearchrulefirmsectionitem" >
+      <xs:sequence>
+        <xs:element name="id" type="entitysearchrulefirmsectionitemid" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entitysearchrulepipolcomposite" >
+      <xs:complexContent>
+       <xs:extension base="entitysearchrulefirm">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="rules" type="entitysearchrulepipol" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="entitysearchrulepipolother" >
+      <xs:complexContent>
+       <xs:extension base="entitysearchrulepipol">
+         <xs:sequence>
+          <xs:element name="text" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="entitysearchrulecontactcreate" >
+      <xs:complexContent>
+       <xs:extension base="entitysearchrulecontact">
+         <xs:sequence>
+          <xs:element name="start" type="xs:dateTime" />
+          <xs:element name="finish" type="xs:dateTime" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="entitysearchrulecontactuser" >
+      <xs:complexContent>
+       <xs:extension base="entitysearchrulecontact">
+         <xs:sequence>
+          <xs:element name="items" type="entitysearchrulecontactuseritem" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="entitycontract" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="user" type="entityuser" nillable="true" minOccurs="0" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="versions" type="entitycontractversion" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entitypipol" >
+      <xs:sequence>
+        <xs:element name="fio" type="xs:string" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="telephon" type="xs:string" />
+        <xs:element name="rang" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="create" type="xs:dateTime" />
+        <xs:element name="firm" type="entityfirm" nillable="true" minOccurs="0" />
+        <xs:element name="publicstyle" type="entitystyle" nillable="true" minOccurs="0" />
+        <xs:element name="user" type="entityuser" nillable="true" minOccurs="0" />
+        <xs:element name="contacts" type="entitycontact" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="delete" type="xs:dateTime" />
+        <xs:element name="historys" type="entitypipolhistory" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entitystatus" >
+      <xs:sequence>
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="order" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entitycategory" >
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="products" type="entityproduct" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="parent" type="entitycategory" nillable="true" minOccurs="0" />
+        <xs:element name="childs" type="entitycategory" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entityproduct" >
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="prices" type="entityproductprice" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="category" type="entitycategory" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entityproductprice" >
+      <xs:sequence>
+        <xs:element name="create" type="xs:dateTime" />
+        <xs:element name="value" type="xs:double" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="product" type="entityproduct" nillable="true" minOccurs="0" />
+        <xs:element name="currency" type="entitycurrency" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entitycurrency" >
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="label" type="xs:string" />
+        <xs:element name="id" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entityrule" >
+      <xs:sequence>
+        <xs:element name="id" type="entityrulekey" nillable="true" minOccurs="0" />
+        <xs:element name="statistic" type="xs:anyType" />
+        <xs:element name="content" type="entityrulecontent" nillable="true" minOccurs="0" />
+        <xs:element name="contract" type="entityrulecontract" nillable="true" minOccurs="0" />
+        <xs:element name="tiding" type="entityruletiding" nillable="true" minOccurs="0" />
+        <xs:element name="task" type="entityruletask" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entitysection" >
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="children" type="entitysection" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="parent" type="entitysection" nillable="true" minOccurs="0" />
+        <xs:element name="owner" type="entityuser" nillable="true" minOccurs="0" />
+        <xs:element name="firms" type="entityfirm" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="style" type="entitystyle" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entityfirmhistory" >
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="id" type="entityfirmhistoryid" nillable="true" minOccurs="0" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="address" type="xs:string" />
+        <xs:element name="telephon" type="xs:string" />
+        <xs:element name="fax" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="site" type="xs:string" />
+        <xs:element name="user" type="entityuser" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entityversionresolution" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="create" type="xs:dateTime" />
+        <xs:element name="ok" type="xs:anyType" />
+        <xs:element name="version" type="entitycontractversion" nillable="true" minOccurs="0" />
+        <xs:element name="user" type="entityuser" nillable="true" minOccurs="0" />
+        <xs:element name="description" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entitycontacttype" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entitypartfile" >
+      <xs:complexContent>
+       <xs:extension base="entitypart">
+         <xs:sequence>
+          <xs:element name="data" type="xs:anyType" />
+          <xs:element name="name" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="entityserverrule" >
+      <xs:sequence>
+        <xs:element name="ruleid" type="xs:anyType" />
+        <xs:element name="server" type="entityserver" nillable="true" minOccurs="0" />
+        <xs:element name="user" type="entityuser" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entityserverruleall" >
+      <xs:complexContent>
+       <xs:extension base="entityserverrule">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="entityserver" >
+      <xs:sequence>
+        <xs:element name="serverid" type="xs:anyType" />
+        <xs:element name="url" type="xs:string" />
+        <xs:element name="login" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="type" type="entityservertype" nillable="true" minOccurs="0" />
+        <xs:element name="rules" type="entityserverrule" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="mails" type="entitymail" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entitymail" >
+      <xs:sequence>
+        <xs:element name="created" type="xs:dateTime" />
+        <xs:element name="sended" type="xs:dateTime" />
+        <xs:element name="received" type="xs:dateTime" />
+        <xs:element name="theme" type="xs:string" />
+        <xs:element name="to" type="xs:string" />
+        <xs:element name="from" type="xs:string" />
+        <xs:element name="parts" type="entitypart" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="mailid" type="xs:anyType" />
+        <xs:element name="user" type="entityuser" nillable="true" minOccurs="0" />
+        <xs:element name="server" type="entityserver" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entityparttext" >
+      <xs:complexContent>
+       <xs:extension base="entitypart">
+         <xs:sequence>
+          <xs:element name="text" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="entitypart" >
+      <xs:sequence>
+        <xs:element name="partid" type="xs:anyType" />
+        <xs:element name="mail" type="entitymail" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entitycontractversion" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="contract" type="entitycontract" nillable="true" minOccurs="0" />
+        <xs:element name="resolution" type="entityversionresolution" nillable="true" minOccurs="0" />
+        <xs:element name="create" type="xs:dateTime" />
+        <xs:element name="files" type="entityversionfile" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="user" type="entityuser" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entityrank" >
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="description" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entitygroup" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="rules" type="entityrule" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="users" type="entityuser" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entitytaskexecutor" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="task" type="entitytask" nillable="true" minOccurs="0" />
+        <xs:element name="user" type="entityuser" nillable="true" minOccurs="0" />
+        <xs:element name="accept" type="xs:dateTime" />
+        <xs:element name="must" type="xs:dateTime" />
+        <xs:element name="description" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entitytask" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="create" type="xs:dateTime" />
+        <xs:element name="owner" type="entityuser" nillable="true" minOccurs="0" />
+        <xs:element name="executors" type="entitytaskexecutor" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="previous" type="entitytask" nillable="true" minOccurs="0" />
+        <xs:element name="nexts" type="entitytask" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entityfirmsort" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="view" type="entityview" nillable="true" minOccurs="0" />
+        <xs:element name="order" type="xs:long" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="inverse" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entityview" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="users" type="entityviewuser" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="sort" type="entityviewsort" nillable="true" minOccurs="0" />
+        <xs:element name="history" type="entityviewhistory" nillable="true" minOccurs="0" />
+        <xs:element name="mail" type="entityviewmail" nillable="true" minOccurs="0" />
+        <xs:element name="delete" type="entityviewdelete" nillable="true" minOccurs="0" />
+        <xs:element name="locale" type="xs:string" />
+        <xs:element name="byme" type="xs:anyType" />
+        <xs:element name="bymetotal" type="xs:anyType" />
+        <xs:element name="bymerepeat" type="xs:anyType" />
+        <xs:element name="bymeold" type="xs:anyType" />
+        <xs:element name="showrate" type="xs:anyType" />
+        <xs:element name="flatehead" type="xs:anyType" />
+        <xs:element name="showtelephon" type="xs:anyType" />
+        <xs:element name="showfax" type="xs:anyType" />
+        <xs:element name="showweb" type="xs:anyType" />
+        <xs:element name="showowner" type="xs:anyType" />
+        <xs:element name="showlastcontact" type="xs:anyType" />
+        <xs:element name="showaddress" type="xs:anyType" />
+        <xs:element name="showemail" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entityviewuser" >
+      <xs:sequence>
+        <xs:element name="id" type="entityviewuserid" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entityimage" >
+      <xs:sequence>
+        <xs:element name="data" type="xs:anyType" />
+        <xs:element name="alt" type="xs:string" />
+        <xs:element name="extend" type="xs:string" />
+        <xs:element name="id" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entitytext" >
+      <xs:sequence>
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="id" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entityuser" >
+      <xs:sequence>
+        <xs:element name="fio" type="xs:string" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="login" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="group" type="entitygroup" nillable="true" minOccurs="0" />
+        <xs:element name="disable" type="xs:dateTime" />
+        <xs:element name="firms" type="entityfirm" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="block" type="xs:dateTime" />
+        <xs:element name="dependtasks" type="entitytask" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="ownertasks" type="entitytask" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="defaultview" type="entityview" nillable="true" minOccurs="0" />
+        <xs:element name="mails" type="entitymail" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="activex1c" type="entityuser1c" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entityusersession" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="start" type="xs:dateTime" />
+        <xs:element name="user" type="entityuser" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entityfirm" >
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="address" type="xs:string" />
+        <xs:element name="telephon" type="xs:string" />
+        <xs:element name="fax" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="site" type="xs:string" />
+        <xs:element name="create" type="xs:dateTime" />
+        <xs:element name="publicstyle" type="entitystyle" nillable="true" minOccurs="0" />
+        <xs:element name="pipols" type="entitypipol" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="user" type="entityuser" nillable="true" minOccurs="0" />
+        <xs:element name="section" type="entitysection" nillable="true" minOccurs="0" />
+        <xs:element name="delete" type="xs:dateTime" />
+        <xs:element name="historys" type="entityfirmhistory" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entitypipolhistory" >
+      <xs:sequence>
+        <xs:element name="fio" type="xs:string" />
+        <xs:element name="id" type="entitypipolhistoryid" nillable="true" minOccurs="0" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="telephon" type="xs:string" />
+        <xs:element name="rang" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="user" type="entityuser" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entitytidingcategory" >
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="tidings" type="entitytiding" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entitytiding" >
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="create" type="xs:dateTime" />
+        <xs:element name="start" type="xs:dateTime" />
+        <xs:element name="finish" type="xs:dateTime" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="category" type="entitytidingcategory" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entityversionfile" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="path" type="xs:string" />
+        <xs:element name="data" type="xs:anyType" />
+        <xs:element name="version" type="entitycontractversion" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entitycontacthistory" >
+      <xs:sequence>
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="id" type="entitycontacthistoryid" nillable="true" minOccurs="0" />
+        <xs:element name="repeat" type="xs:dateTime" />
+        <xs:element name="status" type="entitystatus" nillable="true" minOccurs="0" />
+        <xs:element name="user" type="entityuser" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entitystyle" >
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="bold" type="xs:anyType" />
+        <xs:element name="italic" type="xs:anyType" />
+        <xs:element name="strikeout" type="xs:anyType" />
+        <xs:element name="underline" type="xs:anyType" />
+        <xs:element name="color" type="xs:long" />
+        <xs:element name="create" type="xs:dateTime" />
+        <xs:element name="owner" type="entityuser" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

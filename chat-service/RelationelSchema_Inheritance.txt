@@ -1,0 +1,15 @@
+
+chat(chatid:long [PK], name:String);
+
+chat_set<participant>(chatID:chat [PK] #FK to chat,set<participant>ID:set<participant> [PK] #FK to set<participant>);chat_set<message>(chatID:chat [PK] #FK to chat,set<message>ID:set<message> [PK] #FK to set<message>);
+
+message(messageid:long [PK], chatid:long, userid:long, text:String);
+
+attachment(attachmentid:long [PK], messageid:long, type:String, content:String);
+
+participant(chatid:long [PK], userid:long [PK], isowner:boolean);
+
+notification(notificationid:long [PK], recipientid:long, senderid:long, sendername:String, text:String, pictureurl:String, type:String, roomurl:String, filmtitle:String);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

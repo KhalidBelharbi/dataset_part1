@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="hibernate.cfg" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="animal" >
+      <xs:complexContent>
+       <xs:extension base="abstractentity<long>">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="//@max(value" type="xs:long" />
+          <xs:element name="nome" type="xs:string" />
+          <xs:element name="clientelist" type="cliente" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="cliente" >
+      <xs:complexContent>
+       <xs:extension base="abstractentity<long>">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="//@max(value" type="xs:long" />
+          <xs:element name="nome" type="xs:string" />
+          <xs:element name="animallist" type="animal" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="abstractentity" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="abstractcrudservice" >
+      <xs:complexContent>
+       <xs:extension base="abstractentity<id>,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="clienteservice" >
+      <xs:complexContent>
+       <xs:extension base="abstractcrudservice<">
+         <xs:sequence>
+          <xs:element name="instance" type="clienteservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="animalservice" >
+      <xs:complexContent>
+       <xs:extension base="abstractcrudservice<">
+         <xs:sequence>
+          <xs:element name="instance" type="animalservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="clientedao" >
+      <xs:complexContent>
+       <xs:extension base="abstractdao<">
+         <xs:sequence>
+          <xs:element name="instance" type="clientedao" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="hibernateutil" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="animaldao" >
+      <xs:complexContent>
+       <xs:extension base="">
+         <xs:sequence>
+          <xs:element name="instance" type="animaldao" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="abstractdao" >
+      <xs:sequence>
+        <xs:element name="log" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="clienteservicetest" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hibernate.cfg" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

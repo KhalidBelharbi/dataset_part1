@@ -1,0 +1,447 @@
+feature(id:Long [PK], GeneratedName:Product #FK to(product), name:String);
+
+product(id:Long [PK], name:String);
+
+b(id:Integer [PK], GeneratedName:A);
+
+tranche(id:Long [PK], GeneratedName:Tranchenmodell #FK to(tranchenmodell), GeneratedName:Y #FK to(y));
+
+preisregelung(id:Long [PK], GeneratedName:Tranchenmodell #FK to(tranchenmodell));
+
+y(id:Long [PK], GeneratedName:Tranche #FK to(tranche));
+
+x(id:Long [PK], GeneratedName:Tranchenmodell #FK to(tranchenmodell));
+
+tranchenmodell(id:Long [PK], GeneratedName:Preisregelung #FK to(preisregelung), GeneratedName:X #FK to(x));
+
+a(id:Integer [PK], GeneratedName:B);
+
+temporaltypetest();
+
+wallet(serial:String [PK], model:String, marketentrance:Date, brand:String);
+
+incident(id:String [PK], GeneratedName:IncidentStatus #FK to(incidentstatus));
+
+kitchen(id:Long [PK], GeneratedName:Oven #FK to(oven));
+
+oven(id:Long [PK], GeneratedName:Kitchen #FK to(kitchen));
+
+incidentstatus(id:String [PK], GeneratedName:Incident #FK to(incident));
+
+simpleentity(id:Long [PK], name:String);
+
+nocacheableannotationentity(id:Long [PK], name:String);
+
+explicitlycacheableentity(id:Long [PK], name:String);
+
+explicitlynoncacheableentity(id:Long [PK], name:String);
+
+order(id:int [PK], total:int);
+
+cat(lives:int);
+
+dog(numbones:int);
+
+decorate(id:int [PK], name:String, GeneratedName:Pet);
+
+hoarder(id:Long [PK], name:String, favorite:Item #FK to(item));
+
+b4(id:int [PK], GeneratedName:A #FK to(a));
+
+b1(id:int [PK], GeneratedName:A #FK to(a));
+
+a(id:int [PK], name:String);
+
+c1(id:int [PK], GeneratedName:B1 #FK to(b1));
+
+b3(id:int [PK], GeneratedName:A #FK to(a));
+
+c2(id:int [PK], GeneratedName:B2 #FK to(b2));
+
+b2(id:int [PK], GeneratedName:A #FK to(a));
+
+category(id:Long [PK], name:String, example:Item #FK to(item), version:int);
+
+competitor(id:Integer [PK], name:String);
+
+competition(id:Integer [PK]);
+
+competition_competitor(Competition_ID:Competition [PK] #FK to Competition,list<competitor>_ID:list<competitor> [PK] #FK to list<competitor>);
+
+empire(id:Long [PK]);
+
+item(id:Long [PK], version:int, name:String, GeneratedName:Category #FK to(category));
+
+colony(id:Long [PK]);
+
+mail(id:Long [PK], from:String);
+
+music(id:Integer [PK], name:String, version:Integer);
+
+dress(name:String [PK]);
+
+pet(id:int [PK], name:String, weight:double);
+
+race(id:Integer [PK], name:String);
+
+parent(id:Integer [PK]);
+
+child(id:Integer [PK], daddy:Parent #FK to(parent));
+
+cat(log:Logger, //usedforassertionsids:List, //usedforassertionspostversion:int, id:Integer [PK], name:String, ofbirth:Date, length:long, lastup:Date, manualversion:int);
+
+datetimeparametertest(entitymanagerfactory:HibernateEntityManagerFactory, nowcal:GregorianCalendar, now:Date);
+
+user(id:int [PK], name:String);
+
+storedprocedureresultsetmappingtest();
+
+music(id:Integer [PK], version:Integer, name:String);
+
+musician(id:Integer [PK], name:String, favourite:Music);
+
+instrument(id:int [PK], name:String, GeneratedName:Type);
+
+cupholder(//(strategy:Integer [PK], radius:BigDecimal);
+
+imagereader(id:long [PK], image:Blob, text:Clob);
+
+contractor(company:String);
+
+scalarresultnativequerytest();
+
+
+
+constructorresultnativequerytest();
+
+datetimeparametertest(nowcal:GregorianCalendar, now:Date);
+
+kitten(id:Integer [PK], name:String);
+
+article(id:Integer [PK], GeneratedName:Author #FK to(author));
+
+umbrella(id:PK, size:int);
+
+author(id:Integer [PK]);
+
+book(id:Long [PK], name:String);
+
+sickness(begintime:Date, type:String [PK], classification:String [PK]);
+
+unlisteddatapoint(id:long [PK]);
+
+datapoint(id:long [PK]);
+
+user(id:Long [PK], roles:Set<Role>);
+
+tool(cost:Double);
+
+widget(code:String [PK], division:String [PK], cost:Double);
+
+wall(id:Long [PK], width:long, height:long, color:String, left:Wall #FK to(wall), right:Wall #FK to(wall));
+
+payment(id:Long [PK], amount:BigDecimal, GeneratedName:Date);
+
+basicsimplecasetest();
+
+human();
+
+alias(id:Long [PK], GeneratedName:Name, source:String);
+
+client(id:int [PK], GeneratedName:Name);
+
+multitypedbasicattributesentity(id:Long [PK], somes:byte, somewrappeds:Byte);
+
+elephant();
+
+animal(id:Long [PK], mother:Animal #FK to(animal), father:Animal #FK to(animal), name:String);
+
+product(description:String);
+
+productattribute(owner:String [PK]);
+
+product(id:Long [PK]);
+
+company(id:Long [PK]);
+
+author(id:Long [PK]);
+
+parent(id:Integer [PK]);
+
+extractiondocument(id:Long [PK], body:byte, documentinfo:ExtractionDocumentInfo #FK to(extractiondocumentinfo));
+
+conference(id:Long [PK], GeneratedName:Date, extractiondocument:ExtractionDocumentInfo #FK to(extractiondocumentinfo));
+
+soldier(id:Integer [PK], name:String, GeneratedName:Troop);
+
+student(id:Long [PK], name:String, primary:Teacher #FK to(teacher), favorite:Teacher #FK to(teacher));
+
+soldier2(id:Integer [PK], name:String, troop:Troop2 #FK to(troop2));
+
+mergewithtransientnoncascadedassociationtest();
+
+extractiondocumentinfo(id:Long [PK], lastmodified:Date, GeneratedName:Conference);
+
+song(id:Long [PK], GeneratedName:Author #FK to(author));
+
+troop2(/*fails:*/id:Integer [PK], name:String);
+
+grandson(id:Integer [PK], parent:Son #FK to(son));
+
+top(id:Long [PK]);
+
+middle(id:Long [PK], GeneratedName:Top #FK to(top), GeneratedName:Bottom #FK to(bottom));
+
+bottom(id:Long [PK], GeneratedName:Middle #FK to(middle));
+
+detachandcontainstest();
+
+teacher(id:Long [PK], name:String, favorite:Student #FK to(student));
+
+troop(id:Integer [PK], name:String);
+
+son(id:Integer [PK], GeneratedName:Parent #FK to(parent));
+
+simple(name:String, //haveanadditionalattributethatwillensurethattheenhancedclasses//willseeallclassattributesofanentitywithoutcnfesrelations:Collection<SimpleRelation>);
+
+entitywithlazyproperty(pre_update_value:byte, id:Long [PK], lazydata:byte, somefield:String, updatelazyfieldinpreupdate:boolean);
+
+cable(id:Integer [PK], name:String);
+
+bell(id:Integer [PK]);
+
+explicitdateconverterstest(//note:initiallyunabletoreproducethereportedproblemcallstoconverter:int);
+
+querytest(salary:float);
+
+simpleembeddableoverriddenconvertertest();
+
+simpleconvertannotationtest(callstoconverter:int);
+
+simpleoverriddenconvertertest();
+
+mapelementconversiontest();
+
+basicjodatimeconversiontest(callstoconverter:int);
+
+xmlwithexplicitconvertannotationstest(//note:essentiallythesameexacttestasexplicitdateconverterstest,butherewewillmixannotationsandxmlcallstoconverter:int);
+
+collectionelementconversiontest();
+
+explicitlynamedconverterclassestest();
+
+simpleconvertsannotationtest(callstoconverter:int);
+
+mapkeyconversiontest();
+
+collectioncompositeelementconversiontest();
+
+explicitenumconverterstest(callstoconverter:int);
+
+simplexmloverriddentest();
+
+unversionedlock(id:Integer [PK], name:String);
+
+querylockingtest();
+
+lockable(id:Integer [PK], version:Integer, name:String);
+
+lock(id:Integer [PK], version:Integer, name:String);
+
+rythm(id:Integer [PK]);
+
+translation(id:Integer [PK], into:String);
+
+communicationsystem(communication:int, isfirst:boolean, islast:boolean);
+
+plant(id:String [PK], name:String);
+
+remotecontrol(id:Integer [PK], creation:Date);
+
+customer(salesperson:Employee #FK to(employee), comments:String);
+
+television(id:Integer [PK], control:RemoteControl #FK to(remotecontrol), name:String);
+
+employee(title:String, salary:BigDecimal, manager:Employee #FK to(employee));
+
+videosystem(transientcounter:int);
+
+person(id:long [PK], name:String, address:String, zip:String, country:String, sex:char);
+
+countrychecker();
+
+item(name:String [PK], descr:String);
+
+columnwithexplicitreferencetoprimarytabletest();
+
+phone(id:Integer [PK], brandname:String, price:float);
+
+entitywithcompositeid(id:CompositeId, description:String);
+
+morito(id:Integer [PK], power:String);
+
+bug(id:Long [PK], subject:String, comment:String);
+
+scooter(model:String [PK], speed:Long);
+
+caipirinha(id:Integer [PK], name:String);
+
+applicationserver1(id:Integer [PK], name:String, version:Version1);
+
+money1(id:Integer [PK]);
+
+washer();
+
+applicationserver(id:Integer [PK], name:String, GeneratedName:Version);
+
+money(id:Integer [PK]);
+
+bug(id:Long [PK], subject:String, comment:String);
+
+carpet(id:Integer [PK], country:String);
+
+applicationserver(id:Integer [PK], name:String, GeneratedName:Version);
+
+money(id:Integer [PK]);
+
+account(id:Long [PK], name:String, regioncode:String);
+
+distributor(id:Integer [PK], name:String);
+
+employee(id:Long [PK], name:String, /*@embedded@attributeoverrides({@attributeoverride(name:Address, /*@embedded@attributeoverrides({@attributeoverride(name:Address);
+
+article(id:Integer [PK], name:String, next:Article);
+
+article(id:Integer [PK], name:String, next:Article);
+
+employee(id:Long [PK], name:String, /*@embedded@attributeoverrides({@attributeoverride(name:Address, /*@embedded@attributeoverrides({@attributeoverride(name:Address);
+
+pasta(id:Integer [PK], type:String);
+
+reptile(temperature:float);
+
+removeorderingtest();
+
+mammal(mamalnbr:int);
+
+animal(name:String, id:Long [PK]);
+
+workload(id:Integer [PK], name:String, load:Integer);
+
+entitygraphtest();
+
+basicentitygraphtests();
+
+entitygraphusingfetchgraphtest();
+
+employee(id:long [PK]);
+
+employee_set<manager>(employeeID:employee [PK] #FK to employee,set<manager>ID:set<manager> [PK] #FK to set<manager>);employee_set<employee>(employeeID:employee [PK] #FK to employee,set<employee>ID:set<employee> [PK] #FK to set<employee>);
+
+entitygraphloadplanbuildertest();
+
+manager();
+
+location(id:long [PK], address:String, zip:int);
+
+person(id:Long [PK]);
+
+employee(id:Long [PK], name:String, salary:double);
+
+person(id:Long [PK]);
+
+company(id:long [PK], GeneratedName:Location #FK to(location), markets:Set<Market>, phonenumbers:Set<String>);
+
+basiccditest(count:int);
+
+versionedentity(id:String [PK], name:String, version:int);
+
+entity2(id:long [PK], GeneratedName:Entity3 #FK to(entity3), value:String);
+
+product(id:String [PK], name:String, price:double, rating:float, quantity:int, partnumber:long, some:BigInteger, some:BigDecimal, warehouse:String, GeneratedName:ShelfLife);
+
+mixedidandidclasshandling();
+
+lineitem(id:String [PK], quantity:int, GeneratedName:Order, GeneratedName:Product);
+
+order(id:String [PK], totalprice:double, GeneratedName:Customer, GeneratedName:CreditCard, sample:LineItem, domen:char, number:byte);
+
+creditcard(id:String [PK], number:String, type:String, expires:String, approved:boolean, balance:double, GeneratedName:Order, GeneratedName:Customer);
+
+address(id:String [PK], street:String, city:String, state:String, zip:String);
+
+spouse(id:String [PK], first:String, maiden:String, last:String, snumber:String, GeneratedName:Info, GeneratedName:Customer);
+
+entity3(id:long [PK], value:String);
+
+alias(id:String [PK], alias:String, noop:Customer);
+
+fks_anoop_cnoop(fk2_for_alias_table:Alias [PK] #FK to Alias,fk8_for_customer_table:collection<customer> [PK] #FK to collection<customer>);fks_alias_customer(fk_for_alias_table:Alias [PK] #FK to Alias,fk_for_customer_table:collection<customer> [PK] #FK to collection<customer>);
+
+somemappedsuperclasssubclass(thedata:String);
+
+thing(id:String [PK], name:String);
+
+entity1(id:long [PK], GeneratedName:Entity2 #FK to(entity2), value:String);
+
+info(id:String [PK], street:String, city:String, state:String, zip:String, GeneratedName:Spouse);
+
+thingwithquantity(quantity:int);
+
+customer(id:String [PK], name:String, age:Integer, home:Address #FK to(address), work:Address #FK to(address), GeneratedName:Country, GeneratedName:Spouse);
+
+phone(id:String [PK], area:String, number:String, GeneratedName:Address, types:Set<Type>);
+
+mapentity(key:String [PK], localized:Map<String,MapEntityLocal>);
+
+feline(color:String);
+
+employeewithrawtype(id:String [PK], name:String);
+
+giant(height:long);
+
+withgenericcollection(id:String [PK], d:double, parent:WithGenericCollection<? extends Object> #FK to(withgenericcollection<? extends object>));
+
+child(id:Integer [PK], name:String);
+
+parent(id:Integer [PK], name:String, siblings:Relatives<Child>);
+
+joinedmanytooneowner(id:Long [PK], GeneratedName:House);
+
+dog(name:String);
+
+cat(nickname:String);
+
+garden(id:Long [PK], name:String);
+
+deskwithrawtype(id:String [PK], name:String);
+
+desk_empl(desk_fk:DeskWithRawType [PK] #FK to DeskWithRawType,empl_fk:collection [PK] #FK to collection);
+
+flower(id:Long [PK], name:String);
+
+simplemedicalhistory(lastup:Date, patient:SimplePerson [PK] #FK to(simpleperson));
+
+house(GeneratedName:Key, GeneratedName:Address, rooms:Set<Room>, roomsbyname:Map<String,Room>, roomsbysize:List<Room>);
+
+fridge(id:Long [PK], brand:String, temperature:int);
+
+person(firstname:String [PK], lastname:String [PK], age:Short);
+
+simpleperson(ssn:String [PK]);
+
+fooditem(id:Long [PK], name:String, version:Long);
+
+strawberry(size:Long);
+
+fruit(id:Long [PK]);
+
+book(id:Integer [PK], name:String, version:Integer);
+
+item(name:String [PK], descr:String);
+
+employee(id:Long [PK], name:String, salary:Double, Employee: String);
+
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

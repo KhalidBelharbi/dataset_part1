@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="grupo" >
+      <xs:sequence>
+        <xs:element name="idgrupo" type="xs:anyType" />
+        <xs:element name="nombre" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="vacuna" >
+      <xs:sequence>
+        <xs:element name="idvacuna" type="xs:anyType" />
+        <xs:element name="nombre" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="menu" >
+      <xs:sequence>
+        <xs:element name="idmenu" type="xs:anyType" />
+        <xs:element name="nombre" type="xs:string" />
+        <xs:element name="url" type="xs:string" />
+        <xs:element name="icono" type="xs:string" />
+        <xs:element name="roles" type="rol" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dpacientedosis" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="paciente" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="dosis" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dias" >
+      <xs:sequence>
+        <xs:element name="iddias" type="xs:anyType" />
+        <xs:element name="nombre" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rol" >
+      <xs:sequence>
+        <xs:element name="idrol" type="xs:anyType" />
+        <xs:element name="nombre" type="xs:string" />
+        <xs:element name="descripcion" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="turnocomida" >
+      <xs:sequence>
+        <xs:element name="idturnocomida" type="xs:anyType" />
+        <xs:element name="nombre" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="alimento" >
+      <xs:sequence>
+        <xs:element name="idalimento" type="xs:anyType" />
+        <xs:element name="nombre" type="xs:string" />
+        <xs:element name="cantidad" type="xs:string" />
+        <xs:element name="energykcal" type="xs:string" />
+        <xs:element name="energykj" type="xs:string" />
+        <xs:element name="water" type="xs:string" />
+        <xs:element name="prot" type="xs:string" />
+        <xs:element name="fat" type="xs:string" />
+        <xs:element name="chocdf" type="xs:string" />
+        <xs:element name="choavl" type="xs:string" />
+        <xs:element name="fib" type="xs:string" />
+        <xs:element name="fibtg" type="xs:string" />
+        <xs:element name="ash" type="xs:string" />
+        <xs:element name="ca" type="xs:string" />
+        <xs:element name="p" type="xs:string" />
+        <xs:element name="zn" type="xs:string" />
+        <xs:element name="fe" type="xs:string" />
+        <xs:element name="beta" type="xs:string" />
+        <xs:element name="retinol" type="xs:string" />
+        <xs:element name="vita" type="xs:string" />
+        <xs:element name="thia" type="xs:string" />
+        <xs:element name="ribf" type="xs:string" />
+        <xs:element name="nia" type="xs:string" />
+        <xs:element name="vitc" type="xs:string" />
+        <xs:element name="GeneratedName" type="grupo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usuario" >
+      <xs:sequence>
+        <xs:element name="idusuario" type="xs:anyType" />
+        <xs:element name="/*	*@apimodelproperty(notes" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="/*	*@email	*	*@column(name" type="xs:anyType" />
+        <xs:element name="/*	*@column(name" type="rol" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dalimentoturnocomida" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="alimento" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="turnocomida" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dosis" >
+      <xs:sequence>
+        <xs:element name="iddosis" type="xs:anyType" />
+        <xs:element name="fechames" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="vacuna" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="resettoken" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="token" type="xs:string" />
+        <xs:element name="user" type="usuario" nillable="true" minOccurs="0" />
+        <xs:element name="expiracion" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="control" >
+      <xs:sequence>
+        <xs:element name="idcontrol" type="xs:anyType" />
+        <xs:element name="fechacontrol" type="xs:dateTime" />
+        <xs:element name="edadmes" type="xs:anyType" />
+        <xs:element name="peso" type="xs:double" />
+        <xs:element name="estatura" type="xs:double" />
+        <xs:element name="cabeza" type="xs:double" />
+        <xs:element name="observacion" type="xs:string" />
+        <xs:element name="//@jsonignore" type="paciente" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="prediccion" >
+      <xs:sequence>
+        <xs:element name="idprediccion" type="xs:anyType" />
+        <xs:element name="fechaprediccion" type="xs:dateTime" />
+        <xs:element name="edadmesprediccion" type="xs:anyType" />
+        <xs:element name="pesoprediccion" type="xs:double" />
+        <xs:element name="estaturaprediccion" type="xs:double" />
+        <xs:element name="cabezaprediccion" type="xs:double" />
+        <xs:element name="GeneratedName" type="paciente" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="paciente" >
+      <xs:sequence>
+        <xs:element name="idpaciente" type="xs:anyType" />
+        <xs:element name="nombres" type="xs:string" />
+        <xs:element name="fechanacimiento" type="xs:dateTime" />
+        <xs:element name="sexo" type="xs:string" />
+        <xs:element name="semanagestacion" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="usuario" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="plan" >
+      <xs:sequence>
+        <xs:element name="idplan" type="xs:anyType" />
+        <xs:element name="fechainicio" type="xs:dateTime" />
+        <xs:element name="fechafin" type="xs:dateTime" />
+        <xs:element name="objetivo" type="xs:string" />
+        <xs:element name="activo" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="paciente" nillable="true" minOccurs="0" />
+        <xs:element name="lstdias*/lstdetalleplanes" type="detalleplan" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="detalleplan" >
+      <xs:sequence>
+        <xs:element name="iddetalle" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="plan" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="alimento" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="turnocomida" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="dias" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

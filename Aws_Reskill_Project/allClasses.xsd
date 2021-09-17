@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="bootstrap" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="buyercontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="buyerservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cartcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="cartservice" nillable="true" minOccurs="0" />
+        <xs:element name="producturi" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="wishlistcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="wishlistservice" nillable="true" minOccurs="0" />
+        <xs:element name="producturi" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sellercontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="sellerservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sellervalidator" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="buyervalidator" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usermsapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="buyerservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="wishlistserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="wishlistrepository" nillable="true" minOccurs="0" />
+        <xs:element name="br" type="buyerrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cartserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="cartrepository" nillable="true" minOccurs="0" />
+        <xs:element name="br" type="buyerrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="buyerserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="buyerrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cartservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="wishlistservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sellerservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sellerserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="sellerrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cartdto" >
+      <xs:sequence>
+        <xs:element name="prodid" type="xs:anyType" />
+        <xs:element name="buyerid" type="xs:anyType" />
+        <xs:element name="quantity" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="buyerdto" >
+      <xs:sequence>
+        <xs:element name="buyerid" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="phonenumber" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="isprivileged" type="xs:anyType" />
+        <xs:element name="rewardpoints" type="xs:anyType" />
+        <xs:element name="isactive" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="productdto" >
+      <xs:sequence>
+        <xs:element name="prodid" type="xs:anyType" />
+        <xs:element name="productname" type="xs:string" />
+        <xs:element name="price" type="xs:anyType" />
+        <xs:element name="stock" type="xs:anyType" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="//<<-------???????????????????sellerid" type="xs:anyType" />
+        <xs:element name="category" type="xs:string" />
+        <xs:element name="subcategory" type="xs:string" />
+        <xs:element name="productrating" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="wishlistdto" >
+      <xs:sequence>
+        <xs:element name="prodid" type="xs:anyType" />
+        <xs:element name="buyerid" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sellerdto" >
+      <xs:sequence>
+        <xs:element name="sellerid" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="phonenumber" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="isactive" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="buyerrepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<buyer">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sellerrepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<seller,integer>{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="wishlistrepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<wishlist,wishlistid>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="cartrepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<cart,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="buyer" >
+      <xs:sequence>
+        <xs:element name="buyerid" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="phonenumber" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="isprivileged" type="xs:anyType" />
+        <xs:element name="rewardpoints" type="xs:anyType" />
+        <xs:element name="isactive" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="wishlist" >
+      <xs:sequence>
+        <xs:element name="prodid" type="xs:anyType" />
+        <xs:element name="buyerid" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="seller" >
+      <xs:sequence>
+        <xs:element name="sellerid" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="phonenumber" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="isactive" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="wishlistid" >
+      <xs:sequence>
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="prodid" type="xs:anyType" />
+        <xs:element name="buyerid" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cart" >
+      <xs:sequence>
+        <xs:element name="prodid" type="xs:anyType" />
+        <xs:element name="buyerid" type="xs:anyType" />
+        <xs:element name="quantity" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ekartexception" >
+      <xs:complexContent>
+       <xs:extension base="exception">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema> 

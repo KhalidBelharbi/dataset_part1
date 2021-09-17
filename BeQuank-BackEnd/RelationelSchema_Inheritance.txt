@@ -1,0 +1,33 @@
+
+newszcfb(link:String [PK], pos,title,date,origin:String);
+
+summary(link:String [PK], pos,title,date,origin,type:String);
+
+newstzgg(link:String [PK], pos,title,date,origin:String);
+
+newszfsj(link:String [PK], pos,title,date,origin:String);
+
+newsywdd(link:String [PK], pos,title,date,origin:String);
+
+newszcjd(link:String [PK], pos,title,date,origin:String);
+
+hypx(link:String [PK], pos,title,date,origin:String);
+
+word_tf(word:String [PK], month:String [PK], tf:int);
+
+user(id:Long [PK], //用户名username:String, //密码password:String, //昵称nickname:String, //头像urlavatar:String, //电话phone:String, //邮箱email:String, //性别gender:String, //生日birthday:String, //……moneylevel:String, //自我介绍bio:String, //+通过做问卷得出的结果level:String, //权限role:String, //注册时间registertime:String, //预期收益expectedprofit:double, //风险承受能力riskability:double, coins:int, exp:int, //今天是否签到hassignedtoday:boolean, //可以查看的教程级别tutorialtype:String, ratiotrend:boolean, trend:boolean);
+
+tutorial(id:Long [PK], userid:Long, nickname,title,description,time:String, content:String, keywords:JSONArray, type:String, //封面cover:String, alreadyliked:boolean, likedlist:ArrayList<Long>);
+
+strategyitem(id:long [PK], stockid:String, buyrate:double, GeneratedName:Strategy #FK to(strategy));
+
+stock(id:long [PK], //股票代码stockid:String, //股票名字stockname:String, //股价currentprice:double, //跌涨幅%trend:double, //累计换手率%turnoverrate:double, //股市盈利率%marketprofitability:double, //今日成交量todayvolume:long, //推荐购买比例buyrate:double);
+
+comment(id:Long [PK], //这个也准备换成对象writer:User #FK to(user), content,time,nickname:String, alreadyliked:boolean, alreadyread:int, GeneratedName:Tutorial #FK to(tutorial), replytarget:Comment #FK to(comment), replytargetuserid:Long, likedusers:ArrayList<Long>);
+
+strategy(recordid:long [PK], userid:long, recordname:String, recordtime:String);
+
+realstock(//股票代码stockid:String [PK], //名字stockname:String, //跌涨幅trend:double, //现价currentprice:double, //开盘价open:double, //最高价high:double, //最低价low:double, //昨日收盘价settlement:double, //成交量todayvolume:double, //换手率turnoverrate:double, //成交额amount:double, //市盈率marketprofitability:double, //市净率pb:double, //总市值mktcap:double, //流通市值nmc:double);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

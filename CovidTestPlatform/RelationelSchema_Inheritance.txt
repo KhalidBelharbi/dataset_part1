@@ -1,0 +1,21 @@
+
+admin(id:String [PK], firstname:String, lastname:String, email:String, password:String, createdat:Date, upat:Date);
+
+scheduledappointment(scheduledappointmentsid:String [PK], patientid:String, testcentreavailabilityid:String, appointmentdate:LocalDate, time:String, checkedin:boolean, deleteflag:boolean, availableappointmentsid:String, createdat:Date, upat:Date);
+
+testcenter(testcentreid:String [PK], name:String, address1:String, address2:String, zip:String, city:String, state:String, phone:String, //@jsonserialize(using:Point, createdat:Date, upat:Date);
+
+patient(patientid:String [PK], firstname:String, lastname:String, email:String, dob:Date, gender:String, address1:String, address2:String, zip:String, city:String, state:String, insuranceprovider:String, phonenumber:String, createdat:Date, upat:Date);
+
+physician(physicianid:String [PK], firstname:String, lastname:String, email:String, address1:String, address2:String, zip:String, city:String, state:String, phonenumber:String, GeneratedName:TestCenter #FK to(TestCenter), createdat:Date, upat:Date);
+
+availableappointment(availableappointmentsid:String [PK], time:TimeSlot, appomentcount:int, createdat:Date, upat:Date);
+
+testcenteravailability(testcentreavailabilityid:String [PK], day:LocalDate, GeneratedName:TestCenter #FK to(TestCenter), availablecount:int, createdat:Date, upat:Date);
+
+medicalreport(id:String [PK], result:String, reporturl:String, GeneratedName:AppointmentHistory #FK to(appointmenthistory), GeneratedName:Patient #FK to(patient), GeneratedName:Physician #FK to(physician), GeneratedName:TestCenter #FK to(TestCenter), createdat:Date, upat:Date);
+
+appointmenthistory(appointmenthistoryid:String [PK], physicianid:String, followupneeded:boolean, appointmentdate:LocalDate, time:String, testcenterid:String, documentuploaded:boolean, GeneratedName:Patient #FK to(patient), createdat:Date, upat:Date);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

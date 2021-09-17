@@ -1,0 +1,21 @@
+
+commande(id:Integer [PK], numerocommande:String, statut:StatutCommande, statutpaiement:StatutCommandePaiement, datecommande:Calendar, supprime:boolean, GeneratedName:Livreur #FK to(livreur), GeneratedName:Client #FK to(client));
+
+email(id:Integer [PK], expediteur:String, destinataire:String, GeneratedName:Date, objet:String, pizza:String, message:String);
+
+pizzaingredients(id:PizzaIngredientId, quantiterequise:Double);
+
+commandepizza(commandeid:Integer [PK], pizzaid:Integer [PK], id:Commande #FK to(Commande), id:Pizza #FK to(Pizza), quantite:int);
+
+utilisateur(id:Integer [PK], nom:String, prenom:String, email:String, motdepasse:String);
+
+pizza(format:Map<String,String>, autre_format:String, id:Integer [PK], code:String, nom:String, prix:BigDecimal, categorie:CategoriePizza, urlimage:String, actif:boolean);
+
+client(id:Integer [PK], nom:String, prenom:String, email:String, password:String, actif:boolean, adresse:String, telephone:String, dernieremodification:Date, abonne:boolean);
+
+ingredient(id:Integer [PK], code:String, nom:String, quantite:Double, seuil:Double, actif:boolean);
+
+livreur(code_livreur_par_defaut:String, nb_caracteres_nom_prenom_code:int, //caractèreajoutésiunnomouprénomesttropcourtcaractere_remplissage_code:char, id:Integer [PK], code:String, nom:String, prenom:String, actif:boolean);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

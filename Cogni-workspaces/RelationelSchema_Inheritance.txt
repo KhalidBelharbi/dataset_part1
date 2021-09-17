@@ -1,0 +1,17 @@
+
+course(id:int [PK], title:String, GeneratedName:Instructor #FK to(Instructor));
+
+course_student(course_id:Course [PK] #FK to Course,student_id:Student [PK] #FK to Student);
+
+student(id:int [PK], firstname:String, lastname:String, email:String);
+
+course_student(student_id:Student [PK] #FK to Student,course_id:Course [PK] #FK to Course);
+
+instructor(id:int [PK], firstname:String, lastname:String, email:String, GeneratedName:InstructorDetail #FK to(Instructor));
+
+instructordetail(id:int [PK], youtubechannel:String, hobby:String, GeneratedName:Instructor #FK to(Instructor));
+
+review(id:int [PK], comment:String, GeneratedName:Course #FK to(Course));
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

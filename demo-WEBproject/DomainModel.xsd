@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="authorities" >
+      <xs:sequence>
+        <xs:element name="userno" type="xs:anyType" />
+        <xs:element name="role" type="xs:string" />
+        <xs:element name="groupid" type="xs:string" />
+        <xs:element name="GeneratedName" type="user" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="orderdetails" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="orderno" type="xs:string" />
+        <xs:element name="itemno" type="xs:anyType" />
+        <xs:element name="count" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="items" >
+      <xs:sequence>
+        <xs:element name="item_no" type="xs:anyType" />
+        <xs:element name="item_name" type="xs:string" />
+        <xs:element name="item_description" type="xs:string" />
+        <xs:element name="price" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="house" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="price" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="orderlist" >
+      <xs:sequence>
+        <xs:element name="orderno" type="xs:string" />
+        <xs:element name="userno" type="xs:anyType" />
+        <xs:element name="datetime" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:complexContent>
+       <xs:extension base="grantedauthority>">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="userno" type="xs:anyType" />
+          <xs:element name="username" type="xs:string" />
+          <xs:element name="password" type="xs:string" />
+          <xs:element name="enable" type="xs:anyType" />
+          <xs:element name="" type="authorities" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema> 

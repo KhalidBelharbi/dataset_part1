@@ -1,0 +1,31 @@
+
+controlmercaderia(id:long [PK], stock_min:int, stock_max:int, fecha_elaboracion:Date, fecha_caducidad:Date);
+
+proveedor(idproveedor:Long [PK], ruc:String, nombreproveedor:String, estado:boolean, fecharegistro:Date, cuentasbancarias:String, giroproveedor:String, observaciones:String, emailproveedor:String, celularproveedor:String, telefonoproveedor:String, paginaweb:String);
+
+personal(serialversionuid:long, idpersonal:Long [PK], cargo:String, horario:String, lugartrabajo:String, salario:double, fecharegistro:Date, fotoperfil:String, GeneratedName:Usuario #FK to(usuario));
+
+rolesusuario(serialversionuid:long, idrolusuario:Long [PK], estado:boolean, GeneratedName:Usuario #FK to(usuario), rol:Roles #FK to(Roles));
+
+producto(id:long [PK], nombre:String, descripcion:String, marca:String, calidad:String, categoria:String, peso:double, oferta_descuento:int, precio_compra:double, precio_venta:double, imagen:String, id_proveedor:long, GeneratedName:Compra #FK to(compra), GeneratedName:DetalleVenta #FK to(DetalleVenta));
+
+empresa(serialversionuid:long, idempresa:Long [PK], ruc:String, mision:String, vision:String, nombre:String, acronimo:String, rolcomercial:String, logo:String, pais:String, provincia:String, ciudad:String, direccion:String, codigopostal:String, telefono:String, celular:String, correo:String, paginaweb:String, estado:boolean, cuentasbancarias:String, GeneratedName:Persona #FK to(Persona));
+
+detalleventa(id:long [PK], cantidad:int, iva:int, sub_total:double, total:double, //@joincolumn(name:Venta #FK to(Venta));
+
+persona(serialversionuid:long, idpersona:Long [PK], cedula:String, nombres:String, apellidos:String, fechanacimmiento:Date, genero:String, direccion:String, correo:String, telefono:String, celular:String);
+
+bodega(id:long [PK], nombre:String, tipobodega:String, direccion:String, localidad:String, capacidad_max:int, inventario_disponible:int, telefono:String, descripcion:String);
+
+cliente(serialversionuid:long, idcliente:Long [PK], observaciones:String, cuentasbancarias:String, estado:boolean, fecharegistro:Date, GeneratedName:Usuario #FK to(usuario));
+
+venta(id:long [PK], fecha:Date, tipo_venta:String);
+
+roles(serialversionuid:long, idrol:Long [PK], nombre:String, descripcion:String);
+
+compra(id:long [PK], fecha_pedido:Date, cantidad:int, unidad:String, valor_producto:double, valor_total:double, estado:String);
+
+usuario(serialversionuid:long, idusuario:Long [PK], username:String, password:String, estado:boolean, GeneratedName:Persona #FK to(Persona), GeneratedName:Empresa #FK to(Empresa));
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

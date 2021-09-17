@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="index" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="homecontroller" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="messages" >
+      <xs:sequence>
+        <xs:element name="incomplete_batch" type="xs:string" />
+        <xs:element name="invalid_file_msg" type="xs:string" />
+        <xs:element name="file_processed_successfully" type="xs:string" />
+        <xs:element name="file_generation_failed" type="xs:string" />
+        <xs:element name="file_generated_successfully" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="csvparserfactory" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="barcodeparser" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="catalogparser" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="suppliersparser" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="catalogparser" >
+      <xs:complexContent>
+       <xs:extension base="abstractcsvparser">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="barcodeparser" >
+      <xs:complexContent>
+       <xs:extension base="abstractcsvparser">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="catalogmergeservice" >
+      <xs:sequence>
+        <xs:element name="/***thisfilehandlesfollowingoperations*1.checkiftherearesixfilesininputdirectory*2.ifyesthencreateappropriateparserandgetalistofentities*3.savetheentitiestodatabase*/dao" type="catalogmergedao" nillable="true" minOccurs="0" />
+        <xs:element name="factory" type="csvparserfactory" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="abstractcsvparser" >
+      <xs:sequence>
+        <xs:element name="inputpath" type="xs:string" />
+        <xs:element name="filename" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="suppliersparser" >
+      <xs:complexContent>
+       <xs:extension base="abstractcsvparser">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="scheduledmonitor" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="headers" type="xs:string" />
+        <xs:element name="service" type="catalogmergeservice" nillable="true" minOccurs="0" />
+        <xs:element name="inputdir" type="xs:string" />
+        <xs:element name="outputdir" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="catalogb" >
+      <xs:complexContent>
+       <xs:extension base="catalogs">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="catalogmergedao" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="barcodes" >
+      <xs:complexContent>
+       <xs:extension base="csventity">
+         <xs:sequence>
+          <xs:element name="supplierid" type="xs:long" />
+          <xs:element name="sku" type="xs:string" />
+          <xs:element name="barcode" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="suppliersa" >
+      <xs:complexContent>
+       <xs:extension base="suppliers{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="barcodesb" >
+      <xs:complexContent>
+       <xs:extension base="barcodes">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="catalogs" >
+      <xs:complexContent>
+       <xs:extension base="csventity">
+         <xs:sequence>
+          <xs:element name="sku" type="xs:string" />
+          <xs:element name="description" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="cataloga" >
+      <xs:complexContent>
+       <xs:extension base="catalogs">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="suppliersb" >
+      <xs:complexContent>
+       <xs:extension base="suppliers">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="suppliers" >
+      <xs:complexContent>
+       <xs:extension base="csventity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="barcodesa" >
+      <xs:complexContent>
+       <xs:extension base="barcodes">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="csventity" >
+      <xs:sequence>
+        <xs:element name="source" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="app" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="invalidfilenameexception" >
+      <xs:complexContent>
+       <xs:extension base="throwable">
+         <xs:sequence>
+          <xs:element name="message" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="catalogb" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="suppliersb" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="barcodesa" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="apptest" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="csvparserfactorytest" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="suppliersparsertest" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="barcodeparsertest" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="catalogparsertest" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

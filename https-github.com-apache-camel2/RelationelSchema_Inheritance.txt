@@ -1,0 +1,21 @@
+
+address(id:Long [PK], addressline1:String, addressline2:String);
+
+customer(id:Long [PK], name:String, GeneratedName:Address #FK to(address), ordercount:int, version:Long);
+
+versioneditem(id:Long [PK], name:String, version:Long);
+
+sendemail(log:Logger, id:Long [PK], address:String);
+
+multisteps(log:Logger, id:Long [PK], address:String, step:int);
+
+jpaconsumer(log:Logger, nowait:Map<String,Object>, GeneratedName:EntityManagerFactory, GeneratedName:TransactionTemplate, GeneratedName:EntityManager, GeneratedName:QueryFactory, deletehandler:DeleteHandler<Object>, predeletehandler:DeleteHandler<Object>, query:String, namedquery:String, nativequery:String, GeneratedName:LockModeType, parameters:Map<String,Object>, resultclass:Class<?>, transacted:boolean, skiplockedentity:boolean);
+
+jpapollingconsumer(log:Logger, transient:ExecutorService, GeneratedName:EntityManagerFactory, GeneratedName:TransactionTemplate, query:String, namedquery:String, nativequery:String, GeneratedName:LockModeType, resultclass:Class<?>, GeneratedName:QueryFactory, parameters:Map<String,Object>);
+
+messageprocessed(serialversionuid:long, createdat:Date, id:Long [PK], messageid:String, processorname:String);
+
+jpatraceeventmessage(serialversionuid:long, id:Long [PK], timestamp:Date, fromendpointuri:String, previousnode:String, tonode:String, exchangeid:String, shortexchangeid:String, exchangepattern:String, properties:String, headers:String, body:String, bodytype:String, outheaders:String, outbody:String, outbodytype:String, causedbyexception:String, routeid:String);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

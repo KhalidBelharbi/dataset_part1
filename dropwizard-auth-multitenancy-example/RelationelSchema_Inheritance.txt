@@ -1,0 +1,11 @@
+
+tenantmodel(id:Long [PK], name:String);
+
+widgetmodel(id:Integer [PK], name:String, scope:WidgetScope, tenant:TenantModel #FK to(tenantmodel));
+
+tokenmodel(id:UUID [PK], user:UserModel #FK to(usermodel));
+
+usermodel(id:Long [PK], name:String, GeneratedName:Role, tenant:TenantModel #FK to(tenantmodel));
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

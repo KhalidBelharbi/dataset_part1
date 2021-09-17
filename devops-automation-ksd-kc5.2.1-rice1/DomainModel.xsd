@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="traveldocument2" >
+      <xs:complexContent>
+       <xs:extension base="transactionaldocumentbase">
+         <xs:sequence>
+          <xs:element name="traveler" type="xs:string" />
+          <xs:element name="origin" type="xs:string" />
+          <xs:element name="destination" type="xs:string" />
+          <xs:element name="requesttype" type="xs:string" />
+          <xs:element name="accounttype" type="xs:string" />
+          <xs:element name="travelaccounts" type="travelaccount" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="travelaccounttype" >
+      <xs:complexContent>
+       <xs:extension base="persistablebusinessobjectbase">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="accounttypecode" type="xs:string" />
+          <xs:element name="name" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="travelaccountuserate" >
+      <xs:complexContent>
+       <xs:extension base="inactivatablefromtoimpl">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:string" />
+          <xs:element name="number" type="xs:string" />
+          <xs:element name="rate" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="fiscalofficer" >
+      <xs:complexContent>
+       <xs:extension base="persistablebusinessobjectbase">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="username" type="xs:string" />
+          <xs:element name="firstname" type="xs:string" />
+          <xs:element name="accounts" type="travelaccount" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="travelaccountextension" >
+      <xs:complexContent>
+       <xs:extension base="persistablebusinessobjectextensionbase">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="number" type="xs:string" />
+          <xs:element name="accounttypecode" type="xs:string" />
+          <xs:element name="accounttype" type="travelaccounttype" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="travelaccount" >
+      <xs:complexContent>
+       <xs:extension base="persistablebusinessobjectbase">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="number" type="xs:string" />
+          <xs:element name="subaccount" type="xs:string" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="subaccountname" type="xs:string" />
+          <xs:element name="subsidizedpercent" type="xs:anyType" />
+          <xs:element name="create" type="xs:dateTime" />
+          <xs:element name="foid" type="xs:long" />
+          <xs:element name="" type="fiscalofficer" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema> 

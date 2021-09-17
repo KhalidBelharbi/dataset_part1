@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="address" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="number" type="xs:string" />
+          <xs:element name="" type="entitydescription" nillable="true" minOccurs="0" />
+          <xs:element name="" type="street" nillable="true" minOccurs="0" />
+          <xs:element name="" type="city" nillable="true" minOccurs="0" />
+          <xs:element name="" type="country" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="city" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="cityname" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="street" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="postcode" type="xs:string" />
+          <xs:element name="streetname" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="country" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="countryname" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="role_not_found" type="xs:string" />
+          <xs:element name="login" type="xs:string" />
+          <xs:element name="password" type="xs:string" />
+          <xs:element name="" type="person" nillable="true" minOccurs="0" />
+          <xs:element name="roles" type="userrole" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userrole" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="rolename" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="persondetails" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="mothername" type="xs:string" />
+          <xs:element name="mothermaidenname" type="xs:string" />
+          <xs:element name="fathername" type="xs:string" />
+          <xs:element name="type" type="document" nillable="true" minOccurs="0" />
+          <xs:element name="documentnumber" type="xs:string" />
+          <xs:element name="idnumber" type="xs:string" />
+          <xs:element name="nationality" type="country" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="personcompetence" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="level" type="xs:anyType" />
+          <xs:element name="documents" type="document" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="" type="person" nillable="true" minOccurs="0" />
+          <xs:element name="" type="competence" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="document" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="title" type="xs:string" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="releasedby" type="xs:string" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="documentnumber" type="xs:string" />
+          <xs:element name="idnumber" type="xs:string" />
+          <xs:element name="releasedate" type="xs:anyType" />
+          <xs:element name="expirydate" type="xs:anyType" />
+          <xs:element name="release" type="country" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="competence" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="" type="entitydescription" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="person" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="firstname" type="xs:string" />
+          <xs:element name="middlename" type="xs:string" />
+          <xs:element name="lastname" type="xs:string" />
+          <xs:element name="maidenname" type="xs:string" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="birthdate" type="xs:anyType" />
+          <xs:element name="" type="persondetails" nillable="true" minOccurs="0" />
+          <xs:element name="" type="address" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="manager" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="" type="person" nillable="true" minOccurs="0" />
+          <xs:element name="mayhappendepartments" type="department" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="positiondetails" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="positioncreationdate" type="xs:anyType" />
+          <xs:element name="positiondeactivationdate" type="xs:anyType" />
+          <xs:element name="isactive" type="xs:anyType" />
+          <xs:element name="inventories" type="inventory" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="department" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="" type="entitydescription" nillable="true" minOccurs="0" />
+          <xs:element name="" type="branch" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="employee" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="" type="manager" nillable="true" minOccurs="0" />
+          <xs:element name="" type="person" nillable="true" minOccurs="0" />
+          <xs:element name="" type="position" nillable="true" minOccurs="0" />
+          <xs:element name="" type="department" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="company" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="" type="entitydescription" nillable="true" minOccurs="0" />
+          <xs:element name="" type="companydetails" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="position" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="" type="entitydescription" nillable="true" minOccurs="0" />
+          <xs:element name="" type="positiondetails" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="branch" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="" type="entitydescription" nillable="true" minOccurs="0" />
+          <xs:element name="branchcreationdate" type="xs:anyType" />
+          <xs:element name="" type="company" nillable="true" minOccurs="0" />
+          <xs:element name="" type="address" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="inventory" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="" type="entitydescription" nillable="true" minOccurs="0" />
+          <xs:element name="price" type="xs:anyType" />
+          <xs:element name="" type="branch" nillable="true" minOccurs="0" />
+          <xs:element name="requiredcompetences" type="competence" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="companydetails" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="vat_no" type="xs:string" />
+          <xs:element name="companycreationdate" type="xs:anyType" />
+          <xs:element name="mother" type="branch" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="audithistory" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="tablename" type="xs:string" />
+        <xs:element name="beforestatement" type="xs:string" />
+        <xs:element name="afterstatement" type="xs:string" />
+        <xs:element name="operationtype" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="searchhistory" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="query" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema> 

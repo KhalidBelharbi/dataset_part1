@@ -1,0 +1,531 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="subscriptionauditid" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="rev" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="auditrevisionlistener" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="subscription" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="price" type="xs:double" />
+        <xs:element name="//@notnull//booleandeletedbenefits" type="benefit" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="review" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="GeneratedName" type="client" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="benefitaudit" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="rev" type="xs:long" />
+        <xs:element name="revtype" type="xs:long" />
+        <xs:element name="user" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jwtrequest" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="authprovider" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="subscriptionaudit" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="rev" type="xs:long" />
+        <xs:element name="revtype" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="price" type="xs:double" />
+        <xs:element name="user" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="role" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="client" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="//@notnullusername" type="xs:string" />
+        <xs:element name="//@notnullfirstname" type="xs:string" />
+        <xs:element name="//@notnulllastname" type="xs:string" />
+        <xs:element name="//@notnull//name//@notnullcnp" type="xs:string" />
+        <xs:element name="address" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="//@jsonignorepassword" type="xs:string" />
+        <xs:element name="//@notnullstatus" type="xs:anyType" />
+        <xs:element name="hasupdated" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="authprovider" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="role" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="subscription" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="benefitauditid" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="rev" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="revisioninfo" >
+      <xs:complexContent>
+       <xs:extension base="defaultrevisionentity">
+         <xs:sequence>
+          <xs:element name="user" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="account" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="amount" type="xs:double" />
+        <xs:element name="details" type="xs:string" />
+        <xs:element name="GeneratedName" type="client" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="operation" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="type" type="xs:string" />
+        <xs:element name="amount" type="xs:double" />
+        <xs:element name="date" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="client" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="account" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jwtresponse" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="jwttoken" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="clientaudit" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="rev" type="xs:long" />
+        <xs:element name="revtype" type="xs:long" />
+        <xs:element name="address" type="xs:string" />
+        <xs:element name="cnp" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="first_name" type="xs:string" />
+        <xs:element name="last_name" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="status" type="xs:anyType" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="subscription_id" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="benefit" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="description" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="revisioninforepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<revisioninfo,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="reviewrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<review,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="rolerepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<role,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="subscriptionrepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<subscription,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="benefitauditrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<benefitaudit,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="accountrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<account,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="clientrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<client,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="benefitrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<benefit,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="operationrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<operation,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="subscriptionauditrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<subscriptionaudit,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="accountservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="accountrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="clientrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="operationservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="operationrepository" nillable="true" minOccurs="0" />
+        <xs:element name="log" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="senderservice" >
+      <xs:sequence>
+        <xs:element name="log" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="reviewservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="reviewrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="clientrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="emailservice" >
+      <xs:sequence>
+        <xs:element name="dest" type="xs:string" />
+        <xs:element name="GeneratedName" type="senderservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="clientrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="subscriptionrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="accountrepository" nillable="true" minOccurs="0" />
+        <xs:element name="log" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="benefitservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="benefitrepository" nillable="true" minOccurs="0" />
+        <xs:element name="log" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="clientrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="roleservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="rolerepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="operationservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="operationrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="clientrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="accountrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="emailservice" nillable="true" minOccurs="0" />
+        <xs:element name="log" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="customuserdetailsservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="userdetailsservice" type="customuserdetailsservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="clientrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="rolerepository" nillable="true" minOccurs="0" />
+        <xs:element name="bcryptencoder" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="jwttokenutil" nillable="true" minOccurs="0" />
+        <xs:element name="log" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="subscriptionservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="subscriptionrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="benefitrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="clientrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="accountrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="operationservice" nillable="true" minOccurs="0" />
+        <xs:element name="log" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="clientservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="clientrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="rolerepository" nillable="true" minOccurs="0" />
+        <xs:element name="bcrypt" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="subscriptionrepository" nillable="true" minOccurs="0" />
+        <xs:element name="log" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jwtrequestfilter" >
+      <xs:complexContent>
+       <xs:extension base="onceperrequestfilter">
+         <xs:sequence>
+          <xs:element name="jwtuserdetailsservice" type="customuserdetailsservice" nillable="true" minOccurs="0" />
+          <xs:element name="" type="jwttokenutil" nillable="true" minOccurs="0" />
+          <xs:element name="secret" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jwttokenutil" >
+      <xs:sequence>
+        <xs:element name="jwt_token_validity" type="xs:long" />
+        <xs:element name="secret" type="xs:string" />
+        <xs:element name="GeneratedName" type="clientrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="websecurityconfig" >
+      <xs:complexContent>
+       <xs:extension base="websecurityconfigureradapter">
+         <xs:sequence>
+          <xs:element name="userdetailsservice" type="customuserdetailsservice" nillable="true" minOccurs="0" />
+          <xs:element name="" type="jwtrequestfilter" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="accountdto" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="amount" type="xs:double" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="details" type="xs:string" />
+        <xs:element name="GeneratedName" type="client" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="clientdto" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+        <xs:element name="cnp" type="xs:string" />
+        <xs:element name="address" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="status" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="subscription" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="subscriptiondto" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="authprovider" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="operationdto" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="type" type="xs:string" />
+        <xs:element name="amount" type="xs:double" />
+        <xs:element name="date" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="client" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="account" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="reviewdto" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="userid" type="xs:long" />
+        <xs:element name="GeneratedName" type="client" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tokendto" >
+      <xs:sequence>
+        <xs:element name="value" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="benefitdto" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="description" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="resultdto" >
+      <xs:sequence>
+        <xs:element name="status" type="xs:anyType" />
+        <xs:element name="message" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="subscriptiondto" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="price" type="xs:double" />
+        <xs:element name="benefits" type="benefit" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="benefitids" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="demoapplication" >
+      <xs:sequence>
+        <xs:element name="log" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="subscriptionauditcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="subscriptionauditrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="revisioninforepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="authenticationcontroller" >
+      <xs:sequence>
+        <xs:element name="userdetailsservice" type="customuserdetailsservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="benefitcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="benefitservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="accountcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="accountservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="reviewcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="reviewservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="subscriptioncontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="subscriptionservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="operationcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="operationservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="benefitauditcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="benefitservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="benefitauditrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="revisioninforepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="oauthcontroller" >
+      <xs:sequence>
+        <xs:element name="googleclientid" type="xs:string" />
+        <xs:element name="secretpsw" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="clientrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="rolerepository" nillable="true" minOccurs="0" />
+        <xs:element name="userdetailsservice" type="customuserdetailsservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="jwttokenutil" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="clientcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="clientservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dbseeder" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="accountservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="clientservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="roleservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="subscriptionservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="benefitservice" nillable="true" minOccurs="0" />
+        <xs:element name="log" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="servletinitializer" >
+      <xs:complexContent>
+       <xs:extension base="springbootservletinitializer">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="application" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="subscriptionservicetest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="subscriptionservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="accountservicetest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="accountservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="clientrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="operationservicetest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="operationservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="subscriptioncontrollermockitotest" >
+      <xs:sequence>
+        <xs:element name="wac" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="subscriptioncontroller" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="accountcontrollermockitotest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="accountservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="accountcontroller" nillable="true" minOccurs="0" />
+        <xs:element name="wac" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

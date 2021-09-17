@@ -1,0 +1,57 @@
+viewtaskstats(serialversionuid:long, GeneratedName:Task [PK] #FK to(task), prioritynumber:Long, unbegun:Long, fail:Long, done:Long, total:Long, localityname:String, assigneename:String, casename:String, listingname:String);
+
+viewfullcaseactivity( id:Long [PK] #FK to Activity, serialversionuid:long, id:Long [PK], curso:Case #FK to( id:Long [PK] #FK to Activity, case), createdon:Date, createdby:User #FK to( id:Long [PK] #FK to Activity, user), log:String, type:ActivityType);
+
+viewactivity(serialversionuid:long, GeneratedName:Activity [PK] #FK to(activity), taskid:Long, caseid:Long, claimid:Long);
+
+viewbookingstats(serialversionuid:long, GeneratedName:Booking [PK] #FK to(booking), laundry:BigDecimal, cleaning:BigDecimal, deposittotal:BigDecimal, fee:BigDecimal, feevat:BigDecimal, laundry_all:BigDecimal, cleaning_all:BigDecimal, fee_all:BigDecimal, laundry_all_count:long, cleaning_all_count:long, fee_all_count:long, next:Booking #FK to(booking), prev:Booking #FK to(booking), transaction_items_sum:BigDecimal, transaction_booking_items_sum:BigDecimal, transaction_other_items_sum:BigDecimal, transaction_items_price:BigDecimal, transaction_booking_items_price:BigDecimal, transaction_items_count:Long, transaction_booking_items_count:Long, transaction_other_items_count:Long, notes_count:Long);
+
+listingbookingoverview(serialversionuid:long, GeneratedName:Listing [PK], month:Date [PK], currency_code:String [PK], sum:BigDecimal, grosssum:BigDecimal, avg:BigDecimal, grossavg:BigDecimal, daysoccupied:Integer, rentprice:BigDecimal, ownerbookings:Integer);
+
+userstats(serialversionuid:long, GeneratedName:User [PK] #FK to(user), keys30d:Long, money:BigDecimal, avail30d:Long);
+
+viewcasestats(serialversionuid:long, x:Case [PK] #FK to(case), finished:Long, inprogress:Long, done:Long, total:Long, prioritynumber:Long, localityname:String);
+
+viewlistingcurrentbooking(serialversionuid:long, id:Long [PK], GeneratedName:Listing #FK to(listing), current:Booking #FK to(booking), last:Booking #FK to(booking));
+
+casetag(serialversionuid:long, id:Long [PK], name:String, disabled:boolean);
+
+currency(serialversionuid:long, code:String [PK], name:String);
+
+subtask(serialversionuid:long, id:Long [PK], name:String, state:SubtaskState, GeneratedName:Task #FK to(task));
+
+group(serialversionuid:long, id:Long [PK], name:String, department:boolean);
+
+casefeedback(serialversionuid:long, id:Long [PK], curso:Case #FK to(case), hostinformed:boolean, guestinformed:boolean, description:String, type:CaseFeedbackType, reviewedby:User #FK to(user), reviewedon:Date);
+
+user(serialversionuid:long, id:Long [PK], username:String, firstname:String, lastname:String, email:String, password:String, phone:String, created:Date, createdby:User #FK to(user), stats:UserStats #FK to(userstats), lastactivityfetch:Date, lastactivityread:Date);
+
+user_list<group>(userID:user [PK] #FK to user,list<group>ID:list<group> [PK] #FK to list<group>);
+
+taskcomment(serialversionuid:long, id:Long [PK], createdon:Date, createdby:User #FK to(user), GeneratedName:Task #FK to(task), text:String);
+
+caseactivity(curso:Case #FK to(case));
+
+taskactivity(GeneratedName:Task #FK to(task));
+
+casecomment(serialversionuid:long, id:Long [PK], createdon:Date, createdby:User #FK to(user), curso:Case #FK to(case), text:String);
+
+locality(serialversionuid:long, id:Long [PK], name:String, color:String);
+
+listing(serialversionuid:long, id:Long [PK], name:String, created:Date, position:Coordinates, capacity:Integer, address:String, disabled:boolean, currentbookingview:ViewListingCurrentBooking #FK to(viewlistingcurrentbooking), GeneratedName:Locality #FK to(locality));
+
+case(id:Long [PK], name:String, description:String, createdon:Date, finishedon:Date, deadline:Date, GeneratedName:Listing #FK to(listing), GeneratedName:Booking #FK to(booking), GeneratedName:CaseState, approvedwithclient:CaseOption, guestinformed:CaseOption, createdby:User #FK to(user), finishedby:User #FK to(user), owner:User #FK to(user), previousowner:User #FK to(user), priority:CasePriority, stats:ViewCaseStats #FK to(viewcasestats), assignee:User #FK to(user), previousassignee:User #FK to(user), assigned:Date, role:Group #FK to(group), template:boolean);
+
+case_casetag(case_id:Case [PK] #FK to Case,tag_id:list<casetag> [PK] #FK to list<casetag>);case_followers(case_id:Case [PK] #FK to Case,user_id:list<user> [PK] #FK to list<user>);
+
+contact(id:Long [PK], type:ContactType, GeneratedName:User #FK to(user));
+
+activity(id:Long [PK], createdon:Date, createdby:User #FK to(user), log:String, changes:Set<ActivityChange>, type:ActivityType, view:ViewActivity #FK to(viewactivity));
+
+booking(serialversionuid:long, id:Long [PK], stats:ViewBookingStats #FK to(viewbookingstats), created:Date, GeneratedName:Listing #FK to(listing), start:Date, end:Date, starttime:Date, endtime:Date, guestname:String, guestcount:Long, state:BookingState, createdby:User #FK to(user), canceled:boolean, canceledby:User #FK to(user), GeneratedName:Price);
+
+task(id:Long [PK], name:String, description:String, curso:Case #FK to(case), previous:Case #FK to(case), assignee:User #FK to(user), assigneerole:Group #FK to(group), previousassignee:User #FK to(user), priority:TaskPriority, finished:boolean, createdon:Date, finishedon:Date, finshedby:User #FK to(user), deadline:Date, deadlineindays:Long, priorityonscreen:Long, stats:ViewTaskStats #FK to(viewtaskstats), createdby:User #FK to(user), reviewedby:User #FK to(user), GeneratedName:Locality #FK to(locality), GeneratedName:Listing #FK to(listing), plannedon:Date, plannedonindays:Long, approvedwithclient:CaseOption, guestinformed:CaseOption, finishedstate:TaskFinishState, lockbox:Booking #FK to(booking), estimatedpurchaseprice:BigDecimal, purchaseditem:String, emailtext:String, problemtext:String, suitableforsupplycheckdepartment:boolean);
+
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

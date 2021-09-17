@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="jeuxvideo" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="nom" type="xs:string" />
+        <xs:element name="datesortie" type="xs:anyType" />
+        <xs:element name="genres" type="genre" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="plateformes" type="plateforme" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="editeur" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="genre" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="libelle" type="xs:string" />
+        <xs:element name="jeuxvideos" type="jeuxvideo" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="editeur" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="nom" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="jeuxvideos" type="jeuxvideo" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="plateforme" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="nom" type="xs:string" />
+        <xs:element name="marque" type="xs:string" />
+        <xs:element name="jeuxvideos" type="jeuxvideo" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

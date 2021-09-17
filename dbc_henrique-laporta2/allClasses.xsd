@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="produtofacade" >
+      <xs:complexContent>
+       <xs:extension base="abstractfacade<produto>">
+         <xs:sequence>
+          <xs:element name="em" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="abstractfacade" >
+      <xs:sequence>
+        <xs:element name="entityclass" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="produtoresource" >
+      <xs:sequence>
+        <xs:element name="ejbref" type="produtofacade" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="applicationconfig" >
+      <xs:complexContent>
+       <xs:extension base="application">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="unidademedidatype" >
+      <xs:sequence>
+        <xs:element name="descricao" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="venda" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="//@max(value" type="xs:long" />
+        <xs:element name="desconto" type="xs:anyType" />
+        <xs:element name="id" type="cliente" nillable="true" minOccurs="0" />
+        <xs:element name="id" type="produto" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="produto" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="descricao" type="xs:string" />
+        <xs:element name="unidademedida" type="unidademedidatype" nillable="true" minOccurs="0" />
+        <xs:element name="valor" type="xs:anyType" />
+        <xs:element name="vendalist" type="venda" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cliente" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="nome" type="xs:string" />
+        <xs:element name="telefone" type="xs:string" />
+        <xs:element name="vendalist" type="venda" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="produtows" >
+      <xs:sequence>
+        <xs:element name="ejbref" type="produtofacade" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="beans" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jboss-web" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="index" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jboss-ds" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persistence" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="produtowstest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="produtows" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="produto" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

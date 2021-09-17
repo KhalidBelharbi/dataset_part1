@@ -1,0 +1,12 @@
+ClassDiagram.Class>> Book =>=>=> RelationalSchema.Table>> book;
+ClassDiagram.Class>> Author =>=>=> RelationalSchema.Table>> author;
+ClassDiagram.Class>> Genre =>=>=> RelationalSchema.Table>> genre;
+ClassDiagram.Attribut>> Book.id:Long =>=>=> RelationalSchema.Column>> book.id PRIMARY KEY;
+ClassDiagram.Attribut>> Book.title:String =>=>=> RelationalSchema.Column>> book.title;
+ClassDiagram.Attribut>> Author.id:Long =>=>=> RelationalSchema.Column>> author.id PRIMARY KEY;
+ClassDiagram.Attribut>> Author.name:String =>=>=> RelationalSchema.Column>> author.name;
+ClassDiagram.Attribut>> Genre.id:Long =>=>=> RelationalSchema.Column>> genre.id PRIMARY KEY;
+ClassDiagram.Attribut>> Genre.name:String =>=>=> RelationalSchema.Column>> genre.name;
+Many-To-Many relationship between ClassDiagram.Class>>Book  and ClassDiagram.Class>>set<author>: books_authors(book_id:Book [PK] #FK to Book,author_id:set<author> [PK] #FK to set<author>);
+Many-To-Many relationship between ClassDiagram.Class>>Book  and ClassDiagram.Class>>set<genre>: books_authors(book_id:Book [PK] #FK to Book,author_id:set<author> [PK] #FK to set<author>);books_genres(book_id:Book [PK] #FK to Book,genre_id:set<genre> [PK] #FK to set<genre>);
+Many-To-Many relationship between ClassDiagram.Class>>Author  and ClassDiagram.Class>>set<book>: books_authors(author_id:Author [PK] #FK to Author,book_id:set<book> [PK] #FK to set<book>);

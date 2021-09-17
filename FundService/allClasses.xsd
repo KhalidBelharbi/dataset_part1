@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="fundserviceapplicationtests" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="webmangertest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="webmanger" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="spiderservicetest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="spiderservice" nillable="true" minOccurs="0" />
+        <xs:element name="code" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="application-dev" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sqlitedialect" >
+      <xs:complexContent>
+       <xs:extension base="dialect">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sqliteidentitycolumnsupport" >
+      <xs:complexContent>
+       <xs:extension base="identitycolumnsupportimpl">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jsonmanager" >
+      <xs:sequence>
+        <xs:element name="defaultmapper" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="string2doubledeserializer" >
+      <xs:complexContent>
+       <xs:extension base="jsondeserializer<double>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="dictconfig" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="type" type="xs:string" />
+        <xs:element name="code" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="fundinfo" >
+      <xs:sequence>
+        <xs:element name="fcode" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="myfollowfund" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="fcode" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="myfundposition" >
+      <xs:sequence>
+        <xs:element name="//代码fcode" type="xs:string" />
+        <xs:element name="//成本cost" type="xs:double" />
+        <xs:element name="//份额share" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="beanconfig" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tiantianconfig" >
+      <xs:sequence>
+        <xs:element name="host" type="xs:string" />
+        <xs:element name="appversion" type="xs:string" />
+        <xs:element name="version" type="xs:string" />
+        <xs:element name="deviceid" type="xs:string" />
+        <xs:element name="plat" type="xs:string" />
+        <xs:element name="product" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="quartzconfiguration" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="retrivefundinfojob" >
+      <xs:complexContent>
+       <xs:extension base="quartzjobbean">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jacksoncriteria" >
+      <xs:sequence>
+        <xs:element name="criteria" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="baseresponse" >
+      <xs:sequence>
+        <xs:element name="success" type="xs:string" />
+        <xs:element name="fail" type="xs:string" />
+        <xs:element name="exception" type="xs:string" />
+        <xs:element name="daa" type="xs:anyType" />
+        <xs:element name="result" type="xs:string" />
+        <xs:element name="message" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="mapresponse" >
+      <xs:complexContent>
+       <xs:extension base="baseresponse<map<string,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="fundserviceapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="globalexceptionhandler" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="myfundpositionrepository" >
+      <xs:complexContent>
+       <xs:extension base="abstractrepository<myfundposition,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="abstractrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<t,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="dictconfigrepository" >
+      <xs:complexContent>
+       <xs:extension base="abstractrepository<dictconfig,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="fundinforepository" >
+      <xs:complexContent>
+       <xs:extension base="abstractrepository<fundinfo,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="repositorydao" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="myfundpositionrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="positioncontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="positionservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="fundmnassetallocationnew" >
+      <xs:sequence>
+        <xs:element name="stockpercent" type="xs:double" />
+        <xs:element name="bondpercent" type="xs:double" />
+        <xs:element name="cashpercent" type="xs:double" />
+        <xs:element name="otherpercent" type="xs:double" />
+        <xs:element name="fundpercent" type="xs:double" />
+        <xs:element name="//基金规模nav" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="fundmnuniqueinfo" >
+      <xs:sequence>
+        <xs:element name="sharp1" type="xs:double" />
+        <xs:element name="stddev1" type="xs:double" />
+        <xs:element name="maxretra3" type="xs:double" />
+        <xs:element name="profit_y" type="xs:double" />
+        <xs:element name="profit_3y" type="xs:double" />
+        <xs:element name="profit_6y" type="xs:double" />
+        <xs:element name="profit_1n" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="fundmninverstposition" >
+      <xs:sequence>
+        <xs:element name="//基金持仓fundstocks" type="fundstock" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="//债券持仓fundboods" type="fundbood" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="//等等看看fundfofs" type="xs:anyType" />
+        <xs:element name="//etf联结etfcode" type="xs:string" />
+        <xs:element name="etfshortname" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="fundmndetailinformation" >
+      <xs:sequence>
+        <xs:element name="fcode" type="xs:string" />
+        <xs:element name="shortname" type="xs:string" />
+        <xs:element name="ftype" type="xs:string" />
+        <xs:element name="estab" type="xs:dateTime" />
+        <xs:element name="endnav" type="xs:string" />
+        <xs:element name="//管理费mgrexp" type="xs:string" />
+        <xs:element name="//托管费trustexp" type="xs:string" />
+        <xs:element name="//销售服务费salesexp" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="fundbood" >
+      <xs:sequence>
+        <xs:element name="//代码zqdm" type="xs:string" />
+        <xs:element name="//名称zqmc" type="xs:string" />
+        <xs:element name="//净值占比zjzbl" type="xs:double" />
+        <xs:element name="isbroken" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="fundstock" >
+      <xs:sequence>
+        <xs:element name="//股票代码gpdm" type="xs:string" />
+        <xs:element name="//股票名称gpjc" type="xs:string" />
+        <xs:element name="//净值占比jzbl" type="xs:double" />
+        <xs:element name="texch" type="xs:string" />
+        <xs:element name="newtexch" type="xs:string" />
+        <xs:element name="isinvisbl" type="xs:string" />
+        <xs:element name="//类型pctnvchgtype" type="xs:string" />
+        <xs:element name="//个股变化pctnvchg" type="xs:string" />
+        <xs:element name="//主题编号indexcode" type="xs:string" />
+        <xs:element name="//主题名称indexname" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="webmanger" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="positionservice" >
+      <xs:complexContent>
+       <xs:extension base="baseservice">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="baseservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="repositorydao" nillable="true" minOccurs="0" />
+        <xs:element name="funditemrepository" type="myfundpositionrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="spiderservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="commonservice" >
+      <xs:complexContent>
+       <xs:extension base="baseservice">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="spiderservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="webmanger" nillable="true" minOccurs="0" />
+        <xs:element name="tianconfig" type="tiantianconfig" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="fundbizservice" >
+      <xs:complexContent>
+       <xs:extension base="baseservice">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema> 

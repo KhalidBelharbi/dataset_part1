@@ -1,0 +1,33 @@
+
+film(id:Long [PK], title:String, description:String, GeneratedName:Language #FK to(Language), rentalduration:int, rentalrate:int, length:int, replacementcost:int, specialfeatures:String, fulltext:String);
+
+category(id:Long [PK], name:String);
+
+language(id:Long [PK], name:String);
+
+payment(id:Long [PK], GeneratedName:Customer #FK to(Customer), GeneratedName:Staff #FK to(staff), amount:int, paymentdate:LocalDateTime);
+
+city(id:Long [PK], city:String, GeneratedName:Country #FK to(country));
+
+actor(id:Long [PK], firstname:String, lastname:String);
+
+filmcategory(GeneratedName:Film [PK] #FK to(Film), GeneratedName:Category [PK] #FK to(Category));
+
+address(id:Long [PK], address:String, address2:String, district:String, GeneratedName:City #FK to(City), postalcode:String, phone:String);
+
+rental(id:Long [PK], rentaldate:LocalDateTime, GeneratedName:Inventory #FK to(inventory), GeneratedName:Customer #FK to(Customer), returndate:LocalDateTime, GeneratedName:Staff #FK to(staff));
+
+customer(id:Long [PK], GeneratedName:Store #FK to(Store), firstname:String, lastname:String, email:String, GeneratedName:Address #FK to(Address), activebool:boolean, createdate:LocalDate, lastupdate:LocalDateTime, active:int);
+
+filmactor(GeneratedName:Film [PK] #FK to(Film), GeneratedName:Actor [PK] #FK to(Actor));
+
+store(id:Long [PK], manager:Staff #FK to(staff), GeneratedName:Address #FK to(Address));
+
+country(id:Long [PK], country:String);
+
+inventory(id:Long [PK], GeneratedName:Film #FK to(Film), GeneratedName:Store #FK to(Store));
+
+staff(id:Long [PK], firstname:String, lastname:String, GeneratedName:Address #FK to(Address), email:String, GeneratedName:Store #FK to(Store), active:boolean, username:String, password:String, picture:byte);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

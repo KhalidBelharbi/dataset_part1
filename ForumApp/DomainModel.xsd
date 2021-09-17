@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="forumabusestatus" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="topic" type="forumtopic" nillable="true" minOccurs="0" />
+        <xs:element name="customer" type="forumcustomer" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="forumtopic" >
+      <xs:sequence>
+        <xs:element name="topicid" type="xs:long" />
+        <xs:element name="topic" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="category" type="forumcategory" nillable="true" minOccurs="0" />
+        <xs:element name="dateofcreation" type="xs:string" />
+        <xs:element name="customer" type="forumcustomer" nillable="true" minOccurs="0" />
+        <xs:element name="approved" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="forummoderator" >
+      <xs:sequence>
+        <xs:element name="moderatorid" type="xs:long" />
+        <xs:element name="moderatorname" type="xs:string" />
+        <xs:element name="GeneratedName" type="forumadmin" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="forumcustomer" >
+      <xs:sequence>
+        <xs:element name="customerid" type="xs:long" />
+        <xs:element name="customername" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="forumcomment" >
+      <xs:sequence>
+        <xs:element name="commentid" type="xs:long" />
+        <xs:element name="comment" type="xs:string" />
+        <xs:element name="customer" type="forumcustomer" nillable="true" minOccurs="0" />
+        <xs:element name="dateofcreation" type="xs:string" />
+        <xs:element name="topic" type="forumtopic" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="forumabusivewords" >
+      <xs:sequence>
+        <xs:element name="abusewordid" type="xs:long" />
+        <xs:element name="abuseword" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="forumadmin" >
+      <xs:sequence>
+        <xs:element name="adminid" type="xs:long" />
+        <xs:element name="adminname" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="forumcategory" >
+      <xs:sequence>
+        <xs:element name="categoryid" type="xs:long" />
+        <xs:element name="category" type="xs:string" />
+        <xs:element name="GeneratedName" type="forummoderator" nillable="true" minOccurs="0" />
+        <xs:element name="approved" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

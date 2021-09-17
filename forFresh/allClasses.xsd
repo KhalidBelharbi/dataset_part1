@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="comforfreshapplicationtests" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="paymentlistdao" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<paymentlist,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="maildao" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="maildaoimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="//org.springframework.mail.javamail." type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="productdao" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<product,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="productcommentdao" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<productcomment,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="shoppinglistdao" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<shoppinglist,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="refrigsharedao" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<refrigshare,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="foodlistdao" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<foodlist,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="refrigregistdao" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<refrigregist,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="expirationdao" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<expiration,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userdao" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<user,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="basicresponse" >
+      <xs:sequence>
+        <xs:element name="status" type="xs:anyType" />
+        <xs:element name="data" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="paymentlist" >
+      <xs:sequence>
+        <xs:element name="tid" type="xs:string" />
+        <xs:element name="userid" type="xs:string" />
+        <xs:element name="productno" type="xs:string" />
+        <xs:element name="quantity" type="xs:anyType" />
+        <xs:element name="totalamount" type="xs:anyType" />
+        <xs:element name="registdate" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="kakaopayapprovalvo" >
+      <xs:sequence>
+        <xs:element name="//responseaid,tid,cid,sid" type="xs:string" />
+        <xs:element name="partner_order_id,partner_user_id,payment_method_type" type="xs:string" />
+        <xs:element name="amount" type="amountvo" nillable="true" minOccurs="0" />
+        <xs:element name="card_info" type="cardvo" nillable="true" minOccurs="0" />
+        <xs:element name="item_name,item_code,payload" type="xs:string" />
+        <xs:element name="quantity,tax_free_amount,vat_amount" type="xs:anyType" />
+        <xs:element name="created_at,approved_at" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="amountvo" >
+      <xs:sequence>
+        <xs:element name="total,tax_free,vat,point,discount" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="kakaopayreadyvo" >
+      <xs:sequence>
+        <xs:element name="//responsetid,next_redirect_pc_url" type="xs:string" />
+        <xs:element name="created_at" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="totalpayment" >
+      <xs:sequence>
+        <xs:element name="userid" type="xs:string" />
+        <xs:element name="refrigno" type="xs:string" />
+        <xs:element name="//장바구니pkshoplistno" type="xs:string" />
+        <xs:element name="//장바구니품목여러개stocklist"1121"stocklist" type="xs:string" />
+        <xs:element name="//product"0123"productno" type="xs:string" />
+        <xs:element name="//카테고리"돼지고기"pk이름으로찾으면됨itemname" type="xs:string" />
+        <xs:element name="//"10001000020010"pricelist" type="xs:string" />
+        <xs:element name="quantity" type="xs:string" />
+        <xs:element name="totalamount" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cardvo" >
+      <xs:sequence>
+        <xs:element name="purchase_corp,purchase_corp_code" type="xs:string" />
+        <xs:element name="issuer_corp,issuer_corp_code" type="xs:string" />
+        <xs:element name="bin,card_type,install_month,approved_id,card_mid" type="xs:string" />
+        <xs:element name="interest_free_install,card_item_code" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="product" >
+      <xs:sequence>
+        <xs:element name="productno" type="xs:anyType" />
+        <xs:element name="categoryno" type="xs:anyType" />
+        <xs:element name="productname" type="xs:string" />
+        <xs:element name="productprice" type="xs:anyType" />
+        <xs:element name="stock" type="xs:anyType" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="imgurl" type="xs:string" />
+        <xs:element name="registdate" type="xs:anyType" />
+        <xs:element name="avgrate" type="xs:anyType" />
+        <xs:element name="detailurl" type="xs:string" />
+        <xs:element name="commentcnt" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="productcommentpass" >
+      <xs:sequence>
+        <xs:element name="pcommentno" type="xs:anyType" />
+        <xs:element name="userid" type="xs:string" />
+        <xs:element name="nickname" type="xs:string" />
+        <xs:element name="productno" type="xs:anyType" />
+        <xs:element name="userrate" type="xs:anyType" />
+        <xs:element name="commentdetail" type="xs:string" />
+        <xs:element name="registdate" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="productcomment" >
+      <xs:sequence>
+        <xs:element name="pcommentno" type="xs:anyType" />
+        <xs:element name="userid" type="xs:string" />
+        <xs:element name="productno" type="xs:anyType" />
+        <xs:element name="userrate" type="xs:anyType" />
+        <xs:element name="commentdetail" type="xs:string" />
+        <xs:element name="registdate" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="shoppinglist" >
+      <xs:sequence>
+        <xs:element name="shoplistno" type="xs:anyType" />
+        <xs:element name="userid" type="xs:string" />
+        <xs:element name="productno" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="userid" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="nickname" type="xs:string" />
+        <xs:element name="phone" type="xs:string" />
+        <xs:element name="addr1" type="xs:string" />
+        <xs:element name="addr2" type="xs:string" />
+        <xs:element name="addr3" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="idpass" >
+      <xs:sequence>
+        <xs:element name="userid" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="refrigshare" >
+      <xs:sequence>
+        <xs:element name="refrigno" type="xs:long" />
+        <xs:element name="sharedid" type="xs:string" />
+        <xs:element name="accept" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="requestdelfood" >
+      <xs:sequence>
+        <xs:element name="foodnos" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="refrigshareid" >
+      <xs:sequence>
+        <xs:element name="refrigno" type="xs:long" />
+        <xs:element name="sharedid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="fooditem" >
+      <xs:sequence>
+        <xs:element name="refrigno" type="xs:long" />
+        <xs:element name="foods" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="expiration" >
+      <xs:sequence>
+        <xs:element name="categoryno" type="xs:long" />
+        <xs:element name="category" type="xs:string" />
+        <xs:element name="expiredate" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="foodlist" >
+      <xs:sequence>
+        <xs:element name="foodno" type="xs:long" />
+        <xs:element name="refrigno" type="xs:long" />
+        <xs:element name="categoryno" type="xs:long" />
+        <xs:element name="foodname" type="xs:string" />
+        <xs:element name="status" type="xs:string" />
+        <xs:element name="registdate" type="xs:string" />
+        <xs:element name="stock" type="xs:long" />
+        <xs:element name="price" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="refrigregist" >
+      <xs:sequence>
+        <xs:element name="refrigno" type="xs:long" />
+        <xs:element name="userid" type="xs:string" />
+        <xs:element name="refrigname" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="refrig" >
+      <xs:sequence>
+        <xs:element name="userid" type="xs:string" />
+        <xs:element name="refrigname" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="swaggerconfig" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jwtinterceptor" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="jwtservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="foodlistservice" >
+      <xs:sequence>
+        <xs:element name="//root" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jwtservice" >
+      <xs:sequence>
+        <xs:element name="//솔트값salt" type="xs:string" />
+        <xs:element name="//생명주기(분단위)expiremin" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="kakaopayservice" >
+      <xs:sequence>
+        <xs:element name="host" type="xs:string" />
+        <xs:element name="GeneratedName" type="paymentlistdao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="productdao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="shoppinglistdao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="foodlistdao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="kakaopayreadyvo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="kakaopayapprovalvo" nillable="true" minOccurs="0" />
+        <xs:element name="payieduserid" type="xs:string" />
+        <xs:element name="shoplist" type="xs:string" />
+        <xs:element name="stocklist" type="xs:string" />
+        <xs:element name="productlist" type="xs:string" />
+        <xs:element name="refrigno" type="xs:string" />
+        <xs:element name="pricelist" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userdao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="comforfreshapplication" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="jwtinterceptor" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="mailhandler" >
+      <xs:sequence>
+        <xs:element name="mailsender" type="xs:anyType" />
+        <xs:element name="message" type="xs:anyType" />
+        <xs:element name="messagehelper" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="refrigcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="refrigregistdao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="refrigsharedao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="mailcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userdao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="maildao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="productcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="productdao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="productcommentdao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="shoppinglistdao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="userdao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usercontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="jwtservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="kakaopaycontroller" >
+      <xs:sequence>
+        <xs:element name="kakaopay" type="kakaopayservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="foodcontroller" >
+      <xs:sequence>
+        <xs:element name="////refrigregistdaorefrigregistdao////refrigsharedaorefrigsharedao" type="foodlistdao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="foodlistservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="refrigsharecontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="refrigregistdao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="refrigsharedao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

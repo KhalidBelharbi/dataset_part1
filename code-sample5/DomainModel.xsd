@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="film" >
+      <xs:complexContent>
+       <xs:extension base="baseentity{">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="title" type="xs:string" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="" type="language" nillable="true" minOccurs="0" />
+          <xs:element name="rentalduration" type="xs:long" />
+          <xs:element name="rentalrate" type="xs:long" />
+          <xs:element name="length" type="xs:long" />
+          <xs:element name="replacementcost" type="xs:long" />
+          <xs:element name="specialfeatures" type="xs:string" />
+          <xs:element name="fulltext" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="category" >
+      <xs:complexContent>
+       <xs:extension base="baseentity{">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="language" >
+      <xs:complexContent>
+       <xs:extension base="baseentity{">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="payment" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="customer" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="staff" nillable="true" minOccurs="0" />
+        <xs:element name="amount" type="xs:long" />
+        <xs:element name="paymentdate" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="city" >
+      <xs:complexContent>
+       <xs:extension base="baseentity{">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="city" type="xs:string" />
+          <xs:element name="" type="country" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="actor" >
+      <xs:complexContent>
+       <xs:extension base="baseentity{">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="firstname" type="xs:string" />
+          <xs:element name="lastname" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="filmcategory" >
+      <xs:complexContent>
+       <xs:extension base="baseentity{">
+         <xs:sequence>
+          <xs:element name="" type="film" nillable="true" minOccurs="0" />
+          <xs:element name="" type="category" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="address" >
+      <xs:complexContent>
+       <xs:extension base="baseentity{">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="address" type="xs:string" />
+          <xs:element name="address2" type="xs:string" />
+          <xs:element name="district" type="xs:string" />
+          <xs:element name="" type="city" nillable="true" minOccurs="0" />
+          <xs:element name="postalcode" type="xs:string" />
+          <xs:element name="phone" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="rental" >
+      <xs:complexContent>
+       <xs:extension base="baseentity{">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="rentaldate" type="xs:anyType" />
+          <xs:element name="" type="inventory" nillable="true" minOccurs="0" />
+          <xs:element name="" type="customer" nillable="true" minOccurs="0" />
+          <xs:element name="returndate" type="xs:anyType" />
+          <xs:element name="" type="staff" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="customer" >
+      <xs:complexContent>
+       <xs:extension base="baseentity{">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="store" nillable="true" minOccurs="0" />
+          <xs:element name="firstname" type="xs:string" />
+          <xs:element name="lastname" type="xs:string" />
+          <xs:element name="email" type="xs:string" />
+          <xs:element name="" type="address" nillable="true" minOccurs="0" />
+          <xs:element name="activebool" type="xs:anyType" />
+          <xs:element name="createdate" type="xs:anyType" />
+          <xs:element name="lastupdate" type="xs:anyType" />
+          <xs:element name="active" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="filmactor" >
+      <xs:complexContent>
+       <xs:extension base="baseentity{">
+         <xs:sequence>
+          <xs:element name="" type="film" nillable="true" minOccurs="0" />
+          <xs:element name="" type="actor" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="store" >
+      <xs:complexContent>
+       <xs:extension base="baseentity{">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="manager" type="staff" nillable="true" minOccurs="0" />
+          <xs:element name="" type="address" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="country" >
+      <xs:complexContent>
+       <xs:extension base="baseentity{">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="country" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="inventory" >
+      <xs:complexContent>
+       <xs:extension base="baseentity{">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="" type="film" nillable="true" minOccurs="0" />
+          <xs:element name="" type="store" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="staff" >
+      <xs:complexContent>
+       <xs:extension base="baseentity{">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="firstname" type="xs:string" />
+          <xs:element name="lastname" type="xs:string" />
+          <xs:element name="" type="address" nillable="true" minOccurs="0" />
+          <xs:element name="email" type="xs:string" />
+          <xs:element name="" type="store" nillable="true" minOccurs="0" />
+          <xs:element name="active" type="xs:anyType" />
+          <xs:element name="username" type="xs:string" />
+          <xs:element name="password" type="xs:string" />
+          <xs:element name="picture" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema> 

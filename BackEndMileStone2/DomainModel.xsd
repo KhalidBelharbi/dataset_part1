@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="connectioncategory" >
+      <xs:sequence>
+        <xs:element name="conncategoryuid" type="xs:string" />
+        <xs:element name="conncategoryname" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="lastuptime" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="connection" >
+      <xs:sequence>
+        <xs:element name="connectionuid" type="xs:string" />
+        <xs:element name="connectionname" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="connectiontype" type="xs:string" />
+        <xs:element name="xmldata" type="xs:string" />
+        <xs:element name="lastuptime" type="xs:dateTime" />
+        <xs:element name="pimendpointtype" type="xs:string" />
+        <xs:element name="pimendpointname" type="xs:string" />
+        <xs:element name="pimaccountcontainer" type="xs:string" />
+        <xs:element name="pimaccountname" type="xs:string" />
+        <xs:element name="withpim" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="trinityconfig" >
+      <xs:sequence>
+        <xs:element name="versionid" type="xs:string" />
+        <xs:element name="dualservermode" type="xs:string" />
+        <xs:element name="primaryhost" type="xs:string" />
+        <xs:element name="primaryport" type="xs:anyType" />
+        <xs:element name="standbyhost" type="xs:string" />
+        <xs:element name="standbyport" type="xs:anyType" />
+        <xs:element name="smtppassword" type="xs:string" />
+        <xs:element name="smtpserver" type="xs:string" />
+        <xs:element name="smtpuser" type="xs:string" />
+        <xs:element name="authmode" type="xs:string" />
+        <xs:element name="ldapserver" type="xs:string" />
+        <xs:element name="defaultdomain" type="xs:string" />
+        <xs:element name="metaautocompare" type="xs:string" />
+        <xs:element name="metacomparekeepperiod" type="xs:anyType" />
+        <xs:element name="metacomparetime" type="xs:anyType" />
+        <xs:element name="metadocumenttype" type="xs:string" />
+        <xs:element name="pwdenforce" type="xs:string" />
+        <xs:element name="pwdlevel" type="xs:string" />
+        <xs:element name="pwdminlen" type="xs:anyType" />
+        <xs:element name="pwdcycle" type="xs:anyType" />
+        <xs:element name="pwdexpireday" type="xs:anyType" />
+        <xs:element name="lastuptime" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="monitorconfig" >
+      <xs:sequence>
+        <xs:element name="uid" type="xs:string" />
+        <xs:element name="resourcemonitor" type="xs:anyType" />
+        <xs:element name="processmonitor" type="xs:anyType" />
+        <xs:element name="xml" type="xs:string" />
+        <xs:element name="lastuptime" type="xs:dateTime" />
+        <xs:element name="suspendjob" type="xs:anyType" />
+        <xs:element name="cpu" type="xs:anyType" />
+        <xs:element name="memory" type="xs:anyType" />
+        <xs:element name="disk" type="monitordisk" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="disconfig" >
+      <xs:sequence>
+        <xs:element name="module" type="xs:string" />
+        <xs:element name="configname" type="xs:string" />
+        <xs:element name="value" type="xs:string" />
+        <xs:element name="instance" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="workingcalendar" >
+      <xs:sequence>
+        <xs:element name="wcalendaruid" type="xs:string" />
+        <xs:element name="wcalendarname" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="activate" type="xs:string" />
+        <xs:element name="wcalendarlist" type="workingcalendarlist" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="exclfrequency" >
+      <xs:sequence>
+        <xs:element name="excludefrequencyuid" type="xs:string" />
+        <xs:element name="excludefrequencyname" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="activate" type="xs:string" />
+        <xs:element name="lastuptime" type="xs:dateTime" />
+        <xs:element name="excludefrequencylist" type="exclfrequencylist" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="frequency" >
+      <xs:sequence>
+        <xs:element name="frequencyuid" type="xs:string" />
+        <xs:element name="frequencyname" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="activate" type="xs:string" />
+        <xs:element name="lastcheckdatetime" type="xs:string" />
+        <xs:element name="manuallyedit" type="xs:string" />
+        <xs:element name="bywcalendar" type="xs:string" />
+        <xs:element name="wcalendaruid" type="xs:string" />
+        <xs:element name="xmldata" type="xs:string" />
+        <xs:element name="lastuptime" type="xs:dateTime" />
+        <xs:element name="freqlist" type="frequencylist" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="filesource" >
+      <xs:sequence>
+        <xs:element name="filesourceuid" type="xs:string" />
+        <xs:element name="filesourcename" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="filetrigger" type="xs:string" />
+        <xs:element name="receivedir" type="xs:string" />
+        <xs:element name="targetdir" type="xs:string" />
+        <xs:element name="completedir" type="xs:string" />
+        <xs:element name="corruptdir" type="xs:string" />
+        <xs:element name="duplicatedir" type="xs:string" />
+        <xs:element name="errordir" type="xs:string" />
+        <xs:element name="filename" type="xs:string" />
+        <xs:element name="pattern" type="xs:string" />
+        <xs:element name="startposition" type="xs:anyType" />
+        <xs:element name="endposition" type="xs:anyType" />
+        <xs:element name="filetype" type="xs:string" />
+        <xs:element name="minfile" type="xs:anyType" />
+        <xs:element name="maxfile" type="xs:anyType" />
+        <xs:element name="timeout" type="xs:anyType" />
+        <xs:element name="checkduplicate" type="xs:string" />
+        <xs:element name="filterduplicate" type="xs:string" />
+        <xs:element name="checkrow" type="xs:string" />
+        <xs:element name="bypasszero" type="xs:string" />
+        <xs:element name="ftpget" type="xs:string" />
+        <xs:element name="xmldata" type="xs:string" />
+        <xs:element name="lastuptime" type="xs:dateTime" />
+        <xs:element name="ftppostaction" type="xs:string" />
+        <xs:element name="cfimpclass" type="xs:string" />
+        <xs:element name="txdateformat" type="xs:string" />
+        <xs:element name="rootdir" type="xs:string" />
+        <xs:element name="ftpconnectionuid" type="xs:string" />
+        <xs:element name="passive" type="xs:string" />
+        <xs:element name="triggerjobuid" type="xs:string" />
+        <xs:element name="checksumalg" type="xs:string" />
+        <xs:element name="txdateendpos" type="xs:anyType" />
+        <xs:element name="ftpmovedir" type="xs:string" />
+        <xs:element name="datafilecountmode" type="xs:string" />
+        <xs:element name="checksumfe" type="xs:string" />
+        <xs:element name="appenduid" type="xs:string" />
+        <xs:element name="ftpremotedir" type="xs:string" />
+        <xs:element name="checksum" type="xs:string" />
+        <xs:element name="sftp" type="xs:string" />
+        <xs:element name="txdatestartpos" type="xs:anyType" />
+        <xs:element name="ftpbinary" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="filesourcecategory" >
+      <xs:sequence>
+        <xs:element name="fscategoryuid" type="xs:string" />
+        <xs:element name="fscategoryname" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="lastuptime" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="frequencycategory" >
+      <xs:sequence>
+        <xs:element name="freqcategoryuid" type="xs:string" />
+        <xs:element name="freqcategoryname" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="lastuptime" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="transformrule" >
+      <xs:sequence>
+        <xs:element name="rule" type="xs:string" />
+        <xs:element name="needargument" type="xs:string" />
+        <xs:element name="argtemplate" type="xs:string" />
+        <xs:element name="ruledescription" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dmextpackage" >
+      <xs:sequence>
+        <xs:element name="packageuid" type="xs:string" />
+        <xs:element name="packagename" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="lastuptime" type="xs:dateTime" />
+        <xs:element name="files" type="dmextjar" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="resdoc" >
+      <xs:sequence>
+        <xs:element name="module" type="xs:string" />
+        <xs:element name="resname" type="xs:string" />
+        <xs:element name="langcode" type="xs:string" />
+        <xs:element name="document" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="domain" >
+      <xs:sequence>
+        <xs:element name="domainuid" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="lastuptime" type="xs:dateTime" />
+        <xs:element name="domainvars" type="domainvariable" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="domainresources" type="domainresource" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="notification" >
+      <xs:sequence>
+        <xs:element name="notificationuid" type="xs:string" />
+        <xs:element name="notificationname" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="targetuid" type="xs:string" />
+        <xs:element name="notificationtype" type="xs:string" />
+        <xs:element name="notificationtiming" type="xs:string" />
+        <xs:element name="targettype" type="xs:string" />
+        <xs:element name="attachlog" type="xs:string" />
+        <xs:element name="xmldata" type="xs:string" />
+        <xs:element name="lastuptime" type="xs:dateTime" />
+        <xs:element name="userlist" type="notificationlist" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="grouplist" type="notificationlist" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="content" type="xs:string" />
+        <xs:element name="subject" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="vragent" >
+      <xs:sequence>
+        <xs:element name="virtualagentuid" type="xs:string" />
+        <xs:element name="virtualagentname" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="maximumjob" type="xs:anyType" />
+        <xs:element name="activate" type="xs:string" />
+        <xs:element name="mode" type="xs:string" />
+        <xs:element name="xmldata" type="xs:string" />
+        <xs:element name="lastuptime" type="xs:dateTime" />
+        <xs:element name="agentlist" type="vragentlist" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jcsagent" >
+      <xs:sequence>
+        <xs:element name="agentuid" type="xs:string" />
+        <xs:element name="agentname" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="host" type="xs:string" />
+        <xs:element name="port" type="xs:anyType" />
+        <xs:element name="maximumjob" type="xs:anyType" />
+        <xs:element name="activate" type="xs:string" />
+        <xs:element name="ostype" type="xs:string" />
+        <xs:element name="osname" type="xs:string" />
+        <xs:element name="agentstatus" type="xs:string" />
+        <xs:element name="xmldata" type="xs:string" />
+        <xs:element name="lostcontact" type="xs:dateTime" />
+        <xs:element name="lastuptime" type="xs:dateTime" />
+        <xs:element name="deadperiod" type="xs:string" />
+        <xs:element name="monitortime" type="xs:string" />
+        <xs:element name="cpuweight" type="xs:string" />
+        <xs:element name="memweight" type="xs:string" />
+        <xs:element name="encoding" type="xs:string" />
+        <xs:element name="compresstransfer" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usergroup" >
+      <xs:sequence>
+        <xs:element name="groupuid" type="xs:string" />
+        <xs:element name="groupname" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="lastuptime" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="role" >
+      <xs:sequence>
+        <xs:element name="roleuid" type="xs:string" />
+        <xs:element name="rolename" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="homedir" type="xs:string" />
+        <xs:element name="lastuptime" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="trinityuser" >
+      <xs:sequence>
+        <xs:element name="useruid" type="xs:string" />
+        <xs:element name="userid" type="xs:string" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="usertype" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="activate" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="mobile" type="xs:string" />
+        <xs:element name="defaultlang" type="xs:string" />
+        <xs:element name="createduseruid" type="xs:string" />
+        <xs:element name="ssoid" type="xs:string" />
+        <xs:element name="localaccount" type="xs:string" />
+        <xs:element name="onlyforexecution" type="xs:string" />
+        <xs:element name="homedir" type="xs:string" />
+        <xs:element name="pwdchangetime" type="xs:string" />
+        <xs:element name="xmldata" type="xs:string" />
+        <xs:element name="lastuptime" type="xs:dateTime" />
+        <xs:element name="lock" type="xs:string" />
+        <xs:element name="resetcred" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="busentity" >
+      <xs:sequence>
+        <xs:element name="busentityuid" type="xs:string" />
+        <xs:element name="busentityname" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="xmldata" type="xs:string" />
+        <xs:element name="lastuptime" type="xs:dateTime" />
+        <xs:element name="alias" type="objectalias" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jobflow" >
+      <xs:sequence>
+        <xs:element name="jobflowuid" type="xs:string" />
+        <xs:element name="flowname" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="activate" type="xs:string" />
+        <xs:element name="domainuid" type="xs:string" />
+        <xs:element name="categoryuid" type="xs:string" />
+        <xs:element name="frequencyuid" type="xs:string" />
+        <xs:element name="suppressjobdomain" type="xs:string" />
+        <xs:element name="txdaterule" type="xs:string" />
+        <xs:element name="txoffsetday" type="xs:anyType" />
+        <xs:element name="bypasserror" type="xs:string" />
+        <xs:element name="status" type="xs:string" />
+        <xs:element name="createuseruid" type="xs:string" />
+        <xs:element name="xmldata" type="xs:string" />
+        <xs:element name="onlinedatetime" type="xs:string" />
+        <xs:element name="offlinedatetime" type="xs:string" />
+        <xs:element name="lastuptime" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jobstep" >
+      <xs:sequence>
+        <xs:element name="stepuid" type="xs:string" />
+        <xs:element name="stepname" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="stepseq" type="xs:anyType" />
+        <xs:element name="activate" type="xs:string" />
+        <xs:element name="jobuid" type="xs:string" />
+        <xs:element name="steptype" type="xs:string" />
+        <xs:element name="successrule" type="xs:string" />
+        <xs:element name="successvalue1" type="xs:anyType" />
+        <xs:element name="successvalue2" type="xs:anyType" />
+        <xs:element name="xmldata" type="xs:string" />
+        <xs:element name="lastuptime" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="job" >
+      <xs:sequence>
+        <xs:element name="jobuid" type="xs:string" />
+        <xs:element name="jobname" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="activate" type="xs:string" />
+        <xs:element name="domainuid" type="xs:string" />
+        <xs:element name="categoryuid" type="xs:string" />
+        <xs:element name="agentuid" type="xs:string" />
+        <xs:element name="frequencyuid" type="xs:string" />
+        <xs:element name="filesourceuid" type="xs:string" />
+        <xs:element name="jobtype" type="xs:string" />
+        <xs:element name="retry" type="xs:string" />
+        <xs:element name="retryinterval" type="xs:anyType" />
+        <xs:element name="maxretrytime" type="xs:anyType" />
+        <xs:element name="retrymode" type="xs:string" />
+        <xs:element name="priority" type="xs:anyType" />
+        <xs:element name="timewindowbegin" type="xs:anyType" />
+        <xs:element name="timewindowend" type="xs:anyType" />
+        <xs:element name="txdaterule" type="xs:string" />
+        <xs:element name="txoffsetday" type="xs:anyType" />
+        <xs:element name="bypasserror" type="xs:string" />
+        <xs:element name="status" type="xs:string" />
+        <xs:element name="criticaljob" type="xs:string" />
+        <xs:element name="createuseruid" type="xs:string" />
+        <xs:element name="xmldata" type="xs:string" />
+        <xs:element name="onlinedatetime" type="xs:string" />
+        <xs:element name="offlinedatetime" type="xs:string" />
+        <xs:element name="refjobuid" type="xs:string" />
+        <xs:element name="lastuptime" type="xs:dateTime" />
+        <xs:element name="rerunfromfs" type="xs:anyType" />
+        <xs:element name="applycompletedtask" type="xs:anyType" />
+        <xs:element name="waitingtime" type="xs:string" />
+        <xs:element name="dontsavehistory" type="xs:anyType" />
+        <xs:element name="usestepcondi" type="xs:anyType" />
+        <xs:element name="skipmissingtask" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jobcategory" >
+      <xs:sequence>
+        <xs:element name="categoryuid" type="xs:string" />
+        <xs:element name="categoryname" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="activate" type="xs:string" />
+        <xs:element name="xmldata" type="xs:string" />
+        <xs:element name="lastuptime" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

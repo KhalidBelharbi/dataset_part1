@@ -1,0 +1,29 @@
+alunomodel(idaluno:int);
+
+areamodel(idarea:long [PK], areanome:String);
+
+pessoaexternamodel(cidade:cidadeModel #FK to(cidademodel), estado:estadoModel #FK to(estadomodel));
+
+pessoamodel(idpessoa:long [PK], pessoanome:String, cpf:long, telefone:long);
+
+cidademodel(idcidade:long [PK], cidadenome:String, estado:estadoModel #FK to(estadomodel));
+
+estadomodel(idestado:long [PK], estadonome:String, estadosigla:String);
+
+cursomodel(idcurso:int [PK], nome:String, cargahoraria:String, servidor:servidorModel #FK to(servidormodel));
+
+curso(idcurso:cursoModel [PK] #FK to cursoModel,idaluno:list<alunomodel> [PK] #FK to list<alunomodel>);
+
+servidormodel(area:areaModel #FK to(areamodel), siape:long, cargo:String);
+
+campusmodel(idcampus:long [PK], campusnome:String, cidade:cidadeModel #FK to(cidademodel), estado:estadoModel #FK to(estadomodel));
+
+campus_servidor(id_campus:campusModel [PK] #FK to campusModel,id_servidor:list<servidormodel> [PK] #FK to list<servidormodel>);
+
+pessoainternamodel(dataingresso:Date);
+
+eventomodel();
+
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

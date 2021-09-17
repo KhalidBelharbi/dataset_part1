@@ -1,0 +1,668 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="simpleauthority" >
+      <xs:sequence>
+        <xs:element name="access_filename_property" type="xs:string" />
+        <xs:element name="//magicalpropertyforwritepermissionstothekeyspaceslistkeyspaces_write_property" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="simpleauthenticator" >
+      <xs:complexContent>
+       <xs:extension base="charsequence,">
+         <xs:sequence>
+          <xs:element name="passwd_filename_property" type="xs:string" />
+          <xs:element name="pmode_property" type="xs:string" />
+          <xs:element name="username_key" type="xs:string" />
+          <xs:element name="password_key" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="entitytransactiontest" >
+      <xs:complexContent>
+       <xs:extension base="basetest">
+         <xs:sequence>
+          <xs:element name="/***theemf.*/emf" type="xs:anyType" />
+          <xs:element name="/***theem.*/em" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="personauth" >
+      <xs:sequence>
+        <xs:element name="/***thepersonid.*/personid" type="xs:string" />
+        <xs:element name="/***thepersonname.*/personname" type="xs:string" />
+        <xs:element name="/***theage.*/age" type="xs:anyType" />
+        <xs:element name="a" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="personcassandratest" >
+      <xs:complexContent>
+       <xs:extension base="basetest">
+         <xs:sequence>
+          <xs:element name="/***theemf.*/emf" type="xs:anyType" />
+          <xs:element name="/***theem.*/em" type="xs:anyType" />
+          <xs:element name="col" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="personassociationtest" >
+      <xs:complexContent>
+       <xs:extension base="basetest">
+         <xs:sequence>
+          <xs:element name="/***theemf.*/emf" type="xs:anyType" />
+          <xs:element name="/***theem.*/em" type="xs:anyType" />
+          <xs:element name="" type="cassandracli" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="cassandraauthenticationtest" >
+      <xs:complexContent>
+       <xs:extension base="basetest">
+         <xs:sequence>
+          <xs:element name="username" type="xs:string" />
+          <xs:element name="password" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="personcassandra" >
+      <xs:sequence>
+        <xs:element name="/***thepersonid.*/personid" type="xs:string" />
+        <xs:element name="/***thepersonname.*/personname" type="xs:string" />
+        <xs:element name="/***theage.*/age" type="xs:anyType" />
+        <xs:element name="a" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="counters" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="counter" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="supercounters" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="counter" type="xs:long" />
+        <xs:element name="lcounter" type="xs:long" />
+        <xs:element name="GeneratedName" type="subcounter" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="counterstest" >
+      <xs:sequence>
+        <xs:element name="id1" type="xs:string" />
+        <xs:element name="id2" type="xs:string" />
+        <xs:element name="id3" type="xs:string" />
+        <xs:element name="emf" type="xs:anyType" />
+        <xs:element name="run_in_embedded_mode" type="xs:anyType" />
+        <xs:element name="auto_manage_schema" type="xs:anyType" />
+        <xs:element name="keyspace" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="supercounterstest" >
+      <xs:sequence>
+        <xs:element name="id1" type="xs:string" />
+        <xs:element name="id2" type="xs:string" />
+        <xs:element name="id3" type="xs:string" />
+        <xs:element name="emf" type="xs:anyType" />
+        <xs:element name="run_in_embedded_mode" type="xs:anyType" />
+        <xs:element name="auto_manage_schema" type="xs:anyType" />
+        <xs:element name="keyspace" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="subcounter" >
+      <xs:sequence>
+        <xs:element name="subcounter" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="employee" >
+      <xs:sequence>
+        <xs:element name="personid" type="xs:string" />
+        <xs:element name="personname" type="xs:string" />
+        <xs:element name="employees" type="employee" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="manager" type="employee" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="studentcassandratest" >
+      <xs:complexContent>
+       <xs:extension base="studentbase<studentcassandra>">
+         <xs:sequence>
+          <xs:element name="persistenceunit" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="studentbase" >
+      <xs:complexContent>
+       <xs:extension base="studententitydef>">
+         <xs:sequence>
+          <xs:element name="run_in_embedded_mode" type="xs:anyType" />
+          <xs:element name="auto_manage_schema" type="xs:anyType" />
+          <xs:element name="/***theemf.*/emf" type="xs:anyType" />
+          <xs:element name="/***theem.*/em" type="xs:anyType" />
+          <xs:element name="//stringpersistenceunit" type="xs:anyType" />
+          <xs:element name="/***thestudentid2.*/studentid2" type="xs:anyType" />
+          <xs:element name="/***thestudentid3.*/studentid3" type="xs:anyType" />
+          <xs:element name="/***theenrolment.*/enrolment" type="xs:dateTime" />
+          <xs:element name="/***thejoiningandtime.*/joiningandtime" type="xs:dateTime" />
+          <xs:element name="/***thedate.*/date" type="xs:long" />
+          <xs:element name="/***thenewsqldate.*/newsqldate" type="xs:anyType" />
+          <xs:element name="/***theenrolmenttime.*/enrolmenttime" type="xs:dateTime" />
+          <xs:element name="/***thesqltime.*/sqltime" type="xs:anyType" />
+          <xs:element name="/***thesqltimestamp.*/sqltimestamp" type="xs:anyType" />
+          <xs:element name="/***thebigdecimal.*/" type="xs:anyType" />
+          <xs:element name="/***thebiginteger.*/" type="xs:anyType" />
+          <xs:element name="/***thenumberofstudents.*/numberofstudents" type="xs:long" />
+          <xs:element name="/***the.*/" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="studententitydef" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="studentcassandra" >
+      <xs:sequence>
+        <xs:element name="//primitivetypesstudentid" type="xs:long" />
+        <xs:element name="uniqueid" type="xs:long" />
+        <xs:element name="studentname" type="xs:string" />
+        <xs:element name="isexceptional" type="xs:anyType" />
+        <xs:element name="age" type="xs:long" />
+        <xs:element name="//a,b,c,d,e,fforitovisemester" type="xs:anyType" />
+        <xs:element name="digitalsignature" type="xs:anyType" />
+        <xs:element name="//1-10cgpa" type="xs:long" />
+        <xs:element name="percentage" type="xs:double" />
+        <xs:element name="height" type="xs:double" />
+        <xs:element name="//date-timetypesenrolmentdate" type="xs:anyType" />
+        <xs:element name="enrolmenttime" type="xs:anyType" />
+        <xs:element name="joiningdateandtime" type="xs:anyType" />
+        <xs:element name="//wrappertypesyearsspent" type="xs:anyType" />
+        <xs:element name="rollnumber" type="xs:long" />
+        <xs:element name="monthlyfee" type="xs:double" />
+        <xs:element name="sqldate" type="xs:anyType" />
+        <xs:element name="sqltimestamp" type="xs:anyType" />
+        <xs:element name="sqltime" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="basetest" >
+      <xs:complexContent>
+       <xs:extension base="object>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="twittertestbase" >
+      <xs:sequence>
+        <xs:element name="run_in_embedded_mode" type="xs:anyType" />
+        <xs:element name="auto_manage_schema" type="xs:anyType" />
+        <xs:element name="persistenceunit" type="xs:string" />
+        <xs:element name="keyspace" type="xs:string" />
+        <xs:element name="/***theuserid1.*/userid1" type="xs:string" />
+        <xs:element name="/***theuserid2.*/userid2" type="xs:string" />
+        <xs:element name="/***the.*/" type="twitter" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="exampleutils" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="superdao" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="twitterservice" >
+      <xs:complexContent>
+       <xs:extension base="superdao">
+         <xs:sequence>
+          <xs:element name="em" type="xs:anyType" />
+          <xs:element name="emf" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="twitter" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="twissandratest" >
+      <xs:complexContent>
+       <xs:extension base="twittertestbase">
+         <xs:sequence>
+          <xs:element name="/***theconstant.*/" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="usercassandra" >
+      <xs:sequence>
+        <xs:element name="userid" type="xs:string" />
+        <xs:element name="//embeddedobject,willpersistco-located" type="personaldetail" nillable="true" minOccurs="0" />
+        <xs:element name="//elementcollection,willpersistco-locatedtweets" type="tweet" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="//onetomany,willbepersistedseparately//listofuserswhomifollowfriends" type="usercassandra" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="//onetomany,willbepersistedseparately//listofuserswhoarefollowingmefollowers" type="usercassandra" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="//one-to-one,willbepersistedseparatelypreference" type="preferencecassandra" nillable="true" minOccurs="0" />
+        <xs:element name="//onetomany,willbepersistedseparatelyexternallinks" type="externallinkcassandra" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="externallinkcassandra" >
+      <xs:sequence>
+        <xs:element name="extlinkid" type="xs:string" />
+        <xs:element name="linktype" type="xs:string" />
+        <xs:element name="linkaddress" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="preferencecassandra" >
+      <xs:sequence>
+        <xs:element name="preferenceid" type="xs:string" />
+        <xs:element name="websitetheme" type="xs:string" />
+        <xs:element name="//1,2,3privacylevel" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="personaldetail" >
+      <xs:sequence>
+        <xs:element name="personaldetailid" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="relationshipstatus" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tweet" >
+      <xs:sequence>
+        <xs:element name="tweetid" type="xs:string" />
+        <xs:element name="body" type="xs:string" />
+        <xs:element name="device" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cassandraschemamanagervalidateentitytest" >
+      <xs:sequence>
+        <xs:element name="persistenceunit" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cassandraschemamanagermtm" >
+      <xs:sequence>
+        <xs:element name="/***theconfiguration.*/configuration" type="xs:anyType" />
+        <xs:element name="/***configureschemamanager.*/" type="xs:anyType" />
+        <xs:element name="client" type="xs:anyType" />
+        <xs:element name="uselucene" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cassandrapropertiestest" >
+      <xs:sequence>
+        <xs:element name="home_impadmin_lucene" type="xs:string" />
+        <xs:element name="kundera_cassandra_properties" type="xs:string" />
+        <xs:element name="/***theconfiguration.*/configuration" type="xs:anyType" />
+        <xs:element name="/***cassandraclient*/client" type="xs:anyType" />
+        <xs:element name="/***keyspacetocreate.*/keyspace" type="xs:string" />
+        <xs:element name="/***persistenceunitpu.*/pu" type="xs:string" />
+        <xs:element name="/***uselucene*/uselucene" type="xs:anyType" />
+        <xs:element name="log" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cassandraschemamanagermtmtest" >
+      <xs:sequence>
+        <xs:element name="/***theconfiguration.*/configuration" type="xs:anyType" />
+        <xs:element name="/***configureschemamanager.*/" type="xs:anyType" />
+        <xs:element name="client" type="xs:anyType" />
+        <xs:element name="uselucene" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cassandraentitypersonbi1to1pk" >
+      <xs:sequence>
+        <xs:element name="/***thepersonid.*/personid" type="xs:string" />
+        <xs:element name="/***thepersonname.*/personname" type="xs:string" />
+        <xs:element name="/***thepersonaldata.*/personaldata" type="cassandrapersonaldata" nillable="true" minOccurs="0" />
+        <xs:element name="/***theaddress.*/address" type="cassandraentityaddressbi1to1pk" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cassandraentityaddressbi1to1fk" >
+      <xs:sequence>
+        <xs:element name="/***theaddressid.*/addressid" type="xs:string" />
+        <xs:element name="/***thestreet.*/street" type="xs:string" />
+        <xs:element name="/***theperson.*/person" type="cassandraentitypersonbi1to1fk" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="validcountercolumnfamily" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="counter" type="xs:long" />
+        <xs:element name="lcounter" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cassandraentitypersonunimto1" >
+      <xs:sequence>
+        <xs:element name="/***thepersonid.*/personid" type="xs:string" />
+        <xs:element name="/***thepersonname.*/personname" type="xs:string" />
+        <xs:element name="/***theage.*/age" type="xs:long" />
+        <xs:element name="/***thepersonaldata.*/personaldata" type="cassandrapersonaldata" nillable="true" minOccurs="0" />
+        <xs:element name="/***theaddress.*/address" type="cassandraentityaddressunimto1" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cassandrapersonaldata" >
+      <xs:sequence>
+        <xs:element name="/***thewebsite.*/website" type="xs:string" />
+        <xs:element name="/***theemail.*/email" type="xs:string" />
+        <xs:element name="/***theyahooid.*/yahooid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cassandraentityhabitatunimtom" >
+      <xs:sequence>
+        <xs:element name="addressid" type="xs:string" />
+        <xs:element name="street" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cassandraentitypersonuni1to1pk" >
+      <xs:sequence>
+        <xs:element name="/***thepersonid.*/personid" type="xs:string" />
+        <xs:element name="/***thepersonname.*/personname" type="xs:string" />
+        <xs:element name="/***thepersonaldata.*/personaldata" type="cassandrapersonaldata" nillable="true" minOccurs="0" />
+        <xs:element name="/***theaddress.*/address" type="cassandraentityaddressuni1to1pk" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cassandraentityaddressuni1tom" >
+      <xs:sequence>
+        <xs:element name="/***theaddressid.*/addressid" type="xs:string" />
+        <xs:element name="/***thestreet.*/street" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cassandraentitypersonbi1to1fk" >
+      <xs:sequence>
+        <xs:element name="/***thepersonid.*/personid" type="xs:string" />
+        <xs:element name="/***thepersonname.*/personname" type="xs:string" />
+        <xs:element name="/***thepersonaldata.*/personaldata" type="cassandrapersonaldata" nillable="true" minOccurs="0" />
+        <xs:element name="/***theaddress.*/address" type="cassandraentityaddressbi1to1fk" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cassandraentityaddressuni1to1" >
+      <xs:sequence>
+        <xs:element name="/***theaddressid.*/addressid" type="xs:string" />
+        <xs:element name="/***thestreet.*/street" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cassandraentitysimple" >
+      <xs:sequence>
+        <xs:element name="/***thepersonid.*/personid" type="xs:string" />
+        <xs:element name="/***thepersonname.*/personname" type="xs:string" />
+        <xs:element name="/***theage.*/age" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cassandraentityaddressbi1to1pk" >
+      <xs:sequence>
+        <xs:element name="/***thepersonid.*/personid" type="xs:string" />
+        <xs:element name="/***theaddressid.*/addressid" type="xs:string" />
+        <xs:element name="/***thestreet.*/street" type="xs:string" />
+        <xs:element name="/***theperson.*/person" type="cassandraentitypersonbi1to1pk" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cassandraentitysuper" >
+      <xs:sequence>
+        <xs:element name="/***thepersonid.*/personid" type="xs:string" />
+        <xs:element name="/***thepersonname.*/personname" type="xs:string" />
+        <xs:element name="/***theage.*/age" type="xs:long" />
+        <xs:element name="/***thepersonaldata.*/personaldata" type="cassandrapersonaldata" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cassandraentityaddressunimto1" >
+      <xs:sequence>
+        <xs:element name="/***theaddressid.*/addressid" type="xs:string" />
+        <xs:element name="/***thestreet.*/street" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cassandraentitypersonbimto1" >
+      <xs:sequence>
+        <xs:element name="/***thepersonid.*/personid" type="xs:string" />
+        <xs:element name="/***thepersonname.*/personname" type="xs:string" />
+        <xs:element name="/***thepersonaldata.*/personaldata" type="cassandrapersonaldata" nillable="true" minOccurs="0" />
+        <xs:element name="/***theaddress.*/address" type="cassandraentityaddressbimto1" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cassandraentitypersonbi1tom" >
+      <xs:sequence>
+        <xs:element name="/***thepersonid.*/personid" type="xs:string" />
+        <xs:element name="/***thepersonname.*/personname" type="xs:string" />
+        <xs:element name="/***thepersonaldata.*/personaldata" type="cassandrapersonaldata" nillable="true" minOccurs="0" />
+        <xs:element name="/***theaddresses.*/addresses" type="cassandraentityaddressbi1tom" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="invalidcountercolumnentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="counter" type="xs:long" />
+        <xs:element name="lcounter" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cassandraentitypersonnelunimtom" >
+      <xs:sequence>
+        <xs:element name="personid" type="xs:string" />
+        <xs:element name="personname" type="xs:string" />
+        <xs:element name="personaldata" type="cassandrapersonaldata" nillable="true" minOccurs="0" />
+        <xs:element name="addresses" type="cassandraentityhabitatunimtom" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cassandraentitypersonuni1to1" >
+      <xs:sequence>
+        <xs:element name="/***thepersonid.*/personid" type="xs:string" />
+        <xs:element name="/***thepersonname.*/personname" type="xs:string" />
+        <xs:element name="/***theage.*/age" type="xs:long" />
+        <xs:element name="/***thepersonaldata.*/personaldata" type="cassandrapersonaldata" nillable="true" minOccurs="0" />
+        <xs:element name="/***theaddress.*/address" type="cassandraentityaddressuni1to1" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cassandraentityaddressbi1tom" >
+      <xs:sequence>
+        <xs:element name="/***theaddressid.*/addressid" type="xs:string" />
+        <xs:element name="/***thestreet.*/street" type="xs:string" />
+        <xs:element name="/***theperson.*/person" type="cassandraentitypersonbi1tom" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cassandraentitypersonuni1tom" >
+      <xs:sequence>
+        <xs:element name="/***thepersonid.*/personid" type="xs:string" />
+        <xs:element name="/***thepersonname.*/personname" type="xs:string" />
+        <xs:element name="/***theage.*/age" type="xs:long" />
+        <xs:element name="/***thepersonaldata.*/personaldata" type="cassandrapersonaldata" nillable="true" minOccurs="0" />
+        <xs:element name="/***theaddresses.*/addresses" type="cassandraentityaddressuni1tom" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="doctor" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="age" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cassandraentityaddressbimto1" >
+      <xs:sequence>
+        <xs:element name="/***theaddressid.*/addressid" type="xs:string" />
+        <xs:element name="/***thestreet.*/street" type="xs:string" />
+        <xs:element name="/***thepeople.*/people" type="cassandraentitypersonbimto1" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cassandraentityaddressuni1to1pk" >
+      <xs:sequence>
+        <xs:element name="/***thepersonid.*/personid" type="xs:string" />
+        <xs:element name="/***theaddressid.*/addressid" type="xs:string" />
+        <xs:element name="/***thestreet.*/street" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cassandraschemamanagertest" >
+      <xs:sequence>
+        <xs:element name="/***theconfiguration.*/configuration" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cassandraschemaoperationtest" >
+      <xs:sequence>
+        <xs:element name="/***theconfiguration.*/configuration" type="xs:anyType" />
+        <xs:element name="/***configureschemamanager.*/" type="xs:anyType" />
+        <xs:element name="client" type="xs:anyType" />
+        <xs:element name="uselucene" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="testcassandra" >
+      <xs:sequence>
+        <xs:element name="/***themanager.*/manager" type="xs:anyType" />
+        <xs:element name="/***the.*/" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cassandrauuidentity" >
+      <xs:sequence>
+        <xs:element name="key" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="age" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cassandrapropertyreadertest" >
+      <xs:sequence>
+        <xs:element name="familytoproperties" type="xs:anyType" />
+        <xs:element name="datacentertonode" type="xs:anyType" />
+        <xs:element name="replication" type="xs:string" />
+        <xs:element name="strategy" type="xs:string" />
+        <xs:element name="/***loginstance*/log" type="xs:anyType" />
+        <xs:element name="metadata" type="xs:anyType" />
+        <xs:element name="pu" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="updatedeletenamedquerytest" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="nativequerytest" >
+      <xs:sequence>
+        <xs:element name="///**theschema.*/schema" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="nullablefieldaccessortest" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cassandraentitysample" >
+      <xs:sequence>
+        <xs:element name="key" type="xs:string" />
+        <xs:element name="full_name" type="xs:string" />
+        <xs:element name="birth_date" type="xs:anyType" />
+        <xs:element name="state" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cassandracli" >
+      <xs:sequence>
+        <xs:element name="/***thecassandra.*/cassandra" type="xs:anyType" />
+        <xs:element name="/***theclient.*/client" type="xs:anyType" />
+        <xs:element name="/***theusedbythisclass.*/" type="xs:anyType" />
+        <xs:element name="/***thetr.*/tr" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ehcache-test" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="access" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="passwd" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="kundera-cassandra" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cassandraentityreader" >
+      <xs:complexContent>
+       <xs:extension base="abstractentityreader">
+         <xs:sequence>
+          <xs:element name="conditions" type="xs:anyType" />
+          <xs:element name="/***the.*/" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="cassquery" >
+      <xs:complexContent>
+       <xs:extension base="queryimpl">
+         <xs:sequence>
+          <xs:element name="/***theusedbythisclass.*/" type="xs:anyType" />
+          <xs:element name="/***thereader.*/reader" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="cassandraschemamanager" >
+      <xs:complexContent>
+       <xs:extension base="abstractschemamanager">
+         <xs:sequence>
+          <xs:element name="/***cassandraclientvariableholdstheclient.*/cassandra_client" type="xs:anyType" />
+          <xs:element name="/***usedforloggingstatement.*/log" type="xs:anyType" />
+          <xs:element name="datacentersmap" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="cassandravalidationclassmapper" >
+      <xs:sequence>
+        <xs:element name="validationclassmapper" type="xs:anyType" />
+        <xs:element name="replication_strategies" type="xs:anyType" />
+        <xs:element name="validatorsandcomparators" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cassandraindexhelper" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pelopsutils" >
+      <xs:sequence>
+        <xs:element name="/***the.*/" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pelopsclient" >
+      <xs:complexContent>
+       <xs:extension base="clientbase">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="/***forthisclass.*/" type="xs:anyType" />
+          <xs:element name="/***theclosed.*/closed" type="xs:anyType" />
+          <xs:element name="/***thedatahandler.*/handler" type="pelopsdatahandler" nillable="true" minOccurs="0" />
+          <xs:element name="/***thereader.*/reader" type="xs:anyType" />
+          <xs:element name="/***thetimestamp.*/timestamp" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="pelopsclientfactory" >
+      <xs:complexContent>
+       <xs:extension base="genericclientfactory">
+         <xs:sequence>
+          <xs:element name="/***the.*/" type="xs:anyType" />
+          <xs:element name="/***theindexmanager.*/" type="xs:anyType" />
+          <xs:element name="/***thereader.*/reader" type="xs:anyType" />
+          <xs:element name="/***configureschemamanager.*/" type="xs:anyType" />
+          <xs:element name="/***propertyreader.*/" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="pelopsdatahandler" >
+      <xs:sequence>
+        <xs:element name="/***thetimestamp.*/timestamp" type="xs:long" />
+        <xs:element name="/***the.*/" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cassandrapropertyreader" >
+      <xs:sequence>
+        <xs:element name="/***theinstance.*/" type="xs:anyType" />
+        <xs:element name="/***csmdinstanceof*///privatecsmd" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cassandracolumnfamilyproperties" >
+      <xs:sequence>
+        <xs:element name="/***dafaultvalidationclassforcolumnfamily*/default_validation_class" type="xs:string" />
+        <xs:element name="/***comparatortypeforcolumnfamily*/comparator" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

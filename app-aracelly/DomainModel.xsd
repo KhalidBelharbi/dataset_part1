@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="compraproducto" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="producto" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="venta" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="venta" >
+      <xs:sequence>
+        <xs:element name="idventa" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="vendedor" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="cliente" nillable="true" minOccurs="0" />
+        <xs:element name="costo" type="xs:long" />
+        <xs:element name="fecha" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="vendedor" >
+      <xs:sequence>
+        <xs:element name="idvendedor" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="supervisor" nillable="true" minOccurs="0" />
+        <xs:element name="nombre" type="xs:string" />
+        <xs:element name="direccion" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cliente" >
+      <xs:sequence>
+        <xs:element name="idcliente" type="xs:anyType" />
+        <xs:element name="nombrecliente" type="xs:string" />
+        <xs:element name="direccioncliente" type="xs:string" />
+        <xs:element name="telefonocliente" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="producto" >
+      <xs:sequence>
+        <xs:element name="idproducto" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="marca" nillable="true" minOccurs="0" />
+        <xs:element name="valor" type="xs:long" />
+        <xs:element name="descripcion" type="xs:string" />
+        <xs:element name="ventas" type="venta" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="supervisor" >
+      <xs:sequence>
+        <xs:element name="idsupervisor" type="xs:anyType" />
+        <xs:element name="nombre" type="xs:string" />
+        <xs:element name="direccion" type="xs:string" />
+        <xs:element name="telefono" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="marca" >
+      <xs:sequence>
+        <xs:element name="idmarca" type="xs:anyType" />
+        <xs:element name="descripcion" type="xs:string" />
+        <xs:element name="direccion" type="xs:string" />
+        <xs:element name="ciudad" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

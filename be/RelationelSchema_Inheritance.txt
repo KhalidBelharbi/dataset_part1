@@ -1,0 +1,21 @@
+
+product(prdno:int [PK], prdname:String, prdimg:String, prdprice:String, prdinv:String, ctgname:String, GeneratedName:Category #FK to(category));
+
+reply(rplno:int [PK], rplcontent:String, GeneratedName:Board #FK to(board), GeneratedName:User #FK to(user));
+
+level(level:int [PK]);
+
+user(usrno:Long [PK], usrname:String, usrnickname:String, usremail:String, usrpwd:String, usrages:String, usrcity:String, usrgender:String, usrphone:String, usrid:String, usraddr:String, GeneratedName:Level #FK to(level));
+
+payment(payno:int [PK], payprice:String, payamount:Long, dvrfee:String, paydate:String, paystate:String, GeneratedName:User #FK to(user), GeneratedName:Product #FK to(Product), GeneratedName:Cart #FK to(cart));
+
+receiver(rcvno:int [PK], rcvname:String, rcvphone:String, rcvaddr:String, GeneratedName:Payment #FK to(payment));
+
+cart(cartno:int [PK], cartamount:int, GeneratedName:Payment #FK to(payment));
+
+category(ctgno:int [PK], ctgname:String);
+
+board(brdno:Long [PK], brdtitle:String, brdcontent:String, brdwrtdate:String, brdrank:String, brdimg:String, usrnickname:String, brdkind:Long, count:Long, brdlike:String, brdpwd:String, GeneratedName:User #FK to(user), GeneratedName:Payment #FK to(payment), GeneratedName:Product #FK to(Product));
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

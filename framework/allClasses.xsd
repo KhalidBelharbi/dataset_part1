@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="redis4likeorunlikeapplicationtests" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userlikerepository" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="redisserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="likedservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="likedserviceimpl" >
+      <xs:sequence>
+        <xs:element name="likerepository" type="userlikerepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="redisservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="userservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="redisservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="likedservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="likedstatusenum" >
+      <xs:sequence>
+        <xs:element name="code" type="xs:anyType" />
+        <xs:element name="msg" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userlike" >
+      <xs:sequence>
+        <xs:element name="//主键idid" type="xs:anyType" />
+        <xs:element name="//被点赞的用户的idlikeduserid" type="xs:string" />
+        <xs:element name="//点赞的用户的idlikedpostid" type="xs:string" />
+        <xs:element name="//点赞的状态.默认未点赞status" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="likedcountdto" >
+      <xs:sequence>
+        <xs:element name="//用户idid" type="xs:anyType" />
+        <xs:element name="key" type="xs:string" />
+        <xs:element name="value" type="xs:anyType" />
+        <xs:element name="count" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userinfo" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="likenum" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rediskeyutils" >
+      <xs:sequence>
+        <xs:element name="//保存用户点赞数据的keymap_key_user_liked" type="xs:string" />
+        <xs:element name="//保存用户被点赞数量的keymap_key_user_liked_count" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="redis4likeorunlikeapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="redisconfig" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="liketask" >
+      <xs:complexContent>
+       <xs:extension base="quartzjobbean">
+         <xs:sequence>
+          <xs:element name="" type="likedservice" nillable="true" minOccurs="0" />
+          <xs:element name="sdf" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="quartzconfig" >
+      <xs:sequence>
+        <xs:element name="like_task_identity" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="application" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

@@ -1,0 +1,710 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="editingtogetherapiapplicationtests" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="updatesnippettest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="updatesnippet" nillable="true" minOccurs="0" />
+        <xs:element name="mock" type="snippetdao" nillable="true" minOccurs="0" />
+        <xs:element name="mock" type="projectdao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="sut" type="updatesnippetdto" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="createsnippettest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="createsnippet" nillable="true" minOccurs="0" />
+        <xs:element name="mock" type="snippetdao" nillable="true" minOccurs="0" />
+        <xs:element name="mock" type="projectdao" nillable="true" minOccurs="0" />
+        <xs:element name="sut" type="newsnippetdto" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="user" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="deletesnippettest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="deletesnippet" nillable="true" minOccurs="0" />
+        <xs:element name="mock" type="snippetdao" nillable="true" minOccurs="0" />
+        <xs:element name="mock" type="projectdao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="user" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="testredundancy" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="redundancy" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="similarity" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="getsimilarity" >
+      <xs:sequence>
+        <xs:element name="mapofvisitor" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="java8visitornormalizer" >
+      <xs:complexContent>
+       <xs:extension base="java8basevisitor<t>">
+         <xs:sequence>
+          <xs:element name="sb" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="normalizevariables" type="xs:anyType" />
+          <xs:element name="nbvariables" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="snippettovisitor" >
+      <xs:sequence>
+        <xs:element name="snippets" type="snippet" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="language" type="languagetype" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cvisitornormalizer" >
+      <xs:complexContent>
+       <xs:extension base="cbasevisitor<t>">
+         <xs:sequence>
+          <xs:element name="sb" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="normalizevariables" type="xs:anyType" />
+          <xs:element name="nbvariables" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="line" >
+      <xs:sequence>
+        <xs:element name="content" type="xs:string" />
+        <xs:element name="snippet_id" type="xs:long" />
+        <xs:element name="number_line" type="xs:long" />
+        <xs:element name="snippet_order" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="codeinterval" >
+      <xs:sequence>
+        <xs:element name="begin" type="snippetline" nillable="true" minOccurs="0" />
+        <xs:element name="end" type="snippetline" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="codeintervalredundancy" >
+      <xs:sequence>
+        <xs:element name="firstredundancy" type="codeinterval" nillable="true" minOccurs="0" />
+        <xs:element name="secondredundancy" type="codeinterval" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="redundancy_map" >
+      <xs:sequence>
+        <xs:element name="lines" type="line" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="size_redundancy" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="getredundancy" >
+      <xs:sequence>
+        <xs:element name="linesmap" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="lineparser" >
+      <xs:sequence>
+        <xs:element name="snippets" type="snippet" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="snippetline" >
+      <xs:sequence>
+        <xs:element name="snippet_id" type="xs:long" />
+        <xs:element name="line" type="xs:long" />
+        <xs:element name="snippet_order" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="calculatesimilarity" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="calculateredundancy" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="compilationresponse" >
+      <xs:sequence>
+        <xs:element name="response" type="xs:string" />
+        <xs:element name="redundancy" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="compilecontent" >
+      <xs:sequence>
+        <xs:element name="snippetsid" type="xs:anyType" />
+        <xs:element name="projectid" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="compilercontroller" >
+      <xs:sequence>
+        <xs:element name="compilerservice" type="compilecode" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="getsnippets" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="getoneprojectbyid" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="getuserinformations" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="calculateredundancy" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="calculatesimilarity" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="compilerutils" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dockercompilation" >
+      <xs:sequence>
+        <xs:element name="command" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="compilerfactory" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dockerinputbuffer" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dockererrorbuffer" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dockerbuffer" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="compilerjava" >
+      <xs:sequence>
+        <xs:element name="compiler_directory" type="xs:string" />
+        <xs:element name="template_java_directory" type="xs:string" />
+        <xs:element name="user_java_directory" type="xs:string" />
+        <xs:element name="main_file" type="xs:string" />
+        <xs:element name="dockerfile" type="xs:string" />
+        <xs:element name="script_file" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="compilerc" >
+      <xs:sequence>
+        <xs:element name="compiler_directory" type="xs:string" />
+        <xs:element name="template_c_directory" type="xs:string" />
+        <xs:element name="user_c_directory" type="xs:string" />
+        <xs:element name="main_file" type="xs:string" />
+        <xs:element name="dockerfile" type="xs:string" />
+        <xs:element name="script_file" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="compilecode" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="compilerstrategy" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="filesutils" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="roles" type="role" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="alreadycreatedexception" >
+      <xs:complexContent>
+       <xs:extension base="exception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="alreadycreatedexceptionhandler" >
+      <xs:complexContent>
+       <xs:extension base="responseentityexceptionhandler">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userdao" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="roledao" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="getuserinformations" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userdao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="getuserbyid" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userdao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="signin" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="jwtutils" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="signup" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userdao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="roledao" nillable="true" minOccurs="0" />
+        <xs:element name="encoder" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rolename" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="roles" type="role" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="role" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="name" type="rolename" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jwtresponse" >
+      <xs:sequence>
+        <xs:element name="token" type="xs:string" />
+        <xs:element name="type" type="xs:string" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="roles" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="messageresponse" >
+      <xs:sequence>
+        <xs:element name="message" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="loginrequest" >
+      <xs:sequence>
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="signuprequest" >
+      <xs:sequence>
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="role" type="xs:anyType" />
+        <xs:element name="password" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="useradapter" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rolesqldao" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="rolerepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usersqldao" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rolerepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<role,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<userentity,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="authcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="signin" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="signup" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="createsnippet" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="snippetdao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="projectdao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="updatesnippet" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="snippetdao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="projectdao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="deletesnippet" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="snippetdao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="projectdao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="getsnippetsbyprojectid" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="snippetdao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="projectdao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="getsnippets" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="snippetdao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="getoneprojectbyid" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="projectdao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="getuserprojects" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="projectdao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="joinproject" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="projectdao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="userdao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="createproject" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="projectdao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="snippetinformationadapter" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="getuserbyid" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="projectadapter" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="snippetadapter" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="snippetinformationdto" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="content" type="xs:string" />
+        <xs:element name="created" type="xs:dateTime" />
+        <xs:element name="up" type="xs:dateTime" />
+        <xs:element name="createuserid" type="xs:long" />
+        <xs:element name="createusername" type="xs:string" />
+        <xs:element name="updateuserid" type="xs:long" />
+        <xs:element name="updateusername" type="xs:string" />
+        <xs:element name="projectid" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="newprojectdto" >
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="language" type="languagetype" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="newsnippetdto" >
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="content" type="xs:string" />
+        <xs:element name="projectid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="updatesnippetdto" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="content" type="xs:string" />
+        <xs:element name="projectid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="projectscontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="createproject" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="getuserinformations" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="getoneprojectbyid" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="getuserprojects" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="joinproject" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="snippetscontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="getuserinformations" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="createsnippet" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="deletesnippet" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="updatesnippet" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="getsnippetsbyprojectid" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="snippetinformationadapter" nillable="true" minOccurs="0" />
+        <xs:element name="template" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="projectsqldao" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="projectrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="projectuserrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="snippetsqldao" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="snippetrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="projectuserid" >
+      <xs:sequence>
+        <xs:element name="projectid" type="xs:anyType" />
+        <xs:element name="userid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="snippetentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="content" type="xs:string" />
+        <xs:element name="projectid" type="xs:anyType" />
+        <xs:element name="created" type="xs:dateTime" />
+        <xs:element name="createuserid" type="xs:long" />
+        <xs:element name="up" type="xs:dateTime" />
+        <xs:element name="updateuserid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="projectentity" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="language" type="languagetype" nillable="true" minOccurs="0" />
+        <xs:element name="created" type="xs:dateTime" />
+        <xs:element name="createuserid" type="xs:long" />
+        <xs:element name="lastcompilation" type="xs:dateTime" />
+        <xs:element name="token" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="projectuserentity" >
+      <xs:sequence>
+        <xs:element name="projectid" type="xs:anyType" />
+        <xs:element name="userid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="projectrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<projectentity,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="snippetrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<snippetentity,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="projectuserrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<projectuserentity,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="project" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="language" type="languagetype" nillable="true" minOccurs="0" />
+        <xs:element name="created" type="xs:dateTime" />
+        <xs:element name="createuserid" type="xs:long" />
+        <xs:element name="lastcompilation" type="xs:dateTime" />
+        <xs:element name="token" type="xs:string" />
+        <xs:element name="participants" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="snippet" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="content" type="xs:string" />
+        <xs:element name="created" type="xs:dateTime" />
+        <xs:element name="up" type="xs:dateTime" />
+        <xs:element name="createuserid" type="xs:long" />
+        <xs:element name="updateuserid" type="xs:long" />
+        <xs:element name="projectid" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="languagetype" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="projectnotfoundexception" >
+      <xs:complexContent>
+       <xs:extension base="exception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="projectnotcreatedexception" >
+      <xs:complexContent>
+       <xs:extension base="exception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="projectdao" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="snippetdao" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="editingtogetherapiapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="errorresponse" >
+      <xs:sequence>
+        <xs:element name="code" type="xs:long" />
+        <xs:element name="message" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="notfoundexceptionhandler" >
+      <xs:complexContent>
+       <xs:extension base="responseentityexceptionhandler">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="conflictexceptionhandler" >
+      <xs:complexContent>
+       <xs:extension base="responseentityexceptionhandler">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="forbiddenexceptionhandler" >
+      <xs:complexContent>
+       <xs:extension base="responseentityexceptionhandler">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="notfoundexception" >
+      <xs:complexContent>
+       <xs:extension base="runtimeexception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="conflictexception" >
+      <xs:complexContent>
+       <xs:extension base="runtimeexception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="forbiddenexception" >
+      <xs:complexContent>
+       <xs:extension base="runtimeexception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="websocketprojectconfiguration" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="testclass" >
+      <xs:sequence>
+        <xs:element name="msg" type="xs:string" />
+        <xs:element name="projectid" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="websecurityconfig" >
+      <xs:complexContent>
+       <xs:extension base="websecurityconfigureradapter">
+         <xs:sequence>
+          <xs:element name="userdetailsservice" type="userdetailsserviceimpl" nillable="true" minOccurs="0" />
+          <xs:element name="unauthorizedhandler" type="authentrypointjwt" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userdetailsimpl" >
+      <xs:complexContent>
+       <xs:extension base="grantedauthority>">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="username" type="xs:string" />
+          <xs:element name="email" type="xs:string" />
+          <xs:element name="password" type="xs:string" />
+          <xs:element name="authorities" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userdetailsserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="authtokenfilter" >
+      <xs:complexContent>
+       <xs:extension base="onceperrequestfilter">
+         <xs:sequence>
+          <xs:element name="" type="jwtutils" nillable="true" minOccurs="0" />
+          <xs:element name="userdetailsservice" type="userdetailsserviceimpl" nillable="true" minOccurs="0" />
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jwtutils" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="jwtsecret" type="xs:string" />
+        <xs:element name="jwtexpirationms" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="authentrypointjwt" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

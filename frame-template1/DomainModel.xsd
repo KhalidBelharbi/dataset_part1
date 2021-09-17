@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="roleentity" >
+      <xs:sequence>
+        <xs:element name="/***角色id*/id" type="xs:string" />
+        <xs:element name="/***/rolename" type="xs:string" />
+        <xs:element name="/***/description" type="xs:string" />
+        <xs:element name="/***/status" type="xs:anyType" />
+        <xs:element name="/***/createtime" type="xs:dateTime" />
+        <xs:element name="/***/uptime" type="xs:dateTime" />
+        <xs:element name="/***/users" type="userentity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="/***配置角色到权限的多对多关系*/permissions" type="permissionentity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userentity" >
+      <xs:sequence>
+        <xs:element name="/***用户id*/id" type="xs:string" />
+        <xs:element name="/***用户名（唯一）*/username" type="xs:string" />
+        <xs:element name="/***密码*/password" type="xs:string" />
+        <xs:element name="/***用户姓名*/fullname" type="xs:string" />
+        <xs:element name="/***手机号*/mobile" type="xs:string" />
+        <xs:element name="/***/createtime" type="xs:dateTime" />
+        <xs:element name="/***/uptime" type="xs:dateTime" />
+        <xs:element name="/***配置用户到角色的多对多关系*/roles" type="roleentity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="permissionentity" >
+      <xs:sequence>
+        <xs:element name="/***权限id*/id" type="xs:string" />
+        <xs:element name="/***权限标识符*/code" type="xs:string" />
+        <xs:element name="/***描述*/description" type="xs:string" />
+        <xs:element name="/***请求地址*/url" type="xs:string" />
+        <xs:element name="/***/createtime" type="xs:dateTime" />
+        <xs:element name="/***/uptime" type="xs:dateTime" />
+        <xs:element name="/***/roles" type="roleentity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

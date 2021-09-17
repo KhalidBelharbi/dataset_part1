@@ -1,0 +1,13 @@
+
+order(serialversionuid:long, id:Long [PK], deliveryname:String, deliverystreet:String, deliverycity:String, deliverystate:String, deliveryzip:String, ccnumber:String, ccexpiration:String, cccvv:String, placedat:Date);
+
+order_list<taco>(orderID:order [PK] #FK to order,list<taco>ID:list<taco> [PK] #FK to list<taco>);
+
+ingredient(id:String [PK], name:String, GeneratedName:Type);
+
+taco(id:Long [PK], createdat:Date, name:String);
+
+taco_list<ingredient>(tacoID:taco [PK] #FK to taco,list<ingredient>ID:list<ingredient> [PK] #FK to list<ingredient>);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

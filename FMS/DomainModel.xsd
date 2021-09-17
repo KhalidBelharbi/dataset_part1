@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="auditable" >
+      <xs:sequence>
+        <xs:element name="createdby" type="xs:anyType" />
+        <xs:element name="created" type="xs:dateTime" />
+        <xs:element name="lastmodifiedby" type="xs:anyType" />
+        <xs:element name="lastmodified" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="trainer" >
+      <xs:complexContent>
+       <xs:extension base="auditable<string>{">
+         <xs:sequence>
+          <xs:element name="username" type="xs:string" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="email" type="xs:string" />
+          <xs:element name="phone" type="xs:string" />
+          <xs:element name="address" type="xs:string" />
+          <xs:element name="isactive" type="xs:anyType" />
+          <xs:element name="password" type="xs:string" />
+          <xs:element name="idskill" type="xs:long" />
+          <xs:element name="activationcode" type="xs:string" />
+          <xs:element name="resetpasswordcode" type="xs:string" />
+          <xs:element name="isreceivenotification" type="xs:anyType" />
+          <xs:element name="assignments" type="assignment" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="assignment" >
+      <xs:complexContent>
+       <xs:extension base="auditable<string>{">
+         <xs:sequence>
+          <xs:element name="" type="assignmentkey" nillable="true" minOccurs="0" />
+          <xs:element name="registrationcode" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="trainee_assignment" >
+      <xs:complexContent>
+       <xs:extension base="auditable<string>{">
+         <xs:sequence>
+          <xs:element name="registrationcode" type="xs:string" />
+          <xs:element name="traineeid" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="module" >
+      <xs:complexContent>
+       <xs:extension base="auditable<string>{">
+         <xs:sequence>
+          <xs:element name="moduleid" type="xs:long" />
+          <xs:element name="_module" type="admin" nillable="true" minOccurs="0" />
+          <xs:element name="modulename" type="xs:string" />
+          <xs:element name="starttime" type="xs:dateTime" />
+          <xs:element name="endtime" type="xs:dateTime" />
+          <xs:element name="isdeleted" type="xs:anyType" />
+          <xs:element name="feedbackstarttime" type="xs:dateTime" />
+          <xs:element name="feedbackendtime" type="xs:dateTime" />
+          <xs:element name="_module" type="feedback" nillable="true" minOccurs="0" />
+          <xs:element name="answers" type="answer" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="assignments" type="assignment" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="topic" >
+      <xs:complexContent>
+       <xs:extension base="auditable<string>{">
+         <xs:sequence>
+          <xs:element name="topicid" type="xs:long" />
+          <xs:element name="topicname" type="xs:string" />
+          <xs:element name="questions" type="question" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="course" >
+      <xs:complexContent>
+       <xs:extension base="auditable<string>{">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="coursename" type="xs:string" />
+          <xs:element name="admin" type="xs:string" />
+          <xs:element name="startdate" type="xs:string" />
+          <xs:element name="enddate" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="feedback" >
+      <xs:complexContent>
+       <xs:extension base="auditable<string>{">
+         <xs:sequence>
+          <xs:element name="feedbackid" type="xs:long" />
+          <xs:element name="title" type="xs:string" />
+          <xs:element name="isdeleted" type="xs:anyType" />
+          <xs:element name="id" type="admin" nillable="true" minOccurs="0" />
+          <xs:element name="feedback_typeid" type="typefeedback" nillable="true" minOccurs="0" />
+          <xs:element name="feedback_questions" type="feedback_question" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="modules" type="module" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="feedback_question" >
+      <xs:complexContent>
+       <xs:extension base="auditable<string>{">
+         <xs:sequence>
+          <xs:element name="" type="feedback_questionkey" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="trainee_comment" >
+      <xs:complexContent>
+       <xs:extension base="auditable<string>{">
+         <xs:sequence>
+          <xs:element name="classid" type="xs:long" />
+          <xs:element name="moduleid" type="xs:long" />
+          <xs:element name="traineeid" type="xs:string" />
+          <xs:element name="comment" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="enrollment" >
+      <xs:complexContent>
+       <xs:extension base="auditable<string>{">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="_enroll" type="class" nillable="true" minOccurs="0" />
+          <xs:element name="_enroll" type="trainee" nillable="true" minOccurs="0" />
+          <xs:element name="_enroll" type="class" nillable="true" minOccurs="0" />
+          <xs:element name="_enroll" type="trainee" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="question" >
+      <xs:complexContent>
+       <xs:extension base="auditable<string>{">
+         <xs:sequence>
+          <xs:element name="questionid" type="xs:long" />
+          <xs:element name="_question" type="topic" nillable="true" minOccurs="0" />
+          <xs:element name="quesioncontent" type="xs:string" />
+          <xs:element name="isdeleted" type="xs:anyType" />
+          <xs:element name="answers" type="answer" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="feedback_questions" type="feedback_question" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:complexContent>
+       <xs:extension base="auditable<string>{">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="firstname" type="xs:string" />
+          <xs:element name="lastname" type="xs:string" />
+          <xs:element name="email" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="admin" >
+      <xs:complexContent>
+       <xs:extension base="auditable<string>{">
+         <xs:sequence>
+          <xs:element name="username" type="xs:string" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="email" type="xs:string" />
+          <xs:element name="password" type="xs:string" />
+          <xs:element name="modules" type="module" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="feedbacks" type="feedback" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="answer" >
+      <xs:complexContent>
+       <xs:extension base="auditable<string>{">
+         <xs:sequence>
+          <xs:element name="" type="answerkey" nillable="true" minOccurs="0" />
+          <xs:element name="value" type="xs:long" />
+          <xs:element name="comment" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="trainee" >
+      <xs:complexContent>
+       <xs:extension base="auditable<string>{">
+         <xs:sequence>
+          <xs:element name="username" type="xs:string" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="email" type="xs:string" />
+          <xs:element name="phone" type="xs:string" />
+          <xs:element name="address" type="xs:string" />
+          <xs:element name="isactive" type="xs:anyType" />
+          <xs:element name="password" type="xs:string" />
+          <xs:element name="activationcode" type="xs:string" />
+          <xs:element name="resetpasswordcode" type="xs:string" />
+          <xs:element name="answer" type="answer" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="enrollments" type="enrollment" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="class" >
+      <xs:complexContent>
+       <xs:extension base="auditable<string>{">
+         <xs:sequence>
+          <xs:element name="classid" type="xs:long" />
+          <xs:element name="classname" type="xs:string" />
+          <xs:element name="capacity" type="xs:long" />
+          <xs:element name="starttime" type="xs:dateTime" />
+          <xs:element name="endtime" type="xs:dateTime" />
+          <xs:element name="isdeleted" type="xs:anyType" />
+          <xs:element name="answers" type="answer" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="enrollments" type="enrollment" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="assignments" type="assignment" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="typefeedback" >
+      <xs:complexContent>
+       <xs:extension base="auditable<string>{">
+         <xs:sequence>
+          <xs:element name="typeid" type="xs:long" />
+          <xs:element name="typename" type="xs:string" />
+          <xs:element name="isdeleted" type="xs:anyType" />
+          <xs:element name="feedbacks" type="feedback" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema> 

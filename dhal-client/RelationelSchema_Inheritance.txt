@@ -1,0 +1,15 @@
+
+dhalplaylists(playlistid:int [PK], trackid:int, commentid:int);
+
+dhalcomments(commentsid:int [PK], authorid:int, postdate:String, comments:String, rateid:int, commentid:DhalPlaylists #FK to(DhalPlaylists));
+
+dhalratings(//@generatedvalue(generator:int [PK], rating:double, commentrateid:DhalComments #FK to(dhalcomments), trackrateid:DhalTrackRatings #FK to(dhaltrackratings));
+
+dhaltrackratings(trackid:int [PK], rateid:int, raterid:int, type:DhalTrending #FK to(dhaltrending));
+
+dhaltrending(trendid:int [PK], trackid:int);
+
+dhalusers(id:int [PK], email:String, password:String, firstname:String, lastname:String, authorid:DhalComments #FK to(dhalcomments), raterid:DhalTrackRatings #FK to(dhaltrackratings));
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

@@ -1,0 +1,23 @@
+
+zone(id:Long [PK], city:String, localnameofcity:String, province:String);
+
+notification(id:Long [PK], title:String, link:String, message:String, checked:boolean, GeneratedName:Account #FK to(account), createddatetime:LocalDateTime, GeneratedName:NotificationType);
+
+study(id:Long [PK], path:String, title:String, shortdescription:String, fulldescription:String, image:String, publisheddatetime:LocalDateTime, closeddatetime:LocalDateTime, recruitingupdateddatetime:LocalDateTime, recruiting:boolean, published:boolean, closed:boolean, usebanner:boolean, membercount:int);
+
+study_set<account>(studyID:study [PK] #FK to study,set<account>ID:set<account> [PK] #FK to set<account>);study_set<account>(studyID:study [PK] #FK to study,set<account>ID:set<account> [PK] #FK to set<account>);study_set<tag>(studyID:study [PK] #FK to study,set<tag>ID:set<tag> [PK] #FK to set<tag>);study_set<zone>(studyID:study [PK] #FK to study,set<zone>ID:set<zone> [PK] #FK to set<zone>);
+
+persistentlogins(series:String [PK], username:String, token:String, lastused:LocalDateTime);
+
+account(id:Long [PK], email:String, nickname:String, password:String, emailverified:boolean, emailchecktoken:String, emailchecktokengeneratedat:LocalDateTime, joinedat:LocalDateTime, bio:String, url:String, occupation:String, location:String, profileimage:String, studycreatedbyemail:boolean, studycreatedbyweb:boolean, studyenrollmentresultbyemail:boolean, studyenrollmentresultbyweb:boolean, studyupdatedbyemail:boolean, studyupdatedbyweb:boolean);
+
+account_set<tag>(accountID:account [PK] #FK to account,set<tag>ID:set<tag> [PK] #FK to set<tag>);account_set<zone>(accountID:account [PK] #FK to account,set<zone>ID:set<zone> [PK] #FK to set<zone>);
+
+tag(id:Long [PK], title:String);
+
+enrollment(id:Long [PK], GeneratedName:Event #FK to(event), GeneratedName:Account #FK to(account), enrolledat:LocalDateTime, accepted:boolean, attended:boolean);
+
+event(id:Long [PK], GeneratedName:Study #FK to(study), createdby:Account #FK to(account), title:String, description:String, createddatetime:LocalDateTime, endenrollmentdatetime:LocalDateTime, startdatetime:LocalDateTime, enddatetime:LocalDateTime, limitofenrollments:Integer, GeneratedName:EventType);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

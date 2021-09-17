@@ -1,0 +1,47 @@
+
+messagesender(name:String, classname:String, tplcode:String);
+
+messagetemplate(code:String, title:String, content:String, cond:String, idmessagesender:Long, type:Integer, id:MessageSender #FK to(messagesender));
+
+message(tplcode:String, content:String, receiver:String, type:Integer, state:Integer);
+
+task(name:String, jobgroup:String, jobclass:String, note:String, cron:String, concurrent:boolean, data:String, execat:Date, execresult:String, disabled:boolean);
+
+relation(id:Long [PK], menuid:Long, roleid:Long);
+
+notice(title:String, type:Integer, content:String);
+
+menu(code:String, pcode:String, pcodes:String, name:String, icon:String, url:String, num:Integer, levels:Integer, ismenu:Integer, tips:String, status:Integer, isopen:Integer);
+
+role(num:Integer, pid:Long, name:String, deptid:Long, tips:String, version:Integer);
+
+loginlog(id:Integer [PK], logname:String, userid:Integer, succeed:String, message:String, ip:String, createtime:Date);
+
+fileinfo(originalfilename:String, realfilename:String);
+
+cfg(cfgname:String, cfgvalue:String, cfgdesc:String);
+
+user(avatar:String, account:String, password:String, salt:String, name:String, birthday:Date, sex:Integer, email:String, phone:String, roleid:String, deptid:Long, status:Integer, version:Integer);
+
+dict(num:String, pid:Long, name:String, tips:String);
+
+tasklog(exe_failure_result:int, exe_success_result:int, id:Long [PK], idtask:Long, name:String, execat:Date, execsuccess:int, jobexception:String);
+
+dept(num:Integer, pid:Long, pids:String, simplename:String, fullname:String, tips:String, version:Integer);
+
+operationlog(id:Long [PK], logtype:String, logname:String, userid:Integer, classname:String, method:String, createtime:Date, succeed:String, message:String);
+
+boy(name:String, age:Integer, birthday:String, hasgirfriend:Boolean);
+
+girl(name:String, age:Integer, birthday:Date, hasboyfriend:Boolean);
+
+article(idchannel:Long, title:String, content:String, author:String, img:String);
+
+channel(name:String, code:String);
+
+banner(url:String, title:String, type:String, idfile:Long);
+
+contacts(username:String, mobile:String, email:String, remark:String);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

@@ -1,0 +1,45 @@
+
+missionnaire(serialversionuid:long, cin:String [PK], matricule:String, nom:String, noml:String, prenom:String, prenoml:String, nationalite:String, nationalitel:String, naissance:Date, place_naissance:String, rib:String, _cin:Date, place_cin:String, groupe:String, niveau:String, ministr:String, cod_cat:Categorie #FK to(categorie), classgrd:Classe #FK to(classe), code:DeptGen #FK to(deptgen), codgrp:Groupe #FK to(groupe), grade_id:Grade #FK to(grade), fonction_id:Fonction #FK to(fonction));
+
+avoirbudgetprojet(//@embeddedid//protectedavoirbudgetprojetpkavoirbudgetprojetpkcodprj:String [PK], annee:Date [PK], code:String [PK], bproj:Date [PK], reference:String, valeur:BigDecimal, val:Date, codutil:String, typebudgetp:String, cod_prj:Projet #FK to(projet));
+
+typfrais(serialversionuid:long, typfrais:String [PK], libfrais:String, libfraisl:String);
+
+classe(serialversionuid:long, classgrd:String [PK], libclassgrda:String, libclassgrdl:String);
+
+deptgen(serialversionuid:long, code:String [PK], liba:String, libl:String, typdept:String, cptmission:short, cptnbp:Integer, cptnop:Integer, codcomm:String);
+
+ordmis(//@embeddedid//protectedordmispkordmispkcode:String [PK], numord:short [PK], nummission:String [PK], datdepp:Date, datarrp:Date, datdepr:Date, datarrr:Date, timbr:BigDecimal, avance:BigDecimal, etat:String, numpb:String, pay:Date, avanceacc:BigDecimal, datrap:Date, numop:String, tauxspec:BigDecimal, avanceold:BigDecimal, obsctrl:String, typav:String, resume:String, num_mission:Mission #FK to(mission), cin:Missionnaire #FK to(missionnaire));
+
+pays(serialversionuid:long, codpays:String [PK], libpaysa:String, libpaysl:String, langue:String, prep:String, pour:String, cod_zone:Zone #FK to(zone));
+
+fonction(serialversionuid:long, id:Long [PK], codfonction:String, libfonca:String, libfoncl:String, typfonc:String);
+
+categorie(serialversionuid:long, codecat:String [PK], libcatar:String, libcatfr:String);
+
+motcle(serialversionuid:long, codemotcle:String [PK], amotcle:String, lmotcle:String, ind:Short);
+
+utilisateur(username:String [PK], nom:String, prenom:String, password:String, enable:boolean);
+
+users_roles(user_id:Utilisateur [PK] #FK to Utilisateur,role_id:list<role> [PK] #FK to list<role>);
+
+avoirfrais(//@embeddedid//protectedavoirfraispkavoirfraispknummission:String [PK], numord:short [PK], typfrais:String [PK], codpays:String [PK], valeurp:BigDecimal, valeurr:BigDecimal, supporte:String, supcode:String, codprj:String, observ:String, aobserv:String, code:OrdMis #FK to(ordmis), cod_pays:Pays #FK to(pays), typ_frais:TypFrais #FK to(typfrais));
+
+mission(//@embeddedid//protectedmissionpkmissionpknummission:String [PK], code:String [PK], objeta:String, objetl:String, datdepp:Date, datarrp:Date, GeneratedName:DeptGen #FK to(deptgen), GeneratedName:Motcle #FK to(motcle));
+
+zone(serialversionuid:long, codzone:String [PK], libzonea:String, libzonel:String);
+
+groupe(serialversionuid:long, codgrp:String [PK], libgrp:String, libgrpl:String);
+
+grade(serialversionuid:long, id:Long [PK], codgrd:String, libgrda:String, libgrdl:String);
+
+avoirbudget(//@embeddedid//protectedavoirbudgetpkavoibudgetpk/***/serialversionuid:long, code:String [PK], _budg:Date [PK], annee:Date, valeur_miss:Double, reference_mis:String, valeur_tr:Double, _val:Date, cod_util:String, type_budget:String, code:DeptGen #FK to(deptgen));
+
+userstruct(serialversionuid:long, iduserstruct:long [PK], affectation:Date, //bi-directionalmany-to-oneassociationtodepartementdepartement:DeptGen #FK to(deptgen), //bi-directionalmany-to-oneassociationto:Utilisateur #FK to(utilisateur));
+
+projet(/***/serialversionuid:long, //@embeddedid//protectedprojetpkprojetpkcodprj:String [PK], code:String [PK], libprja:String, libprjl:String, code:DeptGen #FK to(deptgen));
+
+role(id:Long [PK], name:String);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

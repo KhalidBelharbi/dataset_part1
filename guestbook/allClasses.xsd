@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="guestbookapplicationtests" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="guestbookrepositorytests" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="guestbookrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="guestbookservicetests" >
+      <xs:sequence>
+        <xs:element name="service" type="guestbookdservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="servletinitializer" >
+      <xs:complexContent>
+       <xs:extension base="springbootservletinitializer">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="pagerequestdto" >
+      <xs:sequence>
+        <xs:element name="page" type="xs:long" />
+        <xs:element name="size" type="xs:long" />
+        <xs:element name="type" type="xs:string" />
+        <xs:element name="keyword" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="guestbookdto" >
+      <xs:sequence>
+        <xs:element name="gno" type="xs:long" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="content" type="xs:string" />
+        <xs:element name="writer" type="xs:string" />
+        <xs:element name="regdate,moddate" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pageresultdto" >
+      <xs:sequence>
+        <xs:element name="//dto리스트dtolist" type="xs:anyType" />
+        <xs:element name="totalpage" type="xs:long" />
+        <xs:element name="page" type="xs:long" />
+        <xs:element name="size" type="xs:long" />
+        <xs:element name="start,end" type="xs:long" />
+        <xs:element name="prev,next" type="xs:anyType" />
+        <xs:element name="pagelist" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="guestbookcontroller" >
+      <xs:sequence>
+        <xs:element name="service" type="guestbookdservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="guestbookapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="baseentity" >
+      <xs:sequence>
+        <xs:element name="regdate" type="xs:anyType" />
+        <xs:element name="moddate" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="guestbook" >
+      <xs:complexContent>
+       <xs:extension base="baseentity{">
+         <xs:sequence>
+          <xs:element name="gno" type="xs:long" />
+          <xs:element name="title" type="xs:string" />
+          <xs:element name="content" type="xs:string" />
+          <xs:element name="writer" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="guestbookserviceimpl" >
+      <xs:sequence>
+        <xs:element name="repository" type="guestbookrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="guestbookdservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="guestbookrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<guestbook,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="modify" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="register" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="basic" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

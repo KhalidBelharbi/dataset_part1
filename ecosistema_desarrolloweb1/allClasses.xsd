@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="additional-spring-configuration-metadata" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="votacioncontroller" >
+      <xs:sequence>
+        <xs:element name="repositorio" type="votacionesrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="keycloakjwtauthenticationtoken" >
+      <xs:complexContent>
+       <xs:extension base="jwtauthenticationtoken">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="username" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="keycloakaudiencevalidator" >
+      <xs:sequence>
+        <xs:element name="error" type="xs:anyType" />
+        <xs:element name="allowedaudience" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="keycloakjwtauthenticationconverter" >
+      <xs:sequence>
+        <xs:element name="authoritiesmapper" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="websecurityconfig" >
+      <xs:complexContent>
+       <xs:extension base="websecurityconfigureradapter">
+         <xs:sequence>
+          <xs:element name="" type="keycloakjwtauthenticationconverter" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="votacionesrepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<resultado,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="resultado" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="sexo" type="xs:string" />
+        <xs:element name="edad" type="xs:anyType" />
+        <xs:element name="niveleducativo" type="xs:string" />
+        <xs:element name="departamento_id" type="xs:anyType" />
+        <xs:element name="municipio_id" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="defaultpermissionevaluator" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="domainobjectreference" >
+      <xs:sequence>
+        <xs:element name="type" type="xs:string" />
+        <xs:element name="id" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="votacionapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="securityconfig" >
+      <xs:complexContent>
+       <xs:extension base="globalmethodsecurityconfiguration">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="votacionapplicationtests" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

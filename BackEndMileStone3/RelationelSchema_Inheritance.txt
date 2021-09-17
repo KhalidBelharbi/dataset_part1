@@ -1,0 +1,59 @@
+
+monitorconfig(uid:String [PK], resourcemonitor:Boolean, processmonitor:Boolean, xml:String, lastuptime:Date);
+
+trinityconfig(versionid:String [PK], dualservermode:String, primaryhost:String, primaryport:Integer, standbyhost:String, standbyport:Integer, smtppassword:String, smtpserver:String, smtpuser:String, authmode:String, ldapserver:String, defaultdomain:String, metaautocompare:String, metacomparekeepperiod:Integer, metacomparetime:Integer, metadocumenttype:String, pwdenforce:String, pwdlevel:String, pwdminlen:Integer, pwdcycle:Integer, pwdexpireday:Integer, lastuptime:Date);
+
+disconfig(module:String [PK], configname:String [PK], value:String, instance:String);
+
+frequencycategory(freqcategoryuid:String [PK], freqcategoryname:String, description:String, lastuptime:Date);
+
+workingcalendar(wcalendaruid:String [PK], wcalendarname:String, description:String, activate:String);
+
+exclfrequency(excludefrequencyuid:String [PK], excludefrequencyname:String, description:String, activate:String, lastuptime:Date);
+
+frequency(frequencyuid:String [PK], frequencyname:String, description:String, activate:String, lastcheckdatetime:String, manuallyedit:String, bywcalendar:String, wcalendaruid:String, xmldata:String, lastuptime:Date);
+
+trinityuser(useruid:String [PK], userid:String, username:String, description:String, usertype:String, password:String, activate:String, email:String, mobile:String, defaultlang:String, createduseruid:String, ssoid:String, localaccount:String, onlyforexecution:String, homedir:String, pwdchangetime:String, xmldata:String, lastuptime:Date);
+
+role(roleuid:String [PK], rolename:String, description:String, homedir:String, lastuptime:Date);
+
+usergroup(groupuid:String [PK], groupname:String, description:String, lastuptime:Date);
+
+jobstep(stepuid:String [PK], stepname:String, description:String, stepseq:Integer, activate:String, jobuid:String, steptype:String, successrule:String, successvalue1:Integer, successvalue2:Integer, xmldata:String, lastuptime:Date);
+
+busentity(busentityuid:String [PK], busentityname:String, description:String, xmldata:String, lastuptime:Date);
+
+jobflow(jobflowuid:String [PK], flowname:String, description:String, activate:String, domainuid:String, categoryuid:String, frequencyuid:String, suppressjobdomain:String, txdaterule:String, txoffsetday:Integer, bypasserror:String, status:String, createuseruid:String, xmldata:String, onlinedatetime:String, offlinedatetime:String, lastuptime:Date);
+
+job(jobuid:String [PK], jobname:String, description:String, activate:String, domainuid:String, categoryuid:String, agentuid:String, frequencyuid:String, filesourceuid:String, jobtype:String, retry:String, retryinterval:Integer, maxretrytime:Integer, retrymode:String, priority:Integer, timewindowbegin:Integer, timewindowend:Integer, txdaterule:String, txoffsetday:Integer, bypasserror:String, status:String, criticaljob:String, createuseruid:String, xmldata:String, onlinedatetime:String, offlinedatetime:String, refjobuid:String, lastuptime:Date);
+
+jobcategory(categoryuid:String [PK], categoryname:String, description:String, activate:String, xmldata:String, lastuptime:Date);
+
+vragent(virtualagentuid:String [PK], virtualagentname:String, description:String, maximumjob:Integer, activate:String, mode:String, xmldata:String, lastuptime:Date);
+
+jcsagent(agentuid:String [PK], agentname:String, description:String, host:String, port:Integer, maximumjob:Integer, activate:String, ostype:String, osname:String, agentstatus:String, xmldata:String, lostcontact:Date, lastuptime:Date);
+
+notification(notificationuid:String [PK], notificationname:String, description:String, targetuid:String, notificationtype:String, notificationtiming:String, targettype:String, attachlog:String, xmldata:String, lastuptime:Date);
+
+transformrule(rule:String [PK], needargument:String, argtemplate:String, ruledescription:String);
+
+dmextpackage(packageuid:String [PK], packagename:String, description:String, lastuptime:Date);
+
+resdoc(module:String [PK], resname:String [PK], langcode:String [PK], document:String);
+
+connectioncategory(conncategoryuid:String [PK], conncategoryname:String, description:String, lastuptime:Date);
+
+connection(connectionuid:String [PK], connectionname:String, description:String, connectiontype:String, xmldata:String, lastuptime:Date);
+
+plugin(pluginid:String [PK], plugintype:String, pluginname:String, classname:String, jarname:String, options:String, licensegroup:String, pluginid:PluginLicense #FK to(pluginlicense));
+
+pluginlicense(pluginid:String [PK], licensekey:String);
+
+filesource(filesourceuid:String [PK], filesourcename:String, description:String, filetrigger:String, receivedir:String, targetdir:String, completedir:String, corruptdir:String, duplicatedir:String, errordir:String, filename:String, pattern:String, startposition:Integer, endposition:Integer, filetype:String, minfile:Integer, maxfile:Integer, timeout:Integer, checkduplicate:String, filterduplicate:String, checkrow:String, bypasszero:String, ftpget:String, xmldata:String, lastuptime:Date);
+
+filesourcecategory(fscategoryuid:String [PK], fscategoryname:String, description:String, lastuptime:Date);
+
+domain(domainuid:String [PK], name:String, description:String, lastuptime:Date);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

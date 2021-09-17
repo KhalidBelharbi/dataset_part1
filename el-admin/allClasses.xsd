@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="emailconfig" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="host" type="xs:string" />
+        <xs:element name="port" type="xs:string" />
+        <xs:element name="user" type="xs:string" />
+        <xs:element name="pass" type="xs:string" />
+        <xs:element name="fromuser" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="alipayconfig" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="appid" type="xs:string" />
+        <xs:element name="key" type="xs:string" />
+        <xs:element name="publickey" type="xs:string" />
+        <xs:element name="signtype" type="xs:string" />
+        <xs:element name="gatewayurl" type="xs:string" />
+        <xs:element name="charset" type="xs:string" />
+        <xs:element name="notifyurl" type="xs:string" />
+        <xs:element name="returnurl" type="xs:string" />
+        <xs:element name="format" type="xs:string" />
+        <xs:element name="sysserviceproviderid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="localstorage" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="realname" type="xs:string" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="suffix" type="xs:string" />
+          <xs:element name="path" type="xs:string" />
+          <xs:element name="type" type="xs:string" />
+          <xs:element name="size" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="qiniuconfig" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="accesskey" type="xs:string" />
+        <xs:element name="secretkey" type="xs:string" />
+        <xs:element name="bucket" type="xs:string" />
+        <xs:element name="/***zone表示与机房的对应关系*华东	zone.zone0()*华北	zone.zone1()*华南	zone.zone2()*北美	zone.zonena0()*东南亚	zone.zoneas0()*/zone" type="xs:string" />
+        <xs:element name="host" type="xs:string" />
+        <xs:element name="type" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="qiniucontent" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="key" type="xs:string" />
+        <xs:element name="bucket" type="xs:string" />
+        <xs:element name="size" type="xs:string" />
+        <xs:element name="url" type="xs:string" />
+        <xs:element name="suffix" type="xs:string" />
+        <xs:element name="type" type="xs:string" />
+        <xs:element name="updatetime" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tradevo" >
+      <xs:sequence>
+        <xs:element name="/***（必填）商品描述*/body" type="xs:string" />
+        <xs:element name="/***（必填）商品名称*/subject" type="xs:string" />
+        <xs:element name="/***（必填）商户订单号，应该由后台生成*/outtradeno" type="xs:string" />
+        <xs:element name="/***（必填）第三方订单号*/tradeno" type="xs:string" />
+        <xs:element name="/***（必填）价格*/totalamount" type="xs:string" />
+        <xs:element name="/***订单状态,已支付，未支付，作废*/state" type="xs:string" />
+        <xs:element name="/***创建时间，存入数据库时需要*/createtime" type="xs:anyType" />
+        <xs:element name="/***作废时间，存入数据库时需要*/canceltime" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="emailvo" >
+      <xs:sequence>
+        <xs:element name="/***收件人，支持多个收件人*/tos" type="xs:anyType" />
+        <xs:element name="subject" type="xs:string" />
+        <xs:element name="content" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="qiniucontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="qiniuservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="localstoragecontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="localstorageservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="alipaycontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="alipayutils" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="alipayservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="emailcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="emailservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="emailrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<emailconfig,long>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="qiniuconfigrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<qiniuconfig,long>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="alipayrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<alipayconfig,long>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="localstoragerepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<localstorage,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="qiniucontentrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<qiniucontent,long>,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="alipayserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="alipayrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="qiniuserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="qiniuconfigrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="qiniucontentrepository" nillable="true" minOccurs="0" />
+        <xs:element name="maxsize" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="emailserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="emailrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="localstorageserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="localstoragerepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="localstoragemapper" nillable="true" minOccurs="0" />
+        <xs:element name="properties" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="localstorageservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="alipayservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="emailservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="qiniuservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="localstoragemapper" >
+      <xs:complexContent>
+       <xs:extension base="basemapper<localstoragedto,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="qiniuquerycriteria" >
+      <xs:sequence>
+        <xs:element name="key" type="xs:string" />
+        <xs:element name="createtime" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="localstoragedto" >
+      <xs:complexContent>
+       <xs:extension base="basedto">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="realname" type="xs:string" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="suffix" type="xs:string" />
+          <xs:element name="type" type="xs:string" />
+          <xs:element name="size" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="picturequerycriteria" >
+      <xs:sequence>
+        <xs:element name="filename" type="xs:string" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="createtime" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="localstoragequerycriteria" >
+      <xs:sequence>
+        <xs:element name="blurry" type="xs:string" />
+        <xs:element name="createtime" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="multipartconfig" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="alipayutils" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="alipaystatusenum" >
+      <xs:sequence>
+        <xs:element name="value" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="qiniuutil" >
+      <xs:sequence>
+        <xs:element name="huad" type="xs:string" />
+        <xs:element name="huab" type="xs:string" />
+        <xs:element name="huan" type="xs:string" />
+        <xs:element name="beim" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

@@ -1,0 +1,498 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="itxapplicationtests" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="controlmercaderia" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="stock_min" type="xs:long" />
+        <xs:element name="stock_max" type="xs:long" />
+        <xs:element name="fecha_elaboracion" type="xs:dateTime" />
+        <xs:element name="fecha_caducidad" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="proveedor" >
+      <xs:sequence>
+        <xs:element name="idproveedor" type="xs:long" />
+        <xs:element name="ruc" type="xs:string" />
+        <xs:element name="nombreproveedor" type="xs:string" />
+        <xs:element name="estado" type="xs:anyType" />
+        <xs:element name="fecharegistro" type="xs:dateTime" />
+        <xs:element name="cuentasbancarias" type="xs:string" />
+        <xs:element name="giroproveedor" type="xs:string" />
+        <xs:element name="observaciones" type="xs:string" />
+        <xs:element name="emailproveedor" type="xs:string" />
+        <xs:element name="celularproveedor" type="xs:string" />
+        <xs:element name="telefonoproveedor" type="xs:string" />
+        <xs:element name="paginaweb" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="personal" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="idpersonal" type="xs:long" />
+        <xs:element name="cargo" type="xs:string" />
+        <xs:element name="horario" type="xs:string" />
+        <xs:element name="lugartrabajo" type="xs:string" />
+        <xs:element name="salario" type="xs:double" />
+        <xs:element name="fecharegistro" type="xs:dateTime" />
+        <xs:element name="fotoperfil" type="xs:string" />
+        <xs:element name="GeneratedName" type="usuario" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rolesusuario" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="idrolusuario" type="xs:long" />
+        <xs:element name="estado" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="usuario" nillable="true" minOccurs="0" />
+        <xs:element name="rol" type="roles" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="producto" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="nombre" type="xs:string" />
+        <xs:element name="descripcion" type="xs:string" />
+        <xs:element name="marca" type="xs:string" />
+        <xs:element name="calidad" type="xs:string" />
+        <xs:element name="categoria" type="xs:string" />
+        <xs:element name="peso" type="xs:double" />
+        <xs:element name="oferta_descuento" type="xs:long" />
+        <xs:element name="precio_compra" type="xs:double" />
+        <xs:element name="precio_venta" type="xs:double" />
+        <xs:element name="imagen" type="xs:string" />
+        <xs:element name="id_proveedor" type="xs:long" />
+        <xs:element name="GeneratedName" type="compra" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="detalleventa" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="empresa" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="idempresa" type="xs:long" />
+        <xs:element name="ruc" type="xs:string" />
+        <xs:element name="mision" type="xs:string" />
+        <xs:element name="vision" type="xs:string" />
+        <xs:element name="nombre" type="xs:string" />
+        <xs:element name="acronimo" type="xs:string" />
+        <xs:element name="rolcomercial" type="xs:string" />
+        <xs:element name="logo" type="xs:string" />
+        <xs:element name="pais" type="xs:string" />
+        <xs:element name="provincia" type="xs:string" />
+        <xs:element name="ciudad" type="xs:string" />
+        <xs:element name="direccion" type="xs:string" />
+        <xs:element name="codigopostal" type="xs:string" />
+        <xs:element name="telefono" type="xs:string" />
+        <xs:element name="celular" type="xs:string" />
+        <xs:element name="correo" type="xs:string" />
+        <xs:element name="paginaweb" type="xs:string" />
+        <xs:element name="estado" type="xs:anyType" />
+        <xs:element name="cuentasbancarias" type="xs:string" />
+        <xs:element name="GeneratedName" type="persona" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="detalleventa" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="cantidad" type="xs:long" />
+        <xs:element name="iva" type="xs:long" />
+        <xs:element name="sub_total" type="xs:double" />
+        <xs:element name="total" type="xs:double" />
+        <xs:element name="//@joincolumn(name" type="venta" nillable="true" minOccurs="0" />
+        <xs:element name="producto" type="producto" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persona" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="idpersona" type="xs:long" />
+        <xs:element name="cedula" type="xs:string" />
+        <xs:element name="nombres" type="xs:string" />
+        <xs:element name="apellidos" type="xs:string" />
+        <xs:element name="fechanacimmiento" type="xs:dateTime" />
+        <xs:element name="genero" type="xs:string" />
+        <xs:element name="direccion" type="xs:string" />
+        <xs:element name="correo" type="xs:string" />
+        <xs:element name="telefono" type="xs:string" />
+        <xs:element name="celular" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bodega" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="nombre" type="xs:string" />
+        <xs:element name="tipobodega" type="xs:string" />
+        <xs:element name="direccion" type="xs:string" />
+        <xs:element name="localidad" type="xs:string" />
+        <xs:element name="capacidad_max" type="xs:long" />
+        <xs:element name="inventario_disponible" type="xs:long" />
+        <xs:element name="telefono" type="xs:string" />
+        <xs:element name="descripcion" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cliente" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="idcliente" type="xs:long" />
+        <xs:element name="observaciones" type="xs:string" />
+        <xs:element name="cuentasbancarias" type="xs:string" />
+        <xs:element name="estado" type="xs:anyType" />
+        <xs:element name="fecharegistro" type="xs:dateTime" />
+        <xs:element name="GeneratedName" type="usuario" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="venta" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="fecha" type="xs:dateTime" />
+        <xs:element name="tipo_venta" type="xs:string" />
+        <xs:element name="//@joincolumn(name" type="detalleventa" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="roles" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="idrol" type="xs:long" />
+        <xs:element name="nombre" type="xs:string" />
+        <xs:element name="descripcion" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="compra" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="fecha_pedido" type="xs:dateTime" />
+        <xs:element name="cantidad" type="xs:long" />
+        <xs:element name="unidad" type="xs:string" />
+        <xs:element name="valor_producto" type="xs:double" />
+        <xs:element name="valor_total" type="xs:double" />
+        <xs:element name="estado" type="xs:string" />
+        <xs:element name="//@joincolumn(name" type="producto" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usuario" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="idusuario" type="xs:long" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="estado" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="persona" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="empresa" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="itxapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="productocontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="productorepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="restcliente" >
+      <xs:sequence>
+        <xs:element name="service" type="iservicecliente" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="controlmercaderiacontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="controlmercaderiarepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="restpersonal" >
+      <xs:sequence>
+        <xs:element name="service" type="iservicepersonal" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="restusuario" >
+      <xs:sequence>
+        <xs:element name="service" type="iserviceusuario" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="restrolesusuario" >
+      <xs:sequence>
+        <xs:element name="service" type="iservicerolesusuario" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="proveedorcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="proveedorrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="restroles" >
+      <xs:sequence>
+        <xs:element name="service" type="iserviceroles" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="compracontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="comprarepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ventacontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="ventarepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="restpersona" >
+      <xs:sequence>
+        <xs:element name="service" type="iservicepersona" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bodegacontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="bodegarepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="detalleventacontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="detalleventarepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="restempresa" >
+      <xs:sequence>
+        <xs:element name="service" type="iserviceempresa" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="daoimplusuario" >
+      <xs:sequence>
+        <xs:element name="repository" type="irepositoryusuario" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="irepositorycliente" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<cliente,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="daoimplroles" >
+      <xs:sequence>
+        <xs:element name="repository" type="irepositoryroles" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="idaorolesusuario" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="idaopersona" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="daoimplrolesusuario" >
+      <xs:sequence>
+        <xs:element name="repository" type="irepositoryrolesusuario" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="idaoempresa" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ventarepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<venta,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="daoimplcliente" >
+      <xs:sequence>
+        <xs:element name="repository" type="irepositorycliente" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="controlmercaderiarepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<controlmercaderia,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="irepositoryusuario" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<usuario,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="comprarepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<compra,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="daoimplpersonal" >
+      <xs:sequence>
+        <xs:element name="repository" type="irepositorypersonal" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="productorepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<producto,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="idaocliente" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="daoimplempresa" >
+      <xs:sequence>
+        <xs:element name="repository" type="irepositoryempresa" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="idaoroles" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="proveedorrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<proveedor,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="detalleventarepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<detalleventa,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="daoimplpersona" >
+      <xs:sequence>
+        <xs:element name="repository" type="irepositorypersona" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="idaousuario" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="irepositorypersonal" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<personal,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="idaopersonal" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bodegarepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<bodega,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="irepositoryrolesusuario" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<rolesusuario,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="irepositorypersona" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<persona,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="irepositoryempresa" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<empresa,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="irepositoryroles" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<roles,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="iserviceusuario" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="serviceimplpersona" >
+      <xs:sequence>
+        <xs:element name="dao" type="idaopersona" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="serviceimplempresa" >
+      <xs:sequence>
+        <xs:element name="dao" type="idaoempresa" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="iservicecliente" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="serviceimplcliente" >
+      <xs:sequence>
+        <xs:element name="dao" type="idaocliente" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="iservicepersonal" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="iserviceempresa" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="serviceimplrolesusuario" >
+      <xs:sequence>
+        <xs:element name="dao" type="idaorolesusuario" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="serviceimplroles" >
+      <xs:sequence>
+        <xs:element name="dao" type="idaoroles" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="serviceimplpersonal" >
+      <xs:sequence>
+        <xs:element name="dao" type="idaopersonal" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="iservicepersona" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="serviceimplusuario" >
+      <xs:sequence>
+        <xs:element name="dao" type="idaousuario" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="iserviceroles" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="iservicerolesusuario" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

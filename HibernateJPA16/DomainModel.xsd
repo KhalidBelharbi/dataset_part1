@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="address" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="streetnumber" type="xs:long" />
+        <xs:element name="streetname" type="xs:string" />
+        <xs:element name="cityname" type="xs:string" />
+        <xs:element name="countryname" type="xs:string" />
+        <xs:element name="zipcode" type="xs:string" />
+        <xs:element name="inhabitants" type="person" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="version" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="person" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="GeneratedName" type="family" nillable="true" minOccurs="0" />
+        <xs:element name="birth" type="xs:dateTime" />
+        <xs:element name="GeneratedName" type="address" nillable="true" minOccurs="0" />
+        <xs:element name="checked" type="xs:anyType" />
+        <xs:element name="version" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="family" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="secondname" type="xs:string" />
+        <xs:element name="members" type="person" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="version" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="person" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="name" nillable="true" minOccurs="0" />
+        <xs:element name="age" type="xs:long" />
+        <xs:element name="version" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="withsimpleid" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="naturalidonmanytoone" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="version" type="xs:long" />
+        <xs:element name="GeneratedName" type="citizen" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="state" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="version" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="age" >
+      <xs:sequence>
+        <xs:element name="query" type="xs:string" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="age" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="citizen" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="version" type="xs:long" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+        <xs:element name="GeneratedName" type="state" nillable="true" minOccurs="0" />
+        <xs:element name="ssn" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="withembeddedid" >
+      <xs:sequence>
+        <xs:element name="embeddedid" type="pk" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

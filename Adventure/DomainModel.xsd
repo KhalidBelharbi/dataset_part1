@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="categories" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="categoryname" type="xs:string" />
+        <xs:element name="imgurl" type="xs:string" />
+        <xs:element name="eventlist" type="event" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="city" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="id" type="county" nillable="true" minOccurs="0" />
+        <xs:element name="organiserlist" type="organiser" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="companylist" type="company" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="locationlist" type="location" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="customerlist" type="customer" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="gender" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="customerlist" type="customer" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="organiser" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+        <xs:element name="ofbirth" type="xs:dateTime" />
+        <xs:element name="//@pattern(regexp" type="xs:string" />
+        <xs:element name="address" type="xs:string" />
+        <xs:element name="postalcode" type="xs:string" />
+        <xs:element name="id" type="city" nillable="true" minOccurs="0" />
+        <xs:element name="id" type="credentials" nillable="true" minOccurs="0" />
+        <xs:element name="eventlist" type="event" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="event" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="ending" type="xs:dateTime" />
+        <xs:element name="starting" type="xs:dateTime" />
+        <xs:element name="price" type="xs:double" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="positions" type="xs:long" />
+        <xs:element name="remainingpositions" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="categoryid" type="categories" nillable="true" minOccurs="0" />
+        <xs:element name="equipmentlist" type="equipment" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="customerbookseventlist" type="customerbooksevent" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="id" type="company" nillable="true" minOccurs="0" />
+        <xs:element name="id" type="difficulty" nillable="true" minOccurs="0" />
+        <xs:element name="id" type="location" nillable="true" minOccurs="0" />
+        <xs:element name="id" type="organiser" nillable="true" minOccurs="0" />
+        <xs:element name="id" type="typeindooroutdoor" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="roles" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="role" type="xs:string" />
+        <xs:element name="credentialslist" type="credentials" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="typeindooroutdoor" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="typeindooroutdoor" type="xs:string" />
+        <xs:element name="eventlist" type="event" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="difficulty" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="level" type="xs:string" />
+        <xs:element name="eventlist" type="event" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="company" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="address" type="xs:string" />
+        <xs:element name="//@pattern(regexp" type="xs:string" />
+        <xs:element name="afm" type="xs:string" />
+        <xs:element name="postalcode" type="xs:string" />
+        <xs:element name="id" type="city" nillable="true" minOccurs="0" />
+        <xs:element name="id" type="credentials" nillable="true" minOccurs="0" />
+        <xs:element name="eventlist" type="event" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="location" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="address" type="xs:string" />
+        <xs:element name="coordinatex" type="xs:string" />
+        <xs:element name="coordinatey" type="xs:string" />
+        <xs:element name="postalcode" type="xs:string" />
+        <xs:element name="id" type="city" nillable="true" minOccurs="0" />
+        <xs:element name="eventlist" type="event" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="county" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="citylist" type="city" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="customer" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+        <xs:element name="ofbirth" type="xs:dateTime" />
+        <xs:element name="//@pattern(regexp" type="xs:string" />
+        <xs:element name="address" type="xs:string" />
+        <xs:element name="postalcode" type="xs:string" />
+        <xs:element name="customerbookseventlist" type="customerbooksevent" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="id" type="city" nillable="true" minOccurs="0" />
+        <xs:element name="id" type="credentials" nillable="true" minOccurs="0" />
+        <xs:element name="id" type="gender" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="credentials" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="passwordresettoken" type="xs:string" />
+        <xs:element name="id" type="roles" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="organiser" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="company" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="customer" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="equipment" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="eventlist" type="event" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="customerbooksevent" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="amountpositions" type="xs:long" />
+        <xs:element name="totalprice" type="xs:double" />
+        <xs:element name="id" type="customer" nillable="true" minOccurs="0" />
+        <xs:element name="id" type="event" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

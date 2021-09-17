@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="articlecontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="articleservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="article" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="//专栏columnid" type="xs:string" />
+        <xs:element name="userid" type="xs:string" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="content" type="xs:string" />
+        <xs:element name="//封面coverimage" type="xs:string" />
+        <xs:element name="publishtime" type="xs:dateTime" />
+        <xs:element name="//赞likes" type="xs:long" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="uptime" type="xs:dateTime" />
+        <xs:element name="//是否公开ispublic" type="xs:string" />
+        <xs:element name="//是否顶置istop" type="xs:string" />
+        <xs:element name="visits" type="xs:long" />
+        <xs:element name="//评论comments" type="xs:long" />
+        <xs:element name="//状态，未审核0审核通过1state" type="xs:string" />
+        <xs:element name="url" type="xs:string" />
+        <xs:element name="type" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="articledao" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<article,string>,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="articleapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="articleservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="articledao" nillable="true" minOccurs="0" />
+        <xs:element name="redistemplate" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

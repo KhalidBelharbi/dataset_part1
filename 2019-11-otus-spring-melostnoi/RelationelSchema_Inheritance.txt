@@ -1,0 +1,13 @@
+
+genre(id:Long [PK], name:String);
+
+book(id:Long [PK], title:String);
+
+books_authors(book_id:Book [PK] #FK to Book,author_id:set<author> [PK] #FK to set<author>);books_genres(book_id:Book [PK] #FK to Book,genre_id:set<genre> [PK] #FK to set<genre>);
+
+author(id:Long [PK], name:String);
+
+books_authors(author_id:Author [PK] #FK to Author,book_id:set<book> [PK] #FK to set<book>);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

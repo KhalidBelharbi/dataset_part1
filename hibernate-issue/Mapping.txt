@@ -1,0 +1,10 @@
+ClassDiagram.Class>> Base =>=>=> RelationalSchema.Table>> base;
+ClassDiagram.Class>> Middle =>=>=> RelationalSchema.Table>> middle;
+ClassDiagram.Class>> Target =>=>=> RelationalSchema.Table>> target;
+ClassDiagram.Attribut>> Base.id:String =>=>=> RelationalSchema.Column>> base.id PRIMARY KEY;
+ClassDiagram.Attribut>> Middle.key:String =>=>=> RelationalSchema.Column>> middle.key PRIMARY KEY;
+ClassDiagram.Attribut>> Middle.GeneratedName:Target =>=>=> RelationalSchema.Column>> middle.GeneratedName PRIMARY KEY;
+ClassDiagram.Attribut>> Target.id:String =>=>=> RelationalSchema.Column>> target.id PRIMARY KEY;
+ClassDiagram.Attribut>> Target.field:String =>=>=> RelationalSchema.Column>> target.field;
+One-To-One relationship between ClassDiagram.Class>>Base  to ClassDiagram.Class>>Middle represented by ClassDiagram.Atrribute>>GeneratedName;
+One-To-One relationship between ClassDiagram.Class>>Middle  to ClassDiagram.Class>>target represented by ClassDiagram.Atrribute>>GeneratedName;

@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="newszcfb" >
+      <xs:sequence>
+        <xs:element name="link" type="xs:string" />
+        <xs:element name="pos,title,date,origin" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="summary" >
+      <xs:sequence>
+        <xs:element name="link" type="xs:string" />
+        <xs:element name="pos,title,date,origin,type" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="newstzgg" >
+      <xs:sequence>
+        <xs:element name="link" type="xs:string" />
+        <xs:element name="pos,title,date,origin" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="newszfsj" >
+      <xs:sequence>
+        <xs:element name="link" type="xs:string" />
+        <xs:element name="pos,title,date,origin" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="newsywdd" >
+      <xs:sequence>
+        <xs:element name="link" type="xs:string" />
+        <xs:element name="pos,title,date,origin" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="newszcjd" >
+      <xs:sequence>
+        <xs:element name="link" type="xs:string" />
+        <xs:element name="pos,title,date,origin" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hypx" >
+      <xs:sequence>
+        <xs:element name="link" type="xs:string" />
+        <xs:element name="pos,title,date,origin" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="word_tf" >
+      <xs:sequence>
+        <xs:element name="word" type="xs:string" />
+        <xs:element name="month" type="xs:string" />
+        <xs:element name="tf" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="//用户名username" type="xs:string" />
+        <xs:element name="//密码password" type="xs:string" />
+        <xs:element name="//昵称nickname" type="xs:string" />
+        <xs:element name="//头像urlavatar" type="xs:string" />
+        <xs:element name="//电话phone" type="xs:string" />
+        <xs:element name="//邮箱email" type="xs:string" />
+        <xs:element name="//性别gender" type="xs:string" />
+        <xs:element name="//生日birthday" type="xs:string" />
+        <xs:element name="//……moneylevel" type="xs:string" />
+        <xs:element name="//自我介绍bio" type="xs:string" />
+        <xs:element name="//+通过做问卷得出的结果level" type="xs:string" />
+        <xs:element name="//权限role" type="xs:string" />
+        <xs:element name="//注册时间registertime" type="xs:string" />
+        <xs:element name="//预期收益expectedprofit" type="xs:double" />
+        <xs:element name="//风险承受能力riskability" type="xs:double" />
+        <xs:element name="coins" type="xs:long" />
+        <xs:element name="exp" type="xs:long" />
+        <xs:element name="//今天是否签到hassignedtoday" type="xs:anyType" />
+        <xs:element name="//可以查看的教程级别tutorialtype" type="xs:string" />
+        <xs:element name="ratiotrend" type="xs:anyType" />
+        <xs:element name="trend" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tutorial" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="userid" type="xs:long" />
+        <xs:element name="nickname,title,description,time" type="xs:string" />
+        <xs:element name="content" type="xs:string" />
+        <xs:element name="keywords" type="xs:anyType" />
+        <xs:element name="type" type="xs:string" />
+        <xs:element name="//封面cover" type="xs:string" />
+        <xs:element name="alreadyliked" type="xs:anyType" />
+        <xs:element name="comments" type="comment" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="likedlist" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="strategyitem" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="stockid" type="xs:string" />
+        <xs:element name="buyrate" type="xs:double" />
+        <xs:element name="GeneratedName" type="strategy" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="stock" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="//股票代码stockid" type="xs:string" />
+        <xs:element name="//股票名字stockname" type="xs:string" />
+        <xs:element name="//股价currentprice" type="xs:double" />
+        <xs:element name="//跌涨幅%trend" type="xs:double" />
+        <xs:element name="//累计换手率%turnoverrate" type="xs:double" />
+        <xs:element name="//股市盈利率%marketprofitability" type="xs:double" />
+        <xs:element name="//今日成交量todayvolume" type="xs:long" />
+        <xs:element name="//推荐购买比例buyrate" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="comment" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="//这个也准备换成对象writer" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="content,time,nickname" type="xs:string" />
+        <xs:element name="alreadyliked" type="xs:anyType" />
+        <xs:element name="alreadyread" type="xs:long" />
+        <xs:element name="GeneratedName" type="tutorial" nillable="true" minOccurs="0" />
+        <xs:element name="replytarget" type="comment" nillable="true" minOccurs="0" />
+        <xs:element name="replytargetuserid" type="xs:long" />
+        <xs:element name="comments" type="comment" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="likedusers" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="strategy" >
+      <xs:sequence>
+        <xs:element name="recordid" type="xs:long" />
+        <xs:element name="userid" type="xs:long" />
+        <xs:element name="recordname" type="xs:string" />
+        <xs:element name="recordtime" type="xs:string" />
+        <xs:element name="stocks" type="strategyitem" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="realstock" >
+      <xs:sequence>
+        <xs:element name="//股票代码stockid" type="xs:string" />
+        <xs:element name="//名字stockname" type="xs:string" />
+        <xs:element name="//跌涨幅trend" type="xs:double" />
+        <xs:element name="//现价currentprice" type="xs:double" />
+        <xs:element name="//开盘价open" type="xs:double" />
+        <xs:element name="//最高价high" type="xs:double" />
+        <xs:element name="//最低价low" type="xs:double" />
+        <xs:element name="//昨日收盘价settlement" type="xs:double" />
+        <xs:element name="//成交量todayvolume" type="xs:double" />
+        <xs:element name="//换手率turnoverrate" type="xs:double" />
+        <xs:element name="//成交额amount" type="xs:double" />
+        <xs:element name="//市盈率marketprofitability" type="xs:double" />
+        <xs:element name="//市净率pb" type="xs:double" />
+        <xs:element name="//总市值mktcap" type="xs:double" />
+        <xs:element name="//流通市值nmc" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

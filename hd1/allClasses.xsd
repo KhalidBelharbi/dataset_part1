@@ -1,0 +1,681 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="backapplicationtests" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="interceptorconfig" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="doctorcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="useraddressservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="doctordepartmentservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usertestreportcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="usertestreportservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="usertestservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="userservice" nillable="true" minOccurs="0" />
+        <xs:element name="request" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usertestreportresponse" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="usertest" nillable="true" minOccurs="0" />
+        <xs:element name="usertestreports" type="usertestreport" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userresponse" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="useraddress" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="articleresponse" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userarticle" nillable="true" minOccurs="0" />
+        <xs:element name="article" type="user" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userquestionresponse" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="userid" type="xs:long" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="type" type="xs:anyType" />
+        <xs:element name="score" type="xs:anyType" />
+        <xs:element name="createtime" type="xs:dateTime" />
+        <xs:element name="GeneratedName" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="userquestionchoices" type="userquestionchoice" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usertestquestionresponse" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="usertest" nillable="true" minOccurs="0" />
+        <xs:element name="userquestionresponses" type="userquestionresponse" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="doctorresponse" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="doctordepartment" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usertestlogcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="usertestlogservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="articlecontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userarticleservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="userservice" nillable="true" minOccurs="0" />
+        <xs:element name="request" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usercontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="useraddressservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="newusertestrequest" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="userid" type="xs:long" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="content" type="xs:string" />
+        <xs:element name="usertestquestions" type="usertestquestion" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userrequest" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="realname" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="isblack" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="newuserarticlerequest" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="categoryid" type="xs:anyType" />
+        <xs:element name="type" type="xs:anyType" />
+        <xs:element name="img" type="xs:string" />
+        <xs:element name="content" type="xs:string" />
+        <xs:element name="author" type="xs:string" />
+        <xs:element name="keyword" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="newarticlecategoryrequest" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="title" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="newusertestreportrequest" >
+      <xs:sequence>
+        <xs:element name="testid" type="xs:long" />
+        <xs:element name="usertestreportlist" type="usertestreport" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="newdoctordepartmentrequest" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="img" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="doctorrequest" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="realname" type="xs:string" />
+        <xs:element name="isblack" type="xs:anyType" />
+        <xs:element name="department" type="xs:long" />
+        <xs:element name="hospital" type="xs:string" />
+        <xs:element name="level" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="departmenttel" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="newusermsgrequest" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="msg" type="xs:string" />
+        <xs:element name="type" type="xs:anyType" />
+        <xs:element name="otherid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="admincontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="adminservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="treatmentordercontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="treatmentorderservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="userservice" nillable="true" minOccurs="0" />
+        <xs:element name="request" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="packuserarticlecomment" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userarticlecomment" nillable="true" minOccurs="0" />
+        <xs:element name="userarticlereplylist" type="userarticlecomment" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="articlecategorycontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="articlecategoryservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="userservice" nillable="true" minOccurs="0" />
+        <xs:element name="request" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="doctordepartmentcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="doctordepartmentservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="userservice" nillable="true" minOccurs="0" />
+        <xs:element name="request" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usertestcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="usertestservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="usertestquestionservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="userquestionchoiceservice" nillable="true" minOccurs="0" />
+        <xs:element name="request" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userarticlecommentcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userarticlecommentservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usermsgcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="usermsgservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="userservice" nillable="true" minOccurs="0" />
+        <xs:element name="request" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="baseerrorinfointerface" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="resultbody" >
+      <xs:sequence>
+        <xs:element name="/***响应代码*/code" type="xs:string" />
+        <xs:element name="/***响应消息*/message" type="xs:string" />
+        <xs:element name="/***响应结果*/result" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="commonenum" >
+      <xs:sequence>
+        <xs:element name="/***错误码*/resultcode" type="xs:string" />
+        <xs:element name="/***错误描述*/resultmsg" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="globalexceptionhandler" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bizexception" >
+      <xs:complexContent>
+       <xs:extension base="runtimeexception">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="/***错误码*/errorcode" type="xs:string" />
+          <xs:element name="/***错误信息*/errormsg" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jwtutil" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="checktoken" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="logintoken" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="stringjsonserializer" >
+      <xs:complexContent>
+       <xs:extension base="jsonserializer<string>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="md5utils" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="authenticationinterceptor" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="adminservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="backapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="swaggerconfig" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usertest" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="userid" type="xs:long" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="content" type="xs:string" />
+        <xs:element name="createtime" type="xs:dateTime" />
+        <xs:element name="state" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usertestquestion" >
+      <xs:sequence>
+        <xs:element name="testid" type="xs:long" />
+        <xs:element name="questionid" type="xs:long" />
+        <xs:element name="testid" type="xs:long" />
+        <xs:element name="questionid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="articlecategory" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="createtime" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="nickname" type="xs:string" />
+        <xs:element name="realname" type="xs:string" />
+        <xs:element name="mobile" type="xs:string" />
+        <xs:element name="isblack" type="xs:anyType" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="mobileverify" type="xs:anyType" />
+        <xs:element name="//隐藏输出但是不隐藏输入password" type="xs:string" />
+        <xs:element name="content" type="xs:string" />
+        <xs:element name="createtime" type="xs:dateTime" />
+        <xs:element name="birthyear" type="xs:string" />
+        <xs:element name="birthmonth" type="xs:string" />
+        <xs:element name="birthday" type="xs:string" />
+        <xs:element name="gender" type="xs:anyType" />
+        <xs:element name="avatar" type="xs:string" />
+        <xs:element name="province" type="xs:string" />
+        <xs:element name="city" type="xs:string" />
+        <xs:element name="area" type="xs:string" />
+        <xs:element name="isdoctor" type="xs:anyType" />
+        <xs:element name="isdelete" type="xs:anyType" />
+        <xs:element name="department" type="xs:long" />
+        <xs:element name="hospital" type="xs:string" />
+        <xs:element name="level" type="xs:string" />
+        <xs:element name="goodat" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="duration" type="xs:anyType" />
+        <xs:element name="departmenttel" type="xs:string" />
+        <xs:element name="account" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="doctordepartment" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="img" type="xs:string" />
+        <xs:element name="createtime" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userquestion" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="userid" type="xs:long" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="type" type="xs:anyType" />
+        <xs:element name="score" type="xs:anyType" />
+        <xs:element name="createtime" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usertestreport" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="testid" type="xs:long" />
+        <xs:element name="//分值score" type="xs:anyType" />
+        <xs:element name="//评估标题title" type="xs:string" />
+        <xs:element name="//评估正文content" type="xs:string" />
+        <xs:element name="createtime" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userquestionchoice" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="questionid" type="xs:long" />
+        <xs:element name="choice" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userquestionanswer" >
+      <xs:sequence>
+        <xs:element name="questionid" type="xs:long" />
+        <xs:element name="choiceid" type="xs:long" />
+        <xs:element name="questionid" type="xs:long" />
+        <xs:element name="choiceid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="useraddress" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="userid" type="xs:long" />
+        <xs:element name="realname" type="xs:string" />
+        <xs:element name="mobile" type="xs:string" />
+        <xs:element name="province" type="xs:string" />
+        <xs:element name="city" type="xs:string" />
+        <xs:element name="area" type="xs:string" />
+        <xs:element name="address" type="xs:string" />
+        <xs:element name="isdefault" type="xs:anyType" />
+        <xs:element name="zipcode" type="xs:string" />
+        <xs:element name="deleted" type="xs:anyType" />
+        <xs:element name="street" type="xs:string" />
+        <xs:element name="lng" type="xs:string" />
+        <xs:element name="lat" type="xs:string" />
+        <xs:element name="createtime" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userarticlecomment" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="userid" type="xs:long" />
+        <xs:element name="articleid" type="xs:long" />
+        <xs:element name="comment" type="xs:string" />
+        <xs:element name="isreply" type="xs:anyType" />
+        <xs:element name="pid" type="xs:long" />
+        <xs:element name="createtime" type="xs:dateTime" />
+        <xs:element name="state" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="admin" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="//隐藏输出但是不隐藏输入password" type="xs:string" />
+        <xs:element name="createtime" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="treatmentorder" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="orderid" type="xs:string" />
+        <xs:element name="userid" type="xs:long" />
+        <xs:element name="doctorid" type="xs:long" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="duration" type="xs:anyType" />
+        <xs:element name="createtime" type="xs:dateTime" />
+        <xs:element name="begintime" type="xs:long" />
+        <xs:element name="endtime" type="xs:long" />
+        <xs:element name="state" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usertestlog" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="userid" type="xs:long" />
+        <xs:element name="testid" type="xs:long" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="content" type="xs:string" />
+        <xs:element name="createtime" type="xs:dateTime" />
+        <xs:element name="//测评得分score" type="xs:anyType" />
+        <xs:element name="result" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usermsg" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="userid" type="xs:long" />
+        <xs:element name="msg" type="xs:string" />
+        <xs:element name="type" type="xs:anyType" />
+        <xs:element name="otherid" type="xs:long" />
+        <xs:element name="isread" type="xs:anyType" />
+        <xs:element name="createtime" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userarticle" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="userid" type="xs:long" />
+        <xs:element name="categoryid" type="xs:anyType" />
+        <xs:element name="type" type="xs:anyType" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="img" type="xs:string" />
+        <xs:element name="content" type="xs:string" />
+        <xs:element name="createtime" type="xs:dateTime" />
+        <xs:element name="author" type="xs:string" />
+        <xs:element name="readnum" type="xs:long" />
+        <xs:element name="likenum" type="xs:long" />
+        <xs:element name="keyword" type="xs:string" />
+        <xs:element name="state" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usertestrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<usertest,long>,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userquestionanswerrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<userquestionanswer,long>,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="doctordepartmentrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<doctordepartment,long>,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="treatmentorderrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<treatmentorder,long>,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userquestionrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<userquestion,long>,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="usertestlogrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<usertestlog,long>,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="articlecategoryrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<articlecategory,long>,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="useraddressrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<useraddress,long>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userarticlerepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<userarticle,long>,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="usermsgrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<usermsg,long>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userquestionchoicerepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<userquestionchoice,long>,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="adminrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<admin,long>,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userarticlecommentrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<userarticlecomment,long>,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<user,long>,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="usertestquestionrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<usertestquestion,long>,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="usertestreportrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<usertestreport,long>,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="adminservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="adminrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userquestionanswerservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userquestionanswerrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usertestlogservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="usertestlogrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usertestreportservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="usertestreportrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="articlecategoryservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="articlecategoryrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userquestionservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userquestionrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="treatmentorderservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="treatmentorderrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usermsgservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="usermsgrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="useraddressrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="doctordepartmentrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userquestionchoiceservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userquestionchoicerepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="useraddressservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="useraddressrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usertestquestionservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="usertestquestionrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="userquestionrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="userrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userarticleservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userarticlerepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usertestservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="usertestrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="doctordepartmentservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="doctordepartmentrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userarticlecommentservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userarticlecommentrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

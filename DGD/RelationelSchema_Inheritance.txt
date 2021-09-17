@@ -1,0 +1,899 @@
+basetimedoperations(themodule:String, operationenumid:String, startexecution:Date, startexecutiontime:Date, idledurationhour:long, idledurationmin:long, idledurationsec:long, currentstatus:String, lastexecuted:Date, lastexecutedtime:Date, lastexecutedend:Date, lastexecutedendtime:Date, fireonstartup:Boolean);
+
+basesystemtable(tablename:String, description:String);
+
+baselanguage(languageid:String, description:String);
+
+basesetupstoragetable(setuptype:String, setupid:String, storagevalue1:String, storagevalue2:String, storagevalue3:String, storagevalue4:String, storagevalue5:String);
+
+basemailsetup(smtpauthenticationrequired:boolean, smtpport:int, smtpaddress:String, smtpusername:String, smtppassword:String, fromemailaddress:String, logtoemailaddress:String);
+
+basefilepaths(operatingsystem:String, filepath:String, formmodule:String);
+
+basereportwheretable(reportqueryid:long, tablename:String, field:String, //defaultvalue.shouldbevalidforanytypeoffield.fieldvalue:String, wherecondition:String, /***ifanyspecialpermissionsshouldbecheckedwhenediting/deletingarow,*thisfieldshouldbepopulatedwithavaluefromthe*wherelinespecialpermissionsenum.ifnopermissionsneedtobechecked,*thisfieldshouldhaveanullvalue.*/special:String, //usedfororderinglineno:double, //locklockvalue:boolean, locktype:String, lockdate:String, lockfrom:String, lockto:String);
+
+basereporttext(report:String, part:String, text:String, languagefield:String, uniquefield:String);
+
+basereportscheduling(reportid:String, reportuser:String, reportselection:String, start:Date, starttime:Date, repeatschedule:String, reportformclassname:String, executionstatus:String, //lastexecuted:Date, lastexecutedtime:Date);
+
+basereportordertable(reportqueryid:long, tablename:String, field:String, rank:int, direction:String, //usedfororderinglineno:double);
+
+basereportprintoptions(printername:String, reportid:String, colorscheme:String, numcoppies:int, printdirect:boolean, exporttoexcel:boolean, emailreport:boolean, exporttodb:boolean, emailrecipient:String, emailcc:String, emailbcc:String, emailtemplate:String, filetype:String, filename:String, queryname:String);
+
+basereportuserquerytable(userrecordname:String, tablestree:String, reportid:String, //timestampindicatingwhenthequerywaslastexecutedlastexectimestamp:long, //xmlrepresentationofreportparameters.reportparameters:String);
+
+basereportschedulingstatus(sessionid:long, username:String, companyid:String, lastcheckin:Date, lastcheckintime:Date);
+
+basewebfilepaths(processid:String, relativefilepath:String);
+
+baseemployeetable(employeenumber:String, surname:String, forenames:String, knownas:String, userid:String, employeetype:String, jobtitle:String, department:String, emailaddress:String, internalphonenumber:String, cellphonenumber:String, homephonenumber:String, addressphysicalline1:String, addressphysicalline2:String, addressphysicalline3:String, addressphysicalline4:String, addressphysicalline5:String, addressphyspostalcode:String, postaladdressline1:String, postaladdressline2:String, postaladdressline3:String, postaladdressline4:String, postaladdressline5:String, postalcode:String, sellingpriceperhour:double, costpriceperhour:double, employeeid:String, faxnumber:String, manager:String, employeegrade:String, clocknumber:String, //fieldsaddedforhrmodulestartedinpos:Date, initials:String, passportnumber:String, nationality:String, taxnumber:String, ofemployment:Date, typeofemployment:String, ofbirth:Date, gender:String, race:String, maritalstatus:String, spouse:String, branch:String, employmentsection:String, terminationtype:String, termination:Date, medicalaid:String, medicalschema:String, accountno:String, numdependancies:int, usecompaniesmedical:boolean, unionid:String, jobgrade:String, bargaincouncilcode:String, disability:boolean, disabilitytype:String, worktimetype:String, workshifts:boolean, typeofconcern:String, vatno:String, webuid:String, altidtype:String, altidnumber:String, equitycode:String, socioecostatus:String, highestqualification:String, homelanguage:String, citizenstatus:String, actualoccupation:String, remunerationtype:String, levelofexperience:String);
+
+basedblogsetup(tablename:String, fieldname:String, type:String, actionvalue:String, actionworkflow:String, uniqueconstraintvalue:String);
+
+basedblog(tablename:String, tablelabel:String, uniqueidentifier:String, type:String, logrecid:String, username:String, oldvalue:String, newvalue:String);
+
+basedblogchanges(datafield:String, oldvalue:String, newvalue:String, uniqueidentifier:String, timechanged:Date, changed:Date, userid:String, status:String, sessionid:String);
+
+basehelpfilemappings(formclassname:String, helpfileurl:String);
+
+basecalendarshifts(calendarid:String, shift:Date, shiftstarttime:Date, shiftendtime:Date, shiftnumber:int, dayofweek:String);
+
+basecalendarexceptiontypes(exceptiontype:String, description:String);
+
+basecalendarexceptions(calendarid:String, line:Date, repeatyearly:boolean, workhours:double, numberofshifts:int, type:String, hours:int, minutes:int, percentageoftarget:double);
+
+basecalendar(calendarid:String, description:String, monday:boolean, tuesday:boolean, wednesday:boolean, thursday:boolean, friday:boolean, saturday:boolean, sunday:boolean, stdworkhoursmon:double, stdworkhourstue:double, stdworkhourswed:double, stdworkhoursthu:double, stdworkhoursfri:double, stdworkhourssat:double, stdworkhourssun:double, stdshiftsmon:int, stdshiftstue:int, stdshiftswed:int, stdshiftsthu:int, stdshiftsfri:int, stdshiftssat:int, stdshiftssun:int, country:String, minmon:int, mue:int, minwed:int, mhu:int, minsfri:int, minsat:int, minsun:int, hourmon:int, hourtue:int, hourwed:int, hourthu:int, hourfri:int, hoursat:int, hoursun:int);
+
+basecopytabledata(tablename:String, copyattachments:boolean);
+
+basemailreturnaddresssetup(userid:String, emailaddress:String);
+
+basesmstemplate(templateid:String, description:String, template:String, queryname:String);
+
+baseindex(classname:String, indexone:String, indextwo:String, indexthree:String, indexfour:String, indexfive:String, indexsix:String, indexseven:String, indexeight:String, indexnine:String, indexten:String);
+
+basedocureftable(reftablename:String, refrecid:String, seqnum:int, summary:String, note:String, attachmentfilename:String, type:String, added:Date, active:boolean);
+
+baseemployeecategoryhistory(employeenumber:String, fromcategory:String, tocategory:String, categorychange:Date);
+
+baseuserfavourites(userid:String, usermodule:String, usermenu:String);
+
+baseuomconversiontable(itemid:String, dimid:String, unit:String, baseunit:String, conversion:double);
+
+baselicencetable(companyname:String, licencekey:String, validateok:boolean, lastlogin:Date, backdated:boolean, //usedtoensurethatapplicationmayonlyrunononemachine.authorizationkey:String);
+
+journalmastersuperclass(journaldefinitionid:String, journalnumber:String, journaldescription:String, journalfunction:String, journal:Date, journalstatus:String, journaltext:String, journalposting:String, journalcontratype:String, journalcontraaccount:String, journalapprovedby:String, journalapproved:Date, journalpostedby:String, journalposted:Date);
+
+basejournalapprovalgroupemployees(journalapprovalgroupid:String, employeeid:String);
+
+basejournalapprovalgroups(journalapprovalgroupid:String, description:String, groupmodule:String);
+
+basejournaldefinitiontable(journaldefinitionid:String, journaldescription:String, journalmodule:String, journallinenumbering:String, journalcontratype:String, journalcontraaccount:String, journalcontrafixed:boolean, journalentrycontrol:boolean, journalapprovalrequired:boolean, approvalby:String, journaltype:String, //allowsaccesstothejournaljournalaccessgroup:String, //onlyappliestomovementjournalsmovementdirection:String, //onlyappliestofinancialjournalsvatapplicable:boolean);
+
+basejournalaccessgroupemployees(accessgroupid:String, employeeid:String);
+
+basejournalaccessgroups(accessgroupid:String, accessgroupdescription:String, groupmodule:String);
+
+basejournalaccessgroupdefinitions(accessgroupid:String, definitionid:String);
+
+baseservertransactionslog(transstarttime:long, transendtime:long, timetaken:String, transstart:Date, command:String, cmduserid:String);
+
+basenumbersequence(moduleid:String, numbersequenceid:String, description:String, maxnumber:long, minnumber:long, prefix:String, suffix:String, reftable:String, reffield:String, nextavailablenumber:long, allowmanualentry:boolean, forcesequence:boolean, //thisperfield:String, pervalue:String, //togetaroundmanyuniquecontraintsuniquedescription:String, random:boolean, randomnumbers:byte);
+
+baseavailablesequencenumbers(sequencenumber:String, //0free,1insuspence,2-usedstatus:int, sequencenumberid:String);
+
+basewebportalusers(userid:String, password:String, linktosourcetype:String, linktosourcerecid:long, active:boolean);
+
+basecity(city:String, description:String);
+
+basesuburb(suburb:String, description:String);
+
+baseemployeeaccessgroup(accessgroup:String, description:String, accessall:boolean);
+
+basetemplatedocuments(templateid:String, documentid:String);
+
+itemcombinationreportnativequery();
+
+basenativequery(afield:String);
+
+basedbconnections(connectionid:String, server:String, port:String, databasename:String, username:String, dbpassword:String, driver:String, databasevender:String, connectiontype:String);
+
+baseprovence(provence:String, description:String);
+
+basegeneratordirectinsert(nextrecordid:long);
+
+basecompanytable(companyname:String, cotradingas:String, cophysadrs1:String, cophysadrs2:String, cophysadrs3:String, cophysadrs4:String, cophysadrs5:String, cophyspostcode:String, copostadrs1:String, copostadrs2:String, copostadrs3:String, copostadrs4:String, copostadrs5:String, copostcode:String, coregnr:String, covatregnr:String, cophonenr:String, cocallcentrenumber:String, coemergencynumber:String, cocellnr:String, cofaxnr:String, coemailadrs:String, cowebsite:String, cobank:String, cobankbranch:String, cobankaccno:String, cologopath:String, coletterheadpath:String, //exportexporterscode:String, swiftcode:String, currency:String, //companylogocompanylogo:String, //companyletterheadcompanyletterhead:String);
+
+basefileassociations(operatingsystem:String, fileextension:String, openwith:String);
+
+baseuserfileassociations(userid:String, operatingsystem:String, fileextension:String, openwith:String);
+
+baseemployeeaccessgroupemployees(accessgroup:String, employeeid:String);
+
+baseuomdetailedconversiontable(masterrecordid:long, itemid:String, conversion:double);
+
+usertable(userid:String, username:String, userpassword:String, usercompany:String, useremail:String, //prefrencespromptupdate:boolean, promptdelete:boolean, showpersonalspaceonopen:boolean, writelog:boolean, logfilename:String, printreportstopdf:boolean, showimagesonform:boolean, allowautoupdate:boolean, clientlaf:String);
+
+basebatchprocess(todo:String, command:String, status:String, retry:int, messages:String, sourcetable:String, sourcefield:String, source:String, sourceversion:long, priority:int, startprocessing:Date, endprocessing:Date);
+
+baseunitsofmeasure(unit:String, description:String, decimals:int, type:String);
+
+baseparameters(randomnumberimagedir:String, maxmultiprocessingthread:int, reserveperclient:int, firstdayofweek:int, mindaysinfirstweek:int, standardcalendarid:String, salesstandardcalendarid:String, productionstandardcalendarid:String, //ftpuseremoteftp:boolean, rootdirectorypath:String, ftpserver:String, ftpusername:String, ftppassword:String, //smsincludecountrycodeinnumber:boolean, maxmessagelength:int, testsms:boolean, smssendingoption:String, smsemail:String, smsfileoutputfield1:String, smsfileoutputfield2:String, smsfileoutputfield3:String, defaultcountrycode:String, //thisshouldbetheurle.g.http://sms.smsmalls.co.za/sa/gateway/tryone.asp?subscription:String, //e.g.cellsmsnumberurlparm:String, //e.g.messagesmsmessageurlparm:String, //transactionrollback//e.g./home/administrator/glassfish/bin/asadminasadminpath:String, ///home/administrator/passfilefullpassfilepath:String, monitortransactions:boolean, keeptransactiondays:int, maxallowedsmsemailwithoutpassword:String, smsemailapprovalpassword:String);
+
+baseemailsignatures(signatureid:String, signaturepath:String);
+
+basegenericreportcolumnsetup(setupid:String, formclassname:String, selectedcolumns:String, printtotals:boolean, exporttoexcel:boolean);
+
+basequerytable(queryname:String, description:String, tablestree:String, mainentityclass:String, querytype:String, templateid:String, templatetype:String, fromsourcerecord:boolean);
+
+basequeryactiontable(reportqueryid:long, recipienttype:String, templatefield:String, tablename:String, field:String, lineno:double);
+
+baseuserpermissionstable(userid:String, formclassname:String, permissiontree:String, formaccess:String);
+
+basepermissionstable(userid:String, usermenu:String, allowclone:boolean, allowdelete:boolean);
+
+basesystemlog(username:String, description:String, type:String, datachanged:String, tableclasspath:String, logrecordid:String);
+
+baseemailtemplates(templateid:String, description:String, subject:String, template:String, signature:String, queryname:String);
+
+basetimebyday(actual:Date, dayofweek:String, monthofyear:String, theyear:int, dayofmonth:int, weekofyear:int, quarter:int, financialperiod:String);
+
+basepostalcodes(code:String, suburb:String, city:String, provence:String, country:String);
+
+basemessages(messageid:String, messagemodule:String, description:String, message:String);
+
+basecountries(code:String, name:String, numbercode:String);
+
+debtorssalesarea(salesarea:String, description:String);
+
+debtorscustomerinvoicelines();
+
+debtorscourier(courierid:String, couriername:String, couriercontact:String, couriercontacttelno:String, couriercontactcellno:String, couriercontactemail:String);
+
+debtorsopentransactions(debtorstransref:long, //payment/due.transaction:Date, referencetype:String, referencenumber:String, credit:BigDecimal, debit:BigDecimal, debitamountsettled:BigDecimal, creditamountsettled:BigDecimal, customerid:String, //notnormalized.storedtomakecalculationseasier.balance:BigDecimal);
+
+debtorssalesgroup(salesgroup:String, description:String);
+
+debtorsclosedreason(closedreasonid:String, description:String);
+
+debtorscreditrating(creditrating:String, description:String, tolerancepercentage:double, termstolerancedays:int);
+
+debtorsbasketmaster(basketid:String, sessionid:String, customerid:String, status:String, invoiceid:String, journalid:String, invoicetocustomerdeliveryinstructions:String, postedby:String, releasedby:String, physicaladdresline1:String, physicaladdresline2:String, physicaladdresline3:String, physicaladdresline4:String, physicaladdresline5:String, physicalpostalcode:String);
+
+debtorsbasketlines(basketid:String, linenumber:int, itemid:String, //equaltonullfornowasitscurrentlyjustaserviceconfiguration:String, colour:String, itemsize:String, description:String, quantity:BigDecimal, price:BigDecimal, vat:BigDecimal, totalprice:BigDecimal, treccardlink:Long, prqty:int, dimension1:String, dimension2:String, dimension3:String, discountpercentage:BigDecimal, discountamount:BigDecimal, prextraqty:int, placardunnumber:String, operatortlno:String, specialisttelno:String, printoption:String);
+
+debtorscreditnoteregister(//originalquantity.thismaynotbeexceededoriginalquantity:double, //n&lspecific.onlyappliestorenumberingoncreditnotesreturnedtostock.newbatch:String);
+
+debtorsroyaltyreporttempds(royaltygroup:String, royaltyfield1:String, royaltyfield2:String, royaltyfield3:String, units:BigDecimal, packs:BigDecimal, grossvalue:BigDecimal, royaltyvalue:BigDecimal, royaltypercentage:BigDecimal, //n&lspecificprintlessjockeyshops:boolean, jockeyshopgrossvalue:BigDecimal, jockeyshopunits:BigDecimal, jockeyshoppacks:BigDecimal, jockeyshoproyaltyvalue:BigDecimal, sessionid:long);
+
+debtorscreditheldmaster(reference:String, referencetype:String, customerid:String, held:Date, creditheldstatus:String, approvedby:String, approved:Date, creditheldreason:String, //previoussalesorderstatus.usedtorevertsalesorderbacktothestatusthatitwasinbeforebeingheld.previoussostatus:String);
+
+debtorsmarketinggroup(marketinggroup:String, description:String);
+
+debtorsinvoicelinessuper(//linktomasterinvcnnumber:String, lineno:double, itemid:String, dimension1:String, dimension2:String, dimension3:String, warehouse:String, batch:String, serial:String, location:String, pallet:String, uom:String, quantity:BigDecimal, unitprice:BigDecimal, discountpercentage:BigDecimal, discountamount:BigDecimal, vatcode:String, vatamount:BigDecimal, //creditcheckingisdependantonthisfieldexcludingvat.consultwithteambeforechanging!totalcost:BigDecimal, stdunitprice:BigDecimal, costataverage:BigDecimal, costadjustment:BigDecimal, inventtransid:String, //thiswillonlybeapplicabletostockinvoices.inotherscenarios,//returningwillhappenagainstsalesquantityreturned:BigDecimal, //creditheldfields.creditheld:boolean, creditheldreason:String, creditheldstatus:String, //creditnotefieldsmaxquantity:BigDecimal);
+
+debtorsinvoicemastersuper(//invoice/creditnotenumberinvcnnumber:String, invcntype:String, invoice:Date, invoicestock:boolean, status:String, customerno:String, customertradingas:String, invoicetocustno:String, invoicetocustomername:String, //thisisthecurrencyofthecustomerinvoicetocustomerexportcurrency:String, //thisisthecurrencywebillin,notnecessarilythesystemcurrencyasstatedoncompanybillingcurrency:String, invoicetocustomercountryofdestination:String, invoicetocustomerdeliveryinstructions:String, invoicetocustomervatregistration:String, customercontact:String, deliveryaddress1:String, deliveryaddress2:String, deliveryaddress3:String, deliveryaddress4:String, deliveryaddress5:String, deliveryaddresspostalcode:String, invoiceaddress1:String, invoiceaddress2:String, invoiceaddress3:String, invoiceaddress4:String, invoiceaddress5:String, invoiceaddresspostalcode:String, vatno:String, vatcode:String, salesgroup:String, salesregion:String, salesarea:String, customerordernumber:String, reference:String, salesorderno:String, orderwarehouse:String, deliverymethod:String, deliveryterms:String, pricinggroup:String, discountgroup:String, extrachargegroup:String, termscode:String, settlementdisccode:String, paymentdue:Date, settlementdisc:Date, approved:Date, approvedtime:Date, approvedby:String, posted:Date, postedtime:Date, postedby:String, printed:Date, printedtime:Date, printedby:String, lastprinted:Date, lastprintedtime:Date, lastprintedby:String, comments:String, salesrep:String, numberofcartons:BigDecimal, totalweight:BigDecimal, deliverycharge:BigDecimal, waybillnumber:String, //creditnotespecificfieldsreasoncode:String, refinvoiceno:String, authorizationno:String, claimno:String, returnoption:String, approvalgroup:String, //thesefieldsareusedforreporting,andareonlysetwhenpostinganinvoice.salestotal:BigDecimal, discounttotal:BigDecimal, vattotal:BigDecimal, invoicetotal:BigDecimal, //indicateswhetherthesalesreponthisinvoice/creditnotequalifiesforcommission.commissionapplicable:boolean, //indicateswhetheradeliverychargeshouldapplytothisinvoice.deliverychargeapplicable:boolean, distributionnumber:String);
+
+debtorsrebatecodes(rebatecode:String, description:String, rebatepercentage:BigDecimal, effectivityfrom:Date, effectivityto:Date);
+
+debtorscreditinsurer(creditinsurerid:String, description:String);
+
+debtorssalesregion(salesregion:String, description:String);
+
+debtorsjournallines(journalnumber:String, lineno:double, customerid:String, lineref:String, linedescription:String, lineamount:BigDecimal, vatcode:String, vatamount:BigDecimal, linetotal:BigDecimal, contratype:String, contraaccount:String, transid:String, line:Date);
+
+debtorsjournalmaster();
+
+debtorscreditnoteapprovalgroups(approvalgroupid:String, description:String, higherlevelapprovalgroupid:String);
+
+debtorscreditnotemaster();
+
+debtorstransactions(transaction:Date, transactionsource:String, description:String, debit:BigDecimal, credit:BigDecimal, referencenumber:String, referencetype:String, debitamountsettled:BigDecimal, creditamountsettled:BigDecimal, customerid:String, vatamount:BigDecimal, lastsettled:Date, //notnormalized.storedtomakecalculationseasier.thisfieldiscalculated.balance:BigDecimal, customerordernumber:String, //notnormalized.usedonallocationtoelimatetheneedtoselectinvoices.settlementdisc:Date, settlementdiscpercentage:BigDecimal, //notnormalized.usedonstatementtoeliminatetheneedtoselectinvoices.paymentdue:Date, salesorderno:String, salesrep:String);
+
+debtorspostdatedpayment(internalref:String, customer:String, text:String, paymenttype:String, paymentnumber:String, payment:Date, paymentamount:BigDecimal, presented:Date, processed:boolean);
+
+debtorsroyaltysetup(//shortencolumnlengths,otherwiseuniqueconstraintwillbetoolargeforhibernate/mysqltohandlefield1value:String, field2value:String, field3value:String, royaltygroup:String);
+
+debtorsallocationimport(importcode:String, description:String, importfile:String, customerid:String, import:Date, importstatus:String, //thesevalueswilldefaultfromdebtorsparametersallowpartialallocation:boolean, autoallocationpaymentorder:String);
+
+debtorsallocationimportsetuplines(masterid:long, spreadsheetmapping:String, mapcondition:String, mapconditionvalue:String, mapconditionfield:String);
+
+debtorsallocationimportfaillog(importcode:String, transreference:String, line:String, debit:BigDecimal, credit:BigDecimal, balance:BigDecimal, customerordernumber:String);
+
+debtorsallocationimportsetupmaster(customerid:String, allocationfield:String);
+
+debtorscustomertransactionssummary(customerno:String, shiptocustomer:String, transactionno:String, transactiontype:String, transactiondescription:String, transaction:Date, source:String, sourcerefid:String, amountexclvat:BigDecimal, vat:BigDecimal, totalinclvat:BigDecimal, transclosed:boolean, settlementid:String, lastsettled:Date, totalsettledamount:BigDecimal);
+
+debtorscreditnotelines();
+
+debtorstransactionsettlement(sessionid:long, debtorstransref:long, transversionnumber:long, referencenumber:String, referencetype:String, customerordernumber:String, //nottransactiontotal.transactiontotal-settledontransaction.debit:BigDecimal, credit:BigDecimal, discavail:BigDecimal, disctaken:BigDecimal, rebate:BigDecimal, //amountsforthissettlementonlynottotalsettledontransaction.debitamountsettled:BigDecimal, creditamountsettled:BigDecimal, debitbalance:BigDecimal, creditbalance:BigDecimal, //originaltransactioncreditamountoriginalcredit:BigDecimal, transaction:Date, tick:boolean, //usedtoreduceselectionswhencalculatingdiscounts.settlementdisc:Date, settlementdiscpercentage:BigDecimal, //indicateswhetherauserhaschangedtheamountonaline.userchangedamount:boolean);
+
+debtorssettlementdischistory(invoiceno:String, discountamount:BigDecimal, //recordidofdiscounttransaction.discounttransactionref:long, //transaction,usedforaging.transaction:Date, //createdofthetransactiontowhichthisdiscountisbeingapplied.usedforagingtransactioncreated:Date, //usedforagingcustomerid:String, //indicateswhethertheamountdiscountedwaschangedbytheuser.discountoverridden:boolean, discount:Date);
+
+debtorstransactionsettlementhistory(debittransref:long, credittransref:long, debitsettled:BigDecimal, creditsettled:BigDecimal, //transaction,usedforaging.debittransaction:Date, credittransaction:Date, //createdsofthetransactionwhichweresettled.usedforagingdebittransactioncreated:Date, credittransactioncreated:Date, //usedforagingcustomerid:String, //usedtodeallocatediscountswhenapaymentisdeallocatedsessionid:long, //systemallocationsmaynotbedeallocated.systemallocated:boolean);
+
+debtorsparameters(postdatedpaymentjournaldef:String, debtorsagingperiod:String, debtorsagingmode:String, agingcurrentbinname:String, agingbin1name:String, agingbin2name:String, agingbin3name:String, agingbin4name:String, agingbin5name:String, agingbin6name:String, reportfootercaption:String, //handlingchargefieldshandlingchargepercentage:double, handlingchargeitem:String, //deliverychargefieldsdeliverychargeitem:String, //creditcheckfieldscheckbalance:boolean, checkterms:boolean, checkonsalesordersave:boolean, checkonpickinglistcreate:boolean, checkoninvoicepost:boolean, recheckinvoice:boolean, creditcheckincludevat:boolean, //invoiceprintfields.printpricesondeliverynote:boolean, //royaltyfields.thesecolumnswillstoreitemmasterfieldnames.royaltyfield1:String, royaltyfield2:String, royaltyfield3:String, //discounttolerancediscounttolerancedays:int, //creditnotesdefaultreturnwarehouse:String, defaultreturnlocation:String, cashtermscode:String, //webcustomersmarketinggroup:String, pricegroup:String, deliverymethod:String, deliveryrules:String, settlementdiscount:String, orderwarehouse:String, vatcode:String, termsofpayment:String, customergroup:String, //webbasketdefaultitemdefaultitem:String, creditrating:String, creditjournaldef:String, debitjournaldef:String);
+
+debtorscreditstopreason(reason:String, description:String);
+
+debtorsdeliverycharge(deliverychargecode:String, description:String);
+
+debtorsroyaltygroups(royaltygroupid:String, description:String, royaltypercentage:BigDecimal);
+
+debtorscreditnoteapprovalgroupemployees(approvalgroupid:String, employeeid:String);
+
+debtorscreditcontroller(creditcontrollerid:String, description:String, employeeid:String);
+
+debtorscustomerinvoicemaster();
+
+debtorscreditnotereasons(reasoncode:String, description:String, approvalgroupid:String, //indicateswhetherahandlingchargeshouldbeapplied.handlingcharge:boolean);
+
+trectrectypes(trectypeid:String, description:String, type:String);
+
+trectreccardsmaster(masterid:String, treccompanyname:String, emergencynumber:String, customerid:String);
+
+trecodours(odourid:String, description:String);
+
+trecpreferredshipname(chemicallink:Long, propershipname:String, unnumber:String);
+
+treccolours(colourid:String, description:String);
+
+trecphrasecombinations(phraserefnum:String, description:String, appearance:String, classid:String, trectype:String, approved:boolean, recid:String, h:String, p:String, q:String, d:String, s:String, f:String, a:String, e:String);
+
+treccargocheckmaster(cargochecknumber:String, description:String, placecard:String, trecrequired:boolean, cargo:boolean, notes:String);
+
+treccargochecklines(cargochecknumber:String, unnumber:String, propershipping:String, packinggroup:String, quantity:BigDecimal, allowed:boolean, linenote:String, classnote:String);
+
+trecchemicals();
+
+trecclasses(classid:String, description:String, parentclass:String, isparent:boolean, haschildren:boolean, packgrp1threshold:double, packgrp2threshold:double, packgrp3threshold:double, srpackgrp1threshold:double, srpackgrp2threshold:double, srpackgrp3threshold:double, notes:String, shortdescription:String);
+
+trecphrases(phraseid:String, parentclass:String, sortnumber:int, phrase:String, typeid:String, ergnumber:String, standardphrases:boolean, addedphrases:boolean, classspecific:boolean);
+
+treccustomerchemicals(customerid:String);
+
+trecloadcompatibility(classid:String, otherclassid:String, note:String, allowed:boolean);
+
+trecergmaster(erg:String, description:String);
+
+trecparameters(printexpirydate:boolean, printhazzone:String, maxphrases:int);
+
+trectreccardslines(masterid:String, lineid:String, unnumber:String, preparedby:String, tradingname:String, form:String, colour:String, odour:String, emergencynumber:String, additionalinfo:String, packinggroup:String, propershipping:String, customerchemical:long, approved:boolean, approved:Date, approvedby:String, preferredshipname:String, ownreference:String);
+
+trecchemicalssuper(chemicalid:int, unnumber:String, erg:String, classid:String, shippingname:String, addshippingname:String, phrasesrefnum:String, subsidairyrisk:String, packinggroup:String, ready:boolean, //versionnumbertrecversion:int, risk1:double, risk2:double, risk3:double, hphrases:String, pphrases:String, qphrases:String, dphrases:String, sphrases:String, fphrases:String, aphrases:String, ephrases:String);
+
+trecphrasetypes(typeid:String, description:String, shortdescription:String);
+
+trecforms(formid:String, description:String);
+
+creditorscreditnoteinvoicemaster(creditnoteinvoicenumber:String, creditnoteinvoicetype:String, creditnoteinvoice:Date, creditnoteinvoicestatus:String, purchaseorderid:String, supplierid:String, addressphysicalline1:String, addressphysicalline2:String, addressphysicalline3:String, addressphysicalline4:String, addressphysicalline5:String, addressphyspostalcode:String, postaladdressline1:String, postaladdressline2:String, postaladdressline3:String, postaladdressline4:String, postaladdressline5:String, postalcode:String, vatcode:String, vatregistrationno:String, vatapplicable:boolean, pricegroup:String, discountgroup:String, extrachargegroup:String, termsofpayment:String, settlementdiscount:String, stockcreditnoteinvoice:boolean, supplierbank:String, supplierbankbranchcode:String, supplierbankaccountnumber:String, supplierbankaccountname:String, paymentdue:Date, settlementdisc:Date, approved:Date, approvedtime:Date, approvedby:String, posted:Date, postedtime:Date, postedby:String, printed:Date, printedtime:Date, printedby:String, lastprinted:Date, lastprintedtime:Date, lastprintedby:String, comments:String, creditnotereasoncode:String, creditnoterefinvoiceno:String, returnoption:String, purchasetotal:BigDecimal, discounttotal:BigDecimal, vattotal:BigDecimal, invoicetotal:BigDecimal);
+
+creditorsapprovalgroups(approvalgroupid:String, description:String, approvecreditnote:boolean, approveinvoice:boolean);
+
+creditorsparameters(prospectsworkflowid:String);
+
+creditorstermsofpayment(termsofpaymentid:String, description:String, principle:String, daysormonths:String, numberof:int);
+
+creditorstransactions(transaction:Date, description:String, transactionsource:String, debit:BigDecimal, credit:BigDecimal, supplierid:String, vatamount:BigDecimal, referencenumber:String, referencetype:String, debitamountsettled:BigDecimal, creditamountsettled:BigDecimal, lastsettled:Date, balance:BigDecimal, supplierordernumber:String, settlementdisc:Date, settlementdiscpercentage:BigDecimal, paymentdue:Date, purchaseorderid:String);
+
+creditorstransactionsettlement(sessionid:long, creditorstransref:long, transversionnumber:long, referencenumber:String, referencetype:String, supplierordernumber:String, //nottransactiontotal.transactiontotal-settledontransaction.credit:BigDecimal, debit:BigDecimal, discavail:BigDecimal, disctaken:BigDecimal, rebate:BigDecimal, //amountsforthissettlementonlynottotalsettledontransaction.creditamountsettled:BigDecimal, debitamountsettled:BigDecimal, creditbalance:BigDecimal, debitbalance:BigDecimal, //originaltransactioncreditamountoriginalcredit:BigDecimal, transaction:Date, tick:boolean, //usedtoreduceselectionswhencalculatingdiscounts.settlementdisc:Date, settlementdiscpercentage:BigDecimal, //indicateswhetherauserhaschangedtheamountonaline.userchangedamount:boolean);
+
+creditorstransactionsettlementhistory(debittransref:long, credittransref:long, debitsettled:BigDecimal, creditsettled:BigDecimal, debittransaction:Date, credittransaction:Date, debittransactioncreated:Date, credittransactioncreated:Date, customerid:String, sessionid:long, systemallocated:boolean);
+
+creditorssettlementdiscountterms(settlementdiscounttermid:String, description:String, principle:String, daysormonths:String, numberof:int, discountpercentage:double);
+
+creditorsopentransactions(transaction:Date, description:String, transactionsource:String, debit:BigDecimal, credit:BigDecimal, supplierid:String, vatamount:BigDecimal, referencenumber:String, referencetype:String, debitamountsettled:BigDecimal, creditamountsettled:BigDecimal, lastsettled:Date, balance:BigDecimal, supplierordernumber:String, settlementdisc:Date, settlementdiscpercentage:BigDecimal, paymentdue:Date, purchaseorderid:String, reftransrecid:long);
+
+creditorsapprovalgroupsetup(approvalgroupid:String, employeeid:String);
+
+creditorsinvoiceregister(originalquantity:double, newbatch:String);
+
+creditorscreditnoteinvoicelines(creditnoteinvoicenumber:String, lineno:BigDecimal, itemid:String, dimension1:String, dimension2:String, dimension3:String, warehouse:String, batch:String, serial:String, location:String, pallet:String, uom:String, quantity:BigDecimal, unitprice:BigDecimal, stdunitprice:BigDecimal, discountpercentage:BigDecimal, discountamount:BigDecimal, vatcode:String, vatamount:BigDecimal, totalcost:BigDecimal, inventorytransref:String, quantityreturned:BigDecimal);
+
+inventorypallet(palletid:String, description:String);
+
+inventorypeggingtable(supplyref:long, demandref:long, peggingtype:int, peggingquantity:BigDecimal, ratiotoparent:BigDecimal);
+
+inventorywarehouse(warehouseid:String, description:String, type:String, addressline1:String, addressline2:String, addressline3:String, addressline4:String, addressline5:String, postalcode:String, recavailable:Boolean, qcavailable:Boolean, printername:String, stocktakevaluediff:BigDecimal, stocktakequantitydiff:BigDecimal, stocktakeprinttype:String, purchaseorderreceivedlabeltype:String, mto:boolean);
+
+inventorymovestockmaster(itemid:String, tolocation:String, quantity:double, availableqty:double, dimensionid:long, split:boolean, groupline:boolean, posted:boolean, qcstatus:String, //thiswasaddedtoidentifyamove"session"mastersessionid:String, //thiswasaddedtoidentifytransactionscreatedbymovingstock.transid:String, reserved:boolean);
+
+inventorymovestocklines(tolocation:String, quantity:double, masterid:long);
+
+inventorymovestocksummary(itemid:String, dimensionid:long, newlocation:String, qty:double, transid:String);
+
+inventorysafetystockgenerationrules(fromforecast:boolean, safetystockforecastonly:boolean, customergroup:String, customer:String, itemgroup:String, item:String, granularity:String, safetystockhorizon:int, generationrule:String, regenerateonmps:boolean, numgranularityforsum:int, includecurrentweek:boolean);
+
+inventoryitemrange(itemrangeid:String, description:String);
+
+inventorybrandgroup(brandgroupid:String, brandgroupname:String, brandgroupdescription:String);
+
+inventorybarcodes(itemid:String, barcode:String, barcodetype:String, dimension1:String, dimension2:String, dimension3:String);
+
+inventoryreferencetype(type:String, description:String);
+
+inventoryitemserial(serialid:String, itemid:String, description:String, prod:Date, dimensionid:String);
+
+inventorywarehousestockenquiry(recordowner:String, itemid:String, itemreference:String, itemdescription:String, productgroup:String, planninggroup:String, classification1:String, classification5:String, dimension1:String, dimension3:String, dimension2:String, dimension2sortcode:int, batch:String, serial:String, location:String, availablequantity:BigDecimal, reservedquantity:BigDecimal, totalquantity:BigDecimal, bin1quantity:BigDecimal, bin2quantity:BigDecimal, bin3quantity:BigDecimal, bin4quantity:BigDecimal, bin5quantity:BigDecimal);
+
+inventorywarehousestockenquirybysize(recordowner:String, itemid:String, itemreference:String, itemdescription:String, productgroup:String, planninggroup:String, classification1:String, classification5:String, brandgroup:String, dimension1:String, dimension3:String, location:String, quantity1:BigDecimal, quantity2:BigDecimal, quantity3:BigDecimal, quantity4:BigDecimal, quantity5:BigDecimal, quantity6:BigDecimal, quantity7:BigDecimal, quantity8:BigDecimal, quantity9:BigDecimal, quantity10:BigDecimal, quantity11:BigDecimal, quantity12:BigDecimal, quantity13:BigDecimal, quantity14:BigDecimal, quantity15:BigDecimal, quantity16:BigDecimal, quantity17:BigDecimal, quantity18:BigDecimal, quantity19:BigDecimal, quantity20:BigDecimal, quantity21:BigDecimal, quantity22:BigDecimal, quantity23:BigDecimal, quantity24:BigDecimal, quantity25:BigDecimal, quantity26:BigDecimal, quantity27:BigDecimal, quantity28:BigDecimal, quantity29:BigDecimal, quantity30:BigDecimal, quantity31:BigDecimal, quantity32:BigDecimal, quantity33:BigDecimal, quantity34:BigDecimal, quantity35:BigDecimal, quantity36:BigDecimal, quantity37:BigDecimal, quantity38:BigDecimal, quantity39:BigDecimal, quantity40:BigDecimal, quantity41:BigDecimal, quantity42:BigDecimal, quantity43:BigDecimal, quantity44:BigDecimal, quantity45:BigDecimal, quantity46:BigDecimal, quantity47:BigDecimal, quantity48:BigDecimal, quantity49:BigDecimal, quantity50:BigDecimal, quantity51:BigDecimal, quantity52:BigDecimal, quantity53:BigDecimal, quantity54:BigDecimal, quantity55:BigDecimal, quantity56:BigDecimal, quantity57:BigDecimal, quantity58:BigDecimal, quantity59:BigDecimal, quantity60:BigDecimal, quantitytotal:BigDecimal);
+
+inventoryreference(itemid:String, reference:String, reftype:String, customerno:String, supplierno:String, alternativedescription:String, uniquedescriptor:String, dimension1:String, dimension2:String, dimension3:String, dimension3shade:String, purchaseprice:double, purchaseprice:Date);
+
+inventorybatchconsolidationmaster(consolidationnumber:String, description:String, posted:Date, postedby:String, consolidationstatus:String, warehouse:String, location:String, productgroup:String, movementjournalrecordid:long);
+
+inventoryrereservepicklist(pickinglistid:String, picklistline:double, itemid:String, dimension1:String, dimension2:String, dimension3:String, frombatch:String, tobatch:String, fromserial:String, tosetial:String, fromwarehouse:String, towarehouse:String, fromlocation:String, tolocation:String, frompallet:String, topallet:String, quantity:double, posted:boolean, transid:String);
+
+inventorypickinglistlines(itemid:String, pickinglistid:String, delivery:Date, uom:String, orderqty:double, transid:String, linenum:double, pickinglist:Date, dimension1:String, dimension2:String, dimension3:String, batch:String, serial:String, location:String, pallet:String, warehouse:String, deliveryaddress1:String, deliveryaddress2:String, deliveryaddress3:String, deliveryaddress4:String, deliveryaddresscode:String, issueqty:double, issued:boolean, reftransaction:String, cancelled:boolean, //n&lmod.incaseonlypartofarollshouldbeissued.cut:boolean, //n&lmod.consolidatedpickinglists.consolidatedpickinglistlineid:long, consolidatedpickinglistid:String);
+
+inventorypickinglistmaster(orderid:String, pickinglistid:String, delivery:Date, deliverymode:String, deliveryname:String, deliveryterm:String, deliveryaddress1:String, deliveryaddress2:String, deliveryaddress3:String, deliveryaddress4:String, deliveryaddresscode:String, customeraccount:String, ordertype:String, pickinglist:Date, status:String, issuetype:String, creationtype:String, numberofcartons:BigDecimal, totalweight:BigDecimal, deliverycharge:BigDecimal, waybillnumber:String, salesorderref:String, //orderheld-deliverytimeorderheldstatus:String, held:Date, timeheld:Date, heldby:String, heldreleased:Date, timeheldreleased:Date, heldreleasedby:String, //n&lspecific.indicateswhetherpickinglistisforfabricortrims.maybenullproductionpickinglisttype:String, //topickfrom:String);
+
+inventoryconsolidatedplmaster(consolidatedpickinglistid:String, picking:Date, comments:String, pickingliststatus:String);
+
+inventoryconsolidatedpickinglistcreationds(awoid:String, sessionid:long, includeorder:boolean, group1total:BigDecimal, group2total:BigDecimal, group3total:BigDecimal, group4total:BigDecimal, group5total:BigDecimal, group6total:BigDecimal, group7total:BigDecimal, group8total:BigDecimal, group9total:BigDecimal, group10total:BigDecimal, group11total:BigDecimal, group12total:BigDecimal, group13total:BigDecimal, group14total:BigDecimal, group15total:BigDecimal);
+
+inventoryconsolidatedplsetup(pickinglistlineid:long, sessionid:long);
+
+inventoryconsolidatedpllines(consolidatedpickinglistid:String, itemid:String, dimension1:String, dimension2:String, dimension2sortcode:int, dimension3:String, orderquantity:BigDecimal, issuequantity:BigDecimal, issue:boolean);
+
+inventorydimension1groupsetup();
+
+inventoryadditionaldimensions(itemid:String, dimensionid:long, width:double, widthuom:String);
+
+inventorydimensiontable(dimensionid:String, batchid:String, dimension1id:String, dimension2id:String, dimension3id:String, warehouseid:String, locationid:String, palletid:String, itemserialid:String);
+
+inventoryitemdimensioncombinations(itemid:String, dimension1id:String, dimension2id:String, dimension3id:String, //costingandpricingcostprice:Double, currentcost:Date, prevcostprice:double, prevcost:Date, sellingprice:Double, //workaroundfornotbeingabletoadd5columnsinuniqueconstraintdimensioncombination:String, active:boolean, deactivatedbydimension1:boolean, //min/maxlastpurchaseprice:Double, lastpurchase:Date, purchaseprice:Double, purchaseprice:Date, lastcounted:Date, productionleadtime:BigDecimal, purchaseleadtime:BigDecimal, orderpolicy:String, safetystock:BigDecimal, economicorderquantity:BigDecimal, minorderqty:BigDecimal, maxorderqty:BigDecimal, multorderqty:BigDecimal, stoppurchase:String, overseepurchasegroup:String, showonweb:boolean);
+
+inventorydimension1group();
+
+inventoryitemdimensiongroup(itemdimensiongroupid:String, description:String, dim1active:boolean, dim2active:boolean, dim3active:boolean, warehouseactive:boolean, batchnumberactive:boolean, locationactive:boolean, palletidactive:boolean, serialnumberactive:boolean);
+
+inventorydimension2group();
+
+inventorydimension3groupsetup();
+
+inventorydimension3group();
+
+inventorydimension1(//usedtoensurethatduplicateconfigurationsmaynotbeactivatedwithinemc.active:boolean);
+
+inventoryitemdimension3setup(active:boolean);
+
+inventoryitemdimensionsetup(itemid:String, dimensionid:String);
+
+inventorydimensiongroupsetup(dimensionid:String, dimensiongroupid:String);
+
+inventorydimensiongroup(dimensiongroupid:String, description:String);
+
+inventorydimension(dimensionid:String, description:String, sortcode:int);
+
+inventoryitemdimension2setup(active:Boolean);
+
+inventoryitemdimension1setup(active:boolean);
+
+inventorydimension1lines(dimension1id:String, dimension3id:String, seq:int);
+
+inventorydimension3(designno:String, basecolour:String, colourway:String, sourcecolref:String, catagory:String, color:int);
+
+inventorydimension2groupsetup();
+
+inventorydimension3whereused(dimension3:String, itemid:String, itemreference:String, itemdescription:String);
+
+inventorydimension1whereused(tablename:String, dimension1:String, itemid:String, itemreference:String, itemdescription:String);
+
+inventorydimension2();
+
+inventorydimension1enquiry(dimension1:String, description:String, sessionid:long);
+
+inventorytransactions(type:String, reftype:String, refnumber:String, documentno:String, document:Date, //linktolinesthatcausedthetransactiontransid:String, status:String, movement:Date, quantity:double, //standardcost-shouldbecalculatedonincost:double, //averagecost-shouldbecalculatedoninaveragecost:double, //fifocost-populatedbystockclosingfifocost:double, reftransid:long, physical:Date, financial:Date, direction:String, itemdimid:long, itemid:String, customerid:String, supplierid:String, closedflag:boolean, closedqty:double, closed:Date, expected:Date);
+
+inventoryunreservedsummary(transactionref:String, itemid:String, itemdimid:long, availunreserved:double, qcunreserved:double, recunreserved:double);
+
+inventorysummary(//overviewitemid:String, physicaltotal:double, physicalreserved:double, physicalavailable:double, orderedtotal:double, orderedreserved:double, orderedavailable:double, orderedout:double, picked:double, received:double, posted:double, deducted:double, registered:double, qtyosblanketord:double, recavailable:double, qcavailable:double, dimension3:String, dimension1:String, dimension2:String, warehouse:String, batch:String, location:String, pallet:String, serialno:String, itemdimid:long, inventorytransref:long, qcstatus:String, //outstandingquantityonsalesorderblanketorders.qtysopblanketorder:BigDecimal, referencerecordid:long);
+
+inventoryreservationhelper(lastupdateinfo:String);
+
+inventorystocksettlement(settlementid:String, description:String, start:Date, end:Date, runstatus:String);
+
+inventorystocksettlementhistory(linenumber:long, settlementid:String, inxmlsummary:String, intxrecordid:long, outtxusedinsettlement:long, wasinclosed:boolean, wasoutclosed:boolean, outxmlsummary:String, //forconvenienceqtyclosed:double);
+
+inventoryitemgroup(itemgroup:String, description:String, accessgroupid:String, hierarchy:String, scrap:Double, costingscrap:Double, quarantinereq:Boolean, mpsflag:String, //indicateswhetheragentsmayreceivecommissiononitemsinthisgroup.commissionapplicable:boolean);
+
+inventoryitemaccessgroup(itemaccessgroupid:String, description:String);
+
+inventoryproductgroup(productgroupid:String, description:String);
+
+inventorycostinggroup(costinggroupid:String, description:String, costtype:String, costlevel:String, costinggroup:String, defaultdimensioncostcalc:String);
+
+inventorystocktakeunreserved(uniqueidentifier:String, dimensionid:Long, itemid:String, referencetype:String, referenceid:String, referencejournal:String, resolved:boolean, resolvedby:String, resolved:Date);
+
+inventoryagebins(agebin:String, agebinprintdesc:String, numberofdaysinbin:int, binorder:int, lastbin:boolean);
+
+inventoryserialbatch();
+
+serialbatchsuper(masterid:String, transid:String, batch:String, serial:String, quantity:double, type:String, //ninianspecificwidthuom:String, width:double);
+
+inventoryremoveserialbatch(location:String);
+
+inventorysafetystock(customertype:String, customerid:String, itemtype:String, itemid:String, dimension1:String, dimension2:String, dimension3:String, serialno:String, from:Date, to:Date, quantity:BigDecimal, generated:boolean, safetytype:String, //uniquecontraintsuniquekey:String, mpsstartreference:long, mpsendreference:long);
+
+inventoryitembatch(itembatchid:String, itemid:String, expiry:Date, prod:Date, description:String);
+
+inventoryregistersuper(masterid:String, transid:String, batch:String, serial:String, warehouse:String, location:String, pallet:String, type:String, quantity:double, //forvalidationtotalqty:double, registeredqty:double);
+
+inventoryremoveregister();
+
+inventoryregister(width:double, uom:String);
+
+inventorystocktakeregister(onhandqty:double, originalcountedqty:double, pagenumber:int);
+
+inventoryitemaccessgroupemployees(itemaccessgroupid:String, employeeid:String);
+
+inventoryrequirementsplanning(//sourcereferencerecordid:long, referencerecordref:String, referencerecordtype:int, itemid:String, dimensionid:long, serialnumber:String, //demandsupplysplitrecordtype:int, //demandfieldsdemand:Date, demandquantity:BigDecimal, demandclosed:boolean, //supplyfieldssupply:Date, supplycompletion:Date, supplyquantity:BigDecimal, supplyclosed:boolean, //managementfirm:boolean, managedby:int, recordlevel:int, //addedjustforsaftyreasontotalquantity:BigDecimal);
+
+inventoryrequirementsplanninghistory(//sourcereferencerecordid:long, referencerecordref:String, referencerecordtype:int, itemid:String, dimensionid:long, serialnumber:String, //demandsupplysplitrecordtype:int, //demandfieldsdemand:Date, demandquantity:BigDecimal, demandclosed:boolean, //supplyfieldssupply:Date, supplyquantity:BigDecimal, supplyclosed:boolean, //managementfirm:boolean, managedby:int, recordlevel:int);
+
+inventorybatchconsolidationlines(consolidationnumber:String, lineno:BigDecimal, journalmasterid:String, movementjournallinerecordid:long, movementjournallineregisterrecordid:long, transferjournallinerecordid:long, quantity:BigDecimal, shortpicked:BigDecimal);
+
+inventorylocation(locationid:String, description:String, warehouseid:String, aisle:String, rack:String, shelf:String, bin:String, lastcounted:Date, stocktaking:boolean);
+
+inventoryitemclassification3();
+
+inventoryitemclassification(classification:String, description:String);
+
+inventoryitemclassification2();
+
+inventoryitemclassification6();
+
+inventoryclassificationhierarchy(hierarchyid:String, description:String, hierarchytree:String);
+
+inventoryitemclassification4();
+
+inventoryitemclassification1();
+
+inventoryitemclassification5();
+
+inventorycolourdesignmaster(designno:String, description:String, thresholdqty:Double, uom:String, receivedqty:Double, claimed:Boolean, designperc:double);
+
+inventoryitemmaster(//overviewitemid:String, description:String, brandgroup:String, itemrange:String, itemcategory:String, itemtype:String, dimensiongroup:String, //definitionstatus:String, detaileddescription:String, baseuom:String, defaultwarehouse:String, //newcolumnsdimension1group:String, dimension2group:String, dimension3group:String, itemgroup:String, itemreference:String, //purchasepurchaseprice:double, purchaseprice:Date, purchaseper:String, purchasevatcode:String, purchasepricegroup:String, purchasediscountgroup:String, purchaseextrachargegroup:String, purchasedefaultsupplier:String, purchaseleadtime:double, purchaseuom:String, purchaseminorderqty:double, lastpurchase:Date, lastpurchasesupplier:String, lastpurchaseprice:double, lastpurchaseper:String, lastpurchaseddate:long, stoppurchase:String, overseepurchasegroup:String, //salessalessellingprice:double, sellingper:int, sellingvatcode:String, sellingpricegroup:String, sellingdiscountgroup:String, sellingextrachargegroup:String, sellingpriceup:Date, sellinguom:String, sellingminorderqty:double, sellingcommissiongroup:String, sellingroyaltygroup:String, customerrestricted:boolean, stopselling:boolean, //costingcurrentcostlink:String, prevcostlink:String, costingcurrentcost:double, costingcost:Date, costingprevcost:double, costingprevcost:Date, costingweightedave:double, costinggroup:String, //specificationspecbatchgroup:String, specwarrantyyexpirygroup:String, specbarcodegroup:String, specwidth:double, speclength:double, specheight:double, specweight:double, specwidthuom:String, speclengthuom:String, specheightuom:String, specweightuom:String, //planningplanningplanning:String, planningallowsubstitute:boolean, planningsubstituterule:String, planningsubstituteitem:String, planningsubstitutedimension1:String, planningsubstitutedimension2:String, planningsubstitutedimension3:String, //classificationclassificationclassgroup1:String, classificationclassgroup2:String, classificationclassgroup3:String, classificationclassgroup4:String, classificationclassgroup5:String, classificationclassgroup6:String, //productionproductionbomid:String, productionroutingid:String, productionstdcost:double, productionstdcost:Date, productionleadtime:double, productionuom:String, productionminprodqty:String, productiondrawingpattern:String, productionprodref1:String, productionprodref2:String, productionphantom:String, productionbinitem:String, stopproduction:boolean, scrap:double, workcenterplanninggroup:String, //min/maxminorderqty:double, maxorderqty:double, multorderqty:double, lastcounted:Date, //yeaproductgroup:String, mpsflag:String, allowkimbling:boolean, orderpolicy:String, safetystock:BigDecimal, economicorderquantity:BigDecimal, warrantygroup:String, //webstorewebstoretype:String);
+
+inventorystocktakelogger(journalnumber:String, itemid:String, dimensionid:long, status:int);
+
+inventoryjournalmaster(journaldefinitionid:String, journalnumber:String, journaldescription:String, journalfunction:String, journal:Date, journalstatus:String, journaltext:String, journalposting:String, journalcontratype:String, journalcontraaccount:String, //journalenteredbyusingcreatedbyandcreateddatejournalapprovedby:String, journalapproved:Date, journalpostedby:String, journalposted:Date);
+
+inventoryjournallines(journalnumber:String, lineno:double, line:Date, linetext:String, journallineextref:String, dimension1:String, dimension2:String, dimension3:String, batch:String, serial:String, warehouse:String, pallet:String, quantity:double, cost:double, totalcost:double, transid:String, contratype:String, contraaccount:String, itemid:String, countqoh:double, countedquantity:double, counted:Date, countedby:String, confirmedquantity:double, confirmed:Date, confirmedby:String, location:String, //toitemfieldtoitemid:String, todimension1:String, todimension2:String, todimension3:String, towarehouse:String, tobatch:String, toserial:String, tolocation:String, topallet:String, generated:boolean, journaltype:String);
+
+inventoryparameters(allowothercoloursonitem:boolean, allowdim1notongroup:boolean, defaultwarehouse:String, baseuom:String, dimensiongroup:String, purchasevatcode:String, overissuepercentage:Double, overissueallowed:Boolean, underissuepercentage:Double, underissueallowed:Boolean, minqtyfromitemmaster:Boolean, stocktakevaluediff:Double, stocktakequantitydiff:Double, showonhanndqty:Boolean, requirementsplanningrecordid:long, includebatchonageing:boolean, ageingmessageloguser:String, allowrekimbling:Boolean, //batchconsolidationconsolidationcratequantity:BigDecimal, consolidationlinecost:BigDecimal, maxcratequantity:BigDecimal, maxnumberofcrates:int, maxlinesperjournal:int, consolidationtransferdefinition:String, consolidationmovementdefinition:String, consolidationwarehouse:String, checkpartialreservedcrates:boolean, batchconsolidationactivityuser:String, defaultdeliveryprintitem:String, defaultdeliverylaminateitem:String, defaultdeliveryitem:String, defaultdeliveryitemforaccessories:String, defaultreminderitem:String);
+
+poppricegroup(pricegroupid:String, description:String);
+
+popgoodsreturnreason(reasoncode:String, description:String);
+
+popplannedpurchaseorders(plannedpoid:String, required:Date, release:Date, itemid:String, dimension1:String, dimension2:String, dimension3:String, uom:String, vatcode:String, itemprice:double, quantityrequired:BigDecimal, quantitytorelease:BigDecimal, includeonrelease:boolean, released:boolean, ordertype:String, warehouse:String);
+
+popdeliveryterms(deliverytermsid:String, description:String, deliverycharge:boolean);
+
+poppurchaseorderapprovalgroupemployees(purchaseorderapprovalgroupid:String, employeeid:String);
+
+popgrnreprinttemp(itemid:String, dimension1:String, dimension2:String, dimension3:String, serial:String, batch:String, recieved:Date, grnumber:String, suppliercode:String, numlables:int, width:Double, standardlocation:String, documentnumber:String);
+
+poppurchasepostmaster(postmasterid:String, purchaseorderid:String, supplierid:String, documentnumber:String, post:Date, postsetupid:String, approvedby:String);
+
+poppurchasepostsetuptable(postsetupid:String, post:boolean, print:boolean, //printersetup?quantityselection:String, documenttype:String, //thisfieldisincludedsimplyforconveniencewhenselectingthelastsetupforauserautonumber:long);
+
+poppurchasepostlines(postmasterid:String, purchaseid:String, linenumber:double, itemid:String, quantity:double, dimid:long, transactionnumber:String, itemprimaryreference:String, numberlabels:int, //thisisspecifictoreceivedgoods.standardlocation:String, /***thisfieldensuresthat"old"goodsreceivedreportsworkcorrectly.*itkeepstrackoftheremainingitemsonapurchaseorderlineatthetimeofposting.*thisfieldisupdatedfromthereportbeanwhendataisposted.(thatwaywedon'tneedtomesswithtransactions)*-1meansthatthefieldhasn'tbeenset.*/polineremainingitems:Double);
+
+poppricearrangements(//columnlengthsarerestrictedtoallowuniqueconstrainttobecreated.suppliertype:String, pricegroup:String, supplierid:String, itemid:String, dimension1:String, dimension1sortcode:int, dimension2:String, dimension2sortcode:int, dimension3:String, dimension3sortcode:int, from:Date, to:Date, quantity:BigDecimal, price:BigDecimal);
+
+poppurchaseorderapprovalgroups(purchaseorderapprovalgroupid:String, description:String, itemgroup:String, maxvalue:double, allowcancel:boolean, priceqtychange:boolean, higherlevelapprovalgroups:String);
+
+poppricearrangementds(itemreference:String, itemdescription:String, itembrand:String, suppliername:String, supplierdisplayfield:String);
+
+popdiscountgroup(discountgroupid:String, description:String, discountpercentage:BigDecimal);
+
+popparameters(allowoverreceive:boolean, allowblanketorderoverrelease:boolean, overpercentage:double, blanketorderoverreleasepercentage:double, serialmorethanone:Boolean, displaysupplieritemref:Boolean, allowbomitemspurchase:Boolean, pocommentprint:String, pricereceivedreport:Boolean, pricereturnedreport:Boolean, itemgrptoreadcolmast:String, printdetaileditemdescription:boolean, itemfield1forplannedrelease:String, itemfield2forplannedrelease:String, //contactfaxnumber:String, //pricinguselowestprice:boolean, allowstandardprice:boolean, defaultapprovalgroup:String, cmtpackagingcuttype:String, mtowarehouse:String);
+
+poppurchaseorderlines(//ninianspesificfieldsdesigncode:String, printcolour:String, fabricprice:double, printprice:double);
+
+popsuppliergroup(suppliergroupid:String, description:String);
+
+popqualitytesttype(testtypeid:String, description:String);
+
+poppurchaseordermaster(cancelled:boolean, //forcancelledorders,indicatewhetherpartiallyorfullycancelled.cancelledstatus:String, //ninianspecificfieldsagentcode:String, deliveryaddress:String, retailer:String, softex:String, othersoftex:String, existingdesign:String, designbulkorder:String, widthplain:String, widthprint:String, weightplain:String, weightprint:String, labdyes:String, strikeoff:String, correspondencereference:String, colourblocked:String, deliverwithorder:String, matchorder:String, replacementorder:String, replacementreason:String, printafterdelivery:String, typeofprint:String, processafterdelivery:String, typeofprocess:String, cuttingreceived:String, exstock:String, additionallabinfo:String, coloursblocked:String, enduser:String, previousorder:String, consignment:String, productionawopickinglist:String);
+
+popextrachargegroup(extrachargegroupid:String, description:String);
+
+popdeliverymodes(deliverymodeid:String, description:String);
+
+popsupplierreceivedjournallines(receivedid:String, lineno:double, received:Date, quantity:double, price:double, lineamount:double, dimid:long, uom:String, itemid:String, transactionnumber:String, //usedforgrnlabelsstandardlocation:String);
+
+popsupplierreceivedjournalmaster(supplierid:String, receivedid:String, type:String, purchaseorderid:String, received:Date, suppliername:String, //deliverynote#supplierorder:String, documentnumber:String);
+
+popsuppliers(supplierid:String, suppliername:String, suppliergroup:String, suppliercurrency:String, addressphysicalline1:String, addressphysicalline2:String, addressphysicalline3:String, addressphysicalline4:String, addressphysicalline5:String, addressphyspostalcode:String, postaladdressline1:String, postaladdressline2:String, postaladdressline3:String, postaladdressline4:String, postaladdressline5:String, postalcode:String, telephone:String, cellno:String, emergencyno:String, fax:String, email:String, website:String, contactorders:String, contactordersphone:String, contactordersemail:String, contactaccounts:String, contactaccountsphone:String, contactaccountsemail:String, vatcode:String, vatregistrationno:String, pricegroup:String, discountgroup:String, extrachargegroup:String, //newfieldvatapplicable:Boolean, standardleadtime:double, creditlimit:double, termsofpayment:String, settlementdiscount:String, bank:String, bankbranchcode:String, bankaccountnumber:String, bankaccountname:String, accountcontactcellphonenumber:String, accountcontactemail:String, accountscontactname:String, closedby:String, countryoforigins:String, creditclosereason:String, exportcurrency:String, ordercontactcellphonenumber:String, ordercontactemail:String, ordercontactname:String, ordercontacttelephonenumber:String, personresponsible:String, personresponsiblecellno:String, personresponsibleemail:String, personresponsibletelno:String, status:String, accountopened:Date, closed:Date, companyregistrationnumber:String, closedreason:String);
+
+popcancelledpurchaseordermaster();
+
+popcancelledpurchaseorderlines();
+
+poppurchaseordermastersuper(purchaseorderid:String, purchaseordertype:String, supplier:String, status:String, currency:String, contactperson:String, contactno:String, contactemail:String, buyergroup:String, orderedby:String, settlementtype:String, vatregistrationno:String, pricesincludevat:boolean, addressline1:String, addressline2:String, addressline3:String, addressline4:String, addressline5:String, addresspostalcode:String, warehouse:String, actualdelivery:Date, latestexpecteddelivery:Date, requesteddelivery:Date, confirmeddelivery:Date, modeofdelivery:String, deliveryterms:String, payment:double, paymentdue:Date, methodofpayment:String, ordered:Date, settlementdiscount:double, pricegroup:String, totaldiscountpercentage:double, linesdiscount:double, miscchargesgroup:String, approvedby:String, supplierordernumber:String, qualitytest:String, qualitytestreq:Boolean, qualityreportreq:Boolean, postversion:Integer, vatapplicable:Boolean, externalref:String, externalreftype:String, blanketorderref:String, internalref:String, internalreftype:String, comments:String, approvalgrp:String);
+
+poppurchaseorderlinessuper(purchaseorderid:String, lineno:double, itemid:String, itemname:String, serialno:String, batchno:String, quantity:double, uom:String, itemprice:double, discountpercentage:double, netamount:double, warehouse:String, comments:String, delivery:Date, confirmed:Date, itemvatgroup:String, vatcode:String, itemdimension1:String, itemdimension2:String, itemdimension3:String, itemsinvoiced:double, itemsreceived:double, receivenow:double, transactionnumber:String, reason:String, costchange:Boolean, updateitem:Boolean, whoapproved:String, oldprice:Double, approved:Date, overreceiveqty:double, /***therecordidoftheblanketorderlinefromwhichapurchaseorderlinewascreated.*/blanketorderlineid:Long, revised:Date);
+
+popcostchangereason(reasonid:String, description:String);
+
+dgdeclarationlines(//numbersequence-controlledlinenumber:String, consignor:String, consignee:String, operator:String, productmanufacturer:String, productowner:String, contractingparty:String, productcustodian:String, //fkdecnumber:String, description:String, additionalinfo:String, registrationnumber:String);
+
+dgcargochecklines(cargomasterid:String, linenumber:String, unnumber:String, packinggroup:String, quantity:double, placcardreq:boolean, trecreq:boolean, allowedinload:boolean);
+
+dgdcontacts(//numbersequence-controllednumbercontactnumber:String, //fromsopcustomerscustomer:String, //contacttypeenumtype:String, contactname:String, //companythecontactworksforcompany:String, //company(contact)addressphysicaladdress1:String, physicaladdress2:String, physicaladdress3:String, physicaladdress4:String, physicaladdress5:String, postalcode:String, //contacttelephonenumbertelephone:String);
+
+dgdvehicles(registrationnumber:String, contactnumber:String);
+
+dgdeclarationmaster(//numbersequence-controlleddeclarationmasternumberdecnumber:String, //fromsopcustomerscustomer:String, //defaultconsignordefconsignor:String, //defaultoperatordefoperator:String);
+
+dgcargocheckmaster(cargomasterid:String, description:String);
+
+dgdun(unnumber:String, packinggroup:String, packaging:String, grossmass:BigDecimal, netmass:BigDecimal, linenumber:String);
+
+workflowactivitystatus(activitystatus:String, description:String);
+
+wfactivityalerts(activitycategory:String, activitygroup:String, activitytype:String, manager:boolean, employee:boolean, taskmanager:boolean);
+
+workflowdocupath(description:String, filepath:String);
+
+workflowsuper(primaryindicator:String, activitycategory:String, activitytype:String, skill:String, employeeid:String, managerresponsible:String, activitygroup:String, referencesource:String, descriptionofactivity:String, duration:double, billable:boolean, completionrules:String, outputfilerequired:boolean, internalnotes:String, externalnotes:String, closedbymanager:boolean, leadtime:double, //emailsendemail:boolean, emailtemplate:String, //pointstorecordinbasequerytableemailrecipientqueryname:String, sendactivitygroupemail:boolean, activitygroupemailtemplate:String, autocompleteemailactivity:boolean, //smssendsms:boolean, smstemplate:String, //pointstorecordinbasequerytablesmsrecipientqueryname:String, sendactivitygroupsms:boolean, activitygroupsmstemplate:String, autocompletesmsactivity:boolean);
+
+workflowjoblines(designno:String, lineno:double, nextlineno:double, status:String, reference:String, requiredcompletion:Date, expectedcompletion:Date, hoursworkestimated:double, hoursworkactual:double, start:Date, starttime:Date, completion:Date, completiontime:Date, outputfilepath:String, jobresult:String, closedby:String, closed:Date, closedtime:Date);
+
+workflowrating(rating:String, description:String);
+
+workflowactivitygroups(activitygroup:String, description:String);
+
+workflowjobmaster(designno:String, workflowid:String, description:String, customer:String, item:String, startedby:String, started:Date, targetcompletion:Date, completed:Date, managerresponsible:String, status:String, internalnotes:String, externalnotes:String, sourcetable:String, sourcerecordid:long);
+
+workflowjobtitles(jobtitle:String, description:String, joblevel:String, jobcatagory:String, ofocode:String, edulevel:String);
+
+workflowmaster(workflowid:String, workflowdescription:String, approvedby:String, approved:Date, sourcetable:String);
+
+workflowactivitycate(activitycategory:String, description:String);
+
+workflowemployeetype(employeetype:String, description:String);
+
+workflowdepartment(department:String, description:String, accessgroup:String);
+
+workflowskill(skill:String, description:String);
+
+workflowemployeeskills(employeenumber:String, skill:String, rating:String, rating:Date);
+
+workflowactivitypriority(activitypriority:String, description:String);
+
+workflowactivitygroupemp(activitygroup:String, employeenumber:String);
+
+workflowactivitytypes(activitytype:String, description:String);
+
+workflowactivity(activityid:String, employeenumber:String, managerresponsible:String, activitygroup:String, priority:String, type:String, category:String, status:String, referencesource:String, reference:String, customer:String, description:String, detaileddescription:String, skillrequired:String, requiredcompletion:Date, expectedcompletion:Date, elapsedworkhours:double, hoursworkestimated:double, hoursworkactual:double, billable:boolean, start:Date, starttime:Date, completion:Date, completiontime:Date, completionrules:String, outputfilerequired:boolean, outputfilepath:String, activityresult:String, closedby:String, closed:Date, closedtime:Date, internalnotes:String, externalnotes:String, scratchpad:String, duration:double, closedbymanager:boolean, sourcetable:String, sourcerecordid:long, //email&smsemailstatus:String, smsstatus:String, emailtemplate:String, smstemplate:String, //pointstorecordinbasequerytableemailrecipientqueryname:String, smsrecipientqueryname:String, autocompleteactivity:boolean, //activitygroupsendingemailactivitygroup:boolean, smsactivitygroup:boolean, //forsms&emailtestingtemplatequery:String, recipientquery:String);
+
+workflowlines(workflowid:String, lineno:double, nextlineno:double, hoursworkestimated:double);
+
+hrcitizenstatus(citizenstatus:String, description:String);
+
+hrleavetype(leavetype:String, description:String);
+
+hrcourses(course:String, description:String, courselevel:String, saqaregistered:boolean, priority:String, nqflevel:String, duration:double);
+
+hrgrade(grade:String, description:String);
+
+hrsocioecostatus(socioecostatus:String, description:String);
+
+hrabsenteeismtype(absenteeismtype:String, description:String);
+
+hrjobcatagory(catagory:String, description:String);
+
+hrlevelofexperience(levelofexp:String, description:String);
+
+hrremunerantiontype(remunerationtype:String, description:String);
+
+hrofocodes(ofocode:String, description:String);
+
+hrinstitution(institution:String, description:String);
+
+hremployeeeducation(employeenumber:String, educationtype:String, institution:String, completed:Date, qualification:String);
+
+hrunions(unionid:String, description:String, contactnum:String);
+
+hrlearningprogram(learningprogramid:String, description:String);
+
+hrpreviousemploymenthistory(employeenumber:String, company:String, position:String, from:Date, to:Date, reasonforleaving:String);
+
+hrscarcepriority(scarcepriority:String, description:String);
+
+hrabsenteeismlog(employeenumber:String, absentfrom:Date, absentto:Date, absenteeismtype:String, description:String, absenteeismtime:int);
+
+hrpivotalstudyfield(pivotalstudyfieldid:String, description:String);
+
+hrbranch(branch:String, description:String);
+
+hrequitycode(equitycode:String, description:String);
+
+hrdisabilitytypes(type:String, description:String);
+
+hrtraininglevel(traininglevelid:String, description:String);
+
+hremployeetraining(employeenumber:String, institution:String, course:String, certificate:String, skill:String, rating:String, status:String, started:Date, completed:Date, coursecost:double);
+
+hrqualtype(qualtypeid:String, description:String);
+
+hrjoblevel(joblevel:String, description:String);
+
+hrexperiencelevel(explevelid:String, description:String);
+
+hrsection(sectionid:String, description:String);
+
+hractionresults(resultid:String, description:String);
+
+hrdisciplinarylevel(levelid:String, description:String);
+
+hrgrievences(employeenumber:String, received:Date, grievence:String, grievenceresult:String, status:String);
+
+hrnationality(nationality:String, description:String);
+
+hrinternalemploymenthistory(employeenumber:String, company:String, jobtitle:String, grade:String, department:String, branch:String, sectionid:String, from:Date, to:Date);
+
+hrmedicallog(employeeid:String, visit:Date, problem:String, treatement:String);
+
+hrterminationlog(employeenumber:String, terminationtype:String, termination:Date, comment:String);
+
+hrqualification(qualification:String, description:String);
+
+hrpivotalprogram(pivotalprogramid:String, description:String);
+
+hrrace(race:String, description:String);
+
+hrpivotalinst(pivotalinst:String, description:String);
+
+hreducationlevel(edulevelid:String, description:String);
+
+hrjobstatus(jobstatusid:String, description:String);
+
+hrdiciplaneryactions(employeenumber:String, offence:Date, broughtby:String, offence:String, diciplaneryresult:String, status:String, resultlevel:String);
+
+hrmedicalaid(medicalaid:String, description:String, contactnum:String);
+
+hrtrainingtype(trainingtypeid:String, description:String);
+
+hrterminationtype(terminationtype:String, description:String);
+
+hrtrainingreason(trainingreasonid:String, description:String);
+
+hrabsscarcity(absscarcityid:String, description:String);
+
+hralternativeidtype(altidtype:String, description:String);
+
+hrleavelog(employeenumber:String, leavetype:String, start:Date, return:Date, numberofdays:double);
+
+hreducationpriority(priority:String, description:String, weight:int);
+
+hrscarcecritskills(scarcecritskills:String, description:String);
+
+hremployeedependants(employeenumber:String, type:String, name:String, surname:String, ofbirth:Date, idnumber:String, contactnum:String, relation:String);
+
+hremploymenttype(type:String, description:String);
+
+crmprospectclosereason(reasonid:String, description:String);
+
+crmclassificationsuper(classification:String, description:String);
+
+crmparameters(//defaultwfcanbeoverwrittenbytheinterestgroupprospectsworkflowid:String, //enumthatallowslogictobeexecutedtoassignact/jobtospecificemployeeprospectactrule:String);
+
+crmclassification1();
+
+crmprospect(prospectid:String, name:String, surname:String, telnum:String, cellnum:String, email:String, postaladdress1:String, postaladdress2:String, postaladdress3:String, postaladdress4:String, postaladdress5:String, postalpostalcode:String, province:String, whereheard:String, interest:String, request:String, company:String, transferedto:String, transferedrecordid:String, transfered:boolean, prosstatus:String, //umrelatedfieldschool:String, //salesrepemployeeid:String, //umrelatedpreflanguage:String, //userdefinedfieldclassification1:String, //userdefinedfieldclassification2:String, //userdefinedfieldclassification3:String, presentation:Date, //theenquirywasloggedlogged:Date, campus:String, //reasonforclosurereasoncode:String);
+
+crmdocuments(documentid:String, type:String);
+
+crmclassification2();
+
+crminterest(interest:String, description:String, interestgroup:String);
+
+crminterestgroup(interestgroupid:String, description:String, workflowid:String);
+
+crmcorrespondencelog(eventdescription:String, event:Date, eventtype:String, referencenumber:String, referencetype:String, tracknumber:String, resipient:String);
+
+crmclassification3();
+
+glcurrency(currency:String, descriptivename:String);
+
+glparameters(budgetfreezeperiods:int, vatinputaccount:String, vatoutputaccount:String);
+
+glfinancialperiods(periodid:String, periodtype:String, start:Date, end:Date, numberofweeks:int, periodname:String, periodquarter:int, accountstatus:String);
+
+glgroupcompanyaccount(grouprule:String, description:String);
+
+glallocationrules(ruleid:String, description:String);
+
+glanalysisrules(ruleid:String, description:String);
+
+glgrouprules(grouprules:String, description:String, analysiscode1:boolean, analysiscode2:boolean, analysiscode3:boolean, analysiscode4:boolean, analysiscode5:boolean, analysiscode6:boolean, granularity:String);
+
+glsecurityrules(ruleid:String, description:String);
+
+glbudgetperiod(linerecordid:long, budgetperiod:String, amount:BigDecimal);
+
+glchartofaccounts(accountnumber:String, description:String, recordtype:String, accounttype:String, currency:String, vatcode:String, groupcompanyaccount:String, restricteduse:boolean, locked:boolean, accountclosed:boolean, analysiscode1:String, analysiscode2:String, analysiscode3:String, analysiscode4:String, analysiscode5:String, analysiscode6:String, securityrules:String, analysisrules:String, allocationrules:String, grouprules:String);
+
+gltransactionssummary(groupgranularity:String, group:Date);
+
+gltransactionsdetail();
+
+gltransactiondaysummary(accountnumber:String, financial:Date, analysiscode1:String, analysiscode2:String, analysiscode3:String, analysiscode4:String, analysiscode5:String, analysiscode6:String, debit:BigDecimal, credit:BigDecimal, uniquekey:String);
+
+gltransactionconsolidationtemp(containertransactionref:long, debit:BigDecimal, credit:BigDecimal, //recordidsofupdatedsummaryrecordsperiodsummaryref:long, daysummaryref:long, transactionsummaryref:long);
+
+gltransactionperiodsummary(accountnumber:String, financialperiod:String, analysiscode1:String, analysiscode2:String, analysiscode3:String, analysiscode4:String, analysiscode5:String, analysiscode6:String, debit:BigDecimal, credit:BigDecimal, uniquekey:String);
+
+gltransactionssuper(accountnumber:String, transactionsource:String, sourcereference:String, transactionnumber:String, transaction:Date, text:String, foreigncurrency:String, vatcode:String, analysiscode1:String, analysiscode2:String, analysiscode3:String, analysiscode4:String, analysiscode5:String, analysiscode6:String, debit:BigDecimal, credit:BigDecimal, foreigncurrencydebit:BigDecimal, foreigncurrencycredit:BigDecimal, groupweek:int, groupperiod:String, //processedflagissetbydefault-alltransactionarenowprocessedand//consolidatedassoonastheyarecreated.processed:boolean, //populatedfromjournals.onlyappliestodetailedtransactionsandnon-grouped//summarytransactions.externalreference:String);
+
+glbudgetlinesds(description:String);
+
+glbudgetmodel(modelid:String, description:String, fromperiod:String, toperiod:String);
+
+gljournalmaster(text:String, vatincluded:boolean, vatcode:String, vatinputoutput:String, postdetailsummary:String, analysiscode1:String, analysiscode2:String, analysiscode3:String, analysiscode4:String, analysiscode5:String, analysiscode6:String);
+
+gljournalapprovalgroups(journalapprovalgroupid:String, description:String);
+
+gljournalapprovalgroupemployees(journalapprovalgroupid:String, employeeid:String);
+
+gljournallines(journalnumber:String, linenumber:BigDecimal, linetype:String, line:Date, journaltransid:String, extreference:String, description:String, account:String, debit:BigDecimal, credit:BigDecimal, contratype:String, contraaccount:String, contradebit:BigDecimal, contracredit:BigDecimal, vatincluded:boolean, vatcode:String, vatinputoutput:String, vatamount:BigDecimal, text:String, analysiscode1:String, analysiscode2:String, analysiscode3:String, analysiscode4:String, analysiscode5:String, analysiscode6:String);
+
+glbudgetlines(modelid:String, account:String, linenumber:double);
+
+glchartofaccountsbalances(accountnumber:String, subaccountnumber:String, periodid:String, debit:BigDecimal, credit:BigDecimal);
+
+glvatcode(vatid:String, description:String, percentage:double, from:Date, to:Date);
+
+glanalysiscode1();
+
+glanalysiscode5();
+
+glanalysiscodesuper(analysiscode:String, description:String);
+
+glanalysiscode4();
+
+glanalysiscode2();
+
+glanalysiscode6();
+
+glanalysiscodehierarchy(hierarchyid:String, description:String, hierarchytree:String);
+
+glanalysiscode3();
+
+glchartofaccountsanalysisbalances(accountnumber:String, subaccountnumber:String, periodid:String, analysiscode1:String, analysiscode2:String, analysiscode3:String, analysiscode4:String, analysiscode5:String, analysiscode6:String, debit:double, credit:double);
+
+devinstallationmaster(installationname:String, installationdescription:String);
+
+devinstallationlines(installationname:String, propertyname:String, propertyvalue:String);
+
+devparameters(completedbugmailaddress1:String, completedbugmailaddress2:String, completedbugmailaddress3:String, completedbugmailaddress4:String, completedbugmailaddress5:String, completedbugfrommailaddress:String, generaluser:String);
+
+devdeploymentupdateloglines(masterrecordid:long, project:String, projectdescription:String);
+
+devbugstable(bugid:String, processed:boolean, completed:Date, required:Date, responsible:String, bugnumber:String, priority:String, billable:boolean, timetaken:double, estimatetime:double, pending:boolean, moduleid:String, tested:boolean, starttime:Date, client:String, bugtype:String, testdescription:String, testedby:String, possibleaffected:String, possibleaffecteddata:String, documentation:String, entitylog:String, coreupdates:String, summary:String, quotedhours:BigDecimal, parenttask:String);
+
+devprogressitemconversiontable(olditem:String, emcitem:String, dimension1:String, dimension2:String, dimension3:String);
+
+deventitylog(log:Date, querytype:String, querylog:String, projectname:String, customerid:String, runbeforedeploy:boolean, ranquery:boolean);
+
+devonhandimporttable(itemid:String, colourold:String, batch:String, serial:String, location:String, warehouse:String, qty:double, sizedim:String, olditem:String, wuom:String, width:double, price:double, import:Date, config:String, colour:String);
+
+devdeploymentupdatelog(installationname:String, upd:Date, subversionheader:int);
+
+devprojectmaster(customerid:String, projectname:String, projectdescription:String);
+
+devversioningcontrol(repositoryname:String, repositorydescription:String, repositoryurl:String, customerid:String);
+
+devoldcolourconversiontable(oldcolour:String, newcolour:String);
+
+devprojectlines(masterrecordid:long, classpath:String, projecttype:String, projectlayer:String);
+
+devnlpriceimporttable(olditem:String, price:double);
+
+devtimesheet(employeeid:String, taskrecordid:long, tasksummary:String, taskdetail:String, work:Date, workstarttime:Date, workendtime:Date);
+
+devsitemaster(masterid:String, customerid:String, serversystemid:String, authorizationkey:String);
+
+devsitelines(masterid:String, connectiondescription:String, ip:String, port:String, username:String, password:String);
+
+sopsalesordercancelreason(reasonid:String, description:String);
+
+sopstatusenquirysummary(recordtype:int, recordgroup:String, customerid:String, customergroup:String, quantity1:BigDecimal, quantity2:BigDecimal, quantity3:BigDecimal, quantity4:BigDecimal, quantity5:BigDecimal, quantity6:BigDecimal, quantity7:BigDecimal, quantity8:BigDecimal, quantity9:BigDecimal, quantity10:BigDecimal, quantity11:BigDecimal, quantity12:BigDecimal, quantity13:BigDecimal, quantity14:BigDecimal, quantity15:BigDecimal, quantity16:BigDecimal, quantity17:BigDecimal, quantity18:BigDecimal, quantity19:BigDecimal, quantity20:BigDecimal, quantity21:BigDecimal, quantity22:BigDecimal, quantity23:BigDecimal, quantity24:BigDecimal, quantity25:BigDecimal, quantity26:BigDecimal, quantity27:BigDecimal, quantity28:BigDecimal, quantity29:BigDecimal, quantity30:BigDecimal, quantity31:BigDecimal, quantity32:BigDecimal, quantity33:BigDecimal, quantity34:BigDecimal, quantity35:BigDecimal, quantitytotal:BigDecimal);
+
+sopgarmentrequirementspersales(usersessionid:String, itemid:String, dimension1:String, dimension3:String, sizerequirements1:BigDecimal, sizerequirements2:BigDecimal, sizerequirements3:BigDecimal, sizerequirements4:BigDecimal, sizerequirements5:BigDecimal, sizerequirements6:BigDecimal, sizerequirements7:BigDecimal, sizerequirements8:BigDecimal, sizerequirements9:BigDecimal, sizerequirements10:BigDecimal);
+
+sopsalesorderpostregister();
+
+sopsalesorderstockenquirymaster(userid:String, salesorderid:String, lineno:double, itemid:String, itemreference:String, itemdescription:String, dimension1:String, dimension1decription:String, dimension2:String, dimension3:String, warehouse:String, //kimblingserialno:String, requiredquantity:BigDecimal, availablequantity:BigDecimal, rekimblequantity:BigDecimal, cantpick:boolean, cantassemble:boolean, cantrekimble:boolean, orderno:String, ordertype:String, transid:String, uom:String, //variablesforworkbenchwbitemid:String, wbitemreference:String, wbitemdescription:String, wbdimension1:String, wbdimension2:String, wbdimension3:String, wbrequiredquantity:BigDecimal, wbbackorderquantity:BigDecimal, wbcomments:String, wbusedquantity:BigDecimal);
+
+sopsalesbysizeenquiry(userdateid:String, customergroup:String, customerid:String, customername:String, itemgroup:String, itemgender:String, itemproductgroup:String, itemid:String, itemreference:String, itemdescription:String, dimension1:String, dimension2:String, dimension3:String, totalquantity:BigDecimal, quantity1:BigDecimal, quantity2:BigDecimal, quantity3:BigDecimal, quantity4:BigDecimal, quantity5:BigDecimal, quantity6:BigDecimal, quantity7:BigDecimal, quantity8:BigDecimal, quantity9:BigDecimal, quantity10:BigDecimal, quantity11:BigDecimal, quantity12:BigDecimal, quantity13:BigDecimal, quantity14:BigDecimal, quantity15:BigDecimal, quantity16:BigDecimal, quantity17:BigDecimal, quantity18:BigDecimal, quantity19:BigDecimal, quantity20:BigDecimal, quantity21:BigDecimal, quantity22:BigDecimal, quantity23:BigDecimal, quantity24:BigDecimal, quantity25:BigDecimal, quantity26:BigDecimal, quantity27:BigDecimal, quantity28:BigDecimal, quantity29:BigDecimal, quantity30:BigDecimal, quantity31:BigDecimal, quantity32:BigDecimal, quantity33:BigDecimal, quantity34:BigDecimal, quantity35:BigDecimal, quantity36:BigDecimal, quantity37:BigDecimal, quantity38:BigDecimal, quantity39:BigDecimal, quantity40:BigDecimal, quantity41:BigDecimal, quantity42:BigDecimal, quantity43:BigDecimal, quantity44:BigDecimal, quantity45:BigDecimal, quantity46:BigDecimal, quantity47:BigDecimal, quantity48:BigDecimal, quantity49:BigDecimal, quantity50:BigDecimal);
+
+sopcustomerclassification5(classification5:String, description:String);
+
+sopmtoworkbenchlines(userid:String, //masterrecordid:long, orderlevel:int, parentrecordid:long, ordertype:String, orderid:String, orderstatus:String, itemid:String, itemreference:String, itemdescription:String, dimension1:String, dimension2:String, dimension3:String, warehouse:String, orderquantity:BigDecimal, peggedquantity:BigDecimal);
+
+sopdailyfigures(asat:Date, grosstotalinv:BigDecimal, sundriinv:BigDecimal, salesvalueinv:BigDecimal, discounttotalinv:BigDecimal, qtytotalcrates:BigDecimal, bin1qtycgimp:BigDecimal, bin2qtycgimp:BigDecimal, bin3qtycgimp:BigDecimal, bin4qtycgimp:BigDecimal, bin1qtycgloc:BigDecimal, bin2qtycgloc:BigDecimal, bin3qtycgloc:BigDecimal, bin4qtycgloc:BigDecimal, bin1qtyfg:BigDecimal, bin2qtyfg:BigDecimal, bin3qtyfg:BigDecimal, bin4qtyfg:BigDecimal, workcenteridsw:BigDecimal, finishedsw:BigDecimal, rejectedsw:BigDecimal, unitspk:BigDecimal, qtyreceivedfgcmt:BigDecimal, qtyreceivedcgimp:BigDecimal, qtyreceivedcgcmt:BigDecimal, qtyreceivedfgimp:BigDecimal, unitsalldesp:BigDecimal, costalldesp:BigDecimal, unitsimpdesp:BigDecimal, costimpdesp:BigDecimal, unitsdi:BigDecimal, costdi:BigDecimal, bin1qtyfabkg:BigDecimal, bin2qtyfabkg:BigDecimal, bin3qtyfabkg:BigDecimal, bin4qtyfabkg:BigDecimal, bin1qtyfabmtr:BigDecimal, bin2qtyfabmtr:BigDecimal, bin3qtyfabmtr:BigDecimal, bin4qtyfabmtr:BigDecimal, incuttingunits:BigDecimal, insewingunits:BigDecimal, topickunits:BigDecimal, inpackingunits:BigDecimal, finishedgoodsunits:BigDecimal);
+
+soppricearangements(customertype:String, pricegroup:String, customerid:String, itemid:String, dimension1:String, dimension1sortcode:int, dimension2:String, dimension2sortcode:int, dimension3:String, dimension3sortcode:int, from:Date, to:Date, quantity:BigDecimal, price:BigDecimal, uniquefields:String);
+
+sopsalesordermasspostordertable(queryid:String, tablename:String, fieldname:String, orderdirection:String, orderrank:int);
+
+sopsalesordermastersuper(salesorderno:String, refsalesorderno:String, invoicestatus:String, customerno:String, invoicetocustomerno:String, salsesorderstatus:String, deliveryaddress1:String, deliveryaddress2:String, deliveryaddress3:String, deliveryaddress4:String, deliveryaddress5:String, deliveryaddresscode:String, invoiceaddress1:String, invoiceaddress2:String, invoiceaddress3:String, invoiceaddress4:String, invoiceaddress5:String, invoiceaddresscode:String, vatno:String, vatcode:String, salesgroup:String, salesregion:String, salesarea:String, customerorderno:String, reference:String, orderwarehouse:String, deliverymethod:String, deliveryterms:String, pricinggroup:String, discountgroup:String, extrachargegroup:String, termscode:String, settlementdiscountcode:String, importversion:int, salesordertype:String, captured:Date, required:Date, comments:String, salesrep:String, blanketorderref:String, aworef:String, kimbleaworef:String, //thisisatemporaryn&lfield.accepted:boolean, kimbling:Boolean, fullyreserved:boolean, useshiptokimble:boolean, deliverychargs:Boolean, originalrequired:Date, datechangereason:String, distributionstatus:String, assemblytype:String);
+
+sopsalesorderlinessuper(salesorderno:String, lineno:double, itemid:String, dimension1:String, dimension2:String, dimension3:String, warehouse:String, quantity:BigDecimal, postnowquantity:BigDecimal, uom:String, originalprice:BigDecimal, price:BigDecimal, originaldiscountperc:BigDecimal, discountperc:BigDecimal, vatcode:String, vatamount:BigDecimal, stdunitprice:BigDecimal, costataverage:BigDecimal, costadjustment:BigDecimal, inventtransid:String, //creditcheckingisdependantonthisfieldexcludingvat.consultwithteambeforechanging!linetotal:BigDecimal, required:Date, linecanceld:boolean, priceapprovelrequired:boolean, priceapprovedby:String, priceapproved:Date, pricechangereason:String, discountapprovelrequired:boolean, discountapprovedby:String, discountapproved:Date, discountchangereason:String, externalreference:String, //creditheldfields.creditheld:boolean, creditheldreason:String, creditheldstatus:String, //blanketordersblanketorderqtyreleased:BigDecimal, blanketorderlineref:long, distributionorderqtyreleased:BigDecimal, distributionorderlineref:long, //boreleasedfromdmforecastcombinationrecodid:long, originalquantity:BigDecimal, quantitychangereason:String);
+
+sopcustomerclassification1(classification1:String, description:String);
+
+sopsalesrepcommission(repid:String, customeritemfield1:String, customeritemfield2:String, customeritemfield3:String, customeritemfield4:String, customeritemfield5:String, customeritemfield6:String, commissionperc:BigDecimal);
+
+sopcustomerclassification4(classification4:String, description:String);
+
+sopsalesordercancellines(cancelreason:String);
+
+soppriceaudittrail(recordtype:String, userid:String, log:Date, logtime:Date, customertype:String, pricegroup:String, customerid:String, itemid:String, dimension1:String, dimension2:String, dimension3:String, from:Date, to:Date, quantity:BigDecimal, originalprice:BigDecimal, price:BigDecimal, updatedprice:BigDecimal, sourcerecordid:long, changereason:String);
+
+sopparameters(allowstandardprice:boolean, customeritemtable1:String, customeritemtable2:String, customeritemtable3:String, customeritemtable4:String, customeritemtable5:String, customeritemtable6:String, customeritemfield1:String, customeritemfield2:String, customeritemfield3:String, customeritemfield4:String, customeritemfield5:String, customeritemfield6:String, customeritemfielddesc1:String, customeritemfielddesc2:String, customeritemfielddesc3:String, customeritemfielddesc4:String, customeritemfielddesc5:String, customeritemfielddesc6:String, allowpartialpost:boolean, allowpartialbopost:boolean, forcepriceentry:boolean, useinvoiceto:String, uselowestprice:boolean, allowduplicatesolines:boolean, allowpartialstkassembly:boolean, //productiontab.assembleworksordergroup:String, assembleworksorderwc:String, assembleblanketorderworksordergroup:String, assembleblanketorderworksorderwc:String, leadtimeindays:BigDecimal, minimumordervalue:BigDecimal, backordercancelreason:String, //contactfaxnumber:String, kimbledespworksordergroup:String, kimbledespworksorderwc:String, kimblestkworksordergroup:String, kimblestkworksorderwc:String, mtodespworksordergroup:String, mtodespworksorderwc:String, mtostkworksordergroup:String, mtostkworksorderwc:String, assemblypreference:String, salesenquirylastcleared:Date);
+
+sopmtoworkbenchmaster(userid:String, //salesorderid:String, lineno:double, itemid:String, itemreference:String, itemdescription:String, dimension1:String, dimension2:String, dimension3:String, warehouse:String, serialno:String, totalrequired:BigDecimal, fromstock:BigDecimal, fromproduction:BigDecimal);
+
+sopexplodedsalesenquiry(userid:String, customerid:String, customername:String, marketinggroup:String, itemid:String, itemreference:String, itemdescription:String, classification1:String, classification5:String, brandgroup:String, dimension1:String, dimension2:String, dimension3:String, customfield1:String, customfield2:String, customfield3:String, customfield4:String, customfield5:String, salesrep:String, quantity1:BigDecimal, quantity2:BigDecimal, quantity3:BigDecimal, quantity4:BigDecimal, quantity5:BigDecimal, quantity6:BigDecimal, quantity7:BigDecimal, quantity8:BigDecimal, quantity9:BigDecimal, quantity10:BigDecimal, quantity11:BigDecimal, quantity12:BigDecimal, quantitytotal:BigDecimal);
+
+sopsalesordermasspostmaintable(queryid:String, displaypostform:boolean, reservestock:boolean);
+
+sopsalesorderstockenquirylines(userid:String, salesorderid:String, orderno:String, ordertype:String, lineno:double, masterrecordid:long, itemid:String, itemreference:String, itemdescription:String, dimension1:String, dimension2:String, dimension3:String, warehouse:String, requiredquantity:BigDecimal, availablequantity:BigDecimal, cantassemble:boolean, required:Date);
+
+sopsalesenquiry(recordtype:String, userid:String, customerid:String, customername:String, marketinggroup:String, itemid:String, itemreference:String, itemdescription:String, classification1:String, classification5:String, brandgroup:String, dimension1:String, dimension2:String, dimension3:String, customfield1:String, customfield2:String, customfield3:String, customfield4:String, customfield5:String, salesrep:String, quantity1:BigDecimal, quantity2:BigDecimal, quantity3:BigDecimal, quantity4:BigDecimal, quantity5:BigDecimal, quantity6:BigDecimal, quantity7:BigDecimal, quantity8:BigDecimal, quantity9:BigDecimal, quantity10:BigDecimal, quantity11:BigDecimal, quantity12:BigDecimal, quantitytotal:BigDecimal);
+
+sopcustomerclassification6(classification6:String, description:String);
+
+sopreallocation(tosalesorderid:String, unreserve:boolean, reallocatedquantity:BigDecimal, customerid:String, customername:String, salesorderid:String, due:Date, itemref:String, dimension1:String, dimension2:String, dimension3:String, warehouse:String, location:String, batch:String, serial:String, pallet:String, reservedquantity:BigDecimal, transactionref:long, dimensionid:long, transactionversionnumber:long, posted:boolean, sessionid:long);
+
+sopcustomergroup(customergroup:String, description:String);
+
+sopcustomerclassification2(classification2:String, description:String);
+
+sopsalesrepcommissionwizzard(wizzardid:String, fieldid:String, mainvalue:String, description1:String, description2:String, description3:String, description4:String, description5:String);
+
+sopnlcutplan(itemid:String, itemreference:String, dimension1:String, dimension2:String, dimension3:String, type:String, qty:BigDecimal, required:Date, class6:String);
+
+sopsalesorderpostlines(postmasterid:String, linenumber:BigDecimal, itemid:String, dimensionid:long, uom:String, pickquantity:BigDecimal, assemblequantity:BigDecimal, kimblequantity:BigDecimal, maxquantity:BigDecimal, transactionnumber:String, blanketorderreleaseqty:BigDecimal, distributionorderreleaseqty:BigDecimal, backorderquantity:BigDecimal, mtoquantity:BigDecimal, required:Date);
+
+soppricechangereason(reasonid:String, description:String);
+
+sopsalesrepgroups(repgroupid:String, description:String, groupmanager:String, groupmanagercommissionperc:BigDecimal, parentrepgroup:String);
+
+sopsalesordermaster();
+
+sopsalesorderlines();
+
+sopdiscountsetup(customerselecttype:String, customerdiscgroup:String, customerid:String, itemselecttype:String, itemdiscgroup:String, itemid:String, dimension1:String, dimension2:String, dimension3:String, from:Date, to:Date, discountpercentage:BigDecimal);
+
+sopcustomerlabels(customerid:String, custlabeldocument:String, labeltitle:String);
+
+sopsalesorderchangedatereason(reasonid:String, description:String);
+
+sopsalesrepgroupssetup(repgroupid:String, repid:String, groupmanagercommissionperc:BigDecimal, defaultcommissionperc:BigDecimal);
+
+sopsalesordermasspostwheretable(queryid:String, tablename:String, fieldname:String, querycondition:String, fieldvalue:String);
+
+sopsalesorderpostsetup(postsetupid:String, post:boolean, print:boolean, usebatch:boolean);
+
+sopsalesorderpostmaster(postsetupid:String, postmasterid:String, salesorderid:String, customerid:String, post:Date, deliveryterms:String, deliverymethod:String, required:Date, distributionorder:boolean);
+
+sopcustomers(//overviewcustomerid:String, customername:String, customercomapny:String, trandingas:String, invoicetocustomer:String, customergroup:String, customerstatus:String, marketinggroup:String, accountopened:Date, //addressphysicaladdresline1:String, physicaladdresline2:String, physicaladdresline3:String, physicaladdresline4:String, physicaladdresline5:String, physicalpostalcode:String, postaladdresline1:String, postaladdresline2:String, postaladdresline3:String, postaladdresline4:String, postaladdresline5:String, postalpostalcode:String, //contacttelephonenumber:String, cellnumber:String, emergencynumber:String, faxnumber:String, email:String, website:String, ordercontactname:String, ordercontacttelephonenumber:String, ordercontactcellnumber:String, ordercontactemail:String, accountcontactname:String, accountcontacttelephonenumber:String, accountcontactcellnumber:String, accountcontactemail:String, //credit/paymentcreditrating:String, creaditlimit:double, creditstoped:boolean, stoped:Date, stoppedby:String, creditstopreason:String, termsofpayment:String, settlementdiscount:String, surety:boolean, suretyamount:double, suretyexpiry:Date, creditinsuredby:String, insurerfileref:String, insureddocref:String, insuredamount:BigDecimal, creditinsuredexpiry:Date, discretionaryamount:BigDecimal, grantedby:String, discretionaryamountexpiry:Date, creditcontroller:String, //statusclosedby:String, closed:Date, closedreason:String, //pricingpricegroup:String, discountgroup:String, extachargegroup:String, priceon:String, rebatecode:String, //salessalesgroup:String, salesregion:String, salesarea:String, orderwarehouse:String, allowsubstituteitems:boolean, requirekimbling:boolean, useshiptokimble:boolean, serviced:boolean, //deliverydeliverymethod:String, deliveryterms:String, deliverybookingrequired:boolean, deliverydayofweek:String, deliveryleadtime:int, allowpartialdelivery:boolean, deliverbeforedate:int, deliverycharge:boolean, deliverychargecode:String, nominatedcourier:String, deliveryinstructions:String, //companyinfocompanyregistrationnumber:String, vatregistration:String, vatcode:String, bankname:String, bankbranchcode:String, bankaccountnumber:String, bankaccountname:String, responsibleperson:String, responsiblepersonnumber:String, responsiblepersontelno:String, responsiblepersoncellno:String, responsiblepersonemail:String, //classificationclassificationgroup1:String, classificationgroup2:String, classificationgroup3:String, classificationgroup4:String, classificationgroup5:String, classificationgroup6:String, //linkbacktoprospectprospectid:String, //forecastforecastgroup:String, export:boolean, //repsalesrep:String, repservice:String, deliveryrules:String, //exportcountryofdestination:String, exportcurrency:String, //webregistrationwhereheard:String, accepttermsandconditions:boolean);
+
+sopsalesordercancelmaster(cancelreason:String);
+
+sopcustomerclassification3(classification3:String, description:String);
+
+emcentityclass(recordid:long [PK], companyid:String, createdby:String, created:Date, modifiedby:String, modifiedtime:Date, modified:Date, closed:String, version:long, createdtime:Date, hasattachment:boolean);
+
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

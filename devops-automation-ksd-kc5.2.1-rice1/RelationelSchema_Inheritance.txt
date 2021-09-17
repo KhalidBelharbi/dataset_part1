@@ -1,0 +1,17 @@
+
+traveldocument2(traveler:String, origin:String, destination:String, requesttype:String);
+
+trav_doc_2_accounts(fdoc_nbr:TravelDocument2 [PK] #FK to TravelDocument2,acct_num:list<travelaccount> [PK] #FK to list<travelaccount>);
+
+travelaccounttype(serialversionuid:long, accounttypecode:String [PK], name:String);
+
+travelaccountuserate(serialversionuid:long, id:String [PK], number:String, rate:KualiPercent);
+
+fiscalofficer(serialversionuid:long, id:Long [PK], username:String, firstname:String);
+
+travelaccountextension(serialversionuid:long, number:String [PK], accounttypecode:String, accounttype:TravelAccountType #FK to(travelaccounttype));
+
+travelaccount(serialversionuid:long, number:String [PK], subaccount:String, name:String, subaccountname:String, subsidizedpercent:KualiPercent, create:Date, foid:Long, GeneratedName:FiscalOfficer #FK to(fiscalofficer));
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

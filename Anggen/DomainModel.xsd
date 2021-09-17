@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="enumvalue" >
+      <xs:sequence>
+        <xs:element name="entityid" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="value" type="xs:anyType" />
+        <xs:element name="enumvalueid" type="xs:anyType" />
+        <xs:element name="enumentity" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="annotation" >
+      <xs:sequence>
+        <xs:element name="entityid" type="xs:anyType" />
+        <xs:element name="annotationid" type="xs:anyType" />
+        <xs:element name="annotationattributelist" type="annotationattribute" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="field" type="xs:anyType" />
+        <xs:element name="enumfield" type="xs:anyType" />
+        <xs:element name="relationship" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="annotationtype" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="annotationattribute" >
+      <xs:sequence>
+        <xs:element name="entityid" type="xs:anyType" />
+        <xs:element name="property" type="xs:anyType" />
+        <xs:element name="value" type="xs:anyType" />
+        <xs:element name="annotationattributeid" type="xs:anyType" />
+        <xs:element name="annotation" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="project" >
+      <xs:sequence>
+        <xs:element name="entityid" type="xs:long" />
+        <xs:element name="projectid" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="entitygrouplist" type="entitygroup" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="enumentitylist" type="enumentity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="enumentity" >
+      <xs:sequence>
+        <xs:element name="entityid" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="enumentityid" type="xs:anyType" />
+        <xs:element name="project" type="xs:anyType" />
+        <xs:element name="enumvaluelist" type="enumvalue" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="enumfieldlist" type="enumfield" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="logentry" >
+      <xs:sequence>
+        <xs:element name="entityid" type="xs:anyType" />
+        <xs:element name="info" type="xs:anyType" />
+        <xs:element name="hostname" type="xs:anyType" />
+        <xs:element name="userid" type="xs:anyType" />
+        <xs:element name="log" type="xs:dateTime" />
+        <xs:element name="logentryid" type="xs:anyType" />
+        <xs:element name="entityid" type="xs:anyType" />
+        <xs:element name="ipaddress" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="logtype" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="operationtype" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="restrictionentitygroup" >
+      <xs:sequence>
+        <xs:element name="entityid" type="xs:anyType" />
+        <xs:element name="canupdate" type="xs:anyType" />
+        <xs:element name="cancreate" type="xs:anyType" />
+        <xs:element name="candelete" type="xs:anyType" />
+        <xs:element name="restrictionentitygroupid" type="xs:anyType" />
+        <xs:element name="cansearch" type="xs:anyType" />
+        <xs:element name="role" type="xs:anyType" />
+        <xs:element name="entitygroup" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="entityid" type="xs:anyType" />
+        <xs:element name="userid" type="xs:anyType" />
+        <xs:element name="password" type="xs:anyType" />
+        <xs:element name="username" type="xs:anyType" />
+        <xs:element name="enabled" type="xs:anyType" />
+        <xs:element name="rolelist" type="role" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="restrictionfield" >
+      <xs:sequence>
+        <xs:element name="entityid" type="xs:anyType" />
+        <xs:element name="restrictionfieldid" type="xs:anyType" />
+        <xs:element name="role" type="xs:anyType" />
+        <xs:element name="field" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="role" >
+      <xs:sequence>
+        <xs:element name="entityid" type="xs:long" />
+        <xs:element name="roleid" type="xs:anyType" />
+        <xs:element name="role" type="xs:string" />
+        <xs:element name="restrictionentitylist" type="restrictionentity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="restrictionfieldlist" type="restrictionfield" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="userlist" type="user" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="restrictionentitygrouplist" type="restrictionentitygroup" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

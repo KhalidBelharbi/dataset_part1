@@ -1,0 +1,573 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="runtime-es2015.75aafe2643bd867203f6" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="runtime-es5.75aafe2643bd867203f6" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="application" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="swaggerconfig" >
+      <xs:sequence>
+        <xs:element name="default_" type="xs:anyType" />
+        <xs:element name="default_api_info" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cors" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="emailutil" >
+      <xs:sequence>
+        <xs:element name="emailsender" type="xs:anyType" />
+        <xs:element name="templateengine" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="mail" >
+      <xs:sequence>
+        <xs:element name="from" type="xs:string" />
+        <xs:element name="to" type="xs:string" />
+        <xs:element name="subject" type="xs:string" />
+        <xs:element name="model" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="consultaexamen" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="examen" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="consulta" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="consulta" >
+      <xs:sequence>
+        <xs:element name="idconsulta" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="paciente" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="medico" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="especialidad" nillable="true" minOccurs="0" />
+        <xs:element name="numconsultorio" type="xs:string" />
+        <xs:element name="//@jsonserialize(using" type="xs:anyType" />
+        <xs:element name="detalleconsulta" type="detalleconsulta" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="menu" >
+      <xs:sequence>
+        <xs:element name="idmenu" type="xs:anyType" />
+        <xs:element name="icono" type="xs:string" />
+        <xs:element name="nombre" type="xs:string" />
+        <xs:element name="url" type="xs:string" />
+        <xs:element name="roles" type="rol" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rol" >
+      <xs:sequence>
+        <xs:element name="idrol" type="xs:anyType" />
+        <xs:element name="nombre" type="xs:string" />
+        <xs:element name="descripcion" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="resettoken" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="token" type="xs:string" />
+        <xs:element name="user" type="usuario" nillable="true" minOccurs="0" />
+        <xs:element name="expiracion" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usuario" >
+      <xs:sequence>
+        <xs:element name="idusuario" type="xs:anyType" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="enabled" type="xs:anyType" />
+        <xs:element name="roles" type="rol" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="archivo" >
+      <xs:sequence>
+        <xs:element name="idarchivo" type="xs:anyType" />
+        <xs:element name="filename" type="xs:string" />
+        <xs:element name="filetype" type="xs:string" />
+        <xs:element name="value" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="paciente" >
+      <xs:sequence>
+        <xs:element name="idpaciente" type="xs:anyType" />
+        <xs:element name="nombres" type="xs:string" />
+        <xs:element name="apellidos" type="xs:string" />
+        <xs:element name="dni" type="xs:string" />
+        <xs:element name="direccion" type="xs:string" />
+        <xs:element name="telefono" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="examen" >
+      <xs:sequence>
+        <xs:element name="idexamen" type="xs:anyType" />
+        <xs:element name="nombre" type="xs:string" />
+        <xs:element name="descripcion" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="medico" >
+      <xs:sequence>
+        <xs:element name="idmedico" type="xs:anyType" />
+        <xs:element name="nombres" type="xs:string" />
+        <xs:element name="apellidos" type="xs:string" />
+        <xs:element name="cmp" type="xs:string" />
+        <xs:element name="fotourl" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="detalleconsulta" >
+      <xs:sequence>
+        <xs:element name="iddetalle" type="xs:long" />
+        <xs:element name="GeneratedName" type="consulta" nillable="true" minOccurs="0" />
+        <xs:element name="diagnostico" type="xs:string" />
+        <xs:element name="tratamiento" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="especialidad" >
+      <xs:sequence>
+        <xs:element name="idespecialidad" type="xs:anyType" />
+        <xs:element name="nombre" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="consultaexamenpk" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="examen" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="consulta" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="imedicoservice" >
+      <xs:complexContent>
+       <xs:extension base="icrud<medico>{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="iconsultaservice" >
+      <xs:complexContent>
+       <xs:extension base="icrud<consulta>{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="iloginservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="iespecialidadservice" >
+      <xs:complexContent>
+       <xs:extension base="icrud<especialidad>{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="imenuservice" >
+      <xs:complexContent>
+       <xs:extension base="icrud<menu>{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="securityservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="iresettokenservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="iconsultaexamenservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="archivoserviceimpl" >
+      <xs:sequence>
+        <xs:element name="repo" type="iarchivorepo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="authserviceimpl" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="menuserviceimpl" >
+      <xs:sequence>
+        <xs:element name="repo" type="imenurepo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usuarioserviceimpl" >
+      <xs:sequence>
+        <xs:element name="repo" type="iusuariorepo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="resettokenserviceimpl" >
+      <xs:sequence>
+        <xs:element name="repo" type="iresettokenrepo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="medicoserviceimpl" >
+      <xs:sequence>
+        <xs:element name="repo" type="imedicorepo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="consultaserviceimpl" >
+      <xs:sequence>
+        <xs:element name="repo" type="iconsultarepo" nillable="true" minOccurs="0" />
+        <xs:element name="cerepo" type="iconsultaexamenrepo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="consultaexamenserviceimpl" >
+      <xs:sequence>
+        <xs:element name="repo" type="iconsultaexamenrepo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="examenserviceimpl" >
+      <xs:sequence>
+        <xs:element name="repo" type="iexamenrepo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="especialidadserviceimpl" >
+      <xs:sequence>
+        <xs:element name="repo" type="iespecialidadrepo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="securityserviceimpl" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pacienteserviceimpl" >
+      <xs:sequence>
+        <xs:element name="repo" type="ipacienterepo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="loginserviceimpl" >
+      <xs:sequence>
+        <xs:element name="repo" type="iloginrepo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="iarchivoservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ipacienteservice" >
+      <xs:complexContent>
+       <xs:extension base="icrud<paciente>{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="iexamenservice" >
+      <xs:complexContent>
+       <xs:extension base="icrud<examen>{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="icrud" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="responseexceptionhandler" >
+      <xs:complexContent>
+       <xs:extension base="responseentityexceptionhandler{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="exceptionresponse" >
+      <xs:sequence>
+        <xs:element name="timestamp" type="xs:anyType" />
+        <xs:element name="mensaje" type="xs:string" />
+        <xs:element name="detalles" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="modelonotfoundexception" >
+      <xs:complexContent>
+       <xs:extension base="runtimeexception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="consultaexamencontroller" >
+      <xs:sequence>
+        <xs:element name="service" type="iconsultaexamenservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tokencontroller" >
+      <xs:sequence>
+        <xs:element name="tokenservices" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="menucontroller" >
+      <xs:sequence>
+        <xs:element name="service" type="imenuservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="examencontroller" >
+      <xs:sequence>
+        <xs:element name="service" type="iexamenservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pacientecontroller" >
+      <xs:sequence>
+        <xs:element name="service" type="ipacienteservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="consultacontroller" >
+      <xs:sequence>
+        <xs:element name="service" type="iconsultaservice" nillable="true" minOccurs="0" />
+        <xs:element name="servicearchivo" type="iarchivoservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="medicocontroller" >
+      <xs:sequence>
+        <xs:element name="service" type="imedicoservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="especialidadcontroller" >
+      <xs:sequence>
+        <xs:element name="service" type="iespecialidadservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="securityconfig" >
+      <xs:complexContent>
+       <xs:extension base="websecurityconfigureradapter{">
+         <xs:sequence>
+          <xs:element name="signingkey" type="xs:string" />
+          <xs:element name="encodingstrength" type="xs:anyType" />
+          <xs:element name="securityrealm" type="xs:string" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="bcrypt" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="filtroconsultadto" >
+      <xs:sequence>
+        <xs:element name="dni" type="xs:string" />
+        <xs:element name="nombrecompleto" type="xs:string" />
+        <xs:element name="//@jsonserialize(using" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="logindto" >
+      <xs:sequence>
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="consultalistaexamendto" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="consulta" nillable="true" minOccurs="0" />
+        <xs:element name="lstexamen" type="examen" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="updatepassworddto" >
+      <xs:sequence>
+        <xs:element name="token" type="xs:string" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="oldpassword" type="xs:string" />
+        <xs:element name="newpassword" type="xs:string" />
+        <xs:element name="verificationcode" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="basicaccessdto" >
+      <xs:sequence>
+        <xs:element name="token" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="renewpasswordfirstdto" >
+      <xs:sequence>
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="session" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="consultadto" >
+      <xs:complexContent>
+       <xs:extension base="resourcesupport{">
+         <xs:sequence>
+          <xs:element name="idconsulta" type="xs:anyType" />
+          <xs:element name="" type="medico" nillable="true" minOccurs="0" />
+          <xs:element name="" type="paciente" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="respuestaapi" >
+      <xs:sequence>
+        <xs:element name="status" type="xs:string" />
+        <xs:element name="accesstoken" type="xs:string" />
+        <xs:element name="idtoken" type="xs:string" />
+        <xs:element name="refreshtoken" type="xs:string" />
+        <xs:element name="sessionid" type="xs:string" />
+        <xs:element name="body" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="consultaresumendto" >
+      <xs:sequence>
+        <xs:element name="cantidad" type="xs:anyType" />
+        <xs:element name="fecha" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="iespecialidadrepo" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<especialidad,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ipacienterepo" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<paciente,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="iloginrepo" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<usuario,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="iusuariorepo" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<usuario,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="imedicorepo" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<medico,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="imenurepo" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<menu,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="iconsultarepo" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<consulta,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="iarchivorepo" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<archivo,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="iresettokenrepo" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<resettoken,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="iexamenrepo" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<examen,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="iconsultaexamenrepo" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<consultaexamen,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="authexception" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="authorizationserverconfig" >
+      <xs:complexContent>
+       <xs:extension base="authorizationserverconfigureradapter">
+         <xs:sequence>
+          <xs:element name="clientid" type="xs:string" />
+          <xs:element name="clientsecret" type="xs:string" />
+          <xs:element name="granttype" type="xs:string" />
+          <xs:element name="scoperead" type="xs:string" />
+          <xs:element name="scopewrite" type="xs:string" />
+          <xs:element name="resourceids" type="xs:string" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="accesstokenconverter" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="bcrypt" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="logincontroller" >
+      <xs:sequence>
+        <xs:element name="service" type="iloginservice" nillable="true" minOccurs="0" />
+        <xs:element name="tokenservice" type="iresettokenservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="emailutil" nillable="true" minOccurs="0" />
+        <xs:element name="bcrypt" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="resourceserverconfig" >
+      <xs:complexContent>
+       <xs:extension base="resourceserverconfigureradapter">
+         <xs:sequence>
+          <xs:element name="tokenservices" type="xs:anyType" />
+          <xs:element name="resourceids" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="mediappbackendapplication" >
+      <xs:complexContent>
+       <xs:extension base="springbootservletinitializer{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="mediappbackendapplicationtests" >
+      <xs:sequence>
+        <xs:element name="bcrypt" type="xs:anyType" />
+        <xs:element name="repo" type="iusuariorepo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="oauth2logintest" >
+      <xs:sequence>
+        <xs:element name="url_prefix" type="xs:string" />
+        <xs:element name="tokenvalue" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

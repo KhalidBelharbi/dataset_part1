@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="springreststockexchangeapplicationtests" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="registerdto" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="phonenumber" type="xs:long" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="regstatus" type="xs:string" />
+        <xs:element name="active" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="stockprice" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="stock_exchange" type="xs:string" />
+        <xs:element name="current_price" type="xs:double" />
+        <xs:element name="opendatetime" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="stockexchange" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="address" type="xs:string" />
+        <xs:element name="brief" type="xs:string" />
+        <xs:element name="remarks" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="register" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="phonenumber" type="xs:long" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="regstatus" type="xs:string" />
+        <xs:element name="active" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="company" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="ceo" type="xs:string" />
+        <xs:element name="board_of_directors" type="xs:string" />
+        <xs:element name="listed_in_stock_exchanges" type="xs:string" />
+        <xs:element name="sector" type="xs:string" />
+        <xs:element name="turnover" type="xs:double" />
+        <xs:element name="brief" type="xs:string" />
+        <xs:element name="stock_code" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="initialpublicoffering" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="company_name" type="xs:string" />
+        <xs:element name="stock_exchange" type="xs:string" />
+        <xs:element name="price_per_share" type="xs:double" />
+        <xs:element name="total_shares" type="xs:double" />
+        <xs:element name="opendatetime" type="xs:anyType" />
+        <xs:element name="remarks" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="registerrestresources" >
+      <xs:complexContent>
+       <xs:extension base="pagingandsortingrepository<register,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="stockexchangerestresources" >
+      <xs:complexContent>
+       <xs:extension base="pagingandsortingrepository<stockexchange,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="stockpricerestresource" >
+      <xs:complexContent>
+       <xs:extension base="pagingandsortingrepository<stockprice,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="companyrestresources" >
+      <xs:complexContent>
+       <xs:extension base="pagingandsortingrepository<company,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="initialpublicofferingrestresources" >
+      <xs:complexContent>
+       <xs:extension base="pagingandsortingrepository<initialpublicoffering,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="stockexchangeserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="stockexchangedao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="registerserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="registerdao" nillable="true" minOccurs="0" />
+        <xs:element name="javamail" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="companyserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="companydao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="initialpublicofferingserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="initialpublicofferingdao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="stockpriceserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="stockpricedao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="stockpriceservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="companyservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="initialpublicofferingservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="registerservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="stockexchangeservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="springreststockexchangeapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="registerdao" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<register,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="companydao" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<company,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="stockexchangedao" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<stockexchange,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="stockpricedao" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<stockprice,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="initialpublicofferingdao" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<initialpublicoffering,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="stockexchangerestcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="stockexchangedao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="stockexchangeservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="initialpublicofferingrestcontroller" >
+      <xs:sequence>
+        <xs:element name="ur" type="initialpublicofferingdao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="stockpricerestcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="stockpricedao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="stockpriceservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="companyrestcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="companydao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="companyservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="registerrestcontroller" >
+      <xs:sequence>
+        <xs:element name="registerrepo" type="registerdao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="registerservice" nillable="true" minOccurs="0" />
+        <xs:element name="jms" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="registerdao" nillable="true" minOccurs="0" />
+        <xs:element name="1" type="registerservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="application" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

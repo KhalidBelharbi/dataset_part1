@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="aluno" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="cpf" type="xs:string" />
+        <xs:element name="nome" type="xs:string" />
+        <xs:element name="turma" type="turma" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="produtocursos" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="produto" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="codigoproduto" type="xs:string" />
+        <xs:element name="nomeproduto" type="xs:string" />
+        <xs:element name="//@onetomany(mappedby" type="curso" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="ativo" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="turma" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="codigoturma" type="xs:string" />
+        <xs:element name="vagasdisponiveis" type="xs:long" />
+        <xs:element name="datainicio" type="xs:dateTime" />
+        <xs:element name="GeneratedName" type="curso" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="curso" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="codigocurso" type="xs:string" />
+        <xs:element name="nomecurso" type="xs:string" />
+        <xs:element name="descricaocurso" type="xs:string" />
+        <xs:element name="cargahoraria" type="xs:long" />
+        <xs:element name="precocurso" type="xs:double" />
+        <xs:element name="tipocurso" type="enumtipocurso" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="venda" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="codigovenda" type="xs:string" />
+        <xs:element name="GeneratedName" type="aluno" nillable="true" minOccurs="0" />
+        <xs:element name="produto" type="produto" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="valorvenda" type="xs:double" />
+        <xs:element name="datavenda" type="xs:dateTime" />
+        <xs:element name="situacaopagamento" type="enumsituacaopagamento" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="matricula" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="aluno" nillable="true" minOccurs="0" />
+        <xs:element name="//@columndefault(value" type="turma" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="curso" nillable="true" minOccurs="0" />
+        <xs:element name="datamatricula" type="xs:dateTime" />
+        <xs:element name="codigomatricula" type="xs:string" />
+        <xs:element name="situacaomatricula" type="enumsituacaomatricula" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="venda" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

@@ -1,0 +1,621 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="hellorequest" >
+      <xs:sequence>
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hellogreeter" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hellolambda" >
+      <xs:sequence>
+        <xs:element name="greeter" type="hellogreeter" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="echosocket" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="kafkaendpoint" >
+      <xs:sequence>
+        <xs:element name="manager" type="kafkaproducermanager" nillable="true" minOccurs="0" />
+        <xs:element name="consumer" type="kafkaconsumermanager" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="kafkaconsumermanager" >
+      <xs:sequence>
+        <xs:element name="count" type="xs:long" />
+        <xs:element name="consumer" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="kafkaproducermanager" >
+      <xs:sequence>
+        <xs:element name="count" type="xs:long" />
+        <xs:element name="producer" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="testsecureservlet" >
+      <xs:complexContent>
+       <xs:extension base="httpservlet">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="testservlet" >
+      <xs:complexContent>
+       <xs:extension base="httpservlet">
+         <xs:sequence>
+          <xs:element name="configmessage" type="xs:string" />
+          <xs:element name="injectedresponse" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="testfilter" >
+      <xs:complexContent>
+       <xs:extension base="httpfilter">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="transactionresource" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="trs" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="testresource" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="service" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="service" >
+      <xs:sequence>
+        <xs:element name="threshold" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="reactivestreamopsresource" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="testvalidatorendpoint" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jpatestbootstrapendpoint" >
+      <xs:complexContent>
+       <xs:extension base="httpservlet">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="person" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="address" type="sequencedaddress" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="notanentitynotreferenced" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="animal" >
+      <xs:sequence>
+        <xs:element name="weight" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sequencedaddress" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="street" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="human" >
+      <xs:complexContent>
+       <xs:extension base="animal">
+         <xs:sequence>
+          <xs:element name="name" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="workaddress" >
+      <xs:sequence>
+        <xs:element name="company" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jpatestreflectionendpoint" >
+      <xs:complexContent>
+       <xs:extension base="httpservlet">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jpatesteminjectionendpoint" >
+      <xs:complexContent>
+       <xs:extension base="httpservlet">
+         <xs:sequence>
+          <xs:element name="em" type="xs:anyType" />
+          <xs:element name="transaction" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="customer" >
+      <xs:complexContent>
+       <xs:extension base="human">
+         <xs:sequence>
+          <xs:element name="//nogetterexplicitlytotestfieldonlyreflectiveaccessid" type="xs:long" />
+          <xs:element name="" type="address" nillable="true" minOccurs="0" />
+          <xs:element name="" type="workaddress" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jpaproducer" >
+      <xs:sequence>
+        <xs:element name="emf" type="xs:anyType" />
+        <xs:element name="em" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="address" >
+      <xs:sequence>
+        <xs:element name="street1" type="xs:string" />
+        <xs:element name="street2" type="xs:string" />
+        <xs:element name="zipcode" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="examplejobs" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="requestscopedbean" >
+      <xs:complexContent>
+       <xs:extension base="superclass">
+         <xs:sequence>
+          <xs:element name="count" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="testrequestscopeendpoint" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="requestscopedbean" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="superclass" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="datasourceresource" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="datasourcesetup" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="datasourcesetup" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="simplehealthcheck" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="simplehealthcheckwithbuilder" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="annotatedinterface" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="applicationfooprovider" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="collectiontype" >
+      <xs:sequence>
+        <xs:element name="value" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="testresource" >
+      <xs:complexContent>
+       <xs:extension base="parentclass">
+         <xs:sequence>
+          <xs:element name="request" type="xs:anyType" />
+          <xs:element name="service" type="externalservice" nillable="true" minOccurs="0" />
+          <xs:element name="count" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sslrestinterface" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="restinterface" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="programmaticrestinterface" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="externalservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sslclientresource" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="sslrestinterface" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="nonannotatedimplementation" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="clientresource" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="restinterface" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="componenttype" >
+      <xs:sequence>
+        <xs:element name="value" type="xs:string" />
+        <xs:element name="GeneratedName" type="subcomponent" nillable="true" minOccurs="0" />
+        <xs:element name="collectiontypes" type="collectiontype" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="subcomponent" >
+      <xs:sequence>
+        <xs:element name="data" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="somereflectionobject" >
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="reflectiontestendpoint" >
+      <xs:complexContent>
+       <xs:extension base="httpservlet">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="charsetsupport" >
+      <xs:complexContent>
+       <xs:extension base="httpservlet">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="metricsresource" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="opentracingresource" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="roles" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="users" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="index" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="beans" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="mockexternalservice" >
+      <xs:complexContent>
+       <xs:extension base="externalservice">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="kafkatestresource" >
+      <xs:sequence>
+        <xs:element name="kafka" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="validatoritcase" >
+      <xs:complexContent>
+       <xs:extension base="validatortestcase">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="servlettestcase" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="validatortestcase" >
+      <xs:sequence>
+        <xs:element name="uri" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="charactersetsupportitcase" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="datasourceitcase" >
+      <xs:complexContent>
+       <xs:extension base="datasourcetestcase">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="testmocktestcase" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="faulttoleranceitcase" >
+      <xs:complexContent>
+       <xs:extension base="faulttolerancetestcase">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="websockettestcase" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="reactivestreamsoperatorstestcase" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="testresources" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="opentracingtestcase" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="kafkaconsumertest" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jpaentitymanagerinjectiontestcase" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="datasourcetransactionitcase" >
+      <xs:complexContent>
+       <xs:extension base="datasourcetransactiontestcase">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jpabootstraptestcase" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="requestscopeitcase" >
+      <xs:complexContent>
+       <xs:extension base="requestscopetestcase">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="faulttolerancetestcase" >
+      <xs:sequence>
+        <xs:element name="uri" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="kafkaconsumeritcase" >
+      <xs:complexContent>
+       <xs:extension base="kafkaconsumertest">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="kafkaproducertest" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="healthtestcase" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="externalindexitcase" >
+      <xs:complexContent>
+       <xs:extension base="externalindextestcase">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jaxrsitcase" >
+      <xs:complexContent>
+       <xs:extension base="jaxrstestcase">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="healthitcase" >
+      <xs:complexContent>
+       <xs:extension base="healthtestcase">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="transactionitcase" >
+      <xs:complexContent>
+       <xs:extension base="transactiontestcase">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jpabootstrapitcase" >
+      <xs:complexContent>
+       <xs:extension base="jpabootstraptestcase">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="websocketitcase" >
+      <xs:complexContent>
+       <xs:extension base="websockettestcase">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jaxrstestcase" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="openapitestcase" >
+      <xs:sequence>
+        <xs:element name="uri" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="healthchecktestcase" >
+      <xs:sequence>
+        <xs:element name="checkks" type="simplehealthcheck" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="opentracingitcase" >
+      <xs:complexContent>
+       <xs:extension base="opentracingtestcase">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="servletitcase" >
+      <xs:complexContent>
+       <xs:extension base="servlettestcase">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jpareflectioningraalitcase" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="openapiitcase" >
+      <xs:complexContent>
+       <xs:extension base="openapitestcase">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="datasourcetransactiontestcase" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="restclienttestcase" >
+      <xs:sequence>
+        <xs:element name="header_name" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="datasourcetestcase" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="externalindextestcase" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="lambdatestcase" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="requestscopetestcase" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="reactivestreamsoperatorsitcase" >
+      <xs:complexContent>
+       <xs:extension base="reactivestreamsoperatorstestcase">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="metricsitcase" >
+      <xs:complexContent>
+       <xs:extension base="metricstestcase">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="metricstestcase" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="restclientitcase" >
+      <xs:complexContent>
+       <xs:extension base="restclienttestcase">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="corereflectioningraalitcase" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="lambdaitcase" >
+      <xs:complexContent>
+       <xs:extension base="lambdatestcase">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="transactiontestcase" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="kafkaproduceritcase" >
+      <xs:complexContent>
+       <xs:extension base="kafkaproducertest">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema> 

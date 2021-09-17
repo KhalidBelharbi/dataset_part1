@@ -1,0 +1,540 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="snippettag" >
+      <xs:sequence>
+        <xs:element name="snippetid" type="xs:anyType" />
+        <xs:element name="tagid" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="snippetprojectkey" >
+      <xs:sequence>
+        <xs:element name="snippetid" type="xs:anyType" />
+        <xs:element name="projectid" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userauthoritykey" >
+      <xs:sequence>
+        <xs:element name="userid" type="xs:anyType" />
+        <xs:element name="authorityid" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userauthority" >
+      <xs:sequence>
+        <xs:element name="userid" type="xs:anyType" />
+        <xs:element name="authorityid" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="project" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="creationtime" type="xs:anyType" />
+        <xs:element name="lastchangedtime" type="xs:anyType" />
+        <xs:element name="creatorid" type="xs:anyType" />
+        <xs:element name="project" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="parentprojectid" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userdetail" >
+      <xs:sequence>
+        <xs:element name="userid" type="xs:anyType" />
+        <xs:element name="creationtime" type="xs:anyType" />
+        <xs:element name="lastchangedtime" type="xs:anyType" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="fullname" type="xs:string" />
+        <xs:element name="avatar" type="xs:string" />
+        <xs:element name="avatarcolor" type="xs:string" />
+        <xs:element name="uitheme" type="xs:string" />
+        <xs:element name="asynctablerefresh" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="snippet" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="creationtime" type="xs:anyType" />
+        <xs:element name="lastchangedtime" type="xs:anyType" />
+        <xs:element name="creatorid" type="xs:anyType" />
+        <xs:element name="content" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="GeneratedName" type="snippettype" nillable="true" minOccurs="0" />
+        <xs:element name="mimetype" type="xs:string" />
+        <xs:element name="favouritelevel" type="xs:anyType" />
+        <xs:element name="icon" type="xs:string" />
+        <xs:element name="projects" type="project" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="tags" type="tag" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="intents" type="intent" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="snippettagkey" >
+      <xs:sequence>
+        <xs:element name="snippetid" type="xs:anyType" />
+        <xs:element name="tagid" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="snippetintent" >
+      <xs:sequence>
+        <xs:element name="snippetid" type="xs:anyType" />
+        <xs:element name="intentid" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="authority" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="authority" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="intent" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="creationtime" type="xs:anyType" />
+        <xs:element name="lastchangedtime" type="xs:anyType" />
+        <xs:element name="creatorid" type="xs:anyType" />
+        <xs:element name="intent" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="snippetproject" >
+      <xs:sequence>
+        <xs:element name="snippetid" type="xs:anyType" />
+        <xs:element name="projectid" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="snippetintentkey" >
+      <xs:sequence>
+        <xs:element name="snippetid" type="xs:anyType" />
+        <xs:element name="intentid" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="creationtime" type="xs:anyType" />
+        <xs:element name="lastchangedtime" type="xs:anyType" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="passwordhash" type="xs:string" />
+        <xs:element name="enabled" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tag" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="creationtime" type="xs:anyType" />
+        <xs:element name="lastchangedtime" type="xs:anyType" />
+        <xs:element name="creatorid" type="xs:anyType" />
+        <xs:element name="tag" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="snippettype" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userdetailrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<userdetail,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="intentrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<intent,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="projectrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<project,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<user,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tagrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<tag,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="snippetrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<snippet,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="snippetprojectrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<snippetproject,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="snippetintentrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<snippetintent,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="snippettagrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<snippettag,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="application" >
+      <xs:complexContent>
+       <xs:extension base="springbootservletinitializer">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="securityconfiguration" >
+      <xs:complexContent>
+       <xs:extension base="websecurityconfigureradapter">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="snippetintentservice" >
+      <xs:complexContent>
+       <xs:extension base="crudservice<snippetintentdto,">
+         <xs:sequence>
+          <xs:element name="repository" type="snippetintentrepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="snippetintentmapper" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userdetailservice" >
+      <xs:complexContent>
+       <xs:extension base="crudservice<userdetaildto,">
+         <xs:sequence>
+          <xs:element name="repository" type="userdetailrepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="userdetailmapper" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="snippetprojectservice" >
+      <xs:complexContent>
+       <xs:extension base="crudservice<snippetprojectdto,">
+         <xs:sequence>
+          <xs:element name="repository" type="snippetprojectrepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="snippetprojectmapper" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="snippettagservice" >
+      <xs:complexContent>
+       <xs:extension base="crudservice<snippettagdto,">
+         <xs:sequence>
+          <xs:element name="repository" type="snippettagrepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="snippettagmapper" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tagservice" >
+      <xs:complexContent>
+       <xs:extension base="crudservice<tagdto,">
+         <xs:sequence>
+          <xs:element name="repository" type="tagrepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="tagmapper" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="snippetservice" >
+      <xs:complexContent>
+       <xs:extension base="crudservice<snippetdto,">
+         <xs:sequence>
+          <xs:element name="repository" type="snippetrepository" nillable="true" minOccurs="0" />
+          <xs:element name="tagrepository" type="snippettagrepository" nillable="true" minOccurs="0" />
+          <xs:element name="intentrepository" type="snippetintentrepository" nillable="true" minOccurs="0" />
+          <xs:element name="projectrepository" type="snippetprojectrepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="snippetmapper" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userservice" >
+      <xs:complexContent>
+       <xs:extension base="crudservice<userdto,">
+         <xs:sequence>
+          <xs:element name="repository" type="userrepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="usermapper" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="projectservice" >
+      <xs:complexContent>
+       <xs:extension base="crudservice<projectdto,">
+         <xs:sequence>
+          <xs:element name="repository" type="projectrepository" nillable="true" minOccurs="0" />
+          <xs:element name="" type="projectmapper" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="intentservice" >
+      <xs:complexContent>
+       <xs:extension base="crudservice<intentdto,">
+         <xs:sequence>
+          <xs:element name="mapper" type="intentmapper" nillable="true" minOccurs="0" />
+          <xs:element name="repository" type="intentrepository" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="snippetintentmapper" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="projectmapper" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usermapper" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="snippettagmapper" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tagmapper" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="snippetprojectmapper" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userdetailmapper" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="intentmapper" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="snippetmapper" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userdetailendpoint" >
+      <xs:complexContent>
+       <xs:extension base="crudendpoint<userdetaildto,">
+         <xs:sequence>
+          <xs:element name="service" type="userdetailservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tagendpoint" >
+      <xs:complexContent>
+       <xs:extension base="crudendpoint<tagdto,">
+         <xs:sequence>
+          <xs:element name="service" type="tagservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="snippetendpoint" >
+      <xs:complexContent>
+       <xs:extension base="snippetcrudendpoint">
+         <xs:sequence>
+          <xs:element name="service" type="snippetservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="intentendpoint" >
+      <xs:complexContent>
+       <xs:extension base="crudendpoint<intentdto,">
+         <xs:sequence>
+          <xs:element name="service" type="intentservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="snippettagendpoint" >
+      <xs:complexContent>
+       <xs:extension base="crudendpoint<snippettagdto,">
+         <xs:sequence>
+          <xs:element name="service" type="snippettagservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="snippetprojectendpoint" >
+      <xs:complexContent>
+       <xs:extension base="crudendpoint<snippetprojectdto,">
+         <xs:sequence>
+          <xs:element name="service" type="snippetprojectservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="snippetcrudendpoint" >
+      <xs:complexContent>
+       <xs:extension base="crudendpoint<snippetdto,">
+         <xs:sequence>
+          <xs:element name="" type="intentmapper" nillable="true" minOccurs="0" />
+          <xs:element name="" type="snippetmapper" nillable="true" minOccurs="0" />
+          <xs:element name="" type="projectmapper" nillable="true" minOccurs="0" />
+          <xs:element name="" type="tagmapper" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="crudendpoint" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="snippetintentendpoint" >
+      <xs:complexContent>
+       <xs:extension base="crudendpoint<snippetintentdto,">
+         <xs:sequence>
+          <xs:element name="service" type="snippetintentservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userendpoint" >
+      <xs:complexContent>
+       <xs:extension base="crudendpoint<userdto,">
+         <xs:sequence>
+          <xs:element name="service" type="userservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="projectendpoint" >
+      <xs:complexContent>
+       <xs:extension base="crudendpoint<projectdto,">
+         <xs:sequence>
+          <xs:element name="service" type="projectservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userdetaildto" >
+      <xs:sequence>
+        <xs:element name="userid" type="xs:anyType" />
+        <xs:element name="creationtime" type="xs:anyType" />
+        <xs:element name="lastchangedtime" type="xs:anyType" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="fullname" type="xs:string" />
+        <xs:element name="avatar" type="xs:string" />
+        <xs:element name="avatarcolor" type="xs:string" />
+        <xs:element name="uitheme" type="xs:string" />
+        <xs:element name="asynctablerefresh" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userdto" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="creationtime" type="xs:anyType" />
+        <xs:element name="lastchangedtime" type="xs:anyType" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="passwordhash" type="xs:string" />
+        <xs:element name="enabled" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="snippettagdto" >
+      <xs:sequence>
+        <xs:element name="snippetid" type="xs:anyType" />
+        <xs:element name="tagid" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tagdto" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="creationtime" type="xs:anyType" />
+        <xs:element name="lastchangedtime" type="xs:anyType" />
+        <xs:element name="creatorid" type="xs:anyType" />
+        <xs:element name="tag" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="snippetdto" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="creationtime" type="xs:anyType" />
+        <xs:element name="lastchangedtime" type="xs:anyType" />
+        <xs:element name="creatorid" type="xs:anyType" />
+        <xs:element name="content" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="GeneratedName" type="snippettype" nillable="true" minOccurs="0" />
+        <xs:element name="mimetype" type="xs:string" />
+        <xs:element name="favouritelevel" type="xs:anyType" />
+        <xs:element name="icon" type="xs:string" />
+        <xs:element name="projects" type="projectdto" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="tags" type="tagdto" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="intents" type="intentdto" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="snippetintentdto" >
+      <xs:sequence>
+        <xs:element name="snippetid" type="xs:anyType" />
+        <xs:element name="intentid" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="snippetprojectdto" >
+      <xs:sequence>
+        <xs:element name="snippetid" type="xs:anyType" />
+        <xs:element name="projectid" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="projectdto" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="creationtime" type="xs:anyType" />
+        <xs:element name="lastchangedtime" type="xs:anyType" />
+        <xs:element name="creatorid" type="xs:anyType" />
+        <xs:element name="project" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="parentprojectid" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="intentdto" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="creationtime" type="xs:anyType" />
+        <xs:element name="lastchangedtime" type="xs:anyType" />
+        <xs:element name="creatorid" type="xs:anyType" />
+        <xs:element name="intent" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="colibri" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

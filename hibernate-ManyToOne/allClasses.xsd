@@ -1,0 +1,637 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="customjtaplatforminitiator" >
+      <xs:complexContent>
+       <xs:extension base="jtaplatforminitiator">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="customregionfactoryinitiator" >
+      <xs:complexContent>
+       <xs:extension base="regionfactoryinitiator">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="servicecontributorimpl" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="twophasebootstrapimpl" >
+      <xs:sequence>
+        <xs:element name="entitymanagerfactorybuilder" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="virtualfilesystemarchivedescriptorfactory" >
+      <xs:complexContent>
+       <xs:extension base="standardarchivedescriptorfactory">
+         <xs:sequence>
+          <xs:element name="instance" type="virtualfilesystemarchivedescriptorfactory" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jpalogger" >
+      <xs:complexContent>
+       <xs:extension base="basiclogger">
+         <xs:sequence>
+          <xs:element name="/***aloggerwiththecategory{@codeorg.jboss.jpa}.*/jpa_logger" type="jpalogger" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="virtualfilesystemarchivedescriptor" >
+      <xs:sequence>
+        <xs:element name="root" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hibernateentitystatistics" >
+      <xs:complexContent>
+       <xs:extension base="hibernateabstractstatistics">
+         <xs:sequence>
+          <xs:element name="operation_entity_delete_count" type="xs:string" />
+          <xs:element name="operation_entity_insert_count" type="xs:string" />
+          <xs:element name="operation_entity_load_count" type="xs:string" />
+          <xs:element name="operation_entity_fetch_count" type="xs:string" />
+          <xs:element name="operation_entity_update_count" type="xs:string" />
+          <xs:element name="operation_optimistic_failure_count" type="xs:string" />
+          <xs:element name="entitydeletecount" type="xs:anyType" />
+          <xs:element name="entityfetchcount" type="xs:anyType" />
+          <xs:element name="entityinsertcount" type="xs:anyType" />
+          <xs:element name="entityloadcount" type="xs:anyType" />
+          <xs:element name="entityupdatecount" type="xs:anyType" />
+          <xs:element name="optimisticfailurecount" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="queryname" >
+      <xs:sequence>
+        <xs:element name="//querynameasreturnedfromhibernatestatistics.getqueries()hibernatequery" type="xs:string" />
+        <xs:element name="//querynametransformedfordisplayuse(allowedtobeuglybutshouldbeunique)displayquery" type="xs:string" />
+        <xs:element name="//hqlsymboloroperatorssql_ne" type="xs:string" />
+        <xs:element name="ne_bang" type="xs:string" />
+        <xs:element name="ne_hat" type="xs:string" />
+        <xs:element name="le" type="xs:string" />
+        <xs:element name="ge" type="xs:string" />
+        <xs:element name="concat" type="xs:string" />
+        <xs:element name="lt" type="xs:string" />
+        <xs:element name="eq" type="xs:string" />
+        <xs:element name="gt" type="xs:string" />
+        <xs:element name="open" type="xs:string" />
+        <xs:element name="close" type="xs:string" />
+        <xs:element name="open_bracket" type="xs:string" />
+        <xs:element name="close_bracket" type="xs:string" />
+        <xs:element name="plus" type="xs:string" />
+        <xs:element name="minus" type="xs:string" />
+        <xs:element name="star" type="xs:string" />
+        <xs:element name="div" type="xs:string" />
+        <xs:element name="mod" type="xs:string" />
+        <xs:element name="colon" type="xs:string" />
+        <xs:element name="param" type="xs:string" />
+        <xs:element name="comma" type="xs:string" />
+        <xs:element name="space" type="xs:string" />
+        <xs:element name="tab" type="xs:string" />
+        <xs:element name="newline" type="xs:string" />
+        <xs:element name="linefeed" type="xs:string" />
+        <xs:element name="quote" type="xs:string" />
+        <xs:element name="dquote" type="xs:string" />
+        <xs:element name="tick" type="xs:string" />
+        <xs:element name="open_brace" type="xs:string" />
+        <xs:element name="close_brace" type="xs:string" />
+        <xs:element name="hat" type="xs:string" />
+        <xs:element name="ampersand" type="xs:string" />
+        <xs:element name="//textualrepresentation(nottobelocalizedaswedon'twon'tduplicationbetweenanyofthevalues)not_equal__" type="xs:string" />
+        <xs:element name="bang_not_equal__" type="xs:string" />
+        <xs:element name="hat_not_equal__" type="xs:string" />
+        <xs:element name="less_than_equal__" type="xs:string" />
+        <xs:element name="greater_than_equal__" type="xs:string" />
+        <xs:element name="concat__" type="xs:string" />
+        <xs:element name="less_than__" type="xs:string" />
+        <xs:element name="equal__" type="xs:string" />
+        <xs:element name="greater__" type="xs:string" />
+        <xs:element name="left_paren__" type="xs:string" />
+        <xs:element name="right_paren__" type="xs:string" />
+        <xs:element name="left_bracket__" type="xs:string" />
+        <xs:element name="right_bracket__" type="xs:string" />
+        <xs:element name="plus__" type="xs:string" />
+        <xs:element name="minus__" type="xs:string" />
+        <xs:element name="star__" type="xs:string" />
+        <xs:element name="divide__" type="xs:string" />
+        <xs:element name="modulus__" type="xs:string" />
+        <xs:element name="colon__" type="xs:string" />
+        <xs:element name="param__" type="xs:string" />
+        <xs:element name="comma__" type="xs:string" />
+        <xs:element name="space__" type="xs:string" />
+        <xs:element name="tab__" type="xs:string" />
+        <xs:element name="newline__" type="xs:string" />
+        <xs:element name="linefeed__" type="xs:string" />
+        <xs:element name="quote__" type="xs:string" />
+        <xs:element name="dquote__" type="xs:string" />
+        <xs:element name="tick__" type="xs:string" />
+        <xs:element name="open_brace__" type="xs:string" />
+        <xs:element name="close_brace__" type="xs:string" />
+        <xs:element name="hat__" type="xs:string" />
+        <xs:element name="ampersand__" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hibernatemanagementadaptor" >
+      <xs:sequence>
+        <xs:element name="//shared(perclassloader)instanceforallhibernate4.3jpadeploymentsinstance" type="hibernatemanagementadaptor" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="provider_label" type="xs:string" />
+        <xs:element name="version" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hibernatestatistics" >
+      <xs:complexContent>
+       <xs:extension base="hibernateabstractstatistics">
+         <xs:sequence>
+          <xs:element name="provider_label" type="xs:string" />
+          <xs:element name="operation_clear" type="xs:string" />
+          <xs:element name="operation_evictall" type="xs:string" />
+          <xs:element name="operation_summary" type="xs:string" />
+          <xs:element name="//deprecatedbyjipi-28operation_statistics_enabled_deprecated" type="xs:string" />
+          <xs:element name="operation_statistics_enabled" type="xs:string" />
+          <xs:element name="operation_entity_delete_count" type="xs:string" />
+          <xs:element name="operation_entity_insert_count" type="xs:string" />
+          <xs:element name="operation_entity_load_count" type="xs:string" />
+          <xs:element name="operation_entity_fetch_count" type="xs:string" />
+          <xs:element name="operation_entity_update_count" type="xs:string" />
+          <xs:element name="operation_collection_fetch_count" type="xs:string" />
+          <xs:element name="operation_collection_load_count" type="xs:string" />
+          <xs:element name="operation_collection_recreated_count" type="xs:string" />
+          <xs:element name="operation_collection_remove_count" type="xs:string" />
+          <xs:element name="operation_collection_update_count" type="xs:string" />
+          <xs:element name="operation_querycache_hit_count" type="xs:string" />
+          <xs:element name="operation_querycache_miss_count" type="xs:string" />
+          <xs:element name="operation_queryquerycache_put_count" type="xs:string" />
+          <xs:element name="operation_queryexecution_count" type="xs:string" />
+          <xs:element name="operation_queryexecution_max_time" type="xs:string" />
+          <xs:element name="operation_queryexecution_max_time_" type="xs:string" />
+          <xs:element name="operation_secondlevelcache_hit_count" type="xs:string" />
+          <xs:element name="operation_secondlevelcache_miss_count" type="xs:string" />
+          <xs:element name="operation_secondlevelcache_put_count" type="xs:string" />
+          <xs:element name="operation_flush_count" type="xs:string" />
+          <xs:element name="operation_connect_count" type="xs:string" />
+          <xs:element name="operation_session_close_count" type="xs:string" />
+          <xs:element name="operation_session_open_count" type="xs:string" />
+          <xs:element name="operation_successful_transaction_count" type="xs:string" />
+          <xs:element name="operation_completed_transaction_count" type="xs:string" />
+          <xs:element name="operation_prepared_statement_count" type="xs:string" />
+          <xs:element name="operation_close_statement_count" type="xs:string" />
+          <xs:element name="operation_optimistic_failure_count" type="xs:string" />
+          <xs:element name="entitycache" type="xs:string" />
+          <xs:element name="collection" type="xs:string" />
+          <xs:element name="entity" type="xs:string" />
+          <xs:element name="querycache" type="xs:string" />
+          <xs:element name="childrenstatistics" type="xs:anyType" />
+          <xs:element name="clear" type="xs:anyType" />
+          <xs:element name="label" type="xs:anyType" />
+          <xs:element name="evictall" type="xs:anyType" />
+          <xs:element name="summary" type="xs:anyType" />
+          <xs:element name="statisticsenabled" type="xs:anyType" />
+          <xs:element name="entitydeletecount" type="xs:anyType" />
+          <xs:element name="collectionloadcount" type="xs:anyType" />
+          <xs:element name="collectionfetchcount" type="xs:anyType" />
+          <xs:element name="collectionrecreatedcount" type="xs:anyType" />
+          <xs:element name="collectionremovecount" type="xs:anyType" />
+          <xs:element name="collectionupdatecount" type="xs:anyType" />
+          <xs:element name="querycachehitcount" type="xs:anyType" />
+          <xs:element name="querycachemisscount" type="xs:anyType" />
+          <xs:element name="querycacheputcount" type="xs:anyType" />
+          <xs:element name="queryexecutioncount" type="xs:anyType" />
+          <xs:element name="queryexecutionmaxtime" type="xs:anyType" />
+          <xs:element name="queryexecutionmaxtimestring" type="xs:anyType" />
+          <xs:element name="entityfetchcount" type="xs:anyType" />
+          <xs:element name="entityinsertcount" type="xs:anyType" />
+          <xs:element name="entityloadcount" type="xs:anyType" />
+          <xs:element name="entityupdatecount" type="xs:anyType" />
+          <xs:element name="flushcount" type="xs:anyType" />
+          <xs:element name="connectcount" type="xs:anyType" />
+          <xs:element name="sessionclosecount" type="xs:anyType" />
+          <xs:element name="sessionopencount" type="xs:anyType" />
+          <xs:element name="transactioncount" type="xs:anyType" />
+          <xs:element name="transactioncompletedcount" type="xs:anyType" />
+          <xs:element name="preparedstatementcount" type="xs:anyType" />
+          <xs:element name="closedstatementcount" type="xs:anyType" />
+          <xs:element name="optimisticfailurecount" type="xs:anyType" />
+          <xs:element name="secondlevelcachehitcount" type="xs:anyType" />
+          <xs:element name="secondlevelcachemisscount" type="xs:anyType" />
+          <xs:element name="secondlevelcacheputcount" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="hibernateabstractstatistics" >
+      <xs:sequence>
+        <xs:element name="resource_bundle" type="xs:string" />
+        <xs:element name="resource_bundle_key_prefix" type="xs:string" />
+        <xs:element name="operations" type="xs:anyType" />
+        <xs:element name="childrennames" type="xs:anyType" />
+        <xs:element name="writeablenames" type="xs:anyType" />
+        <xs:element name="types" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hibernateentitycachestatistics" >
+      <xs:complexContent>
+       <xs:extension base="hibernateabstractstatistics">
+         <xs:sequence>
+          <xs:element name="attribute_entity_cache_region_name" type="xs:string" />
+          <xs:element name="operation_second_level_cache_hit_count" type="xs:string" />
+          <xs:element name="operation_second_level_cache_miss_count" type="xs:string" />
+          <xs:element name="operation_second_level_cache_put_count" type="xs:string" />
+          <xs:element name="operation_second_level_cache_count_in_memory" type="xs:string" />
+          <xs:element name="operation_second_level_cache_size_in_memory" type="xs:string" />
+          <xs:element name="getentitycacheregionname" type="xs:anyType" />
+          <xs:element name="entitycachehitcount" type="xs:anyType" />
+          <xs:element name="entitycachemisscount" type="xs:anyType" />
+          <xs:element name="entitycacheputcount" type="xs:anyType" />
+          <xs:element name="entitycachesizeinmemory" type="xs:anyType" />
+          <xs:element name="entitycachecountinmemory" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="hibernatecollectionstatistics" >
+      <xs:complexContent>
+       <xs:extension base="hibernateabstractstatistics">
+         <xs:sequence>
+          <xs:element name="attribute_collection_name" type="xs:string" />
+          <xs:element name="operation_collection_load_count" type="xs:string" />
+          <xs:element name="operation_collection_fetch_count" type="xs:string" />
+          <xs:element name="operation_collection_update_count" type="xs:string" />
+          <xs:element name="operation_collection_remove_count" type="xs:string" />
+          <xs:element name="operation_collection_recreated_count" type="xs:string" />
+          <xs:element name="showcollectionname" type="xs:anyType" />
+          <xs:element name="collectionupdatecount" type="xs:anyType" />
+          <xs:element name="collectionremovecount" type="xs:anyType" />
+          <xs:element name="collectionrecreatedcount" type="xs:anyType" />
+          <xs:element name="collectionloadcount" type="xs:anyType" />
+          <xs:element name="collectionfetchcount" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="hibernatequerycachestatistics" >
+      <xs:complexContent>
+       <xs:extension base="hibernateabstractstatistics">
+         <xs:sequence>
+          <xs:element name="attribute_query_name" type="xs:string" />
+          <xs:element name="operation_query_execution_count" type="xs:string" />
+          <xs:element name="operation_query_execution_row_count" type="xs:string" />
+          <xs:element name="operation_query_execution_avg_time" type="xs:string" />
+          <xs:element name="operation_query_execution_max_time" type="xs:string" />
+          <xs:element name="operation_query_execution_min_time" type="xs:string" />
+          <xs:element name="operation_query_cache_hit_count" type="xs:string" />
+          <xs:element name="operation_query_cache_miss_count" type="xs:string" />
+          <xs:element name="operation_query_cache_put_count" type="xs:string" />
+          <xs:element name="queryexecutioncount" type="xs:anyType" />
+          <xs:element name="queryexecutionmaximumtime" type="xs:anyType" />
+          <xs:element name="queryexecutionrowcount" type="xs:anyType" />
+          <xs:element name="queryexecutionaveragetime" type="xs:anyType" />
+          <xs:element name="queryexecutionminimumtime" type="xs:anyType" />
+          <xs:element name="querycachehitcount" type="xs:anyType" />
+          <xs:element name="querycachemisscount" type="xs:anyType" />
+          <xs:element name="querycacheputcount" type="xs:anyType" />
+          <xs:element name="showqueryname" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="virtualfileinputstreamaccess" >
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hibernatearchivescanner" >
+      <xs:complexContent>
+       <xs:extension base="abstractscannerimpl">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="hibernatepersistenceprovideradaptor" >
+      <xs:sequence>
+        <xs:element name="naming_strategy_jpa_compliant_impl" type="xs:string" />
+        <xs:element name="hibernate_extended_beanmanager" type="xs:string" />
+        <xs:element name="volatile" type="xs:anyType" />
+        <xs:element name="volatile" type="xs:anyType" />
+        <xs:element name="none" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jbossappserverjtaplatform" >
+      <xs:complexContent>
+       <xs:extension base="">
+         <xs:sequence>
+          <xs:element name="synchronizationstrategy" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="hibernateextendedbeanmanager" >
+      <xs:sequence>
+        <xs:element name="lifecyclelisteners" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persistence" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persistence" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="orm" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="orm" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="orm" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persistence" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="mouse.hbm" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persistence" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persistence" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="orm" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="mouse.hbm" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persistence" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hibernate.cfg" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persistence" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="elephant.hbm" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persistence" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="orm" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="mouse1.hbm" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="mouse.hbm" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persistence" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="orm2" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="lighter" >
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="power" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="version" >
+      <xs:sequence>
+        <xs:element name="dot" type="xs:string" />
+        <xs:element name="major" type="xs:long" />
+        <xs:element name="minor" type="xs:long" />
+        <xs:element name="micro" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="incrementlistener" >
+      <xs:sequence>
+        <xs:element name="increment" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="money" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="applicationserver" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="GeneratedName" type="version" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="package-info" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="mouse" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="otherincrementlistener" >
+      <xs:sequence>
+        <xs:element name="increment" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cat" >
+      <xs:sequence>
+        <xs:element name="log" type="xs:anyType" />
+        <xs:element name="//usedforassertionsids" type="xs:anyType" />
+        <xs:element name="//usedforassertionspostversion" type="xs:long" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="ofbirth" type="xs:dateTime" />
+        <xs:element name="age" type="xs:long" />
+        <xs:element name="length" type="xs:long" />
+        <xs:element name="lastup" type="xs:dateTime" />
+        <xs:element name="manualversion" type="xs:long" />
+        <xs:element name="kittens" type="kitten" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="distributor" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="scooter" >
+      <xs:sequence>
+        <xs:element name="model" type="xs:string" />
+        <xs:element name="speed" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="item" >
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="descr" type="xs:string" />
+        <xs:element name="distributors" type="distributor" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="morito" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="power" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="washer" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bug" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="subject" type="xs:string" />
+        <xs:element name="comment" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="lighter" >
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="power" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="version" >
+      <xs:sequence>
+        <xs:element name="dot" type="xs:string" />
+        <xs:element name="major" type="xs:long" />
+        <xs:element name="minor" type="xs:long" />
+        <xs:element name="micro" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="incrementlistener" >
+      <xs:sequence>
+        <xs:element name="increment" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="otherincrementlistener" >
+      <xs:sequence>
+        <xs:element name="increment" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="applicationserver" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="GeneratedName" type="version" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="package-info" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="money" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="mouse" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="caipirinha" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="seat" >
+      <xs:sequence>
+        <xs:element name="number" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="airplane" >
+      <xs:sequence>
+        <xs:element name="serialnumber" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="lastupdatelistener" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="elephant" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="package-info" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="carpet" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="country" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="kitten" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bug" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="subject" type="xs:string" />
+        <xs:element name="comment" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="scannertests" >
+      <xs:sequence>
+        <xs:element name="original" type="xs:anyType" />
+        <xs:element name="bundle" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="testsrcdirectory" type="xs:anyType" />
+        <xs:element name="/***directorywhereshrink-wrapbuiltarchivesarewritten*/shrinkwraparchivedirectory" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="loremipsum" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="empty" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

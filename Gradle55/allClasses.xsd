@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="dynamicdatasourcetest" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persistence" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="service-jar" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="routedpersister" >
+      <xs:sequence>
+        <xs:element name="em" type="xs:anyType" />
+        <xs:element name="router" type="determinedrouter" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="boostraputility" >
+      <xs:sequence>
+        <xs:element name="em1" type="xs:anyType" />
+        <xs:element name="em2" type="xs:anyType" />
+        <xs:element name="em3" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="determinedrouter" >
+      <xs:complexContent>
+       <xs:extension base="abstractrouter">
+         <xs:sequence>
+          <xs:element name="datasourcenames" type="xs:string" />
+          <xs:element name="defaultdatasourcename" type="xs:string" />
+          <xs:element name="datasources" type="xs:anyType" />
+          <xs:element name="currentdatasource" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="person" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

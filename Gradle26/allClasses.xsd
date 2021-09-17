@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="application-scratch" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sampledatajpaapplicationtests" >
+      <xs:sequence>
+        <xs:element name="context" type="xs:anyType" />
+        <xs:element name="mvc" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hotelrepositoryintegrationtests" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="cityrepository" nillable="true" minOccurs="0" />
+        <xs:element name="repository" type="hotelrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cityrepositoryintegrationtests" >
+      <xs:sequence>
+        <xs:element name="repository" type="cityrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="application" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="triptype" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ratingcount" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="review" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="hotel" nillable="true" minOccurs="0" />
+        <xs:element name="index" type="xs:long" />
+        <xs:element name="GeneratedName" type="rating" nillable="true" minOccurs="0" />
+        <xs:element name="checkin" type="xs:dateTime" />
+        <xs:element name="GeneratedName" type="triptype" nillable="true" minOccurs="0" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="details" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hotelsummary" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="city" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="state" type="xs:string" />
+        <xs:element name="country" type="xs:string" />
+        <xs:element name="map" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="reviewdetails" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="GeneratedName" type="rating" nillable="true" minOccurs="0" />
+        <xs:element name="checkin" type="xs:dateTime" />
+        <xs:element name="GeneratedName" type="triptype" nillable="true" minOccurs="0" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="details" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rating" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hotel" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="city" nillable="true" minOccurs="0" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="address" type="xs:string" />
+        <xs:element name="zip" type="xs:string" />
+        <xs:element name="reviews" type="review" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cityserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="cityrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="hotelrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="reviewssummary" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cityrepository" >
+      <xs:complexContent>
+       <xs:extension base="repository<city,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="citysearchcriteria" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hotelrepository" >
+      <xs:complexContent>
+       <xs:extension base="repository<hotel,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="hotelserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="hotelrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="reviewrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cityservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="reviewrepository" >
+      <xs:complexContent>
+       <xs:extension base="repository<review,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="hotelservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="samplecontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="cityservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sampledatajpaapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

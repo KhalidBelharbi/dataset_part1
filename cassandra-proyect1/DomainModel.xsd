@@ -1,0 +1,493 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="coreentitypersonuni1tom" >
+      <xs:sequence>
+        <xs:element name="/***thepersonid.*/personid" type="xs:string" />
+        <xs:element name="/***thepersonname.*/personname" type="xs:string" />
+        <xs:element name="/***theage.*/age" type="xs:long" />
+        <xs:element name="/***thepersonaldata.*/personaldata" type="corepersonaldata" nillable="true" minOccurs="0" />
+        <xs:element name="/***theaddresses.*/addresses" type="coreentityaddressuni1tom" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="coreentitypersonuni1to1" >
+      <xs:sequence>
+        <xs:element name="/***thepersonid.*/personid" type="xs:string" />
+        <xs:element name="/***thepersonname.*/personname" type="xs:string" />
+        <xs:element name="/***theage.*/age" type="xs:long" />
+        <xs:element name="/***thepersonaldata.*/personaldata" type="corepersonaldata" nillable="true" minOccurs="0" />
+        <xs:element name="/***theaddress.*/address" type="coreentityaddressuni1to1" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="coreentityaddressuni1tom" >
+      <xs:sequence>
+        <xs:element name="/***theaddressid.*/addressid" type="xs:string" />
+        <xs:element name="/***thestreet.*/street" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="coreentityaddressuni1to1" >
+      <xs:sequence>
+        <xs:element name="/***theaddressid.*/addressid" type="xs:string" />
+        <xs:element name="/***thestreet.*/street" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="coreentitysuper" >
+      <xs:sequence>
+        <xs:element name="/***thepersonid.*/personid" type="xs:string" />
+        <xs:element name="/***thepersonname.*/personname" type="xs:string" />
+        <xs:element name="/***theage.*/age" type="xs:long" />
+        <xs:element name="/***thepersonaldata.*/personaldata" type="corepersonaldata" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="coreentitypersionunimto1" >
+      <xs:sequence>
+        <xs:element name="/***thepersonid.*/personid" type="xs:string" />
+        <xs:element name="/***thepersonname.*/personname" type="xs:string" />
+        <xs:element name="/***theage.*/age" type="xs:long" />
+        <xs:element name="/***thepersonaldata.*/personaldata" type="corepersonaldata" nillable="true" minOccurs="0" />
+        <xs:element name="/***theaddress.*/address" type="coreentityaddressunimto1" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="coreentityaddressunimto1" >
+      <xs:sequence>
+        <xs:element name="/***theaddressid.*/addressid" type="xs:string" />
+        <xs:element name="/***thestreet.*/street" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="coreentitysimple" >
+      <xs:sequence>
+        <xs:element name="/***thepersonid.*/personid" type="xs:string" />
+        <xs:element name="/***thepersonname.*/personname" type="xs:string" />
+        <xs:element name="/***theage.*/age" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entitysample" >
+      <xs:sequence>
+        <xs:element name="key" type="xs:anyType" />
+        <xs:element name="field" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="albumbi_m_m_1_1" >
+      <xs:sequence>
+        <xs:element name="albumid" type="xs:string" />
+        <xs:element name="albumname" type="xs:string" />
+        <xs:element name="albumdescription" type="xs:string" />
+        <xs:element name="//onetomany,willbepersistedseparatelyphoto" type="photobi_m_m_1_1" nillable="true" minOccurs="0" />
+        <xs:element name="photographers" type="photographerbi_m_m_1_1" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="albumuni_1_1_1_m" >
+      <xs:sequence>
+        <xs:element name="albumid" type="xs:string" />
+        <xs:element name="albumname" type="xs:string" />
+        <xs:element name="albumdescription" type="xs:string" />
+        <xs:element name="//onetomany,willbepersistedseparatelyphotos" type="photouni_1_1_1_m" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="albumuni_1_1_1_1" >
+      <xs:sequence>
+        <xs:element name="albumid" type="xs:string" />
+        <xs:element name="albumname" type="xs:string" />
+        <xs:element name="albumdescription" type="xs:string" />
+        <xs:element name="//onetomany,willbepersistedseparatelyphoto" type="photouni_1_1_1_1" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="albumbi_1_m_1_m" >
+      <xs:sequence>
+        <xs:element name="albumid" type="xs:string" />
+        <xs:element name="albumname" type="xs:string" />
+        <xs:element name="albumdescription" type="xs:string" />
+        <xs:element name="//onetomany,willbepersistedseparatelyphotos" type="photobi_1_m_1_m" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="photographer" type="photographerbi_1_m_1_m" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="albumuni_m_1_1_m" >
+      <xs:sequence>
+        <xs:element name="albumid" type="xs:string" />
+        <xs:element name="albumname" type="xs:string" />
+        <xs:element name="albumdescription" type="xs:string" />
+        <xs:element name="//onetomany,willbepersistedseparatelyphotos" type="photouni_m_1_1_m" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="albumuni_m_m_m_m" >
+      <xs:sequence>
+        <xs:element name="albumid" type="xs:string" />
+        <xs:element name="albumname" type="xs:string" />
+        <xs:element name="albumdescription" type="xs:string" />
+        <xs:element name="photos" type="photouni_m_m_m_m" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="albumuni_1_m_m_m" >
+      <xs:sequence>
+        <xs:element name="albumid" type="xs:string" />
+        <xs:element name="albumname" type="xs:string" />
+        <xs:element name="albumdescription" type="xs:string" />
+        <xs:element name="photos" type="photouni_1_m_m_m" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="albumbi_1_m_m_m" >
+      <xs:sequence>
+        <xs:element name="albumid" type="xs:string" />
+        <xs:element name="albumname" type="xs:string" />
+        <xs:element name="albumdescription" type="xs:string" />
+        <xs:element name="photos" type="photobi_1_m_m_m" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="photographer" type="photographerbi_1_m_m_m" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="albumuni_1_1_m_1" >
+      <xs:sequence>
+        <xs:element name="albumid" type="xs:string" />
+        <xs:element name="albumname" type="xs:string" />
+        <xs:element name="albumdescription" type="xs:string" />
+        <xs:element name="//onetomany,willbepersistedseparatelyphoto" type="photouni_1_1_m_1" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="albumbi_m_m_m_m" >
+      <xs:sequence>
+        <xs:element name="albumid" type="xs:string" />
+        <xs:element name="albumname" type="xs:string" />
+        <xs:element name="albumdescription" type="xs:string" />
+        <xs:element name="photos" type="photobi_m_m_m_m" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="photographers" type="photographerbi_m_m_m_m" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="albumbi_m_1_1_m" >
+      <xs:sequence>
+        <xs:element name="albumid" type="xs:string" />
+        <xs:element name="albumname" type="xs:string" />
+        <xs:element name="albumdescription" type="xs:string" />
+        <xs:element name="//onetomany,willbepersistedseparatelyphotos" type="photobi_m_1_1_m" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="photographers" type="photographerbi_m_1_1_m" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="albumuni_1_m_1_m" >
+      <xs:sequence>
+        <xs:element name="albumid" type="xs:string" />
+        <xs:element name="albumname" type="xs:string" />
+        <xs:element name="albumdescription" type="xs:string" />
+        <xs:element name="//onetomany,willbepersistedseparatelyphotos" type="photouni_1_m_1_m" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="albumbi_1_1_1_1" >
+      <xs:sequence>
+        <xs:element name="albumid" type="xs:string" />
+        <xs:element name="albumname" type="xs:string" />
+        <xs:element name="albumdescription" type="xs:string" />
+        <xs:element name="//onetomany,willbepersistedseparatelyphoto" type="photobi_1_1_1_1" nillable="true" minOccurs="0" />
+        <xs:element name="photographer" type="photographerbi_1_1_1_1" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="albumuni_m_m_1_1" >
+      <xs:sequence>
+        <xs:element name="albumid" type="xs:string" />
+        <xs:element name="albumname" type="xs:string" />
+        <xs:element name="albumdescription" type="xs:string" />
+        <xs:element name="//onetomany,willbepersistedseparatelyphoto" type="photouni_m_m_1_1" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="albumbi_1_1_1_m" >
+      <xs:sequence>
+        <xs:element name="albumid" type="xs:string" />
+        <xs:element name="albumname" type="xs:string" />
+        <xs:element name="albumdescription" type="xs:string" />
+        <xs:element name="//onetomany,willbepersistedseparatelyphotos" type="photobi_1_1_1_m" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="photographer" type="photographerbi_1_1_1_m" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="photographeruni_m_1_1_m" >
+      <xs:sequence>
+        <xs:element name="photographerid" type="xs:long" />
+        <xs:element name="photographername" type="xs:string" />
+        <xs:element name="//onetomany,willbepersistedseparatelyalbum" type="albumuni_m_1_1_m" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="photographerbi_m_1_1_m" >
+      <xs:sequence>
+        <xs:element name="photographerid" type="xs:long" />
+        <xs:element name="photographername" type="xs:string" />
+        <xs:element name="//onetomany,willbepersistedseparatelyalbum" type="albumbi_m_1_1_m" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="photographerbi_1_1_1_m" >
+      <xs:sequence>
+        <xs:element name="photographerid" type="xs:long" />
+        <xs:element name="photographername" type="xs:string" />
+        <xs:element name="//onetomany,willbepersistedseparatelyalbum" type="albumbi_1_1_1_m" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="photographeruni_1_1_1_1" >
+      <xs:sequence>
+        <xs:element name="photographerid" type="xs:long" />
+        <xs:element name="photographername" type="xs:string" />
+        <xs:element name="//onetomany,willbepersistedseparatelyalbum" type="albumuni_1_1_1_1" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="photographeruni_1_1_1_m" >
+      <xs:sequence>
+        <xs:element name="photographerid" type="xs:long" />
+        <xs:element name="photographername" type="xs:string" />
+        <xs:element name="//onetomany,willbepersistedseparatelyalbum" type="albumuni_1_1_1_m" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="photographerbi_1_1_1_1" >
+      <xs:sequence>
+        <xs:element name="photographerid" type="xs:long" />
+        <xs:element name="photographername" type="xs:string" />
+        <xs:element name="//onetomany,willbepersistedseparatelyalbum" type="albumbi_1_1_1_1" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="photographerbi_1_m_m_m" >
+      <xs:sequence>
+        <xs:element name="photographerid" type="xs:long" />
+        <xs:element name="photographername" type="xs:string" />
+        <xs:element name="//onetomany,willbepersistedseparatelyalbums" type="albumbi_1_m_m_m" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="photographeruni_1_m_m_m" >
+      <xs:sequence>
+        <xs:element name="photographerid" type="xs:long" />
+        <xs:element name="photographername" type="xs:string" />
+        <xs:element name="//onetomany,willbepersistedseparatelyalbums" type="albumuni_1_m_m_m" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="photographeruni_m_m_m_m" >
+      <xs:sequence>
+        <xs:element name="photographerid" type="xs:long" />
+        <xs:element name="photographername" type="xs:string" />
+        <xs:element name="albums" type="albumuni_m_m_m_m" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="photographerbi_m_m_m_m" >
+      <xs:sequence>
+        <xs:element name="photographerid" type="xs:long" />
+        <xs:element name="photographername" type="xs:string" />
+        <xs:element name="albums" type="albumbi_m_m_m_m" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="photographeruni_1_1_m_1" >
+      <xs:sequence>
+        <xs:element name="photographerid" type="xs:long" />
+        <xs:element name="photographername" type="xs:string" />
+        <xs:element name="//onetomany,willbepersistedseparatelyalbum" type="albumuni_1_1_m_1" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="photographeruni_m_m_1_1" >
+      <xs:sequence>
+        <xs:element name="photographerid" type="xs:long" />
+        <xs:element name="photographername" type="xs:string" />
+        <xs:element name="albums" type="albumuni_m_m_1_1" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="photographerbi_m_m_1_1" >
+      <xs:sequence>
+        <xs:element name="photographerid" type="xs:long" />
+        <xs:element name="photographername" type="xs:string" />
+        <xs:element name="albums" type="albumbi_m_m_1_1" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="photographeruni_1_m_1_m" >
+      <xs:sequence>
+        <xs:element name="photographerid" type="xs:long" />
+        <xs:element name="photographername" type="xs:string" />
+        <xs:element name="//embeddedobject,willpersistco-located" type="personaldetail" nillable="true" minOccurs="0" />
+        <xs:element name="//elementcollection,willpersistco-locatedtweets" type="tweet" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="//onetomany,willbepersistedseparatelyalbums" type="albumuni_1_m_1_m" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="photographerbi_1_m_1_m" >
+      <xs:sequence>
+        <xs:element name="photographerid" type="xs:long" />
+        <xs:element name="photographername" type="xs:string" />
+        <xs:element name="//embeddedobject,willpersistco-located" type="personaldetail" nillable="true" minOccurs="0" />
+        <xs:element name="//elementcollection,willpersistco-locatedtweets" type="tweet" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="albums" type="albumbi_1_m_1_m" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="personneldto" >
+      <xs:sequence>
+        <xs:element name="/***thepersonid.*/personid" type="xs:string" />
+        <xs:element name="/***thefirstname.*/firstname" type="xs:string" />
+        <xs:element name="/***thelastname.*/lastname" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="photobi_1_m_m_m" >
+      <xs:sequence>
+        <xs:element name="photoid" type="xs:string" />
+        <xs:element name="photocaption" type="xs:string" />
+        <xs:element name="photodescription" type="xs:string" />
+        <xs:element name="albums" type="albumbi_1_m_m_m" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="photouni_1_m_1_m" >
+      <xs:sequence>
+        <xs:element name="photoid" type="xs:string" />
+        <xs:element name="photocaption" type="xs:string" />
+        <xs:element name="photodescription" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="photouni_m_m_1_1" >
+      <xs:sequence>
+        <xs:element name="photoid" type="xs:string" />
+        <xs:element name="photocaption" type="xs:string" />
+        <xs:element name="photodescription" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="photobi_m_m_m_m" >
+      <xs:sequence>
+        <xs:element name="photoid" type="xs:string" />
+        <xs:element name="photocaption" type="xs:string" />
+        <xs:element name="photodescription" type="xs:string" />
+        <xs:element name="albums" type="albumbi_m_m_m_m" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="photobi_m_1_1_m" >
+      <xs:sequence>
+        <xs:element name="photoid" type="xs:string" />
+        <xs:element name="photocaption" type="xs:string" />
+        <xs:element name="photodescription" type="xs:string" />
+        <xs:element name="album" type="albumbi_m_1_1_m" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="photobi_1_1_1_m" >
+      <xs:sequence>
+        <xs:element name="photoid" type="xs:string" />
+        <xs:element name="photocaption" type="xs:string" />
+        <xs:element name="photodescription" type="xs:string" />
+        <xs:element name="album" type="albumbi_1_1_1_m" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="photobi_1_1_1_1" >
+      <xs:sequence>
+        <xs:element name="photoid" type="xs:string" />
+        <xs:element name="photocaption" type="xs:string" />
+        <xs:element name="photodescription" type="xs:string" />
+        <xs:element name="album" type="albumbi_1_1_1_1" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="photouni_1_1_m_1" >
+      <xs:sequence>
+        <xs:element name="photoid" type="xs:string" />
+        <xs:element name="photocaption" type="xs:string" />
+        <xs:element name="photodescription" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="photouni_m_m_m_m" >
+      <xs:sequence>
+        <xs:element name="photoid" type="xs:string" />
+        <xs:element name="photocaption" type="xs:string" />
+        <xs:element name="photodescription" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="photobi_m_m_1_1" >
+      <xs:sequence>
+        <xs:element name="photoid" type="xs:string" />
+        <xs:element name="photocaption" type="xs:string" />
+        <xs:element name="photodescription" type="xs:string" />
+        <xs:element name="album" type="albumbi_m_m_1_1" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="photouni_1_m_m_m" >
+      <xs:sequence>
+        <xs:element name="photoid" type="xs:string" />
+        <xs:element name="photocaption" type="xs:string" />
+        <xs:element name="photodescription" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="photobi_1_m_1_m" >
+      <xs:sequence>
+        <xs:element name="photoid" type="xs:string" />
+        <xs:element name="photocaption" type="xs:string" />
+        <xs:element name="photodescription" type="xs:string" />
+        <xs:element name="album" type="albumbi_1_m_1_m" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="photouni_1_1_1_1" >
+      <xs:sequence>
+        <xs:element name="photoid" type="xs:string" />
+        <xs:element name="photocaption" type="xs:string" />
+        <xs:element name="photodescription" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="photouni_1_1_1_m" >
+      <xs:sequence>
+        <xs:element name="photoid" type="xs:string" />
+        <xs:element name="photocaption" type="xs:string" />
+        <xs:element name="photodescription" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="photouni_m_1_1_m" >
+      <xs:sequence>
+        <xs:element name="photoid" type="xs:string" />
+        <xs:element name="photocaption" type="xs:string" />
+        <xs:element name="photodescription" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="billingcounter" >
+      <xs:sequence>
+        <xs:element name="counterid" type="xs:long" />
+        <xs:element name="countercode" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="store" >
+      <xs:sequence>
+        <xs:element name="storeid" type="xs:long" />
+        <xs:element name="storename" type="xs:string" />
+        <xs:element name="counters" type="billingcounter" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tableprocessor" >
+      <xs:complexContent>
+       <xs:extension base="abstractentityfieldprocessor">
+         <xs:sequence>
+          <xs:element name="/***theconstant.*/" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="entitylistenersprocessor" >
+      <xs:complexContent>
+       <xs:extension base="annotation>>">
+         <xs:sequence>
+          <xs:element name="/***theusedbythisclass.*/" type="xs:anyType" />
+          <xs:element name="//listofallvalidjpaentitylisteners/***theconstantjpalistenersannotations.*/jpalistenersannotations" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="abstractentityfieldprocessor" >
+      <xs:sequence>
+        <xs:element name="/***theconstant.*/" type="xs:anyType" />
+        <xs:element name="/***thevalidator.*/validator" type="entityvalidator" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="indexprocessor" >
+      <xs:sequence>
+        <xs:element name="/***theusedbythisclass.*/" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="metadatabuilder" >
+      <xs:sequence>
+        <xs:element name="/***theusedbythisclass.*/" type="xs:anyType" />
+        <xs:element name="/***themetadataprocessors.*/metadataprocessors" type="metadataprocessor" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="/***thevalidator.*/validator" type="entityvalidator" nillable="true" minOccurs="0" />
+        <xs:element name="//setafterbuildiscalled?/***theinstantiated.*/instantiated" type="xs:anyType" />
+        <xs:element name="/***persistenceunit*/persistenceunit" type="xs:string" />
+        <xs:element name="/***kunderaclient*/client" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entityvalidatorimpl" >
+      <xs:sequence>
+        <xs:element name="/***theconstant.*/" type="xs:anyType" />
+        <xs:element name="/***cacheforvalidatedclasses.*/classes" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="lazyinitializerfactory" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="metamodelconfiguration" >
+      <xs:sequence>
+        <xs:element name="/***thelog.*/log" type="xs:anyType" />
+        <xs:element name="persistenceunits" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

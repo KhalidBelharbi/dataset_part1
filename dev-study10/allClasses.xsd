@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="initdb" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="orderrepository" >
+      <xs:sequence>
+        <xs:element name="em" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="orderquerydto" >
+      <xs:sequence>
+        <xs:element name="orderid" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="//주문시간orderdate" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="orderstatus" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="address" nillable="true" minOccurs="0" />
+        <xs:element name="orderitems" type="orderitemquerydto" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="orderitemquerydto" >
+      <xs:sequence>
+        <xs:element name="//주문번호orderid" type="xs:long" />
+        <xs:element name="//상품명itemname" type="xs:string" />
+        <xs:element name="//주문가격orderprice" type="xs:long" />
+        <xs:element name="count" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="orderflatdto" >
+      <xs:sequence>
+        <xs:element name="orderid" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="//주문시간orderdate" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="address" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="orderstatus" nillable="true" minOccurs="0" />
+        <xs:element name="//상품명itemname" type="xs:string" />
+        <xs:element name="//주문가격orderprice" type="xs:long" />
+        <xs:element name="//주문수량count" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="orderqueryrepository" >
+      <xs:sequence>
+        <xs:element name="em" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ordersimplequerydto" >
+      <xs:sequence>
+        <xs:element name="orderid" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="orderdate" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="orderstatus" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="address" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ordersimplequeryrepository" >
+      <xs:sequence>
+        <xs:element name="em" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="memberrepository" >
+      <xs:sequence>
+        <xs:element name="em" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="itemrepository" >
+      <xs:sequence>
+        <xs:element name="em" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ordersearch" >
+      <xs:sequence>
+        <xs:element name="membername" type="xs:string" />
+        <xs:element name="GeneratedName" type="orderstatus" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="orderstatus" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="deliverystatus" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="order" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="member" nillable="true" minOccurs="0" />
+        <xs:element name="orderitems" type="orderitem" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="delivery" nillable="true" minOccurs="0" />
+        <xs:element name="orderdate" type="xs:anyType" />
+        <xs:element name="status" type="orderstatus" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="book" >
+      <xs:complexContent>
+       <xs:extension base="item">
+         <xs:sequence>
+          <xs:element name="author" type="xs:string" />
+          <xs:element name="isbn" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="album" >
+      <xs:complexContent>
+       <xs:extension base="item">
+         <xs:sequence>
+          <xs:element name="artist" type="xs:string" />
+          <xs:element name="etc" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="movie" >
+      <xs:complexContent>
+       <xs:extension base="item">
+         <xs:sequence>
+          <xs:element name="director" type="xs:string" />
+          <xs:element name="actor" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="item" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="price" type="xs:long" />
+        <xs:element name="stockquantity" type="xs:long" />
+        <xs:element name="categories" type="category" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="category" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="items" type="item" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="parent" type="category" nillable="true" minOccurs="0" />
+        <xs:element name="child" type="category" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="member" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="GeneratedName" type="address" nillable="true" minOccurs="0" />
+        <xs:element name="orders" type="order" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="orderitem" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="item" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="order" nillable="true" minOccurs="0" />
+        <xs:element name="//주문가격orderprice" type="xs:long" />
+        <xs:element name="//주문수량count" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="address" >
+      <xs:sequence>
+        <xs:element name="city" type="xs:string" />
+        <xs:element name="street" type="xs:string" />
+        <xs:element name="zipcode" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="delivery" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="order" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="address" nillable="true" minOccurs="0" />
+        <xs:element name="status" type="deliverystatus" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jpashopapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="orderapicontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="orderrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="orderqueryrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ordersimpleapicontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="orderrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="ordersimplequeryrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="memberapicontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="memberservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="homecontroller" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="itemcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="itemservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ordercontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="orderservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="memberservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="itemservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="membercontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="memberservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="memberform" >
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="city" type="xs:string" />
+        <xs:element name="street" type="xs:string" />
+        <xs:element name="zipcode" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bookform" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="price" type="xs:long" />
+        <xs:element name="stockquantity" type="xs:long" />
+        <xs:element name="author" type="xs:string" />
+        <xs:element name="isbn" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="orderservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="orderrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="memberrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="itemrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="itemservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="itemrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="memberservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="memberrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="notenoughstockexception" >
+      <xs:complexContent>
+       <xs:extension base="runtimeexception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="index" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="footer" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bodyheader" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="updateitemform" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="createitemform" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hello" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="orderform" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="home" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="orderservicetest" >
+      <xs:sequence>
+        <xs:element name="em" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="orderservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="orderrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="memberservicetest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="memberservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="memberrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jpashopapplicationtests" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

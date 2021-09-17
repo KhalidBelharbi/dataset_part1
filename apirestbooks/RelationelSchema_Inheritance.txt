@@ -1,0 +1,13 @@
+
+categoria(/***/serialversionuid:long, id:Long [PK], nombre:String, descripcion:String);
+
+libro(/***/serialversionuid:long, id:Long [PK], nombre:String, descripcion:String, GeneratedName:Categoria #FK to(categoria));
+
+rol(/***/serialversionuid:long, id:Long [PK], nombrerol:String);
+
+usuario(/***/serialversionuid:long, id:Long [PK], usuario:String, password:String, habilitado:Boolean);
+
+usuarios_roles(usuario_id:Usuario [PK] #FK to Usuario,role_id:list<rol> [PK] #FK to list<rol>);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

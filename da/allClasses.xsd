@@ -1,0 +1,1727 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="tableid" >
+      <xs:sequence>
+        <xs:element name="schema" type="schemaid" nillable="true" minOccurs="0" />
+        <xs:element name="name" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="schemaidvisitor" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="schemaid" >
+      <xs:complexContent>
+       <xs:extension base="schemaid">
+         <xs:sequence>
+          <xs:element name="anonymous" type="schemaid" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tablemodel" >
+      <xs:sequence>
+        <xs:element name="id" type="tableid" nillable="true" minOccurs="0" />
+        <xs:element name="columns" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="columnid" >
+      <xs:sequence>
+        <xs:element name="table" type="tableid" nillable="true" minOccurs="0" />
+        <xs:element name="name" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="doubletype" >
+      <xs:sequence>
+        <xs:element name="instance" type="doubletype" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="biginttype" >
+      <xs:sequence>
+        <xs:element name="instance" type="biginttype" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tinyinttype" >
+      <xs:sequence>
+        <xs:element name="instance" type="tinyinttype" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sqltype" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="floattype" >
+      <xs:sequence>
+        <xs:element name="instance" type="floattype" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="chartype" >
+      <xs:sequence>
+        <xs:element name="instance" type="chartype" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="varchartype" >
+      <xs:sequence>
+        <xs:element name="instance" type="varchartype" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="datetype" >
+      <xs:sequence>
+        <xs:element name="instance" type="datetype" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="blobtype" >
+      <xs:sequence>
+        <xs:element name="instance" type="blobtype" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="package-info" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="smallinttype" >
+      <xs:sequence>
+        <xs:element name="instance" type="smallinttype" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="timestamptype" >
+      <xs:sequence>
+        <xs:element name="instance" type="timestamptype" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="clobtype" >
+      <xs:sequence>
+        <xs:element name="instance" type="clobtype" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="varbinarytype" >
+      <xs:sequence>
+        <xs:element name="instance" type="varbinarytype" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="inttype" >
+      <xs:sequence>
+        <xs:element name="instance" type="inttype" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="timetype" >
+      <xs:sequence>
+        <xs:element name="instance" type="timetype" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="longvarchartype" >
+      <xs:sequence>
+        <xs:element name="instance" type="longvarchartype" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="decimaltype" >
+      <xs:sequence>
+        <xs:element name="instance" type="decimaltype" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="booleantype" >
+      <xs:sequence>
+        <xs:element name="instance" type="booleantype" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="databasemodel" >
+      <xs:sequence>
+        <xs:element name="tables" type="xs:anyType" />
+        <xs:element name="aliases" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="package-info" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="columnmodel" >
+      <xs:sequence>
+        <xs:element name="id" type="columnid" nillable="true" minOccurs="0" />
+        <xs:element name="type" type="sqltype" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="annotationmodel" >
+      <xs:sequence>
+        <xs:element name="data" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="annotationscannerrequirement" >
+      <xs:sequence>
+        <xs:element name="pkg" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="annotationparserconfigurator" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="annotationparser" >
+      <xs:sequence>
+        <xs:element name="ar" type="analysisresult" nillable="true" minOccurs="0" />
+        <xs:element name="config" type="annotationparserconfig" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="annotationparserconfig" >
+      <xs:complexContent>
+       <xs:extension base="analyserconfiguration<annotationparser>">
+         <xs:sequence>
+          <xs:element name="packages" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="package-info" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="internalannotationbuilder" >
+      <xs:complexContent>
+       <xs:extension base="annotationvisitor">
+         <xs:sequence>
+          <xs:element name="/*package*/anon" type="xs:anyType" />
+          <xs:element name="/*package*/anon" type="xs:anyType" />
+          <xs:element name="fin" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="annotationbuilder" >
+      <xs:complexContent>
+       <xs:extension base="internalannotationbuilder">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="annotationconverter" >
+      <xs:sequence>
+        <xs:element name="models" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="package-info" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="annotation" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="data" type="annotationdata" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="annotationvalue" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="value" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="annotationdata" >
+      <xs:sequence>
+        <xs:element name="data" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="package-info" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="genericdata" >
+      <xs:sequence>
+        <xs:element name="data" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jpaanalysisconfigurator" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="a1" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="c1" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="c2" nillable="true" minOccurs="0" />
+        <xs:element name="a2" type="a2" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="a21" type="a2" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rootanalysis3" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="annotationscannerconfig" >
+      <xs:complexContent>
+       <xs:extension base="analyserconfiguration<annotationscanner>">
+         <xs:sequence>
+          <xs:element name="what" type="xs:long" />
+          <xs:element name="many" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tm3" >
+      <xs:sequence>
+        <xs:element name="config" type="tm3config" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rootanalysis1config" >
+      <xs:complexContent>
+       <xs:extension base="analyserconfiguration<rootanalysis1>">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="typemappers" >
+      <xs:sequence>
+        <xs:element name="mappers" type="typemapper" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rootanalysis2a" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="c1" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="a31" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="a41" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tm2config" >
+      <xs:complexContent>
+       <xs:extension base="analyserconfiguration<tm2>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="typemapper" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dummyrequirement1" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rootanalysis2" >
+      <xs:sequence>
+        <xs:element name="twoa" type="rootanalysis2a" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="special" type="rootanalysis2a" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="a2config" >
+      <xs:complexContent>
+       <xs:extension base="analyserconfiguration<a2>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="a4" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="package-info" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tm2" >
+      <xs:sequence>
+        <xs:element name="config" type="tm2config" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="a31config" >
+      <xs:complexContent>
+       <xs:extension base="analyserconfiguration<a31>">
+         <xs:sequence>
+          <xs:element name="a41c" type="a41config" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="rootanalysis" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="deploymentstructure" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rootanalysis2config" >
+      <xs:complexContent>
+       <xs:extension base="analyserconfiguration<rootanalysis2>">
+         <xs:sequence>
+          <xs:element name="config" type="rootanalysis2aconfig" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="typemappersconfig" >
+      <xs:complexContent>
+       <xs:extension base="analyserconfiguration<typemappers>">
+         <xs:sequence>
+          <xs:element name="configs" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="dummyrequirement3" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rootanalysis2aconfigurator" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tm3config" >
+      <xs:complexContent>
+       <xs:extension base="analyserconfiguration<tm3>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="a2" >
+      <xs:sequence>
+        <xs:element name="config" type="a2config" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="a41" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="a41config" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jpaanalysis3" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="all" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jpaanalysis" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="annotationscanner" >
+      <xs:sequence>
+        <xs:element name="config" type="annotationscannerconfig" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="a3" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="a4" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jpaanalysis3configurator" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rootanalysis1" >
+      <xs:sequence>
+        <xs:element name="config" type="rootanalysis1config" nillable="true" minOccurs="0" />
+        <xs:element name="all" type="resourceprocessor" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rootanalysis2aconfig" >
+      <xs:complexContent>
+       <xs:extension base="analyserconfiguration<rootanalysis2a>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jpaanalysis2" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jpaanalysis2configurator" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tm1" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="a41config" >
+      <xs:complexContent>
+       <xs:extension base="analyserconfiguration<a41>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="annotationscannerconfigurator" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="c2" >
+      <xs:sequence>
+        <xs:element name="a2" type="a2config" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tm2configurator" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dummyrequirement2" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tm3configurator" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rootanalysis3configurator" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="beanreference" >
+      <xs:sequence>
+        <xs:element name="clazz" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="analysis" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="configured" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="typeutil" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="archive" >
+      <xs:complexContent>
+       <xs:extension base="genericdata">
+         <xs:sequence>
+          <xs:element name="children" type="resourceid" nillable="true" minOccurs="0" />
+          <xs:element name="data" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="classpathelementscannerconfig" >
+      <xs:complexContent>
+       <xs:extension base="analyserconfiguration<classpathelementscanner>">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="methodid" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="zipscannerconfig" >
+      <xs:complexContent>
+       <xs:extension base="analyserconfiguration<zipscanner>">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="analysisresult" >
+      <xs:complexContent>
+       <xs:extension base="genericdata">
+         <xs:sequence>
+          <xs:element name="id" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="datamodelcreatorconfig" >
+      <xs:complexContent>
+       <xs:extension base="analyserconfiguration<datamodelcreator>">
+         <xs:sequence>
+          <xs:element name="typemappers" type="xs:anyType" />
+          <xs:element name="aggregatebydatasource" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ziparchive" >
+      <xs:complexContent>
+       <xs:extension base="archive">
+         <xs:sequence>
+          <xs:element name="children" type="archive" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="deploymentartifacts" >
+      <xs:sequence>
+        <xs:element name="da" type="archive" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="classdata" >
+      <xs:complexContent>
+       <xs:extension base="genericdata">
+         <xs:sequence>
+          <xs:element name="" type="classid" nillable="true" minOccurs="0" />
+          <xs:element name="methoddata" type="xs:anyType" />
+          <xs:element name="fielddata" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ext" >
+      <xs:complexContent>
+       <xs:extension base="genericdeclaration>">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="typesanascope" type="xs:anyType" />
+          <xs:element name="beandeps2" type="xs:anyType" />
+          <xs:element name="configurationbeans" type="xs:anyType" />
+          <xs:element name="configuredliteratal" type="annotation" nillable="true" minOccurs="0" />
+          <xs:element name="defaultliteratal" type="annotation" nillable="true" minOccurs="0" />
+          <xs:element name="allliteral" type="annotation" nillable="true" minOccurs="0" />
+          <xs:element name="beans" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="classmodel" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="supertype" type="classtype" nillable="true" minOccurs="0" />
+        <xs:element name="interfaces" type="xs:anyType" />
+        <xs:element name="datastorage" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="xmlprocessor" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="asmids" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="classdatacreator" >
+      <xs:sequence>
+        <xs:element name="ar" type="analysisresult" nillable="true" minOccurs="0" />
+        <xs:element name="config" type="classdatacreatorconfig" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="propertynaming" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="includes" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="classpathelementscanner" >
+      <xs:sequence>
+        <xs:element name="config" type="classpathelementscannerconfig" nillable="true" minOccurs="0" />
+        <xs:element name="proc" type="resourceprocessor" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="ar" type="analysisresult" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="methoddata" >
+      <xs:complexContent>
+       <xs:extension base="genericdata">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="fieldid" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="classhierarchy" >
+      <xs:sequence>
+        <xs:element name="data" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tmain" >
+      <xs:complexContent>
+       <xs:extension base="analyserconfiguration<a>>">
+         <xs:sequence>
+          <xs:element name="i" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="ext" nillable="true" minOccurs="0" />
+          <xs:element name="bm" type="xs:anyType" />
+          <xs:element name="" type="analysersmetadata" nillable="true" minOccurs="0" />
+          <xs:element name="anas" type="xs:anyType" />
+          <xs:element name="r" type="resolver" nillable="true" minOccurs="0" />
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="configuration" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="xmlresourceprocessor" >
+      <xs:sequence>
+        <xs:element name="xmlprocessors" type="xmlprocessor" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="factory" type="xs:anyType" />
+        <xs:element name="filter" type="xs:anyType" />
+        <xs:element name="filtered" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jodatypes" >
+      <xs:sequence>
+        <xs:element name="orgjodatimedatetime" type="xs:anyType" />
+        <xs:element name="orgjodatimelocaldate" type="xs:anyType" />
+        <xs:element name="orgjodatimelocaltime" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="javaarchive" >
+      <xs:complexContent>
+       <xs:extension base="archive">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="classprocessor" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="analysermetadata" >
+      <xs:complexContent>
+       <xs:extension base="analyserconfiguration<a>>">
+         <xs:sequence>
+          <xs:element name="analyserclass" type="xs:anyType" />
+          <xs:element name="configclass" type="xs:anyType" />
+          <xs:element name="configurator" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="defaultarchiveclassloader" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="archive" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="zipscanner" >
+      <xs:sequence>
+        <xs:element name="jpps" type="jarresourceprocessor" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="config" type="zipscannerconfig" nillable="true" minOccurs="0" />
+        <xs:element name="ar" type="analysisresult" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="webarchive" >
+      <xs:complexContent>
+       <xs:extension base="archive">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jarresourceprocessor" >
+      <xs:sequence>
+        <xs:element name="procs" type="resourceprocessor" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jretypes" >
+      <xs:sequence>
+        <xs:element name="javalangobject" type="xs:anyType" />
+        <xs:element name="javalangboolean" type="xs:anyType" />
+        <xs:element name="javalangbyte" type="xs:anyType" />
+        <xs:element name="javalangcharacter" type="xs:anyType" />
+        <xs:element name="javalangenum" type="xs:anyType" />
+        <xs:element name="javalangdouble" type="xs:anyType" />
+        <xs:element name="javalangfloat" type="xs:anyType" />
+        <xs:element name="javalanginteger" type="xs:anyType" />
+        <xs:element name="javalanglong" type="xs:anyType" />
+        <xs:element name="javalangstring" type="xs:anyType" />
+        <xs:element name="javamathbigdecimal" type="xs:anyType" />
+        <xs:element name="javautildate" type="xs:anyType" />
+        <xs:element name="javasqldate" type="xs:anyType" />
+        <xs:element name="javasqltime" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="enterprisearchive" >
+      <xs:complexContent>
+       <xs:extension base="archive">
+         <xs:sequence>
+          <xs:element name="children" type="archive" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="classid" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="analysisconfiguration" >
+      <xs:sequence>
+        <xs:element name="configs" type="xs:anyType" />
+        <xs:element name="requirements" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="classdatacreatorconfig" >
+      <xs:complexContent>
+       <xs:extension base="analyserconfiguration<classdatacreator>">
+         <xs:sequence>
+          <xs:element name="datas" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="datamodelcreator" >
+      <xs:sequence>
+        <xs:element name="ch" type="classloader" nillable="true" minOccurs="0" />
+        <xs:element name="resolve" type="resolver" nillable="true" minOccurs="0" />
+        <xs:element name="typemappers" type="typemapper" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="config" type="datamodelcreatorconfig" nillable="true" minOccurs="0" />
+        <xs:element name="dm" type="databasemodel" nillable="true" minOccurs="0" />
+        <xs:element name="ar" type="analysisresult" nillable="true" minOccurs="0" />
+        <xs:element name="result" type="databasemodelsbydatasource" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="resourceprocessor" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="classresourceprocessor" >
+      <xs:sequence>
+        <xs:element name="classprocessors" type="classprocessor" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="anascope" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jpatypes" >
+      <xs:sequence>
+        <xs:element name="embeddable" type="xs:anyType" />
+        <xs:element name="entity" type="xs:anyType" />
+        <xs:element name="javaxpersistencetable" type="xs:anyType" />
+        <xs:element name="javaxpersistenceaccess" type="xs:anyType" />
+        <xs:element name="cacheable" type="xs:anyType" />
+        <xs:element name="mappedsuperclass" type="xs:anyType" />
+        <xs:element name="idclass" type="xs:anyType" />
+        <xs:element name="entitylisteners" type="xs:anyType" />
+        <xs:element name="javaxpersistencecolumn" type="xs:anyType" />
+        <xs:element name="javaxpersistenceembedded" type="xs:anyType" />
+        <xs:element name="javaxpersistencetransient" type="xs:anyType" />
+        <xs:element name="javaxpersistenceattributeoverride" type="xs:anyType" />
+        <xs:element name="javaxpersistenceattributeoverrides" type="xs:anyType" />
+        <xs:element name="javaxpersistenceenumerated" type="xs:anyType" />
+        <xs:element name="javaxpersistencemanytoone" type="xs:anyType" />
+        <xs:element name="javaxpersistencejoincolumn" type="xs:anyType" />
+        <xs:element name="javaxpersistenceonetoone" type="xs:anyType" />
+        <xs:element name="javaxpersistenceonetomany" type="xs:anyType" />
+        <xs:element name="javaxpersistencebasic" type="xs:anyType" />
+        <xs:element name="javaxpersistenceordercolumn" type="xs:anyType" />
+        <xs:element name="javaxpersistenceid" type="xs:anyType" />
+        <xs:element name="javaxpersistencesequencegenerator" type="xs:anyType" />
+        <xs:element name="javaxpersistencegeneratedvalue" type="xs:anyType" />
+        <xs:element name="javaxpersistenceversion" type="xs:anyType" />
+        <xs:element name="javaxpersistencemanytomany" type="xs:anyType" />
+        <xs:element name="javaxpersistencejointable" type="xs:anyType" />
+        <xs:element name="javaxpersistenceembeddedid" type="xs:anyType" />
+        <xs:element name="javaxpersistencemapsid" type="xs:anyType" />
+        <xs:element name="javaxpersistencejoincolumns" type="xs:anyType" />
+        <xs:element name="javaxpersistenceprimarykeyjoincolumns" type="xs:anyType" />
+        <xs:element name="javaxpersistencetemporal" type="xs:anyType" />
+        <xs:element name="javaxpersistenceorderby" type="xs:anyType" />
+        <xs:element name="javaxpersistencelob" type="xs:anyType" />
+        <xs:element name="javaxpersistencemapkey" type="xs:anyType" />
+        <xs:element name="javaxpersistenceelementcollection" type="xs:anyType" />
+        <xs:element name="javaxpersistencecollectiontable" type="xs:anyType" />
+        <xs:element name="javaxpersistenceprepersist" type="xs:anyType" />
+        <xs:element name="javaxpersistencepreupdate" type="xs:anyType" />
+        <xs:element name="javaxpersistencepostpersist" type="xs:anyType" />
+        <xs:element name="javaxpersistencepostupdate" type="xs:anyType" />
+        <xs:element name="javaxpersistencepersistencecontext" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="columnannotation" >
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="nullable" type="xs:anyType" />
+        <xs:element name="length" type="xs:anyType" />
+        <xs:element name="precision" type="xs:anyType" />
+        <xs:element name="scale" type="xs:anyType" />
+        <xs:element name="updatable" type="xs:anyType" />
+        <xs:element name="insertable" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="typemapper" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jointableannotation" >
+      <xs:sequence>
+        <xs:element name="schema" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="joincolumns" type="joincolumnannotation" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="inversejoincolumns" type="joincolumnannotation" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hibernatetypemapper" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="onetomanyannotation" >
+      <xs:sequence>
+        <xs:element name="mappedby" type="xs:string" />
+        <xs:element name="orphanremoval" type="xs:anyType" />
+        <xs:element name="cascade" type="jpacascadetype" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="fetch" type="jpafetchtype" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hibernateh2typemapper" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jpamodelcreatorconfig" >
+      <xs:complexContent>
+       <xs:extension base="analyserconfiguration<jpamodelcreator>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="hibernatedb2typemapper" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="manytomanyannotation" >
+      <xs:sequence>
+        <xs:element name="mappedby" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persistencexmlunits" >
+      <xs:sequence>
+        <xs:element name="units" type="persistencexmlunit" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="accessannotation" >
+      <xs:sequence>
+        <xs:element name="value" type="jpaaccess" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="temporalannotation" >
+      <xs:sequence>
+        <xs:element name="value" type="jpatemporaltype" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persistencexmlunit" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="excludeunlistedclasses" type="xs:anyType" />
+        <xs:element name="classes" type="xs:anyType" />
+        <xs:element name="jtadatasource" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="collectiontableannotation" >
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="schema" type="xs:string" />
+        <xs:element name="joincolumns" type="joincolumnannotation" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="onetooneannotation" >
+      <xs:sequence>
+        <xs:element name="mappedby" type="xs:string" />
+        <xs:element name="orphanremoval" type="xs:anyType" />
+        <xs:element name="cascade" type="jpacascadetype" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="fetch" type="jpafetchtype" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="fieldtype" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="enumeratedannotation" >
+      <xs:sequence>
+        <xs:element name="value" type="jpaenumtype" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tresult" >
+      <xs:sequence>
+        <xs:element name="fieldproperties" type="xs:anyType" />
+        <xs:element name="methodproperties" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jpaanalysisresult" >
+      <xs:sequence>
+        <xs:element name="clazz" type="classmodel" nillable="true" minOccurs="0" />
+        <xs:element name="access" type="jpaaccess" nillable="true" minOccurs="0" />
+        <xs:element name="isentity" type="xs:anyType" />
+        <xs:element name="isembeddable" type="xs:anyType" />
+        <xs:element name="ismappedsuperclass" type="xs:anyType" />
+        <xs:element name="//privatejpakindkind////publicvoidsetkind(jpakindkind){//objects.requirenonnull(kind)//if(this.kind!" type="xs:anyType" />
+        <xs:element name="table" type="tableannotation" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persistenceunit" >
+      <xs:sequence>
+        <xs:element name="id" type="persistencexmlunit" nillable="true" minOccurs="0" />
+        <xs:element name="data" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jpaenumtype" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="attributeoverridesannotation" >
+      <xs:sequence>
+        <xs:element name="value" type="attributeoverrideannotation" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tableannotation" >
+      <xs:sequence>
+        <xs:element name="schema" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jpamodelcreatorconfigurator" >
+      <xs:sequence>
+        <xs:element name="reqs" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jpaanalysisresult2" >
+      <xs:sequence>
+        <xs:element name="clazz" type="classdata" nillable="true" minOccurs="0" />
+        <xs:element name="access" type="jpaaccess" nillable="true" minOccurs="0" />
+        <xs:element name="isentity" type="xs:anyType" />
+        <xs:element name="isembeddable" type="xs:anyType" />
+        <xs:element name="ismappedsuperclass" type="xs:anyType" />
+        <xs:element name="//privatejpakindkind////voidsetkind(jpakindkind){//objects.requirenonnull(kind)//if(this.kind!" type="xs:anyType" />
+        <xs:element name="table" type="tableannotation" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="lobannotation" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ordercolumnannotation" >
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persistencexmlparserconfigurator" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jpatemporaltype" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="package-info" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hibernatetypemapper2" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jpaproperty" >
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="access" type="jpaaccess" nillable="true" minOccurs="0" />
+        <xs:element name="collectiontable" type="collectiontableannotation" nillable="true" minOccurs="0" />
+        <xs:element name="column" type="columnannotation" nillable="true" minOccurs="0" />
+        <xs:element name="onetoone" type="onetooneannotation" nillable="true" minOccurs="0" />
+        <xs:element name="onetomany" type="onetomanyannotation" nillable="true" minOccurs="0" />
+        <xs:element name="manytoone" type="manytooneannotation" nillable="true" minOccurs="0" />
+        <xs:element name="manytomany" type="manytomanyannotation" nillable="true" minOccurs="0" />
+        <xs:element name="attributeoverrides" type="xs:anyType" />
+        <xs:element name="joincolumns" type="joincolumnannotation" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="fieldtype" nillable="true" minOccurs="0" />
+        <xs:element name="enumtype" type="jpaenumtype" nillable="true" minOccurs="0" />
+        <xs:element name="temporaltype" type="jpatemporaltype" nillable="true" minOccurs="0" />
+        <xs:element name="ordercolumn" type="ordercolumnannotation" nillable="true" minOccurs="0" />
+        <xs:element name="jointable" type="jointableannotation" nillable="true" minOccurs="0" />
+        <xs:element name="lob" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="type2" type="javatype" nillable="true" minOccurs="0" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="trans" type="xs:anyType" />
+        <xs:element name="collectiontableproperties" type="jpaproperty" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="element" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persistencexmlparser" >
+      <xs:sequence>
+        <xs:element name="persistencexml" type="xs:anyType" />
+        <xs:element name="_2_0" type="xs:anyType" />
+        <xs:element name="_2_1" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="manytooneannotation" >
+      <xs:sequence>
+        <xs:element name="optional" type="xs:anyType" />
+        <xs:element name="cascade" type="jpacascadetype" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="fetch" type="jpafetchtype" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jpafetchtype" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="attributeoverrideannotation" >
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="column" type="columnannotation" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jpacascadetype" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jpamodelcreatorphase2configurator" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="joincolumnsannotation" >
+      <xs:sequence>
+        <xs:element name="value" type="joincolumnannotation" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persistenceunits" >
+      <xs:sequence>
+        <xs:element name="units" type="persistenceunit" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jpamodelcreatorphase2" >
+      <xs:complexContent>
+       <xs:extension base="jpaproperty>>">
+         <xs:sequence>
+          <xs:element name="ar" type="analysisresult" nillable="true" minOccurs="0" />
+          <xs:element name="ch" type="classloader" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jpakind" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jpamodelcreator" >
+      <xs:sequence>
+        <xs:element name="ar" type="analysisresult" nillable="true" minOccurs="0" />
+        <xs:element name="config" type="jpamodelcreatorconfig" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="joincolumnannotation" >
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="referencedcolumnname" type="xs:string" />
+        <xs:element name="nullable" type="xs:anyType" />
+        <xs:element name="updatable" type="xs:anyType" />
+        <xs:element name="insertable" type="xs:anyType" />
+        <xs:element name="unique" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="classloader" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="include" >
+      <xs:complexContent>
+       <xs:extension base="analyser<?>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="resourceid" >
+      <xs:sequence>
+        <xs:element name="parent" type="resourceid" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="analysersmetadata" >
+      <xs:complexContent>
+       <xs:extension base="analyserconfiguration<a>>">
+         <xs:sequence>
+          <xs:element name="all" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jpaaccess" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="deploymentanalysermain2" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="directoryarchive" >
+      <xs:complexContent>
+       <xs:extension base="archive">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="fielddata" >
+      <xs:complexContent>
+       <xs:extension base="genericdata">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="classdatacreatorconfigurator" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="datamodelcreatorconfigurator" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="databasemodelsbydatasource" >
+      <xs:sequence>
+        <xs:element name="databasemodels" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="analyserconfiguration" >
+      <xs:sequence>
+        <xs:element name="analyser" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="configurator" >
+      <xs:complexContent>
+       <xs:extension base="analyserconfiguration<a>>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="lazy" >
+      <xs:sequence>
+        <xs:element name="supplier" type="xs:anyType" />
+        <xs:element name="value" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="resolver" >
+      <xs:sequence>
+        <xs:element name="i" type="xs:anyType" />
+        <xs:element name="bm" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="package-info" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="description" >
+      <xs:sequence>
+        <xs:element name="eol" type="xs:string" />
+        <xs:element name="eol" type="xs:anyType" />
+        <xs:element name="indent" type="xs:string" />
+        <xs:element name="prefix" type="xs:string" />
+        <xs:element name="text" type="xs:anyType" />
+        <xs:element name="map" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="describable" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="typevisitor" >
+      <xs:complexContent>
+       <xs:extension base="genericdeclaration>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="package-info" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="collectors2" >
+      <xs:complexContent>
+       <xs:extension base="multimap<k,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="typeutils" >
+      <xs:complexContent>
+       <xs:extension base="genericdeclaration>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="package-info" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="basetype" >
+      <xs:complexContent>
+       <xs:extension base="javatype">
+         <xs:sequence>
+          <xs:element name="descriptor" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="innerclass" >
+      <xs:sequence>
+        <xs:element name="name" type="xs:anyType" />
+        <xs:element name="typearguments" type="typeargument" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="parameterizedtype" >
+      <xs:complexContent>
+       <xs:extension base="classtype">
+         <xs:sequence>
+          <xs:element name="name" type="xs:anyType" />
+          <xs:element name="typearguments" type="typeargument" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="innerclasses" type="innerclass" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="objecttype" >
+      <xs:complexContent>
+       <xs:extension base="javatype">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="methodsignaturevisitor" >
+      <xs:complexContent>
+       <xs:extension base="signaturevisitor">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="result" type="methodsignature" nillable="true" minOccurs="0" />
+          <xs:element name="visitexceptiontype" type="typesignaturevisitor" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="visitparametertype" type="typesignaturevisitor" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="visitorreturntype" type="typesignaturevisitor" nillable="true" minOccurs="0" />
+          <xs:element name="current" type="typeparameter" nillable="true" minOccurs="0" />
+          <xs:element name="visitorclassbound" type="typesignaturevisitor" nillable="true" minOccurs="0" />
+          <xs:element name="visitorinterfacebound" type="typesignaturevisitor" nillable="true" minOccurs="0" />
+          <xs:element name="resultparameters" type="typeparameter" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="dumpsignaturevisitor" >
+      <xs:complexContent>
+       <xs:extension base="signaturevisitor">
+         <xs:sequence>
+          <xs:element name="prefix" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="javatype" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="typevariable" >
+      <xs:complexContent>
+       <xs:extension base="javatype">
+         <xs:sequence>
+          <xs:element name="name" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="package-info" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="arraytype" >
+      <xs:complexContent>
+       <xs:extension base="javatype">
+         <xs:sequence>
+          <xs:element name="contenttype" type="javatype" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="typeparameter" >
+      <xs:complexContent>
+       <xs:extension base="">
+         <xs:sequence>
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="classbound" type="javatype" nillable="true" minOccurs="0" />
+          <xs:element name="interfacebound" type="javatype" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="classsignaturevisitor" >
+      <xs:complexContent>
+       <xs:extension base="signaturevisitor">
+         <xs:sequence>
+          <xs:element name="//@formatter:off//(visitformalvisitclassbound?visitinterfacebound*)*(visitsuperclassvisitinterface*)//s1------------------------s2---------------s3----------------------------------------s4---------------s5//@formatter:oncurrent" type="typeparameter" nillable="true" minOccurs="0" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="result" type="classsignature" nillable="true" minOccurs="0" />
+          <xs:element name="visitorclassbound" type="typesignaturevisitor" nillable="true" minOccurs="0" />
+          <xs:element name="resultparameters" type="typeparameter" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="visitorinterfacebound" type="typesignaturevisitor" nillable="true" minOccurs="0" />
+          <xs:element name="visitorsuperclass" type="typesignaturevisitor" nillable="true" minOccurs="0" />
+          <xs:element name="visitorinterface" type="typesignaturevisitor" nillable="true" minOccurs="0" />
+          <xs:element name="resultinterfaces" type="classtype" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="resultsuperclass" type="classtype" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="methodsignature" >
+      <xs:sequence>
+        <xs:element name="exceptions" type="javatype" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="returntype" type="javatype" nillable="true" minOccurs="0" />
+        <xs:element name="parameters" type="javatype" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="typeparameters" type="typeparameter" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="typesignaturevisitor" >
+      <xs:complexContent>
+       <xs:extension base="signaturevisitor">
+         <xs:sequence>
+          <xs:element name="state" type="xs:anyType" />
+          <xs:element name="resultarraytypecontent" type="javatype" nillable="true" minOccurs="0" />
+          <xs:element name="visitorarraytype" type="typesignaturevisitor" nillable="true" minOccurs="0" />
+          <xs:element name="result" type="xs:anyType" />
+          <xs:element name="current" type="innerclass" nillable="true" minOccurs="0" />
+          <xs:element name="resultinnerclasses" type="innerclass" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="resulttypearguments" type="typeargument" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="visitortypeargument" type="typesignaturevisitor" nillable="true" minOccurs="0" />
+          <xs:element name="current" type="typeargument" nillable="true" minOccurs="0" />
+          <xs:element name="result" type="javatype" nillable="true" minOccurs="0" />
+          <xs:element name="result" type="javatype" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="javatypevisitor" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="classsignature" >
+      <xs:complexContent>
+       <xs:extension base="").append(superclass.asjava());">
+         <xs:sequence>
+          <xs:element name="parameters" type="typeparameter" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="superclass" type="classtype" nillable="true" minOccurs="0" />
+          <xs:element name="interfaces" type="classtype" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="typeargument" >
+      <xs:complexContent>
+       <xs:extension base="").append(type.asjava());">
+         <xs:sequence>
+          <xs:element name="type" type="javatype" nillable="true" minOccurs="0" />
+          <xs:element name="wildchar" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="classtype" >
+      <xs:complexContent>
+       <xs:extension base="objecttype">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="rawtype" >
+      <xs:complexContent>
+       <xs:extension base="classtype">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="package-info" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="asmtypeparser" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="beans" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="anatestmain" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="typeutilsresolvetest" >
+      <xs:complexContent>
+       <xs:extension base="hashmap<string,">
+         <xs:sequence>
+          <xs:element name="listofstring" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="implicitembeddedtest" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="foo" >
+      <xs:sequence>
+        <xs:element name="x" type="xs:long" />
+        <xs:element name="y" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tm1" >
+      <xs:complexContent>
+       <xs:extension base="super1<integer>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="embedded1" >
+      <xs:sequence>
+        <xs:element name="//@access(accesstype.property)" type="xs:dateTime" />
+        <xs:element name="str" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="xx" >
+      <xs:sequence>
+        <xs:element name="id1" type="xs:long" />
+        <xs:element name="id2" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="onetomanyexample1" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="manytomanyexample1variant2" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="typestest" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entity2" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="embedded" type="embedded1" nillable="true" minOccurs="0" />
+        <xs:element name="foo" type="xs:string" />
+        <xs:element name="//@columnc1" type="xs:string" />
+        <xs:element name="c2" type="xs:long" />
+        <xs:element name="foos" type="foo" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="super1" >
+      <xs:sequence>
+        <xs:element name="//@idid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="manytomanyexample3" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="accesstest" >
+      <xs:complexContent>
+       <xs:extension base="e2">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="compareh2" >
+      <xs:complexContent>
+       <xs:extension base="super1<integer>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="mypuh2" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="manytooneexample1" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="manytomanywikibooksexample1" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="mappedsuperclasstest" >
+      <xs:complexContent>
+       <xs:extension base="super1">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="intermediate2" >
+      <xs:complexContent>
+       <xs:extension base="super2">
+         <xs:sequence>
+          <xs:element name="a" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="onetomanywikibooksexample2" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bottom1" >
+      <xs:complexContent>
+       <xs:extension base="intermediate1">
+         <xs:sequence>
+          <xs:element name="id1" type="xs:long" />
+          <xs:element name="id2" type="xs:long" />
+          <xs:element name="b" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="modelreader" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="h2modelreader" >
+      <xs:complexContent>
+       <xs:extension base="modelreader">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="onetoonetest" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="attributeoverridestest" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="db2modelreader" >
+      <xs:complexContent>
+       <xs:extension base="modelreader">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="manytomany1" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="mypudb2" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="manytomanyexample1" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="onetomanyexample3variant1" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="collectiontabletest" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="comparedb2" >
+      <xs:complexContent>
+       <xs:extension base="super1<integer>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tm2" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="manytooneexample2" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="manytomanywikibooksexample1variant1" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="onetomanywikibooksexample1" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="intermediate1" >
+      <xs:complexContent>
+       <xs:extension base="super1">
+         <xs:sequence>
+          <xs:element name="a" type="xs:long" />
+          <xs:element name="e1" type="embedded1" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="bottom2" >
+      <xs:complexContent>
+       <xs:extension base="intermediate2">
+         <xs:sequence>
+          <xs:element name="b" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="manytomanyexample1variant1" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="mapwikibooksexample" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entity1" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="embedded" type="embedded1" nillable="true" minOccurs="0" />
+        <xs:element name="foo" type="xs:string" />
+        <xs:element name="//@columnc1" type="xs:string" />
+        <xs:element name="c2" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="super2" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="onetomanyexample3" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="methodsignaturevisitortest" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ftest" >
+      <xs:sequence>
+        <xs:element name="l1" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tmaintest" >
+      <xs:sequence>
+        <xs:element name="r1aruns" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persistence" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

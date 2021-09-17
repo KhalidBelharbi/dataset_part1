@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="harvesterconfig" >
+      <xs:complexContent>
+       <xs:extension base="versioned">
+         <xs:sequence>
+          <xs:element name="query_find_all_of_type" type="xs:string" />
+          <xs:element name="query_find_all_enabled_of_type" type="xs:string" />
+          <xs:element name="query_find_type_with_content" type="xs:string" />
+          <xs:element name="type" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sinkentity" >
+      <xs:complexContent>
+       <xs:extension base="versioned">
+         <xs:sequence>
+          <xs:element name="query_find_all" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="flow" >
+      <xs:complexContent>
+       <xs:extension base="versioned">
+         <xs:sequence>
+          <xs:element name="table_name" type="xs:string" />
+          <xs:element name="query_find_all" type="xs:string" />
+          <xs:element name="query_find_by_name" type="xs:string" />
+          <xs:element name="jsonb_context" type="xs:anyType" />
+          <xs:element name="view" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="flowcomponent" >
+      <xs:complexContent>
+       <xs:extension base="versioned">
+         <xs:sequence>
+          <xs:element name="table_name" type="xs:string" />
+          <xs:element name="query_find_all" type="xs:string" />
+          <xs:element name="jsonb_context" type="xs:anyType" />
+          <xs:element name="next" type="xs:string" />
+          <xs:element name="view" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="gatekeeperdestinationentity" >
+      <xs:sequence>
+        <xs:element name="query_find_all" type="xs:string" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="submitternumber" type="xs:string" />
+        <xs:element name="destination" type="xs:string" />
+        <xs:element name="packaging" type="xs:string" />
+        <xs:element name="format" type="xs:string" />
+        <xs:element name="copytoposthus" type="xs:anyType" />
+        <xs:element name="notifyfromposthus" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="submitter" >
+      <xs:complexContent>
+       <xs:extension base="versioned">
+         <xs:sequence>
+          <xs:element name="table_name" type="xs:string" />
+          <xs:element name="query_find_all" type="xs:string" />
+          <xs:element name="query_find_all_ids" type="xs:string" />
+          <xs:element name="query_find_by_content" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="flowbinder" >
+      <xs:complexContent>
+       <xs:extension base="versioned">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="table_name" type="xs:string" />
+          <xs:element name="match_flowbinder_query_name" type="xs:string" />
+          <xs:element name="match_flowbinderident_query_name" type="xs:string" />
+          <xs:element name="find_all_query_name" type="xs:string" />
+          <xs:element name="flowid" type="xs:long" />
+          <xs:element name="sinkid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema> 

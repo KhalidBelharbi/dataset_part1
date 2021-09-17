@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="revision2formapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jsonconfiguration" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="vin" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="nom" type="xs:string" />
+        <xs:element name="annee" type="xs:long" />
+        <xs:element name="GeneratedName" type="terroir" nillable="true" minOccurs="0" />
+        <xs:element name="caracteristiques" type="caracteristique" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="caracteristique" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="libelle" type="xs:string" />
+        <xs:element name="vins" type="vin" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="terroir" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="nom" type="xs:string" />
+        <xs:element name="vins" type="vin" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="vinaveccaracteristiques" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="vinavecterroir" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="terroirrepository" >
+      <xs:complexContent>
+       <xs:extension base="pagingandsortingrepository<terroir,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="caracteristiquerespository" >
+      <xs:complexContent>
+       <xs:extension base="pagingandsortingrepository<caracteristique,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="vinrepository" >
+      <xs:complexContent>
+       <xs:extension base="pagingandsortingrepository<vin,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="caracteristiquecontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="caracteristiquerespository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="vincontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="vinrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="terroirrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="caracteristiquerespository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

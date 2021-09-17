@@ -1,0 +1,13 @@
+
+cita(id:long [PK], dia:int, tramo:int, //unaovariascitaspertenecenaunatarjeta.//hacereferenciaalatarjetaalaquepertenecendichascitas.tarjeta:TarjetaBeneficiario #FK to(tarjetabeneficiario), //unaovariascitaspertenecenauna.//hacereferenciaalaalaquepertenecendichascitas.:Agenda #FK to(Agenda));
+
+agenda(id:long [PK], nombre:String, horainicio:int, totaltramos:int, //unaagendaperteneceaun.//hacereferenciaalalquepertenecelaagenda.:Especialista #FK to(especialista));
+
+tarjetabeneficiario(id:long [PK], numerotarjeta:String, nombre:String, apellido:String, fechanacimiento:Date, relaciontitular:String, //unaovariastarjetaspertenecenaun.//hacereferenciaaldelastarjetas.:Titular #FK to(titular));
+
+especialista(id:long [PK], ncolegiado:String, nombre:String, especialidad:String, //unespecialistatieneuna//hacereferenciaalaqueposeeelespecialista.//casacadeallparaquesepropaguenlasoperacionesalaotraentidad.//fetcheagerparaquelacargadelaentidadhijaseainstantánea.//laotraentidadtendráreferenciaporserunarelaciónbidireccional.:Agenda #FK to(Agenda));
+
+titular(id:long [PK], nombre:String, apellido:String, fechanacimiento:Date);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

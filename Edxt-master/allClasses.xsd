@@ -1,0 +1,713 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usuario" >
+      <xs:sequence>
+        <xs:element name="nickname" type="xs:string" />
+        <xs:element name="nombre" type="xs:string" />
+        <xs:element name="apellido" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="fnac" type="xs:dateTime" />
+        <xs:element name="pass" type="xs:string" />
+        <xs:element name="foto" type="xs:string" />
+        <xs:element name="//usuariosquemesiguenamiseguidores" type="usuario" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="//usuariosqueyosigosigoa" type="usuario" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cconsulta" >
+      <xs:sequence>
+        <xs:element name="ncruso" type="xs:string" />
+        <xs:element name="nprog" type="xs:string" />
+        <xs:element name="nickname" type="xs:string" />
+        <xs:element name="nedicion" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="categoria" >
+      <xs:sequence>
+        <xs:element name="nombre" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="edicion" >
+      <xs:sequence>
+        <xs:element name="nombre" type="xs:string" />
+        <xs:element name="finicio" type="xs:dateTime" />
+        <xs:element name="ffin" type="xs:dateTime" />
+        <xs:element name="cupo" type="xs:anyType" />
+        <xs:element name="fpublicacion" type="xs:dateTime" />
+        <xs:element name="foto" type="xs:string" />
+        <xs:element name="docentes" type="docente" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="/*@manytomany(cascade" type="inscripcioned" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="inscripcionprog" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="programa" nillable="true" minOccurs="0" />
+        <xs:element name="p" type="estudiante" nillable="true" minOccurs="0" />
+        <xs:element name="finscripcion" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cmodificacion" >
+      <xs:sequence>
+        <xs:element name="ncurso" type="xs:string" />
+        <xs:element name="nprog" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="calta" >
+      <xs:sequence>
+        <xs:element name="ncurso" type="xs:string" />
+        <xs:element name="ninst" type="xs:string" />
+        <xs:element name="datosc" type="dtcurso" nillable="true" minOccurs="0" />
+        <xs:element name="datose" type="dtedicion" nillable="true" minOccurs="0" />
+        <xs:element name="nickname" type="xs:string" />
+        <xs:element name="finscripcion" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="inscripcioned" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="edicion" nillable="true" minOccurs="0" />
+        <xs:element name="e" type="estudiante" nillable="true" minOccurs="0" />
+        <xs:element name="finscripcion" type="xs:dateTime" />
+        <xs:element name="estadoinsc" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="programa" >
+      <xs:sequence>
+        <xs:element name="nombre" type="xs:string" />
+        <xs:element name="descripcion" type="xs:string" />
+        <xs:element name="finicio" type="xs:dateTime" />
+        <xs:element name="ffin" type="xs:dateTime" />
+        <xs:element name="foto" type="xs:string" />
+        <xs:element name="cursos" type="curso" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="inscprog" type="inscripcionprog" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="estudiante" >
+      <xs:complexContent>
+       <xs:extension base="usuario">
+         <xs:sequence>
+          <xs:element name="inscripcionesed" type="inscripcioned" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="inscripcionesprog" type="inscripcionprog" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="curso" >
+      <xs:sequence>
+        <xs:element name="nombre" type="xs:string" />
+        <xs:element name="descripcion" type="xs:string" />
+        <xs:element name="url" type="xs:string" />
+        <xs:element name="duracion" type="xs:anyType" />
+        <xs:element name="canthoras" type="xs:anyType" />
+        <xs:element name="creditos" type="xs:anyType" />
+        <xs:element name="fechareg" type="xs:dateTime" />
+        <xs:element name="foto" type="xs:string" />
+        <xs:element name="ediciones" type="edicion" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="programas" type="programa" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="cursos" type="curso" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="categoria" type="categoria" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="docente" >
+      <xs:complexContent>
+       <xs:extension base="usuario">
+         <xs:sequence>
+          <xs:element name="ediciones" type="edicion" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="insti" type="instituto" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="instituto" >
+      <xs:sequence>
+        <xs:element name="nombre" type="xs:string" />
+        <xs:element name="cursos" type="curso" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="manejador" >
+      <xs:sequence>
+        <xs:element name="instancia" type="manejador" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="controladorconstpublish" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="fabrica" nillable="true" minOccurs="0" />
+        <xs:element name="icon" type="iconsulta" nillable="true" minOccurs="0" />
+        <xs:element name="//webserviceconfiguracionconfiguracion" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="controladormodipublish" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="fabrica" nillable="true" minOccurs="0" />
+        <xs:element name="icon" type="imodificacion" nillable="true" minOccurs="0" />
+        <xs:element name="//webserviceconfiguracionconfiguracion" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="controladoraltapublish" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="fabrica" nillable="true" minOccurs="0" />
+        <xs:element name="icon" type="ialta" nillable="true" minOccurs="0" />
+        <xs:element name="//webserviceconfiguracionconfiguracion" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="iconsulta" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="imodificacion" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ialta" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="fabrica" >
+      <xs:sequence>
+        <xs:element name="instancia" type="fabrica" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="institutorepetidoexcepcion" >
+      <xs:complexContent>
+       <xs:extension base="exception">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="edicionrepetidaencursoexcepcion" >
+      <xs:complexContent>
+       <xs:extension base="exception">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="cursorepetidoexcepcion" >
+      <xs:complexContent>
+       <xs:extension base="exception">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="edicionvigenteexcepcion" >
+      <xs:complexContent>
+       <xs:extension base="exception">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="usuariorepetidoexcepcion" >
+      <xs:complexContent>
+       <xs:extension base="exception">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="programarepetidoexcepcion" >
+      <xs:complexContent>
+       <xs:extension base="exception">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="institutovacioexepcion" >
+      <xs:complexContent>
+       <xs:extension base="exception">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jcursodatos" >
+      <xs:complexContent>
+       <xs:extension base="jpanel">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="tfnombre" type="xs:anyType" />
+          <xs:element name="tfurlasoc" type="xs:anyType" />
+          <xs:element name="spcanthoras" type="xs:anyType" />
+          <xs:element name="spcantcredasociados" type="xs:anyType" />
+          <xs:element name="vispanel" type="xs:anyType" />
+          <xs:element name="spduracion" type="xs:anyType" />
+          <xs:element name="dtfecha" type="xs:anyType" />
+          <xs:element name="txdesc" type="xs:anyType" />
+          <xs:element name="lerrornom" type="imageload" nillable="true" minOccurs="0" />
+          <xs:element name="lerrorhor" type="imageload" nillable="true" minOccurs="0" />
+          <xs:element name="lerrordur" type="imageload" nillable="true" minOccurs="0" />
+          <xs:element name="lerrorcred" type="imageload" nillable="true" minOccurs="0" />
+          <xs:element name="lerrordesc" type="imageload" nillable="true" minOccurs="0" />
+          <xs:element name="lerrorurl" type="imageload" nillable="true" minOccurs="0" />
+          <xs:element name="lblprevias" type="xs:anyType" />
+          <xs:element name="prev" type="xs:anyType" />
+          <xs:element name="scrollpane" type="xs:anyType" />
+          <xs:element name="" type="iconsulta" nillable="true" minOccurs="0" />
+          <xs:element name="scrollpane_1" type="xs:anyType" />
+          <xs:element name="lerrorinsti" type="imageload" nillable="true" minOccurs="0" />
+          <xs:element name="scrollpane_2" type="xs:anyType" />
+          <xs:element name="cat" type="xs:anyType" />
+          <xs:element name="lblcategoria" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jinscripcionedicion" >
+      <xs:complexContent>
+       <xs:extension base="background">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="tfedicion" type="xs:anyType" />
+          <xs:element name="cbxinstituto" type="xs:anyType" />
+          <xs:element name="cbxcurso" type="xs:anyType" />
+          <xs:element name="cbxestudiante" type="xs:anyType" />
+          <xs:element name="ierrorinst" type="imageload" nillable="true" minOccurs="0" />
+          <xs:element name="ierrorest" type="imageload" nillable="true" minOccurs="0" />
+          <xs:element name="ierrorcurs" type="imageload" nillable="true" minOccurs="0" />
+          <xs:element name="ierroredi" type="imageload" nillable="true" minOccurs="0" />
+          <xs:element name="ierrorfech" type="imageload" nillable="true" minOccurs="0" />
+          <xs:element name="dfecha" type="xs:anyType" />
+          <xs:element name="" type="manejador" nillable="true" minOccurs="0" />
+          <xs:element name="estadoinicial" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jusuariodatos" >
+      <xs:complexContent>
+       <xs:extension base="jpanel">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="tfnickname" type="xs:anyType" />
+          <xs:element name="tfnombre" type="xs:anyType" />
+          <xs:element name="tfapellido" type="xs:anyType" />
+          <xs:element name="tfemail" type="xs:anyType" />
+          <xs:element name="dcfnac" type="xs:anyType" />
+          <xs:element name="lerrornick" type="imageload" nillable="true" minOccurs="0" />
+          <xs:element name="lerrorape" type="imageload" nillable="true" minOccurs="0" />
+          <xs:element name="lerroremail" type="imageload" nillable="true" minOccurs="0" />
+          <xs:element name="lerrorc" type="imageload" nillable="true" minOccurs="0" />
+          <xs:element name="lerrorfnac" type="imageload" nillable="true" minOccurs="0" />
+          <xs:element name="lerrorpass" type="imageload" nillable="true" minOccurs="0" />
+          <xs:element name="lblpass" type="xs:anyType" />
+          <xs:element name="tfpass" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jedicionconsulta" >
+      <xs:complexContent>
+       <xs:extension base="background">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="cbxinstituto" type="xs:anyType" />
+          <xs:element name="cbxcurso" type="xs:anyType" />
+          <xs:element name="cbxedicion" type="xs:anyType" />
+          <xs:element name="ediciondatos" type="jediciondatos" nillable="true" minOccurs="0" />
+          <xs:element name="" type="manejador" nillable="true" minOccurs="0" />
+          <xs:element name="panel" type="xs:anyType" />
+          <xs:element name="lblnewlabel" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jediciondatos" >
+      <xs:complexContent>
+       <xs:extension base="jpanel">
+         <xs:sequence>
+          <xs:element name="txtnombre" type="xs:anyType" />
+          <xs:element name="dchinicio" type="xs:anyType" />
+          <xs:element name="dchfin" type="xs:anyType" />
+          <xs:element name="sficupos" type="xs:anyType" />
+          <xs:element name="lerrornombre" type="imageload" nillable="true" minOccurs="0" />
+          <xs:element name="lerrorini" type="imageload" nillable="true" minOccurs="0" />
+          <xs:element name="lerrorfin" type="imageload" nillable="true" minOccurs="0" />
+          <xs:element name="lerrorcupo" type="imageload" nillable="true" minOccurs="0" />
+          <xs:element name="cbxestadoinsc" type="enumestadoinscripcion" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="lblestadoinsc" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jcursoalta" >
+      <xs:complexContent>
+       <xs:extension base="background">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="vispanel" type="xs:anyType" />
+          <xs:element name="cursodatos" type="jcursodatos" nillable="true" minOccurs="0" />
+          <xs:element name="lblexiste" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jagregarcursoaprograma" >
+      <xs:complexContent>
+       <xs:extension base="background">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="cbxprograma" type="xs:anyType" />
+          <xs:element name="cbxcurso" type="xs:anyType" />
+          <xs:element name="" type="manejador" nillable="true" minOccurs="0" />
+          <xs:element name="lerrorprog" type="imageload" nillable="true" minOccurs="0" />
+          <xs:element name="lerrorcur" type="imageload" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jprogramaconsulta" >
+      <xs:complexContent>
+       <xs:extension base="background">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="cbcurso" type="xs:anyType" />
+          <xs:element name="cbprograma" type="xs:anyType" />
+          <xs:element name="" type="manejador" nillable="true" minOccurs="0" />
+          <xs:element name="programadatos" type="jprogramadatos" nillable="true" minOccurs="0" />
+          <xs:element name="cursodatos" type="jcursodatos" nillable="true" minOccurs="0" />
+          <xs:element name="panel_1" type="xs:anyType" />
+          <xs:element name="lblprograma" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jusuariomodificar" >
+      <xs:complexContent>
+       <xs:extension base="background">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="/***createthepanel.*/datosusr" type="jusuariodatos" nillable="true" minOccurs="0" />
+          <xs:element name="cbxnickname" type="xs:anyType" />
+          <xs:element name="lblexito" type="xs:anyType" />
+          <xs:element name="" type="manejador" nillable="true" minOccurs="0" />
+          <xs:element name="panel" type="xs:anyType" />
+          <xs:element name="lblnewlabel" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jinstitutoalta" >
+      <xs:complexContent>
+       <xs:extension base="background{">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="txtnom" type="xs:anyType" />
+          <xs:element name="lerrornom" type="imageload" nillable="true" minOccurs="0" />
+          <xs:element name="lblexiste" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jusuarioconsulta" >
+      <xs:complexContent>
+       <xs:extension base="background">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="" type="manejador" nillable="true" minOccurs="0" />
+          <xs:element name="cbedicion" type="xs:anyType" />
+          <xs:element name="cbedicion2" type="xs:anyType" />
+          <xs:element name="cardpanel" type="xs:anyType" />
+          <xs:element name="usuariodatos" type="jusuariodatos" nillable="true" minOccurs="0" />
+          <xs:element name="ediciondatos" type="jediciondatos" nillable="true" minOccurs="0" />
+          <xs:element name="ediciondatos2" type="jediciondatos" nillable="true" minOccurs="0" />
+          <xs:element name="programadatos" type="jprogramadatos" nillable="true" minOccurs="0" />
+          <xs:element name="cbusuario" type="xs:anyType" />
+          <xs:element name="cbprograma" type="xs:anyType" />
+          <xs:element name="panel_1" type="xs:anyType" />
+          <xs:element name="lblnewlabel" type="xs:anyType" />
+          <xs:element name="panel_2" type="xs:anyType" />
+          <xs:element name="panel_3" type="xs:anyType" />
+          <xs:element name="panel_4" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jedicionalta" >
+      <xs:complexContent>
+       <xs:extension base="background">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="cbxinstituto" type="xs:anyType" />
+          <xs:element name="cbxcurso" type="xs:anyType" />
+          <xs:element name="btnaceptar" type="xs:anyType" />
+          <xs:element name="lblexito" type="xs:anyType" />
+          <xs:element name="btncancelar" type="xs:anyType" />
+          <xs:element name="ediciondatos" type="jediciondatos" nillable="true" minOccurs="0" />
+          <xs:element name="lblnewlabel" type="xs:anyType" />
+          <xs:element name="panel" type="xs:anyType" />
+          <xs:element name="panel_1" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jcursoconsulta" >
+      <xs:complexContent>
+       <xs:extension base="background">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="cursodatos" type="jcursodatos" nillable="true" minOccurs="0" />
+          <xs:element name="programadatos" type="jprogramadatos" nillable="true" minOccurs="0" />
+          <xs:element name="ediciondatos" type="jediciondatos" nillable="true" minOccurs="0" />
+          <xs:element name="cbxinstituto" type="xs:anyType" />
+          <xs:element name="cbxedicion" type="xs:anyType" />
+          <xs:element name="cbxcursos" type="xs:anyType" />
+          <xs:element name="cbxprograma" type="xs:anyType" />
+          <xs:element name="" type="iconsulta" nillable="true" minOccurs="0" />
+          <xs:element name="" type="manejador" nillable="true" minOccurs="0" />
+          <xs:element name="panel_1" type="xs:anyType" />
+          <xs:element name="lblnewlabel" type="xs:anyType" />
+          <xs:element name="panel_2" type="xs:anyType" />
+          <xs:element name="panel_3" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jprogramaalta" >
+      <xs:complexContent>
+       <xs:extension base="background">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="programadatos" type="jprogramadatos" nillable="true" minOccurs="0" />
+          <xs:element name="lblexiste" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jusuarioalta" >
+      <xs:complexContent>
+       <xs:extension base="background">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="" type="jusuariodatos" nillable="true" minOccurs="0" />
+          <xs:element name="cbxinstituto" type="xs:anyType" />
+          <xs:element name="rdbestudiante" type="xs:anyType" />
+          <xs:element name="lerrorinsti" type="imageload" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="background" >
+      <xs:complexContent>
+       <xs:extension base="jpanel">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jcategoriaalta" >
+      <xs:complexContent>
+       <xs:extension base="background{">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="txtnom" type="xs:anyType" />
+          <xs:element name="lerrornom" type="imageload" nillable="true" minOccurs="0" />
+          <xs:element name="lblexiste" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="principal" >
+      <xs:sequence>
+        <xs:element name="frmedext" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="jinstitutoalta" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="jagregarcursoaprograma" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="jcursoalta" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="jcursoconsulta" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="jedicionalta" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="jedicionconsulta" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="jinscripcionedicion" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="jprogramaalta" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="jprogramaconsulta" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="jusuarioalta" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="jusuarioconsulta" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="jusuariomodificar" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="jcategoriaalta" nillable="true" minOccurs="0" />
+        <xs:element name="jprincipal" type="background" nillable="true" minOccurs="0" />
+        <xs:element name="cardpanel" type="xs:anyType" />
+        <xs:element name="panel" type="xs:anyType" />
+        <xs:element name="mniprogramaconsulta" type="xs:anyType" />
+        <xs:element name="mniusuarioalta" type="xs:anyType" />
+        <xs:element name="mniusuariomodificar" type="xs:anyType" />
+        <xs:element name="mniusuarioconsultar" type="xs:anyType" />
+        <xs:element name="mniedicion" type="xs:anyType" />
+        <xs:element name="mniedicionalta" type="xs:anyType" />
+        <xs:element name="mniedicionconsulta" type="xs:anyType" />
+        <xs:element name="mniagregarcursoaprograma" type="xs:anyType" />
+        <xs:element name="mnicurso" type="xs:anyType" />
+        <xs:element name="mincursoalta" type="xs:anyType" />
+        <xs:element name="mnicursoconsultar" type="xs:anyType" />
+        <xs:element name="mniinscripcionedicion" type="xs:anyType" />
+        <xs:element name="mncategoria" type="xs:anyType" />
+        <xs:element name="mntmcrear" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jprogramadatos" >
+      <xs:complexContent>
+       <xs:extension base="jpanel">
+         <xs:sequence>
+          <xs:element name="nombre" type="xs:anyType" />
+          <xs:element name="descripcion" type="xs:anyType" />
+          <xs:element name="datechooser_ini" type="xs:anyType" />
+          <xs:element name="datechooser_fin" type="xs:anyType" />
+          <xs:element name="lerrorfin" type="imageload" nillable="true" minOccurs="0" />
+          <xs:element name="lerrorini" type="imageload" nillable="true" minOccurs="0" />
+          <xs:element name="lerrordesc" type="imageload" nillable="true" minOccurs="0" />
+          <xs:element name="lerrornom" type="imageload" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="dtedicion" >
+      <xs:sequence>
+        <xs:element name="nombre" type="xs:string" />
+        <xs:element name="finicio" type="xs:dateTime" />
+        <xs:element name="ffin" type="xs:dateTime" />
+        <xs:element name="cupo" type="xs:anyType" />
+        <xs:element name="fpublicacion" type="xs:dateTime" />
+        <xs:element name="foto" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dtprograma2" >
+      <xs:sequence>
+        <xs:element name="nombre" type="xs:string" />
+        <xs:element name="descripcion" type="xs:string" />
+        <xs:element name="finicio" type="xs:dateTime" />
+        <xs:element name="ffin" type="xs:dateTime" />
+        <xs:element name="foto" type="xs:string" />
+        <xs:element name="cursos" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dtcategoria" >
+      <xs:sequence>
+        <xs:element name="nombre" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dtprograma" >
+      <xs:sequence>
+        <xs:element name="nombre" type="xs:string" />
+        <xs:element name="descripcion" type="xs:string" />
+        <xs:element name="finicio" type="xs:dateTime" />
+        <xs:element name="ffin" type="xs:dateTime" />
+        <xs:element name="foto" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dtestudiante" >
+      <xs:sequence>
+        <xs:element name="usuario" type="dtusuario" nillable="true" minOccurs="0" />
+        <xs:element name="ediciones" type="xs:anyType" />
+        <xs:element name="programas" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dtusuario" >
+      <xs:sequence>
+        <xs:element name="nickname" type="xs:string" />
+        <xs:element name="nombre" type="xs:string" />
+        <xs:element name="apellido" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="fnac" type="xs:dateTime" />
+        <xs:element name="pass" type="xs:string" />
+        <xs:element name="foto" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="enumtarea" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dtinfocurso" >
+      <xs:sequence>
+        <xs:element name="curso" type="dtcurso" nillable="true" minOccurs="0" />
+        <xs:element name="programas" type="xs:anyType" />
+        <xs:element name="ediciones" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dtdocente" >
+      <xs:complexContent>
+       <xs:extension base="dtusuario">
+         <xs:sequence>
+          <xs:element name="instituto" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="dtdocente2" >
+      <xs:sequence>
+        <xs:element name="docente" type="dtdocente" nillable="true" minOccurs="0" />
+        <xs:element name="ediciones" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dtcurso" >
+      <xs:sequence>
+        <xs:element name="nombre" type="xs:string" />
+        <xs:element name="descripcion" type="xs:string" />
+        <xs:element name="url" type="xs:string" />
+        <xs:element name="duracion" type="xs:anyType" />
+        <xs:element name="canthoras" type="xs:anyType" />
+        <xs:element name="creditos" type="xs:anyType" />
+        <xs:element name="fechareg" type="xs:dateTime" />
+        <xs:element name="foto" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="enumestadoinscripcion" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="herramienta" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="imageload" >
+      <xs:complexContent>
+       <xs:extension base="jlabel">
+         <xs:sequence>
+          <xs:element name="img" type="xs:anyType" />
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="width" type="xs:long" />
+          <xs:element name="height" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="inscripcionedid" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="edicion" type="xs:string" />
+        <xs:element name="estudiantee" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="conexion" >
+      <xs:sequence>
+        <xs:element name="instancia" type="conexion" nillable="true" minOccurs="0" />
+        <xs:element name="emf" type="xs:anyType" />
+        <xs:element name="em" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="inscripcionprogid" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="programa" type="xs:string" />
+        <xs:element name="estudiantep" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

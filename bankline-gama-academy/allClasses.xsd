@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="transacaoservicetest" >
+      <xs:sequence>
+        <xs:element name="service" type="transacaoserviceimpl" nillable="true" minOccurs="0" />
+        <xs:element name="umatransacao" type="transacaobuilder" nillable="true" minOccurs="0" />
+        <xs:element name="umaconta" type="contabuilder" nillable="true" minOccurs="0" />
+        <xs:element name="umplano" type="planocontabuilder" nillable="true" minOccurs="0" />
+        <xs:element name="umusuario" type="usuariobuilder" nillable="true" minOccurs="0" />
+        <xs:element name="repositorymock" type="transacaorepository" nillable="true" minOccurs="0" />
+        <xs:element name="mock" type="contarepository" nillable="true" minOccurs="0" />
+        <xs:element name="mock" type="usuarioservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usuarioservicetest" >
+      <xs:sequence>
+        <xs:element name="service" type="usuarioserviceimpl" nillable="true" minOccurs="0" />
+        <xs:element name="umusuario" type="usuariobuilder" nillable="true" minOccurs="0" />
+        <xs:element name="repositorymock" type="usuariorepository" nillable="true" minOccurs="0" />
+        <xs:element name="mock" type="contaservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="contabuilder" >
+      <xs:sequence>
+        <xs:element name="numero" type="xs:long" />
+        <xs:element name="saldo" type="xs:double" />
+        <xs:element name="GeneratedName" type="usuario" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="planocontabuilder" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="nome" type="xs:string" />
+        <xs:element name="tipo" type="tipooperacao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="usuario" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usuariobuilder" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="login" type="xs:string" />
+        <xs:element name="cpf" type="xs:string" />
+        <xs:element name="senha" type="xs:string" />
+        <xs:element name="nome" type="xs:string" />
+        <xs:element name="GeneratedName" type="conta" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="transacaobuilder" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="valor" type="xs:double" />
+        <xs:element name="data" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="planoconta" nillable="true" minOccurs="0" />
+        <xs:element name="origem" type="conta" nillable="true" minOccurs="0" />
+        <xs:element name="destino" type="conta" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="transacao" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="valor" type="xs:double" />
+        <xs:element name="data" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="planoconta" nillable="true" minOccurs="0" />
+        <xs:element name="origem" type="conta" nillable="true" minOccurs="0" />
+        <xs:element name="destino" type="conta" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usuario" >
+      <xs:sequence>
+        <xs:element name="login_max_length" type="xs:long" />
+        <xs:element name="cpf_max_length" type="xs:long" />
+        <xs:element name="senha_max_length" type="xs:long" />
+        <xs:element name="nome_max_length" type="xs:long" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="login" type="xs:string" />
+        <xs:element name="cpf" type="xs:string" />
+        <xs:element name="senha" type="xs:string" />
+        <xs:element name="nome" type="xs:string" />
+        <xs:element name="GeneratedName" type="conta" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="conta" >
+      <xs:sequence>
+        <xs:element name="numero" type="xs:long" />
+        <xs:element name="saldo" type="xs:double" />
+        <xs:element name="GeneratedName" type="usuario" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tipooperacaoconverter" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tipooperacao" >
+      <xs:sequence>
+        <xs:element name="codigo" type="xs:string" />
+        <xs:element name="multiplicador" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="localdatetimeconverter" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="planoconta" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="nome" type="xs:string" />
+        <xs:element name="tipo" type="tipooperacao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="usuario" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="banklineapplication" >
+      <xs:sequence>
+        <xs:element name="encoder" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usuariosimplesdto" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="login" type="xs:string" />
+        <xs:element name="cpf" type="xs:string" />
+        <xs:element name="nome" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="transacaodto" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="valor" type="xs:double" />
+        <xs:element name="data" type="xs:anyType" />
+        <xs:element name="planoconta" type="planocontadto" nillable="true" minOccurs="0" />
+        <xs:element name="contaorigem" type="contadto" nillable="true" minOccurs="0" />
+        <xs:element name="contadestino" type="contadto" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="extratodto" >
+      <xs:sequence>
+        <xs:element name="saldoatual" type="xs:double" />
+        <xs:element name="saldoperiodo" type="xs:double" />
+        <xs:element name="dtinicio" type="xs:anyType" />
+        <xs:element name="dtfim" type="xs:anyType" />
+        <xs:element name="transacoes" type="transacaodto" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usuariodto" >
+      <xs:complexContent>
+       <xs:extension base="usuariosimplesdto">
+         <xs:sequence>
+          <xs:element name="conta" type="contadto" nillable="true" minOccurs="0" />
+          <xs:element name="planos" type="planocontadto" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="senha" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="logindto" >
+      <xs:sequence>
+        <xs:element name="login" type="xs:string" />
+        <xs:element name="senha" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="planocontadto" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="nome" type="xs:string" />
+        <xs:element name="tipo" type="tipooperacao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="contadto" >
+      <xs:sequence>
+        <xs:element name="numero" type="xs:long" />
+        <xs:element name="saldo" type="xs:double" />
+        <xs:element name="usuario" type="usuariosimplesdto" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sessao" >
+      <xs:sequence>
+        <xs:element name="login" type="xs:string" />
+        <xs:element name="token" type="xs:string" />
+        <xs:element name="datainicio" type="xs:dateTime" />
+        <xs:element name="datafim" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="securityconfig" >
+      <xs:complexContent>
+       <xs:extension base="websecurityconfigureradapter">
+         <xs:sequence>
+          <xs:element name="swagger_whitelist" type="xs:string" />
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jwtauthorizationfilter" >
+      <xs:complexContent>
+       <xs:extension base="onceperrequestfilter">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="header" type="xs:string" />
+          <xs:element name="mapper" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jwtconstants" >
+      <xs:complexContent>
+       <xs:extension base="onceperrequestfilter">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="header" type="xs:string" />
+          <xs:element name="mapper" type="xs:anyType" />
+          <xs:element name="key" type="xs:string" />
+          <xs:element name="prefix" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="appuserdetailsservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="usuariorepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="contacontroller" >
+      <xs:sequence>
+        <xs:element name="service" type="contaservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="transacaocontroller" >
+      <xs:sequence>
+        <xs:element name="service" type="transacaoservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usuariocontroller" >
+      <xs:sequence>
+        <xs:element name="service" type="usuarioservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="logincontroller" >
+      <xs:sequence>
+        <xs:element name="repository" type="usuariorepository" nillable="true" minOccurs="0" />
+        <xs:element name="encoder" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="planocontarepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<planoconta,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="usuariorepository" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<usuario,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="transacaorepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<transacao,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="contarepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<conta,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="operadores" >
+      <xs:sequence>
+        <xs:element name="operador" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="errorcode" >
+      <xs:sequence>
+        <xs:element name="descricao" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="banklinebusinessexception" >
+      <xs:complexContent>
+       <xs:extension base="responsestatusexception">
+         <xs:sequence>
+          <xs:element name="mensagem" type="xs:string" />
+          <xs:element name="object" type="xs:string" />
+          <xs:element name="property" type="xs:string" />
+          <xs:element name="value" type="xs:string" />
+          <xs:element name="args" type="xs:string" />
+          <xs:element name="" type="errorcode" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="appconfig" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="swaggerconfig" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usuarioserviceimpl" >
+      <xs:sequence>
+        <xs:element name="repository" type="usuariorepository" nillable="true" minOccurs="0" />
+        <xs:element name="pcrepository" type="planocontarepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="contaservice" nillable="true" minOccurs="0" />
+        <xs:element name="encoder" type="xs:anyType" />
+        <xs:element name="min" type="xs:anyType" />
+        <xs:element name="max" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usuarioservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="contaserviceimpl" >
+      <xs:sequence>
+        <xs:element name="contarepo" type="contarepository" nillable="true" minOccurs="0" />
+        <xs:element name="userrepo" type="usuariorepository" nillable="true" minOccurs="0" />
+        <xs:element name="planorepo" type="planocontarepository" nillable="true" minOccurs="0" />
+        <xs:element name="transrepo" type="transacaorepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="contaservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="transacaoserviceimpl" >
+      <xs:sequence>
+        <xs:element name="transrepo" type="transacaorepository" nillable="true" minOccurs="0" />
+        <xs:element name="contarepo" type="contarepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="usuarioservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="transacaoservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="validacamposusuarioenum" >
+      <xs:sequence>
+        <xs:element name="min" type="xs:long" />
+        <xs:element name="max" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="mapper" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

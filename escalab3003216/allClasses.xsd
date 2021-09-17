@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="application" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="purchaseorderrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<purchaseorder,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ordercommandservice" >
+      <xs:sequence>
+        <xs:element name="productpricemap" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="purchaseorderrepository" nillable="true" minOccurs="0" />
+        <xs:element name="publisher" type="orderstatuspublisher" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="orderqueryservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="purchaseorderrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="orderstatuspublisher" >
+      <xs:sequence>
+        <xs:element name="ordersink" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="productpriceconfig" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="eventhandlersconfig" >
+      <xs:sequence>
+        <xs:element name="ordereventhandler" type="orderstatusupdateeventhandler" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="orderconfig" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="orderstatusupdateeventhandler" >
+      <xs:sequence>
+        <xs:element name="repository" type="purchaseorderrepository" nillable="true" minOccurs="0" />
+        <xs:element name="publisher" type="orderstatuspublisher" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="purchaseorder" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="userid" type="xs:anyType" />
+        <xs:element name="productid" type="xs:anyType" />
+        <xs:element name="price" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="version" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ordercontroller" >
+      <xs:sequence>
+        <xs:element name="commandservice" type="ordercommandservice" nillable="true" minOccurs="0" />
+        <xs:element name="queryservice" type="orderqueryservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="orderserviceapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

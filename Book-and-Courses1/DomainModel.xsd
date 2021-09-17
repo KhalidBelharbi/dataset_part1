@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="order" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="deliveryname" type="xs:string" />
+        <xs:element name="deliverystreet" type="xs:string" />
+        <xs:element name="deliverycity" type="xs:string" />
+        <xs:element name="deliverystate" type="xs:string" />
+        <xs:element name="deliveryzip" type="xs:string" />
+        <xs:element name="ccnumber" type="xs:string" />
+        <xs:element name="ccexpiration" type="xs:string" />
+        <xs:element name="cccvv" type="xs:string" />
+        <xs:element name="tacos" type="taco" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="placedat" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ingredient" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="taco" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="createdat" type="xs:dateTime" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="ingredients" type="ingredient" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

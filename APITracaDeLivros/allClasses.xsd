@@ -1,0 +1,661 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="pedidoreposicaocontroller" >
+      <xs:sequence>
+        <xs:element name="service" type="pedidoreposicaoservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="funcionariocontroller" >
+      <xs:sequence>
+        <xs:element name="service" type="funcionarioservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="estoquecontroller" >
+      <xs:sequence>
+        <xs:element name="service" type="estoqueservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="enderecocontroller" >
+      <xs:sequence>
+        <xs:element name="service" type="enderecoservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="fornecedorcontroller" >
+      <xs:sequence>
+        <xs:element name="service" type="fornecedorservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="chamadocontroller" >
+      <xs:sequence>
+        <xs:element name="service" type="chamadoservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="clientecontroller" >
+      <xs:sequence>
+        <xs:element name="service" type="clienteservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="formata" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="montalinks" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="buscainvalidaexception" >
+      <xs:complexContent>
+       <xs:extension base="exception">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="datainvalidaexception" >
+      <xs:complexContent>
+       <xs:extension base="exception">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tratamentoerros" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="apitracadelivrosapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="estoque" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="corredor" type="xs:anyType" />
+        <xs:element name="prateleira" type="xs:anyType" />
+        <xs:element name="created" type="xs:anyType" />
+        <xs:element name="updated" type="xs:anyType" />
+        <xs:element name="deletesoft" type="xs:anyType" />
+        <xs:element name="produto" type="produto" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pedidoreposicao" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="funcionario" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="fornecedor" nillable="true" minOccurs="0" />
+        <xs:element name="descricao" type="xs:string" />
+        <xs:element name="dataentraga" type="xs:anyType" />
+        <xs:element name="obs" type="xs:string" />
+        <xs:element name="valor" type="xs:anyType" />
+        <xs:element name="created" type="xs:anyType" />
+        <xs:element name="updated" type="xs:anyType" />
+        <xs:element name="deletesoft" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="categorialivro" >
+      <xs:complexContent>
+       <xs:extension base="categoria">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="produto" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="nome" type="xs:string" />
+        <xs:element name="descricao" type="xs:string" />
+        <xs:element name="porcentagemdesconto" type="xs:anyType" />
+        <xs:element name="valor" type="xs:anyType" />
+        <xs:element name="categoria" type="categoria" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="fornecedor" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="funcionario" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="estoque" nillable="true" minOccurs="0" />
+        <xs:element name="disponivel" type="xs:anyType" />
+        <xs:element name="created" type="xs:anyType" />
+        <xs:element name="updated" type="xs:anyType" />
+        <xs:element name="deletesoft" type="xs:anyType" />
+        <xs:element name="imagem" type="imagem" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="statuspedido" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="livro" >
+      <xs:complexContent>
+       <xs:extension base="produto">
+         <xs:sequence>
+          <xs:element name="//centimetros:10.3cmaltura" type="xs:anyType" />
+          <xs:element name="autor" type="xs:string" />
+          <xs:element name="acabamento" type="tipoacabamento" nillable="true" minOccurs="0" />
+          <xs:element name="idioma" type="xs:string" />
+          <xs:element name="//centimetros:5.3cmlargura" type="xs:anyType" />
+          <xs:element name="numeropaginas" type="xs:anyType" />
+          <xs:element name="pais" type="xs:string" />
+          <xs:element name="//gramas:340gpeso" type="xs:anyType" />
+          <xs:element name="//centimetros:12.3cmprofundidade" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="imagem" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="url" type="xs:string" />
+        <xs:element name="created" type="xs:anyType" />
+        <xs:element name="updated" type="xs:anyType" />
+        <xs:element name="deletesoft" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="produto" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pedidoproduto" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="decompra" type="pedido" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="produto" nillable="true" minOccurs="0" />
+        <xs:element name="valorproduto" type="xs:anyType" />
+        <xs:element name="datacompra" type="xs:anyType" />
+        <xs:element name="created" type="xs:anyType" />
+        <xs:element name="updated" type="xs:anyType" />
+        <xs:element name="deletesoft" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="perfil" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="nome" type="xs:string" />
+        <xs:element name="funcionario" type="funcionario" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cliente" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="nome" type="xs:string" />
+        <xs:element name="datanascimento" type="xs:anyType" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="senha" type="xs:string" />
+        <xs:element name="cpf" type="xs:string" />
+        <xs:element name="telefone_01" type="xs:string" />
+        <xs:element name="telefone_02" type="xs:string" />
+        <xs:element name="ativo" type="xs:anyType" />
+        <xs:element name="created" type="xs:anyType" />
+        <xs:element name="updated" type="xs:anyType" />
+        <xs:element name="deletesoft" type="xs:anyType" />
+        <xs:element name="endereco" type="endereco" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="chamado" type="chamado" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="pedidodecompra" type="pedido" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="papelaria" >
+      <xs:complexContent>
+       <xs:extension base="produto{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="fornecedor" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="cnpj" type="xs:string" />
+        <xs:element name="inscricaoestadual" type="xs:string" />
+        <xs:element name="nome" type="xs:string" />
+        <xs:element name="rua" type="xs:string" />
+        <xs:element name="bairro" type="xs:string" />
+        <xs:element name="cidade" type="xs:string" />
+        <xs:element name="cep" type="xs:string" />
+        <xs:element name="numero" type="xs:string" />
+        <xs:element name="telefone_01" type="xs:string" />
+        <xs:element name="telefone_02" type="xs:string" />
+        <xs:element name="telefone_03" type="xs:string" />
+        <xs:element name="email_01" type="xs:string" />
+        <xs:element name="email_02" type="xs:string" />
+        <xs:element name="email_03" type="xs:string" />
+        <xs:element name="created" type="xs:anyType" />
+        <xs:element name="updated" type="xs:anyType" />
+        <xs:element name="deletesoft" type="xs:anyType" />
+        <xs:element name="produto" type="produto" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="peidoreposicao" type="pedidoreposicao" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="categoriapapelaria" >
+      <xs:complexContent>
+       <xs:extension base="categoria">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tipoacabamento" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="funcionario" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="nome" type="xs:string" />
+        <xs:element name="cpf" type="xs:string" />
+        <xs:element name="ativo" type="xs:anyType" />
+        <xs:element name="perfil" type="perfil" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="created" type="xs:anyType" />
+        <xs:element name="updated" type="xs:anyType" />
+        <xs:element name="deletesoft" type="xs:anyType" />
+        <xs:element name="pedidoreposicao" type="pedidoreposicao" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pedido" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="valortotal" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="cliente" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="endereco" nillable="true" minOccurs="0" />
+        <xs:element name="datacompra" type="xs:dateTime" />
+        <xs:element name="status" type="statuspedido" nillable="true" minOccurs="0" />
+        <xs:element name="created" type="xs:anyType" />
+        <xs:element name="updated" type="xs:anyType" />
+        <xs:element name="deletesoft" type="xs:anyType" />
+        <xs:element name="pedidoproduto" type="pedidoproduto" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="categoria" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="nome" type="xs:string" />
+        <xs:element name="created" type="xs:anyType" />
+        <xs:element name="updated" type="xs:anyType" />
+        <xs:element name="deletesoft" type="xs:anyType" />
+        <xs:element name="produto" type="produto" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="endereco" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="rua" type="xs:string" />
+        <xs:element name="bairro" type="xs:string" />
+        <xs:element name="cidade" type="xs:string" />
+        <xs:element name="cep" type="xs:string" />
+        <xs:element name="numero" type="xs:string" />
+        <xs:element name="GeneratedName" type="cliente" nillable="true" minOccurs="0" />
+        <xs:element name="created" type="xs:anyType" />
+        <xs:element name="updated" type="xs:anyType" />
+        <xs:element name="deletesoft" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="chamado" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="titulo" type="xs:string" />
+        <xs:element name="descricao" type="xs:string" />
+        <xs:element name="atendido" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="cliente" nillable="true" minOccurs="0" />
+        <xs:element name="created" type="xs:anyType" />
+        <xs:element name="updated" type="xs:anyType" />
+        <xs:element name="deletesoft" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="fornecedorrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<fornecedor,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="papelariarepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<papelaria,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="clienterepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<cliente,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="funcionariorepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<funcionario,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="categoriapapelariarepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<categoriapapelaria,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="chamadorepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<chamado,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="imagemrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<imagem,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="perfilrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<perfil,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="pedidorepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<pedido,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="pedidoreposiscaorepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<pedidoreposicao,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="estoquerepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<estoque,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="produtorepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<produto,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="livrorepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<livro,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="pedidoprodutorepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<pedidoproduto,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="categorialivrorepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<categorialivro,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="enderecorepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<endereco,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="fornecedorservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="fornecedorrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="enderecoservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="enderecorepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="clienterepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="funcionarioservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="funcionariorepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="perfilrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="estoqueservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="estoquerepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pedidoreposicaoservice" >
+      <xs:sequence>
+        <xs:element name="pedidoreposicaorepository" type="pedidoreposiscaorepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="fornecedorrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="funcionariorepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="clienteservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="clienterepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="enderecorepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="chamadorepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="chamadoservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="chamadorepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="clienterepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="chamadodto" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="atendido" type="xs:anyType" />
+        <xs:element name="titulo" type="xs:string" />
+        <xs:element name="descricao" type="xs:string" />
+        <xs:element name="cliente" type="xs:long" />
+        <xs:element name="created" type="xs:anyType" />
+        <xs:element name="updated" type="xs:anyType" />
+        <xs:element name="links" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pedidoreposicaodto" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="fornecedor" type="xs:string" />
+        <xs:element name="descricao" type="xs:string" />
+        <xs:element name="valor" type="xs:anyType" />
+        <xs:element name="obs" type="xs:string" />
+        <xs:element name="dataentraga" type="xs:anyType" />
+        <xs:element name="funcionario" type="xs:string" />
+        <xs:element name="created" type="xs:anyType" />
+        <xs:element name="updated" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="testedto" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="enderecodto" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="cidade" type="xs:string" />
+        <xs:element name="bairro" type="xs:string" />
+        <xs:element name="rua" type="xs:string" />
+        <xs:element name="numero" type="xs:string" />
+        <xs:element name="cep" type="xs:string" />
+        <xs:element name="cliente" type="xs:long" />
+        <xs:element name="created" type="xs:anyType" />
+        <xs:element name="updated" type="xs:anyType" />
+        <xs:element name="links" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="estoquedto" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="corredor" type="xs:anyType" />
+        <xs:element name="prateleira" type="xs:anyType" />
+        <xs:element name="created" type="xs:anyType" />
+        <xs:element name="updated" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="funcionariodto" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="nome" type="xs:string" />
+        <xs:element name="cpf" type="xs:string" />
+        <xs:element name="ativo" type="xs:anyType" />
+        <xs:element name="datacriacao" type="xs:anyType" />
+        <xs:element name="dataatualização" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="errosimplesdto" >
+      <xs:sequence>
+        <xs:element name="descricao" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="fornecedordto" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="nome" type="xs:string" />
+        <xs:element name="cnpj" type="xs:string" />
+        <xs:element name="inscricaoestadual" type="xs:string" />
+        <xs:element name="cidade" type="xs:string" />
+        <xs:element name="bairro" type="xs:string" />
+        <xs:element name="rua" type="xs:string" />
+        <xs:element name="numero" type="xs:string" />
+        <xs:element name="cep" type="xs:string" />
+        <xs:element name="telefone_01" type="xs:string" />
+        <xs:element name="telefone_02" type="xs:string" />
+        <xs:element name="telefone_03" type="xs:string" />
+        <xs:element name="email_01" type="xs:string" />
+        <xs:element name="email_02" type="xs:string" />
+        <xs:element name="email_03" type="xs:string" />
+        <xs:element name="created" type="xs:anyType" />
+        <xs:element name="updated" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="clientedto" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="ativo" type="xs:anyType" />
+        <xs:element name="nome" type="xs:string" />
+        <xs:element name="cpf" type="xs:string" />
+        <xs:element name="datanascimento" type="xs:anyType" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="telefone01" type="xs:string" />
+        <xs:element name="telefone02" type="xs:string" />
+        <xs:element name="created" type="xs:anyType" />
+        <xs:element name="updated" type="xs:anyType" />
+        <xs:element name="links" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pedidoreposicaoform" >
+      <xs:sequence>
+        <xs:element name="fornecedorid" type="xs:long" />
+        <xs:element name="descricao" type="xs:string" />
+        <xs:element name="obs" type="xs:string" />
+        <xs:element name="valor" type="xs:anyType" />
+        <xs:element name="funcionarioid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="chamadoform" >
+      <xs:sequence>
+        <xs:element name="atendido" type="xs:anyType" />
+        <xs:element name="titulo" type="xs:string" />
+        <xs:element name="descricao" type="xs:string" />
+        <xs:element name="cliente" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="fornecedorform" >
+      <xs:sequence>
+        <xs:element name="nome" type="xs:string" />
+        <xs:element name="cnpj" type="xs:string" />
+        <xs:element name="inscricaoestadual" type="xs:string" />
+        <xs:element name="cidade" type="xs:string" />
+        <xs:element name="bairro" type="xs:string" />
+        <xs:element name="rua" type="xs:string" />
+        <xs:element name="numero" type="xs:string" />
+        <xs:element name="cep" type="xs:string" />
+        <xs:element name="telefone_01" type="xs:string" />
+        <xs:element name="telefone_02" type="xs:string" />
+        <xs:element name="telefone_03" type="xs:string" />
+        <xs:element name="email_01" type="xs:string" />
+        <xs:element name="email_02" type="xs:string" />
+        <xs:element name="email_03" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="enderecoform" >
+      <xs:sequence>
+        <xs:element name="cidade" type="xs:string" />
+        <xs:element name="bairro" type="xs:string" />
+        <xs:element name="rua" type="xs:string" />
+        <xs:element name="numero" type="xs:string" />
+        <xs:element name="cep" type="xs:string" />
+        <xs:element name="cliente" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pedidoreposicaoatualizarform" >
+      <xs:sequence>
+        <xs:element name="descricao" type="xs:string" />
+        <xs:element name="obs" type="xs:string" />
+        <xs:element name="valor" type="xs:anyType" />
+        <xs:element name="dataentrega" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="clienteform" >
+      <xs:sequence>
+        <xs:element name="ativo" type="xs:anyType" />
+        <xs:element name="nome" type="xs:string" />
+        <xs:element name="cpf" type="xs:string" />
+        <xs:element name="datanascimento" type="xs:anyType" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="senha" type="xs:string" />
+        <xs:element name="telefone01" type="xs:string" />
+        <xs:element name="telefone02" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="estoqueform" >
+      <xs:sequence>
+        <xs:element name="corredor" type="xs:anyType" />
+        <xs:element name="prateleira" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="funcionarioform" >
+      <xs:sequence>
+        <xs:element name="nome" type="xs:string" />
+        <xs:element name="cpf" type="xs:string" />
+        <xs:element name="ativo" type="xs:anyType" />
+        <xs:element name="perfil" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="messages" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="apitracadelivrosapplicationtests" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

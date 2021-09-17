@@ -1,0 +1,183 @@
+testdomain(id:Integer [PK], name:String, num:Integer);
+
+minorclass(/***@generated*@ordered*一个班级有多个学生*双向关联*/student:Set<Student>, /***辅修学院，双向多对一*/:MinorMajor);
+
+major(/***双向一对一关系*辅修专业*/:MinorMajor #FK to(minormajor), /***学院,双向多对一关系*/:Academy, /***专业学科*单向多对一*/:Subjects #FK to(subjects), /***专业所属*单向多对一*/:Affiliation #FK to(affiliation));
+
+student_course(id:Integer [PK], /***学分互认*/confirm:boolean, /***成绩*/score:Double, /***学生*/:Student #FK to(student), /***课程*/:Course #FK to(course));
+
+courseplan(id:Integer [PK], /***课程*/:Course #FK to(course), /***辅修专业*/:MinorMajor #FK to(minormajor), /***年级*/:Grade #FK to(grade), /***学年*/:Year #FK to(year), /***学期*/:Season #FK to(season), /***教室*/classroom:String, /***上课时间*/classtime:String, /***老师*/teacher:String);
+
+year(/***学年编号*/id:Integer [PK], /***开设学年*/year_name:Integer);
+
+affiliation();
+
+grade(id:Integer [PK], /***年级（获取当前年份，其上三年，其下三年）*/grade_name:Integer);
+
+student(/***主修班级*双向*/class1:Classes #FK to(classes), /***辅修班级*双向*/:MinorClass #FK to(minorclass));
+
+minormajor(/***主修专业*双向一对一*/:Major #FK to(major));
+
+academy();
+
+subjects();
+
+classify(id:Integer [PK], description:String);
+
+course(id:Integer [PK], /***课程名*/name:String, /***教材名*/book:String, /***学分*/credit:int, /***学时*/period:String, /***学费*/money:String);
+
+classes(/***@generated*@ordered*一个班级有多个学生*/student:Set<Student>, /***多个班级对应一个专业*双向关联*/:Major);
+
+reward(id:Long, /***授予日期*/granteddate:Calendar, /***名称*/name:String, /***级别*/rank:String, /***位次*/precedence:String, /**总人数**/numofparticipants:String, /***授予机关*/grantedby:String, /***员工*/:Employee);
+
+employeeasspractisingcertification(id:Long, /***证书*/:PractisingCertification #FK to(practisingCertification), /***注册编号*/registerno:String, /***证书编号*/certificateno:String, /***聘用企业*/servedorganization:String, /***获得时间*/issueddate:Calendar, photo:byte, /***员工*/:Employee, /***发证机构*/:Issuer);
+
+employmentcategory();
+
+academicconference(id:Long [PK], /***开始时间*/starttime:Calendar, /***结束时间*/endtime:Calendar, /***会议名称*/name:String, /***主办机构*/:Host, /***汇报时间*/reporttime:Calendar, /***审核结果*/:ReviewResult, /***职工*/:Employee #FK to(employee));
+
+department(id:Long [PK], /***部门名字*/departmentname:String, GeneratedName:School, /***员工*/employees:Set<Employee>);
+
+yesorno(id:Long [PK], description:String);
+
+post(/***员工职位信息*/employeeassposts:Set<EmployeeAssPost>);
+
+host();
+
+nation();
+
+visitingacademic(id:Long, /***进修名称*实际上是项目名称*/program:String, /***开始时间*/starttime:Calendar, /***结束时间*/endtime:Calendar, /***受访机构*/visitedorganization:String, /***导师姓名*/supervisorname:String, /***汇报时间*/reporttime:Calendar, /***审核结果*/:ReviewResult, /***资助机构*/:Sponsor, /***是否国内访问*/domesticornot:YesOrNo, /***员工*/:Employee);
+
+employeeasspost(id:Long, /***任命时间*/appointeddate:Calendar, /***红头文件*文件号*任命书*/commissionno:String, /***职位名称*/:Post, /***员工*/:Employee #FK to(employee));
+
+schoolworkexperience(id:Long, /***开始工作时间*/starttime:Calendar, /***结束工作时间*/endtime:Calendar, /***部门名称*/:School #FK to(school), /***级别*/:PositionRank, /***担任职务*/:Post, /***员工*/:Employee);
+
+employeeassprofessionaltitle(id:Long [PK], /***职称*/:ProfessionalTitle #FK to(professionalTitle), /***评定时间*/nominateddate:Calendar, /***评定文号*/nominatedno:String, /***聘任时间*/appointeddate:Calendar, /***聘任文号*/appointedno:String, /***员工*/:Employee #FK to(employee));
+
+reviewresult();
+
+educationqualification(employeeasseducationqualifications:Set<EmployeeAssEducationQualification>);
+
+employeeassacademicdegree(id:Long, /***学位层次*/:AcademicDegreeType #FK to(academicDegree), /***学位名称*单向*/:AcademicDegree #FK to(academicDegree), /***获得时间*/granteddate:Calendar, /***专业*/major:String, /***证书编号*/certificateno:String, /***学校*/university:String, /***员工*/:Employee);
+
+abstractcategory(id:Long [PK], /***编号*/no:String, /***类别*/description:String);
+
+employeeasseducationqualification(id:Long, /***学历名称*单向关联，多端维护外键（关联关系）*	@jsonignore当json数据不能被解析的时候*	@jacksoninject反序列时标记该属性应经被注入*	@jsonunwrapped将子json对象的属性添加到封闭的json对象*	自定义反序列化*/:EducationQualification #FK to(educationQualification), /***入学时间*/enrolldate:Calendar, /***获得学历时间*/graduatedate:Calendar, /***专业*/major:String, /***学制*/duration:Integer, /***导师姓名*/supervisorname:String, /***毕业证书编号*/certificateno:String, /***学校*/university:String, /***员工*/:Employee);
+
+practisingcertification(/***执业资格证书信息*/employeeasspractisingcertifications:Set<EmployeeAssPractisingCertification>);
+
+politicalparty();
+
+school(id:Long [PK], schoolname:String);
+
+previousworkexperience(id:Long [PK], /***开始工作时间*/starttime:Calendar, /***结束工作时间*/endtime:Calendar, /***单位名称*/hiredbycompany:String, /***部门名称*/departmentname:String, /***级别*/rank:String, /***担任职务*/post:String, /***员工*/:Employee);
+
+professionaltitle(employeeassprofessionaltitles:Set<EmployeeAssProfessionalTitle>);
+
+actor(id:Long [PK], /***用户编号*/no:String, /***用户姓名*/name:String, /***性别*///string:Sex #FK to(sex), /***出生日期*注解是日期转化为json数据时，转化为需要的模式*"yyyy-mm-ddhh-mm-ss"*/birth:Calendar, /***身份证号*/idno:String, /***籍贯*/grandpabirthplace:String, /***电话*/mobile:String, /***来学校工作的时间*/datetoschool:Calendar, /***参加工作的时间*/datetowork:Calendar, /***退休时间*/datetoretire:Calendar, /***是否华侨*///stringoverseaschineseornotoverseaschineseornot:YesOrNo #FK to(yesorno), /***紧急电话*/emergencymobile:Long, /***家庭地址*/address:String, /***邮箱*/email:String, /***qq*/qq:String, /***微信*/wechat:String, /***用户*/:User #FK to(user));
+
+employeeasspoliticalparty(pid:Long [PK], /*	*入党时间	*注解是日期转化为json数据时，转化为需要的模式	*"yyyy-mm-ddhh-mm-ss"	*/membershipfrom:Calendar, /***党派*/:PoliticalParty #FK to(politicalParty), /***职工*/:Employee #FK to(employee));
+
+sponsor();
+
+employee(,char和java.lang.string将被持久化为clob类型.java.sql.blob,,和serializabletype将被持久化为blob类型。//持久化为blob或者clob类型,根据get方法的不同,自动进行clob和blob的转换//@jsonignorephoto:byte, /***工资号*/salaryno:String, /**民族*/:Nation, /***职工类别*/:EmploymentCategory, /***学历信息*加上	注解，表示在转化为json的时候，忽略该关联属性*如果没有这个属性，就会出现死循环情况，因为他的实体对象包括的其他实体对象，其他实体对象也包括其他的实体对象，就会陷入死循环中*即通过该实体对象获取到关联实体对象json数据，关联实体对象里又关联该实体对象，就会无限循环下去。*/employeeasseducationqualifications:Set<EmployeeAssEducationQualification>, /***员工职务信息记录*/employeeassposts:Set<EmployeeAssPost>, /***来校前工作经历*/previousworkexperiences:Set<PreviousWorkExperience>, /***在校工作经历*/schoolworkexperiences:Set<SchoolWorkExperience>, /***奖励信息记录*/rewards:Set<Reward>, /***访学记录*/visitingacademics:Set<VisitingAcademic>, /***学术会议信息记录*/academicconferences:Set<AcademicConference>, /***职称信息记录*/employeeassprofessionaltitles:Set<EmployeeAssProfessionalTitle>, /***执业资格信息记录*/employeeasspractisingcertifications:Set<EmployeeAssPractisingCertification>, /***学位信息记录*/employeeassacademicdegrees:Set<EmployeeAssAcademicDegree>, /**考勤信息**/attendances:Set<Attendance>, //考勤纸attendancesummaries:Collection<AttendanceSummary>, /**请假信息**/leaves:Set<Leave>, /***部门/教研室*/:Department);
+
+academicdegreetype();
+
+sex(id:Long [PK], description:String);
+
+academicdegree(/***学位信息记录*/employeeassacademicdegrees:Set<EmployeeAssAcademicDegree>);
+
+issuer();
+
+appointment(id:Integer, /***日期（年月日:Date, /***事由*/reason:String, /***参加人数*/numofperson:int, /***时间段*///@jsonidentityinfo(generator:Time #FK to(time), //用户:User #FK to(user), /***教室或设备资源*/bookingadress:BookingResources #FK to(bookingresources), bookingequipments:BookingResources #FK to(bookingresources));
+
+equipment();
+
+adress();
+
+time(id:Integer, /***节次*/num:Integer, /***开始时间*/begin:Date, /***结束时间*/end:Date);
+
+projectfundedbygovernmentrank();
+
+projectfundedbyprivatesectorrank();
+
+textbookrank();
+
+citation();
+
+monograph(author:String, //专著级别:MonographRank #FK to(monographRank));
+
+textbook(editor:String, //教材级别:TextbookRank #FK to(textBookRank));
+
+projectfundedbyprivatesector(projectfundedbysectorrank//横向项目级别projectfundedbysectorrank:ProjectFundedByPrivateSectorRank #FK to(projectFundedByPrivateSectorRank));
+
+scienreascheckingstatus(id:Long [PK], //审核状态state:String);
+
+thesis(//题目title:String, //期刊名称name:String, //类属性--期刊级别--属性名-***********:JournalRank #FK to(journalRank), //发表-年year:String, //发表-期--属性名---issueissue:Integer, //发表-卷---属性名---volumevolume:Integer, //起始页码--属性名--startingpagenostartingpageno:Integer, //结束页码--属性名--endingpagenoendingpageno:Integer, //类属性-收录情况-属性名--值域ei，sci，csci:Citation #FK to(citation));
+
+awardsrank();
+
+awardlevel();
+
+awards(/***单向：*指明n：1关系*@joincolumn指明外键列名**@onetomany映射1：n关系**双向：mappedby维护关联关系*1：n注意2个实体类的外键名一致*1：1@onetoone*///获奖等级:AwardLevel #FK to(awardLevel), //成果名称title:String, //代表作者author:String, //奖项名称name:String, //奖项级别:AwardsRank #FK to(awardsRank), //批准部门sponsor:String, //获奖时间dateofaward:Calendar);
+
+rank(id:Long [PK], /***编号*/no:String, /***类别*/description:String);
+
+journalrank();
+
+monographrank();
+
+scientificresearch(id:Long [PK], GeneratedName:Employee #FK to(employee), //审核状态checkingstatus:ScienReasCheckingStatus #FK to(scienreascheckingstatus), //本人位次seating:String, //参加人数numofparticipants:String);
+
+projectfundedbygovernment(//纵向项目级别:ProjectFundedByGovernmentRank #FK to(projectFundedByGovernmentRank));
+
+userrole(/***/serialversionuid:long, id:Integer [PK], GeneratedName:User #FK to(user), GeneratedName:Role #FK to(role));
+
+user(serialversionuid:long, id:Integer [PK], username:String, password:String, /***optional:Actor #FK to(actor));
+
+actor();
+
+resource(id:Integer [PK], //easyuitree结点显示的文字text:String, no:String, /***结点的状态，有两个值openclose*/state:String, /***菜单路径*/url:String, /***jpa的自关联*父类*/parent:Resource #FK to(resource));
+
+role(/***角色id*/id:Integer [PK], /***角色描述，*目前有teacher、student、manager*/description:String, /***英文描述角色名字*/rolename:String);
+
+role_resource(role_id:Role [PK] #FK to Role,resource_id:set<resource> [PK] #FK to set<resource>);
+
+privateleavedescription();
+
+attendancesummary(id:Long [PK], //考勤名称attendancename:String, //考勤时间attendancetime:Calendar, //考勤人(管理员)attendancemanager:Employee, //会议纪要minutes:String, //实际考勤attendances:List<Attendance>, //候选人candidates:List<Employee>);
+
+presencedescription();
+
+leave(id:Long [PK], starttime:Calendar, endtime:Calendar, realtime:Calendar, reason:String, GeneratedName:Employee);
+
+privateleave(leavedescriptionleavedescription:PrivateLeaveDescription);
+
+universityabsencedescription();
+
+neglectworkdescription();
+
+universityabsence(GeneratedName:UniversityAbsenceDescription);
+
+businessleave(GeneratedName:BusinessLeaveDescription);
+
+neglectwork(GeneratedName:NeglectWorkDescription);
+
+presence(GeneratedName:PresenceDescription);
+
+businessleavedescription();
+
+project(//名称name:String, //编号no:String, //来源resource:String, //项目负责人leader:String, //批准部门sponsor:String, //立项时间starttime:Calendar, //结题时间endtime:Calendar, //经费expenditure:Double, type: String);
+
+rank(, type: String);
+
+publishedbook(//名称name:String, //出版社press:String, //出版时间publicationtime:Calendar, //isbnisbn:String, //千字数words:int, type: String);
+
+attendance(id:Long [PK], GeneratedName:Employee, GeneratedName:AttendanceSummary, type: String);
+
+abstractdescription(id:Long [PK], description:String, type: String);
+
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

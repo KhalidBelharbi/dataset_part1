@@ -1,0 +1,23 @@
+
+address(id:int [PK], streetnumber:int, streetname:String, cityname:String, countryname:String, zipcode:String, version:int);
+
+family(id:int [PK], name:String, secondname:String, version:int);
+
+person(id:int [PK], firstname:String, GeneratedName:Family #FK to(family), birth:Date, GeneratedName:Address #FK to(address), checked:boolean, version:int);
+
+withembeddedid(embeddedid:PK);
+
+citizen(id:Integer [PK], firstname:String, lastname:String, GeneratedName:State #FK to(state), ssn:String);
+
+naturalidonmanytoone(id:int [PK], GeneratedName:Citizen #FK to(citizen));
+
+withsimpleid(id:Long [PK]);
+
+age(query:String, id:Integer [PK], age:Integer);
+
+person(GeneratedName:Name, age:int);
+
+state(id:Integer [PK], name:String);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

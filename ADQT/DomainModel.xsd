@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="companyname" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rulevalue" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="tablename" type="xs:string" />
+        <xs:element name="columnname" type="xs:string" />
+        <xs:element name="datatype" type="xs:string" />
+        <xs:element name="columnindex" type="xs:long" />
+        <xs:element name="ruletypes" type="xs:string" />
+        <xs:element name="rulekey" type="xs:string" />
+        <xs:element name="rulevalue" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="columninformation" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="columnname" type="xs:string" />
+        <xs:element name="datatype" type="xs:string" />
+        <xs:element name="columnindex" type="xs:long" />
+        <xs:element name="GeneratedName" type="tableinformation" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tableinformation" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="tablename" type="xs:string" />
+        <xs:element name="columninformations" type="columninformation" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

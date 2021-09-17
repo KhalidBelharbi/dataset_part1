@@ -1,0 +1,27 @@
+cidademodel();
+
+pessoaexternamodel(cidade:cidadeModel #FK to(cidadeModel), estado:estadoModel #FK to(estadomodel));
+
+alunomodel(idaluno:int);
+
+pessoamodel(idpessoa:long [PK], nome:String, email:String, idade:int, cpf:long, rg:String);
+
+areamodel(idarea:int [PK], nome:String);
+
+pessoainternamodel(dataingresso:Date);
+
+servidormodel(area:areaModel #FK to(areamodel), siape:long, cargo:String);
+
+campusmodel();
+
+palestrantemodel(siape:long, area:AreaModel #FK to(areamodel));
+
+estadomodel();
+
+cursomodel(idcurso:int [PK], nome:String, cargahoraria:String, servidor:servidorModel #FK to(servidormodel));
+
+curso(idcurso:cursoModel [PK] #FK to cursoModel,idaluno:AlunoModel [PK] #FK to AlunoModel);
+
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

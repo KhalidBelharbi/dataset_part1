@@ -1,0 +1,41 @@
+estoque(id:Long [PK], corredor:Integer, prateleira:Character, created:LocalDate, updated:LocalDate, deletesoft:Boolean);
+
+pedidoreposicao(id:Long [PK], GeneratedName:Funcionario #FK to(funcionario), GeneratedName:Fornecedor #FK to(fornecedor), descricao:String, dataentraga:LocalDate, obs:String, valor:BigDecimal, created:LocalDate, updated:LocalDate, deletesoft:Boolean);
+
+categorialivro();
+
+produto_list<categoria>(produtoID:produto [PK] #FK to produto,list<categoria>ID:list<categoria> [PK] #FK to list<categoria>);
+
+livro(//centimetros:10.3cmaltura:BigDecimal, autor:String, acabamento:TipoAcabamento, idioma:String, //centimetros:5.3cmlargura:BigDecimal, numeropaginas:Integer, pais:String, //gramas:340gpeso:Integer, //centimetros:12.3cmprofundidade:BigDecimal);
+
+imagem(id:Long [PK], url:String, created:LocalDate, updated:LocalDate, deletesoft:Boolean, GeneratedName:Produto #FK to(Produto));
+
+pedidoproduto(id:Long [PK], decompra:Pedido #FK to(pedido), GeneratedName:Produto #FK to(Produto), valorproduto:BigDecimal, datacompra:LocalDate, created:LocalDate, updated:LocalDate, deletesoft:Boolean);
+
+perfil(id:Long [PK], nome:String);
+
+cliente(id:Long [PK], nome:String, datanascimento:LocalDate, email:String, senha:String, cpf:String, telefone_01:String, telefone_02:String, ativo:Boolean, created:LocalDate, updated:LocalDate, deletesoft:Boolean);
+
+papelaria();
+
+fornecedor(id:Long [PK], cnpj:String, inscricaoestadual:String, nome:String, rua:String, bairro:String, cidade:String, cep:String, numero:String, telefone_01:String, telefone_02:String, telefone_03:String, email_01:String, email_02:String, email_03:String, created:LocalDate, updated:LocalDate, deletesoft:Boolean);
+
+categoriapapelaria();
+
+funcionario(id:Long [PK], nome:String, cpf:String, ativo:Boolean, created:LocalDate, updated:LocalDate, deletesoft:Boolean);
+
+funcionario_list<perfil>(funcionarioID:funcionario [PK] #FK to funcionario,list<perfil>ID:list<perfil> [PK] #FK to list<perfil>);
+
+pedido(id:Long [PK], valortotal:BigDecimal, GeneratedName:Cliente #FK to(cliente), GeneratedName:Endereco #FK to(endereco), datacompra:Date, status:StatusPedido, created:LocalDate, updated:LocalDate, deletesoft:Boolean);
+
+categoria(id:Long [PK], nome:String, created:LocalDate, updated:LocalDate, deletesoft:Boolean);
+
+endereco(id:Long [PK], rua:String, bairro:String, cidade:String, cep:String, numero:String, GeneratedName:Cliente #FK to(cliente), created:LocalDate, updated:LocalDate, deletesoft:Boolean);
+
+chamado(id:Long [PK], titulo:String, descricao:String, atendido:Boolean, GeneratedName:Cliente #FK to(cliente), created:LocalDate, updated:LocalDate, deletesoft:Boolean);
+
+produto(id:Long [PK], nome:String, descricao:String, porcentagemdesconto:BigDecimal, valor:BigDecimal, GeneratedName:Fornecedor #FK to(fornecedor), GeneratedName:Funcionario #FK to(funcionario), GeneratedName:Estoque #FK to(Estoque), disponivel:Boolean, created:LocalDate, updated:LocalDate, deletesoft:Boolean);
+
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

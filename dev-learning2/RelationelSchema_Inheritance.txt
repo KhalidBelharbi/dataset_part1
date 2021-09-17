@@ -1,0 +1,17 @@
+
+comment(serialversionuid:long, content:String, GeneratedName:User #FK to(user), createtime:Timestamp);
+
+vote(serialversionuid:long, GeneratedName:User #FK to(user), createtime:Timestamp);
+
+blog(serialversionuid:long, //文章标题title:String, //文章摘要summary:String, //文章markdown内容content:String, //生成的htmlhtmlcontent:String, //发表文章的用户:User #FK to(user), //文章发表时间createtime:Date, //阅读量readsize:Integer, //评论数commentsize:Integer, //点赞数votesize:Integer, //分类:Catalog #FK to(catalog), //标签tags:String, uptime:Date);
+
+user(serialversionuid:long, //用户帐号username:String, //密码password:String, //别名name:String, //邮箱email:String, //头像地址avatar:String, accountexpired:Boolean, accountlocked:Boolean, credentialexpired:Boolean, enabled:Boolean);
+
+user_authority(user_id:User [PK] #FK to User,authority_id:list<authority> [PK] #FK to list<authority>);
+
+authority(serialversionuid:long, name:String);
+
+catalog(serialversionuid:long, //编号id:Long [PK], //分类名称name:String, //用户:User #FK to(user));
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

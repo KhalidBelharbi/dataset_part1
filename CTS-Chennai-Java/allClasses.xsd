@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="hibernate.cfg" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="productdao" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="productdaoimpl" >
+      <xs:sequence>
+        <xs:element name="sf" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="updateproductservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="updateproductserviceimpl" >
+      <xs:sequence>
+        <xs:element name="proddao" type="productdao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="saveproductserviceimpl" >
+      <xs:sequence>
+        <xs:element name="//@qualifier(value" type="productdao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="listproductserviceimpl" >
+      <xs:sequence>
+        <xs:element name="proddao" type="productdao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="findproductserviceimpl" >
+      <xs:sequence>
+        <xs:element name="proddao" type="productdao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="saveproductservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="listproductservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="findproductservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="productcontroller" >
+      <xs:sequence>
+        <xs:element name="saveservice" type="saveproductservice" nillable="true" minOccurs="0" />
+        <xs:element name="listservice" type="listproductservice" nillable="true" minOccurs="0" />
+        <xs:element name="findservice" type="findproductservice" nillable="true" minOccurs="0" />
+        <xs:element name="updateservice" type="updateproductservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="product" >
+      <xs:sequence>
+        <xs:element name="prodid" type="xs:string" />
+        <xs:element name="prodname" type="xs:string" />
+        <xs:element name="price" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

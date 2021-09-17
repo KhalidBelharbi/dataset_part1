@@ -1,0 +1,27 @@
+
+subscription(id:int [PK], name:String, price:Double);
+
+subscriptions_benefits(subscription_id:Subscription [PK] #FK to Subscription,benefit_id:list<benefit> [PK] #FK to list<benefit>);
+
+review(id:int [PK], title:String, description:String, GeneratedName:Client #FK to(Client));
+
+benefitaudit(serialversionuid:long, id:int [PK], rev:int [PK], revtype:int, user:String, description:String);
+
+subscriptionaudit(serialversionuid:long, id:int [PK], rev:int [PK], revtype:int, name:String, price:Double, user:String);
+
+role(id:int [PK], name:String, description:String);
+
+client(id:int [PK], //@notnullusername:String, //@notnullfirstname:String, //@notnulllastname:String, //@notnull//name//@notnullcnp:String, address:String, email:String, //@jsonignorepassword:String, //@notnullstatus:Boolean, hasupdated:boolean, GeneratedName:AuthProvider, GeneratedName:Role #FK to(Role), GeneratedName:Subscription #FK to(Subscription));
+
+revisioninfo(user:String);
+
+account(id:int [PK], name:String, amount:Double, details:String, GeneratedName:Client #FK to(Client));
+
+operation(id:int [PK], type:String, amount:Double, date:LocalDate, GeneratedName:Client #FK to(Client), GeneratedName:Account #FK to(account));
+
+clientaudit(id:int [PK], rev:int, revtype:int, address:String, cnp:String, email:String, first_name:String, last_name:String, password:String, status:boolean, username:String, subscription_id:int);
+
+benefit(id:int [PK], description:String);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

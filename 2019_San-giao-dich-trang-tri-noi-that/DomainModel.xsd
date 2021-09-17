@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="orderstatus" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="status" type="xs:long" />
+        <xs:element name="orders" type="order" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="color" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="status" type="xs:long" />
+        <xs:element name="orderdetails" type="orderdetail" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="products" type="product" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="product" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="plug" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="quantity" type="xs:long" />
+        <xs:element name="avatar" type="xs:string" />
+        <xs:element name="avgstart" type="xs:double" />
+        <xs:element name="created_at" type="xs:dateTime" />
+        <xs:element name="upd_at" type="xs:dateTime" />
+        <xs:element name="status" type="xs:long" />
+        <xs:element name="inventory" type="inventory" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="questions" type="question" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="images" type="image" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="image360" type="image360" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="orderdetails" type="orderdetail" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="reviews" type="review" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="unitprices" type="unitprice" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="orderdetail" type="orderdetail" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="s" type="category" nillable="true" minOccurs="0" />
+        <xs:element name="s" type="store" nillable="true" minOccurs="0" />
+        <xs:element name="s" type="producer" nillable="true" minOccurs="0" />
+        <xs:element name="s" type="origin" nillable="true" minOccurs="0" />
+        <xs:element name="s" type="material" nillable="true" minOccurs="0" />
+        <xs:element name="colors" type="color" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="promotions" type="promotion" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="image360" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="path" type="xs:string" />
+        <xs:element name="status" type="xs:long" />
+        <xs:element name="_id" type="product" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="province" >
+      <xs:sequence>
+        <xs:element name="provinceid" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="stores" type="store" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="district" >
+      <xs:sequence>
+        <xs:element name="districtid" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="provinceid" type="xs:string" />
+        <xs:element name="stores" type="store" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="review" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="content" type="xs:string" />
+        <xs:element name="rating" type="xs:long" />
+        <xs:element name="status" type="xs:long" />
+        <xs:element name="created_at" type="xs:dateTime" />
+        <xs:element name="upd_at" type="xs:dateTime" />
+        <xs:element name="user" type="users" nillable="true" minOccurs="0" />
+        <xs:element name="s" type="product" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="order" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="image" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="path" type="xs:string" />
+        <xs:element name="status" type="xs:long" />
+        <xs:element name="_id" type="product" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="paymenttype" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="status" type="xs:long" />
+        <xs:element name="orders" type="order" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="ordergroup" type="ordergroup" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="passwordresettoken" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="token" type="xs:string" />
+        <xs:element name="user" type="users" nillable="true" minOccurs="0" />
+        <xs:element name="expiry" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="unitprice" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="price" type="xs:long" />
+        <xs:element name="created_at" type="xs:dateTime" />
+        <xs:element name="start_time" type="xs:dateTime" />
+        <xs:element name="end_time" type="xs:dateTime" />
+        <xs:element name="root" type="xs:long" />
+        <xs:element name="orderdetails" type="orderdetail" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="product" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="answer" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="content" type="xs:string" />
+        <xs:element name="status" type="xs:long" />
+        <xs:element name="created_at" type="xs:dateTime" />
+        <xs:element name="s" type="question" nillable="true" minOccurs="0" />
+        <xs:element name="s" type="store" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="customer" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="address" type="xs:string" />
+        <xs:element name="sex" type="xs:string" />
+        <xs:element name="phone" type="xs:string" />
+        <xs:element name="birthday" type="xs:dateTime" />
+        <xs:element name="GeneratedName" type="users" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="store" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="address" type="xs:string" />
+        <xs:element name="phone" type="xs:string" />
+        <xs:element name="introduce" type="xs:string" />
+        <xs:element name="website" type="xs:string" />
+        <xs:element name="status" type="xs:long" />
+        <xs:element name="GeneratedName" type="users" nillable="true" minOccurs="0" />
+        <xs:element name="answers" type="answer" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="orders" type="order" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="products" type="product" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="promotions" type="promotion" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="members" type="member" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="province" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="district" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="ward" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="member" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="start_time" type="xs:dateTime" />
+        <xs:element name="end_time" type="xs:dateTime" />
+        <xs:element name="s" type="membertype" nillable="true" minOccurs="0" />
+        <xs:element name="s" type="store" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="question" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="content" type="xs:string" />
+        <xs:element name="status" type="xs:long" />
+        <xs:element name="created_at" type="xs:dateTime" />
+        <xs:element name="answers" type="answer" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="s" type="product" nillable="true" minOccurs="0" />
+        <xs:element name="user" type="users" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="membertype" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="price" type="xs:long" />
+        <xs:element name="members" type="member" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="role" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="users" type="users" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="inventory" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="quantity" type="xs:long" />
+        <xs:element name="created_at" type="xs:dateTime" />
+        <xs:element name="_receipt" type="xs:dateTime" />
+        <xs:element name="s" type="product" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="promotion" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="sale_off" type="xs:long" />
+        <xs:element name="status" type="xs:long" />
+        <xs:element name="created_at" type="xs:dateTime" />
+        <xs:element name="start_time" type="xs:dateTime" />
+        <xs:element name="end_time" type="xs:dateTime" />
+        <xs:element name="orderdetail" type="orderdetail" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="store" nillable="true" minOccurs="0" />
+        <xs:element name="products" type="product" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ward" >
+      <xs:sequence>
+        <xs:element name="wardid" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="districtid" type="xs:string" />
+        <xs:element name="stores" type="store" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="orderdetail" >
+      <xs:sequence>
+        <xs:element name="id" type="orderdetailid" nillable="true" minOccurs="0" />
+        <xs:element name="quantity" type="xs:long" />
+        <xs:element name="GeneratedName" type="product" nillable="true" minOccurs="0" />
+        <xs:element name="s" type="order" nillable="true" minOccurs="0" />
+        <xs:element name="s" type="color" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="unitprice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="promotion" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="users" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="GeneratedName" type="store" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="customer" nillable="true" minOccurs="0" />
+        <xs:element name="order" type="order" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="ordergroup" type="ordergroup" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="reviews" type="review" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="questions" type="question" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="roles" type="role" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="producer" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="status" type="xs:long" />
+        <xs:element name="plug" type="xs:string" />
+        <xs:element name="products" type="product" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="order" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="address" type="xs:string" />
+        <xs:element name="phone" type="xs:string" />
+        <xs:element name="created_at" type="xs:dateTime" />
+        <xs:element name="orderdetail" type="orderdetail" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="review" type="review" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="paymenttype" nillable="true" minOccurs="0" />
+        <xs:element name="user" type="users" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="orderstatus" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="ordergroup" nillable="true" minOccurs="0" />
+        <xs:element name="s" type="store" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="category" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="plug" type="xs:string" />
+        <xs:element name="parentid" type="xs:long" />
+        <xs:element name="status" type="xs:long" />
+        <xs:element name="product" type="product" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="material" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="plug" type="xs:string" />
+        <xs:element name="status" type="xs:long" />
+        <xs:element name="products" type="product" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="origin" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="plug" type="xs:string" />
+        <xs:element name="status" type="xs:long" />
+        <xs:element name="products" type="product" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ordergroup" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="address" type="xs:string" />
+        <xs:element name="phone" type="xs:string" />
+        <xs:element name="created_at" type="xs:dateTime" />
+        <xs:element name="orders" type="order" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="paymenttype" nillable="true" minOccurs="0" />
+        <xs:element name="user" type="users" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

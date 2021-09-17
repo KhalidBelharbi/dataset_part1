@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="dhalplaylists" >
+      <xs:sequence>
+        <xs:element name="playlistid" type="xs:long" />
+        <xs:element name="trackid" type="xs:long" />
+        <xs:element name="commentid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dhalcomments" >
+      <xs:sequence>
+        <xs:element name="commentsid" type="xs:long" />
+        <xs:element name="authorid" type="xs:long" />
+        <xs:element name="postdate" type="xs:string" />
+        <xs:element name="comments" type="xs:string" />
+        <xs:element name="rateid" type="xs:long" />
+        <xs:element name="commentid" type="dhalplaylists" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dhalratings" >
+      <xs:sequence>
+        <xs:element name="//@generatedvalue(generator" type="xs:long" />
+        <xs:element name="rating" type="xs:double" />
+        <xs:element name="commentrateid" type="dhalcomments" nillable="true" minOccurs="0" />
+        <xs:element name="trackrateid" type="dhaltrackratings" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dhaltrackratings" >
+      <xs:sequence>
+        <xs:element name="trackid" type="xs:long" />
+        <xs:element name="rateid" type="xs:long" />
+        <xs:element name="raterid" type="xs:long" />
+        <xs:element name="type" type="dhaltrending" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dhaltrending" >
+      <xs:sequence>
+        <xs:element name="trendid" type="xs:long" />
+        <xs:element name="trackid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dhalusers" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+        <xs:element name="authorid" type="dhalcomments" nillable="true" minOccurs="0" />
+        <xs:element name="raterid" type="dhaltrackratings" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

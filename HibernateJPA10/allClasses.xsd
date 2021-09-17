@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="testing-flush-loopback" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tshirt" >
+      <xs:sequence>
+        <xs:element name="index_name" type="xs:string" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="logo" type="xs:string" />
+        <xs:element name="size" type="xs:string" />
+        <xs:element name="length" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jgroupsmastertest" >
+      <xs:complexContent>
+       <xs:extension base="searchtestbase">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="tshirttype" type="xs:anyType" />
+          <xs:element name="parser" type="xs:anyType" />
+          <xs:element name="/***nameofthejgroupschannelusedintest*/channel_name" type="xs:string" />
+          <xs:element name="channel" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jgroupsmasterdynamicshardingtest" >
+      <xs:complexContent>
+       <xs:extension base="jgroupsmastertest">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="msmuxchanneltest" >
+      <xs:complexContent>
+       <xs:extension base="muxchanneltest">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="muxchanneltest" >
+      <xs:complexContent>
+       <xs:extension base="jgroupscommontest">
+         <xs:sequence>
+          <xs:element name="channels" type="xs:anyType" />
+          <xs:element name="muxid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jgroupsdynamicmasterelectiontest" >
+      <xs:complexContent>
+       <xs:extension base="dynamicmasterslavesearchtestcase">
+         <xs:sequence>
+          <xs:element name="testing_jgroups_configuration_file" type="xs:string" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="/*	*mustbeatleast3soastohighlightthebugmentionedinhsearch-2675:	*forsomereason,themasterwillchangeautomaticallywhenwespawnthesecond	*node,sothefirsttwonodeswillalwaysbeabletohandlemasterworks.	*thethirdoneandlaterwillnot,however.	*/default_number_of_nodes" type="xs:long" />
+          <xs:element name="/***nameofthejgroupschannelusedintest*/channel_name" type="xs:string" />
+          <xs:element name="parser" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="dynamicmasterslavesearchtestcase" >
+      <xs:sequence>
+        <xs:element name="alreadyselectedbaseindexdir" type="xs:string" />
+        <xs:element name="resourcemanagers" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="injectedchanneltest" >
+      <xs:complexContent>
+       <xs:extension base="jgroupscommontest">
+         <xs:sequence>
+          <xs:element name="masterchannel" type="xs:anyType" />
+          <xs:element name="slavechannel" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="automuxchanneltest" >
+      <xs:complexContent>
+       <xs:extension base="muxchanneltest">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="staticmasterslavesearchtestcase" >
+      <xs:complexContent>
+       <xs:extension base="searchtestbase">
+         <xs:sequence>
+          <xs:element name="mastercopy" type="xs:string" />
+          <xs:element name="/***theluceneindexdirectorywhichisspecifictothemasternode.*/mastermain" type="xs:string" />
+          <xs:element name="/***theluceneindexdirectorywhichisspecifictotheslavenode.*/slave" type="xs:string" />
+          <xs:element name="slaveresources" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jgroupscommontest" >
+      <xs:complexContent>
+       <xs:extension base="staticmasterslavesearchtestcase">
+         <xs:sequence>
+          <xs:element name="testing_jgroups_configuration_file" type="xs:string" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="/***nameofthejgroupschannelusedintest*/channel_name" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jgroupselasticsearchit" >
+      <xs:complexContent>
+       <xs:extension base="staticmasterslavesearchtestcase">
+         <xs:sequence>
+          <xs:element name="testing_jgroups_configuration_file" type="xs:string" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="/***nameofthejgroupschannelusedintest*/channel_name" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tshirt" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="logo" type="xs:string" />
+        <xs:element name="size" type="xs:string" />
+        <xs:element name="length" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jgroupsslavetest" >
+      <xs:complexContent>
+       <xs:extension base="searchtestbase">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="/***makessurethatdifferenttestsdon'tjoin**/channel_name" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jgroupsreceiver" >
+      <xs:complexContent>
+       <xs:extension base="receiveradapter">
+         <xs:sequence>
+          <xs:element name="volatilequeues" type="xs:long" />
+          <xs:element name="volatileworks" type="xs:long" />
+          <xs:element name="integrator" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jgroupsbackendqueueprocessortest" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jgroupsconfigurationtest" >
+      <xs:sequence>
+        <xs:element name="error" type="xs:anyType" />
+        <xs:element name="integratorresource" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jgroupsreceivingmockbackend" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="log" nillable="true" minOccurs="0" />
+        <xs:element name="delegate" type="jgroupsbackend" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="serializationhelpertest" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="syncjgroupsbackendtest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="log" nillable="true" minOccurs="0" />
+        <xs:element name="jgroups_configuration" type="xs:string" />
+        <xs:element name="jgroups_messages_timeout" type="xs:long" />
+        <xs:element name="slavenode" type="xs:anyType" />
+        <xs:element name="masternode" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="autonodeselectortest" >
+      <xs:sequence>
+        <xs:element name="negative_hash_code_index_name" type="xs:string" />
+        <xs:element name="positive_hash_code_index_name" type="xs:string" />
+        <xs:element name="zero_hash_code_index_name" type="xs:string" />
+        <xs:element name="next_address_id" type="xs:anyType" />
+        <xs:element name="next_view_id" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="org.hibernate.search.backend.jgroups.impl" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="org.hibernate.search.backend.jgroups.impl" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="nodeselectorstrategy" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="slavenodeselector" >
+      <xs:sequence>
+        <xs:element name="local" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jgroupsmasterbackend" >
+      <xs:complexContent>
+       <xs:extension base="jgroupsbackend">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="messagelistenertorequesthandleradapter" >
+      <xs:sequence>
+        <xs:element name="delegate" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="classloadermessagelistener" >
+      <xs:sequence>
+        <xs:element name="delegate" type="xs:anyType" />
+        <xs:element name="cl" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="defaultnodeselectorservice" >
+      <xs:sequence>
+        <xs:element name="register" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="messageserializationhelper" >
+      <xs:sequence>
+        <xs:element name="string_encoding" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jgroupsmastermessagelistener" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="log" nillable="true" minOccurs="0" />
+        <xs:element name="integrator" type="xs:anyType" />
+        <xs:element name="selector" type="nodeselectorservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="volatile" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dispatchmessagesender" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="log" nillable="true" minOccurs="0" />
+        <xs:element name="jgroups_prefix" type="xs:string" />
+        <xs:element name="configuration_file" type="xs:string" />
+        <xs:element name="cluster_name" type="xs:string" />
+        <xs:element name="channel_inject" type="xs:string" />
+        <xs:element name="classloader" type="xs:string" />
+        <xs:element name="mux_id" type="xs:string" />
+        <xs:element name="default_jgroups_configuration_file" type="xs:string" />
+        <xs:element name="default_cluster_name" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="dispatcher" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jgroupsbackendqueuetask" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="log" nillable="true" minOccurs="0" />
+        <xs:element name="messagesender" type="messagesenderservice" nillable="true" minOccurs="0" />
+        <xs:element name="indexname" type="xs:string" />
+        <xs:element name="masternodeselector" type="nodeselectorstrategy" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="//truebydefaultifthisbackendissynchronousblockforack" type="xs:anyType" />
+        <xs:element name="messagetimeout" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jgroupsbackendqueueprocessor" >
+      <xs:sequence>
+        <xs:element name="selectionstrategy" type="nodeselectorstrategy" nillable="true" minOccurs="0" />
+        <xs:element name="jgroupsprocessor" type="jgroupsbackendqueuetask" nillable="true" minOccurs="0" />
+        <xs:element name="delegatedbackendfactory" type="xs:anyType" />
+        <xs:element name="volatiledelegate" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="autonodeselector" >
+      <xs:sequence>
+        <xs:element name="indexname" type="xs:string" />
+        <xs:element name="volatilelocal" type="xs:anyType" />
+        <xs:element name="volatilemaster" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jgroupsslavebackend" >
+      <xs:complexContent>
+       <xs:extension base="jgroupsbackend">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="nodeselectorservice" >
+      <xs:complexContent>
+       <xs:extension base="service">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jgroupsbackend" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="log" nillable="true" minOccurs="0" />
+        <xs:element name="tobeinterpretedbythisbackend.*/jgroups_configuration_space" type="xs:string" />
+        <xs:element name="/***configurationpropertyspecifictothebackendinstance.whenenabled*theinvokerthreadwillusejgroupsinsynchronousmodewaitingforthe*ackfromtheotherpartieswhendisableditisgoingtobehave*asfireandforget:delegatesreliabilitytothejgroupsconfigurationandreturns*immediately.**thedefaultvaluedependsonthebackendconfiguration:ifit'ssettoasync,*thenblock_waiting_ackdefaultstofalse.**@seeorg.hibernate.search.cfg.environment#worker_execution*/block_waiting_ack" type="xs:string" />
+        <xs:element name="/***thisjgroupsbackendismeanttodelegatetoadifferentbackendonthe*masternode.generallythisisexpectedtobethelucenebackend,*butthispropertyallowstospecifyadifferentimplementationforthedelegate.*/delegate_backend" type="xs:string" />
+        <xs:element name="/***specifiesthetimeoutdefinedonmessagessenttoothernodesviathejgroups*channel.valueinterpretedinmilliseconds.*/message_timeout_ms" type="xs:string" />
+        <xs:element name="/***defaultvalueforthe{@link#message_timeout_ms}configurationproperty.*/default_message_timeout" type="xs:long" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="messagesender" type="messagesenderservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="masternodeselector" type="nodeselectorservice" nillable="true" minOccurs="0" />
+        <xs:element name="delegatebackendname" type="xs:string" />
+        <xs:element name="sync" type="xs:anyType" />
+        <xs:element name="block" type="xs:anyType" />
+        <xs:element name="messagetimeout" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="messagesenderservice" >
+      <xs:complexContent>
+       <xs:extension base="service">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="masternodeselector" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="log" >
+      <xs:complexContent>
+       <xs:extension base="org.hibernate.search.util.logging.impl.log">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema> 

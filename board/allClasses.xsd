@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="pagerequestdto" >
+      <xs:sequence>
+        <xs:element name="page" type="xs:long" />
+        <xs:element name="size" type="xs:long" />
+        <xs:element name="type" type="xs:string" />
+        <xs:element name="keyword" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="boarddto" >
+      <xs:sequence>
+        <xs:element name="bno" type="xs:long" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="content" type="xs:string" />
+        <xs:element name="//작성자이메일(id)writeremail" type="xs:string" />
+        <xs:element name="//작성자이름writername" type="xs:string" />
+        <xs:element name="regdate" type="xs:anyType" />
+        <xs:element name="moddate" type="xs:anyType" />
+        <xs:element name="//해당게시글의댓글수replycount" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pageresultdto" >
+      <xs:sequence>
+        <xs:element name="//dto리스트dtolist" type="xs:anyType" />
+        <xs:element name="//총페이지번호totalpage" type="xs:long" />
+        <xs:element name="//현재페이지번호page" type="xs:long" />
+        <xs:element name="//목록사이즈size" type="xs:long" />
+        <xs:element name="//시작페이지번호,끝페이지번호start,end" type="xs:long" />
+        <xs:element name="//이전,다음prev,next" type="xs:anyType" />
+        <xs:element name="//페이지번호목록pagelist" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="replydto" >
+      <xs:sequence>
+        <xs:element name="rno" type="xs:long" />
+        <xs:element name="text" type="xs:string" />
+        <xs:element name="replyer" type="xs:string" />
+        <xs:element name="bno" type="xs:long" />
+        <xs:element name="regdate,moddate" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="replyrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<reply,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="memberrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<member,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="searchboardrepositoryimpl" >
+      <xs:complexContent>
+       <xs:extension base="querydslrepositorysupport">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="searchboardrepository" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="boardrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<board,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="boardapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="reply" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="rno" type="xs:long" />
+          <xs:element name="text" type="xs:string" />
+          <xs:element name="replyer" type="xs:string" />
+          <xs:element name="/**하나의댓글은오직하나의게시글에소속되고*하나의게시글은여러개의댓글을가질수있다.*manytoone의관계일때many측의레코드가져올때*그럼lazy(지연),eager(즉)로딩이냐?*eager로딩한다.**/" type="board" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="baseentity" >
+      <xs:sequence>
+        <xs:element name="regdate" type="xs:anyType" />
+        <xs:element name="moddate" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="board" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="bno" type="xs:long" />
+          <xs:element name="title" type="xs:string" />
+          <xs:element name="content" type="xs:string" />
+          <xs:element name="writer" type="member" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="member" >
+      <xs:complexContent>
+       <xs:extension base="baseentity{">
+         <xs:sequence>
+          <xs:element name="email" type="xs:string" />
+          <xs:element name="password" type="xs:string" />
+          <xs:element name="name" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="servletinitializer" >
+      <xs:complexContent>
+       <xs:extension base="springbootservletinitializer">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="boardservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="replyservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="replyserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="replyrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="boardserviceimpl" >
+      <xs:sequence>
+        <xs:element name="repository" type="boardrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="replyrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="boardcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="boardservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="replycontroller" >
+      <xs:sequence>
+        <xs:element name="//자동주입을위해" type="replyservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="package-lock" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name=".travis" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="license" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bootstrap.bundle.min.js" >
+      <xs:complexContent>
+       <xs:extension base="keeptogether">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="bootstrap.js" >
+      <xs:complexContent>
+       <xs:extension base="tooltip">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="bootstrap.min.js" >
+      <xs:complexContent>
+       <xs:extension base="tooltip">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="bootstrap.bundle.js" >
+      <xs:complexContent>
+       <xs:extension base="keeptogether">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="bootstrap.min.css" >
+      <xs:complexContent>
+       <xs:extension base="the">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="bootstrap-grid" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bootstrap-reboot.css" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bootstrap.css" >
+      <xs:complexContent>
+       <xs:extension base="the">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="bootstrap-grid.min" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bootstrap-reboot.min.css" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bootstrap-grid.min.css" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bootstrap-grid.css" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jquery.slim.min" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jquery.min" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="package" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="register" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="boardserviceimpltest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="boardservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="replyserviceimpltest" >
+      <xs:sequence>
+        <xs:element name="service" type="replyservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="boardrepositorytest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="boardrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="memberrepositorytest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="memberrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="replyrepositorytest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="replyrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="boardapplicationtests" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

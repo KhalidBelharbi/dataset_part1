@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="orderitem" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="orderitemid" type="xs:anyType" />
+        <xs:element name="sku" type="xs:string" />
+        <xs:element name="amount" type="xs:anyType" />
+        <xs:element name="branchid" type="xs:string" />
+        <xs:element name="cost" type="xs:double" />
+        <xs:element name="item" type="status" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="order" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="orderid" type="xs:string" />
+        <xs:element name="customerid" type="xs:string" />
+        <xs:element name="walletid" type="xs:string" />
+        <xs:element name="GeneratedName" type="status" nillable="true" minOccurs="0" />
+        <xs:element name="orderitems" type="orderitem" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

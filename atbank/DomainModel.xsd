@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="GeneratedName" type="account" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="accounttransactions" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="id" type="account" nillable="true" minOccurs="0" />
+        <xs:element name="transactionon" type="xs:dateTime" />
+        <xs:element name="body" type="xs:string" />
+        <xs:element name="GeneratedName" type="transactiontype" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="account" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="id" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="accounttype" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="accountstatus" nillable="true" minOccurs="0" />
+        <xs:element name="balance" type="xs:anyType" />
+        <xs:element name="createdon" type="xs:dateTime" />
+        <xs:element name="accounttransactions" type="accounttransactions" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="likesid" >
+      <xs:sequence>
+        <xs:element name="postid" type="xs:long" />
+        <xs:element name="userid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="joins" >
+      <xs:sequence>
+        <xs:element name="communityid" type="xs:long" />
+        <xs:element name="userid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="myuserdetails" >
+      <xs:complexContent>
+       <xs:extension base="grantedauthority>">
+         <xs:sequence>
+          <xs:element name="" type="user" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userregistermodel" >
+      <xs:sequence>
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="authenticationresponse" >
+      <xs:sequence>
+        <xs:element name="message" type="xs:string" />
+        <xs:element name="jwt" type="xs:string" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="bio" type="xs:string" />
+        <xs:element name="followers" type="xs:long" />
+        <xs:element name="following" type="xs:long" />
+        <xs:element name="userid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="post" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="community" type="xs:string" />
+        <xs:element name="user" type="xs:string" />
+        <xs:element name="createdat" type="xs:string" />
+        <xs:element name="textcontent" type="xs:string" />
+        <xs:element name="image" type="xs:anyType" />
+        <xs:element name="video" type="xs:anyType" />
+        <xs:element name="likes" type="xs:long" />
+        <xs:element name="comments" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="likes" >
+      <xs:sequence>
+        <xs:element name="postid" type="xs:long" />
+        <xs:element name="userid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="follows" >
+      <xs:sequence>
+        <xs:element name="followerid" type="xs:long" />
+        <xs:element name="followedid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="authenticationrequest" >
+      <xs:sequence>
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="community" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="imgurl" type="xs:string" />
+        <xs:element name="members" type="xs:long" />
+        <xs:element name="about" type="xs:string" />
+        <xs:element name="createdat" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jwtdata" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="email" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="bio" type="xs:string" />
+        <xs:element name="followers" type="xs:long" />
+        <xs:element name="following" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="joinsid" >
+      <xs:sequence>
+        <xs:element name="communityid" type="xs:long" />
+        <xs:element name="userid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="followsid" >
+      <xs:sequence>
+        <xs:element name="followerid" type="xs:long" />
+        <xs:element name="followedid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jwtfilter" >
+      <xs:complexContent>
+       <xs:extension base="onceperrequestfilter">
+         <xs:sequence>
+          <xs:element name="" type="jwtutil" nillable="true" minOccurs="0" />
+          <xs:element name="service" type="customuserdetailsservice" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="commapiapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="likescontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="likesservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="communitycontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="communityservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="joinsservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="joinscontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="joinsservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usercontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="jwtutil" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="customuserdetailsservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="userservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="postscontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="postsservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="followscontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="followsservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="postsrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<post,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="followsrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<follows,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="likesrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<likes,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="communityrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<community,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<user,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="joinsrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<joins,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="postsservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="postsrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="followsservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="followsrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="userrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="likesservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="likesrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="postsrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="joinsservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="joinsrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="communityservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="communityservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="communityrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="customuserdetailsservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="securityconfig" >
+      <xs:complexContent>
+       <xs:extension base="websecurityconfigureradapter">
+         <xs:sequence>
+          <xs:element name="userdetailsservice" type="customuserdetailsservice" nillable="true" minOccurs="0" />
+          <xs:element name="" type="jwtfilter" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jwtutil" >
+      <xs:sequence>
+        <xs:element name="secret_key" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="commapiapplicationtests" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

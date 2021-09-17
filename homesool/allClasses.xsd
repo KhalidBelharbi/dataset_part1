@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="memberrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<member,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tagrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<tag,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<user,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userdrinkrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<userdrink,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="roomrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<room,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="photorepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<photo,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userrecordrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<userrecord,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="photodto" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userdto" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="logindto" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="roomdto" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="kakaouserdto" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="roomnotfoundexception" >
+      <xs:complexContent>
+       <xs:extension base="businessexception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="usernotfoundexception" >
+      <xs:complexContent>
+       <xs:extension base="businessexception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="businessexception" >
+      <xs:complexContent>
+       <xs:extension base="runtimeexception">
+         <xs:sequence>
+          <xs:element name="code" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="businesscontrolleradvice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="drinks" type="userdrink" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userrecord" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="userid" type="xs:long" />
+        <xs:element name="roomid" type="xs:long" />
+        <xs:element name="liquorname" type="xs:string" />
+        <xs:element name="liquorlimit" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="memberid" >
+      <xs:sequence>
+        <xs:element name="roomid" type="xs:long" />
+        <xs:element name="userid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userdrink" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="userid" type="xs:long" />
+        <xs:element name="liquorname" type="xs:string" />
+        <xs:element name="liquorlimit" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tag" >
+      <xs:sequence>
+        <xs:element name="tagid" type="xs:long" />
+        <xs:element name="roomid" type="xs:long" />
+        <xs:element name="tagname" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="member" >
+      <xs:sequence>
+        <xs:element name="roomid" type="xs:long" />
+        <xs:element name="userid" type="xs:long" />
+        <xs:element name="nickname" type="xs:string" />
+        <xs:element name="ishost" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="photo" >
+      <xs:sequence>
+        <xs:element name="photoid" type="xs:long" />
+        <xs:element name="roomid" type="xs:long" />
+        <xs:element name="src" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="room" >
+      <xs:sequence>
+        <xs:element name="roomid" type="xs:long" />
+        <xs:element name="hostid" type="xs:long" />
+        <xs:element name="starttime" type="xs:dateTime" />
+        <xs:element name="endtime" type="xs:dateTime" />
+        <xs:element name="code" type="xs:string" />
+        <xs:element name="roomname" type="xs:string" />
+        <xs:element name="ispublic" type="xs:long" />
+        <xs:element name="tags" type="tag" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usercontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="userservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="roomservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="roomcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="roomservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="photoservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="homesoolapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usermapper" >
+      <xs:sequence>
+        <xs:element name="instance" type="usermapper" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="roommapper" >
+      <xs:sequence>
+        <xs:element name="instance" type="roommapper" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="roomservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="roomrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="memberrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="tagrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="photoservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="photorepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="userdrinkrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="userrecordrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="photorepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="memberrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="roomrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="jwttokenprovider" nillable="true" minOccurs="0" />
+        <xs:element name="//couldnotautowired" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="kakaouserurl" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="util" >
+      <xs:sequence>
+        <xs:element name="actertable" type="xs:anyType" />
+        <xs:element name="tablelength" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="swaggerconfig" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="websecurityconfig" >
+      <xs:complexContent>
+       <xs:extension base="websecurityconfigureradapter">
+         <xs:sequence>
+          <xs:element name="" type="jwttokenprovider" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jwttokenprovider" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="//6시간토큰유효tokenvalidmilisecond" type="xs:long" />
+        <xs:element name="secretkey" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="customuserdetailsservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="customuserdetails" >
+      <xs:complexContent>
+       <xs:extension base="grantedauthority>">
+         <xs:sequence>
+          <xs:element name="" type="user" nillable="true" minOccurs="0" />
+          <xs:element name="authorities" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jwtauthenticationfilter" >
+      <xs:complexContent>
+       <xs:extension base="genericfilterbean">
+         <xs:sequence>
+          <xs:element name="" type="jwttokenprovider" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema> 

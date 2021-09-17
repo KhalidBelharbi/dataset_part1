@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="interceptorconfig" >
+      <xs:complexContent>
+       <xs:extension base="webmvcconfigurationsupport">
+         <xs:sequence>
+          <xs:element name="//自定义的拦截器" type="jwtinterceptor" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="baseexceptionhandler" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="articlecontroller" >
+      <xs:sequence>
+        <xs:element name="//文章模块的业务层" type="articleservice" nillable="true" minOccurs="0" />
+        <xs:element name="request" type="xs:anyType" />
+        <xs:element name="//生成token和解析token的工具类" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="channelcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="channelservice" nillable="true" minOccurs="0" />
+        <xs:element name="request" type="xs:anyType" />
+        <xs:element name="//生成token和解析token的工具类" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="commentcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="commentservice" nillable="true" minOccurs="0" />
+        <xs:element name="request" type="xs:anyType" />
+        <xs:element name="//生成token和解析token的工具类" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="columncontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="columnservice" nillable="true" minOccurs="0" />
+        <xs:element name="request" type="xs:anyType" />
+        <xs:element name="//生成token和解析token的工具类" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jwtinterceptor" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="articleapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="commentservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="commentdao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="articleservice" >
+      <xs:sequence>
+        <xs:element name="//专栏模块的业务层" type="columnservice" nillable="true" minOccurs="0" />
+        <xs:element name="//频道模块的业务层" type="channelservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="articledao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="userclient" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="channelservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="channeldao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="columnservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="columndao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="column" >
+      <xs:sequence>
+        <xs:element name="//idid" type="xs:string" />
+        <xs:element name="//专栏名称name" type="xs:string" />
+        <xs:element name="//专栏简介summary" type="xs:string" />
+        <xs:element name="//用户iduserid" type="xs:string" />
+        <xs:element name="//申请日期createtime" type="xs:anyType" />
+        <xs:element name="//审核日期checktime" type="xs:anyType" />
+        <xs:element name="//状态state" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="comment" >
+      <xs:sequence>
+        <xs:element name="_id" type="xs:string" />
+        <xs:element name="//文章idarticleid" type="xs:string" />
+        <xs:element name="//评论内容content" type="xs:string" />
+        <xs:element name="//评论人iduserid" type="xs:string" />
+        <xs:element name="//上一级idparentid" type="xs:string" />
+        <xs:element name="//评论日期publish" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="channel" >
+      <xs:sequence>
+        <xs:element name="//idid" type="xs:string" />
+        <xs:element name="//频道名称name" type="xs:string" />
+        <xs:element name="//状态state" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="article" >
+      <xs:sequence>
+        <xs:element name="//idid" type="xs:string" />
+        <xs:element name="//专栏idcolumnid" type="xs:string" />
+        <xs:element name="//用户iduserid" type="xs:string" />
+        <xs:element name="//标题title" type="xs:string" />
+        <xs:element name="//文章正文content" type="xs:string" />
+        <xs:element name="//文章封面image" type="xs:string" />
+        <xs:element name="//发表日期createtime" type="xs:anyType" />
+        <xs:element name="//修改日期updatetime" type="xs:anyType" />
+        <xs:element name="//是否公开ispublic" type="xs:string" />
+        <xs:element name="//是否置顶istop" type="xs:string" />
+        <xs:element name="//浏览量visits" type="xs:anyType" />
+        <xs:element name="//点赞数thumbup" type="xs:anyType" />
+        <xs:element name="//评论数comment" type="xs:anyType" />
+        <xs:element name="//审核状态state" type="xs:string" />
+        <xs:element name="//所属频道channelid" type="xs:string" />
+        <xs:element name="//urlurl" type="xs:string" />
+        <xs:element name="//类型type" type="xs:string" />
+        <xs:element name="//文章作者的昵称nickname" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="commentdao" >
+      <xs:complexContent>
+       <xs:extension base="mongorepository<comment,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="articledao" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<article,string>,jpaspecificationexecutor<article>{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="columndao" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<column,string>,jpaspecificationexecutor<column>{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="channeldao" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<channel,string>,jpaspecificationexecutor<channel>{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userclient" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userclientfallback" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

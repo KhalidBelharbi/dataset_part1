@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="messageskeleton" >
+      <xs:sequence>
+        <xs:element name="errornumber" type="xs:string" />
+        <xs:element name="errortype" type="xs:string" />
+        <xs:element name="errortext" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="message" >
+      <xs:sequence>
+        <xs:element name="recordid" type="xs:long" />
+        <xs:element name="idnr" type="xs:long" />
+        <xs:element name="errornumber" type="xs:long" />
+        <xs:element name="errortype" type="xs:string" />
+        <xs:element name="errortext" type="xs:string" />
+        <xs:element name="messageskeletons" type="messageskeleton" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="messages" type="message" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

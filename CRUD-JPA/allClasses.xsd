@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="persistence" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="professor" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="professorname" type="xs:string" />
+        <xs:element name="projects" type="researchproject" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="app" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="researchproject" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="projectname" type="xs:string" />
+        <xs:element name="professors" type="professor" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="address" >
+      <xs:sequence>
+        <xs:element name="addressid" type="xs:long" />
+        <xs:element name="addressname" type="xs:string" />
+        <xs:element name="zipcode" type="xs:long" />
+        <xs:element name="GeneratedName" type="employee" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="app" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="employee" >
+      <xs:sequence>
+        <xs:element name="employeeid" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="GeneratedName" type="address" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="abstractcitizen" >
+      <xs:sequence>
+        <xs:element name="drivinglicence" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="citizen" >
+      <xs:complexContent>
+       <xs:extension base="abstractcitizen">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="age" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="app" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="car" >
+      <xs:complexContent>
+       <xs:extension base="vehicle">
+         <xs:sequence>
+          <xs:element name="speed" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="app" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="vehicle" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bus" >
+      <xs:complexContent>
+       <xs:extension base="vehicle">
+         <xs:sequence>
+          <xs:element name="numberofpassengers" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="person" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="age" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="app" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="university" >
+      <xs:sequence>
+        <xs:element name="universityid" type="xs:long" />
+        <xs:element name="universityname" type="xs:string" />
+        <xs:element name="students" type="student" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="app" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="student" >
+      <xs:sequence>
+        <xs:element name="studentid" type="xs:long" />
+        <xs:element name="studentname" type="xs:string" />
+        <xs:element name="GeneratedName" type="university" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="article" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="articlename" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="app" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="articlelistener" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="uprofreference" >
+      <xs:sequence>
+        <xs:element name="processor" type="xs:string" />
+        <xs:element name="cpu_utilization" type="xs:double" />
+        <xs:element name="cpu_eff_freq" type="xs:double" />
+        <xs:element name="ipc" type="xs:double" />
+        <xs:element name="retired_sse_avx_flops" type="xs:double" />
+        <xs:element name="l3_hit" type="xs:double" />
+        <xs:element name="total_mem_bw" type="xs:double" />
+        <xs:element name="total_mem_rdbw" type="xs:double" />
+        <xs:element name="total_mem_wrbw" type="xs:double" />
+        <xs:element name="total_xgmi0_bw" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="passwordresettoken" >
+      <xs:sequence>
+        <xs:element name="expiration" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="token" type="xs:string" />
+        <xs:element name="GeneratedName" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="expiry" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="role" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="appmap" >
+      <xs:sequence>
+        <xs:element name="appname" type="xs:string" />
+        <xs:element name="metric" type="xs:string" />
+        <xs:element name="status" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="runtype" >
+      <xs:sequence>
+        <xs:element name="runtype" type="xs:string" />
+        <xs:element name="cpu" type="xs:string" />
+        <xs:element name="app_name" type="xs:string" />
+        <xs:element name="freq" type="xs:string" />
+        <xs:element name="mem_freq" type="xs:string" />
+        <xs:element name="nps" type="xs:long" />
+        <xs:element name="smt" type="xs:string" />
+        <xs:element name="os" type="xs:string" />
+        <xs:element name="ctdp" type="xs:string" />
+        <xs:element name="boost" type="xs:string" />
+        <xs:element name="apbdis" type="xs:string" />
+        <xs:element name="soc_pstate" type="xs:string" />
+        <xs:element name="x2apic" type="xs:string" />
+        <xs:element name="determinism" type="xs:string" />
+        <xs:element name="preferred_io" type="xs:string" />
+        <xs:element name="iommu" type="xs:string" />
+        <xs:element name="edc" type="xs:string" />
+        <xs:element name="other" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="benchmark" >
+      <xs:sequence>
+        <xs:element name="bmname" type="xs:string" />
+        <xs:element name="bmfullname" type="xs:string" />
+        <xs:element name="appname" type="xs:string" />
+        <xs:element name="bmsize" type="xs:string" />
+        <xs:element name="bmsizeunits" type="xs:string" />
+        <xs:element name="bmdur" type="xs:long" />
+        <xs:element name="bmdurunits" type="xs:string" />
+        <xs:element name="bmmetric" type="xs:string" />
+        <xs:element name="bmunits" type="xs:string" />
+        <xs:element name="estruntime" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cpu" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="cpumanufacturer" type="xs:string" />
+        <xs:element name="cpugeneration" type="xs:string" />
+        <xs:element name="cpusku" type="xs:string" />
+        <xs:element name="tdp" type="xs:string" />
+        <xs:element name="cores" type="xs:long" />
+        <xs:element name="basefreq" type="xs:string" />
+        <xs:element name="allcorefreq" type="xs:string" />
+        <xs:element name="peakfreq" type="xs:string" />
+        <xs:element name="l3cache" type="xs:string" />
+        <xs:element name="ddrchannels" type="xs:long" />
+        <xs:element name="maxddrfreq" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="uprofraw" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="counter" type="xs:long" />
+        <xs:element name="procappbm" type="xs:string" />
+        <xs:element name="runtype" type="xs:string" />
+        <xs:element name="core_0_utilization" type="xs:double" />
+        <xs:element name="core_0_eff_freq" type="xs:double" />
+        <xs:element name="core_0_ipc" type="xs:double" />
+        <xs:element name="core_0_cpi" type="xs:double" />
+        <xs:element name="core_0_branch_misprediction_ratio" type="xs:double" />
+        <xs:element name="core_0_retired_sse_avx_flops" type="xs:double" />
+        <xs:element name="core_0_mixed_sse_avx_stalls" type="xs:double" />
+        <xs:element name="ccx_0_l3_access" type="xs:double" />
+        <xs:element name="ccx_0_l3_miss" type="xs:double" />
+        <xs:element name="ccx_0_l3_miss_percent" type="xs:double" />
+        <xs:element name="ccx_0_ave_l3_miss_latency" type="xs:double" />
+        <xs:element name="ccx_1_l3_access" type="xs:double" />
+        <xs:element name="ccx_1_l3_miss" type="xs:double" />
+        <xs:element name="ccx_1_l3_miss_percent" type="xs:double" />
+        <xs:element name="ccx_1_ave_l3_miss_latency" type="xs:double" />
+        <xs:element name="package_0_total_mem_bw" type="xs:double" />
+        <xs:element name="package_0_total_mem_rdbw" type="xs:double" />
+        <xs:element name="package_0_total_mem_wrbw" type="xs:double" />
+        <xs:element name="package_0_mem_ch_a_rdbw" type="xs:double" />
+        <xs:element name="package_0_mem_ch_a_wrbw" type="xs:double" />
+        <xs:element name="package_0_mem_ch_b_rdbw" type="xs:double" />
+        <xs:element name="package_0_mem_ch_b_wrbw" type="xs:double" />
+        <xs:element name="package_0_mem_ch_c_rdbw" type="xs:double" />
+        <xs:element name="package_0_mem_ch_c_wrbw" type="xs:double" />
+        <xs:element name="package_0_mem_ch_d_rdbw" type="xs:double" />
+        <xs:element name="package_0_mem_ch_d_wrbw" type="xs:double" />
+        <xs:element name="package_0_mem_ch_e_rdbw" type="xs:double" />
+        <xs:element name="package_0_mem_ch_e_wrbw" type="xs:double" />
+        <xs:element name="package_0_mem_ch_f_rdbw" type="xs:double" />
+        <xs:element name="package_0_mem_ch_f_wrbw" type="xs:double" />
+        <xs:element name="package_0_mem_ch_g_rdbw" type="xs:double" />
+        <xs:element name="package_0_mem_ch_g_wrbw" type="xs:double" />
+        <xs:element name="package_0_mem_ch_h_rdbw" type="xs:double" />
+        <xs:element name="package_0_mem_ch_h_wrbw" type="xs:double" />
+        <xs:element name="package_0_approximate_xgmi_outbound_data_bytes" type="xs:double" />
+        <xs:element name="package_0_xgmi0_bw" type="xs:double" />
+        <xs:element name="package_0_xgmi1_bw" type="xs:double" />
+        <xs:element name="package_0_xgmi2_bw" type="xs:double" />
+        <xs:element name="package_0_xgmi3_bw" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="result" >
+      <xs:sequence>
+        <xs:element name="jobid" type="xs:string" />
+        <xs:element name="appname" type="xs:string" />
+        <xs:element name="bmname" type="xs:string" />
+        <xs:element name="nodes" type="xs:long" />
+        <xs:element name="cores" type="xs:long" />
+        <xs:element name="nodename" type="xs:string" />
+        <xs:element name="result" type="xs:double" />
+        <xs:element name="cpu" type="xs:string" />
+        <xs:element name="os" type="xs:string" />
+        <xs:element name="biosver" type="xs:string" />
+        <xs:element name="cluster" type="xs:string" />
+        <xs:element name="user" type="xs:string" />
+        <xs:element name="platform" type="xs:string" />
+        <xs:element name="cpugen" type="xs:string" />
+        <xs:element name="runtype" type="xs:string" />
+        <xs:element name="setting" type="xs:string" />
+        <xs:element name="timestamp" type="xs:dateTime" />
+        <xs:element name="category" type="xs:string" />
+        <xs:element name="time" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="processor" >
+      <xs:sequence>
+        <xs:element name="cpugeneration" type="xs:string" />
+        <xs:element name="cpusku" type="xs:string" />
+        <xs:element name="cores" type="xs:long" />
+        <xs:element name="price" type="xs:double" />
+        <xs:element name="tdp" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="heatmap" >
+      <xs:sequence>
+        <xs:element name="segment" type="xs:string" />
+        <xs:element name="isv" type="xs:string" />
+        <xs:element name="appname" type="xs:string" />
+        <xs:element name="nodes" type="xs:long" />
+        <xs:element name="bmname" type="xs:string" />
+        <xs:element name="cpusku" type="xs:string" />
+        <xs:element name="cores" type="xs:long" />
+        <xs:element name="percoreperf" type="xs:double" />
+        <xs:element name="avgresult" type="xs:double" />
+        <xs:element name="perfperdollar" type="xs:double" />
+        <xs:element name="perfperwatt" type="xs:double" />
+        <xs:element name="runtype" type="xs:string" />
+        <xs:element name="runcount" type="xs:long" />
+        <xs:element name="category" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="averageresult" >
+      <xs:sequence>
+        <xs:element name="cpusku" type="xs:string" />
+        <xs:element name="nodes" type="xs:long" />
+        <xs:element name="bmname" type="xs:string" />
+        <xs:element name="cores" type="xs:long" />
+        <xs:element name="segment" type="xs:string" />
+        <xs:element name="appname" type="xs:string" />
+        <xs:element name="avgresult" type="xs:double" />
+        <xs:element name="percoreperf" type="xs:double" />
+        <xs:element name="perfperdollar" type="xs:double" />
+        <xs:element name="perfperwatt" type="xs:double" />
+        <xs:element name="perfpercorehib" type="xs:double" />
+        <xs:element name="averageperfhib" type="xs:double" />
+        <xs:element name="coefficientofvariation" type="xs:double" />
+        <xs:element name="runcount" type="xs:long" />
+        <xs:element name="runtype" type="xs:string" />
+        <xs:element name="category" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="uprofcalculated" >
+      <xs:sequence>
+        <xs:element name="procappbm" type="xs:string" />
+        <xs:element name="runtype" type="xs:string" />
+        <xs:element name="processor" type="xs:string" />
+        <xs:element name="cpu_utilization" type="xs:double" />
+        <xs:element name="cpu_eff_freq" type="xs:double" />
+        <xs:element name="ipc" type="xs:double" />
+        <xs:element name="retired_sse_avx_flops" type="xs:double" />
+        <xs:element name="l3_hit" type="xs:double" />
+        <xs:element name="total_mem_bw" type="xs:double" />
+        <xs:element name="total_mem_rdbw" type="xs:double" />
+        <xs:element name="total_mem_wrbw" type="xs:double" />
+        <xs:element name="total_xgmi0_bw" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="appcategory" >
+      <xs:sequence>
+        <xs:element name="segment" type="xs:string" />
+        <xs:element name="isv" type="xs:string" />
+        <xs:element name="appname" type="xs:string" />
+        <xs:element name="bmname" type="xs:string" />
+        <xs:element name="category" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="roles" type="role" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="application" >
+      <xs:sequence>
+        <xs:element name="appid" type="xs:string" />
+        <xs:element name="appname" type="xs:string" />
+        <xs:element name="appcategory" type="xs:string" />
+        <xs:element name="appverion" type="xs:string" />
+        <xs:element name="precisioninfo" type="xs:string" />
+        <xs:element name="binaryinfo" type="xs:string" />
+        <xs:element name="compname" type="xs:string" />
+        <xs:element name="compver" type="xs:string" />
+        <xs:element name="compflags" type="xs:string" />
+        <xs:element name="libname" type="xs:string" />
+        <xs:element name="libver" type="xs:string" />
+        <xs:element name="libflags" type="xs:string" />
+        <xs:element name="avx2accel" type="xs:anyType" />
+        <xs:element name="avx512accel" type="xs:anyType" />
+        <xs:element name="licexp" type="xs:anyType" />
+        <xs:element name="libfftw" type="xs:anyType" />
+        <xs:element name="libdgemm" type="xs:anyType" />
+        <xs:element name="libblas" type="xs:anyType" />
+        <xs:element name="appbound" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

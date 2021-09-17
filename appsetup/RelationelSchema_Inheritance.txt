@@ -1,0 +1,111 @@
+
+artlogevents(serialversionuid:long, logeventid:String [PK], eventdatetime:Timestamp, event:Date, alarmid:String, multitenantid:String, userid:String, useripaddress:String, userport:int, geolatitude:double, geolongitude:double, sessionid:String, requestid:String, boundedcontextid:String, domainid:String, classname:String, methodname:String, message:String, exception:String, context:int, severity:int, layerid:int, eventaction:int, alarmstatus:int);
+
+artlogconfig(serialversionuid:long, logconfigid:String [PK], configdata:String);
+
+artloggingproperties(serialversionuid:long, attributeid:String [PK], attributename:String, attributevalue:String, attributecomment:String, attributedisplayname:String, logconfigid:ArtLogConfig #FK to(artlogconfig));
+
+artlogeventaction(serialversionuid:long, eventactionid:Integer [PK], eventaction:String);
+
+artlogconnector(serialversionuid:long, connectorid:String [PK], logconfigid:ArtLogConfig #FK to(artlogconfig), loglevel:Integer, cid:Integer, id:String, isenabled:boolean, connectorname:String, classname:String, systemdefined:boolean);
+
+artlogseverity(serialversionuid:long, severity:String, severityid:Integer [PK]);
+
+artboundedcontext(boundedcontextid:String [PK], boundedcontextname:String, hiddencontextname:String, alarmprefix:String, isdefault:boolean, issystemdefined:boolean);
+
+artlogconnectorattributes(serialversionuid:long, attributeid:String [PK], connectorid:ArtLogConnector #FK to(artlogconnector), attributename:String, attributevalue:String, attributecomment:String, attributedisplayname:String);
+
+artlogstatus(serialversionuid:long, statusid:Integer [PK], alarmstatus:String);
+
+artlogexception(serialversionuid:long, exceptionid:Integer [PK], exception:String, exceptionname:String, rootexception:String);
+
+artlogalarm(loggerpkid:String [PK], alarmtype:int, alarmdata:String, alarmversion:int);
+
+artlogarchitecturelayer(serialversionuid:long, layerid:Integer [PK], layername:String);
+
+artdomain(serialversionuid:long, domainname:String, domainid:String [PK], hiddencontextname:String, alarmprefix:String, isdefault:boolean [PK], boundedcontextid:ArtBoundedContext #FK to(artboundedcontext));
+
+userrolebridge(serialversionuid:long, roleusermapid:String [PK], roleid:String, userid:String, versionid:int, GeneratedName:EntityAudit, GeneratedName:SystemInfo);
+
+appmenus(serialversionuid:long, menutreeid:String, menuicon:String, menuaction:String, menucommands:String, menudisplay:Boolean, menuhead:Boolean, menulabel:String, uitype:String, refobjectid:String, menuaccessrights:Integer, apptype:Integer, appid:String, autosave:Boolean, startdate:Timestamp, expirydate:Timestamp, golivedate:Timestamp, menuid:String [PK], versionid:int, GeneratedName:EntityAudit, GeneratedName:SystemInfo);
+
+roles(serialversionuid:long, rolename:String, roledescription:String, roleicon:String, rolehelp:String, roleid:String [PK], versionid:int, GeneratedName:EntityAudit, GeneratedName:SystemInfo);
+
+rolemenubridge(serialversionuid:long, isread:Boolean, iswrite:Boolean, isexecute:Boolean, rolemenumapid:String [PK], menuid:String, GeneratedName:Roles #FK to(roles), versionid:int, GeneratedName:EntityAudit, GeneratedName:SystemInfo);
+
+passwordalgo(serialversionuid:long, algorithm:Integer, algoname:String, algodescription:String, algoicon:String, algohelp:String, algoid:String [PK], versionid:int, GeneratedName:EntityAudit, GeneratedName:SystemInfo);
+
+smsnotification(serialversionuid:long, mobileno:String, smstext:String, issent:Boolean, senddate:Timestamp, responsestatus:String, notificationid:String [PK]);
+
+sessiondata(serialversionuid:long, customerid:String, userid:String, sessionkey:String, datatype:Integer, numbervalue:Integer, datetimevalue:Timestamp, value:String, value:Boolean, jsonvalue:String, appsessionid:String, dataid:String [PK], versionid:int, GeneratedName:EntityAudit, GeneratedName:SystemInfo);
+
+userdata(serialversionuid:long, password:String, onetimepassword:String, onetimepasswordexpiry:Integer, onetimepasswordgendate:Timestamp, last5passwords:String, userdataid:String [PK], GeneratedName:UserDetail #FK to(userdetail), versionid:int, GeneratedName:EntityAudit, GeneratedName:SystemInfo);
+
+useraccessdomain(serialversionuid:long, useraccessdomain:Integer, domainname:String, domaindescription:String, domainhelp:String, domainicon:String, useraccessdomainid:String [PK], versionid:int, GeneratedName:EntityAudit, GeneratedName:SystemInfo);
+
+artdocumenttemplate(/***/serialversionuid:long, pdf_document:Integer, word_doc_document:Integer, text_document:Integer, doctempid:String [PK], docname:String, doctype:Integer, doctemplate:String);
+
+useraccesslevel(serialversionuid:long, useraccesslevel:Integer, levelname:String, leveldescription:String, levelhelp:String, levelicon:String, useraccesslevelid:String [PK], versionid:int, GeneratedName:EntityAudit, GeneratedName:SystemInfo);
+
+passrecovery(serialversionuid:long, answer:String, passrecoveryid:String [PK], questionid:String, GeneratedName:UserDetail #FK to(userdetail), versionid:int, GeneratedName:EntityAudit, GeneratedName:SystemInfo);
+
+loginsession(serialversionuid:long, appserversessionid:String, logintime:Timestamp, logouttime:Timestamp, lastaccesstime:Timestamp, clientipaddress:String, clientipaddressint:Long, clientnetworkaddress:Integer, clientbrowser:String, sessiondata:String, appsessionid:String [PK], userid:String, versionid:int, GeneratedName:EntityAudit, GeneratedName:SystemInfo);
+
+smsconfig(serialversionuid:long, configname:String, jsondata:String, configurationbean:String, baseurl:String, configid:String [PK]);
+
+artpasswordalgorithm(serialversionuid:long, algorithm:Integer, algoname:String, algodescription:String, algoid:String [PK], versionid:int);
+
+login(serialversionuid:long, loginid:String, serverauthimage:String, serverauthtext:String, failedloginattempts:Integer, loginpk:String [PK], GeneratedName:UserDetail #FK to(userdetail), GeneratedName:CoreContacts #FK to(corecontacts), versionid:int, GeneratedName:EntityAudit, GeneratedName:SystemInfo);
+
+artappnotificationtemplate(serialversionuid:long, templateid:String [PK], templatename:String, template:String, notificationtype:Integer, templateattributes:String);
+
+passwordpolicy(serialversionuid:long, policyname:String, policydescription:String, maxpwdlength:Integer, minpwdlength:Integer, mincapitalletters:Integer, minsmallletters:Integer, minnumericvalues:Integer, minspecialletters:Integer, allowedspecialletters:String, policyid:String [PK], versionid:int, GeneratedName:EntityAudit, GeneratedName:SystemInfo);
+
+userdetail(serialversionuid:long, useraccesscode:Integer, multifactorauthenabled:Integer, gentemponetimepassword:Integer, allowmultiplelogin:Integer, islocked:Integer, isdeleted:Integer, changepasswordnextlogin:Integer, passwordexpirydate:Timestamp, passwordalgo:String, lastpasswordchangedate:Timestamp, sessiontimeout:Integer, userid:String [PK], useraccesslevelid:String, useraccessdomainid:String, GeneratedName:UserData #FK to(userdata), versionid:int, GeneratedName:EntityAudit, GeneratedName:SystemInfo);
+
+question(serialversionuid:long, levelid:Integer, question:String, questiondetails:String, questionicon:String, questionid:String [PK], versionid:int, GeneratedName:EntityAudit, GeneratedName:SystemInfo);
+
+artpasswordpolicy(serialversionuid:long, policyname:String, policydescription:String, maxpwdlength:Integer, minpwdlength:Integer, mincapitalletters:Integer, minsmallletters:Integer, minnumericvalues:Integer, minspecialletters:Integer, allowedspecialletters:String, policyid:String [PK], versionid:int);
+
+jwtconfig(serialversionuid:long, jwtalgorithm:String, expiration:Timestamp, tokenkey:String, configid:String [PK], versionid:int, GeneratedName:EntityAudit, GeneratedName:SystemInfo);
+
+artuserlaststatus(serialversionuid:long, id:String [PK], userid:String, menuid:String, jsondata:String);
+
+publicapi(serialversionuid:long, apidata:String, schedulerdetails:String, apiid:String [PK], versionid:int, GeneratedName:EntityAudit, GeneratedName:SystemInfo);
+
+phonecommunication(serialversionuid:long, phoneno:String, phoneid:String [PK], commtype:String, versionid:int, GeneratedName:EntityAudit, GeneratedName:SystemInfo);
+
+corecontacts(serialversionuid:long, firstname:String, middlename:String, lastname:String, nativetitle:String, nativefirstname:String, nativemiddlename:String, nativelastname:String, dateofbirth:Timestamp, age:Integer, approximatedob:Timestamp, emailid:String, phonenumber:String, contactid:String [PK], titleid:String, nativelanguagecode:String, genderid:String, GeneratedName:Timezone #FK to(timezone), versionid:int, GeneratedName:EntityAudit, GeneratedName:SystemInfo);
+
+socialcategory(serialversionuid:long, socialcatname:String, socialcatid:String [PK], versionid:int, GeneratedName:EntityAudit, GeneratedName:SystemInfo);
+
+emailcommunication(serialversionuid:long, email:String, emailcommid:String [PK], commtype:String, versionid:int, GeneratedName:EntityAudit, GeneratedName:SystemInfo);
+
+socialcommunication(serialversionuid:long, social:String, socialid:String [PK], commtype:String, versionid:int, GeneratedName:EntityAudit, GeneratedName:SystemInfo);
+
+gender(serialversionuid:long, gender:String, genderid:String [PK], versionid:int, GeneratedName:EntityAudit, GeneratedName:SystemInfo);
+
+title(serialversionuid:long, titles:String, titleid:String [PK], versionid:int, GeneratedName:EntityAudit, GeneratedName:SystemInfo);
+
+emailcategory(serialversionuid:long, emailcatname:String, emailcatid:String [PK], versionid:int, GeneratedName:EntityAudit, GeneratedName:SystemInfo);
+
+contacttype(serialversionuid:long, contacttype:String, contacttypedesc:String, contacttypeicon:String, contacttypeid:String [PK], versionid:int, GeneratedName:EntityAudit, GeneratedName:SystemInfo);
+
+phonecategory(serialversionuid:long, phonecatname:String, phonecatid:String [PK], versionid:int, GeneratedName:EntityAudit, GeneratedName:SystemInfo);
+
+city(serialversionuid:long, cityname:String, citycodechar2:String, citycode:Integer, citydescription:String, cityflag:String, citylatitude:Integer, citylongitude:Integer, cityid:String [PK], countryid:String, stateid:String, versionid:int, GeneratedName:EntityAudit, GeneratedName:SystemInfo);
+
+address(serialversionuid:long, addresslabel:String, address1:String, address2:String, address3:String, zipcode:String, latitude:String, longitude:String, addressid:String [PK], addresstypeid:String, countryid:String, stateid:String, cityid:String, versionid:int, GeneratedName:EntityAudit, GeneratedName:SystemInfo);
+
+timezone(serialversionuid:long, utcdifference:Integer, gmtlabel:String, timezonelabel:String, country:String, cities:String, timezoneid:String [PK], versionid:int, GeneratedName:EntityAudit, GeneratedName:SystemInfo);
+
+state(serialversionuid:long, statename:String, statecode:Integer, statecodechar2:String, statecodechar3:String, statedescription:String, stateflag:String, statecapital:String, statecapitallatitude:Integer, statecapitallongitude:Integer, stateid:String [PK], countryid:String, versionid:int, GeneratedName:EntityAudit, GeneratedName:SystemInfo);
+
+addresstype(serialversionuid:long, addresstype:String, addresstypedesc:String, addresstypeicon:String, addresstypeid:String [PK], versionid:int, GeneratedName:EntityAudit, GeneratedName:SystemInfo);
+
+country(serialversionuid:long, countryname:String, countrycode1:String, countrycode2:String, countryflag:String, capital:String, currencycode:String, currencyname:String, currencysymbol:String, capitallatitude:Integer, capitallongitude:Integer, isonumeric:Integer, countryid:String [PK], versionid:int, GeneratedName:EntityAudit, GeneratedName:SystemInfo);
+
+language(serialversionuid:long, language:String, languagetype:String, languagedescription:String, languageicon:String, alpha2:String, alpha3:String, alpha4:String, alpha4parentid:Integer, languageid:String [PK], versionid:int, GeneratedName:EntityAudit, GeneratedName:SystemInfo);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

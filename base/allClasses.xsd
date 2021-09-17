@@ -1,0 +1,763 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="logininterceptor" >
+      <xs:sequence>
+        <xs:element name="log" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="siteconfig" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="authorityinterceptor" >
+      <xs:sequence>
+        <xs:element name="log" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="paylog" >
+      <xs:complexContent>
+       <xs:extension base="baseentity{">
+         <xs:sequence>
+          <xs:element name="//待支付pay_status_waiting" type="xs:long" />
+          <xs:element name="//已支付pay_status_paid" type="xs:long" />
+          <xs:element name="//已全额退款pay_status_refunded" type="xs:long" />
+          <xs:element name="//已部分退款pay_status_part_refunded" type="xs:long" />
+          <xs:element name="//已关闭pay_status_closed" type="xs:long" />
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="//支付记录编号sn" type="xs:string" />
+          <xs:element name="//支付平台交易号paysn" type="xs:string" />
+          <xs:element name="//支付金额totalamount" type="xs:anyType" />
+          <xs:element name="//支付订单标题title" type="xs:string" />
+          <xs:element name="//支付订单详情info" type="xs:string" />
+          <xs:element name="//订单支付状态status" type="xs:anyType" />
+          <xs:element name="//支付方式" type="payment" nillable="true" minOccurs="0" />
+          <xs:element name="//退款总金额totalrefundamount" type="xs:anyType" />
+          <xs:element name="//支付时间paytime" type="xs:dateTime" />
+          <xs:element name="//退款时间refundtime" type="xs:dateTime" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="refundlog" >
+      <xs:complexContent>
+       <xs:extension base="baseentity{">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="//所属支付记录" type="paylog" nillable="true" minOccurs="0" />
+          <xs:element name="//退款编号refundsn" type="xs:string" />
+          <xs:element name="//退款金额refundamount" type="xs:anyType" />
+          <xs:element name="//退款原因refundinfo" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="operaterlog" >
+      <xs:complexContent>
+       <xs:extension base="baseentity{">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="//操作者operator" type="xs:string" />
+          <xs:element name="//操作内容content" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="baseentity" >
+      <xs:sequence>
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="//唯一idid" type="xs:long" />
+        <xs:element name="//创建时间createtime" type="xs:dateTime" />
+        <xs:element name="//更新时间uptime" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="menu" >
+      <xs:complexContent>
+       <xs:extension base="baseentity{">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="//菜单名称name" type="xs:string" />
+          <xs:element name="//菜单父分类parent" type="menu" nillable="true" minOccurs="0" />
+          <xs:element name="//菜单urlurl" type="xs:string" />
+          <xs:element name="//菜单图标iconicon" type="xs:string" />
+          <xs:element name="//菜单顺序，默认升序排列,默认是0sort" type="xs:anyType" />
+          <xs:element name="//是否是按钮isbutton" type="xs:anyType" />
+          <xs:element name="//是否显示isshow" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="role" >
+      <xs:complexContent>
+       <xs:extension base="baseentity{">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="//角色状态正常可用admin_role_status_enable" type="xs:long" />
+          <xs:element name="//角色状态不可用admin_role_status_unable" type="xs:long" />
+          <xs:element name="//角色名称name" type="xs:string" />
+          <xs:element name="//角色所对应的权限（菜单）列表authorities" type="menu" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="//角色状态,默认可用status" type="xs:long" />
+          <xs:element name="//角色备注remark" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="databasebak" >
+      <xs:complexContent>
+       <xs:extension base="baseentity{">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="//备份的文件名filename" type="xs:string" />
+          <xs:element name="//备份的文件路径filepath" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:complexContent>
+       <xs:extension base="baseentity{">
+         <xs:sequence>
+          <xs:element name="/***/serialversionuid" type="xs:long" />
+          <xs:element name="//性别男user_sex_man" type="xs:long" />
+          <xs:element name="//性别女user_sex_woman" type="xs:long" />
+          <xs:element name="//性别未知user_sex_unkonw" type="xs:long" />
+          <xs:element name="//用户状态正常可用admin_user_status_enable" type="xs:long" />
+          <xs:element name="//用户状态不可用admin_user_status_unable" type="xs:long" />
+          <xs:element name="//用户所属角色" type="role" nillable="true" minOccurs="0" />
+          <xs:element name="//用户名username" type="xs:string" />
+          <xs:element name="//登录密码password" type="xs:string" />
+          <xs:element name="//用户状态,默认可用status" type="xs:long" />
+          <xs:element name="//用户头像headpic" type="xs:string" />
+          <xs:element name="//用户性别sex" type="xs:long" />
+          <xs:element name="//用户手机号mobile" type="xs:string" />
+          <xs:element name="//用户邮箱email" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="app" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="alipay" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="backupschedule" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="databasebakservice" nillable="true" minOccurs="0" />
+        <xs:element name="log" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rolecontroller" >
+      <xs:sequence>
+        <xs:element name="log" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="menuservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="operaterlogservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="roleservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="databasebakcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="operaterlogservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="databasebakservice" nillable="true" minOccurs="0" />
+        <xs:element name="backupdir" type="xs:string" />
+        <xs:element name="log" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="menucontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="menuservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="operaterlogservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="systemcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="operaterlogservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="userservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="databasebakservice" nillable="true" minOccurs="0" />
+        <xs:element name="log" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usercontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="roleservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="operaterlogservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="paylogcontroller" >
+      <xs:sequence>
+        <xs:element name="log" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="paylogservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="refundlogservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="photocontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="//文件保存位置uploadphotopath" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cpachacontroller" >
+      <xs:sequence>
+        <xs:element name="log" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="uploadcontroller" >
+      <xs:sequence>
+        <xs:element name="uploadphotosufix" type="xs:string" />
+        <xs:element name="uploadphotomaxsize" type="xs:long" />
+        <xs:element name="//文件保存位置uploadphotopath" type="xs:string" />
+        <xs:element name="log" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="paycontroller" >
+      <xs:sequence>
+        <xs:element name="log" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="paylogservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="databasebakservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="operaterlogservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="databasebakdao" nillable="true" minOccurs="0" />
+        <xs:element name="backupdir" type="xs:string" />
+        <xs:element name="dbusername" type="xs:string" />
+        <xs:element name="dbpwd" type="xs:string" />
+        <xs:element name="dbname" type="xs:string" />
+        <xs:element name="log" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="paylogservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="paylogdao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="roleservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="roledao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="menuservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="menudao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userdao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="operaterlogservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="operaterlogdao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="refundlogservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="refundlogdao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="siteconfig" >
+      <xs:sequence>
+        <xs:element name="sitename" type="xs:string" />
+        <xs:element name="siteurl" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="webconfig" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="logininterceptor" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="authorityinterceptor" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="alipayconfig" >
+      <xs:sequence>
+        <xs:element name="//↓↓↓↓↓↓↓↓↓↓请在这里配置您的基本信息↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓//应用id,您的appid，收款账号既是您的appid对应支付宝账号app_id" type="xs:string" />
+        <xs:element name="//商户私钥，您的pkcs8格式rsa2私钥merchant_private_key" type="xs:string" />
+        <xs:element name="//支付宝公钥,查看地址：https://openhome.alipay.com/platform/keymanage.htm对应appid下的支付宝公钥。alipay__key" type="xs:string" />
+        <xs:element name="//服务器异步通知页面路径需http://格式的完整路径，不能加?id" type="xs:string" />
+        <xs:element name="//页面跳转同步通知页面路径需http://格式的完整路径，不能加?id" type="xs:string" />
+        <xs:element name="//签名方式sign_type" type="xs:string" />
+        <xs:element name="//字符编码格式charset" type="xs:string" />
+        <xs:element name="//支付宝网关gatewayurl" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="runtimeconstant" >
+      <xs:sequence>
+        <xs:element name="/***系统统一返回视图*/runtime_error_view" type="xs:string" />
+        <xs:element name="//登录拦截器无需拦截的urlloginexcludepathpatterns" type="xs:anyType" />
+        <xs:element name="//权限拦截器无需拦截的urlauthorityexcludepathpatterns" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sessionconstant" >
+      <xs:sequence>
+        <xs:element name="session_user_login_key" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sessionlistener" >
+      <xs:sequence>
+        <xs:element name="log" type="xs:anyType" />
+        <xs:element name="onlineusercount" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="codemsg" >
+      <xs:sequence>
+        <xs:element name="//错误码code" type="xs:long" />
+        <xs:element name="//错误信息msg" type="xs:string" />
+        <xs:element name="//通用错误码定义//处理成功消息码success" type="codemsg" nillable="true" minOccurs="0" />
+        <xs:element name="//非法数据错误码data_error" type="codemsg" nillable="true" minOccurs="0" />
+        <xs:element name="cpacha_empty" type="codemsg" nillable="true" minOccurs="0" />
+        <xs:element name="validate_entity_error" type="codemsg" nillable="true" minOccurs="0" />
+        <xs:element name="session_expired" type="codemsg" nillable="true" minOccurs="0" />
+        <xs:element name="cpacha_error" type="codemsg" nillable="true" minOccurs="0" />
+        <xs:element name="user_session_expired" type="codemsg" nillable="true" minOccurs="0" />
+        <xs:element name="upload_photo_suffix_error" type="codemsg" nillable="true" minOccurs="0" />
+        <xs:element name="upload_photo_error" type="codemsg" nillable="true" minOccurs="0" />
+        <xs:element name="//后台管理类错误码//用户管理类错误admin_username_empty" type="codemsg" nillable="true" minOccurs="0" />
+        <xs:element name="admin_password_empty" type="codemsg" nillable="true" minOccurs="0" />
+        <xs:element name="admin_no_right" type="codemsg" nillable="true" minOccurs="0" />
+        <xs:element name="//登录类错误码admin_username_no_exist" type="codemsg" nillable="true" minOccurs="0" />
+        <xs:element name="admin_password_error" type="codemsg" nillable="true" minOccurs="0" />
+        <xs:element name="admin_user_unable" type="codemsg" nillable="true" minOccurs="0" />
+        <xs:element name="admin_user_role_unable" type="codemsg" nillable="true" minOccurs="0" />
+        <xs:element name="admin_user_role_authorites_empty" type="codemsg" nillable="true" minOccurs="0" />
+        <xs:element name="//后台菜单管理类错误码admin_menu_add_error" type="codemsg" nillable="true" minOccurs="0" />
+        <xs:element name="admin_menu_edit_error" type="codemsg" nillable="true" minOccurs="0" />
+        <xs:element name="admin_menu_id_empty" type="codemsg" nillable="true" minOccurs="0" />
+        <xs:element name="admin_menu_id_error" type="codemsg" nillable="true" minOccurs="0" />
+        <xs:element name="admin_menu_delete_error" type="codemsg" nillable="true" minOccurs="0" />
+        <xs:element name="//后台角色管理类错误码admin_role_add_error" type="codemsg" nillable="true" minOccurs="0" />
+        <xs:element name="admin_role_no_exist" type="codemsg" nillable="true" minOccurs="0" />
+        <xs:element name="admin_role_edit_error" type="codemsg" nillable="true" minOccurs="0" />
+        <xs:element name="admin_role_delete_error" type="codemsg" nillable="true" minOccurs="0" />
+        <xs:element name="//后台用户管理类错误码admin_user_role_empty" type="codemsg" nillable="true" minOccurs="0" />
+        <xs:element name="admin_username_exist" type="codemsg" nillable="true" minOccurs="0" />
+        <xs:element name="admin_use_add_error" type="codemsg" nillable="true" minOccurs="0" />
+        <xs:element name="admin_use_no_exist" type="codemsg" nillable="true" minOccurs="0" />
+        <xs:element name="admin_use_edit_error" type="codemsg" nillable="true" minOccurs="0" />
+        <xs:element name="admin_use_delete_error" type="codemsg" nillable="true" minOccurs="0" />
+        <xs:element name="//后台用户修改密码类错误码admin_user_update_pwd_error" type="codemsg" nillable="true" minOccurs="0" />
+        <xs:element name="admin_user_update_pwd_empty" type="codemsg" nillable="true" minOccurs="0" />
+        <xs:element name="//后台用户修改密码类错误码admin_database_backup_no_exist" type="codemsg" nillable="true" minOccurs="0" />
+        <xs:element name="//支付类错误码pay_close_error" type="codemsg" nillable="true" minOccurs="0" />
+        <xs:element name="pay_refund_error" type="codemsg" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pagebean" >
+      <xs:sequence>
+        <xs:element name="//当前页码currentpage" type="xs:long" />
+        <xs:element name="//每页显示数量，默认十条pagesize" type="xs:long" />
+        <xs:element name="//总数量total" type="xs:long" />
+        <xs:element name="//总页数totalpage" type="xs:long" />
+        <xs:element name="content" type="xs:anyType" />
+        <xs:element name="//显示在页面可快速跳转的页码个数showpagesize" type="xs:long" />
+        <xs:element name="//当前显示在页面快速跳转的页码currentshowpage" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="result" >
+      <xs:sequence>
+        <xs:element name="//错误码code" type="xs:long" />
+        <xs:element name="//返回的具体信息msg" type="xs:string" />
+        <xs:element name="//定义返回的数据daa" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="payment" >
+      <xs:sequence>
+        <xs:element name="enable" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="roledao" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<role,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userdao" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<user,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="paylogdao" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<paylog,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="refundlogdao" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<refundlog,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="menudao" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<menu,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="operaterlogdao" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<operaterlog,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="databasebakdao" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<databasebak,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="validateentity" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sessionutil" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="stringutil" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cpachautil" >
+      <xs:sequence>
+        <xs:element name="code" type="xs:anyType" />
+        <xs:element name="fontnames" type="xs:string" />
+        <xs:element name="fontstyles" type="xs:long" />
+        <xs:element name="/***验证码长度*默认4个字符*/vcodelen" type="xs:long" />
+        <xs:element name="/***验证码图片字体大小*默认17*/fontsize" type="xs:long" />
+        <xs:element name="/***验证码图片宽度*/width" type="xs:long" />
+        <xs:element name="/***验证码图片高度*/height" type="xs:long" />
+        <xs:element name="/***干扰线条数*默认3条*/disturbline" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="menuutil" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="validateentityutil" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="alipay_pc" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="header" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="materialdesignicons" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="animate" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bootstrap-datepicker.nl-be.min" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bootstrap-datepicker.fa.min" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bootstrap-datepicker.ja.min" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bootstrap-datepicker.nl.min" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bootstrap-datepicker.en-au.min" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bootstrap-datepicker.mk.min" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bootstrap-datepicker.uk.min" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bootstrap-datepicker.zh-tw.min" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bootstrap-datepicker.is.min" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bootstrap-datepicker.ms.min" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bootstrap-datepicker.kh.min" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bootstrap-datepicker.es.min" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bootstrap-datepicker.hu.min" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bootstrap-datepicker.kr.min" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bootstrap-datepicker.fr-ch.min" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bootstrap-datepicker.sr.min" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bootstrap-datepicker.id.min" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bootstrap-datepicker.eu.min" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bootstrap-datepicker.pt-br.min" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bootstrap-datepicker.rs-latin.min" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bootstrap-datepicker.fr.min" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bootstrap-datepicker.cy.min" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bootstrap-datepicker.zh-cn.min" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bootstrap-datepicker.eo.min" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bootstrap-datepicker.sl.min" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bootstrap-datepicker.ka.min" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bootstrap-datepicker.az.min" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bootstrap-datepicker.ca.min" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bootstrap-datepicker.bg.min" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bootstrap-datepicker.gl.min" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bootstrap-datepicker.sv.min" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bootstrap-datepicker.th.min" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bootstrap-datepicker.he.min" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bootstrap-datepicker.de.min" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bootstrap-datepicker.mn.min" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bootstrap-datepicker.rs.min" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bootstrap-datepicker.it-ch.min" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bootstrap-datepicker.bs.min" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bootstrap-datepicker.vi.min" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bootstrap-datepicker.it.min" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bootstrap-datepicker.ko.min" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bootstrap-datepicker.tr.min" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bootstrap-datepicker.et.min" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bootstrap-datepicker.hr.min" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bootstrap-datepicker.fi.min" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bootstrap-datepicker.el.min" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bootstrap-datepicker.sw.min" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bootstrap-datepicker.sr-latin.min" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bootstrap-datepicker.sq.min" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bootstrap-datepicker.da.min" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bootstrap-datepicker.pl.min" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bootstrap-datepicker.lv.min" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bootstrap-datepicker.sk.min" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bootstrap-datepicker.kk.min" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bootstrap-datepicker.en-gb.min" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bootstrap-datepicker.me.min" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bootstrap-datepicker.cs.min" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bootstrap-datepicker.ru.min" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bootstrap-datepicker.no.min" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bootstrap-datepicker.lt.min" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bootstrap-datepicker.fo.min" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bootstrap-datepicker.ro.min" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bootstrap-datepicker.nb.min" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bootstrap-datepicker.ar.min" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bootstrap-datepicker.hy.min" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bootstrap-datepicker.pt.min" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bootstrap-datepicker3.min.css" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bootstrap-datepicker3.css" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="perfect-scrollbar.min" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="icons" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bootstrap-colorpicker.min.css" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bootstrap-colorpicker.css" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="apptest" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

@@ -1,0 +1,944 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="entitymanagerfactorybeansupporttests" >
+      <xs:complexContent>
+       <xs:extension base="abstractentitymanagerfactorybeantests">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jpatransactionmanagertests" >
+      <xs:sequence>
+        <xs:element name="factory" type="xs:anyType" />
+        <xs:element name="manager" type="xs:anyType" />
+        <xs:element name="tx" type="xs:anyType" />
+        <xs:element name="tm" type="jpatransactionmanager" nillable="true" minOccurs="0" />
+        <xs:element name="tt" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hibernateentitymanagerfactoryintegrationtests" >
+      <xs:complexContent>
+       <xs:extension base="abstractcontainerentitymanagerfactoryintegrationtests">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="hibernatemultientitymanagerfactoryintegrationtests" >
+      <xs:complexContent>
+       <xs:extension base="abstractcontainerentitymanagerfactoryintegrationtests">
+         <xs:sequence>
+          <xs:element name="2" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="defaultjpadialecttests" >
+      <xs:sequence>
+        <xs:element name="dialect" type="jpadialect" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="abstractentitymanagerfactorybeantests" >
+      <xs:complexContent>
+       <xs:extension base="abstractentitymanagerfactorybean">
+         <xs:sequence>
+          <xs:element name="mockemf" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="entitymanagerfactoryutilstests" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sharedentitymanagercreatortests" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="abstractentitymanagerfactoryintegrationtests" >
+      <xs:sequence>
+        <xs:element name="eclipselink_config_locations" type="xs:string" />
+        <xs:element name="hibernate_config_locations" type="xs:string" />
+        <xs:element name="applicationcontext" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="shared" type="xs:anyType" />
+        <xs:element name="transactionmanager" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="complete" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="zappedtables" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="applicationmanagedentitymanagerintegrationtests" >
+      <xs:complexContent>
+       <xs:extension base="abstractentitymanagerfactoryintegrationtests">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="eclipselinkentitymanagerfactoryintegrationtests" >
+      <xs:complexContent>
+       <xs:extension base="abstractcontainerentitymanagerfactoryintegrationtests">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="openentitymanagerinviewtests" >
+      <xs:complexContent>
+       <xs:extension base="simpleasynctaskexecutor">
+         <xs:sequence>
+          <xs:element name="manager" type="xs:anyType" />
+          <xs:element name="factory" type="xs:anyType" />
+          <xs:element name="request" type="xs:anyType" />
+          <xs:element name="response" type="xs:anyType" />
+          <xs:element name="webrequest" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="persistencecontexttransactiontests" >
+      <xs:sequence>
+        <xs:element name="factory" type="xs:anyType" />
+        <xs:element name="manager" type="xs:anyType" />
+        <xs:element name="tx" type="xs:anyType" />
+        <xs:element name="tt" type="xs:anyType" />
+        <xs:element name="bean" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persistenceinjectionintegrationtests" >
+      <xs:complexContent>
+       <xs:extension base="abstractentitymanagerfactoryintegrationtests">
+         <xs:sequence>
+          <xs:element name="defaultsetterinjected" type="xs:anyType" />
+          <xs:element name="namedsetterinjected" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sharedentitymanagerfactorytests" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persistenceinjectiontests" >
+      <xs:complexContent>
+       <xs:extension base="abstractentitymanagerfactorybeantests">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="abstractcontainerentitymanagerfactoryintegrationtests" >
+      <xs:complexContent>
+       <xs:extension base="abstractentitymanagerfactoryintegrationtests">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="person" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="transient" type="xs:anyType" />
+        <xs:element name="//lazyrelationshiptoforceuseofinstrumentationinjpaimplementation." type="driverslicense" nillable="true" minOccurs="0" />
+        <xs:element name="first_name" type="xs:string" />
+        <xs:element name="last_name" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="driverslicense" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="serial_number" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="containermanagedentitymanagerintegrationtests" >
+      <xs:complexContent>
+       <xs:extension base="abstractentitymanagerfactoryintegrationtests">
+         <xs:sequence>
+          <xs:element name="entitymanagerfactorybean" type="abstractentitymanagerfactorybean" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="localcontainerentitymanagerfactorybeantests" >
+      <xs:complexContent>
+       <xs:extension base="abstractentitymanagerfactorybeantests">
+         <xs:sequence>
+          <xs:element name="//fieldssetbyinnerclassdummypersistenceprovideractualprops" type="xs:anyType" />
+          <xs:element name="actualpui" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="localentitymanagerfactorybeantests" >
+      <xs:complexContent>
+       <xs:extension base="abstractentitymanagerfactorybeantests">
+         <xs:sequence>
+          <xs:element name="//fieldssetbyinnerclassdummypersistenceprovideractualname" type="xs:string" />
+          <xs:element name="actualprops" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="defaultpersistenceunitmanagertests" >
+      <xs:sequence>
+        <xs:element name="manager" type="defaultpersistenceunitmanager" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persistencexmlparsingtests" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="order" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="order-supplemental" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="multi-jpa-emf" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persistence-no-schema" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="eclipselink-manager" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persistence-invalid" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persistence-example6" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persistence" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persistence-complex" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persistence-example5" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persistence-example2" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persistence-example3" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persistence-example4" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hibernate-manager" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="memdb" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="spring" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persistence-context" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persistence" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persistence-multi" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="log4j2-test" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jpaoptimisticlockingfailureexception" >
+      <xs:complexContent>
+       <xs:extension base="objectoptimisticlockingfailureexception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="openentitymanagerinviewfilter" >
+      <xs:complexContent>
+       <xs:extension base="onceperrequestfilter">
+         <xs:sequence>
+          <xs:element name="/***defaultentitymanagerfactorybeanname:"entitymanagerfactory".*onlyapplieswhenno"persistenceunitname"paramhasbeenspecified.*@see#setentitymanagerfactorybeanname*@see#setpersistenceunitname*/default_entity_manager_factory_bean_name" type="xs:string" />
+          <xs:element name="entitymanagerfactorybeanname" type="xs:string" />
+          <xs:element name="persistenceunitname" type="xs:string" />
+          <xs:element name="volatile" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sharedentitymanagerbean" >
+      <xs:complexContent>
+       <xs:extension base="entitymanagerfactoryaccessor">
+         <xs:sequence>
+          <xs:element name="entitymanagerinterface" type="xs:anyType" />
+          <xs:element name="synchronizedwithtransaction" type="xs:anyType" />
+          <xs:element name="shared" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="package-info" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="openentitymanagerinviewinterceptor" >
+      <xs:complexContent>
+       <xs:extension base="entitymanagerfactoryaccessor">
+         <xs:sequence>
+          <xs:element name="/***suffixthatgetsappendedtotheentitymanagerfactoryto*representationforthe"participateinexistingentitymanager*handling"requestattribute.*@see#getparticipateattributename*/participate_suffix" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="persistenceannotationbeanpostprocessor" >
+      <xs:complexContent>
+       <xs:extension base="injectionmetadata.injectedelement">
+         <xs:sequence>
+          <xs:element name="jndienvironment" type="xs:anyType" />
+          <xs:element name="resourceref" type="xs:anyType" />
+          <xs:element name="persistenceunits" type="xs:anyType" />
+          <xs:element name="persistencecontexts" type="xs:anyType" />
+          <xs:element name="extendedpersistencecontexts" type="xs:anyType" />
+          <xs:element name="transientdefaultpersistenceunitname" type="xs:string" />
+          <xs:element name="order" type="xs:long" />
+          <xs:element name="transientbeanfactory" type="xs:anyType" />
+          <xs:element name="injectionmetadatacache" type="xs:anyType" />
+          <xs:element name="extendedentitymanagerstoclose" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="asyncrequestinterceptor" >
+      <xs:sequence>
+        <xs:element name="ger" type="xs:anyType" />
+        <xs:element name="emfactory" type="xs:anyType" />
+        <xs:element name="emholder" type="entitymanagerholder" nillable="true" minOccurs="0" />
+        <xs:element name="volatiletimeoutinprogress" type="xs:anyType" />
+        <xs:element name="volatileerrorinprogress" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entitymanagerfactoryinfo" >
+      <xs:complexContent>
+       <xs:extension base="entitymanager>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="package-info" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hibernatejpasessionfactorybean" >
+      <xs:complexContent>
+       <xs:extension base="entitymanagerfactoryaccessor">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="abstractjpavendoradapter" >
+      <xs:complexContent>
+       <xs:extension base="entitymanagerfactory>">
+         <xs:sequence>
+          <xs:element name="" type="database" nillable="true" minOccurs="0" />
+          <xs:element name="databaseplatform" type="xs:string" />
+          <xs:element name="generateddl" type="xs:anyType" />
+          <xs:element name="showsql" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="eclipselinkjpadialect" >
+      <xs:complexContent>
+       <xs:extension base="defaultjpadialect">
+         <xs:sequence>
+          <xs:element name="lazydatabasetransaction" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="eclipselinkjpavendoradapter" >
+      <xs:complexContent>
+       <xs:extension base="abstractjpavendoradapter">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="jpadialect" type="eclipselinkjpadialect" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="springhibernatejpapersistenceprovider" >
+      <xs:complexContent>
+       <xs:extension base="hibernatepersistenceprovider">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="hibernatejpadialect" >
+      <xs:complexContent>
+       <xs:extension base="defaultjpadialect">
+         <xs:sequence>
+          <xs:element name="getflushmode" type="xs:anyType" />
+          <xs:element name="prepareconnection" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="database" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hibernatejpavendoradapter" >
+      <xs:complexContent>
+       <xs:extension base="abstractjpavendoradapter">
+         <xs:sequence>
+          <xs:element name="jpadialect" type="hibernatejpadialect" nillable="true" minOccurs="0" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="entitymanagerfactoryinterface" type="xs:anyType" />
+          <xs:element name="entitymanagerinterface" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="localcontainerentitymanagerfactorybean" >
+      <xs:complexContent>
+       <xs:extension base="abstractentitymanagerfactorybean">
+         <xs:sequence>
+          <xs:element name="" type="persistenceunitmanager" nillable="true" minOccurs="0" />
+          <xs:element name="internalpersistenceunitmanager" type="defaultpersistenceunitmanager" nillable="true" minOccurs="0" />
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="extendedentitymanagercreator" >
+      <xs:complexContent>
+       <xs:extension base="entitymanager>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="mutablepersistenceunitinfo" >
+      <xs:sequence>
+        <xs:element name="persistenceunitname" type="xs:string" />
+        <xs:element name="persistenceproviderclassname" type="xs:string" />
+        <xs:element name="transactiontype" type="xs:anyType" />
+        <xs:element name="nonjta" type="xs:anyType" />
+        <xs:element name="jta" type="xs:anyType" />
+        <xs:element name="mappingfilenames" type="xs:anyType" />
+        <xs:element name="jarfileurls" type="xs:anyType" />
+        <xs:element name="persistenceunitroot" type="xs:anyType" />
+        <xs:element name="managedclassnames" type="xs:anyType" />
+        <xs:element name="managedpackages" type="xs:anyType" />
+        <xs:element name="excludeunlistedclasses" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="persistencexmlschemaversion" type="xs:string" />
+        <xs:element name="persistenceproviderpackagename" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="classfiletransformeradapter" >
+      <xs:sequence>
+        <xs:element name="ger" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="currentlytransforming" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="smartpersistenceunitinfo" >
+      <xs:complexContent>
+       <xs:extension base="persistenceunitinfo">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="persistenceunitmanager" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persistenceunitreader" >
+      <xs:sequence>
+        <xs:element name="persistence_version" type="xs:string" />
+        <xs:element name="persistence_unit" type="xs:string" />
+        <xs:element name="unit_name" type="xs:string" />
+        <xs:element name="mapping_file_name" type="xs:string" />
+        <xs:element name="jar_file_url" type="xs:string" />
+        <xs:element name="managed_class_name" type="xs:string" />
+        <xs:element name="properties" type="xs:string" />
+        <xs:element name="provider" type="xs:string" />
+        <xs:element name="transaction_type" type="xs:string" />
+        <xs:element name="jta_data_source" type="xs:string" />
+        <xs:element name="non_jta_data_source" type="xs:string" />
+        <xs:element name="exclude_unlisted_classes" type="xs:string" />
+        <xs:element name="shared_cache_mode" type="xs:string" />
+        <xs:element name="validation_mode" type="xs:string" />
+        <xs:element name="meta_inf" type="xs:string" />
+        <xs:element name="ger" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persistenceunitpostprocessor" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="defaultpersistenceunitmanager" >
+      <xs:sequence>
+        <xs:element name="class_resource_pattern" type="xs:string" />
+        <xs:element name="package_info_suffix" type="xs:string" />
+        <xs:element name="default_orm_xml_resource" type="xs:string" />
+        <xs:element name="persistence_xml_filename" type="xs:string" />
+        <xs:element name="/***defaultlocationofthe{@codepersistence.xml}file:*"classpath*:meta-inf/persistence.xml".*/default_persistence_xml_location" type="xs:string" />
+        <xs:element name="/***defaultlocationforthepersistenceunitrooturl:*"classpath:",indicatingtherootoftheclasspath.*/original_default_persistence_unit_root_location" type="xs:string" />
+        <xs:element name="original_default_persistence_unit_name" type="xs:string" />
+        <xs:element name="entitytypefilters" type="xs:anyType" />
+        <xs:element name="ger" type="xs:anyType" />
+        <xs:element name="persistencexmllocations" type="xs:string" />
+        <xs:element name="defaultpersistenceunitrootlocation" type="xs:string" />
+        <xs:element name="defaultpersistenceunitname" type="xs:string" />
+        <xs:element name="packagestoscan" type="xs:string" />
+        <xs:element name="mappingresources" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="default" type="xs:anyType" />
+        <xs:element name="defaultjta" type="xs:anyType" />
+        <xs:element name="s" type="persistenceunitpostprocessor" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="componentsindex" type="xs:anyType" />
+        <xs:element name="persistenceunitinfonames" type="xs:anyType" />
+        <xs:element name="persistenceunitinfos" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="springpersistenceunitinfo" >
+      <xs:complexContent>
+       <xs:extension base="mutablepersistenceunitinfo">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="package-info" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jpavendoradapter" >
+      <xs:complexContent>
+       <xs:extension base="entitymanagerfactory>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jpatransactionmanager" >
+      <xs:complexContent>
+       <xs:extension base="abstractplatformtransactionmanager">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="persistenceunitname" type="xs:string" />
+          <xs:element name="jpapropertymap" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="jpadialect" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jpadialect" >
+      <xs:complexContent>
+       <xs:extension base="persistenceexceptiontranslator">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="entitymanagerfactoryutils" >
+      <xs:complexContent>
+       <xs:extension base="">
+         <xs:sequence>
+          <xs:element name="/***ordervaluefortransactionsynchronizationobjectsthatcleanupjpa*entitymanagers.returndatasourceutils.connection_synchronization_order-100*toexecuteentitymanagercleanupbeforejdbcconnectioncleanup,ifany.*@seeorg.springframework.jdbc.datasource.datasourceutils#connection_synchronization_order*/entity_manager_synchronization_order" type="xs:long" />
+          <xs:element name="ger" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jpasystemexception" >
+      <xs:complexContent>
+       <xs:extension base="uncategorizeddataaccessexception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="entitymanagerfactoryaccessor" >
+      <xs:sequence>
+        <xs:element name="/***geravailabletosubclasses*/ger" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="persistenceunitname" type="xs:string" />
+        <xs:element name="jpapropertymap" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entitymanagerholder" >
+      <xs:complexContent>
+       <xs:extension base="resourceholdersupport">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="transactionactive" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="localentitymanagerfactorybean" >
+      <xs:complexContent>
+       <xs:extension base="abstractentitymanagerfactorybean">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="abstractentitymanagerfactorybean" >
+      <xs:complexContent>
+       <xs:extension base="entitymanagerfactory>">
+         <xs:sequence>
+          <xs:element name="/***geravailabletosubclasses*/ger" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="persistenceunitname" type="xs:string" />
+          <xs:element name="jpapropertymap" type="xs:anyType" />
+          <xs:element name="entitymanagerfactoryinterface" type="xs:anyType" />
+          <xs:element name="entitymanagerinterface" type="xs:anyType" />
+          <xs:element name="" type="jpadialect" nillable="true" minOccurs="0" />
+          <xs:element name="" type="jpavendoradapter" nillable="true" minOccurs="0" />
+          <xs:element name="bootstrapexecutor" type="xs:anyType" />
+          <xs:element name="bean" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="beanname" type="xs:string" />
+          <xs:element name="/***rawasreturnedbythepersistenceprovider*/native" type="xs:anyType" />
+          <xs:element name="/***futureforlazilyinitializingrawtargetentitymanagerfactory*/nativeentitymanagerfactoryfuture" type="xs:anyType" />
+          <xs:element name="/***exposedclient-levelproxy*/" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jpaobjectretrievalfailureexception" >
+      <xs:complexContent>
+       <xs:extension base="objectretrievalfailureexception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="package-info" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="defaultjpadialect" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sharedentitymanagercreator" >
+      <xs:sequence>
+        <xs:element name="no_entity_manager_interfaces" type="xs:anyType" />
+        <xs:element name="transactionrequiringmethods" type="xs:anyType" />
+        <xs:element name="queryterminatingmethods" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="entitymanagerproxy" >
+      <xs:complexContent>
+       <xs:extension base="entitymanager">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="objectretrievalfailureexception" >
+      <xs:complexContent>
+       <xs:extension base="dataretrievalfailureexception">
+         <xs:sequence>
+          <xs:element name="persistentclass" type="xs:anyType" />
+          <xs:element name="identifier" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="sessionfactoryutils" >
+      <xs:sequence>
+        <xs:element name="/***ordervaluefortransactionsynchronizationobjectsthatcleanuphibernatesessions.*returns{@codedatasourceutils.connection_synchronization_order-100}*toexecutesessioncleanupbeforejdbcconnectioncleanup,ifany.*@seedatasourceutils#connection_synchronization_order*/session_synchronization_order" type="xs:long" />
+        <xs:element name="ger" type="xs:anyType" />
+        <xs:element name="getflushmode" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sessionholder" >
+      <xs:complexContent>
+       <xs:extension base="resourceholdersupport">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="previous" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="hibernateexceptiontranslator" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hibernatequeryexception" >
+      <xs:complexContent>
+       <xs:extension base="invaliddataaccessresourceusageexception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="springsessioncontext" >
+      <xs:sequence>
+        <xs:element name="sessionfactory" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="jtasessioncontext" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hibernatetransactionmanager" >
+      <xs:complexContent>
+       <xs:extension base="abstractplatformtransactionmanager">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="autodetectdatasource" type="xs:anyType" />
+          <xs:element name="prepareconnection" type="xs:anyType" />
+          <xs:element name="allowresultaccessaftercompletion" type="xs:anyType" />
+          <xs:element name="hibernatemanagedsession" type="xs:anyType" />
+          <xs:element name="entityinterceptor" type="xs:anyType" />
+          <xs:element name="/***justneededforentityinterceptorbeanname.*@see#setentityinterceptorbeanname*/" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="hibernateoptimisticlockingfailureexception" >
+      <xs:complexContent>
+       <xs:extension base="objectoptimisticlockingfailureexception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="hibernatetemplate" >
+      <xs:sequence>
+        <xs:element name="createquery" type="xs:anyType" />
+        <xs:element name="getnamedquery" type="xs:anyType" />
+        <xs:element name="ger" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="filternames" type="xs:string" />
+        <xs:element name="exposenativesession" type="xs:anyType" />
+        <xs:element name="checkwriteoperations" type="xs:anyType" />
+        <xs:element name="cachequeries" type="xs:anyType" />
+        <xs:element name="querycacheregion" type="xs:string" />
+        <xs:element name="fetchsize" type="xs:long" />
+        <xs:element name="maxresults" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hibernateoperations" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hibernatecallback" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="asyncrequestinterceptor" >
+      <xs:sequence>
+        <xs:element name="ger" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="sessionholder" nillable="true" minOccurs="0" />
+        <xs:element name="volatiletimeoutinprogress" type="xs:anyType" />
+        <xs:element name="volatileerrorinprogress" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="opensessioninviewinterceptor" >
+      <xs:sequence>
+        <xs:element name="/***suffixthatgetsappendedtothe{@codesessionfactory}*{@codeto()}representationforthe"participateinexisting*sessionhandling"requestattribute.*@see#getparticipateattributename*/participate_suffix" type="xs:string" />
+        <xs:element name="ger" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hibernatedaosupport" >
+      <xs:complexContent>
+       <xs:extension base="daosupport">
+         <xs:sequence>
+          <xs:element name="" type="hibernatetemplate" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="opensessioninviewfilter" >
+      <xs:complexContent>
+       <xs:extension base="onceperrequestfilter">
+         <xs:sequence>
+          <xs:element name="default_session_factory_bean_name" type="xs:string" />
+          <xs:element name="sessionfactorybeanname" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="opensessioninterceptor" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="package-info" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hibernatesystemexception" >
+      <xs:complexContent>
+       <xs:extension base="uncategorizeddataaccessexception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="localsessionfactorybean" >
+      <xs:complexContent>
+       <xs:extension base="hibernateexceptiontranslator">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="configlocations" type="xs:anyType" />
+          <xs:element name="mappingresources" type="xs:string" />
+          <xs:element name="mappinglocations" type="xs:anyType" />
+          <xs:element name="cacheablemappinglocations" type="xs:anyType" />
+          <xs:element name="mappingjarlocations" type="xs:anyType" />
+          <xs:element name="mappingdirectorylocations" type="xs:anyType" />
+          <xs:element name="entity" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="jtatransactionmanager" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="entitys" type="xs:anyType" />
+          <xs:element name="hibernate" type="xs:anyType" />
+          <xs:element name="annotatedclasses" type="xs:anyType" />
+          <xs:element name="annotatedpackages" type="xs:string" />
+          <xs:element name="packagestoscan" type="xs:string" />
+          <xs:element name="bootstrapexecutor" type="xs:anyType" />
+          <xs:element name="metadatasourcesaccessed" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="package-info" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="springflushsynchronization" >
+      <xs:complexContent>
+       <xs:extension base="transactionsynchronizationadapter">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="localsessionfactorybuilder" >
+      <xs:complexContent>
+       <xs:extension base="configuration">
+         <xs:sequence>
+          <xs:element name="resource_pattern" type="xs:string" />
+          <xs:element name="package_info_suffix" type="xs:string" />
+          <xs:element name="default_entity_type_filters" type="xs:anyType" />
+          <xs:element name="converter_type_filter" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="entitys" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="hibernateobjectretrievalfailureexception" >
+      <xs:complexContent>
+       <xs:extension base="objectretrievalfailureexception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="hibernatejdbcexception" >
+      <xs:complexContent>
+       <xs:extension base="uncategorizeddataaccessexception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="springjtasessioncontext" >
+      <xs:complexContent>
+       <xs:extension base="jtasessioncontext">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="springsessionsynchronization" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="sessionholder" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="newsession" type="xs:anyType" />
+        <xs:element name="holderactive" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="configurablejtaplatform" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="package-info" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="objectoptimisticlockingfailureexception" >
+      <xs:complexContent>
+       <xs:extension base="optimisticlockingfailureexception">
+         <xs:sequence>
+          <xs:element name="persistentclass" type="xs:anyType" />
+          <xs:element name="identifier" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema> 

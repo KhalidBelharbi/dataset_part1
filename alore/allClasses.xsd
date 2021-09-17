@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="schedulerespayloadapplicationtests" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<userentity,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="hotelrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<hotelentity,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="hotelreviewrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<hotelreviewentity,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="hotelentity" >
+      <xs:sequence>
+        <xs:element name="hotelid" type="xs:anyType" />
+        <xs:element name="hotelname" type="xs:string" />
+        <xs:element name="city" type="xs:string" />
+        <xs:element name="totalrooms" type="xs:anyType" />
+        <xs:element name="costperroom" type="xs:anyType" />
+        <xs:element name="wifiavailable" type="xs:anyType" />
+        <xs:element name="acavailable" type="xs:anyType" />
+        <xs:element name="restaurantavailable" type="xs:anyType" />
+        <xs:element name="mealsincluded" type="xs:anyType" />
+        <xs:element name="isrelevance" type="xs:anyType" />
+        <xs:element name="isdeleted" type="xs:anyType" />
+        <xs:element name="lastupdatedts" type="xs:anyType" />
+        <xs:element name="createdts" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hotelreviewentity" >
+      <xs:sequence>
+        <xs:element name="hotelid" type="xs:anyType" />
+        <xs:element name="revieweremail" type="xs:string" />
+        <xs:element name="rating" type="xs:anyType" />
+        <xs:element name="comments" type="xs:string" />
+        <xs:element name="isdeleted" type="xs:anyType" />
+        <xs:element name="reviewedts" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userentity" >
+      <xs:sequence>
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="gender" type="xs:string" />
+        <xs:element name="isdeleted" type="xs:anyType" />
+        <xs:element name="city" type="xs:string" />
+        <xs:element name="createdts" type="xs:anyType" />
+        <xs:element name="lastupdatedts" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="reviewidclass" >
+      <xs:sequence>
+        <xs:element name="hotelid" type="xs:anyType" />
+        <xs:element name="revieweremail" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hotelservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="hotelrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="userrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="hotelreviewrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="springfoxconfig" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="reviewpayload" >
+      <xs:sequence>
+        <xs:element name="hotelid" type="xs:anyType" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="rating" type="xs:anyType" />
+        <xs:element name="comments" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="city" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="review" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="hotel" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="rating" type="xs:anyType" />
+        <xs:element name="comments" type="xs:string" />
+        <xs:element name="reviewedts" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hotel" >
+      <xs:sequence>
+        <xs:element name="hotelid" type="xs:anyType" />
+        <xs:element name="hotelname" type="xs:string" />
+        <xs:element name="GeneratedName" type="city" nillable="true" minOccurs="0" />
+        <xs:element name="totalrooms" type="xs:anyType" />
+        <xs:element name="costperroom" type="xs:anyType" />
+        <xs:element name="wifiavailable" type="xs:anyType" />
+        <xs:element name="acavailable" type="xs:anyType" />
+        <xs:element name="restaurantavailable" type="xs:anyType" />
+        <xs:element name="mealsincluded" type="xs:anyType" />
+        <xs:element name="avgrating" type="xs:double" />
+        <xs:element name="isrelevance" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="gender" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="GeneratedName" type="gender" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="city" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sortby" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="hotelcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="hotelservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usercontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="bookingapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="commonutilities" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="commonconstants" >
+      <xs:sequence>
+        <xs:element name="time_formatter" type="xs:anyType" />
+        <xs:element name="timestamp_formatter" type="xs:anyType" />
+        <xs:element name="date_formatter" type="xs:anyType" />
+        <xs:element name="sql_date_formatter" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="systemexception" >
+      <xs:complexContent>
+       <xs:extension base="runtimeexception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="errorresponse" >
+      <xs:sequence>
+        <xs:element name="correlationid" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="status" type="xs:long" />
+        <xs:element name="message" type="xs:string" />
+        <xs:element name="code" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="validationexception" >
+      <xs:complexContent>
+       <xs:extension base="runtimeexception">
+         <xs:sequence>
+          <xs:element name="validationerrors" type="validationerror" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="validationerror" >
+      <xs:sequence>
+        <xs:element name="defaultmessage" type="xs:string" />
+        <xs:element name="objectname" type="xs:string" />
+        <xs:element name="field" type="xs:string" />
+        <xs:element name="rejectedvalue" type="xs:string" />
+        <xs:element name="code" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="appexceptionhandler" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

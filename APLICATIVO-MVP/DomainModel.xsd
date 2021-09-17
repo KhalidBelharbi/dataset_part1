@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="consultaexamen" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="examen" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="consulta" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="consulta" >
+      <xs:sequence>
+        <xs:element name="idconsulta" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="paciente" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="medico" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="especialidad" nillable="true" minOccurs="0" />
+        <xs:element name="numconsultorio" type="xs:string" />
+        <xs:element name="//@jsonserialize(using" type="xs:anyType" />
+        <xs:element name="detalleconsulta" type="detalleconsulta" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="menu" >
+      <xs:sequence>
+        <xs:element name="idmenu" type="xs:anyType" />
+        <xs:element name="icono" type="xs:string" />
+        <xs:element name="nombre" type="xs:string" />
+        <xs:element name="url" type="xs:string" />
+        <xs:element name="roles" type="rol" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rol" >
+      <xs:sequence>
+        <xs:element name="idrol" type="xs:anyType" />
+        <xs:element name="nombre" type="xs:string" />
+        <xs:element name="descripcion" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="resettoken" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="token" type="xs:string" />
+        <xs:element name="user" type="usuario" nillable="true" minOccurs="0" />
+        <xs:element name="expiracion" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usuario" >
+      <xs:sequence>
+        <xs:element name="idusuario" type="xs:anyType" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="enabled" type="xs:anyType" />
+        <xs:element name="roles" type="rol" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="archivo" >
+      <xs:sequence>
+        <xs:element name="idarchivo" type="xs:anyType" />
+        <xs:element name="filename" type="xs:string" />
+        <xs:element name="filetype" type="xs:string" />
+        <xs:element name="value" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="paciente" >
+      <xs:sequence>
+        <xs:element name="idpaciente" type="xs:anyType" />
+        <xs:element name="nombres" type="xs:string" />
+        <xs:element name="apellidos" type="xs:string" />
+        <xs:element name="dni" type="xs:string" />
+        <xs:element name="direccion" type="xs:string" />
+        <xs:element name="telefono" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="examen" >
+      <xs:sequence>
+        <xs:element name="idexamen" type="xs:anyType" />
+        <xs:element name="nombre" type="xs:string" />
+        <xs:element name="descripcion" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="medico" >
+      <xs:sequence>
+        <xs:element name="idmedico" type="xs:anyType" />
+        <xs:element name="nombres" type="xs:string" />
+        <xs:element name="apellidos" type="xs:string" />
+        <xs:element name="cmp" type="xs:string" />
+        <xs:element name="fotourl" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="detalleconsulta" >
+      <xs:sequence>
+        <xs:element name="iddetalle" type="xs:long" />
+        <xs:element name="GeneratedName" type="consulta" nillable="true" minOccurs="0" />
+        <xs:element name="diagnostico" type="xs:string" />
+        <xs:element name="tratamiento" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="especialidad" >
+      <xs:sequence>
+        <xs:element name="idespecialidad" type="xs:anyType" />
+        <xs:element name="nombre" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

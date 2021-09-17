@@ -1,0 +1,19 @@
+
+employersjobdetails(/***/serialversionuid:long, jobs_details_id:Long [PK], email:String, job_title:String, country:String, city:String, category:String, /*@column(name:String, application_email:String, closing_:Date, company_name:String, company_website:String, company_discription:String, jd_file:byte, userid:Long, qualification:String, experience:String, employement_type:String, salary_rang:String, /*@column(name:Timestamp);
+
+jobs_details_tag(jobs_details_id:EmployersJobDetails [PK] #FK to EmployersJobDetails,job_tag_id:set<jobtags> [PK] #FK to set<jobtags>);
+
+educationdetails(/***/serialversionuid:long, education_id:Long [PK], degree:String, field_of_study:String, school_or_college:String, from_:Date, to_:Date, description:String, userid:Long, crtts:Timestamp, details:ResumeDetails #FK to(resumedetails));
+
+jobtags(/***/serialversionuid:long, job_tag_id:Long [PK], job_tag_name:String, crtts:Timestamp);
+
+resumedetails(/***/serialversionuid:long, resume_id:Long [PK], profession_title:String, profile_description:String, location:String, web:String, salary_expectations:String, notice_period:String, resume_file:byte, visible:String, userid:Long, crtts:Timestamp, //@onetoone(mappedby:EducationDetails #FK to(educationdetails));
+
+skillsdetails(/***/serialversionuid:long, skills_id:Long [PK], skill_name:String, skill_percentage:String, userid:Long, crtts:Timestamp, skillresume:ResumeDetails #FK to(resumedetails));
+
+userprofile(/***/serialversionuid:long, userid:Long [PK], name:String, phone:String, email:String, password:String, country:String, usertype:String, status:String, otp:String, logo:byte, crtts:Timestamp);
+
+workexpdetails(/***/serialversionuid:long, work_experience_id:Long [PK], company_name:String, title:String, _form:Date, _to:Date, description:String, current_job:String, /*@column(name:Long, crtts:Timestamp, GeneratedName:ResumeDetails #FK to(resumedetails));
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

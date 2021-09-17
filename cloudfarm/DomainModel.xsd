@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="address" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="userid" type="xs:long" />
+        <xs:element name="address" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="notice" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="detail" type="xs:string" />
+        <xs:element name="//公告是否有效的标识status" type="xs:anyType" />
+        <xs:element name="//创建时间createtime" type="xs:dateTime" />
+        <xs:element name="//更新时间uptime" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pkage_product" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="//pkageid//productidprice_cost" type="xs:long" />
+        <xs:element name="//套餐内某产品保底产量--应当以产品保底产量作为单位进行换算min" type="xs:long" />
+        <xs:element name="//套餐内某产品最大产量--应当以产品最大产量作为单位进行换算max" type="xs:long" />
+        <xs:element name="//套餐内某产品真实产量字段关联农田的各种属性进行计算得出(max-min)*(a+b+c+d)/400//@transient//realpkageid" type="xs:long" />
+        <xs:element name="GeneratedName" type="pkage" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="product" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="score" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="note" type="xs:string" />
+        <xs:element name="score" type="xs:long" />
+        <xs:element name="userid" type="xs:long" />
+        <xs:element name="user" type="sysuser" nillable="true" minOccurs="0" />
+        <xs:element name="//忽略username映射username" type="xs:string" />
+        <xs:element name="parm" type="xs:string" />
+        <xs:element name="dateformater" type="xs:anyType" />
+        <xs:element name="//创建时间createtime" type="xs:dateTime" />
+        <xs:element name="//更新时间uptime" type="xs:dateTime" />
+        <xs:element name="createday" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="pkage" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="price" type="xs:long" />
+        <xs:element name="//积分,根据套餐内容计算合理成本价格，进行设置score" type="xs:long" />
+        <xs:element name="//周期-单位天cycleday" type="xs:long" />
+        <xs:element name="////@manytoone(fetch" type="pkage_product" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="//创建时间createtime" type="xs:dateTime" />
+        <xs:element name="//更新时间uptime" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="send" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="userid" type="xs:long" />
+        <xs:element name="address" type="xs:string" />
+        <xs:element name="stock" type="xs:long" />
+        <xs:element name="productid" type="xs:long" />
+        <xs:element name="productname" type="xs:string" />
+        <xs:element name="producttype" type="xs:string" />
+        <xs:element name="//配送明细detail" type="xs:string" />
+        <xs:element name="//配送状态state" type="sendstate" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="product" nillable="true" minOccurs="0" />
+        <xs:element name="user" type="sysuser" nillable="true" minOccurs="0" />
+        <xs:element name="//忽略username映射username" type="xs:string" />
+        <xs:element name="//创建时间createtime" type="xs:dateTime" />
+        <xs:element name="//更新时间uptime" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="product" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="//品种--津优35type" type="xs:string" />
+        <xs:element name="//种植标准standard" type="xs:string" />
+        <xs:element name="note" type="xs:string" />
+        <xs:element name="price" type="xs:long" />
+        <xs:element name="//积分换购每kg消耗积分score" type="xs:long" />
+        <xs:element name="//单位保底产量kgmin" type="xs:long" />
+        <xs:element name="//单位最大产量kgmax" type="xs:long" />
+        <xs:element name="////实际产量虚拟列//@transient//longreal//产品图片url" type="xs:string" />
+        <xs:element name="//创建时间createtime" type="xs:dateTime" />
+        <xs:element name="//更新时间uptime" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="syspermission" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="//主键.id" type="xs:long" />
+        <xs:element name="//名称.name" type="xs:string" />
+        <xs:element name="resourcetype" type="xs:string" />
+        <xs:element name="//资源路径.url" type="xs:string" />
+        <xs:element name="//权限字符串,menu例子：role:*，button例子：role:create,role:update,role:delete,role:viewpermission" type="xs:string" />
+        <xs:element name="//父编号parentid" type="xs:long" />
+        <xs:element name="//父编号列表parentids" type="xs:string" />
+        <xs:element name="available" type="xs:anyType" />
+        <xs:element name="//创建时间createtime" type="xs:dateTime" />
+        <xs:element name="//更新时间uptime" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="article" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="//1:云公益2：云创空间type" type="xs:long" />
+        <xs:element name="author" type="xs:string" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="detail" type="xs:string" />
+        <xs:element name="//浏览次数browser" type="xs:long" />
+        <xs:element name="//创建时间createtime" type="xs:dateTime" />
+        <xs:element name="//更新时间uptime" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="master" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="mtype" type="xs:string" />
+        <xs:element name="mkey" type="xs:string" />
+        <xs:element name="value" type="xs:string" />
+        <xs:element name="morder" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="stockhistory" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="//@embeddedid//stockpkid//@idproductid" type="xs:long" />
+        <xs:element name="//@iduserid" type="xs:long" />
+        <xs:element name="stock" type="xs:long" />
+        <xs:element name="opertype" type="xs:string" />
+        <xs:element name="note" type="xs:string" />
+        <xs:element name="productname" type="xs:string" />
+        <xs:element name="producttype" type="xs:string" />
+        <xs:element name="GeneratedName" type="product" nillable="true" minOccurs="0" />
+        <xs:element name="user" type="sysuser" nillable="true" minOccurs="0" />
+        <xs:element name="//忽略username映射username" type="xs:string" />
+        <xs:element name="//创建时间createtime" type="xs:dateTime" />
+        <xs:element name="//更新时间uptime" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sysuser" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="//用户iduid" type="xs:long" />
+        <xs:element name="//账号.username" type="xs:string" />
+        <xs:element name="//名称（昵称或者真实姓名，不同系统不同定义）name" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="//忽略password序列化//@jsonignore//密码password" type="xs:string" />
+        <xs:element name="//密码password2" type="xs:string" />
+        <xs:element name="//加密密码的盐salt" type="xs:string" />
+        <xs:element name="//用户状态,0:创建未认证（比如没有激活，没有输入验证码等等）--等待验证的用户,1:正常状态,2：用户被锁定.state" type="xs:anyType" />
+        <xs:element name="//是否有活动的农田activefarm" type="xs:anyType" />
+        <xs:element name="farmlist" type="farm" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="scorelist" type="score" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="//用户idscores" type="xs:long" />
+        <xs:element name="//创建时间createtime" type="xs:dateTime" />
+        <xs:element name="//更新时间uptime" type="xs:dateTime" />
+        <xs:element name="//一个用户具有多个角色rolelist" type="sysrole" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="farmaction" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="farmid" type="xs:long" />
+        <xs:element name="//landwaterfeedbugaction" type="xs:string" />
+        <xs:element name="dateformater" type="xs:anyType" />
+        <xs:element name="//创建时间createtime" type="xs:dateTime" />
+        <xs:element name="//更新时间uptime" type="xs:dateTime" />
+        <xs:element name="createday" type="xs:long" />
+        <xs:element name="//@jsonignore" type="farm" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="farm" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="pkageid" type="xs:long" />
+        <xs:element name="//@jsonignore" type="pkage" nillable="true" minOccurs="0" />
+        <xs:element name="reallist" type="xs:anyType" />
+        <xs:element name="userid" type="xs:long" />
+        <xs:element name="user" type="sysuser" nillable="true" minOccurs="0" />
+        <xs:element name="//忽略username映射username" type="xs:string" />
+        <xs:element name="shirundu" type="xs:long" />
+        <xs:element name="feiwodu" type="xs:long" />
+        <xs:element name="haichongdu" type="xs:long" />
+        <xs:element name="zacaodu" type="xs:long" />
+        <xs:element name="state" type="farmstate" nillable="true" minOccurs="0" />
+        <xs:element name="//创建时间createtime" type="xs:dateTime" />
+        <xs:element name="//更新时间uptime" type="xs:dateTime" />
+        <xs:element name="//农田状态-翻译state_cn" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="stock" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="////@generatedvalue//id//@embeddedid//stockpkidproductid" type="xs:long" />
+        <xs:element name="userid" type="xs:long" />
+        <xs:element name="stock" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="type" type="xs:string" />
+        <xs:element name="GeneratedName" type="product" nillable="true" minOccurs="0" />
+        <xs:element name="user" type="sysuser" nillable="true" minOccurs="0" />
+        <xs:element name="//忽略username映射username" type="xs:string" />
+        <xs:element name="//创建时间createtime" type="xs:dateTime" />
+        <xs:element name="//更新时间uptime" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sysrole" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="//编号id" type="xs:long" />
+        <xs:element name="//角色标识程序中判断使用,如"admin",这个是唯一的:role" type="xs:string" />
+        <xs:element name="//角色描述,ui界面显示使用description" type="xs:string" />
+        <xs:element name="//是否可用,如果不可用将不会添加给用户available" type="xs:anyType" />
+        <xs:element name="//角色--权限关系：多对多关系permissions" type="syspermission" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="//创建时间createtime" type="xs:dateTime" />
+        <xs:element name="//更新时间uptime" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

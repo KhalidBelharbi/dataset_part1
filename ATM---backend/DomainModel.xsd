@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="subscription" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="price" type="xs:double" />
+        <xs:element name="//@notnull//booleandeletedbenefits" type="benefit" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="review" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="GeneratedName" type="client" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="benefitaudit" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="rev" type="xs:long" />
+        <xs:element name="revtype" type="xs:long" />
+        <xs:element name="user" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="subscriptionaudit" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="rev" type="xs:long" />
+        <xs:element name="revtype" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="price" type="xs:double" />
+        <xs:element name="user" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="role" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="client" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="//@notnullusername" type="xs:string" />
+        <xs:element name="//@notnullfirstname" type="xs:string" />
+        <xs:element name="//@notnulllastname" type="xs:string" />
+        <xs:element name="//@notnull//name//@notnullcnp" type="xs:string" />
+        <xs:element name="address" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="//@jsonignorepassword" type="xs:string" />
+        <xs:element name="//@notnullstatus" type="xs:anyType" />
+        <xs:element name="hasupdated" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="authprovider" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="role" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="subscription" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="revisioninfo" >
+      <xs:complexContent>
+       <xs:extension base="defaultrevisionentity">
+         <xs:sequence>
+          <xs:element name="user" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="account" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="amount" type="xs:double" />
+        <xs:element name="details" type="xs:string" />
+        <xs:element name="GeneratedName" type="client" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="operation" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="type" type="xs:string" />
+        <xs:element name="amount" type="xs:double" />
+        <xs:element name="date" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="client" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="account" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="clientaudit" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="rev" type="xs:long" />
+        <xs:element name="revtype" type="xs:long" />
+        <xs:element name="address" type="xs:string" />
+        <xs:element name="cnp" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="first_name" type="xs:string" />
+        <xs:element name="last_name" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="status" type="xs:anyType" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="subscription_id" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="benefit" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="description" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

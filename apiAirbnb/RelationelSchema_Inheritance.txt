@@ -1,0 +1,21 @@
+voyageur(id:long [PK]);
+
+hote(id:long [PK], delaireponse:int);
+
+appartement(superficiebalcon:int, numeroetage:int);
+
+logement(id:long [PK], GeneratedName:Hote #FK to(), tarifparnuit:int, adresse:String, superficie:int, nbvoyageursmax:int, index:int, cpt:int);
+
+maison(superficiejardin:int, possedepiscine:boolean);
+
+sejourlong(id:long [PK] #FK to Sejour, promotion_en_pourcentage:int, promotion:int, tarif:int);
+
+sejourcourt(id:long [PK] #FK to Sejour, tarif:int);
+
+sejour(id:long [PK], GeneratedName:Logement #FK to(), arrivee:Date, nbnuits:int, nbvoyageurs:int);
+
+reservation(id:int [PK], GeneratedName:Sejour #FK to(), GeneratedName:Voyageur #FK to(), dereservation:Date, estvalidee:boolean);
+
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

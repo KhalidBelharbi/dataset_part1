@@ -1,0 +1,37 @@
+
+address(serialversionuid:long, id:Long [PK], userid:Long, address:String);
+
+notice(serialversionuid:long, id:Long [PK], title:String, detail:String, //公告是否有效的标识status:boolean, //创建时间createtime:Date, //更新时间uptime:Date);
+
+pkage_product(serialversionuid:long, id:Long [PK], //pkageid//productidprice_cost:Long, //套餐内某产品保底产量--应当以产品保底产量作为单位进行换算min:long, //套餐内某产品最大产量--应当以产品最大产量作为单位进行换算max:long, //套餐内某产品真实产量字段关联农田的各种属性进行计算得出(max-min)*(a+b+c+d)/400//@transient//realpkageid:Long, GeneratedName:Pkage #FK to(pkage), GeneratedName:Product #FK to(product));
+
+score(serialversionuid:long, id:Long [PK], name:String, note:String, score:Long, userid:Long, user:SysUser #FK to(sysuser), //创建时间createtime:Date, //更新时间uptime:Date, createday:Long);
+
+pkage(serialversionuid:long, id:Long [PK], name:String, price:long, //积分,根据套餐内容计算合理成本价格，进行设置score:long, //周期-单位天cycleday:long, //创建时间createtime:Date, //更新时间uptime:Date);
+
+send(serialversionuid:long, id:Long [PK], userid:Long, address:String, stock:Long, productid:Long, productname:String, producttype:String, //配送明细detail:String, //配送状态state:SendState, GeneratedName:Product #FK to(product), user:SysUser #FK to(sysuser), //创建时间createtime:Date, //更新时间uptime:Date);
+
+product(serialversionuid:long, id:Long [PK], name:String, //品种--津优35type:String, //种植标准standard:String, note:String, price:long, //积分换购每kg消耗积分score:long, //单位保底产量kgmin:long, //单位最大产量kgmax:long, ////实际产量虚拟列//@transient//longreal//产品图片url:String, //创建时间createtime:Date, //更新时间uptime:Date);
+
+syspermission(serialversionuid:long, //主键.id:long [PK], //名称.name:String, resourcetype:String, //资源路径.url:String, //权限字符串,menu例子：role:*，button例子：role:create,role:update,role:delete,role:viewpermission:String, //父编号parentid:Long, //父编号列表parentids:String, available:Boolean, //创建时间createtime:Date, //更新时间uptime:Date);
+
+article(serialversionuid:long, id:Long [PK], //1:云公益2：云创空间type:int, author:String, title:String, detail:String, //浏览次数browser:long, //创建时间createtime:Date, //更新时间uptime:Date);
+
+master(serialversionuid:long, mtype:String [PK], mkey:String [PK], value:String, morder:int);
+
+stockhistory(serialversionuid:long, id:Long [PK], //@embeddedid//stockpkid//@idproductid:Long, //@iduserid:Long, stock:Long, opertype:String, note:String, productname:String, producttype:String, GeneratedName:Product #FK to(product), user:SysUser #FK to(sysuser), //创建时间createtime:Date, //更新时间uptime:Date);
+
+sysuser(serialversionuid:long, //用户iduid:Long [PK], //账号.username:String, //名称（昵称或者真实姓名，不同系统不同定义）name:String, email:String, //忽略password序列化//@jsonignore//密码password:String, //加密密码的盐salt:String, //用户状态,0:创建未认证（比如没有激活，没有输入验证码等等）--等待验证的用户,1:正常状态,2：用户被锁定.state:byte, //创建时间createtime:Date, //更新时间uptime:Date);
+
+sys_user_role(uid:SysUser [PK] #FK to SysUser,roleid:list<sysrole> [PK] #FK to list<sysrole>);
+
+farmaction(serialversionuid:long, id:Long [PK], farmid:Long, //landwaterfeedbugaction:String, //创建时间createtime:Date, //更新时间uptime:Date, createday:Long, //@jsonignore:Farm #FK to(farm));
+
+farm(serialversionuid:long, id:Long [PK], name:String, pkageid:Long, //@jsonignore:Pkage #FK to(pkage), userid:Long, user:SysUser #FK to(sysuser), shirundu:long, feiwodu:long, haichongdu:long, zacaodu:long, state:FarmState, //创建时间createtime:Date, //更新时间uptime:Date);
+
+stock(serialversionuid:long, ////@generatedvalue//id//@embeddedid//stockpkidproductid:Long [PK], userid:Long [PK], stock:Long, name:String, type:String, GeneratedName:Product #FK to(product), user:SysUser #FK to(sysuser), //创建时间createtime:Date, //更新时间uptime:Date);
+
+sysrole(serialversionuid:long, //编号id:Long [PK], //角色标识程序中判断使用,如"admin",这个是唯一的:role:String, //角色描述,ui界面显示使用description:String, //是否可用,如果不可用将不会添加给用户available:Boolean, //创建时间createtime:Date, //更新时间uptime:Date);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

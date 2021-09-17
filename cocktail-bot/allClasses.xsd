@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="application-local" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ingredientrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<ingredient,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="cocktailrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<cocktail,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="main" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cocktailservice" >
+      <xs:sequence>
+        <xs:element name="cockrepo" type="cocktailrepository" nillable="true" minOccurs="0" />
+        <xs:element name="ingrepo" type="ingredientrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ingredientservice" >
+      <xs:sequence>
+        <xs:element name="ir" type="ingredientrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="transferingdata" >
+      <xs:sequence>
+        <xs:element name="reader" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ingredientcsv" >
+      <xs:sequence>
+        <xs:element name="ingredient" type="xs:string" />
+        <xs:element name="oz" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="databasemain" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="fillmain" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cocktail" >
+      <xs:sequence>
+        <xs:element name="cockid" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="picture" type="xs:string" />
+        <xs:element name="alcoholic" type="xs:anyType" />
+        <xs:element name="instructions" type="xs:string" />
+        <xs:element name="category" type="xs:string" />
+        <xs:element name="glass" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cockcsv" >
+      <xs:sequence>
+        <xs:element name="cockid" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="picture" type="xs:string" />
+        <xs:element name="alcoholic" type="xs:anyType" />
+        <xs:element name="instructions" type="xs:string" />
+        <xs:element name="category" type="xs:string" />
+        <xs:element name="glass" type="xs:string" />
+        <xs:element name="ingredients" type="ingredientcsv" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ingredient" >
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="GeneratedName" type="cocktail" nillable="true" minOccurs="0" />
+        <xs:element name="oz" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="zusammengesetzerpk" >
+      <xs:sequence>
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="GeneratedName" type="cocktail" nillable="true" minOccurs="0" />
+        <xs:element name="name" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cocktailresult" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="cocktail" nillable="true" minOccurs="0" />
+        <xs:element name="match" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="carouselimage" >
+      <xs:sequence>
+        <xs:element name="imageuri" type="xs:string" />
+        <xs:element name="accessibilitytext" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="context" >
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="lifespancount" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="carouseliteminfo" >
+      <xs:sequence>
+        <xs:element name="key" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="simpleresponse" >
+      <xs:sequence>
+        <xs:element name="texttospeech" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="simpleresponsesfulfillmentmessage" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="simpleresponses" nillable="true" minOccurs="0" />
+        <xs:element name="platform" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="simpleresponses" >
+      <xs:sequence>
+        <xs:element name="simpleresponses" type="simpleresponse" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="carouselitem" >
+      <xs:sequence>
+        <xs:element name="info" type="carouseliteminfo" nillable="true" minOccurs="0" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="image" type="carouselimage" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ifulfillmentmessage" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="carouselfulfillmentmessage" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="carouselselect" nillable="true" minOccurs="0" />
+        <xs:element name="platform" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="carouselselect" >
+      <xs:sequence>
+        <xs:element name="items" type="carouselitem" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jsonresponsetemplate" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jsonresponse" >
+      <xs:sequence>
+        <xs:element name="cocktails" type="cocktail" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="response" type="xs:anyType" />
+        <xs:element name="session" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="controller" >
+      <xs:sequence>
+        <xs:element name="cockservice" type="cocktailservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="testdatabase" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="database" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

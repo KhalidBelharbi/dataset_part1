@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="campusmodel" >
+      <xs:sequence>
+        <xs:element name="idcampus" type="xs:long" />
+        <xs:element name="campusnome" type="xs:string" />
+        <xs:element name="campuscidadeid" type="xs:long" />
+        <xs:element name="campusestadoid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="alunomodel" >
+      <xs:complexContent>
+       <xs:extension base="pessoamodel">
+         <xs:sequence>
+          <xs:element name="idaluno" type="xs:long" />
+          <xs:element name="listadeeventos" type="eventomodel" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="estadomodel" >
+      <xs:sequence>
+        <xs:element name="idestado" type="xs:long" />
+        <xs:element name="estadonome" type="xs:string" />
+        <xs:element name="estadosigla" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="areamodel" >
+      <xs:sequence>
+        <xs:element name="idarea" type="xs:long" />
+        <xs:element name="nome" type="xs:string" />
+        <xs:element name="listadepalestrantes" type="palestrantemodel" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cidademodel" >
+      <xs:sequence>
+        <xs:element name="idcidade" type="xs:long" />
+        <xs:element name="cidadenome" type="xs:string" />
+        <xs:element name="estado" type="estadomodel" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="palestrantemodel" >
+      <xs:complexContent>
+       <xs:extension base="pessoamodel">
+         <xs:sequence>
+          <xs:element name="siape" type="xs:long" />
+          <xs:element name="area" type="areamodel" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="pessoamodel" >
+      <xs:sequence>
+        <xs:element name="idpessoa" type="xs:long" />
+        <xs:element name="nome" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="idade" type="xs:long" />
+        <xs:element name="cpf" type="xs:long" />
+        <xs:element name="rg" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

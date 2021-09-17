@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="person" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="data" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="personservice" >
+      <xs:sequence>
+        <xs:element name="repoperson" type="personrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="redisconfig" >
+      <xs:complexContent>
+       <xs:extension base="cachingconfigurersupport">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="app" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="personservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="personrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<person,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="application" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

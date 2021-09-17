@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="admin" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="createdat" type="xs:dateTime" />
+        <xs:element name="upat" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="scheduledappointment" >
+      <xs:sequence>
+        <xs:element name="scheduledappointmentsid" type="xs:string" />
+        <xs:element name="patientid" type="xs:string" />
+        <xs:element name="testcentreavailabilityid" type="xs:string" />
+        <xs:element name="appointmentdate" type="xs:anyType" />
+        <xs:element name="time" type="xs:string" />
+        <xs:element name="checkedin" type="xs:anyType" />
+        <xs:element name="deleteflag" type="xs:anyType" />
+        <xs:element name="availableappointmentsid" type="xs:string" />
+        <xs:element name="createdat" type="xs:dateTime" />
+        <xs:element name="upat" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="testcenter" >
+      <xs:sequence>
+        <xs:element name="testcentreid" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="address1" type="xs:string" />
+        <xs:element name="address2" type="xs:string" />
+        <xs:element name="zip" type="xs:string" />
+        <xs:element name="city" type="xs:string" />
+        <xs:element name="state" type="xs:string" />
+        <xs:element name="phone" type="xs:string" />
+        <xs:element name="//@jsonserialize(using" type="xs:anyType" />
+        <xs:element name="createdat" type="xs:dateTime" />
+        <xs:element name="upat" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="patient" >
+      <xs:sequence>
+        <xs:element name="patientid" type="xs:string" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="dob" type="xs:dateTime" />
+        <xs:element name="gender" type="xs:string" />
+        <xs:element name="address1" type="xs:string" />
+        <xs:element name="address2" type="xs:string" />
+        <xs:element name="zip" type="xs:string" />
+        <xs:element name="city" type="xs:string" />
+        <xs:element name="state" type="xs:string" />
+        <xs:element name="insuranceprovider" type="xs:string" />
+        <xs:element name="phonenumber" type="xs:string" />
+        <xs:element name="appointmenthistories" type="appointmenthistory" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="createdat" type="xs:dateTime" />
+        <xs:element name="upat" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="physician" >
+      <xs:sequence>
+        <xs:element name="physicianid" type="xs:string" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="address1" type="xs:string" />
+        <xs:element name="address2" type="xs:string" />
+        <xs:element name="zip" type="xs:string" />
+        <xs:element name="city" type="xs:string" />
+        <xs:element name="state" type="xs:string" />
+        <xs:element name="phonenumber" type="xs:string" />
+        <xs:element name="GeneratedName" type="testcenter" nillable="true" minOccurs="0" />
+        <xs:element name="createdat" type="xs:dateTime" />
+        <xs:element name="upat" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="availableappointment" >
+      <xs:sequence>
+        <xs:element name="availableappointmentsid" type="xs:string" />
+        <xs:element name="time" type="timeslot" nillable="true" minOccurs="0" />
+        <xs:element name="appomentcount" type="xs:long" />
+        <xs:element name="appointmentslist" type="scheduledappointment" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="createdat" type="xs:dateTime" />
+        <xs:element name="upat" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="testcenteravailability" >
+      <xs:sequence>
+        <xs:element name="testcentreavailabilityid" type="xs:string" />
+        <xs:element name="day" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="testcenter" nillable="true" minOccurs="0" />
+        <xs:element name="availableappointments" type="availableappointment" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="availablecount" type="xs:long" />
+        <xs:element name="createdat" type="xs:dateTime" />
+        <xs:element name="upat" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="medicalreport" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="result" type="xs:string" />
+        <xs:element name="reporturl" type="xs:string" />
+        <xs:element name="GeneratedName" type="appointmenthistory" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="patient" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="physician" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="testcenter" nillable="true" minOccurs="0" />
+        <xs:element name="createdat" type="xs:dateTime" />
+        <xs:element name="upat" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="appointmenthistory" >
+      <xs:sequence>
+        <xs:element name="appointmenthistoryid" type="xs:string" />
+        <xs:element name="physicianid" type="xs:string" />
+        <xs:element name="followupneeded" type="xs:anyType" />
+        <xs:element name="appointmentdate" type="xs:anyType" />
+        <xs:element name="time" type="xs:string" />
+        <xs:element name="testcenterid" type="xs:string" />
+        <xs:element name="documentuploaded" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="patient" nillable="true" minOccurs="0" />
+        <xs:element name="createdat" type="xs:dateTime" />
+        <xs:element name="upat" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

@@ -1,0 +1,31 @@
+
+roomrequest(id:long [PK], GeneratedName:Room #FK to(room), GeneratedName:User #FK to(user), status:requestType);
+
+message(id:long [PK], body:String, file:String, GeneratedName:type, //todotimestampghalettimestamp:long, GeneratedName:Room #FK to(room), GeneratedName:User #FK to(user));
+
+tag(id:long [PK], name:String);
+
+room(id:long [PK], name:String, image:String, subject:String, isprivate:boolean, GeneratedName:User #FK to(user));
+
+room_user(room_id:Room [PK] #FK to Room,user_id:set<user> [PK] #FK to set<user>);
+
+topic(id:long [PK], title:String, description:String, timestamp:long, seen:long, GeneratedName:Status, GeneratedName:User #FK to(user));
+
+topic_tags(topic_id:Topic [PK] #FK to Topic,tag_id:set<tag> [PK] #FK to set<tag>);
+
+reaction(id:long [PK], type:reactionType, GeneratedName:Message #FK to(message), GeneratedName:User #FK to(user));
+
+user(id:String [PK], firstname:String, lastname:String, email:String, username:String, image:String, GeneratedName:Badge #FK to(badge));
+
+reply(id:long [PK], reply:String, useful:boolean, timestamp:long, GeneratedName:User #FK to(user), GeneratedName:Topic #FK to(topic));
+
+reply_user(reply_id:Reply [PK] #FK to Reply,user_id:set<user> [PK] #FK to set<user>);
+
+badge(id:long [PK], name:String, icon_s:String, icon_b:String, description:String);
+
+choix(id:long [PK], body:String, GeneratedName:Message #FK to(message));
+
+choix_user(choix_id:Choix [PK] #FK to Choix,user_id:set<user> [PK] #FK to set<user>);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

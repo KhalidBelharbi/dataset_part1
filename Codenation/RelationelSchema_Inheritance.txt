@@ -1,0 +1,19 @@
+
+acceleration(id:Long [PK], name:String, slug:String, GeneratedName:Challenge #FK to(challenge), createdat:LocalDateTime);
+
+user(id:Long [PK], fullname:String, email:String, nickname:String, password:String, createdat:LocalDateTime);
+
+candidate(id:CandidateId, status:Integer, createdat:LocalDateTime);
+
+submissionid(GeneratedName:Challenge #FK to(challenge), GeneratedName:User #FK to(user));
+
+candidateid(GeneratedName:User #FK to(user), GeneratedName:Acceleration #FK to(acceleration), GeneratedName:Company #FK to(company));
+
+company(id:Long [PK], name:String, slug:String, createdat:LocalDateTime);
+
+challenge(id:Long [PK], name:String, slug:String, createdat:LocalDateTime);
+
+submission(id:SubmissionId, score:Float, createdat:LocalDateTime);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

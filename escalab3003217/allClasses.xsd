@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="paymentservice" >
+      <xs:sequence>
+        <xs:element name="balancerepository" type="userbalancerepository" nillable="true" minOccurs="0" />
+        <xs:element name="transactionrepository" type="usertransactionrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="paymentconfig" >
+      <xs:sequence>
+        <xs:element name="service" type="paymentservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usertransaction" >
+      <xs:sequence>
+        <xs:element name="orderid" type="xs:anyType" />
+        <xs:element name="userid" type="xs:long" />
+        <xs:element name="amount" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userbalance" >
+      <xs:sequence>
+        <xs:element name="userid" type="xs:long" />
+        <xs:element name="balance" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="paymentapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userbalancerepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<userbalance,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="usertransactionrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<usertransaction,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="user_balance" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="application" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="permissao" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="descricao" type="xs:string" />
+        <xs:element name="datacriacao" type="xs:dateTime" />
+        <xs:element name="ativo" type="dominiosituacao" nillable="true" minOccurs="0" />
+        <xs:element name="nome" type="xs:string" />
+        <xs:element name="perfispermissoeses" type="perfispermissoes" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="permissoescomponenteses" type="permissoescomponentes" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="permissoesmodulos" type="permissaomodulo" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="perfispermissoes" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="permissao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="perfil" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="modulo" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="nome" type="xs:string" />
+        <xs:element name="descricao" type="xs:string" />
+        <xs:element name="GeneratedName" type="aplicacao" nillable="true" minOccurs="0" />
+        <xs:element name="ativo" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="metodo" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="componente" nillable="true" minOccurs="0" />
+        <xs:element name="nome" type="xs:string" />
+        <xs:element name="descriao" type="xs:string" />
+        <xs:element name="//fixmetrocarporenum(dominiosituacao)ativo" type="dominiosimnao" nillable="true" minOccurs="0" />
+        <xs:element name="permissoescomponenteses" type="permissoescomponentes" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dashboard" >
+      <xs:sequence>
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="usuario" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="favorito" nillable="true" minOccurs="0" />
+        <xs:element name="modal" type="xs:string" />
+        <xs:element name="datacriacao" type="xs:dateTime" />
+        <xs:element name="dataatualizacao" type="xs:dateTime" />
+        <xs:element name="ordem" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="permissoescomponentes" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="permissao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="metodo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="componente" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="menu" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="pai" type="menu" nillable="true" minOccurs="0" />
+        <xs:element name="nome" type="xs:string" />
+        <xs:element name="classeicone" type="xs:string" />
+        <xs:element name="datacriacao" type="xs:dateTime" />
+        <xs:element name="ordem" type="xs:anyType" />
+        <xs:element name="url" type="xs:string" />
+        <xs:element name="menus" type="menu" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="favoritos" type="favorito" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="GeneratedName" type="aplicacao" nillable="true" minOccurs="0" />
+        <xs:element name="ativo" type="dominiosimnao" nillable="true" minOccurs="0" />
+        <xs:element name="palavraschave" type="palavrachavemenu" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="favorito" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="usuario" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="menu" nillable="true" minOccurs="0" />
+        <xs:element name="datacriacao" type="xs:dateTime" />
+        <xs:element name="dataatualizacao" type="xs:dateTime" />
+        <xs:element name="ordem" type="xs:anyType" />
+        <xs:element name="dashboards" type="dashboard" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="//campotransientusadosomentenainterfacevisualnovo" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="permissaomodulo" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="permissao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="modulo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usuario" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="usuario" nillable="true" minOccurs="0" />
+        <xs:element name="nome" type="xs:string" />
+        <xs:element name="login" type="xs:string" />
+        <xs:element name="datacriacao" type="xs:dateTime" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="dataultimoacesso" type="xs:dateTime" />
+        <xs:element name="usuarios" type="usuario" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="perfisusuario" type="perfisusuarios" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="favoritos" type="favorito" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="ativo" type="xs:anyType" />
+        <xs:element name="delegarperfil" type="xs:anyType" />
+        <xs:element name="//valorpadrão30minutostemposessaominutos" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="componente" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="nome" type="xs:string" />
+        <xs:element name="GeneratedName" type="aplicacao" nillable="true" minOccurs="0" />
+        <xs:element name="metodos" type="metodo" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="permissoescomponenteses" type="permissoescomponentes" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="aplicacao" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="servidor" type="xs:string" />
+        <xs:element name="porta" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="protocolo" nillable="true" minOccurs="0" />
+        <xs:element name="contexto" type="xs:string" />
+        <xs:element name="nome" type="xs:string" />
+        <xs:element name="descricao" type="xs:string" />
+        <xs:element name="externo" type="xs:anyType" />
+        <xs:element name="urlinicial" type="xs:string" />
+        <xs:element name="menus" type="menu" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="modulos" type="modulo" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="componentes" type="componente" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="perfil" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="nome" type="xs:string" />
+        <xs:element name="descricao" type="xs:string" />
+        <xs:element name="descricaoresumida" type="xs:string" />
+        <xs:element name="datacriacao" type="xs:dateTime" />
+        <xs:element name="situacao" type="dominiosituacao" nillable="true" minOccurs="0" />
+        <xs:element name="delegavel" type="xs:anyType" />
+        <xs:element name="perfispermissoeses" type="perfispermissoes" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="perfisusuarioses" type="perfisusuarios" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="palavrachavemenu" >
+      <xs:sequence>
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="menu" nillable="true" minOccurs="0" />
+        <xs:element name="palavra" type="xs:string" />
+        <xs:element name="ativo" type="dominiosimnao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="perfisusuarios" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="usuario" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="perfil" nillable="true" minOccurs="0" />
+        <xs:element name="datacriacao" type="xs:dateTime" />
+        <xs:element name="dataexpiracao" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

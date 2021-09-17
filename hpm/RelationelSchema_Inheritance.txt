@@ -1,0 +1,27 @@
+
+consignmentcompanyapplication(serialversionuid:long, id:long [PK], GeneratedName:ConsignmentCompany #FK to(), startdt:LocalDate, enddt:LocalDate, /***접수자*/reg:Member #FK to());
+
+consignmentcompany(serialversionuid:long, id:long [PK], name:String, tel:String, fax:String, postnumber:Integer, adress:String, adressdetail:String, etc:String, del:Yn);
+
+customer(/***serialversionuid*/serialversionuid:long, id:long [PK], /***거래처명*/name:String, /***대표자명*/repname:String, /***사업자번호*/companyregnumber:String, /***업태*/bizcondition:String, /***종목*/item:String, /***전화번호*/tel:String, /***연락처*/mobile:String, /***이메일*/email:String, /***팩스번호*/fax:String, /***담당자*/picname:String, /***우편번호*/postnumber:Integer, /***주소*/adress:String, /***상세주소*/adressdetail:String, /***/etc:String, del:Yn);
+
+applicationlog(serialversionuid:long, id:long [PK], GeneratedName:Application #FK to(), /***위탁기관*/:ConsignmentCompany #FK to(), /***검수타입*/:InspectionType, /***접수번호*/regnumber:String, /***장비명*/devicename:String, /***기기번호*/devicenumber:String, /***제조사*/productioncompany:String, /***모델*/model:String, /***규격*/standard:String, /***분해능*/resolution:String, /***수량*/quantity:int, /***성적서번호*/reportnumber:String, /***단위*/unit:String, /***비고*/etc:String, /***입출타입*/:CarryType, /***교정료*/correctionfee:Long, /***교정일자*/correctiondate:LocalDate, /***장소*/place:String, /***실무자*/practitioner:String, /***중분류*/middlecategory:String, /***소분류*/smallcategory:String, /***발행일*/publisheddate:LocalDate, /***기술챔임자*/technicalmanager:String, /***성적서영어*/:ReportLanguage);
+
+application(serialversionuid:long, id:long [PK], /***업체*/:Customer #FK to(), requestcustomername:String, requestcustomeraddress:String, /***발행업체동일여부*/customersame:Yn, /***현장교정필요*/fieldcorrectionneed:Yn, /***권장교정일주기기입여부*/reccalibrationday:Yn, /***교정신청날짜타입*/:AppliRegDateType, /***교정신청일*/appliregdate:LocalDate, /***신청인*/applicant:String, /***신청인이메일*/applicantemail:String, /***인수자*/consignee:String, /***인수일*/takeoverdate:LocalDate, /***전달방법*/:TakeOverType, /***접수자*/reg:Member #FK to(), /***접수일*/regdate:LocalDate, customersignimg:AttachFile #FK to(), del:Yn);
+
+commoncode(id:long [PK], /***분류코드*/code:String, /***분류코드이름*/codename:String, /***분류코드설명*/codedesc:String, pid:CommonCode #FK to());
+
+menurole(rolemenu:MenuRoleKey, serialversionuid:long, //@joincolumn(name:Menu #FK to(), //@joincolumn(name:Role #FK to());
+
+menu(id:Long [PK], url:String, menuname:String, level:int, naviuseyn:String, useyn:String, pid:Long);
+
+attachfile(id:Long [PK], fullpath:String, //@transientresourcepath:String, realname:String, virtualname:String, extension:String, thumbnailyn:String, regid:Long);
+
+role(id:Long [PK], rolename:String, roledesc:String);
+
+memberrole(serialversionuid:long, GeneratedName:Member [PK] #FK to(), //@jsonignore:Role [PK] #FK to());
+
+member(id:long [PK], memberid:String, name:String, memberpassword:String, email:String, mobile:String, del:Yn, //@onetomany(fetch:Role #FK to());
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

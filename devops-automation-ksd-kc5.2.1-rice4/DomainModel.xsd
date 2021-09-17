@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="notetype" >
+      <xs:complexContent>
+       <xs:extension base="persistablebusinessobjectbase">
+         <xs:sequence>
+          <xs:element name="notetypecode" type="xs:string" />
+          <xs:element name="notetypedescription" type="xs:string" />
+          <xs:element name="notetypeactiveindicator" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="attachment" >
+      <xs:complexContent>
+       <xs:extension base="persistablebusinessobjectbase">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="noteidentifier" type="xs:long" />
+          <xs:element name="attachmentmimetypecode" type="xs:string" />
+          <xs:element name="attachmentfilename" type="xs:string" />
+          <xs:element name="attachmentidentifier" type="xs:string" />
+          <xs:element name="attachmentfilesize" type="xs:long" />
+          <xs:element name="attachmenttypecode" type="xs:string" />
+          <xs:element name="" type="note" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="selectedobjectids" >
+      <xs:complexContent>
+       <xs:extension base="multiplevaluelookupmetadata">
+         <xs:sequence>
+          <xs:element name="selectedobjectids" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="note" >
+      <xs:complexContent>
+       <xs:extension base="persistablebusinessobjectbase">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="noteidentifier" type="xs:long" />
+          <xs:element name="remoteobjectidentifier" type="xs:string" />
+          <xs:element name="authoruniversalidentifier" type="xs:string" />
+          <xs:element name="noteposted" type="xs:anyType" />
+          <xs:element name="notetypecode" type="xs:string" />
+          <xs:element name="notetext" type="xs:string" />
+          <xs:element name="notetopictext" type="xs:string" />
+          <xs:element name="notepurgecode" type="xs:string" />
+          <xs:element name="attachmentidentifier" type="xs:string" />
+          <xs:element name="" type="notetype" nillable="true" minOccurs="0" />
+          <xs:element name="transientauthoruniversal" type="xs:anyType" />
+          <xs:element name="" type="attachment" nillable="true" minOccurs="0" />
+          <xs:element name="" type="adhocrouterecipient" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="adhocrouteperson" >
+      <xs:complexContent>
+       <xs:extension base="adhocrouterecipient">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="transient" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="pessimisticlock" >
+      <xs:complexContent>
+       <xs:extension base="persistablebusinessobjectbase">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="default_lock_descriptor" type="xs:string" />
+          <xs:element name="//idissequencenumberandprimarykeyid" type="xs:long" />
+          <xs:element name="ownedbyprincipalidentifier" type="xs:string" />
+          <xs:element name="//thiswillbedefaultedtothevalueofdefault_lock_descriptorconstantabovelockdescriptor" type="xs:string" />
+          <xs:element name="generated" type="xs:anyType" />
+          <xs:element name="//foreignkeytodocumentdocumentnumber" type="xs:string" />
+          <xs:element name="sessionid" type="xs:string" />
+          <xs:element name="ownedbyuser" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema> 

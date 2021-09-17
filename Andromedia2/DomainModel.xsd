@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="person" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="//-----------attributedefinitions------------name" type="xs:string" />
+        <xs:element name="birth" type="xs:dateTime" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="//---------relationshipdefinitions-----------cars" type="car" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="//----manageabledisplayattributes(transient)-----carslabels" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="car" >
+      <xs:complexContent>
+       <xs:extension base="carembeddable">
+         <xs:sequence>
+          <xs:element name="/***theserialversionuidofthisclassrequiredforserialization.*/serialversionuid" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema> 

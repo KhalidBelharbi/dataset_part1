@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="cita" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="dia" type="xs:long" />
+        <xs:element name="tramo" type="xs:long" />
+        <xs:element name="//unaovariascitaspertenecenaunatarjeta.//hacereferenciaalatarjetaalaquepertenecendichascitas.tarjeta" type="tarjetabeneficiario" nillable="true" minOccurs="0" />
+        <xs:element name="//unaovariascitaspertenecenauna.//hacereferenciaalaalaquepertenecendichascitas." type="agenda" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="agenda" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="nombre" type="xs:string" />
+        <xs:element name="horainicio" type="xs:long" />
+        <xs:element name="totaltramos" type="xs:long" />
+        <xs:element name="//unaagendapuedetenervariascitas//hacereferenciaalacitasqueposeelaagenda//casacadeallparaquepropaguetodaslasaccionesalaentidadrelacionada.//fecheagerparaquelacargaseainmediata.//mappedbyporquealserbidireccional,hayqueindicardóndese"almacena"//estaentidadenlaotraentidad.citas" type="cita" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="//unaagendaperteneceaun.//hacereferenciaalalquepertenecelaagenda." type="especialista" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tarjetabeneficiario" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="numerotarjeta" type="xs:string" />
+        <xs:element name="nombre" type="xs:string" />
+        <xs:element name="apellido" type="xs:string" />
+        <xs:element name="fechanacimiento" type="xs:dateTime" />
+        <xs:element name="relaciontitular" type="xs:string" />
+        <xs:element name="//unaovariastarjetaspertenecenaun.//hacereferenciaaldelastarjetas." type="titular" nillable="true" minOccurs="0" />
+        <xs:element name="//unatarjetapuedetenervariascitas//hacereferenciaalacitasqueposeelatarjeta//casacadeallparaquepropaguetodaslasaccionesalaentidadrelacionada.//fecheagerparaquelacargaseainmediata.//mappedbyporquealserbidireccional,hayqueindicardóndese"almacena"//estaentidadenlaotraentidad.citas" type="cita" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="especialista" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="ncolegiado" type="xs:string" />
+        <xs:element name="nombre" type="xs:string" />
+        <xs:element name="especialidad" type="xs:string" />
+        <xs:element name="//unespecialistatieneuna//hacereferenciaalaqueposeeelespecialista.//casacadeallparaquesepropaguenlasoperacionesalaotraentidad.//fetcheagerparaquelacargadelaentidadhijaseainstantánea.//laotraentidadtendráreferenciaporserunarelaciónbidireccional." type="agenda" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="titular" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="nombre" type="xs:string" />
+        <xs:element name="apellido" type="xs:string" />
+        <xs:element name="fechanacimiento" type="xs:dateTime" />
+        <xs:element name="//untitularpuedetenervariastarjetas//hacereferenciaalatarjetasqueposeeeltitular//casacadeallparaquepropaguetodaslasaccionesalaentidadrelacionada.//fecheagerparaquelacargaseainmediata.//mappedbyporquealserbidireccional,hayqueindicardóndese"almacena"//estaentidadenlaotraentidad.tarjetas" type="tarjetabeneficiario" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="userapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="adminservice" >
+      <xs:complexContent>
+       <xs:extension base="httpservlet">
+         <xs:sequence>
+          <xs:element name="" type="admindao" nillable="true" minOccurs="0" />
+          <xs:element name="//添盐加密encoder" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="userdao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="encoder" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usercontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="userservice" nillable="true" minOccurs="0" />
+        <xs:element name="request" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="admincontroller" >
+      <xs:sequence>
+        <xs:element name="request" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="adminservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="admindao" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<admin,string>,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userdao" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<user,string>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="admin" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="loginname" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="phone" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="//粉丝数fans" type="xs:long" />
+        <xs:element name="registertime" type="xs:dateTime" />
+        <xs:element name="uptime" type="xs:dateTime" />
+        <xs:element name="lastlogintime" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

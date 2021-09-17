@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="requestparam" >
+      <xs:sequence>
+        <xs:element name="user_name" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="user_id" type="xs:string" />
+        <xs:element name="from_id" type="xs:string" />
+        <xs:element name="to_id" type="xs:string" />
+        <xs:element name="msg" type="xs:string" />
+        <xs:element name="since" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="responsekey" >
+      <xs:sequence>
+        <xs:element name="user_info" type="xs:string" />
+        <xs:element name="user_info_list" type="xs:string" />
+        <xs:element name="user_msg_info_list" type="xs:string" />
+        <xs:element name="GeneratedName" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="requesttype" >
+      <xs:sequence>
+        <xs:element name="log_in" type="xs:long" />
+        <xs:element name="log_out" type="xs:long" />
+        <xs:element name="get_friends" type="xs:long" />
+        <xs:element name="get_online_friends" type="xs:long" />
+        <xs:element name="send_msg" type="xs:long" />
+        <xs:element name="aquire_msg" type="xs:long" />
+        <xs:element name="aquire_msg_since" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ararequest" >
+      <xs:sequence>
+        <xs:element name="type" type="xs:long" />
+        <xs:element name="params" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="araresponse" >
+      <xs:sequence>
+        <xs:element name="type" type="xs:long" />
+        <xs:element name="result" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usermsginfo" >
+      <xs:sequence>
+        <xs:element name="/***消息id*/id" type="xs:long" />
+        <xs:element name="/***消息发送方id*/fromid" type="xs:long" />
+        <xs:element name="/***消息发送方姓名*/fromname" type="xs:string" />
+        <xs:element name="/***消息接收方id*/toid" type="xs:long" />
+        <xs:element name="/***消息内容*/msg" type="xs:string" />
+        <xs:element name="/***消息添加时间*/addtime" type="xs:dateTime" />
+        <xs:element name="/***消息状态标志**/status" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userinfo" >
+      <xs:sequence>
+        <xs:element name="userid" type="xs:long" />
+        <xs:element name="username" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userstatus" >
+      <xs:sequence>
+        <xs:element name="userid" type="xs:long" />
+        <xs:element name="status" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userfriend" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="userid" type="xs:long" />
+        <xs:element name="friendid" type="xs:long" />
+        <xs:element name="addtime" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usermessage" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="fromid" type="xs:long" />
+        <xs:element name="toid" type="xs:long" />
+        <xs:element name="msg" type="xs:string" />
+        <xs:element name="addtime" type="xs:anyType" />
+        <xs:element name="status" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="convertutils" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="client" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="server" >
+      <xs:sequence>
+        <xs:element name="df" type="xs:anyType" />
+        <xs:element name="buf_size" type="xs:long" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="userservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="msgservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="abstractdao" >
+      <xs:sequence>
+        <xs:element name="ger" type="xs:anyType" />
+        <xs:element name="common" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userfrienddao" >
+      <xs:complexContent>
+       <xs:extension base="abstractdao<userfriend>">
+         <xs:sequence>
+          <xs:element name="ger" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="commonexception" >
+      <xs:complexContent>
+       <xs:extension base="exception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="icommon" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userdao" >
+      <xs:complexContent>
+       <xs:extension base="abstractdao<user>">
+         <xs:sequence>
+          <xs:element name="ger" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="common" >
+      <xs:complexContent>
+       <xs:extension base="hibernatedaosupport">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userstatusdao" >
+      <xs:complexContent>
+       <xs:extension base="abstractdao<userstatus>">
+         <xs:sequence>
+          <xs:element name="ger" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="usermessagedao" >
+      <xs:complexContent>
+       <xs:extension base="abstractdao<usermessage>">
+         <xs:sequence>
+          <xs:element name="ger" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="iclient" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="iserver" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="msgservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="usermessagedao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="userservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userservice" >
+      <xs:sequence>
+        <xs:element name="ger" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="userdao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="userstatusdao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="userfrienddao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="conf" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="log4j" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

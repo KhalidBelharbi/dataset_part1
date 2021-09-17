@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="user" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="drinks" type="userdrink" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userrecord" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="userid" type="xs:long" />
+        <xs:element name="roomid" type="xs:long" />
+        <xs:element name="liquorname" type="xs:string" />
+        <xs:element name="liquorlimit" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userdrink" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="userid" type="xs:long" />
+        <xs:element name="liquorname" type="xs:string" />
+        <xs:element name="liquorlimit" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tag" >
+      <xs:sequence>
+        <xs:element name="tagid" type="xs:long" />
+        <xs:element name="roomid" type="xs:long" />
+        <xs:element name="tagname" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="member" >
+      <xs:sequence>
+        <xs:element name="roomid" type="xs:long" />
+        <xs:element name="userid" type="xs:long" />
+        <xs:element name="nickname" type="xs:string" />
+        <xs:element name="ishost" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="photo" >
+      <xs:sequence>
+        <xs:element name="photoid" type="xs:long" />
+        <xs:element name="roomid" type="xs:long" />
+        <xs:element name="src" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="room" >
+      <xs:sequence>
+        <xs:element name="roomid" type="xs:long" />
+        <xs:element name="hostid" type="xs:long" />
+        <xs:element name="starttime" type="xs:dateTime" />
+        <xs:element name="endtime" type="xs:dateTime" />
+        <xs:element name="code" type="xs:string" />
+        <xs:element name="roomname" type="xs:string" />
+        <xs:element name="ispublic" type="xs:long" />
+        <xs:element name="tags" type="tag" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

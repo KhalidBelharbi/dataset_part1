@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="comment" >
+      <xs:complexContent>
+       <xs:extension base="basemodel">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="content" type="xs:string" />
+          <xs:element name="" type="user" nillable="true" minOccurs="0" />
+          <xs:element name="createtime" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="vote" >
+      <xs:complexContent>
+       <xs:extension base="basemodel">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="" type="user" nillable="true" minOccurs="0" />
+          <xs:element name="createtime" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="blog" >
+      <xs:complexContent>
+       <xs:extension base="basemodel">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="//文章标题title" type="xs:string" />
+          <xs:element name="//文章摘要summary" type="xs:string" />
+          <xs:element name="//文章markdown内容content" type="xs:string" />
+          <xs:element name="//生成的htmlhtmlcontent" type="xs:string" />
+          <xs:element name="//发表文章的用户" type="user" nillable="true" minOccurs="0" />
+          <xs:element name="//文章发表时间createtime" type="xs:dateTime" />
+          <xs:element name="//阅读量readsize" type="xs:anyType" />
+          <xs:element name="//评论数commentsize" type="xs:anyType" />
+          <xs:element name="//点赞数votesize" type="xs:anyType" />
+          <xs:element name="//评论comments" type="comment" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="//点赞votes" type="vote" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="//分类" type="catalog" nillable="true" minOccurs="0" />
+          <xs:element name="//标签tags" type="xs:string" />
+          <xs:element name="uptime" type="xs:dateTime" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:complexContent>
+       <xs:extension base="basemodel">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="//用户帐号username" type="xs:string" />
+          <xs:element name="//密码password" type="xs:string" />
+          <xs:element name="//别名name" type="xs:string" />
+          <xs:element name="//邮箱email" type="xs:string" />
+          <xs:element name="//头像地址avatar" type="xs:string" />
+          <xs:element name="//认证信息authorities" type="authority" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="accountexpired" type="xs:anyType" />
+          <xs:element name="accountlocked" type="xs:anyType" />
+          <xs:element name="credentialexpired" type="xs:anyType" />
+          <xs:element name="enabled" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="authority" >
+      <xs:complexContent>
+       <xs:extension base="basemodel">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="catalog" >
+      <xs:complexContent>
+       <xs:extension base="basemodel">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="//编号id" type="xs:long" />
+          <xs:element name="//分类名称name" type="xs:string" />
+          <xs:element name="//用户" type="user" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema> 

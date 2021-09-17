@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="apptest" >
+      <xs:complexContent>
+       <xs:extension base="testcase">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="app" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="department" >
+      <xs:sequence>
+        <xs:element name="iddeparment" type="xs:anyType" />
+        <xs:element name="namedeparment" type="xs:string" />
+        <xs:element name="employee" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="postcomment" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="review" type="xs:string" />
+        <xs:element name="/***bidirectional@onetomany*/" type="post" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="address" >
+      <xs:sequence>
+        <xs:element name="idaddress" type="xs:long" />
+        <xs:element name="owner" type="client" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="employee" >
+      <xs:sequence>
+        <xs:element name="idemployee" type="xs:long" />
+        <xs:element name="nameemployee" type="xs:string" />
+        <xs:element name="salaryemployee" type="xs:double" />
+        <xs:element name="degemployee" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="phone" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="type" type="xs:string" />
+        <xs:element name="areacode" type="xs:string" />
+        <xs:element name="pnumber" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="post" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="/***unidirectional@onetomany*/comments" type="postcomment" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="/***unidirectional@onetomanywith@joincolumn*/comments1" type="postcomment" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="/***bidirectional@onetomany*/comments3" type="postcomment" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="client" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="address" type="address" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="phones" type="phone" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+        <xs:element name="salary" type="xs:string" />
+        <xs:element name="managerid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="onetomany" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="accountrequestdocument" >
+      <xs:complexContent>
+       <xs:extension base="transactionaldocumentbase">
+         <xs:sequence>
+          <xs:element name="requester" type="xs:string" />
+          <xs:element name="reason1" type="xs:string" />
+          <xs:element name="reason2" type="xs:string" />
+          <xs:element name="requesttype" type="xs:string" />
+          <xs:element name="accounttypecode" type="xs:string" />
+          <xs:element name="accounts" type="account" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="accounttype" >
+      <xs:complexContent>
+       <xs:extension base="persistablebusinessobjectbase">
+         <xs:sequence>
+          <xs:element name="accounttypecode" type="xs:string" />
+          <xs:element name="name" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="accountextension" >
+      <xs:complexContent>
+       <xs:extension base="persistablebusinessobjectextensionbase">
+         <xs:sequence>
+          <xs:element name="number" type="xs:string" />
+          <xs:element name="accounttypecode" type="xs:string" />
+          <xs:element name="" type="accounttype" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="accountmanager" >
+      <xs:complexContent>
+       <xs:extension base="persistablebusinessobjectbase">
+         <xs:sequence>
+          <xs:element name="username" type="xs:string" />
+          <xs:element name="amid" type="xs:long" />
+          <xs:element name="defaulttype" type="xs:string" />
+          <xs:element name="accounts" type="account" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="account" >
+      <xs:complexContent>
+       <xs:extension base="persistablebusinessobjectbase">
+         <xs:sequence>
+          <xs:element name="number" type="xs:string" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="amid" type="xs:long" />
+          <xs:element name="" type="accountmanager" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="accountwithddattributesdocument" >
+      <xs:complexContent>
+       <xs:extension base="transactionaldocumentbase">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="accountnumber" type="xs:anyType" />
+          <xs:element name="accountowner" type="xs:string" />
+          <xs:element name="accountbalance" type="xs:anyType" />
+          <xs:element name="accountopen" type="xs:dateTime" />
+          <xs:element name="accountupdatedatetime" type="xs:anyType" />
+          <xs:element name="accountstate" type="xs:string" />
+          <xs:element name="accountawake" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="searchattributeindextestdocument" >
+      <xs:complexContent>
+       <xs:extension base="transactionaldocumentbase">
+         <xs:sequence>
+          <xs:element name="log" type="xs:anyType" />
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="routelevelcount" type="xs:long" />
+          <xs:element name="constant" type="xs:string" />
+          <xs:element name="routed" type="xs:string" />
+          <xs:element name="heldrouted" type="xs:string" />
+          <xs:element name="readaccesscount" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="accountrequestdocumentwithcyclicalreference" >
+      <xs:complexContent>
+       <xs:extension base="transactionaldocumentbase">
+         <xs:sequence>
+          <xs:element name="requester" type="xs:string" />
+          <xs:element name="reason1" type="xs:string" />
+          <xs:element name="reason2" type="xs:string" />
+          <xs:element name="requesttype" type="xs:string" />
+          <xs:element name="accounttypecode" type="xs:string" />
+          <xs:element name="child" type="accountrequestdocumentwithcyclicalreference" nillable="true" minOccurs="0" />
+          <xs:element name="parent" type="accountrequestdocumentwithcyclicalreference" nillable="true" minOccurs="0" />
+          <xs:element name="accounts" type="account" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema> 

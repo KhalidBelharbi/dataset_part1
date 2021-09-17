@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="matchday" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="deadline" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="startdate" type="xs:anyType" />
+        <xs:element name="enddate" type="xs:anyType" />
+        <xs:element name="players2matchdays" type="players2matchdays" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="player" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="value" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="club" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="club" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="code" type="xs:string" />
+        <xs:element name="players" type="player" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="players2matchdays" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="player" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="matchday" nillable="true" minOccurs="0" />
+        <xs:element name="valuethen" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

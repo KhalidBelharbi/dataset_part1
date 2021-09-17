@@ -1,0 +1,47 @@
+
+company(serialversionuid:long, companyid:long [PK], name:String, status:int, create:Date);
+
+category(serialversionuid:long, categoryid:Long [PK], companyid:Long, parentid:Long, name:String, status:int, position:Integer, description:String);
+
+role(serialversionuid:long, roleid:Integer [PK], name:String, description:String);
+
+useraddress(serialversionuid:long, adressid:Long [PK], userid:String, adress:String, phone:String, fax:String, city:String, country:String, status:int);
+
+review(serialversionuid:long, reviewid:Integer [PK], userid:String, productid:Long, companyid:Long, rank:int, comment:String, create:Date);
+
+application(serialversionuid:long, themeid:int [PK], companyid:int [PK], status:boolean, appdomain:String);
+
+history(serialversionuid:long, historyid:Integer [PK], companyid:int, type:int, create:Date, value:String);
+
+theme(serialversionuid:long, themeid:Integer [PK], name:String, version:String, thumbnail:String, sourcepath:String);
+
+supplier(serialversionuid:long, supplierid:Integer [PK], companyid:int, name:String, description:String, status:int, create:Date);
+
+supplierproduct(serialversionuid:long, productid:int [PK], supplierid:int [PK]);
+
+orderaddress(serialversionuid:long, id:Long [PK], orderid:Long, adressid:Long, createdat:Date, updat:Date, regionid:Long, region:String, postcode:String, prefix:String, suffix:String);
+
+product(serialversionuid:long, productid:Long [PK], companyid:Long, name:String, browsingname:String, saleprice:double, listprice:double, defaultimage:String, overview:String, quantity:int, isstockcontrolled:Boolean, status:int, description:String, rank:int, sku:String, createdon:Date, updon:Date);
+
+orderreport(serialversionuid:long, reportid:Long [PK], orderid:Long, status:boolean, note:String);
+
+user(serialversionuid:long, userid:String [PK], companyid:Long, roleid:int, email:String, passwordhash:String, firstname:String, middlename:String, lastname:String, status:int, create:Date, salt:String);
+
+usertoken(serialversionuid:long, token:String [PK], companyid:Long, userid:String, login:Date, expiration:Date, sessiondata:String);
+
+productattribute(serialversionuid:long, attributeid:Long [PK], companyid:int, name:String);
+
+productattributedetail(serialversionuid:long, productid:Long [PK], attributeid:Long [PK], value:String, //@max(value:Double);
+
+orderdetail(serialversionuid:long, id:Long [PK], parentid:Long, orderid:Long, productid:Long, createdat:Date, updat:Date, isvirtual:Short, sku:String, name:String, description:String, freeshipping:boolean, //@max(value:BigDecimal, quantity:int, price:double, baseprice:BigDecimal, rowtotal:BigDecimal, baserowtotal:BigDecimal, rowweight:BigDecimal, producttype:String);
+
+payment(serialversionuid:long, paymentid:Long [PK], name:String, description:String);
+
+orders(serialversionuid:long, id:Long [PK], userid:String, adressid:Long, paymentid:Long, companyid:Long, createdat:Date, updat:Date, isactive:Short, isvirtual:Short, ismultishipping:Short, status:int, itemscount:Integer, //@max(value:BigDecimal, grandtotal:BigDecimal, basegrandtotal:BigDecimal, checkoutcomment:String, customeremail:String, customerprefix:String, customerfirstname:String, customermiddlename:String, customerlastname:String, customersuffix:String, customerdob:Date, customerisguest:Short, remoteip:String, customergender:String, subtotal:BigDecimal, basesubtotal:BigDecimal, ischanged:Integer);
+
+orderpayment(serialversionuid:long, orderid:Long [PK], paymentid:Long [PK], transactionid:Long, status:int);
+
+productcategory(id:ProductCategoryId);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

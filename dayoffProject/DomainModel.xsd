@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="category" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="subname" type="xs:string" />
+        <xs:element name="engname" type="xs:string" />
+        <xs:element name="product" type="product" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="grade" >
+      <xs:sequence>
+        <xs:element name="level" type="xs:string" />
+        <xs:element name="rate" type="xs:anyType" />
+        <xs:element name="required" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="users" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="socialid" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="birth" type="xs:dateTime" />
+        <xs:element name="sex" type="xs:string" />
+        <xs:element name="height" type="xs:string" />
+        <xs:element name="weight" type="xs:string" />
+        <xs:element name="phone" type="xs:string" />
+        <xs:element name="accrue" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="grade" nillable="true" minOccurs="0" />
+        <xs:element name="role" type="xs:string" />
+        <xs:element name="signup" type="xs:dateTime" />
+        <xs:element name="accesstoken" type="xs:string" />
+        <xs:element name="refreshtoken" type="xs:string" />
+        <xs:element name="totalemoney" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="code" >
+      <xs:sequence>
+        <xs:element name="code" type="xs:string" />
+        <xs:element name="content" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="product" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="price" type="xs:anyType" />
+        <xs:element name="detailimage" type="xs:string" />
+        <xs:element name="register" type="xs:dateTime" />
+        <xs:element name="isavailable" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="category" nillable="true" minOccurs="0" />
+        <xs:element name="productimage" type="productimage" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="productsize" type="productsize" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="color" type="color" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="review" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="content" type="xs:string" />
+        <xs:element name="review" type="xs:dateTime" />
+        <xs:element name="rating" type="xs:anyType" />
+        <xs:element name="productid" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="users" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="productimage" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="originalname" type="xs:string" />
+        <xs:element name="GeneratedName" type="product" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="productsize" >
+      <xs:sequence>
+        <xs:element name="size" type="xs:string" />
+        <xs:element name="GeneratedName" type="product" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="productview" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="price" type="xs:string" />
+        <xs:element name="register" type="xs:dateTime" />
+        <xs:element name="categoryid" type="xs:anyType" />
+        <xs:element name="categoryname" type="xs:string" />
+        <xs:element name="categorysubname" type="xs:string" />
+        <xs:element name="isavailable" type="xs:anyType" />
+        <xs:element name="productthumbnailname" type="xs:string" />
+        <xs:element name="ordercount" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="loginhistory" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="login" type="xs:dateTime" />
+        <xs:element name="GeneratedName" type="users" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ordergroup" >
+      <xs:sequence>
+        <xs:element name="tid" type="xs:string" />
+        <xs:element name="GeneratedName" type="users" nillable="true" minOccurs="0" />
+        <xs:element name="orders" type="orders" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="totalpay" type="xs:anyType" />
+        <xs:element name="order" type="xs:dateTime" />
+        <xs:element name="gradediscount" type="xs:anyType" />
+        <xs:element name="pointuse" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="deliver" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="stores" nillable="true" minOccurs="0" />
+        <xs:element name="invoice" type="xs:string" />
+        <xs:element name="aid" type="xs:string" />
+        <xs:element name="cid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="refunds" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="orders" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="code" nillable="true" minOccurs="0" />
+        <xs:element name="request" type="xs:dateTime" />
+        <xs:element name="refund" type="xs:dateTime" />
+        <xs:element name="refundamount" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="orderview" >
+      <xs:sequence>
+        <xs:element name="orderid" type="xs:anyType" />
+        <xs:element name="productid" type="xs:anyType" />
+        <xs:element name="productthumbnailname" type="xs:string" />
+        <xs:element name="productname" type="xs:string" />
+        <xs:element name="productisavailable" type="xs:anyType" />
+        <xs:element name="ordercolor" type="xs:string" />
+        <xs:element name="ordersize" type="xs:string" />
+        <xs:element name="orderquantity" type="xs:anyType" />
+        <xs:element name="orderprice" type="xs:anyType" />
+        <xs:element name="groupid" type="xs:string" />
+        <xs:element name="userid" type="xs:anyType" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="gradediscount" type="xs:anyType" />
+        <xs:element name="pointuse" type="xs:anyType" />
+        <xs:element name="totalpay" type="xs:anyType" />
+        <xs:element name="deliverdate" type="xs:string" />
+        <xs:element name="order" type="xs:dateTime" />
+        <xs:element name="invoice" type="xs:string" />
+        <xs:element name="code" type="xs:string" />
+        <xs:element name="codecontent" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="orderdetailview" >
+      <xs:sequence>
+        <xs:element name="orderid" type="xs:anyType" />
+        <xs:element name="productid" type="xs:anyType" />
+        <xs:element name="productthumbnailname" type="xs:string" />
+        <xs:element name="productname" type="xs:string" />
+        <xs:element name="productprice" type="xs:anyType" />
+        <xs:element name="productisavailable" type="xs:anyType" />
+        <xs:element name="ordercolor" type="xs:string" />
+        <xs:element name="ordersize" type="xs:string" />
+        <xs:element name="orderquantity" type="xs:anyType" />
+        <xs:element name="orderprice" type="xs:anyType" />
+        <xs:element name="code" type="xs:string" />
+        <xs:element name="codecontent" type="xs:string" />
+        <xs:element name="groupid" type="xs:string" />
+        <xs:element name="userid" type="xs:anyType" />
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="totalpay" type="xs:anyType" />
+        <xs:element name="order" type="xs:dateTime" />
+        <xs:element name="gradediscount" type="xs:anyType" />
+        <xs:element name="pointuse" type="xs:anyType" />
+        <xs:element name="invoice" type="xs:string" />
+        <xs:element name="refundrequest" type="xs:dateTime" />
+        <xs:element name="refund" type="xs:dateTime" />
+        <xs:element name="refundamount" type="xs:anyType" />
+        <xs:element name="storesid" type="xs:anyType" />
+        <xs:element name="storesname" type="xs:string" />
+        <xs:element name="storeslocation" type="xs:string" />
+        <xs:element name="deliverid" type="xs:anyType" />
+        <xs:element name="delivername" type="xs:string" />
+        <xs:element name="deliverlocation" type="xs:string" />
+        <xs:element name="deliverpostalcode" type="xs:string" />
+        <xs:element name="deliverphone" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="withdrawhistory" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="users" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="code" nillable="true" minOccurs="0" />
+        <xs:element name="withdraw" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="deliver" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="location" type="xs:string" />
+        <xs:element name="postalcode" type="xs:string" />
+        <xs:element name="phone" type="xs:string" />
+        <xs:element name="GeneratedName" type="users" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cartview" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="color" type="xs:string" />
+        <xs:element name="size" type="xs:string" />
+        <xs:element name="quantity" type="xs:anyType" />
+        <xs:element name="productid" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="price" type="xs:anyType" />
+        <xs:element name="totalprice" type="xs:anyType" />
+        <xs:element name="productthumbnailname" type="xs:string" />
+        <xs:element name="userid" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="cart" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="product" nillable="true" minOccurs="0" />
+        <xs:element name="color" type="xs:string" />
+        <xs:element name="size" type="xs:string" />
+        <xs:element name="quantity" type="xs:anyType" />
+        <xs:element name="cart" type="xs:dateTime" />
+        <xs:element name="price" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="users" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="orders" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="code" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="ordergroup" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="product" nillable="true" minOccurs="0" />
+        <xs:element name="color" type="xs:string" />
+        <xs:element name="size" type="xs:string" />
+        <xs:element name="quantity" type="xs:anyType" />
+        <xs:element name="price" type="xs:anyType" />
+        <xs:element name="deliver" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="color" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="color" type="xs:string" />
+        <xs:element name="image" type="xs:string" />
+        <xs:element name="product" type="product" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="recommendbycategory" >
+      <xs:sequence>
+        <xs:element name="productname" type="xs:string" />
+        <xs:element name="categoryname" type="xs:string" />
+        <xs:element name="categorysubname" type="xs:string" />
+        <xs:element name="price" type="xs:long" />
+        <xs:element name="productid" type="xs:long" />
+        <xs:element name="productthumbnailname" type="xs:string" />
+        <xs:element name="ordercount" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="stores" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="location" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

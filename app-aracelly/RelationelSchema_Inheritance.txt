@@ -1,0 +1,19 @@
+
+compraproducto(GeneratedName:Producto [PK], GeneratedName:Venta [PK]);
+
+venta(idventa:Integer [PK], GeneratedName:Vendedor #FK to(vendedor), GeneratedName:Cliente #FK to(cliente), costo:int, fecha:LocalDateTime);
+
+vendedor(idvendedor:Integer [PK], GeneratedName:Supervisor #FK to(supervisor), nombre:String, direccion:String);
+
+cliente(idcliente:Integer [PK], nombrecliente:String, direccioncliente:String, telefonocliente:int);
+
+producto(idproducto:Integer [PK], GeneratedName:Marca #FK to(marca), valor:int, descripcion:String);
+
+compra_producto(id_producto:Producto [PK] #FK to Producto,id_venta:list<venta> [PK] #FK to list<venta>);
+
+supervisor(idsupervisor:Integer [PK], nombre:String, direccion:String, telefono:int);
+
+marca(idmarca:Integer [PK], descripcion:String, direccion:String, ciudad:String);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

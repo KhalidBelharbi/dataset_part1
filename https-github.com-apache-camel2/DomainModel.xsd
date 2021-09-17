@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="address" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="addressline1" type="xs:string" />
+        <xs:element name="addressline2" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="customer" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="GeneratedName" type="address" nillable="true" minOccurs="0" />
+        <xs:element name="ordercount" type="xs:long" />
+        <xs:element name="version" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="versioneditem" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="version" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="sendemail" >
+      <xs:sequence>
+        <xs:element name="log" type="xs:anyType" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="address" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="multisteps" >
+      <xs:sequence>
+        <xs:element name="log" type="xs:anyType" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="address" type="xs:string" />
+        <xs:element name="step" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jpaconsumer" >
+      <xs:complexContent>
+       <xs:extension base="scheduledbatchpollingconsumer">
+         <xs:sequence>
+          <xs:element name="log" type="xs:anyType" />
+          <xs:element name="nowait" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="queryfactory" nillable="true" minOccurs="0" />
+          <xs:element name="deletehandler" type="xs:anyType" />
+          <xs:element name="predeletehandler" type="xs:anyType" />
+          <xs:element name="query" type="xs:string" />
+          <xs:element name="namedquery" type="xs:string" />
+          <xs:element name="nativequery" type="xs:string" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="parameters" type="xs:anyType" />
+          <xs:element name="resultclass" type="xs:anyType" />
+          <xs:element name="transacted" type="xs:anyType" />
+          <xs:element name="skiplockedentity" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jpapollingconsumer" >
+      <xs:complexContent>
+       <xs:extension base="pollingconsumersupport">
+         <xs:sequence>
+          <xs:element name="log" type="xs:anyType" />
+          <xs:element name="transient" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="query" type="xs:string" />
+          <xs:element name="namedquery" type="xs:string" />
+          <xs:element name="nativequery" type="xs:string" />
+          <xs:element name="" type="xs:anyType" />
+          <xs:element name="resultclass" type="xs:anyType" />
+          <xs:element name="" type="queryfactory" nillable="true" minOccurs="0" />
+          <xs:element name="parameters" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="messageprocessed" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="createdat" type="xs:dateTime" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="messageid" type="xs:string" />
+        <xs:element name="processorname" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="jpatraceeventmessage" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="timestamp" type="xs:dateTime" />
+        <xs:element name="fromendpointuri" type="xs:string" />
+        <xs:element name="previousnode" type="xs:string" />
+        <xs:element name="tonode" type="xs:string" />
+        <xs:element name="exchangeid" type="xs:string" />
+        <xs:element name="shortexchangeid" type="xs:string" />
+        <xs:element name="exchangepattern" type="xs:string" />
+        <xs:element name="properties" type="xs:string" />
+        <xs:element name="headers" type="xs:string" />
+        <xs:element name="body" type="xs:string" />
+        <xs:element name="bodytype" type="xs:string" />
+        <xs:element name="outheaders" type="xs:string" />
+        <xs:element name="outbody" type="xs:string" />
+        <xs:element name="outbodytype" type="xs:string" />
+        <xs:element name="causedbyexception" type="xs:string" />
+        <xs:element name="routeid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

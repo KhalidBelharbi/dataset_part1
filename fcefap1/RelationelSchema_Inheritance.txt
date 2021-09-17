@@ -1,0 +1,17 @@
+
+produtovo(serialversionuid:long, id:Integer [PK], gtin:String, codigointerno:String, nome:String, descricao:String, descricaopdv:String, valorvenda:BigDecimal, qtdestoque:BigDecimal, estoquemin:BigDecimal, estoquemax:BigDecimal, iat:String, ippt:String, ncm:String, tipoitemsped:String, dataestoque:Date, taxaipi:BigDecimal, taxaissqn:BigDecimal, taxapis:BigDecimal, taxacofins:BigDecimal, taxaicms:BigDecimal, cst:String, csosn:String, totalizadorparcial:String, ecficmsst:String, codigobalanca:Integer, pafpst:String, hashtripa:String, hashincremento:Integer, id:UnidadeProdutoVO #FK to(unidadeprodutovo));
+
+ecfdavcabecalhovo(serialversionuid:long, id:Integer [PK], idpessoa:Integer, idempresa:Integer, ccf:Integer, coo:Integer, nomedestinatario:String, cpfcnpjdestinatario:String, dataemissao:Date, horaemissao:String, situacao:String, taxaacrescimo:BigDecimal, acrescimo:BigDecimal, taxadesconto:BigDecimal, desconto:BigDecimal, subtotal:BigDecimal, valor:BigDecimal, impresso:String, hashtripa:String, hashincremento:Integer, numerodav:String, numeroecf:String);
+
+ecfdavdetalhevo(serialversionuid:long, id:Integer [PK], item:Integer, quantidade:BigDecimal, valorunitario:BigDecimal, valortotal:BigDecimal, cancelado:String, mesclaproduto:String, gtinproduto:String, nomeproduto:String, unidadeproduto:String, hashtripa:String, hashincremento:Integer, dataemissao:Date, numerodav:String, totalizadorparcial:String, id:EcfDavCabecalhoVO #FK to(ecfdavcabecalhovo), id:ProdutoVO #FK to(produtovo));
+
+ecfempresavo(serialversionuid:long, id:Integer [PK], razaosocial:String, nomefantasia:String, cnpj:String, inscricaoestadual:String, inscricaomunicipal:String, matrizfilial:Character, datacadastro:Date, logradouro:String, numero:String, complemento:String, bairro:String, cidade:String, codigoibgecidade:Integer, codigoibgeuf:Integer, uf:String, cep:String, fone:String, fax:String, contato:String, suframa:String, email:String, inscricaoestadualst:String, inscricaojuntacomercial:String, datainscjuntacomercial:Date, datainicioatividades:Date, imagemlogotipo:String, crt:Character, tiporegime:Character, aliquotapis:BigDecimal, aliquotacofins:BigDecimal, id:EcfEmpresaVO #FK to(ecfempresavo));
+
+ecfprevendacabecalhovo(serialversionuid:long, id:Integer [PK], datapv:Date, horapv:String, situacao:String, ccf:Integer, valor:Double);
+
+ecfprevendadetalhevo(serialversionuid:long, id:Integer [PK], quantidade:Double, valorunitario:Double, valortotal:Double, id:ProdutoVO #FK to(produtovo), id:EcfPreVendaCabecalhoVO #FK to(ecfprevendacabecalhovo));
+
+unidadeprodutovo(serialversionuid:long, id:Integer [PK], nome:String, podefracionar:Character, descricao:String);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="order" >
+      <xs:complexContent>
+       <xs:extension base="createauditable">
+         <xs:sequence>
+          <xs:element name="serialversionuid" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="//đơnvịtínhkg,can,litunit" type="xs:string" />
+          <xs:element name="//cânnặngweight" type="xs:double" />
+          <xs:element name="//môtảdescription" type="xs:string" />
+          <xs:element name="//chúthíchnote" type="xs:string" />
+          <xs:element name="//trọnglượngthựcrealweight" type="xs:double" />
+          <xs:element name="//giáprice" type="xs:long" />
+          <xs:element name="//trạngthái1:moi,2.choship.3:hoanthanh4:huystatus" type="xs:anyType" />
+          <xs:element name="hideorder" type="xs:anyType" />
+          <xs:element name="seller" type="user" nillable="true" minOccurs="0" />
+          <xs:element name="shipper" type="user" nillable="true" minOccurs="0" />
+          <xs:element name="customer" type="user" nillable="true" minOccurs="0" />
+          <xs:element name="upd" type="xs:dateTime" />
+          <xs:element name="//dsshipperduocchonshippers" type="xs:anyType" />
+          <xs:element name="images" type="xs:anyType" />
+          <xs:element name="//giáshippercost" type="xs:long" />
+          <xs:element name="checksendnoti" type="xs:anyType" />
+          <xs:element name="review" type="xs:string" />
+          <xs:element name="starrating" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="versions" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="version" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usergroupuser" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="GeneratedName" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="usergroup" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="road" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="cityname" type="xs:string" />
+        <xs:element name="GeneratedName" type="user" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="timeauditable" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="created" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="news" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="content" type="xs:string" />
+        <xs:element name="created" type="xs:dateTime" />
+        <xs:element name="GeneratedName" type="usergroup" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usergroup" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="usergroupusers" type="usergroupuser" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="notification" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="content" type="xs:string" />
+        <xs:element name="type" type="xs:string" />
+        <xs:element name="item" type="xs:string" />
+        <xs:element name="created" type="xs:dateTime" />
+        <xs:element name="GeneratedName" type="user" nillable="true" minOccurs="0" />
+        <xs:element name="readerids" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:complexContent>
+       <xs:extension base="createauditable">
+         <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="password" type="xs:string" />
+          <xs:element name="phone" type="xs:string" />
+          <xs:element name="address" type="xs:string" />
+          <xs:element name="deviceid" type="xs:string" />
+          <xs:element name="enabled" type="xs:anyType" />
+          <xs:element name="roles" type="xs:anyType" />
+          <xs:element name="images" type="xs:anyType" />
+          <xs:element name="cityname" type="xs:string" />
+          <xs:element name="districtname" type="xs:string" />
+          <xs:element name="wardsname" type="xs:string" />
+          <xs:element name="roads" type="road" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="usergroupusers" type="usergroupuser" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="createauditable" >
+      <xs:sequence>
+        <xs:element name="created" type="xs:dateTime" />
+        <xs:element name="createdby" type="user" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

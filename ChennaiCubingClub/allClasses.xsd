@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="websiteapplicationtests" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="runtime-es2015.85f895af57b038f1e5b4" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="runtime-es5.85f895af57b038f1e5b4" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="application" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="servletinitializer" >
+      <xs:complexContent>
+       <xs:extension base="springbootservletinitializer">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="websiteapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="personserviceimplementation" >
+      <xs:sequence>
+        <xs:element name="repo" type="personsrepo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="serviceinterface" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="usersservice" >
+      <xs:sequence>
+        <xs:element name="repo" type="c3usersrepo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="c3cupservice" >
+      <xs:sequence>
+        <xs:element name="pointrepo" type="c3cuprepo" nillable="true" minOccurs="0" />
+        <xs:element name="comprepo" type="c3competitionsrepo" nillable="true" minOccurs="0" />
+        <xs:element name="wcacomprepo" type="competitionsrepo" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="resultsrepo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="c3competitionsservice" >
+      <xs:sequence>
+        <xs:element name="comprepo" type="c3competitionsrepo" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="c3cuprepo" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<c3cuppointstable,long>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="resultsrepo" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<resultstable,long>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="competitionsrepo" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<competitionstable,long>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="personsrepo" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<personstable,long>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="c3usersrepo" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<c3userstable,long>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="c3competitionsrepo" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<c3competitionstable,long>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="c3cuppointstable" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="wcaid" type="xs:string" />
+        <xs:element name="competitionid" type="xs:string" />
+        <xs:element name="competitionname" type="xs:string" />
+        <xs:element name="personname" type="xs:string" />
+        <xs:element name="year" type="xs:anyType" />
+        <xs:element name="month" type="xs:anyType" />
+        <xs:element name="day" type="xs:anyType" />
+        <xs:element name="points" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="resultstable" >
+      <xs:sequence>
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="competitionid" type="xs:string" />
+        <xs:element name="eventid" type="xs:string" />
+        <xs:element name="personid" type="xs:string" />
+        <xs:element name="personname" type="xs:string" />
+        <xs:element name="pos" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="competitionstable" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="day" type="xs:anyType" />
+        <xs:element name="month" type="xs:anyType" />
+        <xs:element name="year" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="personstable" >
+      <xs:sequence>
+        <xs:element name="wcaid" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="c3competitionstable" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="c3cup" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="resultstableid" >
+      <xs:sequence>
+        <xs:element name="/***/serialversionuid" type="xs:long" />
+        <xs:element name="competitionid" type="xs:string" />
+        <xs:element name="eventid" type="xs:string" />
+        <xs:element name="personid" type="xs:string" />
+        <xs:element name="pos" type="xs:anyType" />
+        <xs:element name="hash" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="c3userstable" >
+      <xs:sequence>
+        <xs:element name="username" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="token" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="restapi" >
+      <xs:sequence>
+        <xs:element name="c3competitions" type="c3competitionsservice" nillable="true" minOccurs="0" />
+        <xs:element name="users" type="usersservice" nillable="true" minOccurs="0" />
+        <xs:element name="c3cup" type="c3cupservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="web" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

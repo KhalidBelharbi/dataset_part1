@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="rewardsservicetest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="rewardsservice" nillable="true" minOccurs="0" />
+        <xs:element name="mock" type="customerservice" nillable="true" minOccurs="0" />
+        <xs:element name="mock" type="orderservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="orderadaptertest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="orderadapter" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="customeradaptertest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="customeradapter" nillable="true" minOccurs="0" />
+        <xs:element name="mock" type="orderadapter" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="orderadapter" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="customeradapter" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="orderadapter" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="auditentitylistener" >
+      <xs:sequence>
+        <xs:element name="app_name" type="xs:string" />
+        <xs:element name="employee_id" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="customerentity" >
+      <xs:complexContent>
+       <xs:extension base="auditentity">
+         <xs:sequence>
+          <xs:element name="customerid" type="xs:long" />
+          <xs:element name="firstname" type="xs:string" />
+          <xs:element name="lastname" type="xs:string" />
+          <xs:element name="phonenumber" type="xs:string" />
+          <xs:element name="orderentities" type="orderentity" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="orderentity" >
+      <xs:complexContent>
+       <xs:extension base="auditentity">
+         <xs:sequence>
+          <xs:element name="orderid" type="xs:long" />
+          <xs:element name="customerid" type="xs:long" />
+          <xs:element name="date" type="xs:anyType" />
+          <xs:element name="amount" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="auditentity" >
+      <xs:sequence>
+        <xs:element name="createdby" type="xs:string" />
+        <xs:element name="createmodule" type="xs:string" />
+        <xs:element name="createtimestamp" type="xs:anyType" />
+        <xs:element name="updatedby" type="xs:string" />
+        <xs:element name="updatemodule" type="xs:string" />
+        <xs:element name="updatetimestamp" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="order" >
+      <xs:sequence>
+        <xs:element name="orderid" type="xs:long" />
+        <xs:element name="customerid" type="xs:long" />
+        <xs:element name="date" type="xs:anyType" />
+        <xs:element name="amount" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rewards" >
+      <xs:sequence>
+        <xs:element name="points" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="customer" >
+      <xs:sequence>
+        <xs:element name="customerid" type="xs:long" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+        <xs:element name="phonenumber" type="xs:string" />
+        <xs:element name="orders" type="order" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="customernotfoundexception" >
+      <xs:complexContent>
+       <xs:extension base="runtimeexception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ordernotfoundexception" >
+      <xs:complexContent>
+       <xs:extension base="runtimeexception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="globalcontrollerexceptionhandler" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rewardscontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="rewardsservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="customercontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="customerservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ordercontroller" >
+      <xs:sequence>
+        <xs:element name="service" type="orderservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="customerrewards" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="orderrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<orderentity,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="customerrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<customerentity,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="orderservice" >
+      <xs:sequence>
+        <xs:element name="repository" type="orderrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="orderadapter" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="rewardsservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="customerservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="orderservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="customerservice" >
+      <xs:sequence>
+        <xs:element name="repository" type="customerrepository" nillable="true" minOccurs="0" />
+        <xs:element name="adapter" type="customeradapter" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

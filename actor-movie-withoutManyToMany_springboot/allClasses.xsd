@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="actorcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="actorservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="actorrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="moviecontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="movieservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="movierepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="movieactorrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="actorrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="directorcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="directorservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="directorrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="actormovieapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="movieresponse" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="directorid" type="xs:long" />
+        <xs:element name="movietitle" type="xs:string" />
+        <xs:element name="actors" type="actor" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="movierequest" >
+      <xs:sequence>
+        <xs:element name="directorid" type="xs:long" />
+        <xs:element name="movietitle" type="xs:string" />
+        <xs:element name="actorid" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="directorrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<director,long>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="actorrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<actor,long>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="movieactorrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<movieactor,long>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="movierepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<movie,long>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="directorservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="directorrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="actorservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="actorrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="movierepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="movieservice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="movierepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="actorrepository" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="movieactorrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="movieactorid" >
+      <xs:sequence>
+        <xs:element name="movieid" type="xs:long" />
+        <xs:element name="actorid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="movieactor" >
+      <xs:sequence>
+        <xs:element name="movieid" type="xs:long" />
+        <xs:element name="actorid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="director" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+        <xs:element name="nationality" type="xs:string" />
+        <xs:element name="dob" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="actor" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+        <xs:element name="nationality" type="xs:string" />
+        <xs:element name="dob" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="movie" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="directorid" type="xs:long" />
+        <xs:element name="movietitle" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="application" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="actormovieapplicationtests" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

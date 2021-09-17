@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="groupingviewrecord" >
+      <xs:sequence>
+        <xs:element name="view" type="xs:anyType" />
+        <xs:element name="level" type="groupinglevelrecord" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="groupinglinkrecord" >
+      <xs:sequence>
+        <xs:element name="from" type="groupinglevelrecord" nillable="true" minOccurs="0" />
+        <xs:element name="to" type="groupinglevelrecord" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="groupinglevelrecord" >
+      <xs:sequence>
+        <xs:element name="strategy" type="xs:anyType" />
+        <xs:element name="name" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="groupingviewrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<groupingviewrecord,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="groupinglevelrepository" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<groupinglevelrecord,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="groupingapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="tables" >
+      <xs:sequence>
+        <xs:element name="grouping_level" type="xs:string" />
+        <xs:element name="grouping_view" type="xs:string" />
+        <xs:element name="grouping_link" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="groupingconfig" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="groupingrepositorytest" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="groupinglevelrepository" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

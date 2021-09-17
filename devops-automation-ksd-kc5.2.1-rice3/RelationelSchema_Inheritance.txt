@@ -1,0 +1,19 @@
+
+maintenancelock(serialversionuid:long, lockid:String [PK], lockingrepresentation:String, documentnumber:String);
+
+maintenancedocumentbase(serialversionuid:long, log:org.apache.log4j.Logger, maintainable_impl_class:String, old_maintainable_tag_name:String, new_maintainable_tag_name:String, maintenance_action_tag_name:String, notes_tag_name:String, xmldocumentcontents:String, attachment:DocumentAttachment #FK to(documentattachment));
+
+maintenancedocumentbase_list<multidocumentattachment>(maintenancedocumentbaseID:maintenancedocumentbase [PK] #FK to maintenancedocumentbase,list<multidocumentattachment>ID:list<multidocumentattachment> [PK] #FK to list<multidocumentattachment>);
+
+documentattachment(serialversionuid:long, documentnumber:String [PK]);
+
+adhocrouteworkgroup(serialversionuid:long);
+
+sessiondocument(serialversionuid:long, documentnumber:String [PK], sessionid:String [PK], lastupdateddate:Timestamp, serializeddocumentform:byte, encrypted:boolean, principalid:String [PK], ipaddress:String [PK]);
+
+multidocumentattachment(serialversionuid:long, id:String [PK], documentnumber:String);
+
+documentheader(documentnumber:String [PK], documentdescription:String, organizationdocumentnumber:String, documenttemplatenumber:String, explanation:String);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

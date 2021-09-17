@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="jwtfilter" >
+      <xs:complexContent>
+       <xs:extension base="handlerinterceptoradapter">
+         <xs:sequence>
+          <xs:element name="" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="applicationconfig" >
+      <xs:complexContent>
+       <xs:extension base="webmvcconfigurationsupport">
+         <xs:sequence>
+          <xs:element name="" type="jwtfilter" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="frienddao" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<friend,string>,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="nofrienddao" >
+      <xs:complexContent>
+       <xs:extension base="jparepository<nofriend,string>,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="friend" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="userid" type="xs:string" />
+        <xs:element name="friendid" type="xs:string" />
+        <xs:element name="islike" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="nofriend" >
+      <xs:sequence>
+        <xs:element name="serialversionuid" type="xs:long" />
+        <xs:element name="userid" type="xs:string" />
+        <xs:element name="friendid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="baseexceptionhandler" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="friendcontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="xs:anyType" />
+        <xs:element name="GeneratedName" type="friendserevice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="friendserevice" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="frienddao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="nofrienddao" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="springsecurityconfig" >
+      <xs:complexContent>
+       <xs:extension base="websecurityconfigureradapter">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="friendapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

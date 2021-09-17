@@ -1,0 +1,15 @@
+
+usuario(id:Integer [PK], login:String, senha:String, nome:String, email:String);
+
+tab_acesso_usuario_perfil(id_usuario:Usuario [PK] #FK to Usuario,id_perfil:list<perfil> [PK] #FK to list<perfil>);
+
+permissao(serialversionuid:long, id:String [PK], funcionalidade:String, acao:String);
+
+perfil(id:Integer [PK], nome:String, externo:Boolean);
+
+tab_acesso_perfil_permissao(id_perfil:Perfil [PK] #FK to Perfil,id_permissao:list<permissao> [PK] #FK to list<permissao>);
+
+funcionalidade(serialversionuid:long, id:String [PK], nome:String, idmodulo:String, externa:boolean);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

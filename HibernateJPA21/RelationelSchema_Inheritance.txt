@@ -1,0 +1,3179 @@
+any(id:long [PK], prop:String);
+
+in(id:long [PK], prop:String);
+
+db2390dialecttestcase();
+
+mergecontexttest(session:EventSource);
+
+annotationentity(_id:Long [PK]);
+
+getandisvariantgetterwithtransientannotationtest();
+
+item(itemnumber:int [PK]);
+
+order(ordernumber:int [PK]);
+
+getandisvariantgettertest(ssr:StandardServiceRegistry);
+
+irrelevantentity(id:Integer [PK], name:String);
+
+sickness(begintime:Date, type:String [PK], classification:String [PK]);
+
+article(id:Integer [PK], GeneratedName:Author #FK to(Author));
+
+umbrella(id:PK, size:int);
+
+author(id:Integer [PK]);
+
+book(id:Long [PK], name:String);
+
+order(id:Long [PK], GeneratedName:Customer #FK to(Customer), version:long);
+
+customer(id:Long [PK], version:long);
+
+cat(log:Logger, //usedforassertionsids:List, //usedforassertionspostversion:int, id:Integer [PK], name:String, ofbirth:Date, length:long, lastup:Date, manualversion:int);
+
+
+
+
+
+person(id:Long [PK]);
+
+employee(id:long [PK]);
+
+employee_Manager(employeeID:employee [PK] #FK to employee,ManagerID:Manager [PK] #FK to Manager);employee_Employee(employeeID:employee [PK] #FK to employee,EmployeeID:Employee [PK] #FK to Employee);
+
+basicentitygraphtests();
+
+course(id:int [PK], name:String);
+
+entitygraphtest();
+
+location(id:long [PK], address:String, zip:int);
+
+manager();
+
+loadgraphfindbyidtest();
+
+student(id:int [PK], name:String);
+
+student_courses(id:Student [PK] #FK to Student,id:Course [PK] #FK to Course);
+
+entitygraphusingfetchgraphtest();
+
+entitygraphloadplanbuildertest();
+
+foo2(id:long [PK], GeneratedName:Foo #FK to(Foo));
+
+bar(id:long [PK]);
+
+foo();
+
+company(id:long [PK], GeneratedName:Location #FK to(Cat), markets:Set<Market>, phonenumbers:Set<String>);
+
+item(name:String [PK], descr:String, intval:Integer);
+
+rythm(id:Integer [PK]);
+
+remotecontrol(id:Integer [PK], creation:Date);
+
+plant(id:String [PK], name:String);
+
+translation(id:Integer [PK], into:String);
+
+employee(title:String, salary:BigDecimal, manager:Employee #FK to(Employee));
+
+person(id:long [PK], name:String, address:String, zip:String, country:String, sex:char);
+
+countrychecker();
+
+videosystem(transientcounter:int);
+
+television(id:Integer [PK], control:RemoteControl #FK to(RemoteControl), name:String);
+
+customer(salesperson:Employee #FK to(Employee), comments:String);
+
+communicationsystem(communication:int, isfirst:boolean, islast:boolean);
+
+productattribute(owner:String [PK]);
+
+company(id:Long [PK]);
+
+
+
+
+
+product1(overridenname:String);
+
+product2();
+
+soldier2(id:Integer [PK], name:String, troop:Troop2 #FK to(Troop));
+
+song(id:Long [PK], GeneratedName:Author #FK to(Author));
+
+teacher(id:Long [PK], name:String, favorite:Student #FK to(Student));
+
+detachandcontainstest();
+
+extractiondocument(id:Long [PK], body:byte, documentinfo:ExtractionDocumentInfo #FK to(In));
+
+troop(id:Integer [PK], name:String);
+
+bottom(id:Long [PK], GeneratedName:Middle #FK to(Middle));
+
+top(id:Long [PK]);
+
+middle(id:Long [PK], GeneratedName:Top #FK to(Top), GeneratedName:Bottom #FK to(Bottom));
+
+troop2(/*fails:*/id:Integer [PK], name:String);
+
+son(id:Integer [PK], GeneratedName:Parent #FK to(E));
+
+student(id:Long [PK], name:String, primary:Teacher #FK to(Teacher), favorite:Teacher #FK to(Teacher));
+
+soldier(id:Integer [PK], name:String, GeneratedName:Troop);
+
+author(id:Long [PK]);
+
+mergewithtransientnoncascadedassociationtest();
+
+mergetest();
+
+parent(id:Integer [PK]);
+
+conference(id:Long [PK], GeneratedName:Date, extractiondocument:ExtractionDocumentInfo #FK to(In));
+
+grandson(id:Integer [PK], parent:Son #FK to(Son));
+
+extractiondocumentinfo(id:Long [PK], lastmodified:Date, GeneratedName:Conference);
+
+testentity(id:long [PK]);
+
+twopersistenceunits2lcdisabledenabled();
+
+unlisteddatapoint(id:long [PK]);
+
+datapoint(id:long [PK]);
+
+kitten(id:Integer [PK], name:String);
+
+distributor(id:Integer [PK], name:String);
+
+account(id:Long [PK], name:String, regioncode:String);
+
+accountgroup(id:Long [PK]);
+
+temporaltypetest();
+
+imagereader(id:long [PK], image:Blob, text:Clob);
+
+unversionedlock(id:Integer [PK], name:String);
+
+person(id:Long [PK], parent:Person #FK to(Person));
+
+lock(id:Integer [PK], version:Integer, name:String);
+
+lockable(id:Integer [PK], version:Integer, name:String);
+
+querylockingtest();
+
+pasta(id:Integer [PK], type:String);
+
+modernentity(id:int [PK], foo:int);
+
+nestedlegacyentity(primitivepk1:LegacyEntity [PK] #FK to(Entity), id:ModernEntity [PK] #FK to(Entity));
+
+legacyentity(primitivepk1:int [PK], primitivepk2:int [PK], foo:String);
+
+alias(id:String [PK], alias:String, noop:Customer);
+
+fks_anoop_cnoop(fk2_for_alias_table:Alias [PK] #FK to Alias,fk8_for_customer_table:Customer [PK] #FK to Customer);fks_alias_customer(fk_for_alias_table:Alias [PK] #FK to Alias,fk_for_customer_table:Customer [PK] #FK to Customer);
+
+address(id:String [PK], street:String, city:String, state:String, zip:String);
+
+spouse(id:String [PK], first:String, maiden:String, last:String, snumber:String, GeneratedName:Info, GeneratedName:Customer);
+
+product(id:String [PK], name:String, price:double, rating:float, quantity:int, partnumber:long, some:BigInteger, some:BigDecimal, warehouse:String, GeneratedName:ShelfLife);
+
+entity2(id:long [PK], GeneratedName:Entity3 #FK to(Entity), value:String);
+
+entity3(id:long [PK], value:String);
+
+translation(id:Integer [PK], title:String, text:String);
+
+article(id:Integer [PK]);
+
+mixedidandidclasshandling();
+
+order(id:String [PK], totalprice:double, GeneratedName:Customer, GeneratedName:CreditCard, sample:LineItem, domen:char, number:byte);
+
+lineitem(id:String [PK], quantity:int, GeneratedName:Order, GeneratedName:Product);
+
+mapentity(key:String [PK], localized:Map<String,MapEntityLocal>);
+
+phone(id:String [PK], area:String, number:String, GeneratedName:Address, types:Set<Type>);
+
+entity1(id:long [PK], GeneratedName:Entity2 #FK to(Entity), value:String);
+
+creditcard(id:String [PK], number:String, type:String, expires:String, approved:boolean, balance:double, GeneratedName:Order, GeneratedName:Customer);
+
+somemappedsuperclasssubclass(thedata:String);
+
+thingwithquantity(quantity:int);
+
+info(id:String [PK], street:String, city:String, state:String, zip:String, GeneratedName:Spouse);
+
+customer(id:String [PK], name:String, age:Integer, home:Address #FK to(Address), work:Address #FK to(Address), GeneratedName:Country, GeneratedName:Spouse);
+
+thing(id:String [PK], name:String);
+
+versionedentity(id:String [PK], name:String, version:int);
+
+person(firstname:String, lastname:String);
+
+superclasscollectiontest();
+
+mapjointestwithembeddable();
+
+treatkeywordtest();
+
+user(id:Long [PK], roles:Set<Role>);
+
+human();
+
+payment(id:Long [PK], amount:BigDecimal, GeneratedName:Date);
+
+concattest();
+
+wall(id:Long [PK], width:long, height:long, color:String, left:Wall #FK to(Wall), right:Wall #FK to(Wall));
+
+
+
+mappedsuperclasscomponentwithcollectiontest(GeneratedName:Projects);
+
+componentinwhereclausetest(GeneratedName:Projects);
+
+manytoonetype(id:Long [PK], value:String);
+
+client(id:int [PK], GeneratedName:Name);
+
+entitysuperclasscomponentwithcollectiontest(GeneratedName:Projects);
+
+alias(id:Long [PK], GeneratedName:Name, source:String);
+
+multitypedbasicattributesentity(id:Long [PK], somes:byte, somewrappeds:Byte);
+
+criterialiteralstest(connectionprovider:PreparedStatementSpyConnectionProvider);
+
+criterialiteralinselectexpressiontest();
+
+subject(id:long [PK], name:String);
+
+person(id:long [PK], GeneratedName:Subject #FK to(B));
+
+entitysuperclasscollectiontest();
+
+treatjointest();
+
+basicsimplecasetest();
+
+orderline(id:OrderLineId, GeneratedName:Product, purchase_org_id:Order #FK to(Order));
+
+site(serialversionuid:long, id:Long [PK], name:String, GeneratedName:Customer);
+
+facility(serialversionuid:long, id:Long [PK], name:String, GeneratedName:Site, GeneratedName:Customer);
+
+order(id:OrderId, GeneratedName:PurchaseOrg);
+
+product(id:ProductId [PK], number:String, GeneratedName:Facility);
+
+customer(id:Long [PK], name:String);
+
+purchaseorg(serialversionuid:long, id:Long [PK], name:String, GeneratedName:Customer);
+
+purchase_facility(purchase_org_id:PurchaseOrg [PK] #FK to PurchaseOrg,facility_id:F [PK] #FK to F);
+
+treatlistjointest();
+
+widget(code:String [PK], division:String [PK], cost:Double);
+
+tool(cost:Double);
+
+limitexpressiontest();
+
+elephant();
+
+cupholder(id:Integer [PK], radius:BigDecimal, title:String);
+
+wallet(serial:String [PK], model:String, marketentrance:Date, brand:String);
+
+document(id:Long [PK], name:String);
+
+schemacreatedroputf8withouthbm2ddlcharsetnametest(createschema:File, dropschema:File, GeneratedName:EntityManagerFactoryBuilder);
+
+schemascriptfilegenerationtest(createschema:File, dropschema:File, GeneratedName:EntityManagerFactoryBuilder);
+
+item(name:String [PK], descr:String);
+
+incident(id:String [PK], GeneratedName:IncidentStatus #FK to(In));
+
+incidentstatus(id:String [PK], GeneratedName:Incident #FK to(In));
+
+oven(id:Long [PK], GeneratedName:Kitchen #FK to(C));
+
+kitchen(id:Long [PK], GeneratedName:Oven #FK to(E));
+
+entitymanagerdeserializationtest();
+
+scooter(model:String [PK], speed:Long);
+
+applicationserver1(id:Integer [PK], name:String, version:Version1);
+
+money1(id:Integer [PK]);
+
+bug(id:Long [PK], subject:String, comment:String);
+
+washer();
+
+bug(id:Long [PK], subject:String, comment:String);
+
+morito(id:Integer [PK], power:String);
+
+caipirinha(id:Integer [PK], name:String);
+
+applicationserver(id:Integer [PK], name:String, GeneratedName:Version);
+
+money(id:Integer [PK]);
+
+carpet(id:Integer [PK] #FK to Pet, id:Integer [PK], country:String);
+
+money(id:Integer [PK]);
+
+applicationserver(id:Integer [PK], name:String, GeneratedName:Version);
+
+transactionrollbacktest();
+
+book(id:Integer [PK], name:String, version:Integer);
+
+closeentitymanagerwithactivetransactiontest();
+
+fruit(id:Long [PK]);
+
+strawberry(size:Long);
+
+testconnectionpool(connection_pool_size:int);
+
+entitywithcompositeid(id:CompositeId, description:String);
+
+simpleentity(id:Long [PK], name:String);
+
+explicitlycacheableentity(id:Long [PK], name:String);
+
+explicitlynoncacheableentity(id:Long [PK], name:String);
+
+nocacheableannotationentity(id:Long [PK], name:String);
+
+order(id:int [PK], total:int);
+
+dress(name:String [PK]);
+
+dog(numbones:int);
+
+music(id:Integer [PK], name:String, version:Integer);
+
+cat(lives:int);
+
+empire(id:Long [PK]);
+
+colony(id:Long [PK]);
+
+decorate(id:int [PK], name:String, GeneratedName:Pet);
+
+hoarder(id:Long [PK], name:String, favorite:Item #FK to(Item));
+
+category(id:Long [PK], name:String, example:Item #FK to(Item), version:int);
+
+b3(id:int [PK], GeneratedName:A #FK to(A));
+
+c2(id:int [PK], GeneratedName:B2 #FK to(B));
+
+b2(id:int [PK], GeneratedName:A #FK to(A));
+
+b4(id:int [PK], GeneratedName:A #FK to(A));
+
+b1(id:int [PK], GeneratedName:A #FK to(A));
+
+c1(id:int [PK], GeneratedName:B1 #FK to(B));
+
+a(id:int [PK], name:String);
+
+mail(id:Long [PK], from:String);
+
+competitor(id:Integer [PK], name:String);
+
+race(id:Integer [PK], name:String);
+
+competition(id:Integer [PK]);
+
+competition_competitor(Competition_ID:Competition [PK] #FK to Competition,C_ID:C [PK] #FK to C);
+
+pet(id:int [PK], name:String, weight:double);
+
+item(id:Long [PK], version:int, name:String, GeneratedName:Category #FK to(Cat));
+
+musician(id:Integer [PK], name:String, favourite:Music);
+
+music(id:Integer [PK], version:Integer, name:String);
+
+instrument(id:int [PK], name:String, GeneratedName:Type);
+
+storedprocedurenullparameterbynametest(GeneratedName:EntityManagerFactory);
+
+user(id:int [PK], name:String);
+
+hsqlstoreproceduretest(GeneratedName:EntityManagerFactory);
+
+storeprocedurerefcursoroutparameterbypositiontest(GeneratedName:EntityManagerFactory);
+
+storeprocedurerefcursoroutparameterbynametest(GeneratedName:EntityManagerFactory);
+
+datetimeparametertest(entitymanagerfactory:HibernateEntityManagerFactory, nowcal:GregorianCalendar, now:Date);
+
+storeprocedureoutparameterbypositiontest(GeneratedName:EntityManagerFactory);
+
+h2storeproceduretest();
+
+storeprocedureoutparameterbynametest(GeneratedName:EntityManagerFactory);
+
+storedprocedureresultsetmappingtest();
+
+article(id:Integer [PK], name:String, next:Article);
+
+article(id:Integer [PK], name:String, next:Article);
+
+employee(id:Long [PK], name:String, /*@embedded@attributeoverrides({@attributeoverride(name:Address, /*@embedded@attributeoverrides({@attributeoverride(name:Address);
+
+employee(id:Long [PK], name:String, /*@embedded@attributeoverrides({@attributeoverride(name:Address, /*@embedded@attributeoverrides({@attributeoverride(name:Address);
+
+workload(id:Integer [PK], name:String, load:Integer);
+
+removeorderingtest();
+
+mammal(mamalnbr:int);
+
+reptile(temperature:float);
+
+containstest();
+
+animal(name:String, id:Long [PK]);
+
+deletesharedonetomanyorphanstest(1alongwiththeinitializationoftheitem#higheritemrelations	collectioncausestheissue	*/batch_fetch_size:String);
+
+feature(id:Long [PK], GeneratedName:Product #FK to(Product), name:String);
+
+product(id:Long [PK], name:String);
+
+tranche(id:Long [PK], GeneratedName:Tranchenmodell #FK to(C), GeneratedName:Y #FK to(Y));
+
+x(id:Long [PK], GeneratedName:Tranchenmodell #FK to(C));
+
+y(id:Long [PK], GeneratedName:Tranche #FK to(C));
+
+tranchenmodell(id:Long [PK], GeneratedName:Preisregelung #FK to(G), GeneratedName:X #FK to(X));
+
+preisregelung(id:Long [PK], GeneratedName:Tranchenmodell #FK to(C));
+
+a(id:Integer [PK], GeneratedName:B);
+
+
+
+event(id:Long [PK], name:String);
+
+basiccditest(emf:EntityManagerFactory, utx:UserTransaction, count:int);
+
+cable(id:Integer [PK], name:String);
+
+bell(id:Integer [PK]);
+
+testlazypropertyonpreupdate(entity:EntityWithLazyProperty);
+
+employee(id:Long [PK], name:String, salary:Double);
+
+nativequeryordinalparameterstest(game_titles:String);
+
+querywithliteralsinselectexpressiontest();
+
+namedquerytest(game_titles:String);
+
+tuplequerytest();
+
+datetimeparametertest(nowcal:GregorianCalendar, now:Date);
+
+constructorresultnativequerytest();
+
+contractor(company:String);
+
+queryparametersvalidationtest();
+
+tuplenativequerytest();
+
+limitexpressiontest();
+
+queryparameterswithdisabledvalidationtest();
+
+oracleconstructorresultnativequerytest();
+
+scalarresultnativequerytest();
+
+querywithinparamlistandnamedentitygraphtest();
+
+typedvalueparameterstest(docid:int);
+
+parent(id:Integer [PK]);
+
+child(id:Integer [PK], daddy:Parent #FK to(E));
+
+employeewithrawtype(id:String [PK], name:String);
+
+flower(id:Long [PK], name:String);
+
+fridge(id:Long [PK], brand:String, temperature:int);
+
+house(GeneratedName:Key, GeneratedName:Address, rooms:Set<Room>, roomsbyname:Map<String,Room>, roomsbysize:List<Room>);
+
+person(firstname:String [PK], lastname:String [PK], age:Short);
+
+withgenericcollection(id:String [PK], d:double, parent:WithGenericCollection<? extends Object> #FK to(B));
+
+joinedmanytooneowner(id:Long [PK], GeneratedName:House);
+
+cat(nickname:String);
+
+dog(name:String);
+
+deskwithrawtype(id:String [PK], name:String);
+
+desk_empl(desk_fk:DeskWithRawType [PK] #FK to DeskWithRawType,empl_fk:C [PK] #FK to C);
+
+feline(color:String);
+
+simplemedicalhistory(lastup:Date, patient:SimplePerson [PK] #FK to(Person));
+
+parent(id:Integer [PK], name:String, siblings:Relatives<Child>);
+
+child(id:Integer [PK], name:String);
+
+fooditem(id:Long [PK], name:String, version:Long);
+
+simpleperson(ssn:String [PK]);
+
+garden(id:Long [PK], name:String);
+
+giant(height:long);
+
+conversionautoapplytest();
+
+querytest(salary:float);
+
+phone(id:Integer [PK], brandname:String, price:float);
+
+columnwithexplicitreferencetoprimarytabletest();
+
+unidirectionalonetomanyordercolumntest();
+
+searchedcaseexpressiontest();
+
+generatedvaluetest();
+
+quotedidentifiertest();
+
+child(id:Long [PK], GeneratedName:Parent);
+
+parent(id:Long [PK]);
+
+abstractskiplockedtest();
+
+door(id:Integer [PK], name:String);
+
+locknonewarmingtest(GeneratedName:Triggerable, loginspection:LoggerInspectionRule);
+
+a(id:Long [PK], value:String);
+
+library(entid:int [PK]);
+
+product(entid:int [PK], inventorycode:String);
+
+book(isbn:String, GeneratedName:Library #FK to(B));
+
+book(isbn:String, GeneratedName:Library #FK to(B));
+
+product(entid:int [PK], inventorycode:String);
+
+library(entid:int [PK]);
+
+library(entid:int [PK]);
+
+product(entid:int [PK], inventorycode:String);
+
+book(isbn:String, GeneratedName:Library #FK to(B));
+
+classwithidentitycolumn(id:long [PK], name:String);
+
+group(id:Integer [PK], name:String);
+
+identificationvariablestest();
+
+destinationentity(id:Integer [PK], from:FromEntity #FK to(Entity), fullnamefrom:String);
+
+fromentity(id:Integer [PK], name:String, lastname:String);
+
+treatkeywordtest();
+
+item(id:Long [PK], price:BigDecimal, description:String, quantity:Integer);
+
+onetooneeagerorphanremovaltest();
+
+onetoonelazynonoptionalorphanremovaltest();
+
+onetoonelazyorphanremovaltest();
+
+onetooneeagernonoptionalorphanremovaltest();
+
+inheritancemanytomanyforeignkeytest();
+
+manytomanyowner(id:Integer [PK], name:String);
+
+none(none:ManyToManyOwner [PK] #FK to ManyToManyOwner,none:Any [PK] #FK to Any);
+
+manytomanytarget(id:Integer [PK], name:String);
+
+parent(id:Long [PK], GeneratedName:Child #FK to(C));
+
+child(GeneratedName:Parent [PK] #FK to(E));
+
+event(description:String);
+
+otherentity(id:String [PK]);
+
+ablockableentity(id:Long [PK], //wehavetwoone-to-oneassociationstomakesureparent_idisn'tconsideredaspartofthistableregardingduplicatemappingsother:OtherEntity #FK to(Entity), other2:ABlockableEntity #FK to(Entity), //twomany-to-onestomakesurethatstillworksinthisscenariomanytoone1:OtherEntity #FK to(Entity), manytoone2:ABlockableEntity #FK to(Entity));
+
+message(description:String);
+
+quotetest();
+
+user(id:long [PK], //theseexistsolelyforhhh-8464toensurethatthevariousformsofquotingarenormalizedinternally//(usingbackticks),includingthejoincolumn.withoutnormalization,themappingwillthrowa//duplicatemappingexception.:House #FK to(E), house1:Long, house2:Long, //testukonfkw/globalquoting--seehhh-8638//thismustbeinitialized.severaldbsdonotallowmultiplenullvaluesinauniquecolumn.3:House #FK to(E));
+
+user_E(userID:user [PK] #FK to user,EID:E [PK] #FK to E);
+
+person(id:long [PK], name:String);
+
+tablegeneratorquotingtest(serviceregistry:StandardServiceRegistry);
+
+columndefinitionquotingtest();
+
+role(id:long [PK]);
+
+phone(id:Integer [PK], brandname:String, price:float);
+
+house(id:Long [PK], streetaddress:String);
+
+onetooneeagerorphanremovaltest();
+
+onetoonelazyorphanremovaltest();
+
+onetooneeagernonoptionalorphanremovaltest();
+
+onetoonelazynonoptionalorphanremovaltest();
+
+preisregelung(id:Long [PK], GeneratedName:Tranchenmodell #FK to(C));
+
+tranchenmodell(id:Long [PK], GeneratedName:Preisregelung #FK to(G));
+
+tranche(id:Long [PK], GeneratedName:Tranchenmodell #FK to(C));
+
+tranchenmodell(id:Long [PK], GeneratedName:Preisregelung #FK to(G), GeneratedName:X #FK to(X));
+
+x(id:Long [PK], GeneratedName:Tranchenmodell #FK to(C));
+
+preisregelung(id:Long [PK], GeneratedName:Tranchenmodell #FK to(C));
+
+y(id:Long [PK], GeneratedName:Tranche #FK to(C));
+
+tranche(id:Long [PK], GeneratedName:Tranchenmodell #FK to(C), GeneratedName:Y #FK to(Y));
+
+product(id:Long [PK], name:String);
+
+feature(id:Long [PK], GeneratedName:Product #FK to(Product), name:String);
+
+mixedfieldpropertyannotationtest(GeneratedName:ServiceRegistry, metadata:MetadataImplementor);
+
+schemadroptest(GeneratedName:ServiceRegistry, metadata:MetadataImplementor);
+
+schemaupdatedelimitertest(expected_delimiter:String);
+
+columnnamestest(jdbcmetadataextractorstrategy:String, ssr:StandardServiceRegistry, GeneratedName:Metadata, output:File);
+
+postgresqlmultipleschemasequencetest(output:File);
+
+schemaupdatesqlservertest(log:Logger, jdbcmetadataextractorstrategy:String, output:File, ssr:StandardServiceRegistry, metadata:MetadataImplementor);
+
+connectionsreleasetest(ssr:StandardServiceRegistry, metadata:MetadataImplementor, connectionprovider:ConnectionProviderDecorator);
+
+migrationtest(GeneratedName:ServiceRegistry);
+
+schemaupdatetest(skiptest:boolean, jdbcmetadataextractorstrategy:String, output:File, ssr:StandardServiceRegistry, metadata:MetadataImplementor);
+
+schemaexportwithglobalquotingenabledtest(GeneratedName:ServiceRegistry, metadata:MetadataImplementor);
+
+schemamigratorhaltonerrortest();
+
+componentindextest(ssr:StandardServiceRegistry, GeneratedName:Metadata);
+
+element(id:Long [PK], code:String);
+
+category();
+
+
+
+step(id:Integer [PK], parent:Step #FK to(E));
+
+schemaupdateschemanametest();
+
+schemaupdatehaltonerrortest(output:File, ssr:StandardServiceRegistry, metadata:MetadataImplementor);
+
+schemaupdategeneratingonlyscriptfiletest();
+
+schemaupdateproceedonerrortest();
+
+schemaupdateformattertest(after_format:String, delimiter:String);
+
+tablecommenttest(output:File);
+
+project(id:Long [PK]);
+
+foreignkeydefinitiononetoonetest();
+
+foreignkeydefinitionsecondarytabletest();
+
+foreignkeydefinitiononetomanyjointabletest();
+
+foreignkeydefinitionmanytoonetest();
+
+joinedinheritanceforeignkeytest(output:File, ssr:StandardServiceRegistry, metadata:MetadataImplementor);
+
+usersetting(id:long [PK], GeneratedName:User #FK to(E));
+
+phone(id:Long [PK], number:String);
+
+schemaupdatewithkeywordautoquotingenabledtest(ssr:StandardServiceRegistry, metadata:MetadataImplementor);
+
+foreignkeymigrationtest();
+
+schematwoentity(id:String [PK]);
+
+schemaoneentity(id:String [PK]);
+
+group(id:Long [PK]);
+
+employee(id:Long [PK]);
+
+employee_project(employee_id:Employee [PK] #FK to Employee,project_id:C [PK] #FK to C);
+
+user(id:long [PK], GeneratedName:UserSetting #FK to(In));
+
+person(id:Long [PK]);
+
+quotedtablenameschemaupdatetest(output:File, ssr:StandardServiceRegistry);
+
+testfkupdating(GeneratedName:ServiceRegistry, metadata:MetadataImplementor);
+
+schemaupdatewithviewstest(GeneratedName:ServiceRegistry, metadata:MetadataImplementor);
+
+sequencereadingtest();
+
+implicitcompositekeyjointest(GeneratedName:Logger);
+
+schemaupdatewithfunctionindextest(GeneratedName:ServiceRegistry, metadata:MetadataImplementor);
+
+schemaexportwithindexanddefaultschema(GeneratedName:ServiceRegistry, metadata:MetadataImplementor);
+
+schemamigrationtargetscriptcreationtest(output:File);
+
+nationalizedignorecasetest();
+
+identitygeneratorextendstest();
+
+saveentitytest();
+
+sub();
+
+super(id:Long [PK], value:Long);
+
+hilooptimizerconcurrencytest(createschema:boolean, executor:ExecutorService);
+
+queryhinttest();
+
+queryhintsqlserver2012test();
+
+table2(id:long [PK]);
+
+confentity(serialversionuid:long, confkey:String [PK], confvalue:String [PK]);
+
+table1(id:long [PK]);
+
+userconfentity(serialversionuid:long, user:UserEntity [PK] #FK to(Entity), confkey:ConfEntity [PK] #FK to(Entity));
+
+userentity(serialversionuid:long, id:Long [PK], name:String);
+
+persistonlazycollectiontest(receipt_a:String, invoice_a:String, invoiceline_a:String, invoiceline_b:String);
+
+queryparametersvalidationtest();
+
+farm(id:long [PK], name:String, accreditations:Set<Accreditation>);
+
+farm_C(farmID:farm [PK] #FK to farm,CID:C [PK] #FK to C);
+
+joinedsubclasssubquerytest();
+
+person(id:Integer [PK], name:String);
+
+employee(employeenumber:String);
+
+employee(id:Integer [PK], firstname:String, lastname:String, GeneratedName:Title #FK to(E), GeneratedName:Department #FK to(E));
+
+castfunctiontest();
+
+withclausejoinrewritetest();
+
+entityjointest();
+
+parametercollectiontest();
+
+tuplesupporttest(GeneratedName:SessionFactory);
+
+db297substringfunctionstest(GeneratedName:MostRecentStatementInspector);
+
+selectnewembeddedidtest();
+
+castnullselectexpressiontest();
+
+joinonclausetest();
+
+entity1(id:long [PK], GeneratedName:Entity2 #FK to(Entity), value:String);
+
+entity2(id:long [PK], GeneratedName:Entity3 #FK to(Entity), value:String);
+
+entity3(id:long [PK], value:String);
+
+child(id:long [PK], value:String);
+
+grandchild(id:long [PK], value:String);
+
+parent(id:long [PK], value:String);
+
+panel(id:Long [PK], clientid:Long, deltastamp:String);
+
+collectionmapwithcomponentvaluetest(GeneratedName:KeyValue, GeneratedName:EmbeddableValue);
+
+querysplittertest();
+
+scrollabletest();
+
+mapfunctionexpressionstest(querytranslatorfactory:ASTQueryTranslatorFactory);
+
+crop(id:long [PK], name:String);
+
+title(id:Integer [PK], description:String);
+
+sizeattributereferencetest();
+
+coalescetest(GeneratedName:Person);
+
+trtpanel(id:Long [PK], GeneratedName:Panel #FK to(E), clientid:Long, deltastamp:String);
+
+department(deptno:Integer [PK], deptname:String);
+
+subquerytest();
+
+casestatementtest();
+
+customer(id:Integer [PK], version:Integer, name:String, registeredtrademarks:Set<String>, hq:Address, addresses:Set<Address>);
+
+customer_In(customerID:customer [PK] #FK to customer,InID:In [PK] #FK to In);
+
+zipcode(id:Integer [PK], code:String, city:String, GeneratedName:State);
+
+order(id:Integer [PK], referencecode:String, placed:Date, fulfilled:Date, GeneratedName:Customer);
+
+industry(id:Integer [PK], name:String);
+
+category(id:Long [PK]);
+
+category_Item(categoryID:category [PK] #FK to category,ItemID:Item [PK] #FK to Item);
+
+workflow(serialversionuid:long, id:Long [PK], defaultlanguage:Locale, supportedlocales:Set<Locale>, localized:Map<Locale,LocalizedEmbeddable>);
+
+language(id:Long [PK], //@column(unique:String, fallback:Language #FK to(G));
+
+container(id:Integer [PK], items:List<Item>);
+
+componentnamingstrategyforjoincolumntest();
+
+dynamicentity(id:Integer [PK]);
+
+item(id:Long [PK], price:Double, specialprice:Double);
+
+collectionjointablenamingtest();
+
+productentity(pk:Long [PK], description:Map<String,ILocalizable>);
+
+nationalizedlobfieldtest();
+
+usenationalizedchardatasettingtest();
+
+stringnationalizedtest();
+
+simplenationalizedtest();
+
+employee(id:Long [PK], name:String);
+
+employeegroup(id:EmployeeGroupId [PK]);
+
+tooneondeletetest();
+
+uuidbasedidinterpretationtest();
+
+bytearrayidtest();
+
+primitivecharacterarrayidtest();
+
+primitivebytearrayidtest();
+
+characterarrayidtest();
+
+negativevaluesequencetest(loginspection:LoggerInspectionRule);
+
+sequenceexporttest(ssr:StandardServiceRegistry);
+
+legacysequenceexporttest(ssr:StandardServiceRegistry);
+
+optimizertest();
+
+sqlserver2012sequencegeneratorannotationtest();
+
+pooledhilosequenceidentifiertest(log:Logger);
+
+usertypecomparableidtest();
+
+usertypenoncomparableidtest();
+
+doesnotwork(serialversionuid:long, GeneratedName:DoesNotWorkPk, globadditinfotid:Long, globalnotes:List<String>);
+
+selectdistincthqltest(GeneratedName:SQLStatementInterceptor);
+
+alias(id:Integer [PK], alias:String);
+
+character_alias(Alias_ID:Alias [PK] #FK to Alias,C_ID:C [PK] #FK to C);
+
+multiplecollectionrefentity1(id:Long [PK], text:String, GeneratedName:MultipleCollectionEntity #FK to(Entity), multiplecollectionentityid:Long);
+
+character(id:Integer [PK], name:String);
+
+multiplecollectionentity(id:Long [PK], text:String);
+
+multiplecollectionrefentity2(id:Long [PK], text:String, GeneratedName:MultipleCollectionEntity #FK to(Entity), multiplecollectionentityid:Long);
+
+mergelistpreandpostpersisttest();
+
+mergelistpreandpostpersistwithidentitytest();
+
+hibernateunproxytest(log:Logger);
+
+lazyabstractentityreference(id:Integer [PK], entity:AbstractEntity #FK to(Entity));
+
+abstractentity(id:Integer [PK]);
+
+concreteentity(content:String);
+
+proxyreferenceequalitytest();
+
+pageadvertisement(id:Integer [PK]);
+
+advertisement(id:Integer [PK]);
+
+attachment(id:Integer [PK], filename:String, deleted:String);
+
+attachment_E(attachmentID:attachment [PK] #FK to attachment,EID:E [PK] #FK to E);
+
+sessionjdbcbatchtest(connectionprovider:PreparedStatementSpyConnectionProvider, id:long);
+
+proxiedgetloadaccesstest();
+
+basicgetloadaccesstest();
+
+removeorderingtest();
+
+multiloadtest();
+
+qualifiedtablenamingtest();
+
+lazypersistwithdetachedassociationtest();
+
+entityassociationresultsetprocessortest();
+
+encapsulatedcompositeidresultsetprocessortest();
+
+encapsulatedcompositeattributeresultsetprocessortest();
+
+entitywithnonlazycollectionresultsetprocessortest();
+
+entitywithnonlazyonetomanysetresultsetprocessortest();
+
+department(id:Integer [PK]);
+
+contractor(//illustratestheproblematicsituationdescribedinhhh-8330reportsto:Department #FK to(E));
+
+user(id:Integer [PK]);
+
+employee(//illustratestheproblematicsituationdescribedinhhh-8980belongsto:Department #FK to(E));
+
+entitywithnonlazyonetomanylistresultsetprocessortest();
+
+simpleresultsetprocessortest();
+
+basicwalkingtest();
+
+loadplanbuildertest();
+
+tablea(id:int [PK], test:String, test2:String);
+
+tableb(id:TableBId, idcolumn:ATable #FK to(B));
+
+atable(firstid:Integer [PK]);
+
+thing(id:Long [PK], name:String, mutableproperty:Date);
+
+customer(id:Long [PK], name:String);
+
+invoice(id:Long [PK]);
+
+collectioncacheevictionwithoutmappedbytest();
+
+company(id:int [PK], name:String);
+
+bytecodeenhancedimmutablereferencecachetest();
+
+sharedregiontest();
+
+user(id:int [PK], version:int, name:String, GeneratedName:Company #FK to(Any));
+
+refreshupdateddatatest();
+
+cacheditem1();
+
+cacheditem2();
+
+abstractcacheditem(id:Long [PK], name:String);
+
+entityupdatecachemodeignoretest();
+
+itwithpkclass(key1:Integer [PK], key2:Integer [PK], name:String);
+
+it(key1:Integer [PK], key2:Integer [PK], name:String);
+
+referencecachetest();
+
+nonrootentitywithcacheableannotationtest(loginspection:LoggerInspectionRule);
+
+nonrootentitywithcacheannotationtest(loginspection:LoggerInspectionRule);
+
+manytomanycollectioncacheevictiontest();
+
+cacheableitem(id:Long [PK], name:String);
+
+joinedsubclasswithimplicitdiscriminatortest();
+
+joinedsubclasswithignoredexplicitdiscriminatortest();
+
+joinedsubclasswithexplicitdiscriminatortest();
+
+joinedsubclasswithembeddabletest();
+
+parent1(id:Long [PK]);
+
+child2(id:Long [PK]);
+
+child1(id:Long [PK]);
+
+jointablewithdefaultschematest();
+
+synonymvalidationtest(ssr:StandardServiceRegistry);
+
+viewvalidationtest(ssr:StandardServiceRegistry);
+
+tablenameswithunderscoretest();
+
+longvarcharvalidationtest(jdbcmetadataextractorstrategy:String, ssr:StandardServiceRegistry);
+
+entitywithcompositekey(pk:CompositeKey);
+
+entitywithstringcompositekey(pk:StringCompositeKey);
+
+sorttest();
+
+catalogfiltertest(GeneratedName:ServiceRegistry, GeneratedName:Metadata);
+
+sequencefiltertest(serviceregistry:StandardServiceRegistryImpl, GeneratedName:Metadata);
+
+schemafiltertest(serviceregistry:StandardServiceRegistryImpl, GeneratedName:Metadata);
+
+entitya(id:int [PK], name:String);
+
+invalidenumeratedjavatypetest();
+
+proxyinterfaceclassloadertest();
+
+championship(id:int [PK]);
+
+student(id:Long [PK], GeneratedName:School #FK to(C), firstname:String, gpa:int);
+
+school(id:int [PK]);
+
+abstractsequenceinformationextractortest();
+
+hsqltruncfunctiontest();
+
+folder(id:Long [PK], name:String, owner:String);
+
+sqlserverdialecttest();
+
+category(id:Integer [PK], name:String);
+
+oraclefollowonlockingtest(GeneratedName:SQLStatementInterceptor);
+
+sqlserverdialectcollationtest(log:Logger);
+
+sqlserverdialectpaginationtest();
+
+contact(id:Long [PK], type:String, firstname:String, lastname:String, GeneratedName:Folder #FK to(F));
+
+product2(id:Integer [PK], description:String, GeneratedName:Category #FK to(Cat));
+
+onetooneassociationtest();
+
+inheritedattributeassociationtest();
+
+manytomanyassociationtest();
+
+onetomanyassociationtest();
+
+mixedaccesstest(script_engine:ScriptEngine, mapping_function:Function<Map.Entry,String>, cleanup:boolean);
+
+detachedgetidentifiertest();
+
+evictiontest();
+
+compositemergetest(entityid:long);
+
+mergeenhancedentitytest();
+
+initfromcachetest(persister:EntityPersister, documentid:Long);
+
+ondemandloadtest();
+
+otherentityentrycontexttest();
+
+embeddedpktest();
+
+basicenhancementtest();
+
+mappedsuperclasstest();
+
+basicsessiontest();
+
+crossenhancementtest();
+
+extendedassociationmanagementtest();
+
+inheritedtest();
+
+cascadewithfkconstrainttest(garageid,car1id,car2id:String);
+
+cascadedeletetest();
+
+hhh3949test();
+
+lazyloadingintegrationtest(children_size:int, lastchildid:Long);
+
+lazycollectiondeletedtest(postid:Long);
+
+lazyproxyonenhancedentitytest(parentid:Long);
+
+unexpecteddeletetest1(fooid:long);
+
+unexpecteddeletetest2(my:Bar);
+
+unexpecteddeletetest3();
+
+lazyincachetest(orderid:Long);
+
+simplelazygroupupdatetest(really_big_:String);
+
+lazygrouptest();
+
+lazyloadingbyenhancersettertest(,merged:Item);
+
+lazybasicfieldnotinitializedtest(entityid:Long);
+
+lazycollectionloadingtest(children_size:int, parentid:Long, GeneratedName:Parent);
+
+lazyloadingtest(children_size:int, parentid:Long, lastchildid:Long);
+
+lazybasicpropertyaccesstest(entity:LazyEntity, entityid:Long);
+
+lazybasicfieldaccesstest(entity:LazyEntity, entityid:Long);
+
+dirtytrackingcollectiontest();
+
+dirtytrackingtest();
+
+employee(fetch_profile_tree:String, id:Long [PK], manager:Employee #FK to(Employee));
+
+annotationbindertest(loginspection:LoggerInspectionRule);
+
+wrongcircularitydetectiontest();
+
+defaultcacheconcurrencypropertytest();
+
+window(id:Long [PK]);
+
+portal(id:Long [PK]);
+
+tree(id:Long [PK]);
+
+palmtree(leavesize:double);
+
+gate(id:Long [PK]);
+
+wildflyddlentity(id:Integer [PK], name:String);
+
+a(oid:long [PK], myname:String);
+
+another(id:Integer [PK], name:String, surname:String);
+
+allcached(id:Integer [PK], name:String);
+
+b(oid:long [PK], ss:A #FK to(A), naturalid:int);
+
+identifiergeneratorwithnaturalidcachetest();
+
+myentity(id:Long [PK], uid:String);
+
+extendedentity(extendedvalue:String);
+
+user();
+
+principal(id:Long [PK], uid:String);
+
+user(username:String);
+
+principal(id:Long [PK], uid:String);
+
+building(id:Integer [PK], name:String, address:String, city:String, state:String);
+
+postalcarrier(id:Long [PK], GeneratedName:PostalCode);
+
+b(oid:long [PK], ss:A #FK to(A), naturalid:int);
+
+c(oid:long [PK], name:String);
+
+a(oid:long [PK], ass:C #FK to(C), myname:String);
+
+d(oid:long [PK], name:String, assoiated:C #FK to(C));
+
+hqlorderbyidstest();
+
+usereservedkeywordinorderbytest();
+
+role(GeneratedName:Code [PK]);
+
+listactionrole(role:Code [PK], GeneratedName:Role #FK to(E));
+
+sessioncreatequeryfromcriteriatest();
+
+seller(id:Integer [PK], name:String);
+
+seller_customer(seller_id:Seller [PK] #FK to Seller,customer_id:Customer [PK] #FK to Customer);
+
+customer(id:Integer [PK], name:String);
+
+item(name:String [PK]);
+
+bid(amount:float [PK], GeneratedName:Item [PK] #FK to(Item));
+
+insertorderingwithbidirectionalmapsidonetoone(connectionprovider:PreparedStatementSpyConnectionProvider);
+
+insertorderingduplicatetest();
+
+insertorderingwithbidirectionalmanytomany(connectionprovider:PreparedStatementSpyConnectionProvider);
+
+insertorderingwithbidirectionalonetoone(connectionprovider:PreparedStatementSpyConnectionProvider);
+
+insertorderingwithbidirectionalonetomany(connectionprovider:PreparedStatementSpyConnectionProvider);
+
+insertorderingwithjoinedtableinheritance(connectionprovider:PreparedStatementSpyConnectionProvider);
+
+insertorderingwithjoinedtablemultilevelinheritance(connectionprovider:PreparedStatementSpyConnectionProvider);
+
+insertorderingwithmanytoone(connectionprovider:PreparedStatementSpyConnectionProvider);
+
+insertorderingwithcascadeonpersist();
+
+insertorderingwithunidirectionalonetoone(connectionprovider:PreparedStatementSpyConnectionProvider);
+
+elementcollectiontest(connectionprovider:PreparedStatementSpyConnectionProvider);
+
+insertorderingwithtableperclassinheritance(connectionprovider:PreparedStatementSpyConnectionProvider);
+
+insertorderingwithsecondarytable();
+
+insertorderingwithsingletableinheritance(connectionprovider:PreparedStatementSpyConnectionProvider);
+
+batchloadableentity(id:Integer [PK], name:String);
+
+b(idpart1:Integer [PK], idpart2:Integer [PK], otherproperty:String);
+
+a(id:Integer [PK], otherproperty:String, GeneratedName:B #FK to(B));
+
+component(id:Long [PK], emb:Component.Emb);
+
+person(id:int [PK], GeneratedName:Name);
+
+selectbeforeupdateembeddedtest(i:OnFlushDirtyInterceptor);
+
+emptycompositemanytoonekeytest();
+
+emptycompositecollectionkeylazytest();
+
+emptycompositemanytoonekeycachedtest();
+
+emptycompositecollectionkeyeagertest();
+
+componentemptyembeddedowner(id:Integer [PK], embedded:ComponentEmptyEmbedded);
+
+emptycompositeequivalenttonulltest();
+
+dirtycheckingtest();
+
+attributeconvertertest();
+
+explicitjavatypedescriptortest(mutabletodatabasecallcount:int, mutabletodomaincallcount:int, immutabletodatabasecallcount:int, immutabletodomaincallcount:int, immutablemutabletodatabasecallcount:int, immutablemutabletodomaincallcount:int);
+
+explicitenumconverterstest(converttodatabasecolumncalled:boolean, converttoentityattributecalled:boolean);
+
+collectioncompositeelementconversiontest();
+
+collectioncompositeelementexplicitconversiontest(ssr:StandardServiceRegistry, simplevalueattributeconverterdescriptor:Field);
+
+collectionelementconversiontest();
+
+elementcollectiontests();
+
+collectionelementexplicitconversiontest();
+
+simpleoverriddenconvertertest();
+
+explicitlynamedconverterclassestest();
+
+address(id:Integer [PK], streetline1:String, streetline2:String, GeneratedName:PostalArea);
+
+querytest(salary:float);
+
+queryliteraltest();
+
+address(id:Integer [PK], streetline1:String, streetline2:String, GeneratedName:PostalArea);
+
+andlobtest(ssr:StandardServiceRegistry);
+
+simpleconvertsannotationtest(converttodatabasecolumncalled:boolean, converttoentityattributecalled:boolean);
+
+xmlwithexplicitconvertannotationstest(//note:essentiallythesameexacttestasexplicitdateconverterstest,butherewewillmixannotationsandxmlconverttodatabasecolumncalled:boolean, converttoentityattributecalled:boolean);
+
+longtodateconversiontest();
+
+andnationalizedtests();
+
+simpleembeddableoverriddenconvertertest();
+
+mapkeyattributeconvertertest();
+
+mapelementconversiontest();
+
+mapkeyconversiontest();
+
+nullhandlingtests();
+
+explicitdateconverterstest(//note:initiallyunabletoreproducethereportedproblemconverttodatabasecolumncalled:boolean, converttoentityattributecalled:boolean);
+
+simpleconvertannotationtest(converttodatabasecolumncalled:boolean, converttoentityattributecalled:boolean);
+
+simplexmloverriddentest(ssr:StandardServiceRegistry);
+
+parameterizedattributeconverterparametertypetest(ssr:StandardServiceRegistry);
+
+basicjodatimeconversiontest(converttodatabasecolumncalled:boolean, converttoentityattributecalled:boolean);
+
+annotatedmaster(id:Integer [PK], name:String, detail_domain:AnnotatedDetail #FK to(E));
+
+annotateddetail(id:Integer [PK], name:String, //becauseotherwiseschemaexportwouldnotknowaboutit...domain:String);
+
+abstractskipautocommittest(connectionprovider:PreparedStatementSpyConnectionProvider);
+
+joinedsubclasswithembeddabletest();
+
+singletablewithembeddabletest();
+
+tableperclasswithembeddabletest();
+
+quadrilateral(anglea:Double, angleb:Double, anglec:Double);
+
+
+
+singletablerelationstest();
+
+rootentity(id:Long [PK]);
+
+subsubentity();
+
+subentity();
+
+subsubsubentity();
+
+multisingletableloadtest();
+
+inheritingentity(somevalue:String);
+
+polygon(id:Integer [PK], description:String);
+
+joinedinheritancepropertynameconflicttest();
+
+joinedinheritancewithonetomanytest();
+
+limitexpressiontest();
+
+jdbctimedefaulttimezonetest(connectionprovider:PreparedStatementSpyConnectionProvider);
+
+jdbctimestampcustomsessionleveltimezonetest(connectionprovider:PreparedStatementSpyConnectionProvider, time_zone:TimeZone);
+
+jdbctimestampcustomtimezonetest(connectionprovider:PreparedStatementSpyConnectionProvider, time_zone:TimeZone);
+
+jdbctimestampwithoututctimezonetest(connectionprovider:TimeZoneConnectionProvider);
+
+localdatecustomsessionleveltimezonetest(time_zone:TimeZone, connectionprovider:ConnectionProviderDelegate);
+
+jdbctimestampdefaulttimezonetest(connectionprovider:PreparedStatementSpyConnectionProvider);
+
+jdbctimecustomtimezonetest(connectionprovider:PreparedStatementSpyConnectionProvider, time_zone:TimeZone);
+
+user(login:String, passwordexpirydays:Double, silly:String);
+
+employee(title:String, salary:BigDecimal, manager:Employee #FK to(Employee));
+
+customer(salesperson:Employee #FK to(Employee), comments:String);
+
+person(id:long [PK], name:String, address:String, zip:String, country:String, heightinches:double, sex:char);
+
+nonbatchingbatchfailuretest();
+
+batchingbatchfailuretest();
+
+batchoptimisticlockingtest(GeneratedName:ExecutorService);
+
+postgresqllobstringtest(value1:String, value2:String, value3:String);
+
+lobentity(blob_length:int, id:Long [PK], GeneratedName:Blob);
+
+lobstringtest(long_string_size:int, value1:String, value2:String);
+
+nontransactionaldataaccesstest(allowupdateoperationoutsidetransaction:String);
+
+publisher(id:Long [PK], name:String);
+
+book(id:Long [PK], title:String, GeneratedName:Author);
+
+unrelatedentity(id:Long [PK], name:String);
+
+author(id:Long [PK], name:String, GeneratedName:Publisher);
+
+bookstore(id:Long [PK], name:String);
+
+bookstore_Book(bookstoreID:bookstore [PK] #FK to bookstore,BookID:Book [PK] #FK to Book);
+
+testentity(id:long [PK]);
+
+wealthyperson(vacationhomes:Set<Address>, legacyvacationhomes:Set<Address>, explicitvacationhomes:Set<Address>);
+
+favoritethings(id:int [PK], web:InternetFavorites);
+
+person(id:Long [PK], name:PersonName);
+
+alias(id:Long [PK], GeneratedName:Name, source:String);
+
+internetprovider(id:Integer [PK], brandname:String, owner:LegalStructure);
+
+entitywithnestedembeddables(id:Integer [PK], embeda:EmbeddableA);
+
+corptype(id:Integer [PK], type:String);
+
+country(iso2:String [PK], name:String);
+
+person(id:Long [PK], name:String, GeneratedName:Address);
+
+spreaddeal(/***withthetenor.*/long:Swap, /***withthelongertenor.*/short:Swap);
+
+manager(id:Integer [PK], name:String, employer:InternetProvider #FK to(In));
+
+vanillaswap(/***identifieroftheinterestrateswap*/instrumentid:String, /***oftheswap(andofbothlegs).*/:Currency, /***fixedleg(cashflowswiththefixedrate).*/:FixedLeg, /***floatingleg(cashflowsboundtoafinancialindex).*/:FloatLeg);
+
+regionalarticle(pk:RegionalArticlePk [PK], name:String);
+
+person(id:Integer [PK], name:String, GeneratedName:Address, bornin:Country);
+
+book(isbn:String [PK], name:String, GeneratedName:Summary);
+
+addresstype(id:Integer [PK], name:String);
+
+nationality(id:Integer [PK], name:String);
+
+americacupclass(GeneratedName:Country);
+
+person(id:Long [PK], name:String, nicknamesascendingnaturalsort:Set<String>, nicknamesdescendingnaturalsort:Set<String>, addressesascendingnaturalsort:Set<Address>, addressesdescendingnaturalsort:Set<Address>, addressescityascendingsort:Set<Address>, addressescitydescendingsort:Set<Address>);
+
+sale(id:Integer [PK], contacts:List<Contact>);
+
+entitywithanelementcollection(id:Long [PK], somestrings:Set<String>);
+
+products(id:Integer [PK], widgets:Set<Widgets>);
+
+matrix(id:Integer [PK], mvalues:SortedMap<Integer,Float>);
+
+bugsystem(id:Integer [PK], bugs:Set<Bug>);
+
+widgets(name:String, id:int [PK]);
+
+poi(id:Integer [PK], name:String);
+
+raceexecution(id:Integer [PK], poiarrival:Map<Poi,PoiArrival>);
+
+a(id:int [PK], listofb:List<B>);
+
+c(id:int [PK], comment:String);
+
+query(id:Long [PK], includedlocations:Set<Location>);
+
+testcourse(testcourseid:Long [PK], title:LocalizedString);
+
+boy(id:Integer [PK], firstname:String, lastname:String, nicknames:Set<String>, hatednames:Set<String>, preferrednames:Set<String>, scorepernickname:Map<String,Integer>, scoreperpreferredname:Map<String,Integer>, favoritenumbers:int, favoritetoys:Set<Toy>, characters:Set<Character>, foods:Map<String,FavoriteFood>, countryattitudes:Set<CountryAttitude>);
+
+owner(id:Integer [PK], elements:Set<String>);
+
+sportcar();
+
+car(id:long [PK], model:String, region_code:MarketRegion #FK to(Market));
+
+marketregion(id:long [PK], regioncode:String);
+
+document(id:Long [PK], revision:Integer, fulltext:String, shortdescription:String);
+
+book(id:Integer [PK]);
+
+versionedbook(id:Integer [PK], version:Integer);
+
+imageholder(id:Long [PK], longarray:byte, GeneratedName:Dog, picarray:Byte);
+
+lobtestentity(id:Long [PK], lobvalue:Blob, qwerty:String);
+
+versionedcompiledcode(id:Integer [PK], version:Integer);
+
+lobholder(id:Long [PK], locator:Clob, locator:Blob, counter:Integer);
+
+compiledcode(id:Integer [PK]);
+
+materializedblobentity(id:Long [PK], name:String, thes:byte);
+
+entityserialize(id:long [PK], explicitlob:ExplicitSerializable, explicit:ExplicitSerializable, implicit:ImplicitSerializable, explicitoverridingimplicit:ImplicitSerializable);
+
+longstringholder(id:Long [PK], name:char, whatever:Character, long:String);
+
+customer3(id:long [PK], name:String, customernumber:long);
+
+customer(id:long [PK], name:String, customernumber:long, last:Order #FK to(Order));
+
+supporttickets(id:long [PK], description:String, resolution:String);
+
+order(id:long [PK], ordernumber:long, delivery:Date, GeneratedName:Country #FK to(C));
+
+customer2(id:long [PK], name:String, customernumber:long);
+
+customer4(id:long [PK], name:String, customernumber:long);
+
+customer5(id:long [PK], name:String, customernumber:long);
+
+country(id:Integer [PK], name:String);
+
+person(idperson:Long [PK], firstname,lastname:String);
+
+politicalparty(name:String [PK]);
+
+visitor(id:Long [PK], firstname:String, lastname:String);
+
+organisationuser(sometext:String, GeneratedName:Organisation);
+
+soldier(id:Integer [PK], name:String, GeneratedName:Troop);
+
+organisation(idorganisation:Long [PK], name:String);
+
+box(id:int [PK]);
+
+c(id:Long [PK], name:String);
+
+
+
+model(id:Integer [PK], GeneratedName:Manufacturer #FK to(F));
+
+city(id:Integer [PK], name:String);
+
+b(id:Long [PK], name:String);
+
+order(schoolid:String [PK], schoolidsort:Integer, academicyear:Integer [PK]);
+
+post();
+
+child(id:Integer [PK], ismale:Parent #FK to(E), favoritesuperhero:String, favoritesinger:String);
+
+transaction(id:long [PK], code:String, account:BankAccount #FK to(B));
+
+monkey(id:Integer [PK], name:String);
+
+parent(id:ParentPk [PK], age:int);
+
+tiger(id:Integer [PK], name:String);
+
+troop(id:Integer [PK], name:String);
+
+item(id:int [PK], code:String, sortfield:int, GeneratedName:Box #FK to(B));
+
+street(id:Integer [PK], streetname:String, streetnamecopy:String, GeneratedName:City);
+
+trainer(id:Integer [PK], name:String);
+
+asset(idasset:Integer [PK], test:Integer [PK], GeneratedName:Employee #FK to(Employee));
+
+computer(computername:String);
+
+politician(name:String [PK], party:PoliticalParty #FK to(C));
+
+forum(id:Long [PK], name:String);
+
+user(id:Long [PK], name:String, GeneratedName:Forum);
+
+bankaccount(id:long [PK]);
+
+orderitem(schoolid:String [PK], academicyear:Integer [PK], dayno:Integer [PK], dayname:String, GeneratedName:Order);
+
+a(id:Long [PK], name:String);
+
+zoo(id:Long [PK], name:String);
+
+employee(id:Integer [PK]);
+
+paper();
+
+dummy(id:Long [PK]);
+
+classes();
+
+wildentity(serialversionuid:long, id:int [PK], property:String);
+
+price(id:Integer [PK], amount:Double, currency:String);
+
+papertype(id:Integer [PK], name:String);
+
+someguy(id:Integer [PK]);
+
+dna(id:Integer [PK]);
+
+gene(id:Integer [PK], state:STE);
+
+leaf(id:Integer [PK], GeneratedName:Branch #FK to(B));
+
+stay(//memberdeclarationid:int, GeneratedName:Person, old:Person, veryold:Person, start:Date, end:Date, vessel:String, authoriser:String, comments:String);
+
+branch(id:Integer [PK]);
+
+person(//memberdeclarationid:int, firstname:String, lastname:String, companyname:String);
+
+party(partyid:String [PK], GeneratedName:PartyAffiliate #FK to(F));
+
+show(id:Integer [PK], description:ShowDescription #FK to(C));
+
+trousers(id:Integer [PK], zip:TrousersZip #FK to(E));
+
+trouserszip(id:Integer [PK], GeneratedName:Trousers #FK to(E));
+
+computer(id:ComputerPk, cpu:String, serial:SerialNumber #FK to(B));
+
+client(id:Integer [PK], name:String, GeneratedName:Address, secondary:Address);
+
+person(id:Integer [PK], GeneratedName:PersonAddress #FK to(Person));
+
+personaddress(id:Integer [PK], GeneratedName:Person #FK to(Person));
+
+devicegroupconfig(name:String);
+
+manageddevice(name:String, GeneratedName:Device, GeneratedName:DeviceGroupConfig);
+
+owner(deleted:boolean, id:Long [PK], name:String, version:Integer);
+
+
+
+device(GeneratedName:ManagedDevice, tag:String);
+
+serialnumber(id:SerialNumberPk [PK], value:String);
+
+address(id:Integer [PK], city:String);
+
+heart(id:Integer [PK]);
+
+address(id:long [PK], GeneratedName:Person #FK to(Person));
+
+person(id:long [PK], GeneratedName:Address #FK to(Address));
+
+onetoonejointableoptionaltest();
+
+item(id:Long [PK], name:String);
+
+shipment(id:Long [PK], createdon:Date, GeneratedName:ShipmentState, auction:Item #FK to(Item));
+
+onetoonejointablenonoptionaltest();
+
+partyaffiliate(partyid:String [PK], GeneratedName:Party #FK to(A), affiliatename:String);
+
+body(id:Integer [PK], GeneratedName:Heart);
+
+owneraddress(id:Integer [PK], GeneratedName:Owner #FK to(E));
+
+showdescription(id:Integer [PK], GeneratedName:Show #FK to(show));
+
+owner(id:Integer [PK], address:OwnerAddress #FK to(Address));
+
+integerproperty(id:Integer [PK], name:String, value:Integer);
+
+longproperty(id:Integer [PK], name:String, value:Long);
+
+propertymap(id:Integer [PK], name:String, properties:Map<String,Property>);
+
+propertylist(id:Integer [PK], name:String, somepropery:T, generalproperties:List<T>);
+
+propertyset(id:Integer [PK], name:String, some:Property, generalproperties:List<Property>);
+
+stringproperty(id:Integer [PK], name:String, value:String);
+
+charproperty(id:Integer [PK], name:String, value:Character);
+
+a(GeneratedName:AId);
+
+tvprogram(id:TvMagazinPk, time:Date, text:String);
+
+tvprogramidclass(GeneratedName:Channel [PK], GeneratedName:Presenter [PK], time:Date, text:String);
+
+presenter(name:String [PK]);
+
+child(id:ChildPk);
+
+order(id:Integer [PK]);
+
+b(id:Long [PK]);
+
+orderline(GeneratedName:Order [PK], GeneratedName:Product [PK]);
+
+product(name:String [PK]);
+
+parent(id:ParentPk);
+
+channel(id:Integer [PK], name:String);
+
+someentity(id:SomeEntityId [PK], prop:String);
+
+tvmagazin(id:TvMagazinPk, time:Date);
+
+littlegenius(particularskill:String);
+
+c(id:Long [PK]);
+
+cardfield(GeneratedName:PrimaryKey);
+
+key(id:String [PK]);
+
+card(id:String [PK]);
+
+myentity(id:Long [PK], name:String);
+
+creationtimestamptest();
+
+idclassmappedsuperclasstest();
+
+domainadmin(domainname:String [PK], adminuser:String [PK], nickname:String);
+
+gas(id:Integer [PK], name:String);
+
+training(id:Long [PK]);
+
+training_In(trainingID:training [PK] #FK to training,InID:In [PK] #FK to In);
+
+newspaper(id:Integer [PK], name:String);
+
+newspaper_In(newspaperID:newspaper [PK] #FK to newspaper,InID:In [PK] #FK to In);
+
+exchangeoffice(id:Integer [PK], exchangerates:Map<ExchangeRateKey,ExchangeRate>, exchangeratefees:Map<ExchangeRateKey,BigDecimal>);
+
+generationgroup(id:int [PK], GeneratedName:Generation);
+
+generationuser(id:int [PK]);
+
+atmosphere(id:Integer [PK], colorperdate:Map<Date,String>, colorperlevel:Map<Level,String>, composition:Map<Gas,Double>);
+
+atmosphere_In(atmosphereID:atmosphere [PK] #FK to atmosphere,InID:In [PK] #FK to In);gas_per_key(Atmosphere_ID:Atmosphere [PK] #FK to Atmosphere,G_ID:G [PK] #FK to G);atm_gas_def(Atmosphere_ID:Atmosphere [PK] #FK to Atmosphere,In_ID:In [PK] #FK to In);atm_gas_defleg(Atmosphere_ID:Atmosphere [PK] #FK to Atmosphere,In_ID:In [PK] #FK to In);gas_p_key_def(Atmosphere_ID:Atmosphere [PK] #FK to Atmosphere,G_ID:G [PK] #FK to G);
+
+wardrobe(id:Long [PK]);
+
+addressbook(id:Integer [PK], owner:String);
+
+gaskey(name:String [PK]);
+
+atmosphere(id:Integer [PK], colorperdate:Map<Date,String>, colorperlevel:Map<Level,String>, composition:Map<Gas,Double>);
+
+atmosphere_In(atmosphereID:atmosphere [PK] #FK to atmosphere,InID:In [PK] #FK to In);gas_per_key(Atmosphere_ID:Atmosphere [PK] #FK to Atmosphere,G_ID:G [PK] #FK to G);atm_gas_def(Atmosphere_ID:Atmosphere [PK] #FK to Atmosphere,In_ID:In [PK] #FK to In);atm_gas_defleg(Atmosphere_ID:Atmosphere [PK] #FK to Atmosphere,In_ID:In [PK] #FK to In);gas_p_key_def(Atmosphere_ID:Atmosphere [PK] #FK to Atmosphere,G_ID:G [PK] #FK to G);
+
+trainee(id:Long [PK], name:String);
+
+version(id:Integer [PK], codename:String, number:String, GeneratedName:Software);
+
+painter(id:Integer [PK]);
+
+drawer(id:Long [PK]);
+
+exchangerate(id:Integer [PK], rate:double, key:ExchangeRateKey, parent:ExchangeOffice);
+
+dress(id:Integer [PK]);
+
+painting(sizex:int, sizey:int, name:String [PK], painter:String [PK]);
+
+pressreleaseagency(id:Integer [PK], name:String);
+
+pressreleaseagency_id(pressreleaseagency_id:PressReleaseAgency [PK] #FK to PressReleaseAgency,news_id:In [PK] #FK to In);
+
+addressentry(person:AddressEntryPk, street:String, city:String, book:AddressBook #FK to(Book), directory:AlphabeticalDirectory #FK to(B));
+
+alphabeticaldirectory(id:Integer [PK], name:String);
+
+currency(id:Integer [PK], currency:String);
+
+news(id:Integer [PK], title:String, detail:String);
+
+software(name:String [PK]);
+
+customer(id:Long [PK], investments:List<Investment>);
+
+customer(id:Long [PK], investments:List<Investment>);
+
+embeddablewithonetomany_hhh_8564_test();
+
+embeddablewithonetomany_hhh_8860_test();
+
+embeddablewithmanytomany_hhh_11302_test();
+
+embeddablewithonetomany_hhh_11302_test();
+
+investor(id:Long [PK], investments:List<Investment>);
+
+basicattributeoverridetest();
+
+attributeoverrideenhancedusertypetest();
+
+room(id:Long [PK], name:String);
+
+uniqueconstraintthrowsconstraintviolationexceptiontest();
+
+uniqueconstraintunittests();
+
+uniqueconstraintvalidationtest();
+
+house(id:Long [PK], cost:Integer);
+
+mysqldropconstraintthrowsexceptiontest();
+
+bid(id:int [PK], itemid:long, amount:double);
+
+highestbid(name:String [PK], amount:double);
+
+item(id:long [PK], name:String);
+
+collectionasbasictest();
+
+updatetimestamptest();
+
+incorrectentity(name:String);
+
+importer(id:long [PK], name:String);
+
+car_importer(Importer_ID:Importer [PK] #FK to Importer,C_ID:C [PK] #FK to C);
+
+car(id:long [PK], brand:String, producer:String, since:long, GeneratedName:Dealer, otherdealers:Set<Dealer>);
+
+flight(id:Long [PK], name:String, transientduration:Long, version:Integer, GeneratedName:Company, triggereddata:String, factor:long, departure:Date, buydate:java.sql.Timestamp, alternativedeparturedate:Calendar);
+
+inspector(_id:Long [PK], name:String);
+
+store(id:Integer [PK], name:String);
+
+store_C(storeID:store [PK] #FK to store,CID:C [PK] #FK to C);storesupplier(store:Store [PK] #FK to Store,supplier:E [PK] #FK to E);store_C(storeID:store [PK] #FK to store,CID:C [PK] #FK to C);
+
+man(id:ManPk [PK], carname:String);
+
+employee(id:Integer [PK], name:String, GeneratedName:ContactInfo, GeneratedName:JobInfo);
+
+building(id:Long [PK], name:BuildingCompany #FK to(Any));
+
+category(id:Integer [PK]);
+
+category_C(categoryID:category [PK] #FK to category,CID:C [PK] #FK to C);
+
+city(id:Integer [PK], name:String);
+
+city_Item(cityID:city [PK] #FK to city,ItemID:Item [PK] #FK to Item);
+
+phonenumber(phnumber:int [PK]);
+
+store(id:Integer [PK], name:String);
+
+store_C(storeID:store [PK] #FK to store,CID:C [PK] #FK to C);store_Item(storeID:store [PK] #FK to store,ItemID:Item [PK] #FK to Item);store_Cat(storeID:store [PK] #FK to store,CatID:Cat [PK] #FK to Cat);store_C(storeID:store [PK] #FK to store,CID:C [PK] #FK to C);
+
+item(id:Integer [PK]);
+
+item_C(itemID:item [PK] #FK to item,CID:C [PK] #FK to C);
+
+employee(id:Integer [PK], name:String, GeneratedName:ContactInfo);
+
+knownclient(id:Integer [PK], name:String);
+
+knownclient(id:Integer [PK], name:String);
+
+woman(id:WomanPk [PK], carname:String);
+
+man_woman(womanlastname:Woman [PK] #FK to Woman,maniselder:E [PK] #FK to E);
+
+permission(permission:String [PK], expiration:Date);
+
+zone(id:Integer [PK]);
+
+city(id:Integer [PK], name:String);
+
+cat(id:CatPk, age:int);
+
+tt(Cat_ID:Cat [PK] #FK to Cat,E_ID:E [PK] #FK to E);
+
+programmanager(id:int [PK]);
+
+friend(id:Integer [PK], name:String);
+
+friend2friend(from_fr:Friend [PK] #FK to Friend,to_fr:F [PK] #FK to F);
+
+contractor(hourlyrate:float);
+
+phonenumber(phnumber:int [PK]);
+
+groupwithset(id:Integer [PK]);
+
+groupwithset_E(groupwithsetID:groupwithset [PK] #FK to groupwithset,EID:E [PK] #FK to E);
+
+group(id:Integer [PK]);
+
+group_C(groupID:group [PK] #FK to group,CID:C [PK] #FK to C);
+
+supplier(id:Integer [PK], name:String);
+
+buildingcompany(id:Long [PK], foundedin:Date);
+
+employer(id:Integer [PK]);
+
+employer_employee(emper_id:Employer [PK] #FK to Employer,empee_id:C [PK] #FK to C);employer_contractor(employer_id:Employer [PK] #FK to Employer,contractor_id:list [PK] #FK to list);
+
+inspectorprefixes(prefixes:String);
+
+deserted_area(inspector_name:InspectorPrefixes [PK] #FK to InspectorPrefixes,area_id:E [PK] #FK to E);inspector_prefixes_areas(inspector_id:InspectorPrefixes [PK] #FK to InspectorPrefixes,area_id:E [PK] #FK to E);
+
+country(id:Integer [PK], name:String);
+
+photo(id:Integer [PK], name:String, metadata:Exif, GeneratedName:Caption);
+
+foobar(id:Integer [PK], name:String);
+
+state(id:Integer [PK], name:String);
+
+ferry(sea:String);
+
+entitymapenum(id:int [PK], ordinalmap:Map<Common,String>, stringmap:Map<Common,String>, firstlettermap:Map<FirstLetter,String>, lastnumbermap:Map<LastNumber,String>, explicitoverridingimplicitmap:Map<LastNumber,String>);
+
+
+
+user(id:java.lang.String);
+
+entityenum(id:long [PK], ordinal:Common, string:Common, GeneratedName:FirstLetter, GeneratedName:LastNumber, explicitoverridingimplicit:LastNumber, GeneratedName:Trimmed, formula:Trimmed, set:Set<Common>);
+
+enumeratedsmoketest(ssr:StandardServiceRegistry);
+
+child(/***/id:Long [PK], /***/:Parent #FK to(E));
+
+codedpairholder(id:Long [PK], code:String, pair:PersonPair);
+
+codedpairsetholder(serialversionuid:long, id:Long [PK], code:String, pairs:Set<PersonPair>);
+
+person(serialversionuid:long, id:Long [PK], name:String);
+
+tooth(id:Integer [PK], type:String, leftneighbour:Tooth #FK to(tooth), rightneighbour:Tooth #FK to(tooth), GeneratedName:Mouth #FK to(mouth));
+
+mouth(id:Integer [PK], size:int);
+
+parent(/***/id:Long [PK], /***/default:Child #FK to(C));
+
+flight(id:String [PK]);
+
+employee(empid:long [PK], empname:String, nickname:String);
+
+dependent(name:String [PK], //idattributemappedbyjoincolumndefaultemp:Employee);
+
+customerinventory(id:Integer [PK], custid:int [PK], GeneratedName:Customer #FK to(Customer), vehicle:Item #FK to(Item), totalcost:BigDecimal, quantity:int, version:int);
+
+customertwo(query_all:String, query_count:String, query_by_credit:String, bad_credit:String, id:int [PK], firstname:String, lastname:String, contact:String, credit:String, creditlimit:BigDecimal, since:Calendar, balance:BigDecimal, ytdpayment:BigDecimal, version:int);
+
+customerinventorytwo(id:Integer [PK], custid:int [PK], customer:CustomerTwo #FK to(Customer), vehicle:Item #FK to(Item), totalcost:BigDecimal, quantity:int, version:int);
+
+customer(query_all:String, query_count:String, query_by_credit:String, bad_credit:String, id:int [PK], firstname:String, lastname:String, contact:String, credit:String, creditlimit:BigDecimal, since:Calendar, balance:BigDecimal, ytdpayment:BigDecimal, version:int);
+
+item(query_by_category:String, id:String [PK], name:String, price:BigDecimal, description:String, discount:BigDecimal, category:int, version:int);
+
+dependent(id:DependentId, //@joincolumn(name:Employee #FK to(Employee));
+
+employee(empid:long [PK], empname:String);
+
+exclusivedependent(id:DependentId, emp:Employee #FK to(Employee));
+
+dependent(name:String [PK], emp:Employee [PK] #FK to(Employee));
+
+employee(empid:long [PK], empname:String);
+
+customerinventory(id:Integer [PK], GeneratedName:Customer [PK] #FK to(Customer), vehicle:Item #FK to(Item), totalcost:BigDecimal, quantity:int, version:int);
+
+item(query_by_category:String, id:String [PK], name:String, price:BigDecimal, description:String, discount:BigDecimal, category:int, version:int);
+
+customer(query_all:String, query_count:String, query_by_credit:String, bad_credit:String, id:int [PK], firstname:String, lastname:String, contact:String, credit:String, creditlimit:BigDecimal, since:Calendar, balance:BigDecimal, ytdpayment:BigDecimal, version:int);
+
+medicalhistory(patient:Person [PK] #FK to(Person), xraydata:byte);
+
+order(id:Long [PK], name:String);
+
+personinfo(serialversionuid:long, id:Person [PK] #FK to(Person), info:String);
+
+product(id:Long [PK], name:String);
+
+employee(empid:long [PK], empname:String);
+
+compositeidderivedidwithidclasstest();
+
+foo(id:Long [PK], name:String, GeneratedName:Bar #FK to(Bar));
+
+bar(GeneratedName:Foo [PK] #FK to(Foo), details:String);
+
+person(serialversionuid:long, id:Integer [PK], name:String, GeneratedName:PersonInfo #FK to(In));
+
+orderline(GeneratedName:Order [PK] #FK to(Order), GeneratedName:Product [PK] #FK to(Product), amount:Integer);
+
+dependent(emp:Employee [PK] #FK to(Employee), name:String);
+
+person(id:PersonId);
+
+medicalhistory(patient:Person [PK] #FK to(Person));
+
+person(id:PersonId);
+
+medicalhistory(//allattributesmaptorelationship:attributeoverridenotallowedid:PersonId, patient:Person #FK to(Person));
+
+employee(id:long [PK], name:String);
+
+employee(firstname:String [PK], lastname:String [PK]);
+
+dependent(name:String [PK], firstname:Employee [PK] #FK to(Employee));
+
+dependent(id:DependentId, emp:Employee #FK to(Employee));
+
+employee(firstname:String [PK], lastname:String [PK]);
+
+medicalhistory(//allattributesmaptorelationship:attributeoverridenotallowedid:PersonId, patient:Person #FK to(Person));
+
+person(firstname:String [PK], lastname:String [PK]);
+
+person(firstname:String [PK], lastname:String [PK]);
+
+medicalhistory(patient:Person [PK] #FK to(Person));
+
+medicalhistory(id:Integer [PK], patient:Person #FK to(Person));
+
+person(id:Integer [PK]);
+
+employer(name:String [PK], GeneratedName:Employee [PK] #FK to(Employee));
+
+financialhistory(patient:Person [PK] #FK to(Person), lastup:Date);
+
+medicalhistory(patient:Person [PK] #FK to(Person), lastup:Date);
+
+person(ssn:String [PK]);
+
+simple(ssn:String [PK], name:String [PK]);
+
+person(ssn:String [PK]);
+
+medicalhistory(//overridingnotallowed...//defaultjoincolumnnameisoverridden@mapsidid:String [PK], patient:Person #FK to(Person), lastup:Date);
+
+financialhistory(//overridingnotallowed...//defaultjoincolumnnameisoverridden@mapsidid:String [PK], lastup:Date, patient:Person #FK to(Person));
+
+person(ssn:String [PK]);
+
+dependent(//idattributemappedbyjoincolumndefaultid:DependentId, GeneratedName:Employee #FK to(Employee));
+
+employee(empid:EmployeeId);
+
+dependent(//defaultcolumnnameisoverriddenname:String [PK], firstname:Employee [PK] #FK to(Employee));
+
+employee(empid:EmployeeId);
+
+policy(id:PolicyId, dep:Dependent #FK to(E));
+
+dependent(id:DependentId, emp:Employee #FK to(Employee));
+
+dependent(//defaultcolumnnamefor"name"attributeisoverriddenid:DependentId, firstname:Employee #FK to(Employee));
+
+employee(empid:EmployeeId);
+
+employee(empid:EmployeeId);
+
+dependent(id:DependentId, firstname:Employee #FK to(Employee));
+
+policy(id:PolicyId, firstname:Dependent #FK to(E));
+
+user(id:int [PK], emailaddress:String, age:int, username:String, password:String, lockedout:boolean);
+
+mammal(ispregnant:boolean);
+
+club(id:int [PK], name:String);
+
+animal(id:Integer [PK], name:String);
+
+human(iq:int, GeneratedName:Club #FK to(B));
+
+animal(id:Integer [PK], name:String);
+
+human(iq:int);
+
+mammal(ispregnant:boolean);
+
+animal(id:Integer [PK], name:String);
+
+mammal(ispregnant:boolean);
+
+human(iq:int);
+
+mammal(ispregnant:boolean);
+
+human(iq:int);
+
+user(userkey:Long [PK], start:Date [PK], end:Date [PK], createdby:Long, createdon:Date, userid:String, prefix:Integer, firstname:String, lastname1:String, lastname2:String, middlename1:String, middlename2:String, suffix:Integer, birth:Date, birthstate:Integer, birthcountry:Integer, username:String, password:String, usertype:Integer, privilege:Integer, state:Integer, country:Integer, preferredname:String, birthplace:String, school:Long, cluster:Long, ldtmm:Long, ldtmd:Long, pmtmp:Long);
+
+carz(id:Integer [PK], make:String, model:String, manufactured:Date, loc_code:Lotz #FK to(lotz));
+
+color(id:Integer [PK], name:String);
+
+node(id:NodePk [PK], description:String, parent:Node #FK to(E));
+
+lens(id:Long [PK], focal:float, length:float, name:Frame #FK to(F));
+
+frame(id:Long [PK], name:String, lowername:String);
+
+orderline(id:Integer [PK], item:String, GeneratedName:Order, replacement:Order);
+
+lotz(lotpk:LotzPK, name:String, location:String);
+
+deal(id:Integer [PK], userid:Customer #FK to(Customer), userid:Customer #FK to(Customer));
+
+treetype(id:Integer [PK], name:String, GeneratedName:ForestType, alternative:ForestType);
+
+districtuser(id:Long [PK], createdby:Long, createdon:Date, ctvusers_key:User #FK to(E), ldtmd:Long, pmtmp:Long);
+
+foresttype(id:Integer [PK], name:String, biggestrepresentative:BiggestForest #FK to(B));
+
+biggestforest(id:Integer [PK], type:ForestType #FK to(F));
+
+customer(id:Integer [PK], userid:String);
+
+car(id:Integer [PK], body:Color, owner:Parent #FK to(E));
+
+child(id:Integer [PK], ismale:Parent #FK to(E));
+
+order(id:Integer [PK], ordernbr:String);
+
+parent(id:ParentPk [PK], age:int);
+
+warehouseitem(GeneratedName:Item, GeneratedName:Vendor, vendor_id:ZItemCost #FK to(Item), qtyinstock:BigDecimal);
+
+zitemcost(GeneratedName:Item, GeneratedName:Vendor, cost:BigDecimal);
+
+vendor();
+
+item();
+
+contactimpl(id:Integer [PK], name:String);
+
+userimpl(id:Integer [PK]);
+
+printercable(id:Long [PK], GeneratedName:Printer);
+
+category(id:int [PK], title:String);
+
+printer(id:Long [PK]);
+
+bug(id:int [PK], title:String);
+
+`bug_category`(Bug_ID:Bug [PK] #FK to Bug,Cat_ID:Cat [PK] #FK to Cat);
+
+ticket(id:Long [PK], number:String);
+
+longkeynamingstrategytest(log:Logger, GeneratedName:ServiceRegistry);
+
+address(id:long [PK], GeneratedName:Person #FK to(Person));
+
+person(id:long [PK]);
+
+a(id:String [PK], name:String, value:int, address:Set<AddressEntry>);
+
+chair();
+
+course2(id:long [PK], title:String);
+
+circle(GeneratedName:Color);
+
+animal(id:long [PK]);
+
+course6(id:long [PK], title:String);
+
+person(firstname:String, lastname:String);
+
+user();
+
+gardenshed(id:Integer [PK], floors:long);
+
+course3(id:long [PK], title:String);
+
+being(id:long [PK]);
+
+course7(id:long [PK], title:String);
+
+shape(id:long [PK]);
+
+horse(name:String);
+
+bed();
+
+bigbed(size:int);
+
+course1(id:long [PK], title:String);
+
+square(id:long [PK], GeneratedName:Position);
+
+course5(id:long [PK], title:String);
+
+course5_Student(course5ID:course5 [PK] #FK to course5,StudentID:Student [PK] #FK to Student);
+
+student(id:long [PK], name:String);
+
+course4(id:long [PK], title:String);
+
+course8(id:long [PK], title:String);
+
+furniture(id:Integer [PK], weight:long);
+
+furniture(id:Integer [PK], weight:long);
+
+tourist(id:long [PK], name:String, destination:String);
+
+waiter();
+
+driver(id:int [PK], name:String);
+
+boy(id:long [PK], nicknames:Set<String>);
+
+cook(id:int [PK], favouriteknife:Knive);
+
+rentalcar(id:int [PK], GeneratedName:Driver);
+
+bed();
+
+foobar(foo:String);
+
+chair();
+
+bigbed(size:int);
+
+gardenshed(id:Integer [PK], floors:long);
+
+gsm(frequency:int);
+
+voice(id:Integer [PK]);
+
+naturalidonmanytoone(id:int [PK], GeneratedName:Citizen #FK to(C));
+
+a(accountid:AId, shortcode:String);
+
+a(oid:long [PK], version:int, name:String, ds:Set<D>, single:D);
+
+d(oid:long [PK], version:int, GeneratedName:A, single:A);
+
+state(id:Integer [PK], name:String);
+
+citizen(id:Integer [PK], firstname:String, lastname:String, GeneratedName:State #FK to(E), ssn:String);
+
+notfoundtest();
+
+onetoonenotfoundtest();
+
+formulawithpartitionbytest();
+
+formulawithcolumntypestest();
+
+joincolumnorformulatest(ssr:StandardServiceRegistry);
+
+boat(id:Integer [PK], size:int, weight:int);
+
+team(id:Long [PK]);
+
+loaderwithinvalidquerytest();
+
+player(id:Long [PK], GeneratedName:Team, name:String);
+
+propertyrecord(id:Long [PK], parcels:Map<Address,PropertyInfo>, legacyparcels:Map<Address,PropertyInfo>, unsortedparcels:Set<PropertyInfo>, legacyunsortedparcels:Set<PropertyInfo>);
+
+inheritedattributeoverridingtest(GeneratedName:StandardServiceRegistry);
+
+employee(id:int [PK], GeneratedName:ContactInfo);
+
+addr(id:int [PK], street:String, city:String, state:String, country:String, zipcode:String);
+
+socialsite(id:int [PK], website:String);
+
+location(name:String [PK]);
+
+blogentry(text:String);
+
+trip();
+
+phonenumber(id:int [PK], number:int);
+
+death(id:Integer [PK], GeneratedName:Date, howdoesithappen:String);
+
+sysgroupsorm(groupid:long [PK]);
+
+sysuserorm(userid:long [PK]);
+
+sys_groups_users(userid:SysUserOrm [PK] #FK to SysUserOrm,groupid:orm [PK] #FK to orm);
+
+cat(id:Integer [PK], name:String, secondname:String, storypart1:String, storypart2:String);
+
+dog(id:DogPk [PK], weight:int, thoroughbredname:String);
+
+life(id:Integer [PK], duration:int, fulldescription:String, owner:Cat #FK to(Cat));
+
+b(id:Integer [PK], name:String);
+
+life(id:Integer [PK], duration:int, fulldescription:String, owner:SimpleCat #FK to(Cat));
+
+simplecat(id:Integer [PK], name:String);
+
+c(age:int);
+
+minmax(id:Long [PK], value:Integer);
+
+mergenotnullcollectiontest();
+
+screen(id:Integer [PK], stop:Button, GeneratedName:PowerSupply, connectors:Set<DisplayConnector>);
+
+screen_C(screenID:screen [PK] #FK to screen,CID:C [PK] #FK to C);
+
+music(name:String [PK]);
+
+mergenotnullcollectionusingidentitytest();
+
+display(id:Integer [PK], brand:String);
+
+range(id:Long [PK], value:Integer);
+
+rock(bit:Integer);
+
+address(blacklistedzipcode:String, line1:String, line2:String, zip:String, state:String, country:String, id:long [PK], internalvalid:boolean, floor:int);
+
+tv(serial:String [PK], model:String, size:int, name:String, exp:Date, description:String, lifetime:BigInteger, GeneratedName:Tuner, GeneratedName:Recorder);
+
+cupholder(id:Integer [PK], radius:BigDecimal);
+
+powersupply(id:Integer [PK], power:BigDecimal, position:String);
+
+color(id:Integer [PK], name:String);
+
+tvowner(id:Integer [PK], GeneratedName:Tv #FK to(tv));
+
+discount(id:Long [PK], discount:double, owner:Customer #FK to(Customer));
+
+night(id:Integer [PK], duration:long, GeneratedName:Date, GeneratedName:Area);
+
+alltables(tablename:String [PK], daysold:String);
+
+attrvalue(id:Long [PK], value:String);
+
+attrset(id:Long [PK]);
+
+namedquerytest(game_titles:String);
+
+spaceship(name:String [PK], model:String, speed:double, GeneratedName:Captain, GeneratedName:Dimensions);
+
+area(id:Integer [PK], name:String);
+
+employeegroup(id:Long [PK], GeneratedName:Attrset #FK to(E));
+
+captain(firstname:String [PK], lastname:String [PK]);
+
+mark(id:int [PK], value:int);
+
+employee(id:Long [PK], GeneratedName:Employeegroup #FK to(Employee), GeneratedName:Attrset #FK to(E));
+
+chaos(id:Long [PK], size:Long, name:String, nickname:String);
+
+dictionary(id:Integer [PK], name:String, editor:String);
+
+casimirparticle(id:Long [PK]);
+
+synonymousdictionary();
+
+twilight(id:int [PK]);
+
+country(id:Integer [PK], name:String);
+
+robot(name:String);
+
+machine(id:Integer [PK], weight:Double);
+
+t800(targetname:String);
+
+product();
+
+component(manufacturerpartnumber:String, manufacturerid:Long, id:Long [PK]);
+
+customer(id:Long [PK], name:String, GeneratedName:Passport);
+
+savingsaccount();
+
+account();
+
+a320(javaembeddedversion:String);
+
+dbtimestamped(id:int [PK], lastup:Date);
+
+conductor(id:Integer [PK], name:String, version:Long);
+
+truck(weight:int, agreement:ProfessionalAgreement #FK to(F));
+
+vehicule(id:String [PK], registrationnumber:String, current:Conductor #FK to(C), year:Integer, previous:Conductor #FK to(C));
+
+antenna(id:Integer [PK], longitude:String, latitude:String, power:Double);
+
+professionalagreement(id:Integer [PK], expiration:Date);
+
+vmtimestamped(id:int [PK], lastup:Date);
+
+staff(id:Integer [PK], sizeininches:double, radiuss:double, diameter:double);
+
+port(id:Long [PK]);
+
+multiple(id1:Long [PK], id2:Long [PK], id3:Long [PK], quantity:int);
+
+simple2(id1:Long [PK], id2:Long [PK], quantity:int);
+
+simple(id1:Long [PK], id2:Long [PK], quantity:int);
+
+listmappingtest(ssr:StandardServiceRegistry);
+
+plane(id:Long [PK], nbrofseats:int);
+
+company(id:Integer [PK], name:String);
+
+baseclass(id:long [PK]);
+
+subclass2();
+
+subclass();
+
+baseclass2(id:long [PK]);
+
+apple();
+
+tomato(size:int);
+
+symboliclink(target:File #FK to(F));
+
+document(size:int);
+
+folder();
+
+file(name:String [PK], parent:Folder #FK to(F));
+
+folder();
+
+file(name:String [PK], parent:Folder #FK to(F));
+
+document(size:int);
+
+symboliclink(target:File #FK to(F));
+
+financialasset(price:double);
+
+clothing(id:long [PK], size:int, color:String);
+
+eventinformation(notificationid:String [PK]);
+
+parent(id:Integer [PK], propertyass:Set, financialass:Set);
+
+propertyasset(price:double);
+
+account(serialversionuid:long, id:int [PK], number:String, balance:double);
+
+company(companyname:String, companyaddress:String);
+
+pool(id:Integer [PK], address:PoolAddress);
+
+document(size:int);
+
+customer(customername:String, customercode:String);
+
+symboliclink(target:File #FK to(F));
+
+sweater(issweat:boolean);
+
+alarm(eventinfo:EventInformation #FK to(orm));
+
+client(serialversionuid:long, street:String, code:String, city:String, id:Account #FK to(C));
+
+person(id:int [PK], name:String, firtsname:String);
+
+swimmingpool();
+
+programexecution(id:Integer [PK], action:String, applieson:File #FK to(F));
+
+asset(id:Integer [PK], GeneratedName:Parent);
+
+file(name:String [PK], parent:Folder #FK to(F));
+
+folder();
+
+house();
+
+noise();
+
+building(id:Integer [PK], street:String);
+
+duplicateddiscriminatorvaluetest(discriminator_value:String);
+
+papertrash();
+
+trash(id:Integer [PK]);
+
+music(id:Integer [PK], avgbeat:int, type:Integer);
+
+rock();
+
+funk(starred:int);
+
+fruit(id:Integer [PK]);
+
+carrot(length:int);
+
+vegetable(id:VegetablePk [PK], priceincent:long);
+
+tuplizerinstantiatesbytebuddysubclasstest();
+
+cuisine();
+
+stamp(id:Long [PK], country:String);
+
+passport(id:Long [PK], name:String);
+
+passport_stamp(Passport_ID:Passport [PK] #FK to Passport,C_ID:C [PK] #FK to C);passport_visastamp(Passport_ID:Passport [PK] #FK to Passport,C_ID:C [PK] #FK to C);
+
+a320b();
+
+student(id:int [PK], name:String);
+
+customers(serialversionuid:long, customerid:int [PK]);
+
+cardfield(GeneratedName:PrimaryKey [PK], tmp:Card #FK to(C));
+
+coursestudent(GeneratedName:Course [PK] #FK to(Course), GeneratedName:Student [PK] #FK to(Student), value:String);
+
+customer(id:Integer [PK], serialversionuid:long);
+
+storecustomer(GeneratedName:Store [PK] #FK to(E), GeneratedName:Customer [PK] #FK to(Customer), serialversionuid:long);
+
+project(id:int [PK]);
+
+store(id:Integer [PK], serialversionuid:long);
+
+card(primarykey:CardPrimaryKey [PK], main:CardField #FK to(F));
+
+course(id:int [PK], name:String);
+
+shoppingbaskets(serialversionuid:long, customerid:Customers [PK] #FK to(Customer), basketdatetime:java.util.Date [PK]);
+
+basketitems(serialversionuid:long, basketdatetime:ShoppingBaskets [PK] #FK to(In), cost:Double [PK]);
+
+droitacces(idpk:BigInteger [PK], idpkbenef:Benefserv #FK to(B));
+
+c(prent:A [PK], sequencenumber:int [PK]);
+
+service(idpk:BigInteger [PK]);
+
+acces(idpk:BigInteger [PK], idpkdracc:Droitacces #FK to(C));
+
+b(parent:C [PK], sequencenumber:int [PK]);
+
+benefserv(idpk:BigInteger [PK], idpkser:Service #FK to(C));
+
+a(id:int [PK]);
+
+cardkey(id:int [PK]);
+
+goalkeeper();
+
+computer(id:Long [PK], serialnumber:String);
+
+phone(id:Integer [PK]);
+
+ball(id:Integer [PK]);
+
+shoe(id:Long [PK]);
+
+bunny(id:BigDecimal [PK]);
+
+breakdance(id:Integer [PK], name:String);
+
+home(id:Long [PK]);
+
+department(id:Long [PK]);
+
+hibernatesequenceentity(id:Long [PK], text:String);
+
+tower();
+
+footballer(firstname:String [PK], lastname:String [PK], club:String);
+
+soundsystem(id:String [PK], brand:String, model:String);
+
+store(id:Long [PK]);
+
+firtree();
+
+monkey(id:String [PK]);
+
+pointytooth(id:BigDecimal [PK], GeneratedName:Bunny #FK to(B));
+
+twinkletoes(id:BigDecimal [PK], GeneratedName:Bunny #FK to(B));
+
+furniture(id:Integer [PK]);
+
+planetcheatsheet(GeneratedName:Planet [PK], mass:double, radius:double, numberofinhabitants:long);
+
+dog(id:Integer [PK], name:String);
+
+completesequenceentity(seq_name:String, id:Long [PK]);
+
+dedicatedsequenceentity2(entity_name:String, id:Long [PK]);
+
+minimaltableentity(tbl_name:String, id:Long [PK]);
+
+minimalsequenceentity(seq_name:String, id:Long [PK]);
+
+autoentity(id:Long [PK]);
+
+dedicatedsequenceentity1(sequence_suffix:String, id:Long [PK]);
+
+computer(id:Long [PK], serialnumber:String);
+
+hotel(id:Long [PK], name:String);
+
+shoe(id:Long [PK]);
+
+ball(id:Integer [PK]);
+
+dog(id:Integer [PK], name:String);
+
+monkey(id:String [PK]);
+
+twinkletoes(id:BigDecimal [PK], GeneratedName:Bunny #FK to(B));
+
+home(id:Long [PK]);
+
+furniture(id:Integer [PK]);
+
+pointytooth(id:BigDecimal [PK], GeneratedName:Bunny #FK to(B));
+
+goalkeeper();
+
+firtree();
+
+phone(id:Integer [PK]);
+
+breakdance(id:Integer [PK], name:String);
+
+soundsystem(id:String [PK], brand:String, model:String);
+
+bunny(id:BigDecimal [PK]);
+
+planetcheatsheet(GeneratedName:Planet [PK], mass:double, radius:double, numberofinhabitants:long);
+
+department(id:Long [PK]);
+
+footballer(firstname:String [PK], lastname:String [PK], club:String);
+
+tower();
+
+store(id:Long [PK]);
+
+andformulatest(ssr:StandardServiceRegistry);
+
+vendor(id:int [PK]);
+
+itemcost(id:int [PK], GeneratedName:Item, GeneratedName:Vendor, cost:BigDecimal);
+
+house(id:Integer [PK], address:String, GeneratedName:Postman);
+
+address(address:House [PK] #FK to House,name:In [PK] #FK to In);
+
+warehouseitem(id:int [PK], GeneratedName:Item, GeneratedName:Vendor, vendor_id:ItemCost #FK to(Item), qtyinstock:BigDecimal);
+
+postman(name:String, id:String [PK]);
+
+bag(id:Integer [PK], serial:String, fld_name:Rambler #FK to(B));
+
+rambler(id:Integer [PK], name:String);
+
+place(id:int [PK], name:String, owner:String);
+
+clothes(id:Integer [PK], type:String, flavor:String);
+
+inhabitant(id:Integer [PK], name:String);
+
+item(id:int [PK]);
+
+houseplaces(id:int [PK], GeneratedName:Places, neighbour:Places);
+
+luggage(id:Integer [PK], owner:String, type:String);
+
+communitybid(communitynote:Starred);
+
+car(id:int [PK], name:String);
+
+contactdetails(id:int [PK], local:PhoneNumber, GeneratedName:OverseasPhoneNumber);
+
+doctor(id:Integer [PK], name:String, activelicense:boolean, yearsexperience:Integer);
+
+narrative(id:int [PK], state:String, GeneratedName:Topic);
+
+forest2(id:Integer [PK], name:String, longdescription:String);
+
+address(id:Integer [PK], city:String, GeneratedName:Country);
+
+
+
+peugot();
+
+soccerteam(id:int [PK], name:String, onevone:Player #FK to(E));
+
+forest(id:Integer [PK], name:String, length:long, longdescription:String, smalltext:String, bigtext:String, GeneratedName:Country, near:Set);
+
+player(id:int [PK], name:String, team:SoccerTeam #FK to(C), //fortheworldcupofoneversusonematches,wehave//teamswithoneplayer(1v1team).onevoneteam:SoccerTeam);
+
+zipcode(code:String [PK]);
+
+flight(id:Long [PK], maxaltitudeinmilimeter:long, maxaltitude:long);
+
+localcontactdetails(id:int [PK], local:PhoneNumber, GeneratedName:OverseasPhoneNumber);
+
+washingmachine(id:Integer [PK], transientisactive:boolean);
+
+tree(id:Integer [PK], name:String);
+
+topic(id:int [PK]);
+
+name(id:Integer [PK], GeneratedName:LastName);
+
+ransom(id:Integer [PK], kidnappername:String, amount:MonetaryAmount, GeneratedName:Date);
+
+bid(id:Integer [PK], description:String, note:Starred, editorsnote:Starred, approved:Boolean);
+
+formallastname(id:Integer [PK], GeneratedName:LastName, designation:String);
+
+powerdrill();
+
+month(id:int [PK], year:int, month:int);
+
+race(length:Long, id:Integer [PK]);
+
+son(id:Integer [PK], GeneratedName:Father, GeneratedName:Mother);
+
+mother(id:Integer [PK]);
+
+father(id:Integer [PK]);
+
+storm(id:Integer [PK], start:Location, end:Location, stormname:String);
+
+sky(id:Long [PK], color:String, day:String, month:String);
+
+parenthierarchy22();
+
+parenthierarchy1();
+
+childhierarchy22();
+
+childhierarchy1();
+
+contest(id:int [PK], heldin:Month);
+
+competitor(id:int [PK], name:String);
+
+message(serialversionuid:long, id:int [PK], languagecode:String, languagename:String, GeneratedName:Language);
+
+company(serialversionuid:long, id:int [PK], GeneratedName:Person);
+
+contract(contractnumber:String, //integercompanycodeid:ContractId, GeneratedName:Manufacturer, GeneratedName:Model);
+
+manufacturer(id:ManufacturerId [PK], name:String);
+
+language(serialversionuid:long, name:String, code:String [PK]);
+
+model(id:ModelId [PK], name:String);
+
+person(serialversionuid:long, id:int [PK], companyid:int, defaultflag:String);
+
+productsqlserver(serialversionuid:long, id:Integer [PK], productidnf:String, description:String, product_idnf:ProductSqlServer #FK to(Product));
+
+menu(serialversionuid:long, id:Integer [PK], ordernbr:String, isdefault:String);
+
+product(serialversionuid:long, id:Integer [PK], productidnf:String, description:String, product_idnf:Product #FK to(Product));
+
+fooditem(id:Integer [PK], item:String, order_nbr:Menu #FK to(E));
+
+passport(id:Long [PK], number:String, owner:Customer #FK to(Customer));
+
+someentity(id:java.util.Date [PK], timedata:java.sql.Time, tsdata:java.sql.Timestamp, data:Byte, chardata:Character);
+
+someotherentity(id:int [PK], data:boolean, data:byte, //settingaarbitraryacterheretomakethistestalsopassagainstpostgresql//postgresqlthrowsotherwiseanexceptionwhenpersistingthenullvalue//org.postgresql.util.psqlexception:error:invalidbytesequenceforencoding"utf8":0x00acterdata:char, data:short, egerdata:int, data:long, data:double, data:float, GeneratedName:Grade);
+
+manufacturer(id:Integer [PK]);
+
+aimpl(serialversionuid:long, aid:Integer [PK]);
+
+sky(id:Integer [PK], maincloud:CloudType #FK to(C));
+
+sky_C(skyID:sky [PK] #FK to sky,CID:C [PK] #FK to C);
+
+zimpl(serialversionuid:long, zid:Integer [PK], GeneratedName:B);
+
+bimpl(serialversionuid:long, bid:Integer);
+
+primeminister(id:Integer [PK], name:String, current:Government);
+
+a(id:A_PK);
+
+classd();
+
+classa(id:int [PK]);
+
+d(id:D_PK);
+
+classc();
+
+b(id:int [PK]);
+
+c();
+
+classb();
+
+updatedetachedtest();
+
+socialsecurityphysicalaccount(number:String, countrycode:String);
+
+bustrip(id:BusTripPk, status:Availability, serial:byte, terminustime:Date, players:Map<String,SocialSecurityPhysicalAccount>, roads:List);
+
+administration(id:Integer [PK], firstname:String, lastname:String, address:String, version:Integer, transientfield:String, default:BusTrip #FK to(B));
+
+tennismatch();
+
+socialsecuritymoralaccount(number:String, countrycode:String);
+
+jpaoverriddenannotationreadertest();
+
+match(competitor1point:String, version:Integer, playerassn:SocialSecurityNumber);
+
+deck(id:Integer [PK]);
+
+card(id:Integer [PK], GeneratedName:Deck #FK to(C));
+
+entity2(entity2_prop1:String, entity2_prop2:String, entity2_prop3:String, entity2_prop4:String, entity2_prop5:String, entity2_prop6:String);
+
+entity1(entity1_prop1:String, entity1_prop2:String, entity1_prop3:String, entity1_prop4:String, entity1_prop5:String, entity1_prop6:String);
+
+dvd(id:MyOid [PK], title:String);
+
+schematooltransactionhandlingtest();
+
+dropschemaduringjtatxntest();
+
+individuallyschemavalidatorimplconnectiontest(log:Logger, loginspection:LoggerInspectionRule, ssr:StandardServiceRegistry, tool:HibernateSchemaManagementTool, configurationvalues:Map, GeneratedName:ExecutionOptions, connectionprovider:DriverManagerConnectionProviderImpl, GeneratedName:Connection);
+
+individuallyschemavalidatorimpltest(loginspection:LoggerInspectionRule, ssr:StandardServiceRegistry, tool:HibernateSchemaManagementTool, configurationvalues:Map, GeneratedName:ExecutionOptions);
+
+subselectfetchcollectionfrombatchtest();
+
+abstractbulkidtest();
+
+abstractbulkcompositeidtest();
+
+person(id:Long [PK], name:String, nickname:String, address:String, createdon:Date, version:int);
+
+phone(id:Long [PK], GeneratedName:Person #FK to(Person), number:String, repairtimestamps:List<Date>);
+
+beforecompletionfailuretest(log:Logger);
+
+nationalizedscalarquerytest();
+
+replicatetest();
+
+longlisttypecontributortest();
+
+java8datetimetests();
+
+offsetdatetimetest();
+
+arraytypecontributortest();
+
+sqlserver2008nvarchartypetest(ssr:StandardServiceRegistry, metadata:MetadataImplementor, GeneratedName:SchemaExport);
+
+binarytypetest();
+
+timeandtimestamptest();
+
+oraclelonglobtypetest();
+
+zoneddatetimetest();
+
+localdatetest(expected:LocalDate);
+
+defaultgeneratedvaluetest();
+
+isolatedevictableentity(id:Integer [PK], name:String);
+
+cachelazyloadnotranstest();
+
+store(id:int [PK], name:String, version:int);
+
+product(id:String [PK], name:String, description:String, msrp:BigDecimal, version:int);
+
+inventory(id:int [PK], GeneratedName:Store, GeneratedName:Product, quantity:Long, storeprice:BigDecimal);
+
+manytomanywithdynamicfiltertest();
+
+criteriaquerywithappliedfiltertest(student_id:Identifier);
+
+filterdotnametest();
+
+onetomanywithdynamicfiltertest();
+
+group(id:Long [PK], name:String);
+
+user(id:Long [PK], name:String);
+
+membership(id:Long [PK], member:User #FK to(E), GeneratedName:Group, join:Date, dues:Float);
+
+nativequeryscrollableresults();
+
+nativequerydoesnotsupportiterationtest();
+
+jpafunctiontest(log:Logger);
+
+numvalue(num:long [PK], value:String);
+
+nativequerysyncspacecachingtest();
+
+storedprocedureresultsetmappingtest();
+
+postgresrefcursorsupporttest(sf:SessionFactory);
+
+storedproceduretest();
+
+issue(id:Long [PK], description:String, issuenumber:String);
+
+varioustypesentity(id:Integer [PK], data:byte);
+
+naturalidcachingtest();
+
+constrainttest(max_name_length:int, explicit_fk_name_native:String, explicit_fk_name_jpa:String, explicit_uk_name:String);
+
+foreignkeyconstrainttest();
+
+jpastreamtest();
+
+basicstreamtest();
+
+mapelementnullbasictest();
+
+multilingualstring(id:long [PK], map:Map<String,LocalizedString>);
+
+mapvalue(log:Logger, id:Long [PK], name:String, previoushashcode:int);
+
+mapholder(id:Long [PK]);
+
+map_key_map_value(map_holder_id:MapHolder [PK] #FK to MapHolder,map_value_id:PK [PK] #FK to PK);
+
+mapkey(log:Logger, id:Long [PK], name:String, defaultvalue:MapValue #FK to(E), previoushashcode:int);
+
+multilingualstringparent(id:long [PK], parent:MultilingualStringParent #FK to(In), string:MultilingualString #FK to(In));
+
+persistentmaptest();
+
+versionednocascadeone(id:long [PK], version:long);
+
+many(id:long [PK]);
+
+versionedcascadeone(id:long [PK], version:long);
+
+unversionedcascadeone(id:long [PK]);
+
+unversionednocascadeone(id:long [PK]);
+
+idbagelementnullbasictest();
+
+user(serialversionuid:long, id:Long [PK], name:String, GeneratedName:Contact);
+
+contact(serialversionuid:long, id:Long [PK], name:String, emailaddresses:Set<EmailAddress>, emailaddresses2:Set<EmailAddress>);
+
+listaddtest();
+
+bagdelayedoperationtest(parentid:Long);
+
+setdelayedoperationtest(parentid:Long, childid1:Long, childid2:Long);
+
+listdelayedoperationtest(parentid:Long, childid1:Long, childid2:Long);
+
+multiplesessioncollectionwarningtest(log:CoreMessageLogger, loginspection:LoggerInspectionRule);
+
+multiplesessioncollectiontest(log:Logger);
+
+setelementnullbasictest();
+
+zoo(id:Long [PK], name:String, city:String, animals:Set<Animal>);
+
+animal(id:Long [PK], weight:long);
+
+lion();
+
+tiger(numberofstripes:int);
+
+multiplebagfetchhqltest();
+
+multiplebagfetchtest();
+
+bagduplicatestest();
+
+bagelementnullbasictest();
+
+persistentbagcontainstest();
+
+listelementnullbasictest();
+
+listindexreferencefromlistelementtest();
+
+email(id:Long [PK], address:String);
+
+user(username:String [PK]);
+
+mergetest();
+
+localdatetimeversiontest();
+
+offsetdatetimeversiontest();
+
+sybasetimestampcomparisonannotationstest();
+
+instantversiontest();
+
+zoneddatetimeversiontest();
+
+iamafoo(id:long [PK], foo:String);
+
+extrastatetest(/***storingitasafieldsoitcanbeaccessedfromtheentitysetter.*/:Session);
+
+informixfunctiontest(GeneratedName:Event);
+
+entitybinder(log:CoreMessageLogger, natural_id_cache_suffix:String, context:MetadataBuildingContext, name:String, annotatedclass:XClass, GeneratedName:PersistentClass, discriminatorvalue:String, forcediscriminator:Boolean, insertablediscriminator:Boolean, dynamicinsert:boolean, dynamicupdate:boolean, explicithibernateentityannotation:boolean, GeneratedName:OptimisticLockType, GeneratedName:PolymorphismType, selectbeforeupdate:boolean, batchsize:int, lazy:boolean, proxyclass:XClass, where:String, secondarytables:java.util.Map<String,Join>, secondarytablejoins:java.util.Map<String,Object>, cacheconcurrentstrategy:String, cacheregion:String, naturalidcacheregion:String, filters:List<Filter>, GeneratedName:InheritanceState, ignoreidannotations:boolean, cachelazyproperty:boolean, property:AccessType, wrapidsinembeddedcomponents:boolean, subselect:String, sec_tbl_ns_helper:SecondaryTableNamingStrategyHelper);
+
+resultsetmappingsecondpass(log:CoreMessageLogger, ann:SqlResultSetMapping, context:MetadataBuildingContext, isdefault:boolean);
+
+annotationbinder(log:CoreMessageLogger);
+
+classpropertyholder(GeneratedName:PersistentClass, joins:Map<String,Join>, joinsperrealtablename:Map<String,Join>, GeneratedName:EntityBinder, inheritancestateperclass:Map<XClass,InheritanceState>, attributeconversioninfomap:Map<String,AttributeConversionInfo>);
+
+defaultenhancementcontext();
+
+product(id:Long [PK], PRODUCT_TYPE: String);
+
+employee(id:Long [PK], name:String, salary:double, Employee: String);
+
+product(description:String);
+
+step(, type: String);
+
+parententity(id:Long [PK], CLASS_ID: String);
+
+person(id:Long [PK], person_type: String);
+
+comment(id:Long [PK], GeneratedName:Post, name:String, GeneratedName:Forum, DTYPE: String);
+
+hardware(parent:Hardware #FK to(E), DeviceType: String);
+
+animal(id:Long [PK], mother:Animal #FK to(Animal), father:Animal #FK to(Animal), name:String, born:Date);
+
+b(id:Integer [PK], GeneratedName:A);
+
+file(id:java.lang.String, GeneratedName:User #FK to(E), type:SocialNetwork, networkid:String);
+
+drill(id:int [PK], DRILL_TYPE: String);
+
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

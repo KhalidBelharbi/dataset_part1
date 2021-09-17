@@ -1,0 +1,9 @@
+
+bankaccountentity(bankaccountid:Long [PK], iban:String, balance:Double, owner:UserEntity #FK to(userentity));
+
+userentity(userid:Long [PK], username:String, password:String, role:String);
+
+allowed_bank_accounts(id_user:UserEntity [PK] #FK to UserEntity,id_bank_account:list<bankaccountentity> [PK] #FK to list<bankaccountentity>);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)

@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="logback-prod" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="logback-dev" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="shipperrepo" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<shipper,uuid>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="personrepo" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<person,uuid>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="triprepo" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<trip,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="pointrepo" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<point,uuid>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="partysecuritygrouprepo" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<partysecuritygroup,partysecuritygroupid>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="securitygrouprepo" >
+      <xs:complexContent>
+       <xs:extension base="readonlyrepository<securitygroup,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="userloginrepo" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<userlogin,string>{">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="partyrepo" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<party,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="customerrepo" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<customer,uuid>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="deliveryrequestrepo" >
+      <xs:complexContent>
+       <xs:extension base="crudrepository<deliveryrequest,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="springrestconfiguration" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="readonlyrepository" >
+      <xs:complexContent>
+       <xs:extension base="serializable>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="dataserviceapplication" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="trip" >
+      <xs:sequence>
+        <xs:element name="tripid" type="xs:anyType" />
+        <xs:element name="statusid" type="xs:string" />
+        <xs:element name="created" type="xs:dateTime" />
+        <xs:element name="currentfinishedseqid" type="xs:long" />
+        <xs:element name="start" type="xs:dateTime" />
+        <xs:element name="end" type="xs:dateTime" />
+        <xs:element name="shipperid" type="xs:anyType" />
+        <xs:element name="points" type="point" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="securitygroup" >
+      <xs:sequence>
+        <xs:element name="groupid" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="createdstamp" type="xs:dateTime" />
+        <xs:element name="lastupdstamp" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="customer" >
+      <xs:sequence>
+        <xs:element name="customerid" type="xs:anyType" />
+        <xs:element name="currentlocation" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="statustype" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="parenttype" type="statustype" nillable="true" minOccurs="0" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="createdstamp" type="xs:dateTime" />
+        <xs:element name="lastupdstamp" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="partytype" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="parenttype" type="partytype" nillable="true" minOccurs="0" />
+        <xs:element name="hastable" type="xs:anyType" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="createdstamp" type="xs:dateTime" />
+        <xs:element name="lastupdstamp" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="userlogin" >
+      <xs:sequence>
+        <xs:element name="password_encoder" type="xs:anyType" />
+        <xs:element name="userloginid" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="issystem" type="xs:anyType" />
+        <xs:element name="enabled" type="xs:anyType" />
+        <xs:element name="//@joincolumn(name" type="xs:anyType" />
+        <xs:element name="roles" type="securitygroup" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="partysecuritygroupid" >
+      <xs:sequence>
+        <xs:element name="/***/partyid" type="xs:anyType" />
+        <xs:element name="groupid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="status" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:string" />
+        <xs:element name="type" type="statustype" nillable="true" minOccurs="0" />
+        <xs:element name="statuscode" type="xs:string" />
+        <xs:element name="sequenceid" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="person" >
+      <xs:sequence>
+        <xs:element name="partyid" type="xs:anyType" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="middlename" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+        <xs:element name="gender" type="xs:string" />
+        <xs:element name="birth" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="shipper" >
+      <xs:sequence>
+        <xs:element name="shipperid" type="xs:anyType" />
+        <xs:element name="currentlocation" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="party" >
+      <xs:sequence>
+        <xs:element name="partyid" type="xs:anyType" />
+        <xs:element name="partycode" type="xs:string" />
+        <xs:element name="userid" type="xs:string" />
+        <xs:element name="partytypeid" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="statusid" type="xs:string" />
+        <xs:element name="isunread" type="xs:anyType" />
+        <xs:element name="created" type="xs:dateTime" />
+        <xs:element name="lastmodified" type="xs:dateTime" />
+        <xs:element name="roles" type="securitygroup" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="point" >
+      <xs:sequence>
+        <xs:element name="pointid" type="xs:anyType" />
+        <xs:element name="seqid" type="xs:long" />
+        <xs:element name="suggestionseqid" type="xs:long" />
+        <xs:element name="estimatedcost" type="xs:double" />
+        <xs:element name="deliveryrequestid" type="xs:anyType" />
+        <xs:element name="requesttype" type="xs:string" />
+        <xs:element name="lat" type="xs:double" />
+        <xs:element name="lng" type="xs:double" />
+        <xs:element name="assigntime" type="xs:dateTime" />
+        <xs:element name="statusid" type="xs:string" />
+        <xs:element name="GeneratedName" type="trip" nillable="true" minOccurs="0" />
+        <xs:element name="tripid" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="deliveryrequest" >
+      <xs:sequence>
+        <xs:element name="deliveryrequestid" type="xs:anyType" />
+        <xs:element name="pickupaddress" type="xs:string" />
+        <xs:element name="deliveryaddress" type="xs:string" />
+        <xs:element name="unit" type="xs:string" />
+        <xs:element name="weight" type="xs:double" />
+        <xs:element name="quantity" type="xs:double" />
+        <xs:element name="customerphonenumber" type="xs:string" />
+        <xs:element name="pickuplocation" type="xs:string" />
+        <xs:element name="deliverylocation" type="xs:string" />
+        <xs:element name="statusid" type="xs:string" />
+        <xs:element name="assignedshipperid" type="xs:anyType" />
+        <xs:element name="customerid" type="xs:anyType" />
+        <xs:element name="created" type="xs:dateTime" />
+        <xs:element name="lastmodified" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="partysecuritygroup" >
+      <xs:sequence>
+        <xs:element name="partyid" type="xs:anyType" />
+        <xs:element name="groupid" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dataserviceapplicationtests" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

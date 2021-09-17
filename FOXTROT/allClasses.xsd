@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="carerdtotocarer" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="carerservice" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="abstractconverter" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="carertocarerdto" >
+      <xs:complexContent>
+       <xs:extension base="abstractconverter<carer,">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="carerserviceimpl" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="carerdao" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="abstractmockservice" >
+      <xs:complexContent>
+       <xs:extension base="abstractmodel>">
+         <xs:sequence>
+          <xs:element name="modelmap" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="mockcarerservice" >
+      <xs:complexContent>
+       <xs:extension base="abstractmockservice<carer>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="carerservice" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="logrequestsinterceptor" >
+      <xs:complexContent>
+       <xs:extension base="handlerinterceptoradapter">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="carerdto" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="rating" type="xs:long" />
+        <xs:element name="servicecounter" type="xs:long" />
+        <xs:element name="firstname" type="xs:string" />
+        <xs:element name="lastname" type="xs:string" />
+        <xs:element name="age" type="xs:anyType" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="phone" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="errormessage" >
+      <xs:sequence>
+        <xs:element name="carer_not_found" type="xs:string" />
+        <xs:element name="association_exists" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="associationexistsexception" >
+      <xs:complexContent>
+       <xs:extension base="carerexception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="carernotfoundexception" >
+      <xs:complexContent>
+       <xs:extension base="carerexception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="carerexception" >
+      <xs:complexContent>
+       <xs:extension base="exception">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="restcarercontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="carerservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="carerdtotocarer" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="carertocarerdto" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="restindexcontroller" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="carercontroller" >
+      <xs:sequence>
+        <xs:element name="GeneratedName" type="carerservice" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="carertocarerdto" nillable="true" minOccurs="0" />
+        <xs:element name="GeneratedName" type="carerdtotocarer" nillable="true" minOccurs="0" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="maincontroller" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="globalcontrollerexceptionhandler" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="springbootstrap" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="model" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="abstractmodel" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="version" type="xs:anyType" />
+        <xs:element name="creationtime" type="xs:dateTime" />
+        <xs:element name="uptime" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="carer" >
+      <xs:complexContent>
+       <xs:extension base="abstractmodel">
+         <xs:sequence>
+          <xs:element name="firstname" type="xs:string" />
+          <xs:element name="lastname" type="xs:string" />
+          <xs:element name="age" type="xs:long" />
+          <xs:element name="email" type="xs:string" />
+          <xs:element name="phone" type="xs:string" />
+          <xs:element name="rating" type="xs:long" />
+          <xs:element name="servicecounter" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="carerdao" >
+      <xs:complexContent>
+       <xs:extension base="dao<carer>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="genericjpadao" >
+      <xs:complexContent>
+       <xs:extension base="model>">
+         <xs:sequence>
+          <xs:element name="modeltype" type="xs:anyType" />
+          <xs:element name="em" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="jpacarerdao" >
+      <xs:complexContent>
+       <xs:extension base="genericjpadao<carer>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="dao" >
+      <xs:complexContent>
+       <xs:extension base="model>">
+         <xs:sequence>
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="log4jwebconfig" >
+      <xs:sequence>
+        <xs:element name="logger_base_path" type="xs:string" />
+        <xs:element name="listener" type="xs:anyType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="spring-config" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persistence-test" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persistence-dev" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persistence-prod" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="presentation" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="persistence" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="log4j2-dev" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="log4j2" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="details" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="add-update" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="list" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="show" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="header" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="action" >
+      <xs:sequence>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 

@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="messagesender" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="classname" type="xs:string" />
+          <xs:element name="tplcode" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="messagetemplate" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="code" type="xs:string" />
+          <xs:element name="title" type="xs:string" />
+          <xs:element name="content" type="xs:string" />
+          <xs:element name="cond" type="xs:string" />
+          <xs:element name="idmessagesender" type="xs:long" />
+          <xs:element name="type" type="xs:anyType" />
+          <xs:element name="" type="messagesender" nillable="true" minOccurs="0" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="message" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="tplcode" type="xs:string" />
+          <xs:element name="content" type="xs:string" />
+          <xs:element name="receiver" type="xs:string" />
+          <xs:element name="type" type="xs:anyType" />
+          <xs:element name="state" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="task" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="jobgroup" type="xs:string" />
+          <xs:element name="jobclass" type="xs:string" />
+          <xs:element name="note" type="xs:string" />
+          <xs:element name="cron" type="xs:string" />
+          <xs:element name="concurrent" type="xs:anyType" />
+          <xs:element name="data" type="xs:string" />
+          <xs:element name="execat" type="xs:dateTime" />
+          <xs:element name="execresult" type="xs:string" />
+          <xs:element name="disabled" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="relation" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="menuid" type="xs:long" />
+        <xs:element name="roleid" type="xs:long" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="notice" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="title" type="xs:string" />
+          <xs:element name="type" type="xs:anyType" />
+          <xs:element name="content" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="menu" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="code" type="xs:string" />
+          <xs:element name="pcode" type="xs:string" />
+          <xs:element name="pcodes" type="xs:string" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="icon" type="xs:string" />
+          <xs:element name="url" type="xs:string" />
+          <xs:element name="num" type="xs:anyType" />
+          <xs:element name="levels" type="xs:anyType" />
+          <xs:element name="ismenu" type="xs:anyType" />
+          <xs:element name="tips" type="xs:string" />
+          <xs:element name="status" type="xs:anyType" />
+          <xs:element name="isopen" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="role" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="num" type="xs:anyType" />
+          <xs:element name="pid" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="deptid" type="xs:long" />
+          <xs:element name="tips" type="xs:string" />
+          <xs:element name="version" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="loginlog" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:anyType" />
+        <xs:element name="logname" type="xs:string" />
+        <xs:element name="userid" type="xs:anyType" />
+        <xs:element name="succeed" type="xs:string" />
+        <xs:element name="message" type="xs:string" />
+        <xs:element name="ip" type="xs:string" />
+        <xs:element name="createtime" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="fileinfo" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="originalfilename" type="xs:string" />
+          <xs:element name="realfilename" type="xs:string" />
+          <xs:element name="ablatepath" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="cfg" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="cfgname" type="xs:string" />
+          <xs:element name="cfgvalue" type="xs:string" />
+          <xs:element name="cfgdesc" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="user" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="avatar" type="xs:string" />
+          <xs:element name="account" type="xs:string" />
+          <xs:element name="password" type="xs:string" />
+          <xs:element name="salt" type="xs:string" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="birthday" type="xs:dateTime" />
+          <xs:element name="sex" type="xs:anyType" />
+          <xs:element name="email" type="xs:string" />
+          <xs:element name="phone" type="xs:string" />
+          <xs:element name="roleid" type="xs:string" />
+          <xs:element name="deptid" type="xs:long" />
+          <xs:element name="status" type="xs:anyType" />
+          <xs:element name="version" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="dict" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="num" type="xs:string" />
+          <xs:element name="pid" type="xs:long" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="tips" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="tasklog" >
+      <xs:sequence>
+        <xs:element name="exe_failure_result" type="xs:long" />
+        <xs:element name="exe_success_result" type="xs:long" />
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="idtask" type="xs:long" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="execat" type="xs:dateTime" />
+        <xs:element name="execsuccess" type="xs:long" />
+        <xs:element name="jobexception" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dept" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="num" type="xs:anyType" />
+          <xs:element name="pid" type="xs:long" />
+          <xs:element name="pids" type="xs:string" />
+          <xs:element name="simplename" type="xs:string" />
+          <xs:element name="fullname" type="xs:string" />
+          <xs:element name="tips" type="xs:string" />
+          <xs:element name="version" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="operationlog" >
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="logtype" type="xs:string" />
+        <xs:element name="logname" type="xs:string" />
+        <xs:element name="userid" type="xs:anyType" />
+        <xs:element name="classname" type="xs:string" />
+        <xs:element name="method" type="xs:string" />
+        <xs:element name="createtime" type="xs:dateTime" />
+        <xs:element name="succeed" type="xs:string" />
+        <xs:element name="message" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="boy" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="age" type="xs:anyType" />
+          <xs:element name="birthday" type="xs:string" />
+          <xs:element name="hasgirfriend" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="girl" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="age" type="xs:anyType" />
+          <xs:element name="birthday" type="xs:dateTime" />
+          <xs:element name="hasboyfriend" type="xs:anyType" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="article" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="idchannel" type="xs:long" />
+          <xs:element name="title" type="xs:string" />
+          <xs:element name="content" type="xs:string" />
+          <xs:element name="author" type="xs:string" />
+          <xs:element name="img" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="channel" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="code" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="banner" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="url" type="xs:string" />
+          <xs:element name="title" type="xs:string" />
+          <xs:element name="type" type="xs:string" />
+          <xs:element name="idfile" type="xs:long" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="contacts" >
+      <xs:complexContent>
+       <xs:extension base="baseentity">
+         <xs:sequence>
+          <xs:element name="username" type="xs:string" />
+          <xs:element name="mobile" type="xs:string" />
+          <xs:element name="email" type="xs:string" />
+          <xs:element name="remark" type="xs:string" />
+         </xs:sequence>
+       </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema> 

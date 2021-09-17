@@ -1,0 +1,77 @@
+
+employer(id:int [PK], name:String, campus:String, branch:String, employeeid:int, created:Date, upd:Date, GeneratedName:Trainings #FK to(trainings));
+
+address(id:int [PK], lineone:String, linetwo:String, city:String, state:String, country:String, postal:String, created:Date, upd:Date, GeneratedName:User #FK to(user));
+
+visa(id:int [PK], permit:String, duration:String, employeeid:int);
+
+book(/*	*longserialversionuid:int [PK], name:String, //intrefbooknumber:Library #FK to(library));
+
+user(id:int [PK], firstname:String, middlename:String, lastname:String, email:String, mobile:String, username:String, password:String, created:Date, upd:Date, GeneratedName:Address #FK to(address));
+
+family(id:int [PK], firstname:String, middlename:String, lastname:String, relationid:int, employeeid:int);
+
+certification(certificationid:int [PK], type:String, acknowledgement:String, employeeid:int, employerid:int);
+
+contact(id:int [PK], countrycode:String, value:String, type:String, created:Date, upd:Date, employeeid:int, employerid:int, GeneratedName:Employee #FK to(employee), GeneratedName:Employer #FK to(Employer));
+
+circle(id:int [PK], name:String, other:String, employerid:int, created:Date, upd:Date);
+
+suffix(id:int [PK], code:String, value:String, created:Date, upd:Date);
+
+perfomance_review(id:int [PK], date:String, employeeid:int, reviewid:int, created:Date, upd:Date);
+
+library(id:int [PK], date:String, employeeid:int, datereturn:String, bookid:int);
+
+timesheet(id:int [PK], day:String, intime:String, outtime:String, employeeid:int, departmentid:int, allocationid:int, allocation:Allocations #FK to(allocations));
+
+project(id:int [PK], name:String, startdate:String, enddate:String, clientid:String, circleid:String, departmentid:String, technologyid:String, created:Date, upd:Date);
+
+designation(id:int [PK], name:String);
+
+donation(id:int [PK], code:String, value:String, createdat:Date, updat:Date);
+
+technology(id:int [PK] #FK to(int), name:String, created:Date, upd:Date);
+
+allocations(id:int [PK], name:String);
+
+experience(id:int [PK] #FK to(int), totalexperience:int, relevantexperience:int, employeeid:int, employerid:int, technologyid:int, created:Date, upd:Date);
+
+emp_designation(id:int [PK], startdate:int, enddate:int, designationid:int, employeeid:int, employerid:int);
+
+asset(id:int [PK], code:String, value:double, created:Date, upd:Date);
+
+note(id:Long [PK], title:String, content:String, createdat:Date, updat:Date);
+
+trainings(id:int [PK], coursetype:String, duration:String, startdate:String, enddate:String, bywhom:String, created:Date, upd:Date, employeeid:int, employerid:int);
+
+salary(id:int [PK], gross:String, employeeid:int);
+
+expense(id:int [PK], type:String, date:String, price:float, noofitems:int, total:float, bywhom:String, userid:int, created:Date, upd:Date);
+
+country(id:int [PK], name:String);
+
+resume(id:int [PK], old:String, newresume:String, created:Date, upd:Date, employeeid:int);
+
+allocation(id:int [PK], name:String, projectid:int, created:Date, upd:Date);
+
+emp_awards(id:int [PK], name:String, date:String, employeeid:int, awardsid:int, created:Date, upd:Date);
+
+insurance(id:int [PK], amount:int, startdate:String, enddate:String, insuranceid:int, employeeid:int, created:Date, upd:Date);
+
+qualification(id:Integer [PK], education:String, course:String, specialization:String, university:String, course_type:String, grade:String, marks:String);
+
+empassets(id:int [PK] #FK to(int), assetsid:String, employeeid:String, date:String);
+
+prefix(id:int [PK], code:String, value:String);
+
+state(id:int [PK], name:String, countryid:int);
+
+departments(id:int [PK], name:String, employerid:int, created:Date, upd:Date);
+
+employee(id:int [PK], firstname:String, middlename:String, lastname:String, dateofbirth:String, bloodgroup:String, gender:String, maritalstatus:String, differentlyabled:String, aadharno:String, panno:String, passportno:String, created:Date, upd:Date, GeneratedName:Employer #FK to(Employer), GeneratedName:Trainings #FK to(trainings));
+
+leave_data(id:int [PK], GeneratedName:Date, added:String, taken:String, balance:int, employeeid:int, created:Date, upd:Date);
+
+
+** PROGRAM TYPE: JPA+Hibernate(Hybrid)
