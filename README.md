@@ -38,7 +38,7 @@ Local Path: /u/belharbk/dataset/2019_San-giao-dich-trang-tri-noi-that/luanvan/sr
 Github Link:https://github.com/anhtuangithub/2019_San-giao-dich-trang-tri-noi-that/tree/master/luanvan/src
 ```
 ## DomainModel.ecore
-```txt
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="DomainModel" nsURI="file:/part/01/Tmp/belharbk/2019_San-giao-dich-trang-tri-noi-that/DomainModel.xsd"
