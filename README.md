@@ -106,9 +106,9 @@ ordergroup(id:Long [PK], address:String, phone:String, created_at:Date, Generate
 ** PROGRAM TYPE: JPA+Hibernate(Hybrid)
 ```
 ## DomainModel.ecore
-![Guide](/Exemple of generated EMF file.png)
 
 
+<img src="Exemple of generated EMF file.png" />
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
