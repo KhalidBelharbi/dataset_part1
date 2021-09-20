@@ -108,6 +108,7 @@ ordergroup(id:Long [PK], address:String, phone:String, created_at:Date, Generate
 ## DomainModel.ecore
 
 <img src="Exemple of generated EMF file.png"></img>
+<img src="Exemple of results-DomainModel class diagram(EMF).png"></img>
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
