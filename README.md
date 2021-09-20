@@ -106,7 +106,7 @@ ordergroup(id:Long [PK], address:String, phone:String, created_at:Date, Generate
 ** PROGRAM TYPE: JPA+Hibernate(Hybrid)
 ```
 ## DomainModel.ecore
-![Guide](Exemple of generated EMF file.png)
+![Guide](/Exemple of generated EMF file.png)
 
 
 ```xml
