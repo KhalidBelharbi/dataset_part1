@@ -1,4 +1,4 @@
-# Geodes_dataset_part1	
+# dataset_part1	
 
 	
 This directory shows database schemas and class diagrams extracted via java programs (with JPA and/or Hibernate); in each directory you will find these files:
