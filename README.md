@@ -1,6 +1,6 @@
-# Geodes_dataset_part1
-Repo: 2183	
-Output directories: 3739	
+# Geodes_dataset_part1	
+
+	
 This directory shows database schemas and class diagrams extracted via java programs (with JPA and/or Hibernate); in each directory you will find these files:
 
 ```txt
@@ -21,6 +21,7 @@ This directory shows database schemas and class diagrams extracted via java prog
 -5- The mapping between the domain model (2) and the relational schema (4)
 --> Mapping.txt
 ```    
+Repo: 2183; Output directories: 3739;
 # Links
 List of project : https://github.com/KhalidBelharbi/JPA-Hibernate-projects-on-Github
 
