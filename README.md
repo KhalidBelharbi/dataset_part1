@@ -1,4 +1,6 @@
 # Geodes_dataset_part1
+Repo: 2183
+Output directories: 3739
 This directory shows database schemas and class diagrams extracted via java programs (with JPA and/or Hibernate); in each directory you will find these files:
 
 ```txt
