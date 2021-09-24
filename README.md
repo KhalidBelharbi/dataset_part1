@@ -1,7 +1,7 @@
 # dataset_part1	
 
 	
-This directory shows database schemas and class diagrams extracted via java programs (with JPA and/or Hibernate); in each directory you will find these files:
+This directory shows database schemas and class diagrams extracted via java programs (from JPA and/or Hibernate programs). In each directory you will find these files:
 
 ```txt
 -1- The class diagram which includes all the java classes that are in this project (They can be used and visualized by EMF(Eclipse Modeling Framework))
